@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Elasticity &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/model/elasticity.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Non-linear static problems" href="nonLinearStaticProblems.html" />
+    <link rel="prev" title="Static problems" href="staticProblems.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Mathematical Models</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Elasticity</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/model/elasticity.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="elasticity">
+<h1>Elasticity<a class="headerlink" href="#elasticity" title="Permalink to this headline">¶</a></h1>
+<p>Consider an elastic plate with undeformed shape <span class="math notranslate nohighlight">\(\Omega\times ]-h,h[\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, <span class="math notranslate nohighlight">\(\Omega\subset\mathbb{R}^2\)</span>.</p>
+<p>By the deformation of the plate, we assume that a point <span class="math notranslate nohighlight">\(P(x_1,x_2,x_3)\)</span> moves to <span class="math notranslate nohighlight">\({\cal P}(\xi_1,\xi_2,\xi_3)\)</span>.
+The vector <span class="math notranslate nohighlight">\(\mathbf{u}=(u_1,u_2,u_3)=(\xi_1-x_1,\xi_2-x_2,\xi_3-x_3)\)</span> is called the <em>displacement vector</em>.</p>
+<p>By the deformation, the line segment <span class="math notranslate nohighlight">\(\overline{\mathbf{x},\mathbf{x}+\tau\Delta\mathbf{x}}\)</span> moves approximately to <span class="math notranslate nohighlight">\(\overline{\mathbf{x}+\mathbf{u}(\mathbf{x}),\mathbf{x}+\tau\Delta\mathbf{x} +\mathbf{u}(\mathbf{x}+\tau\Delta\mathbf{x})}\)</span> for small <span class="math notranslate nohighlight">\(\tau\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1,x_2,x_3),\, \Delta\mathbf{x} =(\Delta x_1,\Delta x_2,\Delta x_3)\)</span>.</p>
+<p>We now calculate the ratio between two segments:</p>
+<div class="math notranslate nohighlight">
+\[\eta(\tau)=\tau^{-1}|\Delta\mathbf{x}|^{-1}
+\left(|\mathbf{u}(\mathbf{x}+\tau\Delta\mathbf{x})
+-\mathbf{u}(\mathbf{x})+\tau\Delta\mathbf{x}|-\tau|\Delta\mathbf{x}|\right)\]</div>
+<p>then we have (see e.g.&nbsp;<a class="reference internal" href="#necas2017" id="id1">[NECAS2017]</a>, p.32)</p>
+<div class="math notranslate nohighlight">
+\[\lim_{\tau\to 0}\eta(\tau)=(1+2e_{ij}\nu_i\nu_j)^{1/2}-1,
+\quad 2e_{ij}=\frac{\partial u_k}{\partial x_i}\frac{\partial u_k}{\partial x_j}+\left(\frac{\partial u_i}{\partial x_j}+
+\frac{\partial u_j}{\partial x_i}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu_i=\Delta x_i|\Delta\mathbf{x}|^{-1}\)</span>.
+If the deformation is <em>small</em>, then we may consider that:</p>
+<div class="math notranslate nohighlight">
+\[(\partial u_k/\partial x_i)(\partial u_k/\partial x_i)\approx 0\]</div>
+<p>and the following is called <em>small strain tensor</em>:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon_{ij}(u)=\frac{1}{2}\left(\frac{\partial u_i}{\partial x_j}+
+\frac{\partial u_j}{\partial x_i}\right)\]</div>
+<p>The tensor <span class="math notranslate nohighlight">\(e_{ij}\)</span> is called <em>finite strain tensor</em>.</p>
+<p>Consider the small plane <span class="math notranslate nohighlight">\(\Delta \Pi(\mathbf{x})\)</span> centered at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> with the unit normal direction <span class="math notranslate nohighlight">\(\mathbf{n}=(n_1,n_2,n_3)\)</span>, then the surface on <span class="math notranslate nohighlight">\(\Delta \Pi(\mathbf{x})\)</span> at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[(\sigma_{1j}(\mathbf{x})n_j, \sigma_{2j}(\mathbf{x})n_j, \sigma_{3j}(\mathbf{x})n_j)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_{ij}(\mathbf{x})\)</span> is called <em>stress tensor</em> at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.
+Hooke’s law is the assumption of a linear relation between <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_{ij}\)</span> such as:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij}(\mathbf{x})=c_{ijkl}(\mathbf{x})\varepsilon_{ij}(\mathbf{x})\]</div>
+<p>with the symmetry <span class="math notranslate nohighlight">\(c_{ijkl}=c_{jikl}, c_{ijkl}=c_{ijlk}, c_{ijkl}=c_{klij}\)</span>.</p>
+<p>If Hooke’s tensor <span class="math notranslate nohighlight">\(c_{ijkl}(\mathbf{x})\)</span> do not depend on the choice of coordinate system, the material is called <em>isotropic</em> at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(c_{ijkl}\)</span> is constant, the material is called <em>homogeneous</em>.
+In homogeneous isotropic case, there is <em>Lamé constants</em> <span class="math notranslate nohighlight">\(\lambda, \mu\)</span> (see e.g.&nbsp;<a class="reference internal" href="#necas2017" id="id2">[NECAS2017]</a>, p.43) satisfying</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij}=\lambda\delta_{ij}\textrm{div}\mathbf{u}+2\mu \varepsilon_{ij}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is Kronecker’s delta.</p>
+<p>We assume that the elastic plate is fixed on <span class="math notranslate nohighlight">\(\Gamma_D\times ]-h,h[,\, \Gamma_D\subset \partial\Omega\)</span>.
+If the body force <span class="math notranslate nohighlight">\(\mathbf{f}=(f_1,f_2,f_3)\)</span> is given in <span class="math notranslate nohighlight">\(\Omega\times]-h,h[\)</span> and surface force <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is given in <span class="math notranslate nohighlight">\(\Gamma_N\times]-h,h[, \Gamma_N=\partial\Omega\setminus\overline{\Gamma_D}\)</span>, then the equation of equilibrium is given as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-elasticity">
+<span class="eqno">(42)<a class="headerlink" href="#equation-eqn-elasticity" title="Permalink to this equation">¶</a></span>\[\begin{split}-\partial_j \sigma_{ij}&amp;=&amp;f_i~~\textrm{in }\Omega\times ]-h,h[,\quad
+i=1,2,3\\
+\sigma_{ij}n_j&amp;=&amp;g_i~~\textrm{on }\Gamma_N\times ]-h,h[,\quad
+u_i=0~~\textrm{on }\Gamma_D\times ]-h,h[,\quad i=1,2,3\end{split}\]</div>
+<p>We now explain the plain elasticity.</p>
+<ul>
+<li><p class="first"><strong>Plain strain:</strong></p>
+<p>On the end of plate, the contact condition <span class="math notranslate nohighlight">\(u_3=0,\, g_3=\)</span> is satisfied.</p>
+<p>In this case, we can suppose that <span class="math notranslate nohighlight">\(f_3=g_3=u_3=0\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}(x_1,x_2,x_3)=\overline{u}(x_1,x_2)\)</span> for all <span class="math notranslate nohighlight">\(-h&lt;x_3&lt;h\)</span>.</p>
+</li>
+<li><p class="first"><strong>Plain stress:</strong></p>
+<p>The cylinder is assumed to be very thin and subjected to no load on the ends <span class="math notranslate nohighlight">\(x_3=\pm h\)</span>, that is,</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{3i}=0,\quad x_3=\pm h,\quad i~1,2,3\]</div>
+<p>The assumption leads that <span class="math notranslate nohighlight">\(\sigma_{3i}=0\)</span> in <span class="math notranslate nohighlight">\(\Omega\times ]-h,h[\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}(x_1,x_2,x_3)=\overline{u}(x_1,x_2)\)</span> for all <span class="math notranslate nohighlight">\(-h&lt;x_3&lt;h\)</span>.</p>
+</li>
+<li><p class="first"><strong>Generalized plain stress:</strong></p>
+<p>The cylinder is subjected to no load at <span class="math notranslate nohighlight">\(x_3=\pm h\)</span>.
+Introducing the mean values with respect to thickness,</p>
+<div class="math notranslate nohighlight">
+\[\overline{u}_i(x_1,x_2)=\frac{1}{2h}\int_{-h}^h{u(x_1,x_2,x_3)dx_3}\]</div>
+<p>and we derive <span class="math notranslate nohighlight">\(\overline{u}_3\equiv 0\)</span>.
+Similarly we define the mean values <span class="math notranslate nohighlight">\(\overline{f},\overline{g}\)</span> of the body force and surface force as well as the mean values <span class="math notranslate nohighlight">\(\overline{\varepsilon}_{ij}\)</span> and <span class="math notranslate nohighlight">\(\overline{\sigma}_{ij}\)</span> of the components of stress and strain, respectively.</p>
+</li>
+</ul>
+<p>In what follows we omit the overlines of <span class="math notranslate nohighlight">\(\overline{u}, \overline{f},\overline{g}, \overline{\varepsilon}_{ij}\)</span> and <span class="math notranslate nohighlight">\(\overline{\varepsilon}_{ij}\)</span>.
+Then we obtain similar equation of equilibrium given in <a class="reference internal" href="#equation-eqn-elasticity">(42)</a> replacing <span class="math notranslate nohighlight">\(\Omega\times ]-h,h[\)</span> with <span class="math notranslate nohighlight">\(\Omega\)</span> and changing <span class="math notranslate nohighlight">\(i=1,2\)</span>.
+In the case of plane stress, <span class="math notranslate nohighlight">\(\sigma_{ij}=\lambda^* \delta_{ij}\textrm{div}u+2\mu\varepsilon_{ij}, \lambda^*=(2\lambda \mu)/(\lambda+\mu)\)</span>.</p>
+<p>The equations of elasticity are naturally written in variational form for the displacement vector <span class="math notranslate nohighlight">\(\mathbf{u}(\mathbf{x})\in V\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\int_\Omega [2\mu\epsilon_{ij}(\mathbf{u})\epsilon_{ij}(\mathbf{v})
++\lambda \epsilon_{ii}(\mathbf{u})\epsilon_{jj}(\mathbf{v})]
+=\int_\Omega \mathbf{f}\cdot \mathbf{v} +\int_\Gamma \mathbf{g}\cdot \mathbf{v},
+\forall \mathbf{v}\in V\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is the linear closed subspace of <span class="math notranslate nohighlight">\(H^1(\Omega)^2\)</span>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Beam</p>
+<p>Consider an elastic plate with the undeformed rectangle shape <span class="math notranslate nohighlight">\(]0,10[\times ]0,2[\)</span>.
+The body force is the gravity force <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and the boundary force <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is zero on lower and upper side.
+On the two vertical sides of the beam are fixed.</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real E = 21.5;
+real sigma = 0.29;
+real gravity = -0.05;
+
+// Mesh
+border a(t=2, 0){x=0; y=t; label=1;}
+border b(t=0, 10){x=t; y=0; label=2;}
+border c(t=0, 2){ x=10; y=t; label=1;}
+border d(t=0, 10){ x=10-t; y=2; label=3;}
+mesh th = buildmesh(b(20) + c(5) + d(20) + a(5));
+
+// Fespace
+fespace Vh(th, [P1, P1]);
+Vh [uu, vv];
+Vh [w, s];
+
+// Macro
+real sqrt2 = sqrt(2.);
+macro epsilon(u1, u2) [dx(u1), dy(u2), (dy(u1)+dx(u2))/sqrt2] //
+macro div(u,v) (dx(u) + dy(v)) //
+
+// Problem
+real mu = E/(2*(1+sigma));
+real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+solve Elasticity ([uu, vv], [w, s])
+    = int2d(th)(
+          lambda*div(w,s)*div(uu,vv)
+        + 2.*mu*( epsilon(w,s)&#39;*epsilon(uu,vv) )
+    )
+    + int2d(th)(
+        - gravity*s
+    )
+    + on(1, uu=0, vv=0)
+;
+
+// Plot
+plot([uu, vv], wait=true);
+plot([uu,vv], wait=true, bb=[[-0.5, 2.5], [2.5, -0.5]]);
+
+// Movemesh
+mesh th1 = movemesh(th, [x+uu, y+vv]);
+plot(th1, wait=true);
+</pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Beam 3D</p>
+<p>Consider elastic box with the undeformed parallelepiped shape <span class="math notranslate nohighlight">\(]0,5[\times ]0,1[\times]0,1[\)</span>.
+The body force is the gravity force <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and the boundary force <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is zero on all face except one the one vertical left face where the beam is fixed.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>include &quot;cube.idp&quot;
+
+// Parameters
+int[int] Nxyz = [20, 5, 5];
+real [int, int] Bxyz = [[0., 5.], [0., 1.], [0., 1.]];
+int [int, int] Lxyz = [[1, 2], [2, 2], [2, 2]];
+
+real E = 21.5e4;
+real sigma = 0.29;
+real gravity = -0.05;
+
+// Mesh
+mesh3 Th = Cube(Nxyz, Bxyz, Lxyz);
+
+// Fespace
+fespace Vh(Th, [P1, P1, P1]);
+Vh [u1, u2, u3], [v1, v2, v3];
+
+// Macro
+real sqrt2 = sqrt(2.);
+macro epsilon(u1, u2, u3) [
+    dx(u1), dy(u2), dz(u3),
+    (dz(u2) + dy(u3))/sqrt2,
+    (dz(u1) + dx(u3))/sqrt2,
+    (dy(u1) + dx(u2))/sqrt2] //
+macro div(u1, u2, u3) (dx(u1) + dy(u2) + dz(u3)) //
+
+// Problem
+real mu = E/(2*(1+sigma));
+real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+
+solve Lame ([u1, u2, u3], [v1, v2, v3])
+    = int3d(Th)(
+          lambda*div(u1, u2, u3)*div(v1, v2, v3)
+        + 2.*mu*( epsilon(u1, u2, u3)&#39;*epsilon(v1, v2, v3) )
+    )
+    - int3d(Th)(
+          gravity*v3
+    )
+    + on(1, u1=0, u2=0, u3=0)
+    ;
+
+// Display
+real dmax = u1[].max;
+cout &lt;&lt; &quot;max displacement = &quot; &lt;&lt; dmax &lt;&lt; endl;
+
+// Movemesh
+real coef = 0.1/dmax;
+int[int] ref2 = [1, 0, 2, 0];
+mesh3 Thm = movemesh3(Th, transfo=[x+u1*coef, y+u2*coef, z+u3*coef], label=ref2);
+Thm = change(Thm, label=ref2);
+
+// Plot
+plot(Th, Thm, wait=true, cmm=&quot;coef amplification = &quot;+coef);
+</pre></div>
+</div>
+<div class="last figure" id="id4">
+<img alt="../_images/Elasticity_Beam3D.jpg" src="../_images/Elasticity_Beam3D.jpg" />
+<p class="caption"><span class="caption-number">Fig. 136 </span><span class="caption-text">3d Beam deformed and undeformed box</span></p>
+</div>
+</div>
+<div class="section" id="fracture-mechanics">
+<h2>Fracture Mechanics<a class="headerlink" href="#fracture-mechanics" title="Permalink to this headline">¶</a></h2>
+<p>Consider the plate with the crack whose undeformed shape is a curve <span class="math notranslate nohighlight">\(\Sigma\)</span> with the two edges <span class="math notranslate nohighlight">\(\gamma_1,\, \gamma_2\)</span>.</p>
+<p>We assume the stress tensor <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> is the state of plate stress regarding <span class="math notranslate nohighlight">\((x,y)\in \Omega_{\Sigma}=\Omega\setminus \Sigma\)</span>.
+Here <span class="math notranslate nohighlight">\(\Omega\)</span> stands for the undeformed shape of elastic plate without crack.</p>
+<p>If the part <span class="math notranslate nohighlight">\(\Gamma_N\)</span> of the boundary <span class="math notranslate nohighlight">\(\partial\Omega\)</span> is fixed and a load <span class="math notranslate nohighlight">\({\cal L}=(\mathbf{f},\mathbf{g})\in L^2(\Omega)^2\times L^2(\Gamma_N)^2\)</span> is given, then the displacement <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the minimizer of the potential energy functional:</p>
+<div class="math notranslate nohighlight">
+\[{\cal E}(\mathbf{v};{\cal L},\Omega_{\Sigma})
+=\int_{\Omega_{\Sigma}}
+\{w(x,\mathbf{v})-\mathbf{f}\cdot \mathbf{v}\}
+-\int_{\Gamma_N}\mathbf{g}\cdot \mathbf{v}\]</div>
+<p>over the functional space <span class="math notranslate nohighlight">\(V(\Omega_{\Sigma})\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[V(\Omega_{\Sigma})
+=\left\{ \mathbf{v}\in H^1(\Omega_{\Sigma})^2;\;
+\mathbf{v}=0\quad \hbox{ on }
+\Gamma_D=\partial\Omega\setminus\overline{\Gamma_N}\right\},\]</div>
+<p>where <span class="math notranslate nohighlight">\(w(x,\mathbf{v})=\sigma_{ij}(\mathbf{v})\varepsilon_{ij}(\mathbf{v})/2\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij}(\mathbf{v})=C_{ijkl}(x)\varepsilon_{kl}(\mathbf{v}),\quad
+\varepsilon_{ij}(\mathbf{v})=(\partial v_i/\partial x_j+
+\partial v_j/\partial x_i)/2,
+\qquad (C_{ijkl}:\quad \hbox{Hooke's tensor}).\]</div>
+<p>If the elasticity is homogeneous isotropic, then the displacement <span class="math notranslate nohighlight">\(\mathbf{u}(x)\)</span> is decomposed in an open neighborhood <span class="math notranslate nohighlight">\(U_k\)</span> of <span class="math notranslate nohighlight">\(\gamma_k\)</span> as in (see e.g.&nbsp;<a class="reference internal" href="#ohtsuka2000" id="id3">[OHTSUKA2000]</a>)</p>
+<div class="math notranslate nohighlight" id="equation-eqn-sif">
+<span class="eqno">(43)<a class="headerlink" href="#equation-eqn-sif" title="Permalink to this equation">¶</a></span>\[\mathbf{u}(x) =
+\sum_{l=1}^2 K_l(\gamma_k) r_k^{1/2} S^C_{kl}(\theta_k)
++ \mathbf{u}_{k,R}(x)
+\quad \mbox{for }x\in \Omega_{\Sigma}\cap U_k,\, k=1,2\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{u}_{k,R} \in H^2(\Omega_\Sigma\cap U_k)^2\)</span>, where <span class="math notranslate nohighlight">\(U_k,\, k=1,2\)</span> are open neighborhoods of <span class="math notranslate nohighlight">\(\gamma_k\)</span> such that <span class="math notranslate nohighlight">\(\partial L_1\cap U_1=\gamma_1,\, \partial L_m\cap U_2=\gamma_2\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}S^C_{k1}(\theta_k) &amp; = &amp; \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
+   \left[ \begin{array}{c}
+   [2\kappa-1]\cos(\theta_k/2)-\cos(3\theta_k/2)\\
+   -[2\kappa+1]\sin(\theta_k/2)+\sin(3\theta_k/2)
+   \end{array}\right],\\
+   S^C_{k2}(\theta_k) &amp; = &amp; \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
+   \left[ \begin{array}{c}
+   -[2\kappa-1]\sin(\theta_k/2)+3\sin(3\theta_k/2)\\
+   -[2\kappa+1]\cos(\theta_k/2)+\cos(3\theta_k/2)
+   \end{array}\right]. \nonumber\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the shear modulus of elasticity, <span class="math notranslate nohighlight">\(\kappa=3-4\nu\)</span> (<span class="math notranslate nohighlight">\(\nu\)</span> is the Poisson’s ratio) for plane strain and <span class="math notranslate nohighlight">\(\kappa=\frac {3-\nu} {1+\nu}\)</span> for plane stress.</p>
+<p>The coefficients <span class="math notranslate nohighlight">\(K_1(\gamma_i)\)</span> and <span class="math notranslate nohighlight">\(K_2(\gamma_i),\)</span> which are important parameters in fracture mechanics, are called stress intensity factors of the opening mode (mode I) and the sliding mode (mode II), respectively.</p>
+<p>For simplicity, we consider the following simple crack</p>
+<div class="math notranslate nohighlight">
+\[\Omega=\{(x,y):\; -1&lt;x&lt;1, -1&lt;y&lt;1\},\qquad
+\Sigma=\{(x,y):\; -1\le x\le 0, y=0\}\]</div>
+<p>with only one crack tip <span class="math notranslate nohighlight">\(\gamma=(0,0)\)</span>.
+Unfortunately, FreeFem++ cannot treat crack, so we use the modification of the domain with U-shape channel (see <a class="reference external" href="/documentation/MeshGeneration/#Fig30">U-shape example</a>) with <span class="math notranslate nohighlight">\(d=0.0001\)</span>.
+The undeformed crack <span class="math notranslate nohighlight">\(\Sigma\)</span> is approximated by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Sigma_d&amp;=&amp;\{(x,y):\; -1\le x\le -10*d, -d\le y\le d\}\\
+&amp;&amp;\cup\{(x,y):\; -10*d\le x\le 0, -d+0.1*x\le y\le d-0.1*x\}\end{split}\]</div>
+<p>and <span class="math notranslate nohighlight">\(\Gamma_D=\)</span><code class="code freefem docutils literal highlight highlight-freefem"><span></span>R</code> in <a class="reference external" href="/documentation/MeshGeneration/#Fig30">U-shape figure</a>.</p>
+<p>In this example, we use three technique:</p>
+<ul>
+<li><p class="first">Fast Finite Element Interpolator from the mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code> to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Zoom</code> for the scale-up of near <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+</li>
+<li><p class="first">After obtaining the displacement vector <span class="math notranslate nohighlight">\(\mathbf{u}=(u,v)\)</span>, we shall watch the deformation of the crack near <span class="math notranslate nohighlight">\(\gamma\)</span> as follows,</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Plate = movemesh(Zoom, [x+u, y+v]);
+plot(Plate);
+</pre></div>
+</div>
+</li>
+<li><p class="first">Adaptivity is an important technique here, because a large singularity occurs at <span class="math notranslate nohighlight">\(\gamma\)</span> as shown in <a class="reference internal" href="#equation-eqn-sif">(43)</a>.</p>
+</li>
+</ul>
+<p>The first example creates mode I deformation by the opposed surface force on <code class="code freefem docutils literal highlight highlight-freefem"><span></span>B</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>T</code> in the vertical direction of <span class="math notranslate nohighlight">\(\Sigma\)</span>, and the displacement is fixed on <code class="code freefem docutils literal highlight highlight-freefem"><span></span>R</code>.</p>
+<p>In a laboratory, fracture engineers use photoelasticity to make stress field visible, which shows the principal stress difference</p>
+<div class="math notranslate nohighlight">
+\[\sigma_1-\sigma_2=\sqrt{(\sigma_{11}-\sigma_{22})^2+4\sigma_{12}^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span> are the principal stresses.</p>
+<p>In opening mode, the photoelasticity make symmetric pattern concentrated at <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Crack Opening, <span class="math notranslate nohighlight">\(K_2(\gamma)=0\)</span></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>//Parameters
+real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
+
+real E = 21.5;
+real sigma = 0.29;
+
+// Mesh
+border L1(t=0, ca-d){x=-cb; y=-d-t;}
+border L2(t=0, ca-d){x=-cb; y=ca-t;}
+border B(t=0, 2){x=cb*(t-1); y=-ca;}
+border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
+border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
+border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
+border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
+border C4(t=0, 2*d){x=-ca; y=-d+t;}
+border R(t=0, 2){x=cb; y=cb*(t-1);}
+border T(t=0, 2){x=cb*(1-t); y=ca;}
+mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
+    + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+plot(Th, wait=true);
+
+cb=0.1; ca=0.1;
+mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
+    + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+plot(Zoom, wait=true);
+
+// Fespace
+fespace Vh(Th, [P2, P2]);
+Vh [u, v];
+Vh [w, s];
+
+fespace zVh(Zoom, P2);
+zVh Sx, Sy, Sxy, N;
+
+// Problem
+real mu = E/(2*(1+sigma));
+real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+solve Problem ([u, v], [w, s])
+    = int2d(Th)(
+          2*mu*(dx(u)*dx(w) + ((dx(v)+dy(u))*(dx(s)+dy(w)))/4)
+        + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
+    )
+    -int1d(Th, T)(
+          0.1*(1-x)*s
+    )
+    +int1d(Th, B)(
+          0.1*(1-x)*s
+    )
+    +on(R, u=0, v=0)
+    ;
+
+// Loop
+for (int i = 1; i &lt;= 5; i++){
+    mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
+    Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
+    Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
+    Sxy = mu*(dy(u) + dx(v));
+    N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
+    if (i == 1){
+        plot(Plate, bw=1);
+        plot(N, bw=1);
+    }
+    else if (i == 5){
+        plot(Plate, bw=1);
+        plot(N, bw=1);
+        break;
+    }
+
+    // Adaptmesh
+    Th = adaptmesh(Th, [u, v]);
+
+    // Solve
+    Problem;
+}
+</pre></div>
+</div>
+<div class="figure" id="id5">
+<img alt="../_images/Elasticity_Fracture1.png" src="../_images/Elasticity_Fracture1.png" />
+<p class="caption"><span class="caption-number">Fig. 137 </span><span class="caption-text">Crack open displacement (COD) on the first mesh</span></p>
+</div>
+<div class="figure" id="id6">
+<img alt="../_images/Elasticity_Fracture2.png" src="../_images/Elasticity_Fracture2.png" />
+<p class="caption"><span class="caption-number">Fig. 138 </span><span class="caption-text">Principal stress difference on the first mesh</span></p>
+</div>
+<div class="figure" id="id7">
+<img alt="../_images/Elasticity_Fracture3.png" src="../_images/Elasticity_Fracture3.png" />
+<p class="caption"><span class="caption-number">Fig. 139 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
+</div>
+<div class="last figure" id="id8">
+<img alt="../_images/Elasticity_Fracture4.png" src="../_images/Elasticity_Fracture4.png" />
+<p class="caption"><span class="caption-number">Fig. 140 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
+</div>
+</div>
+<p>It is difficult to create mode II deformation by the opposed shear force on <code class="code freefem docutils literal highlight highlight-freefem"><span></span>B</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>T</code> that is observed in a laboratory.
+So we use the body shear force along <span class="math notranslate nohighlight">\(\Sigma\)</span>, that is, the <span class="math notranslate nohighlight">\(x\)</span>-component <span class="math notranslate nohighlight">\(f_1\)</span> of the body force <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[f_1(x,y)=H(y-0.001)*H(0.1-y)-H(-y-0.001)*H(y+0.1)\]</div>
+<p>where <span class="math notranslate nohighlight">\(H(t)=1\)</span> if <span class="math notranslate nohighlight">\(t&gt;0\)</span>; <span class="math notranslate nohighlight">\(= 0\)</span> if <span class="math notranslate nohighlight">\(t&lt;0\)</span>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Crack Sliding, <span class="math notranslate nohighlight">\(K_2(\gamma)=0\)</span></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
+
+real E = 21.5;
+real sigma = 0.29;
+
+// Mesh
+border L1(t=0, ca-d){x=-cb; y=-d-t;}
+border L2(t=0, ca-d){x=-cb; y=ca-t;}
+border B(t=0, 2){x=cb*(t-1); y=-ca;}
+border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
+border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
+border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
+border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
+border C4(t=0, 2*d){x=-ca; y=-d+t;}
+border R(t=0, 2){x=cb; y=cb*(t-1);}
+border T(t=0, 2){x=cb*(1-t); y=ca;}
+mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
+    + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+plot(Th, wait=true);
+
+cb=0.1; ca=0.1;
+mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
+    + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+plot(Zoom, wait=true);
+
+// Fespace
+fespace Vh(Th, [P2, P2]);
+Vh [u, v];
+Vh [w, s];
+
+fespace zVh(Zoom, P2);
+zVh Sx, Sy, Sxy, N;
+
+fespace Vh1(Th,P1);
+Vh1 fx = ((y&gt;0.001)*(y&lt;0.1))-((y&lt;-0.001)*(y&gt;-0.1));
+
+// Problem
+real mu = E/(2*(1+sigma));
+real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+solve Problem ([u, v], [w, s])
+    = int2d(Th)(
+          2*mu*(dx(u)*dx(w) + ((dx(v) + dy(u))*(dx(s)+ dy(w)))/4)
+        + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
+    )
+    -int2d(Th)(
+          fx*w
+    )
+    +on(R, u=0, v=0)
+    ;
+
+// Loop
+for (int i = 1; i &lt;= 3; i++){
+    mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
+    Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
+    Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
+    Sxy = mu*(dy(u) + dx(v));
+    N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
+    if (i == 1){
+        plot(Plate, bw=1);
+        plot(N, bw=1);
+    }
+    else if (i == 3) {
+        plot(Plate, bw=1);
+        plot(N, bw=1);
+        break;
+    }
+
+    // Adaptmesh
+    Th=adaptmesh(Th, [u, v]);
+
+    // Solve
+    Problem;
+}
+</pre></div>
+</div>
+<div class="figure" id="id9">
+<img alt="../_images/Elasticity_FractureSliding1.png" src="../_images/Elasticity_FractureSliding1.png" />
+<p class="caption"><span class="caption-number">Fig. 141 </span><span class="caption-text">COD on the first mesh</span></p>
+</div>
+<div class="figure" id="id10">
+<img alt="../_images/Elasticity_FractureSliding2.png" src="../_images/Elasticity_FractureSliding2.png" />
+<p class="caption"><span class="caption-number">Fig. 142 </span><span class="caption-text">Principal stress difference in the first mesh</span></p>
+</div>
+<div class="figure" id="id11">
+<img alt="../_images/Elasticity_FractureSliding3.png" src="../_images/Elasticity_FractureSliding3.png" />
+<p class="caption"><span class="caption-number">Fig. 143 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
+</div>
+<div class="last figure" id="id12">
+<img alt="../_images/Elasticity_FractureSliding4.png" src="../_images/Elasticity_FractureSliding4.png" />
+<p class="caption"><span class="caption-number">Fig. 144 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
+</div>
+</div>
+<table class="docutils citation" frame="void" id="necas2017" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[NECAS2017]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> NECAS, Jindrich et HLAVÁCEK, Ivan. Mathematical theory of elastic and elasto-plastic bodies: an introduction. Elsevier, 2017.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="ohtsuka2000" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[OHTSUKA2000]</a></td><td>OHTSUKA, K. Theoretical and Numerical analysis of energy release rate in 2D fracture. INFORMATION, 2000, vol.&nbsp;3, p.&nbsp;303-315.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Elasticity</a><ul>
+<li><a class="reference internal" href="#fracture-mechanics">Fracture Mechanics</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="staticProblems.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Static problems</div>
+         </div>
+     </a>
+     <a id="button-next" href="nonLinearStaticProblems.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Non-linear static problems</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2721 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Finite element &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/documentation/finiteElement.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualization" href="visualization.html" />
+    <link rel="prev" title="Mesh Generation" href="meshGeneration.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Documentation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Finite element</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/documentation/finiteElement.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="math notranslate nohighlight">
+\[\def\R{{\mathbb{R}}}
+\def\P{{\mathbb{P}}}
+\def\p{{\partial}}\]</div>
+<div class="section" id="finite-element">
+<span id="finiteelement"></span><h1>Finite element<a class="headerlink" href="#finite-element" title="Permalink to this headline">¶</a></h1>
+<p>As stated in <a class="reference external" href="/tutorials">tutorials</a>, FEM approximates all functions <span class="math notranslate nohighlight">\(w\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[w(x,y)\simeq w_0\phi_0(x,y)+w_1\phi_1(x,y)+\cdots+w_{M-1}\phi_{M-1}(x,y)\]</div>
+<p>with finite element basis functions <span class="math notranslate nohighlight">\(\phi_k(x,y)\)</span> and numbers <span class="math notranslate nohighlight">\(w_k\)</span> (<span class="math notranslate nohighlight">\(k=0,\cdots,M-1\)</span>).
+The functions <span class="math notranslate nohighlight">\(\phi_k(x,y)\)</span> are constructed from the triangle <span class="math notranslate nohighlight">\(T_{i_k}\)</span>, and called <em>shape functions</em>.</p>
+<p>In FreeFem++ the finite element space:</p>
+<div class="math notranslate nohighlight">
+\[V_h=\left\{w\left|\; w_0\phi_0+w_1\phi_1+\cdots+w_{M-1}\phi_{M-1},\, w_i\in \R\right.\right\}\]</div>
+<p>is easily created by:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace IDspace(IDmesh,&lt;IDFE&gt;);
+</pre></div>
+</div>
+<p>or with <span class="math notranslate nohighlight">\(\ell\)</span> pairs of periodic boundary conditions in 2D:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace IDspace(IDmesh,&lt;IDFE&gt;,
+    periodic=[[la1, sa1], [lb1, sb1],
+              ...
+              [lak, sak], [lbk, sbl]]);
+</pre></div>
+</div>
+<p>and in 3D:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace IDspace(IDmesh,&lt;IDFE&gt;,
+    periodic=[[la1, sa1, ta1], [lb1, sb1, tb1],
+              ...
+              [lak, sak, tak], [lbk, sbl, tbl]]);
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>IDspace</code> is the name of the space (e.g.&nbsp;<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh</code>), <code class="code freefem docutils literal highlight highlight-freefem"><span></span>IDmesh</code> is the name of the associated mesh and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&lt;IDFE&gt;</code> is an identifier of finite element type.</p>
+<p>In 2D we have a pair of periodic boundary conditions, if <span class="math notranslate nohighlight">\([la_i, sa_i]\)</span>, <span class="math notranslate nohighlight">\([lb_i, sb_i]\)</span> is a pair of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>, and the 2 labels <span class="math notranslate nohighlight">\(la_i\)</span> and <span class="math notranslate nohighlight">\(lb_i\)</span> refer to 2 pieces of boundary to be in equivalence.
+If <span class="math notranslate nohighlight">\([la_i, sa_i]\)</span>, <span class="math notranslate nohighlight">\([lb_i, sb_i]\)</span> is a pair of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>, then <span class="math notranslate nohighlight">\(sa_i\)</span> and <span class="math notranslate nohighlight">\(sb_i\)</span> give two common abscissa on the two boundary curves, and two points are identified as one if the two abscissa are equal.</p>
+<p>In 2D, we have a pair of periodic boundary conditions, if <span class="math notranslate nohighlight">\([la_i, sa_i, ta_i]\)</span>, <span class="math notranslate nohighlight">\([lb_i, sb_i, tb_i]\)</span> is a pair of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>, the 2 labels <span class="math notranslate nohighlight">\(la_i\)</span> and <span class="math notranslate nohighlight">\(lb_i\)</span> define the 2 pieces of boundary to be in equivalence.
+If <span class="math notranslate nohighlight">\([la_i, sa_i, ta_i]\)</span>, <span class="math notranslate nohighlight">\([lb_i, sb_i, tb_i]\)</span> is a pair of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>, then <span class="math notranslate nohighlight">\(sa_i\)</span>, <span class="math notranslate nohighlight">\(ta_i\)</span> and <span class="math notranslate nohighlight">\(sb_i\)</span>, <span class="math notranslate nohighlight">\(tb_i\)</span> give two common parameters on the two boundary surfaces, and two points are identified as one if the two parameters are equal.</p>
+<p>. note:: The 2D mesh of the two identified borders must be the same, so to be sure, use the parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fixedborder=true</code> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>buildmesh</code> command (see <cite>:freefem:`fixedborder</cite> &lt;../MeshGeneration/#border&gt;`__).</p>
+<p>As of today, the known types of finite elements are:</p>
+<ul>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P0, P03d]</code> piecewise constant discontinuous finite element (2d, 3d), the degrees of freedom are the barycenter element value.</p>
+<div class="math notranslate nohighlight" id="equation-eq-p0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-p0" title="Permalink to this equation">¶</a></span>\[\P^0_{h} = \left\{ v \in L^2(\Omega) \left|\; \textrm{for all }K \in \mathcal{T}_{h}\;\;\textrm{there is }\alpha_{K}\in \R : \;\; v_{|K} = \alpha_{K } \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P1, P13d]</code> piecewise linear continuous finite element (2d, 3d), the degrees of freedom are the vertices values.</p>
+<div class="math notranslate nohighlight" id="equation-eq-p1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-p1" title="Permalink to this equation">¶</a></span>\[\P^1_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h},\ v_{|K} \in P_{1} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P1dc]</code> piecewise linear discontinuous finite element</p>
+<div class="math notranslate nohighlight" id="equation-eq-p1dc">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-p1dc" title="Permalink to this equation">¶</a></span>\[\P^1_{dc|h} = \left\{ v \in L^{2}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{1} \right.\right\}\]</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Due to an interpolation problem, the degree of freedom is not the vertices but three vertices which move inside <span class="math notranslate nohighlight">\(T(X)= G + .99 (X-G)\)</span> where <span class="math notranslate nohighlight">\(G\)</span> is the barycenter.</p>
+</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P1b, P1b3d]</code> piecewise linear continuous finite element plus bubble (2d, 3d)</p>
+<dl class="docutils">
+<dt><strong>The 2D Case:</strong></dt>
+<dd><div class="first last math notranslate nohighlight" id="equation-eq-p1b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-p1b" title="Permalink to this equation">¶</a></span>\[\P^1_{b|h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{1} \oplus \mathrm{Span}\{ \lambda^{K}_{0} \lambda^{K}_{1} \lambda^{K}_{2} \} \right.\right\}\]</div>
+</dd>
+<dt><strong>The 3D Case:</strong></dt>
+<dd><div class="first math notranslate nohighlight" id="equation-eq-p1b-3d">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-p1b-3d" title="Permalink to this equation">¶</a></span>\[\P^1_{b|h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{1} \oplus \mathrm{Span}\{ \lambda^{K}_{0} \lambda^{K}_{1} \lambda^{K}_{2} \lambda^{K}_{3} \} \right.\right\}\]</div>
+<p class="last">where <span class="math notranslate nohighlight">\(\lambda^{K}_{i}, i=0,..,d\)</span> are the <span class="math notranslate nohighlight">\(d+1\)</span> barycentric coordinate functions of the element <span class="math notranslate nohighlight">\(K\)</span> (triangle or tetrahedron).</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>P1bl,P1bl3d</code> piecewise linear continuous finite element plus linear bubble (2d, 3d).
+The bubble is built by splitting the <span class="math notranslate nohighlight">\(K\)</span>, a barycenter in <span class="math notranslate nohighlight">\(d+1\)</span> sub element. (need <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P1bl&quot;</code>)</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2, P23d]</code> piecewise <span class="math notranslate nohighlight">\(P_{2}\)</span> continuous finite element (2d, 3d)</p>
+<div class="math notranslate nohighlight">
+\[\P^2_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{2} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{2}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 2\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2b]</code> piecewise <span class="math notranslate nohighlight">\(P_{2}\)</span> continuous finite element plus bubble</p>
+<div class="math notranslate nohighlight">
+\[\P^2_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{2} \oplus \mathrm{Span}\{ \lambda^{K}_{0} \lambda^{K}_{1} \lambda^{K}_{2} \} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2dc]</code> piecewise <span class="math notranslate nohighlight">\(P_{2}\)</span> discontinuous finite element</p>
+<div class="math notranslate nohighlight">
+\[\P^2_{dc|h} = \left\{ v \in L^{2}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{2} \right.\right\}\]</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Due to an interpolation problem, the degree of freedom is not the six P2 nodes but six nodes which move inside <span class="math notranslate nohighlight">\(T(X)= G + .99 (X-G)\)</span> where <span class="math notranslate nohighlight">\(G\)</span> is the barycenter.</p>
+</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2h]</code> quadratic homogeneous continuous (without <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P1</code>).</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P3]</code> piecewise <span class="math notranslate nohighlight">\(P_{3}\)</span> continuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P3&quot;</code>)</p>
+<div class="math notranslate nohighlight">
+\[\P^3_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{3} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{3}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 3\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P3dc]</code> piecewise <span class="math notranslate nohighlight">\(P_{3}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P3dc&quot;</code>)</p>
+<div class="math notranslate nohighlight">
+\[\P^3_{dc|h} = \left\{ v \in L^2(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{3} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{3}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 3\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P4]</code> piecewise <span class="math notranslate nohighlight">\(P_{4}\)</span> continuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P4&quot;</code>)</p>
+<div class="math notranslate nohighlight">
+\[\P^4_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h},\ v_{|K} \in P_{4} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{4}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 4\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P4dc]</code> piecewise <span class="math notranslate nohighlight">\(P_{4}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P4dc&quot;</code>)</p>
+<div class="math notranslate nohighlight">
+\[\P^4_{dc|h} = \left\{ v \in L^2(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{3} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{4}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 3\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P0Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{0}\)</span> discontinuous finite element (2d) contained on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P1Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{1}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_PkEdge&quot;</code>) <span class="math notranslate nohighlight">\(P_1\)</span> on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{2}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_PkEdge&quot;</code>) <span class="math notranslate nohighlight">\(P_2\)</span> on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P3Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{3}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_PkEdge&quot;</code>) <span class="math notranslate nohighlight">\(P_3\)</span> on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P4Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{4}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_PkEdge&quot;</code>) <span class="math notranslate nohighlight">\(P_4\)</span> on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P5Edge]</code> piecewise <span class="math notranslate nohighlight">\(P_{5}\)</span> discontinuous finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_PkEdge&quot;</code>) <span class="math notranslate nohighlight">\(P_5\)</span> on each edge of the mesh.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2Morley]</code> piecewise <span class="math notranslate nohighlight">\(P_{2}\)</span> non conform finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Morley&quot;</code>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\P^2_{h} = \left\{ v \in L^2(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{3},
+\left\{\begin{array}{c}
+    v \mbox{ continuous at vertices,}\\
+    \p_n{v} \mbox{ continuous at middle of edge,}
+\end{array}\right.
+\right.\right\}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{2}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 2\)</span>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">To build the interplant of a function <span class="math notranslate nohighlight">\(u\)</span> (scalar) for this finite element, we need the function and 2 partial derivatives <span class="math notranslate nohighlight">\((u,u_x, u_y)\)</span>, creating this vectorial finite element with 3 components <span class="math notranslate nohighlight">\((u,u_x,u_y)\)</span>.</p>
+</div>
+<p>See our example for solving the BiLaplacien problem:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;Morley&quot;
+
+// Parameters
+int nn = 10;
+real h = 0.01;
+
+real f = 1;
+
+// Mesh
+mesh Th = square(nn, nn);
+Th = adaptmesh(Th, h, IsMetric=1);
+
+// Fespace
+fespace Vh(Th, P2Morley); //The Morley finite element space
+Vh [u, ux, uy], [v, vx, vy];
+
+// Macro
+macro bilaplacien(u, v) (dxx(u)*dxx(v) + dyy(u)*dyy(v) + 2.*dxy(u)*dxy(v)) //
+
+// Problem
+solve bilap ([u, ux, uy], [v, vx, vy])
+    = int2d(Th)(
+          bilaplacien(u, v)
+    )
+    - int2d(Th)(
+          f*v
+    )
+    + on(1, 2, 3, 4, u=0, ux=0, uy=0)
+    ;
+
+// Plot
+plot(u, cmm=&quot;u&quot;);
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[HCT]</code> <span class="math notranslate nohighlight">\(P_3\)</span> <span class="math notranslate nohighlight">\(C^1\)</span> conforms finite element (2d) (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_HCT&quot;</code>) one 3 sub triangles.</p>
+<p>Lets call <span class="math notranslate nohighlight">\(\mathcal{T}^\triangle_{h}\)</span> the sub mesh of <span class="math notranslate nohighlight">\(\mathcal{T}_{h}\)</span> where all triangles are split in 3 at the barycenter.</p>
+<div class="math notranslate nohighlight">
+\[\P^{HCT}_{h} = \left\{ v \in C^1(\Omega) \left|\; \forall K \in \mathcal{T}^\triangle_{h}, \ v_{|K} \in P_{3} \right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{3}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 3\)</span>.
+The degrees of freedom are the values of the normal derivative at the mid-point of each edge <a class="reference internal" href="#bernadou1980" id="id1">[BERNADOU1980]</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">To build the interplant of a function <span class="math notranslate nohighlight">\(u\)</span> (scalar) for this finite element, we need the function and 2 partial derivatives <span class="math notranslate nohighlight">\((u,u_x, u_y)\)</span>, creating this vectorial finite element with 3 components <span class="math notranslate nohighlight">\((u,u_x,u_y)\)</span> like in previous Finite Element.</p>
+</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2BR]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;BernadiRaugel&quot;</code>) the Bernadi Raugel Finite Element is a Vectorial element (2d) with 2 components, see <a class="reference internal" href="#bernardi1985" id="id2">[BERNARDI1985]</a>.
+It is a 2D coupled Finite Element, where the Polynomial space is <span class="math notranslate nohighlight">\(P_1^2\)</span> with 3 normal bubble edge functions <span class="math notranslate nohighlight">\((P_2)\)</span>.
+There are 9 degrees of freedom:</p>
+<ul class="simple">
+<li>2 components at each of the 3 vertices and</li>
+<li>the 3 flux on the 3 edges.</li>
+</ul>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT0, RT03d]</code> Raviart-Thomas finite element of degree <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p><strong>The 2D Case:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-eq-rt0">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-rt0" title="Permalink to this equation">¶</a></span>\[RT0_{h} = \left\{ \mathbf{v} \in H(\textrm{div}) \left|\; \forall K \in \mathcal{T}_{h} ,\ \mathbf{v}_{|K}(x,y) =
+   \vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{x}{y} \right.\right\}\]</div>
+</div></blockquote>
+<p><strong>The 3D Case:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-eq-rt03d">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-rt03d" title="Permalink to this equation">¶</a></span>\[RT0_{h} = \left\{ \mathbf{v} \in H(\textrm{div}) \left|\; \forall K \in \mathcal{T}_{h},\ \mathbf{v}_{|K}(x,y,z) =
+   \vectthree{\alpha^1_{K}}{\alpha^2_{K}}{\alpha^3_{K}} + \beta_{K}\vectthree{x}{y}{z} \right.\right\}\]</div>
+<p>where by writing <span class="math notranslate nohighlight">\(\textrm{div }\mathbf{w}=\sum_{i=1}^d\p w_i/\p x_i\)</span> with <span class="math notranslate nohighlight">\(\mathbf{w}=(w_i)_{i=1}^d\)</span>:</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[H(\textrm{div})=\left\{\mathbf{w}\in L^{2}(\Omega)^d\left|\textrm{div } \mathbf{w}\in L^{2}(\Omega)\right.\right\}\]</div>
+<p>and where <span class="math notranslate nohighlight">\(\alpha^1_{K}\)</span>, <span class="math notranslate nohighlight">\(\alpha^2_{K}\)</span>, <span class="math notranslate nohighlight">\(\alpha^3_{K}\)</span>, <span class="math notranslate nohighlight">\(\beta_{K}\)</span> are real numbers.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT0Ortho]</code> Raviart-Thomas Orthogonal, or Nedelec finite element type I of degree <span class="math notranslate nohighlight">\(0\)</span> in dimension 2</p>
+<div class="math notranslate nohighlight" id="equation-rt0ortho">
+<span class="eqno">(9)<a class="headerlink" href="#equation-rt0ortho" title="Permalink to this equation">¶</a></span>\[RT0Ortho{h} = \left\{ \mathbf{v} \in H(\textrm{curl}) \left|\; \forall K \in \mathcal{T}_{h},\ \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{-y}{x} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[Edge03d]</code> 3d Nedelec finite element or Edge Element of
+degree <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<dl class="docutils">
+<dt><strong>The 3D Case:</strong> :raw-latex:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation*}</dt>
+<dd><blockquote class="first">
+<div><p>label{eq:Edge03d}
+Edge0_{h} = left{ mathbf{v} in H(textrm{Curl}) left|; forall K inmathcal{T}_{h}, mathbf{v}_{<a href="#id5"><span class="problematic" id="id6">|</span></a>K}(x,y,z) =</p>
+<blockquote>
+<div><p>vectthree{alpha^1_{K}}{alpha^2_{K}}{alpha^3_{K}} + vectthree{beta^1_{K}}{beta^2_{K}}{beta^3_{K}}timesvectthree{x}{y}{z} right.right}</p>
+</div></blockquote>
+</div></blockquote>
+<p class="last">end{equation*}` where by writing</p>
+</dd>
+</dl>
+<p><span class="math notranslate nohighlight">\(\textrm{curl}\mathbf{w}=\vectthree{\p w_2/\p x_3-\p w_3/\p x_2}{\p w_3/\p x_1-\p w_1/\p x_3}{\p w_1/\p x_2-\p w_2/\p x_1}\)</span>
+with <span class="math notranslate nohighlight">\(\mathbf{w}=(w_i)_{i=1}^d\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[H(\textrm{curl})=\left\{\mathbf{w}\in L^{2}(\Omega)^d\left|\textrm{curl } \mathbf{w}\in L^{2}(\Omega)^d\right.\right\}\]</div>
+<p>and <span class="math notranslate nohighlight">\(\alpha^1_{K},\alpha^2_{K},\alpha^3_{K},\beta^1_{K},\beta^2_{K},\beta^3_{K}\)</span> are real numbers.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[Edge13d]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte3d&quot;</code>) 3d Nedelec finite element or Edge Element of degree <span class="math notranslate nohighlight">\(1\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[Edge23d]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte3d&quot;</code>) 3d Nedelec finite element or Edge Element of degree <span class="math notranslate nohighlight">\(2\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P1nc]</code> piecewise linear element continuous at the mid-point of the edge only in 2D (Crouzeix-Raviart Finite Element 2D).</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[P2pnc]</code> piecewise quadratic plus a P3 bubble element with the continuity of the 2 moments on each edge (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_P2pnc&quot;</code>)</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT1]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>)</p>
+<div class="math notranslate nohighlight" id="equation-eq-rt1">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-rt1" title="Permalink to this equation">¶</a></span>\[RT1_{h} = \left\{ \mathbf{v} \in H(\textrm{div}) \left|\; \forall K \in\mathcal{T}_{h}, \ \alpha^1_{K}, \alpha^2_{K}, \beta_{K} \in P_1^2,P_0, \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{x}{y} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT1Ortho]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>)</p>
+<div class="math notranslate nohighlight" id="equation-eq-rt1ortho">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-rt1ortho" title="Permalink to this equation">¶</a></span>\[RT1_{h} = \left\{ \mathbf{v} \in H(\textrm{curl}) \left|\; \forall K \in\mathcal{T}_{h},\ \alpha^1_{K}, \alpha^2_{K}, \beta_{K} \in P_1^2,P_0, \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{-y}{x} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT2]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>)</p>
+<div class="math notranslate nohighlight" id="equation-eq-rt2">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-rt2" title="Permalink to this equation">¶</a></span>\[RT2_{h} = \left\{ \mathbf{v} \in H(\textrm{div}) \left|\; \forall K \in\mathcal{T}_{h},\ \alpha^1_{K}, \alpha^2_{K}, \beta_{K} \in P_2^2, P_1, \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{x}{y} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[RT2Ortho]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>)</p>
+<div class="math notranslate nohighlight" id="equation-eq-rt2ortho">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-rt2ortho" title="Permalink to this equation">¶</a></span>\[RT2_{h} = \left\{ \mathbf{v} \in H(\textrm{curl}) \left|\; \forall K \in\mathcal{T}_{h} ,\ \alpha^1_{K}, \alpha^2_{K}, \beta_{K} \in P_2^2, P_1,\ \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha^1_{K}}{\alpha^2_{K}} + \beta_{K}\vecttwo{-y}{x} \right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[BDM1]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>) the Brezzi-Douglas-Marini finite element:</p>
+<div class="math notranslate nohighlight" id="equation-eq-bdm1">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-bdm1" title="Permalink to this equation">¶</a></span>\[BDM1_{h} = \left\{ \mathbf{v} \in H(\textrm{div}) \left|\; \forall K \in\mathcal{T}_{h},\ \mathbf{v}_{|K} \in P_1^2\right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[BDM1Ortho]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_Mixte&quot;</code>) the Brezzi-Douglas-Marini Orthogonal also call Nedelec of type II , finite element</p>
+<div class="math notranslate nohighlight" id="equation-eq-bdm1ortho">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-bdm1ortho" title="Permalink to this equation">¶</a></span>\[BDM1Ortho_{h} = \left\{ \mathbf{v} \in H(\textrm{curl}) \left|\; \forall K \in\mathcal{T}_{h},\ \mathbf{v}_{|K} \in P_1^2\right.\right\}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>[FEQF]</code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;Element_QF&quot;</code>) the finite element to store functions at default quadrature points (so the quadrature is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf5pT</code> in 2D and is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfV5</code> in 3d).
+For over quadrature you have the following corresponding finite element’s quadrature formula.</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF1</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf1pT</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF2</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf2pT</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF5</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf5pT</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF7</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf7pT</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF9</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf9pT</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF13d</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfV1</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF23d</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfV2</code>,</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>FEQF53d</code> <span class="math notranslate nohighlight">\(\mapsto\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfV5</code></li>
+</ul>
+</li>
+</ul>
+<p>You can use this element to optimize the storage and reuse of functions with a long formula inside an integral for non linear processes.</p>
+<div class="section" id="use-of-freefem-fespace-in-2d">
+<h2>Use of freefem fespace in 2D<a class="headerlink" href="#use-of-freefem-fespace-in-2d" title="Permalink to this headline">¶</a></h2>
+<p>With the 2D finite element spaces</p>
+<div class="math notranslate nohighlight">
+\[X_{h} = \left\{ v \in H^{1}(]0,1[^2) |\; \forall K \in \mathcal{T}_{h}\quad v_{|K} \in P_{1} \right\}\]</div>
+<div class="math notranslate nohighlight">
+\[X_{ph} = \left\{ v \in X_{h} |\; v\left(\vecttwo{0}{.}\right) = v\left(\vecttwo{1}{.}\right) , v\left(\vecttwo{.}{0}\right) = v\left(\vecttwo{.}{1}\right) \right\}\]</div>
+<div class="math notranslate nohighlight">
+\[M_{h} = \left\{ v \in H^{1}(]0,1[^2) |\; \forall K \in \mathcal{T}_{h}\quad v_{|K} \in P_{2} \right\}\]</div>
+<div class="math notranslate nohighlight">
+\[R_{h} = \left\{ \mathbf{v} \in H^{1}(]0,1[^2)^{2} |\; \forall K \in \mathcal{T}_{h}\quad \mathbf{v}_{|K}(x,y) = \vecttwo{\alpha_{K}}{\beta_{K}} + \gamma_{K}\vecttwo{x}{y} \right\}\]</div>
+<p>when <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> is a mesh <span class="math notranslate nohighlight">\(10\times 10\)</span> of the unit square <span class="math notranslate nohighlight">\(]0,1[^2\)</span>, we only write in FreeFem++ :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(10, 10);
+fespace Xh(Th, P1); //scalar FE
+fespace Xph(Th,P1,
+            periodic=[[2, y], [4, y], [1, x], [3, x]]); //bi-periodic FE
+fespace Mh(Th, P2); //scalar FE
+fespace Rh(Th, RT0); //vectorial FE
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Xh, Mh, Rh</code> expresses finite element spaces (called FE spaces) <span class="math notranslate nohighlight">\(X_h,\, M_h,\, R_h\)</span>, respectively.</p>
+<p>To use FE-functions <span class="math notranslate nohighlight">\(u_{h},v_{h} \in X_{h}\)</span>, <span class="math notranslate nohighlight">\(p_{h},q_{h} \in M_{h}\)</span> and <span class="math notranslate nohighlight">\(U_{h},V_{h} \in R_{h}\)</span>, we write :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Xh uh, vh;
+Xph uph, vph;
+Mh ph, qh;
+Rh [Uxh, Uyh], [Vxh, Vyh];
+Xh[int] Uh(10);         //array of 10 functions in Xh
+Rh[int] [Wxh, Wyh](10); //array of 10 functions in Rh
+Wxh[5](0.5,0.5);        //the 6th function at point (0.5, 0.5)
+Wxh[5][];               //the array of the degree of freedom of the 6th function
+</pre></div>
+</div>
+<p>The functions <span class="math notranslate nohighlight">\(U_{h}, V_{h}\)</span> have two components so we have</p>
+<div class="math notranslate nohighlight">
+\[U_{h}=\vecttwo{Uxh}{Uyh} \quad \mbox{and}\quad V_{h}=\vecttwo{Vxh}{Vyh}\]</div>
+</div>
+<div class="section" id="use-of-fespace-in-3d">
+<h2>Use of fespace in 3D<a class="headerlink" href="#use-of-fespace-in-3d" title="Permalink to this headline">¶</a></h2>
+<p>With the 3D finite element spaces</p>
+<div class="math notranslate nohighlight">
+\[X_{h} = \{ v \in H^{1}(]0,1[^3) |\; \forall K \in \mathcal{T}_{h}\quad v_{|K} \in P_{1} \}\]</div>
+<div class="math notranslate nohighlight">
+\[X_{ph} = \left\{ v \in X_{h} |\; v\left(\vecttwo{0}{.}\right) = v\left(\vecttwo{1}{.}\right) , v\left(\vecttwo{.}{0}\right) = v\left(\vecttwo{.}{1}\right) \right\}\]</div>
+<div class="math notranslate nohighlight">
+\[M_{h} = \{ v \in H^{1}(]0,1[^2) |\; \forall K \in \mathcal{T}_{h}\quad v_{|K} \in P_{2} \}\]</div>
+<div class="math notranslate nohighlight">
+\[R_{h} = \left\{ \mathbf{v} \in H^{1}(]0,1[^2)^{2} |\; \forall K \in \mathcal{T}_{h}\quad \mathbf{v}_{|K}(x,y) = \vecttwo{\alpha_{K}}{\beta_{K}} + \gamma_{K}\vecttwo{x}{y} \right\}\]</div>
+<p>when <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> is a mesh <span class="math notranslate nohighlight">\(10\times 10\times 10\)</span> of the unit cubic <span class="math notranslate nohighlight">\(]0,1[^2\)</span>, we write in FreeFem++ :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh3 Th = buildlayers(square(10, 10),10, zbound=[0,1]);
+//label: 0 up, 1 down, 2 front, 3 left, 4 back, 5 right
+fespace Xh(Th, P1); //scalar FE
+fespace Xph(Th, P1,
+        periodic=[[0, x, y], [1, x, y],
+                  [2, x, z], [4, x, z],
+                  [3, y, z], [5, y, z]]); //three-periodic FE
+fespace Mh(Th, P2); //scalar FE
+fespace Rh(Th, RT03d); //vectorial FE
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Xh, Mh, Rh</code> expresses finite element spaces (called FE spaces) <span class="math notranslate nohighlight">\(X_h,\, M_h,\, R_h\)</span>, respectively.</p>
+<p>To define and use FE-functions <span class="math notranslate nohighlight">\(u_{h},v_{h} \in X_{h}\)</span>, <span class="math notranslate nohighlight">\(p_{h},q_{h} \in M_{h}\)</span> and <span class="math notranslate nohighlight">\(U_{h},V_{h} \in R_{h}\)</span>, we write:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Xh uh, vh;
+Xph uph, vph;
+Mh ph, qh;
+Rh [Uxh, Uyh, Uyzh], [Vxh, Vyh, Vyzh];
+Xh[int] Uh(10);             //array of 10 functions in Xh
+Rh[int] [Wxh,Wyh,Wzh](10);  // array of 10 functions in Rh
+Wxh[5](0.5,0.5,0.5);        //the 6th function at point (0.5, 0.5, 0.5)
+Wxh[5][];                   //the array of the degree of freedom of the 6th function
+</pre></div>
+</div>
+<p>The functions <span class="math notranslate nohighlight">\(U_{h}, V_{h}\)</span> have three components, so we have</p>
+<div class="math notranslate nohighlight">
+\[U_{h}=\vectthree{Uxh}{Uyh}{Uzh} \quad \mbox{and}\quad V_{h}=\vectthree{Vxh}{Vyh}{Vzh}\]</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">One challenge of the periodic boundary condition is that the mesh must have equivalent faces.
+The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>buildlayers</code> mesh generator splits each quadrilateral face with the diagonal passing through the vertex with maximum number, so to be sure to have the same mesh one both face periodic the 2D numbering in corresponding edges must be compatible (for example the same variation).</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">todo</p>
+</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>By Default, the numbering of square vertex is correct.
+
+To change the mesh numbering you can use the :freefem:`change` function like:
+
+```freefem
+{
+    int[int] old2new(0:Th.nv-1); //array set on 0, 1, .., nv-1
+    fespace Vh2(Th, P1);
+    Vh2 sorder = x+y; //choose an order increasing on 4 square borders with x or y
+    sort(sorder[], old2new); //build the inverse permutation
+    int[int] new2old = old2new^-1; //inverse the permutation
+    Th = change(Th, renumv=new2old);
+}
+```
+
+The full example is in [Examples](/examples/#periodic-3d).
+</pre></div>
+</div>
+</div>
+<div class="section" id="lagrangian-finite-elements">
+<h2>Lagrangian Finite Elements<a class="headerlink" href="#lagrangian-finite-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="p0-element">
+<h3>P0-element<a class="headerlink" href="#p0-element" title="Permalink to this headline">¶</a></h3>
+<p>For each triangle (d=2) or tetrahedron (d=3) <span class="math notranslate nohighlight">\(T_k\)</span>, the basis function <span class="math notranslate nohighlight">\(\phi_k\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P0)</code> is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi_k(\mathbf{x})=
+\left\{
+\begin{array}{cl}
+    1 &amp; \textrm{ if }(\mathbf{x})\in T_k\\
+    0 &amp; \textrm{ if }(\mathbf{x})\not\in T_k
+\end{array}
+\right.\end{split}\]</div>
+<p>If we write</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, P0);
+Vh fh = f(x,y);
+</pre></div>
+</div>
+<p>then for vertices <span class="math notranslate nohighlight">\(q^{k_i},\, i=1,2,.. d+1\)</span> in <a class="reference external" href="#Fig1">Fig.
+1(a)</a>, <span class="math notranslate nohighlight">\(f_h\)</span> is built as</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh=</code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_k f(\frac{\sum_i q^{k_i}}{d+1}) \phi_k\)</span></p>
+<p>See <a class="reference external" href="#Fig3">Fig. 3</a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> on <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P0)</code> when the mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code> is a <span class="math notranslate nohighlight">\(4\times 4\)</span>-grid of <span class="math notranslate nohighlight">\([-1,1]^2\)</span> as in <a class="reference external" href="#Fig2">Fig. 2</a>.</p>
+</div>
+<div class="section" id="p1-element">
+<h3>P1-element<a class="headerlink" href="#p1-element" title="Permalink to this headline">¶</a></h3>
+<p>Fig. 1: <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> degrees of freedom on triangle <span class="math notranslate nohighlight">\(T_k\)</span></p>
+<p><img alt="P1P2" src="../_images/FiniteElement_P1P2.png" /></p>
+<p>For each vertex <span class="math notranslate nohighlight">\(q^i\)</span>, the basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P1)</code> is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;&amp;\phi_i(x,y)=a^k_i+b^k_ix+c^k_iy \textrm{ for }(x,y)\in T_k,\\
+&amp;&amp;\phi_i(q^i)=1,\quad \phi_i(q^j)=0 \textrm{ if }i\neq j\end{split}\]</div>
+<p>The basis function <span class="math notranslate nohighlight">\(\phi_{k_1}(x,y)\)</span> with the vertex <span class="math notranslate nohighlight">\(q^{k_1}\)</span> in <a class="reference external" href="#Fig1">Fig. 1(a)</a> at point <span class="math notranslate nohighlight">\(p=(x,y)\)</span> in triangle <span class="math notranslate nohighlight">\(T_k\)</span> simply coincide with the <em>barycentric coordinates :math:`lambda^k_1` (area coordinates)</em> :</p>
+<div class="math notranslate nohighlight">
+\[\phi_{k_1}(x,y) = \lambda^k_{1}(x,y)=
+\frac{\textrm{area of triangle} (p, q^{k_2},q^{k_3})}
+{\textrm{area of triangle}(q^{k_1},q^{k_2},q^{k_3})}\]</div>
+<p>If we write</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, P1);
+Vh fh = g(x.y);
+</pre></div>
+</div>
+<p>then</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh =</code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{n_v}f(q^i)\phi_i(x,y)\)</span></p>
+<p>See <a class="reference external" href="#Fig4">Fig. 4</a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P1)</code>.</p>
+</div>
+<div class="section" id="p2-element">
+<h3>P2-element<a class="headerlink" href="#p2-element" title="Permalink to this headline">¶</a></h3>
+<p>For each vertex or mid-point <span class="math notranslate nohighlight">\(q^i\)</span>.
+The basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P2)</code> is given by :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;&amp;\phi_i(x,y)=a^k_i+b^k_ix+c^k_iy+d^k_ix^2+e^k_ixy+f^f_jy^2\textrm{ for }(x,y)\in T_k,\\
+&amp;&amp;\phi_i(q^i)=1,\quad \phi_i(q^j)=0\textrm{ if }i\neq j\end{split}\]</div>
+<p>The basis function <span class="math notranslate nohighlight">\(\phi_{k_1}(x,y)\)</span> with the vertex <span class="math notranslate nohighlight">\(q^{k_1}\)</span> in <a class="reference external" href="#Fig1">Fig. 1(b)</a> is defined by the <em>barycentric coordinates</em>:</p>
+<div class="math notranslate nohighlight">
+\[\phi_{k_1}(x,y) = \lambda^k_{1}(x,y)(2\lambda^k_1(x,y)-1)\]</div>
+<p>and for the mid-point <span class="math notranslate nohighlight">\(q^{k_2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\phi_{k_2}(x,y) = 4\lambda^k_1(x,y)\lambda^k_4(x,y)\]</div>
+<p>If we write :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, P2);
+Vh fh = f(x.y);
+</pre></div>
+</div>
+<p>then :</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh =</code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{M}f(q^i)\phi_i(x,y)\quad (\textrm{summation over all vertex or mid-point})\)</span></p>
+<p>See <a class="reference external" href="#Fig5">Fig. 5</a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P2)</code>.</p>
+</div>
+</div>
+<div class="section" id="p1-nonconforming-element">
+<h2>P1 Nonconforming Element<a class="headerlink" href="#p1-nonconforming-element" title="Permalink to this headline">¶</a></h2>
+<p>Refer to <a class="reference internal" href="#thomasset2012" id="id7">[THOMASSET2012]</a> for details; briefly, we now consider non-continuous approximations so we will lose the property</p>
+<div class="math notranslate nohighlight">
+\[w_h\in V_h\subset H^1(\Omega)\]</div>
+<p>If we write</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, P1nc);
+Vh fh = f(x.y);
+</pre></div>
+</div>
+<p>then</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh =</code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{n_v}f(m^i)\phi_i(x,y)\quad (\textrm{summation over all midpoint})\)</span></p>
+<p>Here the basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> associated with the mid-point <span class="math notranslate nohighlight">\(m^i=(q^{k_i}+q^{k_{i+1}})/2\)</span> where <span class="math notranslate nohighlight">\(q^{k_i}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th point in <span class="math notranslate nohighlight">\(T_k\)</span>, and we assume that <span class="math notranslate nohighlight">\(j+1=0\)</span> if <span class="math notranslate nohighlight">\(j=3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;&amp;\phi_i(x,y)=a^k_i+b^k_ix+c^k_iy~\textrm{for }(x,y)\in T_k,\\
+&amp;&amp;\phi_i(m^i)=1,\quad \phi_i(m^j)=0\textrm{ if }i\neq j\end{split}\]</div>
+<p>Strictly speaking <span class="math notranslate nohighlight">\(\p \phi_i/\p x,\, \p \phi_i/\p y\)</span> contain Dirac distribution <span class="math notranslate nohighlight">\(\rho \delta_{\p T_k}\)</span>.</p>
+<p>The numerical calculations will automatically <em>ignore</em> them.
+In <a class="reference internal" href="#thomasset2012" id="id8">[THOMASSET2012]</a>, there is a proof of the estimation</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{k=1}^{n_v}\int_{T_k}|\nabla w-\nabla w_h|^2\d x\d y\right)^{1/2} =O(h)\]</div>
+<p>The basis functions <span class="math notranslate nohighlight">\(\phi_k\)</span> have the following properties.</p>
+<ol class="arabic">
+<li><p class="first">For the bilinear form <span class="math notranslate nohighlight">\(a\)</span> defined in <a class="reference external" href="#Fig6">Fig. 6</a> satisfy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;&amp;a(\phi_i,\phi_i)&gt;0,\qquad a(\phi_i,\phi_j)\le 0\quad\textrm{if }i\neq j\\
+&amp;&amp;\sum_{k=1}^{n_v}a(\phi_i,\phi_k)\ge 0\end{split}\]</div>
+</li>
+<li><p class="first"><span class="math notranslate nohighlight">\(f\ge 0 \Rightarrow u_h\ge 0\)</span></p>
+</li>
+<li><p class="first">If <span class="math notranslate nohighlight">\(i\neq j\)</span>, the basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> and <span class="math notranslate nohighlight">\(\phi_j\)</span> are <span class="math notranslate nohighlight">\(L^2\)</span>-orthogonal:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega}\phi_i\phi_j\, \d x\d y=0\qquad \textrm{if }i\neq j\]</div>
+<p>which is false for <span class="math notranslate nohighlight">\(P_1\)</span>-element.</p>
+</li>
+</ol>
+<p>See <a class="reference external" href="#Fig6">Fig. 6</a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P1nc)</code>.</p>
+</div>
+<div class="section" id="other-fe-space">
+<h2>Other FE-space<a class="headerlink" href="#other-fe-space" title="Permalink to this headline">¶</a></h2>
+<p>For each triangle <span class="math notranslate nohighlight">\(T_k\in \mathcal{T}_h\)</span>, let <span class="math notranslate nohighlight">\(\lambda_{k_1}(x,y),\, \lambda_{k_2}(x,y),\, \lambda_{k_3}(x,y)\)</span> be the area cordinate of the triangle (see <a class="reference external" href="#Fig1">Fig. 1</a>), and put</p>
+<div class="math notranslate nohighlight">
+\[\beta_k(x,y)=27\lambda_{k_1}(x,y)\lambda_{k_2}(x,y)\lambda_{k_3}(x,y)\]</div>
+<p>called <em>bubble</em> function on <span class="math notranslate nohighlight">\(T_k\)</span>. The bubble function has the feature: 1. <span class="math notranslate nohighlight">\(\beta_k(x,y)=0\quad \textrm{if }(x,y)\in \p T_k\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><span class="math notranslate nohighlight">\(\beta_k(q^{k_b})=1\)</span> where <span class="math notranslate nohighlight">\(q^{k_b}\)</span> is the barycenter <span class="math notranslate nohighlight">\(\frac{q^{k_1}+q^{k_2}+q^{k_3}}{3}\)</span>.</li>
+</ol>
+<p>If we write :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, P1b);
+Vh fh = f(x.y);
+</pre></div>
+</div>
+<p>then</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh =</code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{n_v}f(q^i)\phi_i(x,y)+\sum_{k=1}^{n_t}f(q^{k_b})\beta_k(x,y)\)</span></p>
+<p>See <a class="reference external" href="#Fig7">Fig. 7</a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh(Th, P1b)</code>.</p>
+</div>
+<div class="section" id="vector-valued-fe-function">
+<h2>Vector Valued FE-function<a class="headerlink" href="#vector-valued-fe-function" title="Permalink to this headline">¶</a></h2>
+<p>Functions from <span class="math notranslate nohighlight">\(\R^{2}\)</span> to <span class="math notranslate nohighlight">\(\R^{N}\)</span> with <span class="math notranslate nohighlight">\(N=1\)</span> are called scalar functions and called <em>vector valued</em> when <span class="math notranslate nohighlight">\(N&gt;1\)</span>.
+When <span class="math notranslate nohighlight">\(N=2\)</span></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh(Th, [P0, P1]) ;
+</pre></div>
+</div>
+<p>makes the space</p>
+<div class="math notranslate nohighlight">
+\[V_h=\{\mathbf{w}=(w_1,w_2)|\; w_1\in V_h(\mathcal{T}_h,P_0),\,
+w_2\in V_h(\mathcal{T}_h,P_1)\}\]</div>
+<div class="section" id="raviart-thomas-element">
+<h3>Raviart-Thomas Element<a class="headerlink" href="#raviart-thomas-element" title="Permalink to this headline">¶</a></h3>
+<p>In the Raviart-Thomas finite element <span class="math notranslate nohighlight">\(RT0_{h}\)</span>, the degrees of freedom are the fluxes across edges <span class="math notranslate nohighlight">\(e\)</span> of the mesh, where the flux of the function <span class="math notranslate nohighlight">\(\mathbf{f} : \R^2 \longrightarrow \R^2\)</span> is <span class="math notranslate nohighlight">\(\int_{e} \mathbf{f}.n_{e}\)</span>, <span class="math notranslate nohighlight">\(n_{e}\)</span> is the unit normal of edge <span class="math notranslate nohighlight">\(e\)</span>.</p>
+<p>This implies an orientation of all the edges of the mesh, for example we can use the global numbering of the edge vertices and we just go from small to large numbers.</p>
+<p>To compute the flux, we use a quadrature with one Gauss point, the mid-point of the edge.</p>
+<p>Consider a triangle <span class="math notranslate nohighlight">\(T_k\)</span> with three vertices <span class="math notranslate nohighlight">\((\mathbf{a},\mathbf{b},\mathbf{c})\)</span>.
+Lets denote the vertices numbers by <span class="math notranslate nohighlight">\(i_{a},i_{b},i_{c}\)</span>, and define the three edge vectors <span class="math notranslate nohighlight">\(\mathbf{e}^{1},\mathbf{e}^{2},\mathbf{e}^{3}\)</span> by <span class="math notranslate nohighlight">\(sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})\)</span>, <span class="math notranslate nohighlight">\(sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})\)</span>, <span class="math notranslate nohighlight">\(sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})\)</span>.</p>
+<p>We get three basis functions :</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol{\phi}^{k}_{1}= \frac{sgn(i_{b}-i_{c})}{2|T_k|}(\mathbf{x}-\mathbf{a}),\quad
+\boldsymbol{\phi}^{k}_{2}= \frac{sgn(i_{c}-i_{a})}{2|T_k|}(\mathbf{x}-\mathbf{b}),\quad
+\boldsymbol{\phi}^{k}_{3}= \frac{sgn(i_{a}-i_{b})}{2|T_k|}(\mathbf{x}-\mathbf{c}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(|T_k|\)</span> is the area of the triangle <span class="math notranslate nohighlight">\(T_k\)</span>.
+If we write</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh(Th, RT0);
+Vh [f1h, f2h] = [f1(x, y), f2(x, y)];
+</pre></div>
+</div>
+<p>then</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fh =</code> <span class="math notranslate nohighlight">\(\displaystyle \mathbf{f}_h(x,y)=\sum_{k=1}^{n_t}\sum_{l=1}^6 n_{i_lj_l}|\mathbf{e^{i_l}}|f_{j_l}(m^{i_l})\phi_{i_lj_l}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(n_{i_lj_l}\)</span> is the <span class="math notranslate nohighlight">\(j_l\)</span>-th component of the normal vector <span class="math notranslate nohighlight">\(\mathbf{n}_{i_l}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\{m_1,m_2,m_3\} = \left\{\frac{\mathbf{b}+\mathbf{c}}{2},
+\frac{\mathbf{a}+\mathbf{c}}{2},
+\frac{\mathbf{b}+\mathbf{a}}{2} \right\}\]</div>
+<p>and <span class="math notranslate nohighlight">\(i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}\)</span> with the order of <span class="math notranslate nohighlight">\(l\)</span>.</p>
+<p>Fig. 8: Normal vectors of each edge</p>
+<p><img alt="RT0" src="../_images/FiniteElement_RT0.png" /></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Mesh
+mesh Th = square(2, 2);
+
+// Fespace
+fespace Xh(Th, P1);
+Xh uh = x^2 + y^2, vh;
+
+fespace Vh(Th, RT0);
+Vh [Uxh, Uyh] = [sin(x), cos(y)]; //vectorial FE function
+
+// Change the mesh
+Th = square(5,5);
+
+//Xh is unchanged
+//Uxh = x; //error: impossible to set only 1 component
+           //of a vector FE function
+vh = Uxh;//ok
+//and now vh use the 5x5 mesh
+//but the fespace of vh is always the 2x2 mesh
+
+// Plot
+plot(uh);
+uh = uh; //do a interpolation of uh (old) of 5x5 mesh
+         //to get the new uh on 10x10 mesh
+plot(uh);
+
+vh([x-1/2, y]) = x^2 + y^2; //interpolate vh = ((x-1/2)^2 + y^2)
+</pre></div>
+</div>
+<p>To get the value at a point <span class="math notranslate nohighlight">\(x=1,y=2\)</span> of the FE function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>uh</code>, or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>[Uxh, Uyh]</code>, one writes :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real value;
+value = uh(2,4); //get value = uh(2, 4)
+value = Uxh(2, 4); //get value = Uxh(2, 4)
+//OR
+x = 1; y = 2;
+value = uh; //get value = uh(1, 2)
+value = Uxh; //get value = Uxh(1, 2)
+value = Uyh; //get value = Uyh(1, 2)
+</pre></div>
+</div>
+<p>To get the value of the array associated to the FE function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>uh</code>, one writes</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real value = uh[][0]; //get the value of degree of freedom 0
+real maxdf = uh[].max; //maximum value of degree of freedom
+int size = uh.n; //the number of degree of freedom
+real[int] array(uh.n) = uh[]; //copy the array of the function uh
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For a non-scalar finite element function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>[Uxh, Uyh]</code> the two arrays <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Uxh[]</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Uyh[]</code> are the same array, because the degree of freedom can touch more than one component.</p>
+</div>
+</div>
+</div>
+<div class="section" id="a-fast-finite-element-interpolator">
+<h2>A Fast Finite Element Interpolator<a class="headerlink" href="#a-fast-finite-element-interpolator" title="Permalink to this headline">¶</a></h2>
+<p>In practice, one may discretize the variational equations by the Finite Element method.
+Then there will be one mesh for <span class="math notranslate nohighlight">\(\Omega_1\)</span> and another one for <span class="math notranslate nohighlight">\(\Omega_2\)</span>.
+The computation of integrals of products of functions defined on different meshes is difficult.</p>
+<p>Quadrature formula and interpolations from one mesh to another at quadrature points are needed.
+We present below the interpolation operator which we have used and which is new, to the best of our knowledge.</p>
+<p>Let <span class="math notranslate nohighlight">\({\cal T}_{h}^0=\cup_k T^0_k,{\cal T}_{h}^1=\cup_k T^1_k\)</span> be two triangulations of a domain <span class="math notranslate nohighlight">\(\Omega\)</span>.
+Let</p>
+<div class="math notranslate nohighlight">
+\[V({\hbox{${\cal T}$}_{h}^i}) =\{ C^0(\Omega_h^i)~:~f|_{T^i_k}\in P_0\},~~~i=0,1\]</div>
+<p>be the spaces of continuous piecewise affine functions on each triangulation.</p>
+<p>Let <span class="math notranslate nohighlight">\(f\in V({\cal T}_{h}^0)\)</span>.
+The problem is to find <span class="math notranslate nohighlight">\(g\in V({\cal T}_{h}^1)\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[g(q) = f(q) \quad \forall q\hbox{~vertex of ~} {\cal T}_{h}^1\]</div>
+<p>Although this is a seemingly simple problem, it is difficult to find an efficient algorithm in practice.</p>
+<p>We propose an algorithm which is of complexity <span class="math notranslate nohighlight">\(N^1\log N^0\)</span>, where <span class="math notranslate nohighlight">\(N^i\)</span> is the number of vertices of <span class="math notranslate nohighlight">\(\cal T_{h}^i\)</span>, and which is very fast for most practical 2D applications.</p>
+<p><strong>Algorithm</strong></p>
+<p>The method has 5 steps.
+First a quadtree is built containing all the vertices of the mesh <span class="math notranslate nohighlight">\({\cal T}_{h}^0\)</span> such that in each terminal cell there are at least one, and at most 4, vertices of <span class="math notranslate nohighlight">\({\cal T}_{h}^0\)</span>.
+For each <span class="math notranslate nohighlight">\(q^1\)</span>, vertex of <span class="math notranslate nohighlight">\({\cal T}_{h}^1\)</span> do:</p>
+<ol class="arabic">
+<li><p class="first">Find the terminal cell of the quadtree containing <span class="math notranslate nohighlight">\(q^1\)</span>.</p>
+</li>
+<li><p class="first">Find the the nearest vertex <span class="math notranslate nohighlight">\(q^0_j\)</span> to <span class="math notranslate nohighlight">\(q^1\)</span> in that cell.</p>
+</li>
+<li><p class="first">Choose one triangle <span class="math notranslate nohighlight">\(T_k^0\in{\cal T}_{h}^0\)</span> which has <span class="math notranslate nohighlight">\(q^0_j\)</span> for vertex.</p>
+</li>
+<li><p class="first">Compute the barycentric coordinates <span class="math notranslate nohighlight">\(\{\lambda_j\}_{j=1,2,3}\)</span> of <span class="math notranslate nohighlight">\(q^1\)</span> in <span class="math notranslate nohighlight">\(T^0_k\)</span>.</p>
+<ul class="simple">
+<li>if all barycentric coordinates are positive, go to Step 5</li>
+<li>otherwise, if one barycentric coordinate <span class="math notranslate nohighlight">\(\lambda_i\)</span> is negative, replace <span class="math notranslate nohighlight">\(T^0_k\)</span> by the adjacent triangle opposite <span class="math notranslate nohighlight">\(q^0_i\)</span> and go to Step 4.</li>
+<li>otherwise, if two barycentric coordinates are negative, take one of the two randomly and replace <span class="math notranslate nohighlight">\(T^0_k\)</span> by the adjacent triangle as above.</li>
+</ul>
+</li>
+<li><p class="first">Calculate <span class="math notranslate nohighlight">\(g(q^1)\)</span> on <span class="math notranslate nohighlight">\(T^0_k\)</span> by linear interpolation of <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[g(q^1) = \sum_{j=1,2,3} \lambda_j f(q^0_j)\]</div>
+</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Fig. 11: To interpolate a function at <span class="math notranslate nohighlight">\(q^0\)</span>, the knowledge of
+the triangle which contains <span class="math notranslate nohighlight">\(q^0\)</span> is needed. The algorithm may
+start at <span class="math notranslate nohighlight">\(q^1\in T_k^0\)</span> and stall on the boundary (thick line)
+because the line <span class="math notranslate nohighlight">\(q^0q^1\)</span> is not inside <span class="math notranslate nohighlight">\(\Omega\)</span>. But if
+the holes are triangulated too (doted line) then the problem does not
+arise.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><img alt="fastInterpolate" src="../_images/FiniteElement_fastInterpolate.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Two problems need to be solved:</p>
+<ul class="simple">
+<li><em>What if :math:`q^1` is not in :math:`Omega^0_h` ?</em> Then Step 5 will stop with a boundary triangle.
+So we add a step which tests the distance of <span class="math notranslate nohighlight">\(q^1\)</span> with the two adjacent boundary edges and selects the nearest, and so on till the distance grows.</li>
+<li><em>What if :math:`Omega^0_h` is not convex and the marching process of Step 4 locks on a boundary?</em> By construction Delaunay-Voronoï’s mesh generators always triangulate the convex hull of the vertices of the domain.
+Therefore, we make sure that this information is not lost when <span class="math notranslate nohighlight">\({\cal T}_{h}^0,{\cal T}_{h}^1\)</span> are constructed and we keep the triangles which are outside the domain on a special list.
+That way, in step 5 we can use that list to step over holes if needed.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Sometimes, in rare cases, the interpolation process misses some points, we can change the search algorithm through a global variable <code class="code freefem docutils literal highlight highlight-freefem"><span></span>searchMethod</code></p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>searchMethod = 0; // default value for fast search algorithm
+searchMethod = 1; // safe search algorithm, uses brute force in case of missing point
+// (warning: can be very expensive in cases where a lot of points are outside of the domain)
+searchMethod = 2; // always uses brute force. It is very computationally expensive.
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Step 3 requires an array of pointers such that each vertex points to one triangle of the triangulation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span>=</code> is the interpolation operator of FreeFem++, the continuous finite functions are extended by continuity to the outside of the domain.</p>
+<p>Try the following example :</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Mesh
+mesh Ths = square(10, 10);
+mesh Thg = square(30, 30, [x*3-1, y*3-1]);
+plot(Ths, Thg, wait=true);
+
+// Fespace
+fespace Ch(Ths, P2);
+Ch us = (x-0.5)*(y-0.5);
+
+fespace Dh(Ths, P2dc);
+Dh vs = (x-0.5)*(y-0.5);
+
+fespace Fh(Thg, P2dc);
+Fh ug=us, vg=vs;
+
+// Plot
+plot(us, ug, wait=true);
+plot(vs, vg, wait=true);
+</pre></div>
+</div>
+</div>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=”center”&gt;&lt;a name=”Fig12”&gt;Fig. 12&lt;/a&gt;: Extension of a continuous FE-function&lt;/th&gt;
+&lt;th align=”center”&gt;&lt;a name=”Fig13”&gt;Fig. 13&lt;/a&gt;: Extension of discontinuous FE-function&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=”center”&gt;&lt;img alt=”us-ug” src=”images/FiniteElement_UsUg.png” /&gt;&lt;/td&gt;
+&lt;td align=”center”&gt;&lt;img alt=”vs-vg” src=”images/FiniteElement_VsVg.png” /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+</div>
+<div class="section" id="keywords-problem-and-solve">
+<h2>Keywords: Problem and Solve<a class="headerlink" href="#keywords-problem-and-solve" title="Permalink to this headline">¶</a></h2>
+<p>For FreeFem++, a problem must be given in variational form, so we need a bilinear form <span class="math notranslate nohighlight">\(a(u,v)\)</span>, a linear form <span class="math notranslate nohighlight">\(\ell(f,v)\)</span>, and possibly a boundary condition form must be added.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>problem P (u, v)
+    = a(u,v) - l(f,v)
+    + (boundary condition)
+    ;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you want to formulate the problem and solve it in the same time, you can use the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code>.</p>
+</div>
+<div class="section" id="weak-form-and-boundary-condition">
+<h3>Weak Form and Boundary Condition<a class="headerlink" href="#weak-form-and-boundary-condition" title="Permalink to this headline">¶</a></h3>
+<p>To present the principles of Variational Formulations, also called weak form, for the Partial Differential Equations, let’s take a model problem: a Poisson equation with Dirichlet and Robin Boundary condition.</p>
+<p>The problem: Find <span class="math notranslate nohighlight">\(u\)</span> a real function defined on a domain <span class="math notranslate nohighlight">\(\Omega\)</span> of <span class="math notranslate nohighlight">\(\R^d\)</span> <span class="math notranslate nohighlight">\((d=2,3)\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcll}
+    -\nabla\cdot(\kappa \nabla u) &amp;=&amp; f &amp; \mbox{ in }\Omega\\
+    a u + \kappa \frac{\p u}{\p n} &amp;=&amp; b &amp; \mbox{ on }\Gamma_r\\
+    u &amp;=&amp; g &amp; \mbox{ on }\Gamma_d
+\end{array}\end{split}\]</div>
+<p>where</p>
+<ul class="simple">
+<li>if <span class="math notranslate nohighlight">\(d=2\)</span> then <span class="math notranslate nohighlight">\(\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u ) + \p_y(\kappa \p_y u )\)</span> with <span class="math notranslate nohighlight">\(\p_x u = \frac{\p u}{\p x}\)</span> and <span class="math notranslate nohighlight">\(\p_y u = \frac{\p u}{\p y}\)</span></li>
+<li>if <span class="math notranslate nohighlight">\(d=3\)</span> then <span class="math notranslate nohighlight">\(\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u) + \p_y(\kappa \p_y u) + \p_z(\kappa \p_z u)\)</span> with <span class="math notranslate nohighlight">\(\p_x u = \frac{\p u}{\p x}\)</span>, <span class="math notranslate nohighlight">\(\p_y u = \frac{\p u}{\p y}\)</span> and , <span class="math notranslate nohighlight">\(\p_z u = \frac{\p u}{\p z}\)</span></li>
+<li>The border <span class="math notranslate nohighlight">\(\Gamma=\p \Omega\)</span> is split in <span class="math notranslate nohighlight">\(\Gamma_d\)</span> and <span class="math notranslate nohighlight">\(\Gamma_n\)</span> such that <span class="math notranslate nohighlight">\(\Gamma_d \cap \Gamma_n = \emptyset\)</span> and <span class="math notranslate nohighlight">\(\Gamma_d \cup \Gamma_n = \p \Omega\)</span>,</li>
+<li><span class="math notranslate nohighlight">\(\kappa\)</span> is a given positive function, such that <span class="math notranslate nohighlight">\(\exists \kappa_0 \in \R ,\quad 0 &lt; \kappa_0 \leq \kappa\)</span>.</li>
+<li><span class="math notranslate nohighlight">\(a\)</span> a given non negative function,</li>
+<li><span class="math notranslate nohighlight">\(b\)</span> a given function.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is the well known Neumann boundary condition if <span class="math notranslate nohighlight">\(a=0\)</span>, and if <span class="math notranslate nohighlight">\(\Gamma_d\)</span> is empty.</p>
+</div>
+<p>In this case the function appears in the problem just by its derivatives, so it is defined only up to a constant (if <span class="math notranslate nohighlight">\(u\)</span> is a solution then <span class="math notranslate nohighlight">\(u+c\)</span> is also a solution).</p>
+<p>Let <span class="math notranslate nohighlight">\({v}\)</span>, a regular test function, null on <span class="math notranslate nohighlight">\(\Gamma_d\)</span>, by integration by parts we get:</p>
+<div class="math notranslate nohighlight">
+\[- \int_{\Omega} \nabla\cdot(\kappa \nabla u) \, {v} \,d\omega
+= \int_{\Omega} \kappa \nabla{ v} \cdot \nabla u \,d\omega
+- \int_{\Gamma} {v}\kappa \frac{ \p u}{\p \mathbf{n}} \,d\gamma,= \int_{\Omega} f {v} \,d\omega\]</div>
+<p>where if <span class="math notranslate nohighlight">\(d=2\)</span> the <span class="math notranslate nohighlight">\(\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y})\)</span>,</p>
+<p>where if <span class="math notranslate nohighlight">\(d=3\)</span> the <span class="math notranslate nohighlight">\(\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y} + \frac{\p u}{\p z}\frac{\p { v}}{\p z})\)</span>,</p>
+<p>and where <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is the unitary outer-pointing normal of the <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
+<p>Now we note that <span class="math notranslate nohighlight">\(\kappa \frac{ \p u}{\p n} = - a u + b\)</span> on <span class="math notranslate nohighlight">\(\Gamma_r\)</span> and <span class="math notranslate nohighlight">\(v=0\)</span> on <span class="math notranslate nohighlight">\(\Gamma_d\)</span> and <span class="math notranslate nohighlight">\(\Gamma = \Gamma_d \cup \Gamma_n\)</span> thus</p>
+<div class="math notranslate nohighlight">
+\[- \int_{\Gamma} {v}
+\kappa \frac{ \p u}{\p n} = \int_{\Gamma_r} a u v - \int_{\Gamma_r} b v\]</div>
+<p>The problem becomes:</p>
+<p>Find <span class="math notranslate nohighlight">\(u \in V_g = \{w \in H^1(\Omega) / w = g \mbox{ on } \Gamma_d \}\)</span> such that:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-v-poisson">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-v-poisson" title="Permalink to this equation">¶</a></span>\[{\int_{\Omega} \kappa \nabla{ v} . \nabla u \,d\omega + \int_{\Gamma_r} a u v \,d\gamma = \int_{\Omega} f {v}} \,d\omega
++ \int_{\Gamma_r} b v \,d\gamma , \quad \forall v \in V_0\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_0 = \{v \in H^1(\Omega) / v = 0 \mbox{ on } \Gamma_d \}\)</span></p>
+<p>Except in the case of Neumann conditions everywhere, the problem <a class="reference internal" href="#equation-eqn-v-poisson">(16)</a> is well posed when <span class="math notranslate nohighlight">\(\kappa\geq \kappa_0&gt;0\)</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If we have only the Neumann boundary condition, linear algebra tells us that the right hand side must be orthogonal to the kernel of the operator for the solution to exist.
+One way of writing the compatibility condition is:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} f \,d\omega + \int_{\Gamma} b \,d\gamma=0\]</div>
+<p>and a way to fix the constant is to solve for <span class="math notranslate nohighlight">\(u \in H^1(\Omega)\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[{\int_{\Omega} (\varepsilon u v \; + \; \kappa \nabla{ v} . \nabla u) \,d\omega
+= \int_{\Omega} f {v}} \,d\omega + \int_{\Gamma_r} b v \,d\gamma , \quad \forall v \in H^1(\Omega)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon\)</span> is a small parameter (<span class="math notranslate nohighlight">\(\sim \kappa\; 10^{-10} |\Omega|^{\frac2d}\)</span>).</p>
+<p class="last">Remark that if the solution is of order <span class="math notranslate nohighlight">\(\frac{1}{\varepsilon}\)</span> then the compatibility condition is unsatisfied, otherwise we get the solution such that <span class="math notranslate nohighlight">\(\int_\Omega u = 0\)</span>, you can also add a Lagrange multiplier to solve the real mathematical problem like in the [Lagrange multipliers example](/examples/#lagrange-multipliers).</p>
+</div>
+<p>In FreeFem++, the bidimensional problem <a class="reference internal" href="#equation-eqn-v-poisson">(16)</a> becomes:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>problem Pw (u, v)
+    = int2d(Th)( //int_{Omega} kappa nabla v . nabla u
+          kappa*(dx(u)*dx(v) + dy(u)*dy(v))
+    )
+    + int1d(Th, gn)( //int_{Gamma_r} a u v
+          a * u*v
+    )
+    - int2d(Th)( //int_{Omega} f v
+          f*v
+    )
+    - int1d(Th, gn)( //int_{Gamma_r} b v
+          b * v
+    )
+    + on(gd, u=g) //u = g on Gamma_d
+    ;
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code> is a mesh of the bi-dimensional domain <span class="math notranslate nohighlight">\(\Omega\)</span>, and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>gd</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>gn</code> are respectively the boundary labels of boundary <span class="math notranslate nohighlight">\(\Gamma_d\)</span> and <span class="math notranslate nohighlight">\(\Gamma_n\)</span>.</p>
+<p>And the three dimensional problem <a class="reference internal" href="#equation-eqn-v-poisson">(16)</a> becomes</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>macro Grad(u) [dx(u), dy(u), dz(u) ]//
+problem Pw (u, v)
+    = int3d(Th)( //int_{Omega} kappa nabla v . nabla u
+          kappa*(Grad(u)&#39;*Grad(v))
+    )
+    + int2d(Th, gn)( //int_{Gamma_r} a u v
+          a * u*v
+    )
+    - int3d(Th)( //int_{Omega} f v
+          f*v
+    )
+    - int2d(Th, gn)( //int_{Gamma_r} b v
+          b * v
+    )
+    + on(gd, u=g) //u = g on Gamma_d
+    ;
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code> is a mesh of the three dimensional domain <span class="math notranslate nohighlight">\(\Omega\)</span>, and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>gd</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>gn</code> are respectively the boundary labels of boundary <span class="math notranslate nohighlight">\(\Gamma_d\)</span> and <span class="math notranslate nohighlight">\(\Gamma_n\)</span>.</p>
+</div>
+</div>
+<div class="section" id="parameters-affecting-solve-and-problem">
+<h2>Parameters affecting solve and problem<a class="headerlink" href="#parameters-affecting-solve-and-problem" title="Permalink to this headline">¶</a></h2>
+<p>The parameters are FE functions real or complex, the number <span class="math notranslate nohighlight">\(n\)</span> of parameters is even (<span class="math notranslate nohighlight">\(n=2*k\)</span>), the <span class="math notranslate nohighlight">\(k\)</span> first function parameters are unknown, and the <span class="math notranslate nohighlight">\(k\)</span> last are test functions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the functions are a part of vectorial FE then you must give all the functions of the vectorial FE in the same order (see <a class="reference external" href="/models/StaticProblems/#poisson-with-mixed-finite-element">Poisson problem with mixed finite element</a> for example).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don’t mix complex and real parameters FE function.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>Bug:</strong></p>
+<p class="last">The mixing of multiple <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> with different periodic boundary conditions are not implemented.
+So all the finite element spaces used for tests or unknown functions in a problem, must have the same type of periodic boundary conditions or no periodic boundary conditions.
+No clean message is given and the result is unpredictable.</p>
+</div>
+<p>The parameters are:</p>
+<ul>
+<li><p class="first"><strong>solver=</strong> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code>,  <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>GMRES</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>sparsesolver</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> …</p>
+<p>The default solver is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>sparsesolver</code> (it is equal to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> if no other sparse solver is defined) or is set to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code> if no direct sparse solver is available.</p>
+<p>The storage mode of the matrix of the underlying linear system depends on the type of solver chosen; for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code> the matrix is sky-line non symmetric, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code> the matrix is sky-line symmetric, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code> the matrix is sky-line symmetric positive definite, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code> the matrix is sparse symmetric positive, and for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>GMRES</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>sparsesolver</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> the matrix is just sparse.</p>
+</li>
+<li><p class="first"><strong>eps=</strong> a real expression.
+<span class="math notranslate nohighlight">\(\varepsilon\)</span> sets the stopping test for the iterative methods like <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code>.
+Note that if <span class="math notranslate nohighlight">\(\varepsilon\)</span> is negative then the stopping test is:</p>
+<div class="math notranslate nohighlight">
+\[|| A x - b || &lt; |\varepsilon|\]</div>
+<p>if it is positive, then the stopping test is:</p>
+<div class="math notranslate nohighlight">
+\[|| A x - b || &lt; \frac{|\varepsilon|}{|| A x_{0} - b ||}\]</div>
+</li>
+<li><p class="first"><strong>init=</strong> boolean expression, if it is false or 0 the matrix is reconstructed.
+Note that if the mesh changes the matrix is reconstructed too.</p>
+</li>
+<li><p class="first"><strong>precon=</strong> name of a function (for example <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P</code>) to set the preconditioner.
+The prototype for the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P</code> must be:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func real[int] P(real[int] &amp; xx);
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>tgv=</strong> Huge value (<span class="math notranslate nohighlight">\(10^{30}\)</span>) used to implement Dirichlet boundary conditions.</p>
+</li>
+<li><p class="first"><strong>tolpivot=</strong> sets the tolerance of the pivot in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> (<span class="math notranslate nohighlight">\(10^{-1}\)</span>) and, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code> factorisation (<span class="math notranslate nohighlight">\(10^{-20}\)</span>).</p>
+</li>
+<li><p class="first"><strong>tolpivotsym=</strong> sets the tolerance of the pivot sym in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code></p>
+</li>
+<li><p class="first"><strong>strategy=</strong> sets the integer <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> strategy (<span class="math notranslate nohighlight">\(0\)</span> by default).</p>
+</li>
+</ul>
+</div>
+<div class="section" id="problem-definition">
+<span id="problemdefinition"></span><h2>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this headline">¶</a></h2>
+<p>Below <code class="code freefem docutils literal highlight highlight-freefem"><span></span>v</code> is the unknown function and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>w</code> is the test function.
+After the “=” sign, one may find sums of:</p>
+<ul>
+<li><p class="first">Identifier(s); this is the name given earlier to the variational form(s) (type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> ) for possible reuse.</p>
+<p>Remark, that the name in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> of the unknown test function is forgotten, we use the order in the argument list to recall names as in a <code class="docutils literal highlight highlight-freefem"><span></span>C++</code> function,</p>
+</li>
+<li><p class="first">The terms of the bilinear form itself: if <span class="math notranslate nohighlight">\(K\)</span> is a given function,</p>
+</li>
+<li><p class="first">Bilinear part for 3D meshes <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code></p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T } K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi&lt;0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, l, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi&lt;0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, 2, 5)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, 2, 5)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap (\Gamma_2 \cup \Gamma_{5})} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi=0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, l, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi=0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intallfaces(Th)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{\p T } K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intallfaces(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{{T\in\mathtt{Th},T\subset \Omega_{1}}}\int_{\p T } K\,v\,w\)</span></li>
+<li>They contribute to the sparse matrix of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code> which, whether declared explicitly or not, is constructed by FreeFem++.</li>
+</ul>
+</li>
+<li><p class="first">Bilinear part for 2D meshes <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code></p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T } K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi&lt;0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, l, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi&lt;0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 2, 5)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 2, 5)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi=0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, l, levelset=phi)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi=0} K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intalledges(Th)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{\p T } K\,v\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intalledges(Th, 1)(K*v*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{{T\in\mathtt{Th},T\subset \Omega_{1}}}\int_{\p T } K\,v\,w\)</span></li>
+<li>They contribute to the sparse matrix of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code> which, whether declared explicitly or not, is constructed by FreeFem++.</li>
+</ul>
+</li>
+<li><p class="first">The right hand-side of the Partial Differential Equation in 3D, the terms of the linear form: for given functions <span class="math notranslate nohighlight">\(K,\, f\)</span>:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, l)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\in\Omega_l}\int_{T} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi&lt;0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th, l, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset\Omega_{l}}\int_{T,\phi&lt;0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, 2, 5)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5}) } K \,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi=0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, l, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi=0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intallfaces(Th)(f*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{\p T } f\,w\)</span></li>
+<li>A vector of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code></li>
+</ul>
+</li>
+<li><p class="first">The right hand-side of the Partial Differential Equation in 2D, the terms of the linear form: for given functions <span class="math notranslate nohighlight">\(K,\, f\)</span>:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, l)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\in\Omega_l}\int_{T} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi&lt;0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, l, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset\Omega_{l}}\int_{T,\phi&lt;0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 2, 5)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5}) } K \,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi=0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, l, levelset=phi)(K*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th},T\subset\Omega_{l}}\int_{T,\phi=0} K\,w\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>intalledges(Th)(f*w) =</code> <span class="math notranslate nohighlight">\(\displaystyle\sum_{T\in\mathtt{Th}}\int_{\p T } f\,w\)</span></li>
+<li>a vector of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code></li>
+</ul>
+</li>
+<li><p class="first">The boundary condition terms:</p>
+<ul>
+<li><p class="first">An “on” scalar form (for Dirichlet) : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>on(1, u=g)</code></p>
+<p>Used for all degrees of freedom <span class="math notranslate nohighlight">\(i\)</span> of the boundary referred by “1”, the diagonal term of the matrix <span class="math notranslate nohighlight">\(a_{ii}= tgv\)</span> with the <em>terrible giant value</em> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>tgv</code> (=:math:<cite>10^{30}</cite> by default), and the right hand side <span class="math notranslate nohighlight">\(b[i] = &quot;(\Pi_h g)[i]&quot; \times tgv\)</span>, where the <span class="math notranslate nohighlight">\(&quot;(\Pi_h g)g[i]&quot;\)</span> is the boundary node value given by the interpolation of <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">todo</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if <span class="math notranslate nohighlight">\(\mathrm{tgv} &lt; 0\)</span> then we put to <span class="math notranslate nohighlight">\(0\)</span> all term of the line <span class="math notranslate nohighlight">\(i\)</span> in the matrix, except diagonal term <span class="math notranslate nohighlight">\(a_{ii}=1\)</span>, and <span class="math notranslate nohighlight">\(b[i] = &quot;(\Pi_h g)[i]&quot;\)</span>.</p>
+</div>
+</li>
+<li><p class="first">An “on” vectorial form (for Dirichlet): <code class="code freefem docutils literal highlight highlight-freefem"><span></span>on(1, u1=g1, u2=g2)</code></p>
+<p>If you have vectorial finite element like <code class="code freefem docutils literal highlight highlight-freefem"><span></span>RT0</code>, the 2 components are coupled, and so you have : <span class="math notranslate nohighlight">\(b[i] = &quot;(\Pi_h (g1,g2))[i]&quot; \times tgv\)</span>, where <span class="math notranslate nohighlight">\(\Pi_h\)</span> is the vectorial finite element interpolant.</p>
+</li>
+<li><p class="first">A linear form on <span class="math notranslate nohighlight">\(\Gamma\)</span> (for Neumann in 2d) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>-int1d(Th)(f*w)</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>-int1d(Th, 3)(f*w)</code></p>
+</li>
+<li><p class="first">A bilinear form on <span class="math notranslate nohighlight">\(\Gamma\)</span> or <span class="math notranslate nohighlight">\(\Gamma_{2}\)</span> (for Robin in 2d) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th)(K*v*w)</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th,2)(K*v*w)</code></p>
+</li>
+<li><p class="first">A linear form on <span class="math notranslate nohighlight">\(\Gamma\)</span> (for Neumann in 3d) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>-int2d(Th)(f*w)</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>-int2d(Th, 3)(f*w)</code></p>
+</li>
+<li><p class="first">A bilinear form on <span class="math notranslate nohighlight">\(\Gamma\)</span> or <span class="math notranslate nohighlight">\(\Gamma_{2}\)</span> (for Robin in 3d) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)(K*v*w)</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th,2)(K*v*w)</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>If needed, the different kind of terms in the sum can appear more than once.</li>
+<li>The integral mesh and the mesh associated to test functions or unknown functions can be different in the case of linear form.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>N.x</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>N.y</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>N.z</code> are the normal’s components.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is not possible to write in the same integral the linear part and the bilinear part such as in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th)(K*v*w - f*w)</code>.</p>
+</div>
+</div>
+<div class="section" id="numerical-integration">
+<h2>Numerical Integration<a class="headerlink" href="#numerical-integration" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(D\)</span> be a <span class="math notranslate nohighlight">\(N\)</span>-dimensional bounded domain.</p>
+<p>For an arbitrary polynomial <span class="math notranslate nohighlight">\(f\)</span> of degree <span class="math notranslate nohighlight">\(r\)</span>, if we can find particular (quadrature) points <span class="math notranslate nohighlight">\(\mathbf{\xi}_j,\, j=1,\cdots,J\)</span> in <span class="math notranslate nohighlight">\(D\)</span> and (quadrature) constants <span class="math notranslate nohighlight">\(\omega_j\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\int_{D}f(\mathbf{x}) = \sum_{\ell =1}^L c_\ell f(\mathbf{\xi}_\ell)\]</div>
+<p>then we have an error estimate (see <a class="reference internal" href="#crouzeix1984" id="id9">[CROUZEIX1984]</a>), and then there exists a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\left|\int_{D}f(\mathbf{x}) - \sum_{\ell =1}^L \omega_\ell
+f(\mathbf{\xi}_\ell )\right|
+\le C|D|h^{r+1}\]</div>
+<p>for any function <span class="math notranslate nohighlight">\(r + 1\)</span> times continuously differentiable <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(D\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the diameter of <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(|D|\)</span> its measure (a point in the segment <span class="math notranslate nohighlight">\([q^iq^j]\)</span> is given as</p>
+<div class="math notranslate nohighlight">
+\[\{(x,y)|\; x=(1-t)q^i_x+tq^j_x,\, y=(1-t)q^i_y+tq^j_y,\, 0\le t\le 1\}
+).\]</div>
+<p>For a domain
+<span class="math notranslate nohighlight">\(\Omega_h=\sum_{k=1}^{n_t}T_k,\, \mathcal{T}_h=\{T_k\}\)</span>, we can
+calculate the integral over <span class="math notranslate nohighlight">\(\Gamma_h=\p\Omega_h\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\int_{\Gamma_h}f(\mathbf{x})ds\)</span> =<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, qfe=*)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, qforder=*)(f)</code></p>
+<p>where * stands for the name of the quadrature formula or the precision
+(order) of the Gauss formula.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">Quadature
+formula
+on an
+edge</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(L\)</span></td>
+<td>(<a href="#id10"><span class="problematic" id="id11">``</span></a>:::fre
+efem qfe=
+<a href="#id12"><span class="problematic" id="id13">``</span></a>)</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qford
+er=</code></td>
+<td>Point in
+<span class="math notranslate nohighlight">\([q
+^iq^j](=t
+)\)</span></td>
+<td>:math:<a href="#id14"><span class="problematic" id="id15">`</span></a>o
+<a href="#id69"><span class="problematic" id="id70">mega_</span></a>ell
+`</td>
+<td>Exact on
+<span class="math notranslate nohighlight">\(P_
+k, k=\)</span></td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td><a href="#id16"><span class="problematic" id="id17">``</span></a>:::free
+fem qf1pE
+``</td>
+<td>2</td>
+<td><span class="math notranslate nohighlight">\(1/
+2\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+q^iq^j\|\)</span></td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td><a href="#id18"><span class="problematic" id="id19">``</span></a>:::free
+fem qf2pE
+``</td>
+<td>3</td>
+<td><span class="math notranslate nohighlight">\((1
+\pm\sqrt{
+1/3})/2\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+q^iq^j\|/
+2\)</span></td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td><strong>``:::fr
+eefem qf3
+pE``</strong></td>
+<td>6</td>
+<td><p class="first"><span class="math notranslate nohighlight">\((1
+\pm\sqrt{
+3/5})/2\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>1/2</cite></p>
+</td>
+<td><p class="first"><span class="math notranslate nohighlight">\((5
+/18)\|q^i
+q^j\|\)</span></p>
+<blockquote>
+<div>:math:<a href="#id20"><span class="problematic" id="id21">`</span></a>(</div></blockquote>
+<p class="last">8/18)|q^
+iq^j|`</p>
+</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td><a href="#id22"><span class="problematic" id="id23">``</span></a>:::free
+fem qf4pE
+``</td>
+<td>8</td>
+<td><span class="math notranslate nohighlight">\((1
+\pm\frac{
+\sqrt{525
++70\sqrt{
+30}}}{35}
+)/2\)</span>:
+math:<cite>(1pmfrac{sqrt{525-
+70sqrt{3
+0}}}{35})
+/2</cite></td>
+<td><span class="math notranslate nohighlight">\(\f
+rac{18-\s
+qrt{30}}{
+72}\|q^iq
+^j\|\)</span><span class="math notranslate nohighlight">\(\f
+rac{18+\s
+qrt{30}}{
+72}\|q^iq
+^j\|\)</span></td>
+<td>7</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td><a href="#id24"><span class="problematic" id="id25">``</span></a>:::free
+fem qf5pE
+``</td>
+<td>10</td>
+<td><span class="math notranslate nohighlight">\((1
+\pm\frac{
+\sqrt{245
++14\sqrt{
+70}}}{21}
+)/2\)</span>:
+math:<cite>1/2
+`:mat
+h:`(1pmfrac{sqr
+t{245-14sqrt{70}}
+}{21})/2</cite></td>
+<td><span class="math notranslate nohighlight">\(\f
+rac{322-1
+3\sqrt{70
+}}{1800}\
+|q^iq^j\|
+\)</span>frac{
+64}{225}<a href="#id26"><span class="problematic" id="id27">|</span></a>q^iq^j|
+<cite>:mat
+h:</cite>frac{
+322+13sq
+rt{70}}{1
+800}|q^i
+q^j|`</td>
+<td>9</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qf1pE
+lump</code></td>
+<td>2</td>
+<td><span class="math notranslate nohighlight">\(0\)</span>
+:math
+:<cite>+1</cite></td>
+<td><span class="math notranslate nohighlight">\(\|
+q^iq^j\|/
+2\)</span>:ma
+th:<cite>|q^i
+q^j|/2</cite></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>where <span class="math notranslate nohighlight">\(|q^iq^j|\)</span> is the length of segment
+<span class="math notranslate nohighlight">\(\overline{q^iq^j}\)</span>.</p>
+<p>For a part <span class="math notranslate nohighlight">\(\Gamma_1\)</span> of <span class="math notranslate nohighlight">\(\Gamma_h\)</span> with the label “1”, we
+can calculate the integral over <span class="math notranslate nohighlight">\(\Gamma_1\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\int_{\Gamma_1}f(x,y)ds\)</span> =<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 1)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 1, qfe=qf2pE)(f)</code></p>
+<p>The integrals over <span class="math notranslate nohighlight">\(\Gamma_1,\, \Gamma_3\)</span> are given by</p>
+<p><span class="math notranslate nohighlight">\(\int_{\Gamma_1\cup \Gamma_3}f(x,y)ds\)</span>
+=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int1d(Th, 1, 3)(f)</code></p>
+<p>For each triangle <span class="math notranslate nohighlight">\(T_k=[q^{k_1}q^{k_2}q^{k_3}]\)</span>, the point
+<span class="math notranslate nohighlight">\(P(x,y)\)</span> in <span class="math notranslate nohighlight">\(T_k\)</span> is expressed by the <em>area coordinate</em> as
+<span class="math notranslate nohighlight">\(P(\xi,\eta)\)</span>:</p>
+<p><a href="#id28"><span class="problematic" id="id29">:raw-latex:`\begin{eqnarray*}
+&amp;&amp;|T_k|=\frac12 \left|
+\begin{array}{ccc}
+1&amp;q^{k_1}_x&amp;q^{k_1}_y\\
+1&amp;q^{k_2}_x&amp;q^{k_2}_y\\
+1&amp;q^{k_3}_x&amp;q^{k_3}_y
+\end{array}
+\right|\quad
+D_1=\left|
+\begin{array}{ccc}
+1&amp;x&amp;y\\
+1&amp;q^{k_2}_x&amp;q^{k_2}_y\\
+1&amp;q^{k_3}_x&amp;q^{k_3}_y
+\end{array}
+\right|
+\quad
+D_2=\left|
+\begin{array}{ccc}
+1&amp;q^{k_1}_x&amp;q^{k_1}_y\\
+1&amp;x&amp;y\\
+1&amp;q^{k_3}_x&amp;q^{k_3}_y
+\end{array}
+\right|
+\quad
+D_3=\left|
+\begin{array}{ccc}
+1&amp;q^{k_1}_x&amp;q^{k_1}_y\\
+1&amp;q^{k_2}_x&amp;q^{k_2}_y\\
+1&amp;x&amp;y
+\end{array}
+\right|\\
+&amp;&amp;\xi=\frac12 D_1/|T_k|\qquad
+\eta=\frac12 D_2/|T_k|\qquad \textrm{then }
+1-\xi-\eta=\frac12 D_3/|T_k|
+\end{eqnarray*}`</span></a></p>
+<p>For a two dimensional domain or a border of three dimensional domain
+<span class="math notranslate nohighlight">\(\Omega_h=\sum_{k=1}^{n_t}T_k,\, \mathcal{T}_h=\{T_k\}\)</span>, we can
+calculate the integral over <span class="math notranslate nohighlight">\(\Omega_h\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\int_{\Omega_h}f(x,y)\)</span> =<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, qft=*)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th, qforder=*)(f)</code></p>
+<p>where * stands for the name of quadrature formula or the order of the
+Gauss formula.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">Quadature
+formula
+on a
+triangle</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(L\)</span></td>
+<td><a href="#id30"><span class="problematic" id="id31">``</span></a>:::free
+fem qft=`
+`</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qford
+er=</code></td>
+<td>Point in
+<span class="math notranslate nohighlight">\(T_
+k\)</span></td>
+<td>:math:<a href="#id32"><span class="problematic" id="id33">`</span></a>o
+<a href="#id71"><span class="problematic" id="id72">mega_</span></a>ell
+`</td>
+<td>Exact on
+<span class="math notranslate nohighlight">\(P_
+k, k=\)</span></td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td><a href="#id34"><span class="problematic" id="id35">``</span></a>:::free
+fem qf1pT
+``</td>
+<td>2</td>
+<td><span class="math notranslate nohighlight">\(\l
+eft(\frac
+{1}{3},\f
+rac{1}{3}
+\right)\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+T_k\|\)</span></td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td><a href="#id36"><span class="problematic" id="id37">``</span></a>:::free
+fem qf2pT
+``</td>
+<td>3</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\l
+eft(\frac
+{1}{2},\f
+rac{1}{2}
+\right)\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>left(f
+rac{1}{2}
+,0right)
+`:mat
+h:</cite>left(
+0,frac{1
+}{2}righ
+t)`</p>
+</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\|
+T_k\|/3\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>|T_k|/
+3</cite>:ma
+th:<cite>|T_k
+|/3</cite></p>
+</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td><strong>``:::fr
+eefem qf5
+pT``</strong></td>
+<td>6</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\l
+eft(\frac
+{1}{3},\f
+rac{1}{3}
+\right)\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p><cite>left(f
+rac{6-sq
+rt{15}}{2
+1},frac{
+6-sqrt{1
+5}}{21}r
+ight)</cite></p>
+<blockquote>
+<div>:math:<a href="#id38"><span class="problematic" id="id39">`</span></a></div></blockquote>
+<p class="last">left(fra
+c{6-sqrt
+{15}}{21}
+,frac{9+
+2sqrt{15
+}}{21}ri
+ght)`<span class="math notranslate nohighlight">\(\l
+eft(\frac
+{9+2\sqrt
+{15}}{21}
+,\frac{6-
+\sqrt{15}
+}{21}\rig
+ht)\)</span>:
+math:<cite>le
+ft(frac{
+6+sqrt{1
+5}}{21},frac{6+s
+qrt{15}}{
+21}right
+)</cite>:ma
+th:<cite>left
+(frac{6+
+sqrt{15}
+}{21},fr
+ac{9-2sq
+rt{15}}{2
+1}right)
+`:mat
+h:</cite>left(
+frac{9-2
+sqrt{15}
+}{21},fr
+ac{6+sqr
+t{15}}{21
+}right)`</p>
+</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(0.
+225\|T_k\
+|\)</span>:ma
+th:<cite>frac
+{(155-sq
+rt{15})|
+T_k|}{12
+00}</cite>:
+math:<cite>fr
+ac{(155-sqrt{15})
+|T_k|}{
+1200}</cite></p>
+<blockquote>
+<div>:math:<a href="#id40"><span class="problematic" id="id41">`</span></a></div></blockquote>
+<p>frac{(155
+-sqrt{15
+})|T_k|
+}{1200}`</p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>frac{(1
+55+sqrt{
+15})|T_k
+|}{1200}
+`:mat
+h:</cite>frac{
+(155+sqr
+t{15})|T
+_k|}{120
+0}`:m
+ath:<cite>fra
+c{(155+s
+qrt{15})|T_k|}{1
+200}</cite></p>
+</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qf1pT
+lump</code></td>
+<td>&#160;</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\l
+eft(0,0\r
+ight)\)</span></p>
+<blockquote>
+<div>:math:<a href="#id42"><span class="problematic" id="id43">`</span></a></div></blockquote>
+<p class="last">left(1,0right)`:math:`
+left(0,1
+right)`</p>
+</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\|
+T_k\|/3\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>|T_k|/
+3</cite>:ma
+th:<cite>|T_k
+|/3</cite></p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qf2pT
+4P1</code></td>
+<td>&#160;</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\l
+eft(\frac
+{1}{4},\f
+rac{3}{4}
+\right)\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p><cite>left(f
+rac{3}{4}
+,frac{1}
+{4}right
+)</cite>:ma
+th:<cite>left
+(0,frac{
+1}{4}rig
+ht)</cite>:
+math:<cite>le
+ft(0,fra
+c{3}{4}r
+ight)</cite></p>
+<blockquote>
+<div>:math:<a href="#id44"><span class="problematic" id="id45">`</span></a></div></blockquote>
+<p>left(fra
+c{1}{4},0
+right)`</p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>left(f
+rac{3}{4}
+,0right)
+`:mat
+h:</cite>left(
+frac{1}{
+4},frac{
+1}{4}rig
+ht)`:
+math:<cite>le
+ft(frac{
+1}{4},fr
+ac{1}{2}right)</cite>:math:`
+left(fr
+ac{1}{2},
+frac{1}{
+4}right)
+`</p>
+</td>
+<td><p class="first"><span class="math notranslate nohighlight">\(\|
+T_k\|/12\)</span>
+:math
+:<cite>|T_k|
+/12</cite>:
+math:<cite>|T
+_k|/12</cite></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p><cite>|T_k|/
+12</cite>:m
+ath:<cite>|T_
+k|/12</cite>:math:`
+|T_k|/1
+2`:ma
+th:<cite>|T_k
+|/6</cite><span class="math notranslate nohighlight">\(\|
+T_k\|/6\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>|T_k|/
+6</cite></p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>15</td>
+<td><a href="#id46"><span class="problematic" id="id47">``</span></a>:::free
+fem qf7pT
+``</td>
+<td>8</td>
+<td>See
+<a class="reference external" href="#TAYLOR2005">TAYLOR20
+05</a>
+_
+for
+detail</td>
+<td>&#160;</td>
+<td>7</td>
+</tr>
+<tr class="row-odd"><td>21</td>
+<td><a href="#id48"><span class="problematic" id="id49">``</span></a>:::free
+fem qf9pT
+``</td>
+<td>10</td>
+<td>See
+<a class="reference external" href="#TAYLOR2005">TAYLOR20
+05</a>
+_
+for
+detail</td>
+<td>&#160;</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>For a three dimensional domain
+<span class="math notranslate nohighlight">\(\Omega_h=\sum_{k=1}^{n_t}T_k,\, \mathcal{T}_h=\{T_k\}\)</span>, we can
+calculate the integral over <span class="math notranslate nohighlight">\(\Omega_h\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\int_{\Omega_h}f(x,y)\)</span> =<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d(Th,qfV=*)(f)</code></p>
+<p>=<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3D(Th,qforder=*)(f)</code></p>
+<p>where * stands for the name of quadrature formula or the order of the
+Gauss formula.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">Quadature
+formula
+on a
+tetrahedr
+on</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(L\)</span></td>
+<td><a href="#id51"><span class="problematic" id="id52">``</span></a>:::free
+fem qfV=`
+`</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qford
+er=</code></td>
+<td>Point in
+:math:<a href="#id53"><span class="problematic" id="id54">`</span></a><a href="#id73"><span class="problematic" id="id74">T_</span></a>
+kin R^3
+`</td>
+<td>:math:<a href="#id55"><span class="problematic" id="id56">`</span></a>o
+<a href="#id75"><span class="problematic" id="id76">mega_</span></a>ell
+`</td>
+<td>Exact on
+<span class="math notranslate nohighlight">\(P_
+k, k=\)</span></td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td><a href="#id57"><span class="problematic" id="id58">``</span></a>:::free
+fem qfV1`
+`</td>
+<td>2</td>
+<td><span class="math notranslate nohighlight">\(\l
+eft(\frac
+{1}{4},\f
+rac{1}{4}
+,\frac{1}
+{4}\right
+)\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+T_k\|\)</span></td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td><a href="#id59"><span class="problematic" id="id60">``</span></a>:::free
+fem qfV2`
+`</td>
+<td>3</td>
+<td><span class="math notranslate nohighlight">\(G4
+(0.58\ldo
+ts,0.13\l
+dots,0.13
+\ldots)\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+T_k\|/4\)</span></td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td><strong>``:::fr
+eefem qfV
+5``</strong></td>
+<td>6</td>
+<td><span class="math notranslate nohighlight">\(G4
+(0.72\ldo
+ts,0.092\
+ldots,0.0
+92\ldots)
+\)</span><span class="math notranslate nohighlight">\(G6
+(0.45\ldo
+ts,0.045\
+ldots,0.4
+5\ldots)\)</span></td>
+<td><p class="first"><span class="math notranslate nohighlight">\(0.
+073\ldots
+\|T_k\|\)</span></p>
+<blockquote>
+<div>:math:</div></blockquote>
+<p class="last"><cite>0.11ldo
+ts|T_k|
+`:mat
+h:`0.042ldots|T_
+k|</cite></p>
+</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span>:::free
+fem qfV1l
+ump</code></td>
+<td>&#160;</td>
+<td><span class="math notranslate nohighlight">\(G4
+(1,0,0)\)</span></td>
+<td><span class="math notranslate nohighlight">\(\|
+T_k\|/4\)</span></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Where <span class="math notranslate nohighlight">\(G4(a,b,b)\)</span> such that <span class="math notranslate nohighlight">\(a+3b=1\)</span> is the set of the four
+point in barycentric coordinate <a href="#id61"><span class="problematic" id="id62">:raw-latex:`\begin{eqnarray}
+\{(a,b,b,b),(b,a,b,b),(b,b,a,b),(b,b,b,a)\}
+\end{eqnarray}`</span></a> and where <span class="math notranslate nohighlight">\(G6(a,b,b)\)</span> such that <span class="math notranslate nohighlight">\(2a+2b=1\)</span> is
+the set of the six points in barycentric coordinate
+<a href="#id63"><span class="problematic" id="id64">:raw-latex:`\begin{eqnarray}
+\{(a,a,b,b),(a,b,a,b),(a,b,b,a),(b,b,a,a),(b,a,b,a),(b,a,a,b)\}
+\end{eqnarray}`</span></a></p>
+<p>!!! note These tetrahedral quadrature formulae come from
+<a class="reference external" href="http://www.cs.kuleuven.be/~nines/research/ecf/mtables.html">http://www.cs.kuleuven.be/~nines/research/ecf/mtables.html</a></p>
+<p>!!! note By default, we use the formula which is exact for polynomials
+of degree <span class="math notranslate nohighlight">\(5\)</span> on triangles or edges (in bold in three tables).</p>
+<p>This possible to add an own quadrature formulae with using plugin
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>qf11to25</code> on segment, triangle or Tetrahedron.</p>
+<p>The quadrature formulae in <span class="math notranslate nohighlight">\(D\)</span> dimension is a bidimentional array
+of size <span class="math notranslate nohighlight">\(N_q\times (D+1)\)</span> such that the <span class="math notranslate nohighlight">\(D+1\)</span> value of on
+row <span class="math notranslate nohighlight">\(i=0,...,N_p-1\)</span> are <span class="math notranslate nohighlight">\(w^i,\hat{x}^i_1,...,\hat{x}^i_D\)</span>
+where <span class="math notranslate nohighlight">\(w^i\)</span> is the weight of the quadrature point, and
+<span class="math notranslate nohighlight">\(1-\sum_{k=1}^D \hat{x}^i_k ,\hat{x}^i_1,...,\hat{x}^i_D\)</span> is the
+barycentric coordinate the quadrature point.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;qf11to25&quot;
+
+// Quadrature on segment
+real[int, int] qq1 = [
+    [0.5, 0],
+    [0.5, 1]
+];
+
+QF1 qf1(1, qq1); //def of quadrature formulae qf1 on segment
+//remark:
+//1 is the order of the quadrature exact for polynome of degree &lt; 1
+
+//Quadrature on triangle
+real[int, int] qq2 = [
+    [1./3., 0, 0],
+    [1./3., 1, 0],
+    [1./3., 0, 1]
+];
+
+QF2 qf2(1, qq2); //def of quadrature formulae qf2 on triangle
+//remark:
+//1 is the order of the quadrature exact for polynome of degree &lt; 1
+//so must have sum w^i = 1
+
+// Quadrature on tetrahedron
+real[int, int] qq3 = [
+    [1./4., 0, 0, 0],
+    [1./4., 1, 0, 0],
+    [1./4., 0, 1, 0],
+    [1./4., 0, 0, 1]
+];
+
+QF3 qf3(1, qq3); //def of quadrature formulae qf3 on get
+//remark:
+//1 is the order of the quadrature exact for polynome of degree &lt; 1)
+
+// Verification in 1d and 2d
+mesh Th = square(10, 10);
+
+real I1 = int1d(Th, qfe=qf1)(x^2);
+real I1l = int1d(Th, qfe=qf1pElump)(x^2);
+
+real I2 = int2d(Th, qft=qf2)(x^2);
+real I2l = int2d(Th, qft=qf1pTlump)(x^2);
+
+cout &lt;&lt; I1 &lt;&lt; &quot; == &quot; &lt;&lt; I1l &lt;&lt; endl;
+cout &lt;&lt; I2 &lt;&lt; &quot; == &quot; &lt;&lt; I2l &lt;&lt; endl;
+assert( abs(I1-I1l) &lt; 1e-10 );
+assert( abs(I2-I2l) &lt; 1e-10 );
+</pre></div>
+</div>
+<p>The output is</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>1.67 == 1.67
+0.335 == 0.335
+</pre></div>
+</div>
+</div>
+<div class="section" id="variational-form-sparse-matrix-pde-data-vector">
+<span id="variationalformsparsematrixpde"></span><h2>Variational Form, Sparse Matrix, PDE Data Vector<a class="headerlink" href="#variational-form-sparse-matrix-pde-data-vector" title="Permalink to this headline">¶</a></h2>
+<p>In FreeFem++ it is possible to define variational forms, and use them to
+build matrices and vectors, and store them to speed-up the script (4
+times faster here).</p>
+<p>For example let us solve the <a class="reference external" href="/tutorials/ThermalConduction/">Thermal Conduction
+problem</a>. The variational formulation
+is in <span class="math notranslate nohighlight">\(L^2(0,T;H^1(\Omega))\)</span>; we shall seek <span class="math notranslate nohighlight">\(u^n\)</span> satisfying</p>
+<div class="math notranslate nohighlight">
+\[\forall w \in V_{0}; \qquad \int_\Omega \frac{u^n-u^{n-1}}{\delta t} w + \kappa\n u^n\n w) +\int_\Gamma\alpha(u^n-u_{ue})w=0\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_0 = \{w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0\}\)</span>.</p>
+<p>So to code the method with the matrices <span class="math notranslate nohighlight">\(A=(A_{ij})\)</span>,
+<span class="math notranslate nohighlight">\(M=(M_{ij})\)</span>, and the vectors <span class="math notranslate nohighlight">\(u^n, b^n, b',b&quot;, b_{cl}\)</span>
+(notation if <span class="math notranslate nohighlight">\(w\)</span> is a vector then <span class="math notranslate nohighlight">\(w_i\)</span> is a component of
+the vector).</p>
+<p><a href="#id65"><span class="problematic" id="id66">:raw-latex:`\begin{equation}
+u^n = A^{-1} b^n, \quad
+\quad b' = b_0 + M u^{n-1},
+\quad b&quot;= \frac{1}{\varepsilon} \; b_{cl},
+\quad b^n_i = \left\{
+\begin{array}{cl} b&quot;_i &amp; \mbox{if }\ i \in \Gamma_{24} \\
+b'_i &amp; \mbox{else if } \not\in \Gamma_{24} \end{array}\right.
+\end{equation}`</span></a></p>
+<p>Where with <span class="math notranslate nohighlight">\(\frac{1}{\varepsilon} = \mathtt{tgv} = 10^{30}\)</span> :</p>
+<dl class="docutils">
+<dt>:raw-latex:<a href="#id67"><span class="problematic" id="id68">`</span></a>begin{eqnarray}</dt>
+<dd>A_{ij} &amp;=&amp; left{begin{array}{cl} frac{1}{varepsilon} &amp; mbox{if } i in Gamma_{24}, mbox{and} j=i \</dd>
+<dt>displaystyle</dt>
+<dd>int_{Omega} w_j w_i / dt + k (nabla w_j. nabla w_i ) + int_{Gamma_{13}} alpha w_j w_i &amp; mbox{else if } i notin Gamma_{24}, mbox{or} jne i
+end{array}right.\
+M_{ij} &amp;=&amp; left{begin{array}{cl} frac{1}{varepsilon} &amp; mbox{if } i in Gamma_{24}, mbox{and} j=i\</dd>
+<dt>displaystyle</dt>
+<dd>int_{Omega} w_j w_i / dt
+&amp; mbox{else if }i notin Gamma_{24}, mbox{or} jne i end{array}right. \
+b_{0,i} &amp;=&amp; int_{Gamma_{13}} alpha u_{ue} w_i \
+b_{cl} &amp;=&amp; u^{0} quad mbox{the initial data}</dd>
+</dl>
+<p>end{eqnarray}`</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+func fu0 = 10 + 90*x/6;
+func k = 1.8*(y&lt;0.5) + 0.2;
+real ue = 25.;
+real alpha = 0.25;
+real T = 5;
+real dt = 0.1 ;
+
+// Mesh
+mesh Th = square(30, 5, [6*x, y]);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh u0 = fu0, u = u0;
+</pre></div>
+</div>
+<p>Create three variational formulation, and build the matrices
+<span class="math notranslate nohighlight">\(A\)</span>,<span class="math notranslate nohighlight">\(M\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Problem
+varf vthermic (u, v)
+    = int2d(Th)(
+          u*v/dt
+        + k*(dx(u)*dx(v) + dy(u)*dy(v))
+    )
+    + int1d(Th, 1, 3)(
+          alpha*u*v
+    )
+    + on(2, 4, u=1)
+    ;
+
+varf vthermic0 (u, v)
+    = int1d(Th, 1, 3)(
+          alpha*ue*v
+    )
+    ;
+
+varf vMass (u, v)
+    = int2d(Th)(
+          u*v/dt
+    )
+    + on(2, 4, u=1)
+    ;
+
+real tgv = 1e30;
+matrix A = vthermic(Vh, Vh, tgv=tgv, solver=CG);
+matrix M = vMass(Vh, Vh);
+</pre></div>
+</div>
+<p>Now, to build the right hand size we need 4 vectors.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] b0 = vthermic0(0, Vh); //constant part of the RHS
+real[int] bcn = vthermic(0, Vh); //tgv on Dirichlet boundary node ( !=0 )
+//we have for the node i : i in Gamma_24 -&gt; bcn[i] != 0
+real[int] bcl = tgv*u0[]; //the Dirichlet boundary condition part
+</pre></div>
+</div>
+<p>!!! note The boundary condition is implemented by penalization and
+vector <code class="code freefem docutils literal highlight highlight-freefem"><span></span>bcn</code> contains the contribution of the boundary
+condition <span class="math notranslate nohighlight">\(u=1\)</span>, so to change the boundary condition, we have just
+to multiply the vector <code class="code freefem docutils literal highlight highlight-freefem"><span></span>bc[]</code> by the current value
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>f</code> of the new boundary condition term by term with the
+operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span>.*</code>. <a class="reference external" href="/models/NavierStokesEquations/#uzawa-algorithm-and-conjugate-gradients">Uzawa
+model</a>
+gives a real example of using all this features.</p>
+<p>And the new version of the algorithm is now:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Time loop
+ofstream ff(&quot;thermic.dat&quot;);
+for(real t = 0; t &lt; T; t += dt){
+    // Update
+    real[int] b = b0; //for the RHS
+    b += M*u[]; //add the the time dependent part
+    //lock boundary part:
+    b = bcn ? bcl : b; //do forall i: b[i] = bcn[i] ? bcl[i] : b[i]
+
+    // Solve
+    u[] = A^-1*b;
+
+    // Save
+    ff &lt;&lt; t &lt;&lt; &quot; &quot; &lt;&lt; u(3, 0.5) &lt;&lt; endl;
+
+    // Plot
+    plot(u);
+}
+
+// Display
+for(int i = 0; i &lt; 20; i++)
+    cout &lt;&lt; dy(u)(6.0*i/20.0, 0.9) &lt;&lt; endl;
+
+// Plot
+plot(u, fill=true, wait=true);
+</pre></div>
+</div>
+<p>!!! note The functions appearing in the variational form are formal and
+local to the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition, the only important thing is
+the order in the parameter list, like in</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>```freefem
+varf vb1([u1, u2], q) = int2d(Th)((dy(u1) + dy(u2))*q) + int2d(Th)(1*q);
+varf vb2([v1, v2], p) = int2d(Th)((dy(v1) + dy(v2))*p) + int2d(Th)(1*p);
+```
+</pre></div>
+</div>
+<p>To build matrix <span class="math notranslate nohighlight">\(A\)</span> from the bilinear part the variational form
+<span class="math notranslate nohighlight">\(a\)</span> of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> simply write:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>A = a(Vh, Wh , []...]);
+// where
+//Vh is &quot;fespace&quot; for the unknown fields with a correct number of component
+//Wh is &quot;fespace&quot; for the test fields with a correct number of component
+</pre></div>
+</div>
+<p>Possible named parameters in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>, [...]</code> are</p>
+<ul>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>solver=</code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>GMRES</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>sparsesolver</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> …</p>
+<p>The default solver is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>GMRES</code>.</p>
+<p>The storage mode of the matrix of the underlying linear system
+depends on the type of solver chosen; for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code> the
+matrix is sky-line non symmetric, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code> the matrix
+is sky-line symmetric, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code> the matrix is
+sky-line symmetric positive definite, for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code> the
+matrix is sparse symmetric positive, and for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>GMRES</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>sparsesolver</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> the matrix is
+just sparse.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>factorize =</code> If true then do the matrix factorization
+for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code> or
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code>, the default value is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>false</code>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>eps=</code> A real expression. <span class="math notranslate nohighlight">\(\varepsilon\)</span> sets the
+stopping test for the iterative methods like <code class="code freefem docutils literal highlight highlight-freefem"><span></span>CG</code>. Note
+that if <span class="math notranslate nohighlight">\(\varepsilon\)</span> is negative then the stopping test is:</p>
+<div class="math notranslate nohighlight">
+\[|| A x - b || &lt; |\varepsilon|\]</div>
+<p>if it is positive then the stopping test is</p>
+<div class="math notranslate nohighlight">
+\[|| A x - b || &lt; \frac{|\varepsilon|}{|| A x_{0} - b ||}\]</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>precon=</code> Name of a function (for example
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>P</code>) to set the preconditioner.</p>
+<p>The prototype for the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P</code> must be</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func real[int] P(real[int] &amp; xx) ;
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tgv=</code> Huge value (<span class="math notranslate nohighlight">\(10^{30}\)</span>) used to implement
+Dirichlet boundary conditions.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tolpivot=</code> Set the tolerance of the pivot in
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> (<span class="math notranslate nohighlight">\(10^-1\)</span>) and, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Crout</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Cholesky</code> factorization
+(<span class="math notranslate nohighlight">\(10^{-20}\)</span>).</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tolpivotsym=</code> Set the tolerance of the pivot sym in
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>strategy=</code> Set the integer UMFPACK strategy (<span class="math notranslate nohighlight">\(0\)</span>
+by default).</p>
+</li>
+</ul>
+<p>!!! note The line of the matrix corresponding to the space
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Wh</code> and the column of the matrix corresponding to the
+space <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh</code>.</p>
+<p>To build the dual vector <code class="code freefem docutils literal highlight highlight-freefem"><span></span>b</code> (of type
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) from the linear part of the variational form
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>a</code> do simply</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real b(Vh.ndof);
+b = a(0, Vh);
+</pre></div>
+</div>
+<p>A first example to compute the area of each triangle <span class="math notranslate nohighlight">\(K\)</span> of mesh
+<span class="math notranslate nohighlight">\(Th\)</span>, just do:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Nh(Th, P0); //the space function constant / triangle
+Nh areaK;
+varf varea (unused, chiK) = int2d(Th)(chiK);
+etaK[] = varea(0, Ph);
+</pre></div>
+</div>
+<p>Effectively, the basic functions of space <span class="math notranslate nohighlight">\(Nh\)</span>, are the
+characteristic function of the element of Th, and the numbering is the
+numeration of the element, so by construction:</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{etaK}[i] = \int {1}_{|K_i} = \int_{K_i} 1;\]</div>
+<p>Now, we can use this to compute error indicators like in example
+<a class="reference external" href="/models/StaticProblems/#adaptation-using-residual-error-indicator">Adaptation using residual error
+indicator</a>.</p>
+<p>First to compute a continuous approximation to the function <span class="math notranslate nohighlight">\(h\)</span>
+“density mesh size” of the mesh <span class="math notranslate nohighlight">\(Th\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh(Th, P1);
+Vh h ;
+real[int] count(Th.nv);
+varf vmeshsizen (u, v) = intalledges(Th, qfnbpE=1)(v);
+varf vedgecount (u, v) = intalledges(Th, qfnbpE=1)(v/lenEdge);
+
+// Computation of the mesh size
+count = vedgecount(0, Vh); //number of edge / vertex
+h[] = vmeshsizen(0, Vh); //sum length edge / vertex
+h[] = h[]./count; //mean length edge / vertex
+</pre></div>
+</div>
+<p>To compute error indicator for Poisson equation :</p>
+<div class="math notranslate nohighlight">
+\[{ \eta_K = \int_K h_K^2 |( f + \Delta u_h)|^2 + \int_{\partial K} h_e |[ \frac{\partial u_h}{\partial n} ]|^2 }\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_K\)</span> is size of the longest edge
+(<code class="code freefem docutils literal highlight highlight-freefem"><span></span>hTriangle</code>), <span class="math notranslate nohighlight">\(h_e\)</span> is the size of the current edge
+(<code class="code freefem docutils literal highlight highlight-freefem"><span></span>lenEdge</code>), <span class="math notranslate nohighlight">\(n\)</span> the normal.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Nh(Th, P0); // the space function constant / triangle
+Nh etak;
+varf vetaK (unused, chiK)
+    = intalledges(Th)(
+          chiK*lenEdge*square(jump(N.x*dx(u) + N.y*dy(u)))
+    )
+    + int2d(Th)(
+          chiK*square(hTriangle*(f + dxx(u) + dyy(u)))
+    )
+    ;
+
+ etak[] = vetaK(0, Ph);
+</pre></div>
+</div>
+<p>We add automatic expression optimization by default, if this
+optimization creates problems, it can be removed with the keyword
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>optimize</code> as in the following example:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>varf a (u1, u2)
+    = int2d(Th, optimize=0)(
+          dx(u1)*dx(u2)
+        + dy(u1)*dy(u2)
+    )
+    + on(1, 2, 4, u1=0)
+    + on(3, u1=1)
+    ;
+</pre></div>
+</div>
+<p>or you can also do optimization and remove the check by setting
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>optimize=2</code>.</p>
+<p>Remark, it is all possible to build interpolation matrix, like in the
+following example:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh TH = square(3, 4);
+mesh th = square(2, 3);
+mesh Th = square(4, 4);
+
+fespace VH(TH, P1);
+fespace Vh(th, P1);
+fespace Wh(Th, P1);
+
+matrix B = interpolate(VH, Vh); //build interpolation matrix Vh-&gt;VH
+matrix BB = interpolate(Wh, Vh); //build interpolation matrix Vh-&gt;Wh
+</pre></div>
+</div>
+<p>and after some operations on sparse matrices are available for example:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int N = 10;
+real [int, int] A(N, N); //a full matrix
+real [int] a(N), b(N);
+A = 0;
+for (int i = 0; i &lt; N; i++){
+    A(i, i) = 1+i;
+    if (i+1 &lt; N) A(i, i+1) = -i;
+    a[i] = i;
+}
+b = A*b;
+matrix sparseA = A;
+cout &lt;&lt; sparseA &lt;&lt; endl;
+sparseA = 2*sparseA + sparseA&#39;;
+sparseA = 4*sparseA + sparseA*5;
+matrix sparseB = sparseA + sparseA + sparseA; ;
+cout &lt;&lt; &quot;sparseB = &quot; &lt;&lt; sparseB(0,0) &lt;&lt; endl;
+</pre></div>
+</div>
+</div>
+<div class="section" id="interpolation-matrix">
+<h2>Interpolation matrix<a class="headerlink" href="#interpolation-matrix" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to store the matrix of a linear interpolation
+operator from a finite element space <span class="math notranslate nohighlight">\(V_h\)</span> to another <span class="math notranslate nohighlight">\(W_h\)</span>
+to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>interpolate</code>(<span class="math notranslate nohighlight">\(W_h\)</span>,<span class="math notranslate nohighlight">\(V_h\)</span>,…) a function.</p>
+<p>Note that the continuous finite functions are extended by continuity
+outside of the domain.</p>
+<p>The named parameters of function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>interpolate</code> are:</p>
+<ul>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>inside=</code> set true to create zero-extension.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>t=</code> set true to get the transposed matrix</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>op=</code> set an integer written below</p>
+<ul class="simple">
+<li>0 the default value and interpolate of the function</li>
+<li>1 interpolate the <span class="math notranslate nohighlight">\(\p_x\)</span></li>
+<li>2 interpolate the <span class="math notranslate nohighlight">\(\p_y\)</span></li>
+<li>3 interpolate the <span class="math notranslate nohighlight">\(\p_z\)</span></li>
+</ul>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>U2Vc=</code> set the which is the component of <span class="math notranslate nohighlight">\(W_h\)</span>
+come in <span class="math notranslate nohighlight">\(V_h\)</span> in interpolate process in a int array so the size
+of the array is number of component of <span class="math notranslate nohighlight">\(W_h\)</span>, if the put
+<span class="math notranslate nohighlight">\(-1\)</span> then component is set to <span class="math notranslate nohighlight">\(0\)</span>, like in the following
+example: (by default the component number is unchanged).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace V4h(Th4, [P1, P1, P1, P1]);
+fespace V3h(Th, [P1, P1, P1]);
+int[int] u2vc = [1, 3, -1]; //-1 -&gt; put zero on the component
+matrix IV34 = interpolate(V3h, V4h, inside=0, U2Vc=u2vc); //V3h &lt;- V4h
+V4h [a1, a2, a3, a4] = [1, 2, 3, 4];
+V3h [b1, b2, b3] = [10, 20, 30];
+b1[] = IV34*a1[];
+</pre></div>
+</div>
+<p>So here we have: <code class="docutils literal highlight highlight-freefem"><span></span>freefem   b1 == 2, b2 == 4, b3 == 0 ...</code></p>
+</li>
+</ul>
+<p>!!!example “Matrix interpolation” ```freefem // Mesh mesh Th =
+square(4, 4); mesh Th4 = square(2, 2, [x*0.5, y*0.5]); plot(Th, Th4,
+wait=true);</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Fespace
+fespace Vh(Th, P1);
+Vh v, vv;
+fespace Vh4(Th4, P1);
+Vh4 v4=x*y;
+
+fespace Wh(Th, P0);
+fespace Wh4(Th4, P0);
+
+// Interpolation
+matrix IV = interpolate(Vh, Vh4); //here the function is exended by continuity
+cout &lt;&lt; &quot;IV Vh&lt;-Vh4 &quot; &lt;&lt; IV &lt;&lt; endl;
+
+v=v4;
+vv[]= IV*v4[]; //here v == vv
+
+real[int] diff= vv[] - v[];
+cout &lt;&lt; &quot;|| v - vv || = &quot; &lt;&lt; diff.linfty &lt;&lt; endl;
+assert( diff.linfty&lt;= 1e-6);
+
+matrix IV0 = interpolate(Vh, Vh4, inside=1); //here the function is exended by zero
+cout &lt;&lt; &quot;IV Vh&lt;-Vh4 (inside=1) &quot; &lt;&lt; IV0 &lt;&lt; endl;
+
+matrix IVt0 = interpolate(Vh, Vh4, inside=1, t=1);
+cout &lt;&lt; &quot;IV Vh&lt;-Vh4^t (inside=1) &quot; &lt;&lt; IVt0 &lt;&lt; endl;
+
+matrix IV4t0 = interpolate(Vh4, Vh);
+cout &lt;&lt; &quot;IV Vh4&lt;-Vh^t &quot; &lt;&lt; IV4t0 &lt;&lt; endl;
+
+matrix IW4 = interpolate(Wh4, Wh);
+cout &lt;&lt; &quot;IV Wh4&lt;-Wh &quot; &lt;&lt; IW4 &lt;&lt; endl;
+
+matrix IW4V = interpolate(Wh4, Vh);
+cout &lt;&lt; &quot;IV Wh4&lt;-Vh &quot; &lt;&lt; IW4 &lt;&lt; endl;
+```
+
+Build interpolation matrix $A$ at a array of points $(xx[j],yy[j]), i = 0, 2$ here
+$$
+a_ij = dop(w^i_c (xx[j],yy[j]))
+$$
+where $w_i$ is the basic finite element function, $c$ the component number, $dop$ the type of diff operator like in op def.
+
+```freefem
+real[int] xx = [.3, .4], yy = [.1, .4];
+int c = 0, dop = 0;
+matrix Ixx = interpolate(Vh, xx, yy, op=dop, composante=c);
+cout &lt;&lt; Ixx &lt;&lt; endl;
+Vh ww;
+real[int] dd = [1, 2];
+ww[] = Ixx*dd;
+```
+</pre></div>
+</div>
+<p>!!!example “Schwarz” The following shows how to implement with an
+interpolation matrix a domain decomposition algorithm based on Schwarz
+method with Robin conditions.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Given a non-overlapping partition $\bar\Omega=\bar\Omega_0\cup\bar\Omega_1$ with $\Omega_0\cap\Omega_1=\emptyset$, $\Sigma:=\bar\Omega_0\cap\bar\Omega_1$ the algorithm is :
+
+\begin{eqnarray*}&amp;&amp;
+-\Delta u_i= f \hbox{ in }\Omega_i,~i=0,1,~~\frac{\partial(u_1-u_0)}{\partial n} + \alpha (u_1-u_0)=0\hbox{ on }\Sigma.
+%\cr&amp;&amp;
+\end{eqnarray*}
+The same in variational form is:
+\begin{eqnarray*}&amp;
+\int_{\Omega_i}\nabla u_i\cdot\nabla v &amp;+ \int_\Sigma\alpha u_i v = \int_{\Omega_i}f v
+\cr&amp;&amp;
+- \int_{\Omega_j}(\nabla u_j\cdot\nabla v-f v) + \int_\Sigma\alpha u_j v,~~
+\forall v\in H^1_0(\Omega), i,j=[0,1]\cup[1,0]
+\end{eqnarray*}
+To discretized with the $P^1$ triangular Lagrangian finite element space $V_h$ simply replace $H^1_0(\Omega)$ by $V_h(\Omega_0)\cup V_h(\Omega_1)$.
+
+Then difficulty is to compute $\int_{\Omega_j} \nabla u_j\cdot\nabla v$ when $v$ is a basis function of $V_h(\Omega_i)$, $i\ne j$.
+
+It is done as follows (with $\Gamma=\partial\Omega$) :
+
+```freefem
+// Parameters
+int n = 30;
+int Gamma = 1;
+int Sigma = 2;
+
+func f = 1.;
+real alpha = 1.;
+
+int Niter = 50;
+
+// Mesh
+mesh[int] Th(2);
+int[int] reg(2);
+
+border a0(t=0, 1){x=t; y=0; label=Gamma;}
+border a1(t=1, 2){x=t; y=0; label=Gamma;}
+border b1(t=0, 1){x=2; y=t; label=Gamma;}
+border c1(t=2, 1){x=t; y=1; label=Gamma;}
+border c0(t=1, 0){x=t; y=1; label=Gamma;}
+border b0(t=1, 0){x=0; y=t; label=Gamma;}
+border d(t=0, 1){x=1; y=t; label=Sigma;}
+plot(a0(n) + a1(n) + b1(n) + c1(n) + c0(n) + b0(n) + d(n));
+mesh TH = buildmesh(a0(n) + a1(n) + b1(n) + c1(n) + c0(n) + b0(n) + d(n));
+
+reg(0) = TH(0.5, 0.5).region;
+reg(1) = TH(1.5, 0.5).region;
+
+for(int i = 0; i &lt; 2; i++) Th[i] = trunc(TH, region==reg(i));
+
+// Fespace
+fespace Vh0(Th[0], P1);
+Vh0 u0 = 0;
+
+fespace Vh1(Th[1], P1);
+Vh1 u1 = 0;
+
+// Macro
+macro grad(u) [dx(u), dy(u)] //
+
+// Problem
+int i;
+varf a (u, v)
+    = int2d(Th[i])(
+          grad(u)&#39;*grad(v)
+    )
+    + int1d(Th[i], Sigma)(
+          alpha*u*v
+    )
+    + on(Gamma, u=0)
+    ;
+
+varf b (u, v)
+    = int2d(Th[i])(
+          f*v
+    )
+    + on(Gamma, u=0)
+    ;
+
+varf du1dn (u, v)
+    =-int2d(Th[1])(
+          grad(u1)&#39;*grad(v)
+        - f*v
+    )
+    + int1d(Th[1], Sigma)(
+          alpha*u1*v
+    )
+    +on(Gamma, u=0)
+    ;
+
+varf du0dn (u, v)
+    =-int2d(Th[0])(
+          grad(u0)&#39;*grad(v)
+        - f*v
+    )
+    + int1d(Th[0], Sigma)(
+          alpha*u0*v
+    )
+    +on(Gamma, u=0)
+    ;
+
+matrix I01 = interpolate(Vh1, Vh0);
+matrix I10 = interpolate(Vh0, Vh1);
+
+matrix[int] A(2);
+i = 0; A[i] = a(Vh0, Vh0);
+i = 1; A[i] = a(Vh1, Vh1);
+
+// Solving loop
+for(int iter = 0; iter &lt; Niter; iter++){
+    // Solve on Th[0]
+    {
+        i = 0;
+        real[int] b0 = b(0, Vh0);
+        real[int] Du1dn = du1dn(0, Vh1);
+        real[int] Tdu1dn(Vh0.ndof); Tdu1dn = I01&#39;*Du1dn;
+        b0 += Tdu1dn;
+        u0[] = A[0]^-1*b0;
+    }
+    // Solve on Th[1]
+    {
+        i = 1;
+        real[int] b1 = b(0, Vh1);
+        real[int] Du0dn = du0dn(0, Vh0);
+        real[int] Tdu0dn(Vh1.ndof); Tdu0dn = I10&#39;*Du0dn;
+        b1 += Tdu0dn;
+        u1[] = A[1]^-1*b1;
+    }
+    plot(u0, u1, cmm=&quot;iter=&quot;+iter);
+}
+```
+</pre></div>
+</div>
+</div>
+<div class="section" id="finite-elements-connectivity">
+<h2>Finite elements connectivity<a class="headerlink" href="#finite-elements-connectivity" title="Permalink to this headline">¶</a></h2>
+<p>Here, we show how to get informations on a finite element space
+<span class="math notranslate nohighlight">\(W_h({\cal T}_n,*)\)</span>, where “*” may be <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P1, P2, P1nc</code>,
+etc.</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Wh.nt</code> gives the number of element of <span class="math notranslate nohighlight">\(W_h\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Wh.ndof</code> gives the number of degrees of freedom or
+unknown</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Wh.ndofK</code> gives the number of degrees of freedom on one
+element</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Wh(k,i)</code> gives the number of <span class="math notranslate nohighlight">\(i\)</span>th degrees of
+freedom of element <span class="math notranslate nohighlight">\(k\)</span>.</li>
+</ul>
+<p>See the following example:</p>
+<p>!!!example “Finite element connectivity” ```freefem // Mesh mesh Th =
+square(5, 5);</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Fespace
+fespace Wh(Th, P2);
+
+cout &lt;&lt; &quot;Number of degree of freedom = &quot; &lt;&lt; Wh.ndof &lt;&lt; endl;
+cout &lt;&lt; &quot;Number of degree of freedom / ELEMENT = &quot; &lt;&lt; Wh.ndofK &lt;&lt; endl;
+
+int k = 2, kdf = Wh.ndofK; //element 2
+cout &lt;&lt; &quot;Degree of freedom of element &quot; &lt;&lt; k &lt;&lt; &quot;:&quot; &lt;&lt; endl;
+for (int i = 0; i &lt; kdf; i++)
+    cout &lt;&lt; Wh(k,i) &lt;&lt; &quot; &quot;;
+cout &lt;&lt; endl;
+```
+
+The output is:
+
+```freefem
+Number of degree of freedom = 121
+Number of degree of freedom / ELEMENT = 6
+Degree of freedom of element 2:
+78 95 83 87 79 92
+```
+</pre></div>
+</div>
+<table class="docutils citation" frame="void" id="bernadou1980" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[BERNADOU1980]</a></td><td>BERNADOU, Michel, BOISSERIE, Jean-Marie, et HASSAN, Kamal. Sur l’implémentation des éléments finis de Hsieh-Clough-Tocher complet et réduit. 1980. Thèse de doctorat. INRIA.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="bernardi1985" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[BERNARDI1985]</a></td><td>BERNARDI, Christine et RAUGEL, Genevieve. Analysis of some finite elements for the Stokes problem. Mathematics of Computation, 1985, p.&nbsp;71-79.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="thomasset2012" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[THOMASSET2012]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> THOMASSET, François. Implementation of finite element methods for Navier-Stokes equations. Springer Science &amp; Business Media, 2012.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="crouzeix1984" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[CROUZEIX1984]</a></td><td>CROUZEIX, Michel et MIGNOT, Alain L. Analyse numérique des équations différentielles. Masson, 1984.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="taylor2005" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TAYLOR2005]</td><td>TAYLOR, Mark A., WINGATE, Beth A., et BOS, Len P. Several new quadrature formulas for polynomial integration in the triangle. arXiv preprint math/0501496, 2005.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Finite element</a><ul>
+<li><a class="reference internal" href="#use-of-freefem-fespace-in-2d">Use of freefem fespace in 2D</a></li>
+<li><a class="reference internal" href="#use-of-fespace-in-3d">Use of fespace in 3D</a></li>
+<li><a class="reference internal" href="#lagrangian-finite-elements">Lagrangian Finite Elements</a><ul>
+<li><a class="reference internal" href="#p0-element">P0-element</a></li>
+<li><a class="reference internal" href="#p1-element">P1-element</a></li>
+<li><a class="reference internal" href="#p2-element">P2-element</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#p1-nonconforming-element">P1 Nonconforming Element</a></li>
+<li><a class="reference internal" href="#other-fe-space">Other FE-space</a></li>
+<li><a class="reference internal" href="#vector-valued-fe-function">Vector Valued FE-function</a><ul>
+<li><a class="reference internal" href="#raviart-thomas-element">Raviart-Thomas Element</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-fast-finite-element-interpolator">A Fast Finite Element Interpolator</a></li>
+<li><a class="reference internal" href="#keywords-problem-and-solve">Keywords: Problem and Solve</a><ul>
+<li><a class="reference internal" href="#weak-form-and-boundary-condition">Weak Form and Boundary Condition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parameters-affecting-solve-and-problem">Parameters affecting solve and problem</a></li>
+<li><a class="reference internal" href="#problem-definition">Problem definition</a></li>
+<li><a class="reference internal" href="#numerical-integration">Numerical Integration</a></li>
+<li><a class="reference internal" href="#variational-form-sparse-matrix-pde-data-vector">Variational Form, Sparse Matrix, PDE Data Vector</a></li>
+<li><a class="reference internal" href="#interpolation-matrix">Interpolation matrix</a></li>
+<li><a class="reference internal" href="#finite-elements-connectivity">Finite elements connectivity</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="meshGeneration.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Mesh Generation</div>
+         </div>
+     </a>
+     <a id="button-next" href="visualization.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Visualization</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

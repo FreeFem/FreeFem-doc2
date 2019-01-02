@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Visualization &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/documentation/visualization.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Algorithms &amp; Optimization" href="algorithmsOptimization.html" />
+    <link rel="prev" title="Finite element" href="finiteElement.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Documentation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Visualization</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/documentation/visualization.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="visualization">
+<h1>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h1>
+<p>Results created by the finite element method can be a huge set of data, so it is very important to render them easy to grasp.</p>
+<p>There are two ways of visualization in FreeFem++:</p>
+<ul class="simple">
+<li>One, the default view, which supports the drawing of meshes, isovalues of real FE-functions, and of vector fields, all by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot</code> (see <a class="reference internal" href="#plot"><span class="std std-ref">Plot section</span></a> below).
+For publishing purpose, FreeFem++ can store these plots as postscript files.</li>
+<li>Another method is to use external tools, for example, gnuplot (see <a class="reference internal" href="#gnuplot"><span class="std std-ref">Gnuplot section</span></a>, <a class="reference internal" href="#medit"><span class="std std-ref">medit section</span></a>, <a class="reference internal" href="#paraview"><span class="std std-ref">Paraview section</span></a>, <a class="reference internal" href="#matlab"><span class="std std-ref">Matlab/Octave section</span></a>) using the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span>system</code> to launch them and/or to save the data in text files.</li>
+</ul>
+<div class="section" id="plot">
+<span id="id1"></span><h2>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h2>
+<p>With the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot</code>, meshes, isovalues of scalar functions, and vector fields can be displayed.</p>
+<p>The parameters of the plot command can be meshes, real FE functions, arrays of 2 real FE functions, arrays of two double arrays, to plot respectively a mesh, a function, a vector field, or a curve defined by the two double arrays.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The length of an arrow is always bound to be in [5‰, 5%] of the screen size in order to see something.</p>
+</div>
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot</code> command parameters are listed in the <a class="reference internal" href="../reference/functions.html#referenceplot"><span class="std std-ref">Reference part</span></a>.</p>
+<p>The keyboard shortcuts are:</p>
+<ul class="simple">
+<li><strong>enter</strong> tries to show plot</li>
+<li><strong>p</strong> previous plot (10 plots saved)</li>
+<li><strong>?</strong> shows this help</li>
+<li><strong>+,-</strong> zooms in/out around the cursor 3/2 times</li>
+<li><strong>=</strong> resets the view</li>
+<li><strong>r</strong> refreshes plot</li>
+<li><strong>up, down, left, right</strong> special keys to tanslate</li>
+<li><strong>3</strong> switches 3d/2d plot keys :<ul>
+<li><strong>z,Z</strong> focal zoom and zoom out</li>
+<li><strong>H,h</strong> increases or decreases the Z scale of the plot</li>
+</ul>
+</li>
+<li><strong>mouse motion</strong>:<ul>
+<li><strong>left button</strong> rotates</li>
+<li><strong>right button</strong> zooms (ctrl+button on mac)</li>
+<li><strong>right button +alt</strong> tanslates (alt+ctrl+button on mac)</li>
+</ul>
+</li>
+<li><strong>a,A</strong> increases or decreases the arrow size</li>
+<li><strong>B</strong> switches between showing the border meshes or not</li>
+<li><strong>i,I</strong> updates or not: the min/max bound of the functions to the window</li>
+<li><strong>n,N</strong> decreases or increases the number of iso value arrays</li>
+<li><strong>b</strong> switches between black and white or color plotting</li>
+<li><strong>g</strong> switches between grey or color plotting</li>
+<li><strong>f</strong> switches between filling iso or iso line</li>
+<li><strong>l</strong> switches between lighting or not</li>
+<li><strong>v</strong> switches between show or not showing the numerical value of colors</li>
+<li><strong>m</strong> switches between show or not showing the meshes</li>
+<li><strong>w</strong> window dump in file ffglutXXXX.ppm</li>
+<li><strong>*</strong> keep/drop viewpoint for next plot</li>
+<li><strong>k</strong> complex data / change view type</li>
+<li><strong>ESC</strong> closes the graphics process before version 3.22, after no way to close</li>
+<li><strong>otherwise</strong> does nothing</li>
+</ul>
+<p>For example:</p>
+<div class="code highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] xx(10), yy(10);
+
+mesh Th = square(5,5);
+
+fespace Vh(Th, P1);
+
+//plot scalar and vectorial FE function
+Vh uh=x*x+y*y, vh=-y^2+x^2;
+plot(Th, uh, [uh, vh], value=true, ps=&quot;three.eps&quot;, wait=true);
+
+//zoom on box defined by the two corner points [0.1,0.2] and [0.5,0.6]
+plot(uh, [uh, vh], bb=[[0.1, 0.2], [0.5, 0.6]],
+   wait=true, grey=true, fill=true, value=true, ps=&quot;threeg.eps&quot;);
+
+//compute a cut
+for (int i = 0; i &lt; 10; i++){
+   x = i/10.;
+   y = i/10.;
+   xx[i] = i;
+   yy[i] = uh; //value of uh at point (i/10., i/10.)
+}
+plot([xx, yy], ps=&quot;likegnu.eps&quot;, wait=true);
+</pre></div>
+</div>
+<div class="figure" id="figvisumesh">
+<img alt="../_images/Visualization_Plot.png" src="../_images/Visualization_Plot.png" />
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Mesh, isovalue and vector</span></p>
+</div>
+<div class="figure" id="figvisugrey">
+<img alt="../_images/Visualization_Plot_Grey.png" src="../_images/Visualization_Plot_Grey.png" />
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Enlargement in grey of isovalue and vector</span></p>
+</div>
+<div class="figure" id="figvisucut">
+<img alt="../_images/Visualization_Plot_Gnuplot.png" src="../_images/Visualization_Plot_Gnuplot.png" />
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Plots a cut of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>uh</code>. Note that a refinement of the same can be obtained in combination with gnuplot</span></p>
+</div>
+<p>To change the color table and to choose the value of iso line you can do:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// from: \url{http://en.wikipedia.org/wiki/HSV_color_space}
+// The HSV (Hue, Saturation, Value) model defines a color space
+// in terms of three constituent components:
+// HSV color space as a color wheel
+// Hue, the color type (such as red, blue, or yellow):
+// Ranges from 0-360 (but normalized to 0-100% in some applications, like here)
+// Saturation, the &quot;vibrancy&quot; of the color: Ranges from 0-100%
+// The lower the saturation of a color, the more &quot;grayness&quot; is present
+// and the more faded the color will appear.
+// Value, the brightness of the color: Ranges from 0-100%
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh uh=2-x*x-y*y;
+
+real[int] colorhsv=[ // color hsv model
+   4./6., 1 , 0.5, // dark blue
+   4./6., 1 , 1, // blue
+   5./6., 1 , 1, // magenta
+   1, 1. , 1, // red
+   1, 0.5 , 1 // light red
+   ];
+ real[int] viso(31);
+
+ for (int i = 0; i &lt; viso.n; i++)
+   viso[i] = i*0.1;
+
+ plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
+</pre></div>
+</div>
+<div class="inline2 figure" id="figvisuhsv">
+<img alt="../_images/Visualization_HSV_Space.png" src="../_images/Visualization_HSV_Space.png" />
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">HSV color cylinder</span></p>
+</div>
+<div class="inline2 figure" id="figvisuisocolortable">
+<img alt="../_images/Visualization_HSV.png" src="../_images/Visualization_HSV.png" />
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Isovalue with an other color table</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../example/index.html#examplehsv"><span class="std std-ref">HSV example</span></a> for the complete script.</p>
+</div>
+</div>
+<div class="section" id="link-with-gnuplot">
+<span id="gnuplot"></span><h2>Link with gnuplot<a class="headerlink" href="#link-with-gnuplot" title="Permalink to this headline">¶</a></h2>
+<p>Example <a class="reference internal" href="../tutorial/membrane.html#tutorialmembrane"><span class="std std-ref">Membrane</span></a> shows how to generate a gnuplot from a FreeFem++ file.
+Here is another technique which has the advantage of being online, i.e.&nbsp;one doesn’t need to quit FreeFem++ to generate a gnuplot.</p>
+<p>However, this works only if <a class="reference external" href="http://www.gnuplot.info">gnuplot</a> is installed, and only on an Unix-like computer.</p>
+<p>Add to the previous example:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>{// file for gnuplot
+   ofstream gnu(&quot;plot.gp&quot;);
+   for (int i = 0; i &lt; n; i++)
+      gnu &lt;&lt; xx[i] &lt;&lt; &quot; &quot; &lt;&lt; yy[i] &lt;&lt; endl;
+}
+
+// to call gnuplot command and wait 5 second (due to the Unix command)
+// and make postscript plot
+exec(&quot;echo &#39;plot \&quot;plot.gp\&quot; w l \n pause 5 \n set term postscript \n set output \&quot;gnuplot.eps\&quot; \n replot \n quit&#39; | gnuplot&quot;);
+</pre></div>
+</div>
+<div class="figure" id="figvisugnuplot">
+<img alt="../_images/Visualization_Gnuplot.png" src="../_images/Visualization_Gnuplot.png" />
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Plots a cut of uh with gnuplot</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../example/index.html#exampleplot"><span class="std std-ref">Plot example</span></a> for the complete script.</p>
+</div>
+</div>
+<div class="section" id="link-with-medit">
+<span id="medit"></span><h2>Link with medit<a class="headerlink" href="#link-with-medit" title="Permalink to this headline">¶</a></h2>
+<p>As said above, <code class="docutils literal highlight highlight-freefem"><span></span>medit</code> is a freeware display package by Pascal Frey using OpenGL. Then you may run the following example.</p>
+<p>Now <code class="docutils literal highlight highlight-freefem"><span></span>medit</code> software is included in FreeFem++ under <code class="docutils literal highlight highlight-freefem"><span></span>ffmedit</code> name.</p>
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>medit</code> command parameters are listed in the <a class="reference internal" href="../reference/externalLibraries.html#referencemedit"><span class="std std-ref">Reference part</span></a>.</p>
+<div class="figure" id="figvisumedit">
+<img alt="../_images/Visualization_Medit.png" src="../_images/Visualization_Medit.png" />
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">:freefem:medit` plot</span></p>
+</div>
+<p>With version 3.2 or later</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;medit&quot;
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+medit(&quot;u&quot;, Th, u);
+</pre></div>
+</div>
+<p>Before:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+savemesh(Th, &quot;u&quot;, [x, y, u*.5]); //save u.points and u.faces file
+// build a u.bb file for medit
+{
+   ofstream file(&quot;u.bb&quot;);
+   file &lt;&lt; &quot;2 1 1 &quot; &lt;&lt; u[].n &lt;&lt; &quot; 2 \n&quot;;
+   for (int j = 0; j &lt; u[].n; j++)
+      file &lt;&lt; u[][j] &lt;&lt; endl;
+}
+//call medit command
+exec(&quot;ffmedit u&quot;);
+//clean files on unix-like OS
+exec(&quot;rm u.bb u.faces u.points&quot;);
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../example/index.html#examplemedit"><span class="std std-ref">Medit example</span></a> for the complete script.</p>
+</div>
+</div>
+<div class="section" id="link-with-paraview">
+<span id="paraview"></span><h2>Link with Paraview<a class="headerlink" href="#link-with-paraview" title="Permalink to this headline">¶</a></h2>
+<p>One can also export mesh or results in the <code class="docutils literal highlight highlight-freefem"><span></span>.vtk</code> format in order to post-process data using <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;iovtk&quot;
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+int[int] Order = [1];
+string DataName = &quot;u&quot;;
+savevtk(&quot;u.vtu&quot;, Th, u, dataname=DataName, order=Order);
+</pre></div>
+</div>
+<div class="figure" id="figvisuparaview">
+<img alt="../_images/Visualization_Paraview.png" src="../_images/Visualization_Paraview.png" />
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Paraview plot</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Finite element variables saved using paraview <strong>must be in P0 or P1</strong></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../example/index.html#exampleparaview"><span class="std std-ref">Paraview example</span></a> for the complete script.</p>
+</div>
+</div>
+<div class="section" id="link-with-matlab-and-octave">
+<span id="matlab"></span><h2>Link with Matlab© and Octave<a class="headerlink" href="#link-with-matlab-and-octave" title="Permalink to this headline">¶</a></h2>
+<p>In order to create plots from FreeFem++ simulations in <a class="reference external" href="https://www.gnu.org/software/octave/">Octave</a> and <a class="reference external" href="https://www.mathworks.com/">Matlab</a> the FEM mesh and the FE function must be exported to text files:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+savemesh(Th,&quot;export_mesh.msh&quot;);
+
+ofstream file(&quot;export_data.txt&quot;);
+for (int j=0; j&lt;u[].n; j++)
+   file &lt;&lt; u[][j] &lt;&lt; endl;
+</pre></div>
+</div>
+<p>Within Matlab or Octave the files can be processed with the <a class="reference external" href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib library</a>:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">addpath</span><span class="p">(</span><span class="s">&#39;path to ffmatlib&#39;</span><span class="p">);</span>
+<span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">]=</span><span class="n">ffreadmesh</span><span class="p">(</span><span class="s">&#39;export_mesh.msh&#39;</span><span class="p">);</span>
+<span class="n">u</span><span class="p">=</span><span class="n">ffreaddata</span><span class="p">(</span><span class="s">&#39;export_data.txt&#39;</span><span class="p">);</span>
+<span class="n">ffpdeplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s">&#39;XYData&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s">&#39;ZStyle&#39;</span><span class="p">,</span><span class="s">&#39;continuous&#39;</span><span class="p">,</span><span class="s">&#39;Mesh&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="figure" id="figvisumatlab">
+<img alt="../_images/Visualization_Matlab_Octave.png" src="../_images/Visualization_Matlab_Octave.png" />
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Matlab / Octave plot</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more Matlab / Octave plot examples have a look at the tutorial section <a class="reference internal" href="../tutorial/matlabOctavePlot.html#tutorialmatlaboctaveplot"><span class="std std-ref">Matlab / Octave Examples</span></a> or visit the <a class="reference external" href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib library</a> on github.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Visualization</a><ul>
+<li><a class="reference internal" href="#plot">Plot</a></li>
+<li><a class="reference internal" href="#link-with-gnuplot">Link with gnuplot</a></li>
+<li><a class="reference internal" href="#link-with-medit">Link with medit</a></li>
+<li><a class="reference internal" href="#link-with-paraview">Link with Paraview</a></li>
+<li><a class="reference internal" href="#link-with-matlab-and-octave">Link with Matlab© and Octave</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="finiteElement.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Finite element</div>
+         </div>
+     </a>
+     <a id="button-next" href="algorithmsOptimization.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Algorithms & Optimization</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

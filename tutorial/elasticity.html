@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The System of elasticity &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/elasticity.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The System of Stokes for Fluids" href="stokes.html" />
+    <link rel="prev" title="Pure Convection : The Rotating Hill" href="rotatingHill.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">The System of elasticity</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/elasticity.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-system-of-elasticity">
+<h1>The System of elasticity<a class="headerlink" href="#the-system-of-elasticity" title="Permalink to this headline">¶</a></h1>
+<p><strong>Elasticity</strong></p>
+<p>Solid objects deform under the action of applied forces:</p>
+<p>a point in the solid, originally at <span class="math notranslate nohighlight">\((x,y,z)\)</span> will come to <span class="math notranslate nohighlight">\((X,Y,Z)\)</span> after some time; the vector <span class="math notranslate nohighlight">\(\mathbf{u}=(u_1,u_2,u_3) = (X-x, Y-y, Z-z)\)</span> is called the displacement.
+When the displacement is small and the solid is elastic, Hooke’s law gives a relationship between the stress tensor <span class="math notranslate nohighlight">\(\sigma(u)=(\sigma_{ij}(u) )\)</span> and the strain tensor <span class="math notranslate nohighlight">\(\epsilon(u)=\epsilon_{ij}(u)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij}(u) = \lambda \delta_{ij} \nabla.\mathbf{u}+ 2\mu\epsilon_{ij}(u),\]</div>
+<p>where the Kronecker symbol <span class="math notranslate nohighlight">\(\delta_{ij} = 1\)</span> if <span class="math notranslate nohighlight">\(i=j\)</span>, <span class="math notranslate nohighlight">\(0\)</span> otherwise, with</p>
+<div class="math notranslate nohighlight">
+\[\epsilon_{ij}(u) = {1\over 2}({\partial u_i\over\partial x_j} + {\partial u_j\over\partial x_i} ),\]</div>
+<p>and where <span class="math notranslate nohighlight">\(\lambda, \mu\)</span> are two constants that describe the mechanical properties of the solid, and are themselves related to the better known constants <span class="math notranslate nohighlight">\(E\)</span>, Young’s modulus, and <span class="math notranslate nohighlight">\(\nu\)</span>, Poisson’s ratio:</p>
+<div class="math notranslate nohighlight">
+\[\mu = {E\over 2( 1+\nu)}, \quad \lambda = {E\nu\over (1+\nu)(1-2\nu)}.\]</div>
+<p><strong>Lamé’s system</strong></p>
+<p>Let us consider a beam with axis <span class="math notranslate nohighlight">\(Oz\)</span> and with perpendicular section <span class="math notranslate nohighlight">\(\Omega\)</span>.
+The components along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> of the strain <span class="math notranslate nohighlight">\({\bf u}(x)\)</span> in a section <span class="math notranslate nohighlight">\(\Omega\)</span> subject to forces <span class="math notranslate nohighlight">\({\bf f}\)</span> perpendicular to the axis are governed by:</p>
+<div class="math notranslate nohighlight">
+\[-\mu \Delta {\bf u} - (\mu+\lambda) \nabla (\nabla .{\bf u})={\bf f}~~\hbox{in}~~\Omega,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> ,<span class="math notranslate nohighlight">\(\mu\)</span> are the Lamé coefficients introduced above.</p>
+<p>Remark, we do not use this equation because the associated variational form does not give the right boundary condition, we simply use:</p>
+<div class="math notranslate nohighlight">
+\[- div( \sigma ) = \mathbf{f} \quad \mbox{in}~~\Omega\]</div>
+<p>where the corresponding variational form is:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} \sigma(u) : \epsilon(\mathbf{v})\;dx - \int_{\Omega} \mathbf{v} f \;dx =0;\]</div>
+<p>where <span class="math notranslate nohighlight">\(:\)</span> denotes the tensor scalar product, i.e.&nbsp;<span class="math notranslate nohighlight">\(a: b = \sum_{i,j} a_{ij}b_{ij}\)</span>.</p>
+<p>So the variational form can be written as :</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Omega} \lambda \nabla.u \nabla.v + 2 \mu \epsilon(\mathbf{u}):\epsilon(\mathbf{v}) \; dx - \int_{\Omega} \mathbf{v} f \;dx =0;\]</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Consider an elastic plate with the undeformed rectangle shape <span class="math notranslate nohighlight">\([0,20]\times [-1,1]\)</span>.</p>
+<p>The body force is the gravity force <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and the boundary force <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is zero on lower, upper and right sides.
+The left vertical side of the beam is fixed.
+The boundary conditions are:</p>
+<div class="last math notranslate nohighlight">
+\[\begin{split}\sigma . {\bf n} &amp;=&amp; \mathbf{g} = 0 ~~\hbox{on}~~\Gamma_1, \Gamma_4, \Gamma_3, \\
+{\bf u} &amp;=&amp; \mathbf{0} ~~\hbox{on}~~\Gamma_2\end{split}\]</div>
+</div>
+<p>Here <span class="math notranslate nohighlight">\({\bf u}=(u,v)\)</span> has two components.</p>
+<p>The above two equations are strongly coupled by their mixed derivatives, and thus any iterative solution on each of the components is risky.
+One should rather use FreeFem++’s system approach and write:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real E = 21e5;
+real nu = 0.28;
+
+real f = -1;
+
+// Mesh
+mesh Th = square(10, 10, [20*x,2*y-1]);
+
+// Fespace
+fespace Vh(Th, P2);
+Vh u, v;
+Vh uu, vv;
+
+// Macro
+real sqrt2=sqrt(2.);
+macro epsilon(u1,u2) [dx(u1),dy(u2),(dy(u1)+dx(u2))/sqrt2] //
+// The sqrt2 is because we want: epsilon(u1,u2)&#39;* epsilon(v1,v2) $== \epsilon(\bm{u}): \epsilon(\bm{v})$
+macro div(u,v) ( dx(u)+dy(v) ) //
+
+// Problem
+real mu= E/(2*(1+nu));
+real lambda = E*nu/((1+nu)*(1-2*nu));
+
+solve lame([u, v], [uu, vv])
+   = int2d(Th)(
+        lambda * div(u, v) * div(uu, vv)
+      + 2.*mu * ( epsilon(u,v)&#39; * epsilon(uu,vv) )
+   )
+   - int2d(Th)(
+        f*vv
+   )
+   + on(4, u=0, v=0)
+   ;
+
+// Plot
+real coef=100;
+plot([u, v], wait=1, ps=&quot;lamevect.eps&quot;, coef=coef);
+
+// Move mesh
+mesh th1 = movemesh(Th, [x+u*coef, y+v*coef]);
+plot(th1,wait=1,ps=&quot;lamedeform.eps&quot;);
+
+// Output
+real dxmin = u[].min;
+real dymin = v[].min;
+
+cout &lt;&lt; &quot; - dep. max x = &quot;&lt;&lt; dxmin &lt;&lt; &quot; y=&quot; &lt;&lt; dymin &lt;&lt; endl;
+cout &lt;&lt; &quot;   dep. (20, 0) = &quot; &lt;&lt; u(20, 0) &lt;&lt; &quot; &quot; &lt;&lt; v(20, 0) &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-- square mesh : nb <span class="nv">vertices</span>  <span class="o">=</span><span class="m">121</span> ,  nb <span class="nv">triangles</span> <span class="o">=</span> <span class="m">200</span> ,  nb boundary edges <span class="m">40</span>
+-- Solve :           min -0.00174137  max <span class="m">0</span>.00174105
+         min -0.0263154  max <span class="m">1</span>.47016e-29
+- dep.  max   <span class="nv">x</span> <span class="o">=</span> -0.00174137 <span class="nv">y</span><span class="o">=</span>-0.0263154
+   dep.  <span class="o">(</span><span class="m">20</span>,0<span class="o">)</span>  <span class="o">=</span> -1.8096e-07 -0.0263154
+times: compile <span class="m">0</span>.010219s, execution <span class="m">1</span>.5827s
+</pre></div>
+</div>
+<p>Solution of Lamé’s equations for elasticity for a 2D beam deflected by its own weight and clamped by its left vertical side is shown <a class="reference internal" href="#figelasticityvector"><span class="std std-numref">Fig. 54</span></a> and <a class="reference internal" href="#figelasticitydeformation"><span class="std std-numref">Fig. 55</span></a>.
+Result are shown with a amplification factor equal to 100.
+The size of the arrow is automatically bound, but the color gives the real length.</p>
+<div class="figure" id="figelasticityvector">
+<img alt="../_images/lame_vector.png" src="../_images/lame_vector.png" />
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Vector</span></p>
+</div>
+<div class="figure" id="figelasticitydeformation">
+<img alt="../_images/lame_deformation.png" src="../_images/lame_deformation.png" />
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Deformation</span></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="rotatingHill.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Pure Convection : The Rotating Hill</div>
+         </div>
+     </a>
+     <a id="button-next" href="stokes.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>The System of Stokes for Fluids</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

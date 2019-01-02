@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Wifi Propagation &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/wifiPropagation.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plotting in Matlab and Octave" href="matlabOctavePlot.html" />
+    <link rel="prev" title="Tutorial to write a transient Stokes solver in matrix form" href="timeDependentStokes.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Wifi Propagation</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/wifiPropagation.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="wifi-propagation">
+<h1>Wifi Propagation<a class="headerlink" href="#wifi-propagation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will study the wifi signal power in a flat.
+An awesome flat is especially designed for the experiment, with <strong>2</strong> walls:</p>
+<div class="figure" id="id1">
+<img alt="../_images/house.png" src="../_images/house.png" />
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Flat</span></p>
+</div>
+<p>Even if the flat seems small enough to be covered by wifi everywhere, it is still interesting to study where the signal’s power is the lowest.
+We will study where to put the hotspot to get the best coverage, and as we’re a bit lazy we will only put it next to the left wall.</p>
+</div>
+<div class="section" id="physics">
+<h2>Physics<a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h2>
+<p>In a nutshell, the Wifi is a electromagnetic wave that contains a signal : Internet data.
+Electromagnetic waves are well know by physicists and are ruled by the <strong>4 Maxwell equations</strong> which give you the solution for <em>E</em>, the electrical field, and <em>B</em>, the magnetic field, in space but also in time.</p>
+<p>We don’t care about the time here, because the signal period is really short so our internet quality will not change with time.
+Without time, we’re looking for stationaries solutions, and the Maxwell equations can be simplified to one equation, the Helmholtz one :</p>
+<div class="math notranslate nohighlight">
+\[\nabla^{2}E + \frac{k^{2}}{n^{2}}E = 0\]</div>
+<p>Where <em>k</em> is the angular wavenumber of the wifi signal, and <em>n</em> the refractive index of the material the wave is in.</p>
+<p>Indeed, the main point of this study is the impact of <strong>walls</strong> on the signal’s power, where the <em>n</em> is different from air (where it is 1).
+In walls, the refractive index is a complex number in which the two parts have a physic interpretation:</p>
+<ul class="simple">
+<li>The <em>real part</em> defines the <strong>reflexion</strong> of the wall (the amount of signal that doesn’t pass).</li>
+<li>The <em>imaginary part</em> defines the <strong>absorption</strong> of the wall (the amount that disappears).</li>
+</ul>
+<p>The wifi hotspot (simulated by a simple circle) will be the boundary condition, with a non null value for our electrical field.</p>
+</div>
+<div class="section" id="coding">
+<h2>Coding<a class="headerlink" href="#coding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-domain">
+<h3>The domain<a class="headerlink" href="#the-domain" title="Permalink to this headline">¶</a></h3>
+<p>In order to create the domain of experimentation, we need to create <code class="docutils literal highlight highlight-freefem"><span></span>:::freefem border</code> objects, like this :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = 40, b = 40, c = 0.5;
+border a00(t=0, 1) {x=a*t; y=0; label=1;}
+border a10(t=0, 1) {x=a; y=b*t; label=1;}
+border a20(t=1, 0) {x=a*t; y=b; label=1;}
+border a30(t=1, 0) {x=0; y=b*t; label=1;}
+border a01(t=0, 1) {x=c+(a-c*2)*t; y=c; label=1;}
+border a11(t=0, 1) {x=a-c; y=c+(b-c*2)*t; label=1;}
+border a21(t=1, 0) {x=c+(a-c*2)*t; y=b-c; label=1;}
+border a31(t=1, 0) {x=c; y=c+(b-c*2)*t; label=1;}
+
+real p = 5, q = 20, d = 34, e = 1;
+border b00(t=0, 1) {x=p+d*t; y=q; label=3;}
+border b10(t=0, 1) {x=p+d; y=q+e*t; label=3;}
+border b20(t=1, 0) {x=p+d*t; y=q+e; label=3;}
+border b30(t=1, 0) {x=p; y=q+e*t; label=3;}
+
+real r = 30, s =1 , j = 1, u = 15;
+border c00(t=0, 1) {x=r+j*t; y=s; label=3;}
+border c10(t=0, 1) {x=r+j; y=s+u*t; label=3;}
+border c20(t=1, 0) {x=r+j*t; y=s+u; label=3;}
+border c30(t=1, 0) {x=r; y=s+u*t; label=3;}
+</pre></div>
+</div>
+</div>
+<div class="section" id="lets-create-a-mesh">
+<h3>Let’s create a mesh<a class="headerlink" href="#lets-create-a-mesh" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int n=13;
+mesh Sh = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
+    + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n)
+    + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
+    + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
+plot(Sh, wait=1);
+</pre></div>
+</div>
+<p>So we are creating a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>, and plotting it :</p>
+<div class="figure" id="id2">
+<img alt="../_images/mesh.png" src="../_images/mesh.png" />
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Mesh</span></p>
+</div>
+<p>There is currently no wifi hotspot, and as we want to resolve the equation for a multiple number of position next to the left wall, let’s do a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>for</code> loop:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int bx;
+for (bx = 1; bx &lt;= 7; bx++){
+    border C(t=0, 2*pi){x=2+cos(t); y=bx*5+sin(t); label=2;}
+
+    mesh Th = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
+        + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n) + C(10)
+        + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
+        + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
+</pre></div>
+</div>
+<p>The border <code class="docutils literal highlight highlight-freefem"><span></span>C</code> is our hotspot and as you can see a simple circle.
+<code class="docutils literal highlight highlight-freefem"><span></span>Th</code> is our final mesh, with all borders and the hotspot.
+Let’s resolve this equation !</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh(Th, P1);
+func real wall() {
+   if (Th(x,y).region == Th(0.5,0.5).region || Th(x,y).region == Th(7,20.5).region || Th(x,y).region == Th(30.5,2).region) { return 1; }
+   else { return 0; }
+}
+
+Vh&lt;complex&gt; v,w;
+
+randinit(900);
+Vh wallreflexion = randreal1();
+Vh&lt;complex&gt; wallabsorption = randreal1()*0.5i;
+Vh k = 6;
+
+cout &lt;&lt; &quot;Reflexion of walls : &quot; &lt;&lt; wallreflexion &lt;&lt; &quot;\n&quot;;
+cout &lt;&lt; &quot;Absorption of walls : &quot; &lt;&lt; wallabsorption &lt;&lt; &quot;\n&quot;;
+
+problem muwave(v,w) =
+    int2d(Th)(
+          (v*w*k^2)/(1+(wallreflexion+wallabsorption)*wall())^2
+        - (dx(v)*dx(w)+dy(v)*dy(w))
+    )
+    + on(2, v=1)
+    ;
+
+muwave;
+Vh vm = log(real(v)^2 + imag(v)^2);
+plot(vm, wait=1, fill=true, value=0, nbiso=65);
+}
+</pre></div>
+</div>
+<p>A bit of understanding here :</p>
+<ul class="simple">
+<li>The <code class="docutils literal highlight highlight-freefem"><span></span>:::freefem fespace</code> keyword defines a finite elements space, no need to know more here.</li>
+<li>The function <code class="docutils literal highlight highlight-freefem"><span></span>wall</code> return 0 if in air and 1 if in a wall (x and y are global variables).</li>
+<li>For this example, random numbers are used for the reflexion and the absorption.</li>
+<li>The problem is defined with <code class="docutils literal highlight highlight-freefem"><span></span>:::freefem problem</code> and we solve it by calling it.</li>
+</ul>
+<p>Finally, I plotted the <span class="math notranslate nohighlight">\(\log\)</span> of the module of the solution <code class="docutils literal highlight highlight-freefem"><span></span>v</code> to see the signal’s power, and here we are :</p>
+<div class="figure" id="id3">
+<img alt="../_images/point1.png" src="../_images/point1.png" />
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Solution</span></p>
+</div>
+<p>Beautiful isn’t it ? This is the first position for the hotspot, but there are 6 others, and the electrical field is evolving depending on the position.
+You can see the other positions here :</p>
+<div class="inline3 figure" id="id4">
+<img alt="../_images/point2.png" src="../_images/point2.png" />
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Point 2</span></p>
+</div>
+<div class="inline3 figure" id="id5">
+<img alt="../_images/point3.png" src="../_images/point3.png" />
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Point 3</span></p>
+</div>
+<div class="inline3 figure" id="id6">
+<img alt="../_images/point4.png" src="../_images/point4.png" />
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Point 4</span></p>
+</div>
+<div class="inline3 figure" id="id7">
+<img alt="../_images/point5.png" src="../_images/point5.png" />
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Point 5</span></p>
+</div>
+<div class="inline3 figure" id="id8">
+<img alt="../_images/point6.png" src="../_images/point6.png" />
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Point 6</span></p>
+</div>
+<div class="inline3 figure" id="id9">
+<img alt="../_images/point7.png" src="../_images/point7.png" />
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Point 7</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Wifi Propagation</a><ul>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+<li><a class="reference internal" href="#physics">Physics</a></li>
+<li><a class="reference internal" href="#coding">Coding</a><ul>
+<li><a class="reference internal" href="#the-domain">The domain</a></li>
+<li><a class="reference internal" href="#lets-create-a-mesh">Let’s create a mesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="timeDependentStokes.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Tutorial to write a transient Stokes solver in matrix form</div>
+         </div>
+     </a>
+     <a id="button-next" href="matlabOctavePlot.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Plotting in Matlab and Octave</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

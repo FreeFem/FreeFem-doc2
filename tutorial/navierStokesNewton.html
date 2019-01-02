@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Newton Method for the Steady Navier-Stokes equations &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/navierStokesNewton.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A Large Fluid Problem" href="aLargeFluidProblem.html" />
+    <link rel="prev" title="A projection algorithm for the Navier-Stokes equations" href="navierStokesProjection.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Newton Method for the Steady Navier-Stokes equations</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/navierStokesNewton.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="newton-method-for-the-steady-navier-stokes-equations">
+<h1>Newton Method for the Steady Navier-Stokes equations<a class="headerlink" href="#newton-method-for-the-steady-navier-stokes-equations" title="Permalink to this headline">¶</a></h1>
+<p>The problem is find the velocity field <span class="math notranslate nohighlight">\(\mathbf{u}=(u_i)_{i=1}^d\)</span> and the pressure <span class="math notranslate nohighlight">\(p\)</span> of a Flow satisfying in the domain <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^d (d=2,3)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\mathbf{u}\cdot\nabla) \mathbf{u}-\nu \Delta \mathbf{u}+\nabla p&amp;=&amp;0\\
+    \nabla\cdot \mathbf{u}&amp;=&amp;0\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu\)</span> is the viscosity of the fluid, <span class="math notranslate nohighlight">\(\nabla = (\partial_i )_{i=1}^d\)</span>, the dot product is <span class="math notranslate nohighlight">\(\cdot\)</span>, and <span class="math notranslate nohighlight">\(\Delta = \nabla\cdot\nabla\)</span> with the same boundary conditions (<span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is given on <span class="math notranslate nohighlight">\(\Gamma\)</span>).</p>
+<p>The weak form is find <span class="math notranslate nohighlight">\(\mathbf{u}, p\)</span> such that for <span class="math notranslate nohighlight">\(\forall \mathbf{v}\)</span> (zero on <span class="math notranslate nohighlight">\(\Gamma\)</span>), and <span class="math notranslate nohighlight">\(\forall q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\int_\Omega  ((\mathbf{u}\cdot\nabla) \mathbf{u} ). \mathbf{v} + \nu \nabla \mathbf{u}:\nabla \mathbf{v}
+- p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{u} = 0\]</div>
+<p>The Newton Algorithm to solve nonlinear problem is:</p>
+<p>Find <span class="math notranslate nohighlight">\(u\in V\)</span> such that <span class="math notranslate nohighlight">\(F(u)=0\)</span> where <span class="math notranslate nohighlight">\(F : V \mapsto V\)</span>.</p>
+<ol class="arabic simple">
+<li>choose <span class="math notranslate nohighlight">\(u_0\in \mathbb{R}^n\)</span> , ;</li>
+<li>for ( <span class="math notranslate nohighlight">\(i =0\)</span>; <span class="math notranslate nohighlight">\(i\)</span> &lt; niter; <span class="math notranslate nohighlight">\(i = i+1\)</span>)<ol class="arabic">
+<li>solve <span class="math notranslate nohighlight">\(DF(u_i) w_i = F(u_i)\)</span>;</li>
+<li><span class="math notranslate nohighlight">\(u_{i+1} = u_i - w_i\)</span>;</li>
+</ol>
+</li>
+</ol>
+<p>break <span class="math notranslate nohighlight">\(|| w_i|| &lt; \varepsilon\)</span>.</p>
+<p>Where <span class="math notranslate nohighlight">\(DF(u)\)</span> is the differential of <span class="math notranslate nohighlight">\(F\)</span> at point <span class="math notranslate nohighlight">\(u\)</span>, this is a linear application such that:</p>
+<div class="math notranslate nohighlight">
+\[F(u+\delta) = F(u) + DF(u) \delta + o(\delta)\]</div>
+<p>For Navier Stokes, <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(DF\)</span> are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F(\mathbf{u},p) = \int_\Omega &amp;&amp;((\mathbf{u}\cdot\nabla) \mathbf{u} ). \mathbf{v} + \nu \nabla \mathbf{u}:\nabla \mathbf{v}
+ - p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{u}\\
+DF(\mathbf{u},p)(\mathbf{\delta u} ,\delta p) = \int_\Omega &amp;&amp;((\mathbf{\delta u}\cdot\nabla) \mathbf{u} ). \mathbf v + ((\mathbf{u}\cdot\nabla) \mathbf{\delta u} ). \mathbf{v} \\
+ &amp;+&amp; \nu \nabla \mathbf{\delta u}:\nabla \mathbf{v} - \delta p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{\delta u}\end{split}\]</div>
+<p>So the Newton algorithm become:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real R = 5.;
+real L = 15.;
+
+real nu = 1./50.;
+real nufinal = 1/200.;
+real cnu = 0.5;
+
+real eps = 1e-6;
+
+verbosity = 0;
+
+// Mesh
+border cc(t=0, 2*pi){x=cos(t)/2.; y=sin(t)/2.; label=1;}
+border ce(t=pi/2, 3*pi/2){x=cos(t)*R; y=sin(t)*R; label=1;}
+border beb(tt=0, 1){real t=tt^1.2; x=t*L; y=-R; label=1;}
+border beu(tt=1, 0){real t=tt^1.2; x=t*L; y=R; label=1;}
+border beo(t=-R, R){x=L; y=t; label=0;}
+border bei(t=-R/4, R/4){x=L/2; y=t; label=0;}
+mesh Th = buildmesh(cc(-50) + ce(30) + beb(20) + beu(20) + beo(10) + bei(10));
+plot(Th);
+
+//bounding box for the plot
+func bb = [[-1,-2],[4,2]];
+
+// Fespace
+fespace Xh(Th, P2);
+Xh u1, u2;
+Xh v1,v2;
+Xh du1,du2;
+Xh u1p,u2p;
+
+fespace Mh(Th,P1);
+Mh p;
+Mh q;
+Mh dp;
+Mh pp;
+
+// Macro
+macro Grad(u1,u2) [dx(u1), dy(u1), dx(u2),dy(u2)] //
+macro UgradV(u1,u2,v1,v2) [[u1,u2]&#39;*[dx(v1),dy(v1)],
+                        [u1,u2]&#39;*[dx(v2),dy(v2)]] //
+macro div(u1,u2) (dx(u1) + dy(u2)) //
+
+// Initialization
+u1 = (x^2+y^2) &gt; 2;
+u2 = 0;
+
+// Viscosity loop
+while(1){
+    int n;
+    real err=0;
+    // Newton loop
+    for (n = 0; n &lt; 15; n++){
+        // Newton
+        solve Oseen ([du1, du2, dp], [v1, v2, q])
+            = int2d(Th)(
+                    nu * (Grad(du1,du2)&#39; * Grad(v1,v2))
+                + UgradV(du1,du2, u1, u2)&#39; * [v1,v2]
+                + UgradV( u1, u2,du1,du2)&#39; * [v1,v2]
+                - div(du1,du2) * q
+                - div(v1,v2) * dp
+                - 1e-8*dp*q //stabilization term
+            )
+            - int2d(Th) (
+                    nu * (Grad(u1,u2)&#39; * Grad(v1,v2))
+                + UgradV(u1,u2, u1, u2)&#39; * [v1,v2]
+                - div(u1,u2) * q
+                - div(v1,v2) * p
+            )
+            + on(1, du1=0, du2=0)
+            ;
+
+        u1[] -= du1[];
+        u2[] -= du2[];
+        p[] -= dp[];
+
+        real Lu1=u1[].linfty, Lu2=u2[].linfty, Lp=p[].linfty;
+        err = du1[].linfty/Lu1 + du2[].linfty/Lu2 + dp[].linfty/Lp;
+
+        cout &lt;&lt; n &lt;&lt; &quot; err = &quot; &lt;&lt; err &lt;&lt; &quot; &quot; &lt;&lt; eps &lt;&lt; &quot; rey = &quot; &lt;&lt; 1./nu &lt;&lt; endl;
+        if(err &lt; eps) break; //converge
+        if( n&gt;3 &amp;&amp; err &gt; 10.) break; //blowup
+    }
+
+    if(err &lt; eps){  //converge: decrease $\nu$ (more difficult)
+        // Plot
+        plot([u1, u2], p, wait=1, cmm=&quot; rey = &quot; + 1./nu , coef=0.3, bb=bb);
+
+        // Change nu
+        if( nu == nufinal) break;
+        if( n &lt; 4) cnu = cnu^1.5; //fast converge =&gt; change faster
+        nu = max(nufinal, nu* cnu); //new viscosity
+
+        // Update
+        u1p = u1;
+        u2p = u2;
+        pp = p;
+    }
+    else{   //blowup: increase $\nu$ (more simple)
+        assert(cnu&lt; 0.95); //the method finally blowup
+
+        // Recover nu
+        nu = nu/cnu;
+        cnu= cnu^(1./1.5); //no conv. =&gt; change lower
+        nu = nu* cnu; //new viscosity
+        cout &lt;&lt; &quot; restart nu = &quot; &lt;&lt; nu &lt;&lt; &quot; Rey = &quot; &lt;&lt; 1./nu &lt;&lt; &quot; (cnu = &quot; &lt;&lt; cnu &lt;&lt; &quot; ) \n&quot;;
+
+        // Recover a correct solution
+        u1 = u1p;
+        u2 = u2p;
+        p = pp;
+    }
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>We use a trick to make continuation on the viscosity <span class="math notranslate nohighlight">\(\nu\)</span>, because the Newton method blowup owe start with the final viscosity <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
+<p class="last"><span class="math notranslate nohighlight">\(nu\)</span> is gradually increased to the desired value.</p>
+</div>
+<div class="figure" id="id1">
+<img alt="../_images/NSNewtonTh.jpg" src="../_images/NSNewtonTh.jpg" />
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Mesh</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/NSNewtonUP.jpg" src="../_images/NSNewtonUP.jpg" />
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Velocity and pressure at Reynolds 200</span></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="navierStokesProjection.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>A projection algorithm for the Navier-Stokes equations</div>
+         </div>
+     </a>
+     <a id="button-next" href="aLargeFluidProblem.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>A Large Fluid Problem</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

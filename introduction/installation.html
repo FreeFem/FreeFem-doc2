@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Installation guide &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/introduction/installation.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Download FreeFem++" href="download.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Introduction</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Installation guide</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/introduction/installation.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html">Download FreeFem++</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html">Download FreeFem++</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="installation-guide">
+<h1>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="easy-installation">
+<h2>Easy installation<a class="headerlink" href="#easy-installation" title="Permalink to this headline">¶</a></h2>
+<p>First, go to the <a class="reference internal" href="download.html#download"><span class="std std-ref">download page</span></a> and choose your platform: Linux, MacOS or Windows.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Binary packages are available for Microsoft Windows, MacOS and some Linux distributions.</p>
+</div>
+<p>Install <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code> by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following <code class="docutils literal highlight highlight-freefem"><span></span>/usr/local/bin</code>, <code class="docutils literal highlight highlight-freefem"><span></span>/usr/local/share/freefem++</code>, <code class="docutils literal highlight highlight-freefem"><span></span>/usr/local/lib/ff++</code></p>
+<div class="section" id="windows-binary-installation">
+<h3>Windows binary installation<a class="headerlink" href="#windows-binary-installation" title="Permalink to this headline">¶</a></h3>
+<p>First download the windows installation executable, then double click to install <code class="docutils literal highlight highlight-freefem"><span></span>freefem++</code>.</p>
+<p>In most cases just answer yes (or type return) to all questions.</p>
+<p>Otherwise in the Additional Task windows, check the box ”Add application directory to your system path.” This is required otherwise the program <code class="docutils literal highlight highlight-freefem"><span></span>ffglut.exe</code> will not be found.</p>
+<p>By now you should have two new icons on your desktop:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++ (VERSION).exe</code>, the <code class="docutils literal highlight highlight-freefem"><span></span>freefem++</code> application.</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++ (VERSION) Examples</code>, a link to the <code class="docutils literal highlight highlight-freefem"><span></span>freefem++</code> examples folder.</li>
+</ul>
+<p>where <code class="docutils literal highlight highlight-freefem"><span></span>(VERSION)</code> is the version of the files (for example 3.59).</p>
+<p>By default, the installed files are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\Programs Files\FreeFem++</code>. In this directory, you have all the <code class="docutils literal highlight highlight-freefem"><span></span>.dll</code> files and other applications: <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++-nw.exe</code>, <code class="docutils literal highlight highlight-freefem"><span></span>ffglut.exe</code>, … The syntax for the command-line tools are the same as those of <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem.exe</code>.</p>
+</div>
+<div class="section" id="macos-x-binary-installation">
+<h3>MacOS X binary installation<a class="headerlink" href="#macos-x-binary-installation" title="Permalink to this headline">¶</a></h3>
+<p>Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem+.app</code> application in the <code class="docutils literal highlight highlight-freefem"><span></span>/Applications</code> directory.</p>
+<p>If you want terminal access to <code class="docutils literal highlight highlight-freefem"><span></span>freefem++</code> just copy the file <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code> in a directory of your <code class="docutils literal highlight highlight-freefem"><span></span>$PATH</code> shell environment variable.</p>
+</div>
+<div class="section" id="arch-aur-package">
+<h3>Arch AUR package<a class="headerlink" href="#arch-aur-package" title="Permalink to this headline">¶</a></h3>
+<p>An up-to-date package of FreeFem++ for Arch is available on the <a class="reference external" href="https://aur.archlinux.org/packages/freefem%2B%2B-git/">Archlinux user repository</a>.</p>
+<p>To install it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/freefem++-git.git
+<span class="nb">cd</span> freefem++-git
+makepkg -si
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Thanks to <a class="reference external" href="https://github.com/stefanhusmann">Stephan Husmann</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="compilation">
+<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="branches-os-status">
+<h3>Branches / OS status<a class="headerlink" href="#branches-os-status" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="26%" />
+<col width="26%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Branch</th>
+<th class="head">Linux</th>
+<th class="head">MacOSX</th>
+<th class="head">Windows 7</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Develop</td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-UbuntuAll/"><img alt="Build Status01" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-UbuntuAll" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-UbuntuNo/"><img alt="Build Status02" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-UbuntuNo" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-MacOSXAll/"><img alt="Build Status03" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-MacOSXAll" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-MacOSXNo/"><img alt="Build Status04" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-MacOSXNo" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-Windows7"><img alt="Build Status05" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-Windows7" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-Windows7-32"><img alt="Build Status06" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-Windows7-32" /></a></td>
+</tr>
+<tr class="row-odd"><td>Master</td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-UbuntuAll/"><img alt="Build Status07" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-UbuntuAll" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-UbuntuNo/"><img alt="Build Status08" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-UbuntuNo" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-MacOSXAll/"><img alt="Build Status09" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-MacOSXAll" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-MacOSXNo/"><img alt="Build Status10" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-MacOSXNo" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-Windows7"><img alt="Build Status11" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-Windows7" /></a>
+<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-Windows7-32"><img alt="Build Status12" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-Windows7-32" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compilation-on-osx-10-13">
+<h3>Compilation on OSX (&gt;=10.13)<a class="headerlink" href="#compilation-on-osx-10-13" title="Permalink to this headline">¶</a></h3>
+<p>Remark: Blocks of code are shell commands in terminal.</p>
+<ol class="arabic">
+<li><p class="first">Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the <a class="reference external" href="https://developer.apple.com/download/more/">Apple website</a></p>
+</li>
+<li><p class="first">Install gcc from <a class="reference external" href="http://hpc.sourceforge.net/">http://hpc.sourceforge.net</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -O http://prdownloads.sourceforge.net/hpc/gfortran-7.1-bin.tar.gz?download
+sudo tar zxvf gfortran-7.1-bin.tar.gz -C /
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install autoconf and automake from <a class="reference external" href="http://www.macports.org">macport</a> or with <a class="reference external" href="https://brew.sh">Homebrew</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install autoconf
+sudo port install automake
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install mactex from <a class="reference external" href="http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg">ctan</a></p>
+</li>
+<li><p class="first">Install the <a class="reference external" href="https://www.open-mpi.org/software/">openmpi</a> source code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc <span class="nv">CXX</span><span class="o">=</span>/usr/local/bin/g++ <span class="nv">F77</span><span class="o">=</span>/usr/local/bin/gfortran <span class="nv">FC</span><span class="o">=</span>/usr/local/bin/gfortran
+make
+sudo make install
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://www.gnu.org/software/gsl">gsl</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -O https://fr.mirror.babylon.network/gnu/gsl/gsl-2.4.tar.gz
+tar zxvf gsl-2.4.tar.gz
+<span class="nb">cd</span> gsl-2.4
+./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc
+make
+sudo make install
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://git-scm.com/download/mac">git</a></p>
+</li>
+<li><p class="first">Download the FreeFem++ source from the repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="9">
+<li><p class="first">Compile FreeFem++. Don’t forget to update the MacOS SDK version with your own in the command below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
+./configure <span class="s1">&#39;-with-suffix=macos-10.13&#39;</span> <span class="s1">&#39;-without-fltk&#39;</span> <span class="s1">&#39;--enable-download&#39;</span> <span class="s1">&#39;--enable-optim&#39;</span> <span class="s1">&#39;MPIRUN=/usr/local/bin/mpirun&#39;</span> <span class="s1">&#39;--enable-m64&#39;</span> <span class="s1">&#39;--without-x&#39;</span> <span class="s1">&#39;CC=clang -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk&#39;</span> <span class="s1">&#39;CFLAGS=-mmacosx-version-min=10.13&#39;</span> <span class="s1">&#39;CXXFLAGS=-mmacosx-version-min=10.13 -std=c++11&#39;</span> <span class="s1">&#39;CXX=clang++ -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk&#39;</span> <span class="s1">&#39;F77=/usr/local/bin/gfortran&#39;</span> <span class="s1">&#39;FC=/usr/local/bin/gfortran&#39;</span> <span class="s1">&#39;MPICXX=/usr/local/bin/mpic++&#39;</span> <span class="s1">&#39;MPICC=/usr/local/bin/mpicc&#39;</span> <span class="s1">&#39;MPIFC=/usr/local/bin/mpif90&#39;</span> <span class="s1">&#39;MPIF77=/usr/local/bin/mpif90&#39;</span> <span class="s1">&#39;--enable-maintainer-mode&#39;</span>
+make
+sudo make install
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="compilation-on-ubuntu">
+<h3>Compilation on Ubuntu<a class="headerlink" href="#compilation-on-ubuntu" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the following dependencies</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
+sudo apt-get install cpp freeglut3-dev g++ gcc gfortran <span class="se">\</span>
+    ghostscript m4 make patch pkg-config wget python unzip <span class="se">\</span>
+    libopenblas-dev liblapack-dev libhdf5-dev libgsl-dev <span class="se">\</span>
+    libscotch-dev libfftw3-dev libarpack2-dev libsuitesparse-dev <span class="se">\</span>
+    libmumps-seq-dev libnlopt-dev coinor-libipopt-dev libgmm++-dev libtet1.5-dev <span class="se">\</span>
+    gnuplot-qt autoconf automake autotools-dev bison flex gdb valgrind git cmake
+
+<span class="c1"># mpich is required for the FreeFem parallel computing version</span>
+sudo apt-get install mpich
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In the oldest distribution of Ubuntu, <code class="docutils literal highlight highlight-freefem"><span></span>libgsl-dev</code> does not exists, use <code class="docutils literal highlight highlight-freefem"><span></span>libgsl2-dev</code> instead</p>
+</div>
+</li>
+<li><p class="first">Download <code class="docutils literal highlight highlight-freefem"><span></span>freefem++</code> source from the repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
+</pre></div>
+</div>
+</li>
+<li><p class="first">Autoconf</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
+autoreconf -i
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if your autoreconf version is too old, do <code class="docutils literal highlight highlight-freefem"><span></span>tar zxvf AutoGeneratedFile.tar.gz</code></p>
+</div>
+</li>
+<li><p class="first">Configure</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --disable-pastix
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To see all the options, type <code class="docutils literal highlight highlight-freefem"><span></span>./configure --help</code></p>
+</div>
+</li>
+<li><p class="first">Download the packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./download/getall -a
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the third party packages have their own licence</p>
+</div>
+</li>
+<li><p class="first">Download and compile petsc &amp; slepc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> download/ff-petsc
+make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
+<span class="nb">cd</span> -
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reconfigure with petsc and slepc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./reconfigure
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your computer has many threads, you can run <code class="docutils literal highlight highlight-freefem"><span></span>make</code> in parallel using <code class="docutils literal highlight highlight-freefem"><span></span>make -j16</code> for 16 threads, for example.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Optionnally, check the compilation with <code class="docutils literal highlight highlight-freefem"><span></span>make check</code></p>
+</div>
+</li>
+<li><p class="first">Install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo make install
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="compilation-on-arch-linux">
+<h3>Compilation on Arch Linux<a class="headerlink" href="#compilation-on-arch-linux" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As Arch is in rolling release, the following information can be quickly outdated !</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>``FreeFem++``</strong> fails to compile using the newest version of gcc 8.1.0, use an older one instead.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Install the following dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman -Syu
+pacman -S git openmpi gcc-fortran wget python
+    freeglut ghostscript m4 make patch gmm
+    blas lapack hdf5 gsl fftw arpack suitesparse
+    gnuplot autoconf automake bison flex gdb
+    valgrind cmake texlive-most
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download the <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code> source from the repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
+</pre></div>
+</div>
+</li>
+<li><p class="first">Autoconf</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
+autoreconf -i
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --disable-pastix
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To see all the options, type <code class="docutils literal highlight highlight-freefem"><span></span>./configure --help</code></p>
+</div>
+</li>
+<li><p class="first">Download the packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./download/getall -a
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the third party packages have their own licence</p>
+</div>
+</li>
+<li><p class="first">Download and compile petsc &amp; slepc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> download/ff-petsc
+make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
+<span class="nb">cd</span> -
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reconfigure with petsc and slepc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./reconfigure
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your computer has many threads, you can run <code class="docutils literal highlight highlight-freefem"><span></span>make</code> in parallel using <code class="docutils literal highlight highlight-freefem"><span></span>make -j16</code> for 16 threads, for example.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Optionnally, check the compilation with <code class="docutils literal highlight highlight-freefem"><span></span>make check</code></p>
+</div>
+</li>
+<li><p class="first">Install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo make install
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="compilation-on-linux-with-intel-software-tools">
+<h3>Compilation on Linux with Intel software tools<a class="headerlink" href="#compilation-on-linux-with-intel-software-tools" title="Permalink to this headline">¶</a></h3>
+<p>Follow the <a class="reference external" href="https://software.intel.com/en-us/articles/building-freefem-with-intel-software-tools-for-developers">guide</a></p>
+</div>
+<div class="section" id="compilation-on-windows">
+<h3>Compilation on Windows<a class="headerlink" href="#compilation-on-windows" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">MS MPI v7</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
+</li>
+<li><p class="first">Start MSYS2 MSYS</p>
+</li>
+<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span>MSYS2 MSYS terminal</code> to install dependancies</p>
+<ul class="simple">
+<li>for 64bits system:</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman -Syu
+pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
+findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
+make man-db git mingw-w64-x86_64-freeglut mingw-w64-x86_64-gcc <span class="se">\</span>
+mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
+mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
+msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
+perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
+</pre></div>
+</div>
+<ul class="simple">
+<li>for 32bits system:</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman -Syu
+pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
+findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
+make man-db git mingw-w64-i686-freeglut mingw-w64-i686-gcc <span class="se">\</span>
+mingw-w64-i686-gcc-fortran mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
+mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
+msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
+perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span>MingW64 terminal</code> (or <code class="docutils literal highlight highlight-freefem"><span></span>MingW32</code>) to compile <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
+<span class="nb">cd</span> FreeFem-sources
+autoreconf -i
+./configure --enable-download --disable-pastix --disable-hips
+./download/getall -a
+make -j4
+make check
+make install
+</pre></div>
+</div>
+<p>The <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code> executable (and some other like <code class="docutils literal highlight highlight-freefem"><span></span>ffmedit</code>, …)
+are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys64\mingw64\bin</code> (or <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys32\mingw32\bin</code>).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="environment-variables-and-init-file">
+<h2>Environment variables and init file<a class="headerlink" href="#environment-variables-and-init-file" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++</code> reads a user’s init file named <code class="docutils literal highlight highlight-freefem"><span></span>freefem++.pref</code> to initialize global variables: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>verbosity</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>includepath</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>loadpath</code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The variable <code class="code freefem docutils literal highlight highlight-freefem"><span></span>verbosity</code> changes the level of internal printing (0: nothing unless there are syntax errors, 1: few, 10: lots, etc. …), the default value is 2.</p>
+<p class="last">The included files are found in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>includepath</code> list and the load files are found in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>loadpath</code> list.</p>
+</div>
+<p>The syntax of the file is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">verbosity</span> <span class="o">=</span> <span class="m">5</span>
+<span class="nv">loadpath</span> <span class="o">+=</span> <span class="s2">&quot;/Library/FreeFem++/lib&quot;</span>
+<span class="nv">loadpath</span> <span class="o">+=</span> <span class="s2">&quot;/Users/hecht/Library/FreeFem++/lib&quot;</span>
+<span class="nv">includepath</span> <span class="o">+=</span> <span class="s2">&quot;/Library/FreeFem++/edp&quot;</span>
+<span class="nv">includepath</span> <span class="o">+=</span> <span class="s2">&quot;/Users/hecht/Library/FreeFem++/edp&quot;</span>
+<span class="c1"># This is a comment</span>
+<span class="nv">load</span> <span class="o">+=</span> <span class="s2">&quot;funcTemplate&quot;</span>
+<span class="nv">load</span> <span class="o">+=</span> <span class="s2">&quot;myfunction&quot;</span>
+<span class="nv">load</span> <span class="o">+=</span> <span class="s2">&quot;MUMPS_seq&quot;</span>
+</pre></div>
+</div>
+<p>The possible paths for this file are</p>
+<ul class="simple">
+<li>under Unix and MacOs</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/freefem++.pref
+<span class="k">$(</span>HOME<span class="k">)</span>/.freefem++.pref
+freefem++.pref
+</pre></div>
+</div>
+<ul class="simple">
+<li>under windows</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>freefem++.pref
+</pre></div>
+</div>
+<p>We can also use shell environment variables to change verbosity and the search rule before the init files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FF_VERBOSITY</span><span class="o">=</span><span class="m">50</span>
+<span class="nb">export</span> <span class="nv">FF_INCLUDEPATH</span><span class="o">=</span><span class="s2">&quot;dir;;dir2&quot;</span>
+<span class="nb">export</span> <span class="nv">FF_LOADPATH</span><span class="o">=</span><span class="s2">&quot;dir;;dir3&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The separator between directories must be ”;” and not ”:” because ”:” is used under Windows.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To show the list of init of FreeFem++ , do</p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FF_VERBOSITY</span><span class="o">=</span><span class="m">100</span><span class="p">;</span>
+./FreeFem++-nw
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Installation guide</a><ul>
+<li><a class="reference internal" href="#easy-installation">Easy installation</a><ul>
+<li><a class="reference internal" href="#windows-binary-installation">Windows binary installation</a></li>
+<li><a class="reference internal" href="#macos-x-binary-installation">MacOS X binary installation</a></li>
+<li><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compilation">Compilation</a><ul>
+<li><a class="reference internal" href="#branches-os-status">Branches / OS status</a></li>
+<li><a class="reference internal" href="#compilation-on-osx-10-13">Compilation on OSX (&gt;=10.13)</a></li>
+<li><a class="reference internal" href="#compilation-on-ubuntu">Compilation on Ubuntu</a></li>
+<li><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
+<li><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
+<li><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="download.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Download FreeFem++</div>
+         </div>
+     </a>
+     <a id="button-next" href="contributing.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Contributing</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

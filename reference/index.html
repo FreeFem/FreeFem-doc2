@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Language references &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/reference/index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Language reference" href="reference.html" />
+    <link rel="prev" title="Developers" href="../documentation/developers.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Language references</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/reference/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="language-references">
+<h1>Language references<a class="headerlink" href="#language-references" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html#standard-types">Standard types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#int">int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#bool">bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#real">real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#complex">complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#string">string</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#mesh-design">Mesh design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#border">border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#mesh">mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#mesh3">mesh3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#finite-element-space-design">Finite element space design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#fespace">fespace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#macro-design">Macro design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#macro">macro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#newmacro-endmacro">NewMacro / EndMacro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#ifmacro">IFMACRO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#endifmacro">ENDIFMACRO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#functions-design">Functions design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#func">func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#elementary-functions">Elementary functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#random-functions">Random functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#fe-functions">FE-functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#problem-design">Problem design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#problem">problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#solve">solve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#varf">varf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#array">Array</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#array-index">Array index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#array-size">Array size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#array-sort">Array sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#double-array">Double array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#array-of-fe-functions">Array of FE functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#map-arrays">Map arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#matrix">matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#matrix-size">Matrix size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#matrix-resize">Matrix resize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#matrix-diagonal">Matrix diagonal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#matrix-renumbering">Matrix renumbering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#complex-matrix">Complex matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#dot-product-outer-product">Dot product / Outer product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#matrix-inversion">Matrix inversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globalVariables.html">Global variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#area">area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#argv">ARGV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#boundaryedge">BoundaryEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#cg">CG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#cholesky">Cholesky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#crout">Crout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#edgeorientation">edgeOrientation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#false">false</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#gmres">GMRES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#htriangle">hTriangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#include">include</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#internaledge">InternalEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#label">label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#lenedge">lenEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#lu">LU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#n">N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#ntonedge">nTonEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#nuedge">nuEdge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#nutriangle">nuTriangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#p">P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#pi">pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#region">region</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#sparsesolver">sparsesolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#true">true</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#verbosity">verbosity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#version">version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#x">x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#y">y</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html#z">z</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html#int1d">int1d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#notations">Notations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf1pe">qf1pE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf2pe">qf2pE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf3pe">qf3pE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf4pe">qf4pE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf5pe">qf5pE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf1pelump">qf1pElump</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html#int2d">int2d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf1pt">qf1pT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf2pt">qf2pT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf5pt">qf5pT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf1ptlump">qf1pTlump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf2pt4p1">qf2pT4P1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf7pt">qf7pT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qf9pt">qf9pT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html#int3d">int3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qfv1">qfV1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qfv2">qfV2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qfv5">qfV5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quadratureFormulae.html#qfv1lump">qfV1lump</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#addition-operator">Addition operator +</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#substraction-operator">Substraction operator -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#multiplication-operator">Multiplication operator *</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#term-by-term-multiplication">Term by term multiplication .*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#division-operator">Division operator /</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#term-by-term-division">Term by term division ./</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#remainder-from-the-division">Remainder from the division %</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#power-operator">Power operator ^</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#inverse-of-a-matrix-1">Inverse of a matrix ^-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#transpose-operator">Transpose operator ‘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#tensor-scalar-product">Tensor scalar product :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#c-arithmetical-if-expression">C++ arithmetical if expression ? :</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">Loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#if">if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#else">else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#continue">continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#break">break</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#try">try</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#catch">catch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html#implicit-loop">Implicit loop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IO.html">I/O</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#cout">cout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#cin">cin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#endl">endl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#ifstream">ifstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#ofstream">ofstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#append">append</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#binary">binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#seekg">seekg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#tellg">tellg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#flush">flush</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#getline">getline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html#output-format">Output format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#precision">precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#scientific">scientific</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#fixed">fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#showbase">showbase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#noshowbase">noshowbase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#showpos">showpos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#noshowpos">noshowpos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#default">default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IO.html#setw">setw</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#abs">abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#acos">acos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#acosh">acosh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#adaptmesh">adaptmesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#adj">adj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#affinecg">AffineCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#affinegmres">AffineGMRES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#arg">arg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#asin">asin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#asinh">asinh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#assert">assert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#atan">atan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#atan2">atan2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#atanh">atanh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#atoi">atoi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#atof">atof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#bfgs">BFGS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#buildmesh">buildmesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#ceil">ceil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#change">change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#chi">chi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#checkmovemesh">checkmovemesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#clock">clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#complexeigenvalue">complexEigenValue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#conj">conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#convect">convect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#copysign">copysign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#cos">cos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#cosh">cosh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#diffnp">diffnp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#diffpos">diffpos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dist">dist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dumptable">dumptable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dx">dx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dxx">dxx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dxy">dxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dxz">dxz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dy">dy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dyx">dyx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dyy">dyy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dyz">dyz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dz">dz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dzx">dzx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dzy">dzy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#dzz">dzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#eigenvalue">EigenValue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#emptymesh">emptymesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#erf">erf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#erfc">erfc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#exec">exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#exit">exit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#exp">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#fdim">fdim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#floor">floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#fmax">fmax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#fmin">fmin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#fmod">fmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#imag">imag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#int1d">int1d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#int2d">int2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#int3d">int3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#intalledges">intalledges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#intallfaces">intallfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#interpolate">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#invdiff">invdiff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#invdiffnp">invdiffnp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#invdiffpos">invdiffpos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#isinf">isInf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#isnan">isNaN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#j0">j0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#j1">j1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#jn">jn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#jump">jump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#linearcg">LinearCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#lineargmres">LinearGMRES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#lgamma">lgamma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#log">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#log10">log10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#lrint">lrint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#lround">lround</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#max">max</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#min">min</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#movemesh">movemesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#nan">NaN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#nlcg">NLCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#on">on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#plot">plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#polar">polar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#pow">pow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#projection">projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randinit">randinit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randint31">randint31</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randint32">randint32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randreal1">randreal1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randreal2">randreal2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randreal3">randreal3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#randres53">randres53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#readmesh">readmesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#readmesh3">readmesh3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#real">real</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#rint">rint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#round">round</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#savemesh">savemesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#set">set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sign">sign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#signbit">signbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sin">sin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sinh">sinh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sort">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#splitmesh">splitmesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sqrt">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#square">square</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#swap">swap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#system">system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#tan">tan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#tanh">tanh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#tgamma">tgamma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#trunc">trunc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#y0">y0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#y1">y1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#yn">yn</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="externalLibraries.html">External libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#aniso">aniso</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#boundaniso">boundaniso</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#bec">BEC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#bectrap">BECtrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gpvortex">GPvortex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dxgpvortex">dxGPVortex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dygpvortex">dyGPVortex</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#binary-i-o">Binary I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#loadvec">LoadVec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#loadflag">LoadFlag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#savevec">SaveVec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#flag">flag</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#buildlayer">buildlayer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#buildlayers">buildlayers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#closepoints">ClosePoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#radiussearch">radiusSearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#voisinage">Voisinage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#neighborhood">neighborhood</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#closepoints2">ClosePoints2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#closepoint">ClosePoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#closepoints1">ClosePoints1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#curvature">Curvature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#extractborder">extractborder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id1">curvature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#raxicurvature">raxicurvature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#curves">curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#setecurveabcisse">setecurveabcisse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#equiparameter">equiparameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tresca">Tresca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#vonmises">VonMises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#dfft">dfft</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#plandfft">plandfft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#execute">execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#delete">delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id2">dfft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#map">map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#distance">distance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id3">distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#checkdist">checkdist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#dxwriter">DxWriter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dxaddmesh">Dxaddmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dxaddtimeseries">Dxaddtimeseries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dxaddsol2ts">Dxaddsol2ts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#element-p1bl">Element_P1bl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#expert">expert</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#exactpartition">exactpartition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id4">exactpartition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-airybiry">ff-AiryBiry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#airy">airy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#biry">biry</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-cmaes">ff-cmaes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#cmaes">cmaes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-gsl-awk">ff_gsl_awk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfugaussianp">gslcdfugaussianP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfugaussianq">gslcdfugaussianQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfugaussianpinv">gslcdfugaussianPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfugaussianqinv">gslcdfugaussianQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgaussianp">gslcdfgaussianP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgaussianq">gslcdfgaussianQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgaussianpinv">gslcdfgaussianPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgaussianqinv">gslcdfgaussianQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgammap">gslcdfgammaP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgammaq">gslcdfgammaQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgammapinv">gslcdfgammaPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgammaqinv">gslcdfgammaQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfcauchyp">gslcdfcauchyP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfcauchyq">gslcdfcauchyQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfcauchypinv">gslcdfcauchyPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfcauchyqinv">gslcdfcauchyQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflaplacep">gslcdflaplaceP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflaplaceq">gslcdflaplaceQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflaplacepinv">gslcdflaplacePinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflaplaceqinv">gslcdflaplaceQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfrayleighp">gslcdfrayleighP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfrayleighq">gslcdfrayleighQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfrayleighpinv">gslcdfrayleighPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfrayleighqinv">gslcdfrayleighQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfchisqp">gslcdfchisqP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfchisqq">gslcdfchisqQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfchisqpinv">gslcdfchisqPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfchisqqinv">gslcdfchisqQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexponentialp">gslcdfexponentialP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexponentialq">gslcdfexponentialQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexponentialpinv">gslcdfexponentialPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexponentialqinv">gslcdfexponentialQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexppowp">gslcdfexppowP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfexppowq">gslcdfexppowQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdftdistp">gslcdftdistP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdftdistq">gslcdftdistQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdftdistpinv">gslcdftdistPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdftdistqinv">gslcdftdistQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdffdistp">gslcdffdistP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdffdistq">gslcdffdistQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdffdistpinv">gslcdffdistPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdffdistqinv">gslcdffdistQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbetap">gslcdfbetaP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbetaq">gslcdfbetaQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbetapinv">gslcdfbetaPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbetaqinv">gslcdfbetaQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfflatp">gslcdfflatP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfflatq">gslcdfflatQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfflatpinv">gslcdfflatPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfflatqinv">gslcdfflatQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflognormalp">gslcdflognormalP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflognormalq">gslcdflognormalQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflognormalpinv">gslcdflognormalPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflognormalqinv">gslcdflognormalQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel1p">gslcdfgumbel1P</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel1q">gslcdfgumbel1Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel1pinv">gslcdfgumbel1Pinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel1qinv">gslcdfgumbel1Qinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel2p">gslcdfgumbel2P</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel2q">gslcdfgumbel2Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel2pinv">gslcdfgumbel2Pinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgumbel2qinv">gslcdfgumbel2Qinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfweibullp">gslcdfweibullP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfweibullq">gslcdfweibullQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfweibullpinv">gslcdfweibullPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfweibullqinv">gslcdfweibullQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfparetop">gslcdfparetoP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfparetoq">gslcdfparetoQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfparetopinv">gslcdfparetoPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfparetoqinv">gslcdfparetoQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflogisticp">gslcdflogisticP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflogisticq">gslcdflogisticQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflogisticpinv">gslcdflogisticPinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdflogisticqinv">gslcdflogisticQinv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbinomialp">gslcdfbinomialP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfbinomialq">gslcdfbinomialQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfpoissonp">gslcdfpoissonP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfpoissonq">gslcdfpoissonQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgeometricp">gslcdfgeometricP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfgeometricq">gslcdfgeometricQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfnegativebinomialp">gslcdfnegativebinomialP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfnegativebinomialq">gslcdfnegativebinomialQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfpascalp">gslcdfpascalP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslcdfpascalq">gslcdfpascalQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranbernoullipdf">gslranbernoullipdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranbeta">gslranbeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranbetapdf">gslranbetapdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranbinomialpdf">gslranbinomialpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranexponential">gslranexponential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranexponentialpdf">gslranexponentialpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranexppow">gslranexppow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranexppowpdf">gslranexppowpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrancauchy">gslrancauchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrancauchypdf">gslrancauchypdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranchisq">gslranchisq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranchisqpdf">gslranchisqpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranerlang">gslranerlang</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranerlangpdf">gslranerlangpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranfdist">gslranfdist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranfdistpdf">gslranfdistpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranflat">gslranflat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranflatpdf">gslranflatpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangamma">gslrangamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangammaint">gslrangammaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangammapdf">gslrangammapdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangammamt">gslrangammamt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangammaknuth">gslrangammaknuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussian">gslrangaussian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussianratiomethod">gslrangaussianratiomethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussianziggurat">gslrangaussianziggurat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussianpdf">gslrangaussianpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranugaussian">gslranugaussian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranugaussianratiomethod">gslranugaussianratiomethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranugaussianpdf">gslranugaussianpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussiantail">gslrangaussiantail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangaussiantailpdf">gslrangaussiantailpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranugaussiantail">gslranugaussiantail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranugaussiantailpdf">gslranugaussiantailpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlandau">gslranlandau</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlandaupdf">gslranlandaupdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangeometricpdf">gslrangeometricpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangumbel1">gslrangumbel1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangumbel1pdf">gslrangumbel1pdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangumbel2">gslrangumbel2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrangumbel2pdf">gslrangumbel2pdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlogistic">gslranlogistic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlogisticpdf">gslranlogisticpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlognormal">gslranlognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlognormalpdf">gslranlognormalpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlogarithmicpdf">gslranlogarithmicpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrannegativebinomialpdf">gslrannegativebinomialpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranpascalpdf">gslranpascalpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranpareto">gslranpareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranparetopdf">gslranparetopdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranpoissonpdf">gslranpoissonpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranrayleigh">gslranrayleigh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranrayleighpdf">gslranrayleighpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranrayleightail">gslranrayleightail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranrayleightailpdf">gslranrayleightailpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrantdist">gslrantdist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrantdistpdf">gslrantdistpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlaplace">gslranlaplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlaplacepdf">gslranlaplacepdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranlevy">gslranlevy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranweibull">gslranweibull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslranweibullpdf">gslranweibullpdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyai">gslsfairyAi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairybi">gslsfairyBi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyaiscaled">gslsfairyAiscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairybiscaled">gslsfairyBiscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyaideriv">gslsfairyAideriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairybideriv">gslsfairyBideriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyaiderivscaled">gslsfairyAiderivscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairybiderivscaled">gslsfairyBiderivscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyzeroai">gslsfairyzeroAi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyzerobi">gslsfairyzeroBi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyzeroaideriv">gslsfairyzeroAideriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfairyzerobideriv">gslsfairyzeroBideriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselj0">gslsfbesselJ0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselj1">gslsfbesselJ1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseljn">gslsfbesselJn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbessely0">gslsfbesselY0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbessely1">gslsfbesselY1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselyn">gslsfbesselYn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseli0">gslsfbesselI0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseli1">gslsfbesselI1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselin">gslsfbesselIn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseli0scaled">gslsfbesselI0scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseli1scaled">gslsfbesselI1scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselinscaled">gslsfbesselInscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselk0">gslsfbesselK0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselk1">gslsfbesselK1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselkn">gslsfbesselKn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselk0scaled">gslsfbesselK0scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselk1scaled">gslsfbesselK1scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselknscaled">gslsfbesselKnscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id5">gslsfbesselj0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id6">gslsfbesselj1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselj2">gslsfbesselj2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseljl">gslsfbesseljl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id7">gslsfbessely0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id8">gslsfbessely1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbessely2">gslsfbessely2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselyl">gslsfbesselyl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id9">gslsfbesseli0scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id10">gslsfbesseli1scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseli2scaled">gslsfbesseli2scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselilscaled">gslsfbesselilscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id11">gslsfbesselk0scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id12">gslsfbesselk1scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselk2scaled">gslsfbesselk2scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselklscaled">gslsfbesselklscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesseljnu">gslsfbesselJnu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselynu">gslsfbesselYnu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselinuscaled">gslsfbesselInuscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselinu">gslsfbesselInu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselknuscaled">gslsfbesselKnuscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselknu">gslsfbesselKnu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbessellnknu">gslsfbessellnKnu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselzeroj0">gslsfbesselzeroJ0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselzeroj1">gslsfbesselzeroJ1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbesselzerojnu">gslsfbesselzeroJnu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfclausen">gslsfclausen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhydrogenicr1">gslsfhydrogenicR1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdawson">gslsfdawson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye1">gslsfdebye1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye2">gslsfdebye2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye3">gslsfdebye3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye4">gslsfdebye4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye5">gslsfdebye5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdebye6">gslsfdebye6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdilog">gslsfdilog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfmultiply">gslsfmultiply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintkcomp">gslsfellintKcomp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintecomp">gslsfellintEcomp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintpcomp">gslsfellintPcomp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintdcomp">gslsfellintDcomp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintf">gslsfellintF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellinte">gslsfellintE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfellintrc">gslsfellintRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsferfc">gslsferfc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflogerfc">gslsflogerfc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsferf">gslsferf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsferfz">gslsferfZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsferfq">gslsferfQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhazard">gslsfhazard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexp">gslsfexp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpmult">gslsfexpmult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpm1">gslsfexpm1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexprel">gslsfexprel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexprel2">gslsfexprel2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpreln">gslsfexpreln</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinte1">gslsfexpintE1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinte2">gslsfexpintE2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinten">gslsfexpintEn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinte1scaled">gslsfexpintE1scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinte2scaled">gslsfexpintE2scaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpintenscaled">gslsfexpintEnscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpintei">gslsfexpintEi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpinteiscaled">gslsfexpintEiscaled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfshi">gslsfShi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfchi">gslsfChi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfexpint3">gslsfexpint3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfsi">gslsfSi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfci">gslsfCi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfatanint">gslsfatanint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidiracm1">gslsffermidiracm1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidirac0">gslsffermidirac0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidirac1">gslsffermidirac1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidirac2">gslsffermidirac2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidiracint">gslsffermidiracint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidiracmhalf">gslsffermidiracmhalf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidirachalf">gslsffermidirachalf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidirac3half">gslsffermidirac3half</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffermidiracinc0">gslsffermidiracinc0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflngamma">gslsflngamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgamma">gslsfgamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgammastar">gslsfgammastar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgammainv">gslsfgammainv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsftaylorcoeff">gslsftaylorcoeff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsffact">gslsffact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfdoublefact">gslsfdoublefact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflnfact">gslsflnfact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflndoublefact">gslsflndoublefact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflnchoose">gslsflnchoose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfchoose">gslsfchoose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflnpoch">gslsflnpoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpoch">gslsfpoch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpochrel">gslsfpochrel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgammaincq">gslsfgammaincQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgammaincp">gslsfgammaincP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgammainc">gslsfgammainc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflnbeta">gslsflnbeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbeta">gslsfbeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfbetainc">gslsfbetainc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgegenpoly1">gslsfgegenpoly1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgegenpoly2">gslsfgegenpoly2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgegenpoly3">gslsfgegenpoly3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfgegenpolyn">gslsfgegenpolyn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhyperg0f1">gslsfhyperg0F1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhyperg1f1int">gslsfhyperg1F1int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhyperg1f1">gslsfhyperg1F1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhyperguint">gslsfhypergUint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhypergu">gslsfhypergU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhyperg2f0">gslsfhyperg2F0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflaguerre1">gslsflaguerre1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflaguerre2">gslsflaguerre2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflaguerre3">gslsflaguerre3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflaguerren">gslsflaguerren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflambertw0">gslsflambertW0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflambertwm1">gslsflambertWm1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendrepl">gslsflegendrePl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendrep1">gslsflegendreP1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendrep2">gslsflegendreP2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendrep3">gslsflegendreP3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreq0">gslsflegendreQ0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreq1">gslsflegendreQ1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreql">gslsflegendreQl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreplm">gslsflegendrePlm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendresphplm">gslsflegendresphPlm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendrearraysize">gslsflegendrearraysize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalphalf">gslsfconicalPhalf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalpmhalf">gslsfconicalPmhalf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalp0">gslsfconicalP0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalp1">gslsfconicalP1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalpsphreg">gslsfconicalPsphreg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfconicalpcylreg">gslsfconicalPcylreg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreh3d0">gslsflegendreH3d0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreh3d1">gslsflegendreH3d1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflegendreh3d">gslsflegendreH3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflog">gslsflog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflogabs">gslsflogabs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflog1plusx">gslsflog1plusx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflog1plusxmx">gslsflog1plusxmx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpowint">gslsfpowint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsiint">gslsfpsiint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsi">gslsfpsi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsi1piy">gslsfpsi1piy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsi1int">gslsfpsi1int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsi1">gslsfpsi1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfpsin">gslsfpsin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfsynchrotron1">gslsfsynchrotron1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfsynchrotron2">gslsfsynchrotron2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsftransport2">gslsftransport2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsftransport3">gslsftransport3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsftransport4">gslsftransport4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsftransport5">gslsftransport5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfsin">gslsfsin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfcos">gslsfcos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhypot">gslsfhypot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfsinc">gslsfsinc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflnsinh">gslsflnsinh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsflncosh">gslsflncosh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfanglerestrictsymm">gslsfanglerestrictsymm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfanglerestrictpos">gslsfanglerestrictpos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfzetaint">gslsfzetaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfzeta">gslsfzeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfzetam1">gslsfzetam1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfzetam1int">gslsfzetam1int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfhzeta">gslsfhzeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfetaint">gslsfetaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslsfeta">gslsfeta</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-ipopt">ff-Ipopt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#ipopt">IPOPT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#fflapack">fflapack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dgeev">dgeev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#zgeev">zgeev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#geev">geev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id13">geev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dggev">dggev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#zggev">zggev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dsygvd">dsygvd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dgesdd">dgesdd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#zhegv">zhegv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dsyev">dsyev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#zheev">zheev</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-mmap-semaphore">ff-mmap-semaphore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#wait">Wait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#trywait">trywait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#post">Post</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#msync">msync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#read">Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#write">Write</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ffnewuoa">ffnewuoa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#newuoa">newuoa</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ff-nlopt">ff-NLopt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirect">nloptDIRECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectl">nloptDIRECTL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectlrand">nloptDIRECTLRand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectscal">nloptDIRECTScal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectnoscal">nloptDIRECTNoScal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectlnoscal">nloptDIRECTLNoScal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptdirectlrandnoscal">nloptDIRECTLRandNoScal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptorigdirect">nloptOrigDIRECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptorigdirectl">nloptOrigDIRECTL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptstogo">nloptStoGO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptstogorand">nloptStoGORand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptlbfgs">nloptLBFGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptpraxis">nloptPRAXIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptvar1">nloptVar1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptvar2">nloptVar2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nlopttnewton">nloptTNewton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nlopttnewtonrestart">nloptTNewtonRestart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nlopttnewtonprecond">nloptTNewtonPrecond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nlopttnewtonprecondrestart">nloptTNewtonPrecondRestart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptcrs2">nloptCRS2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptmma">nloptMMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptcobyla">nloptCOBYLA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptnewuoa">nloptNEWUOA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptnewuoabound">nloptNEWUOABound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptneldermead">nloptNelderMead</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptsbplx">nloptSbplx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptbobyqa">nloptBOBYQA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptisres">nloptISRES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptslsqp">nloptSLSQP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptmlsl">nloptMLSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptmlsllds">nloptMLSLLDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptauglag">nloptAUGLAG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#nloptauglageq">nloptAUGLAGEQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ffrandom">ffrandom</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#srandomdev">srandomdev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#srandom">srandom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#random">random</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#freefemqa">FreeFemQA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#meshgenqa">MeshGenQA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#freeyams">freeyams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id14">freeyams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#gmsh">gmsh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gmshload">gmshload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gmshload3">gmshload3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#savegmsh">savegmsh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#gsl">gsl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslpolysolvequadratic">gslpolysolvequadratic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslpolysolvecubic">gslpolysolvecubic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslpolycomplexsolve">gslpolycomplexsolve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrnguniform">gslrnguniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrnguniformpos">gslrnguniformpos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslname">gslname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrngget">gslrngget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrngmin">gslrngmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrngmax">gslrngmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrngset">gslrngset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gslrngtype">gslrngtype</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#ilut">ilut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#applyilutprecond">applyIlutPrecond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#makeilutprecond">makeIlutPrecond</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#iohdf5">iohdf5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#savehdf5sol">savehdf5sol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#iovtk">iovtk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#savevtk">savevtk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#vtkload">vtkload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#vtkload3">vtkload3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#isoline">isoline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id15">isoline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#curve">Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#area">Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#findallocalmin">findallocalmin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#lapack">lapack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#inv">inv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id16">dgeev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id17">zgeev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id18">geev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id19">dggev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id20">zggev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id21">dsygvd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id22">dgesdd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id23">zhegv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id24">dsyev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id25">zheev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dgelsy">dgelsy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#lgbmo">lgbmo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#bmo">bmo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mat-dervieux">mat_dervieux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#matupwind1">MatUpWind1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mat-psi">mat_psi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#matupwind0">MatUpWind0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#medit">medit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id26">medit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#savesol">savesol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#readsol">readsol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#metis">metis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#metisnodal">metisnodal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#metisdual">metisdual</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#metrickuate">MetricKuate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id27">MetricKuate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#metricpk">MetricPk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id28">MetricPk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mmg3d">mmg3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id29">mmg3d</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mmg3d-v4-0">mmg3d-v4.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id30">mmg3d</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#msh3">msh3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#change">change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#movemesh23">movemesh23</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#movemesh2d3dsurf">movemesh2D3Dsurf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#movemesh3">movemesh3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#movemesh">movemesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#movemesh3d">movemesh3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#deplacement">deplacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#checkbemesh">checkbemesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id31">buildlayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#bcube">bcube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#cube">cube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#trunc">trunc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#gluemesh">gluemesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#extract">extract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#showborder">showborder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#getborder">getborder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#addlayers">AddLayers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mshmet">mshmet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id32">mshmet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mumps">MUMPS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#defaulttomumpsseq">defaulttoMUMPSseq</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#mumps-seq">MUMPS_seq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id33">defaulttoMUMPSseq</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#netgen">netgen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#netg">netg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#netgstl">netgstl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#netgload">netgload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#newsolver">NewSolver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#defaulttoumfpack">defaulttoUMFPACK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#pardiso">PARDISO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#defaulttopardiso">defaulttoPARDISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#ompsetnumthreads">ompsetnumthreads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#ompgetnumthreads">ompgetnumthreads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#ompgetmaxthreads">ompgetmaxthreads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#pcm2rnm">pcm2rnm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#readpcm">readpcm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#pipe">pipe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#flush">flush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#sleep">sleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#usleep">usleep</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#qf11to25">qf11to25</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#qf1d">QF1d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#qf2d">QF2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#qf3d">QF3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tripleqf">tripleQF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#scotch">scotch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id34">scotch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#shell">shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#readdir">readdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#unlink">unlink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#rmdir">rmdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#cddir">cddir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#chdir">chdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#basename">basename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#dirname">dirname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#mkdir">mkdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#chmod">chmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#cpfile">cpfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#stat">stat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#isdir">isdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#getenv">getenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#setenv">setenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#unsetenv">unsetenv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#splitedges">splitedges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#splitedgemesh">SplitedgeMesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#splitmesh12">splitmesh12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id35">splitmesh12</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#splitmesh3">splitmesh3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id36">splitmesh3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#splitmesh4">splitmesh4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#splimesh4">splimesh4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#splitmesh6">splitmesh6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id37">splitmesh6</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#superlu">SuperLu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#defaulttosuperlu">defaulttoSuperLu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#symmetrizecsr">symmetrizeCSR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id38">symmetrizeCSR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#tetgen">tetgen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tetgconvexhull">tetgconvexhull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tetgtransfo">tetgtransfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tetg">tetg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#tetgreconstruction">tetgreconstruction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#umfpack64">UMFPACK64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#defaulttoumfpack64">defaulttoUMFPACK64</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#vtk-writer-3d">VTK_writer_3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#vtkaddmesh">Vtkaddmesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html#vtk-writer">VTK_writer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#id39">Vtkaddmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="externalLibraries.html#vtkaddscalar">Vtkaddscalar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../documentation/developers.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Developers</div>
+         </div>
+     </a>
+     <a id="button-next" href="reference.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Language reference</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

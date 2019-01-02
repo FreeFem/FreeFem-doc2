@@ -1,0 +1,4286 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Examples &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/example/index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mathematical Models" href="../model/index.html" />
+    <link rel="prev" title="Plotting in Matlab and Octave" href="../tutorial/matlabOctavePlot.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Examples</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/example/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="poisson-s-equation">
+<span id="examplepoissonequation"></span><h2>Poisson’s Equation<a class="headerlink" href="#poisson-s-equation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+int nn = 20;
+real L = 1.;
+real H = 1.;
+real l = 0.5;
+real h = 0.5;
+
+func f = 1.;
+func g = 0.;
+
+int NAdapt = 10;
+
+// Mesh
+border b1(t=0, L){x=t; y=0;};
+border b2(t=0, h){x=L; y=t;};
+border b3(t=L, l){x=t; y=h;};
+border b4(t=h, H){x=l; y=t;};
+border b5(t=l, 0){x=t; y=H;};
+border b6(t=H, 0){x=0; y=t;};
+
+mesh Th = buildmesh(b1(nn*L) + b2(nn*h) + b3(nn*(L-l)) + b4(nn*(H-h)) + b5(nn*l) + b6(nn*H));
+
+// Fespace
+fespace Vh(Th, P1); // Change P1 to P2 to test P2 finite element
+Vh u, v;
+
+// Macro
+macro grad(u) [dx(u), dy(u)] //
+
+// Problem
+problem Poisson (u, v, solver=CG, eps=-1.e-6)
+   = int2d(Th)(
+        grad(u)&#39; * grad(v)
+   )
+   + int2d(Th)(
+        f * v
+   )
+   + on(b1, b2, b3, b4, b5, b6, u=g)
+   ;
+
+// Mesh adaptation iterations
+real error = 0.1;
+real coef = 0.1^(1./5.);
+for (int i = 0; i &lt; NAdapt; i++){
+   // Solve
+   Poisson;
+
+   // Plot
+   plot(Th, u);
+
+   // Adaptmesh
+   Th = adaptmesh(Th, u, inquire=1, err=error);
+   error = error * coef;
+}
+</pre></div>
+</div>
+<div class="figure" id="figexamplepoisson">
+<img alt="../_images/poisson_associated_mesh.jpg" src="../_images/poisson_associated_mesh.jpg" />
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Adapted mesh</span></p>
+</div>
+<div class="figure" id="figexamplepoissonadapt">
+<img alt="../_images/poisson_adapted_mesh.jpg" src="../_images/poisson_adapted_mesh.jpg" />
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Solution on adapted mesh</span></p>
+</div>
+</div>
+<div class="section" id="poisson-s-equation-3d">
+<span id="examplepoissonequation3d"></span><h2>Poisson’s equation 3D<a class="headerlink" href="#poisson-s-equation-3d" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;tetgen&quot;
+
+// Parameters
+real hh = 0.1;
+func ue = 2.*x*x + 3.*y*y + 4.*z*z + 5.*x*y + 6.*x*z + 1.;
+func f= -18.;
+
+// Mesh
+mesh Th = square(10, 20, [x*pi-pi/2, 2*y*pi]); // ]-pi/2, pi/2[X]0,2pi[
+func f1 = cos(x)*cos(y);
+func f2 = cos(x)*sin(y);
+func f3 = sin(x);
+func f1x = sin(x)*cos(y);
+func f1y = -cos(x)*sin(y);
+func f2x = -sin(x)*sin(y);
+func f2y = cos(x)*cos(y);
+func f3x = cos(x);
+func f3y = 0;
+func m11 = f1x^2 + f2x^2 + f3x^2;
+func m21 = f1x*f1y + f2x*f2y + f3x*f3y;
+func m22 = f1y^2 + f2y^2 + f3y^2;
+func perio = [[4, y], [2, y], [1, x], [3, x]];
+real vv = 1/square(hh);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, periodic=perio);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, periodic=perio);
+plot(Th);
+
+real[int] domain = [0., 0., 0., 1, 0.01];
+mesh3 Th3 = tetgtransfo(Th, transfo=[f1, f2, f3], nbofregions=1, regionlist=domain);
+plot(Th3);
+
+border cc(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
+mesh Th2 = buildmesh(cc(50));
+
+// Fespace
+fespace Vh(Th3, P23d);
+Vh u, v;
+Vh uhe = ue;
+cout &lt;&lt; &quot;uhe min: &quot; &lt;&lt; uhe[].min &lt;&lt; &quot; - max: &quot; &lt;&lt; uhe[].max &lt;&lt; endl;
+cout &lt;&lt; uhe(0.,0.,0.) &lt;&lt; endl;
+
+fespace Vh2(Th2, P2);
+Vh2 u2, u2e;
+
+// Macro
+macro Grad3(u) [dx(u), dy(u), dz(u)] //
+
+// Problem
+problem Lap3d (u, v, solver=CG)
+    = int3d(Th3)(
+          Grad3(v)&#39; * Grad3(u)
+    )
+    - int3d(Th3)(
+          f * v
+    )
+    + on(0, 1, u=ue)
+    ;
+
+// Solve
+Lap3d;
+cout &lt;&lt; &quot;u min: &quot; &lt;&lt; u[]. min &lt;&lt; &quot; - max: &quot; &lt;&lt; u[].max &lt;&lt; endl;
+
+// Error
+real err = int3d(Th3)(square(u-ue));
+cout &lt;&lt; int3d(Th3)(1.) &lt;&lt; &quot; = &quot; &lt;&lt; Th3.measure &lt;&lt; endl;
+Vh d = ue - u;
+cout &lt;&lt; &quot; err = &quot; &lt;&lt; err &lt;&lt; &quot; - diff l^intfy = &quot; &lt;&lt; d[].linfty &lt;&lt; endl;
+
+// Plot
+u2 = u;
+u2e = ue;
+plot(u2, wait=true);
+plot(u2, u2e,wait=true);
+</pre></div>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/poisson_3d.jpg" src="../_images/poisson_3d.jpg" />
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Iso-surfaces of the solution</span></p>
+</div>
+</div>
+<div class="section" id="stokes-equation-on-a-cube">
+<span id="examplestokesequationonacube"></span><h2>Stokes Equation on a cube<a class="headerlink" href="#stokes-equation-on-a-cube" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;
+load &quot;medit&quot; // Dynamically loaded tools for 3D
+
+// Parameters
+int nn = 8;
+
+// Mesh
+mesh Th0 = square(nn, nn);
+int[int] rup = [0, 2];
+int[int] rdown = [0, 1];
+int[int] rmid = [1, 1, 2, 1, 3, 1, 4, 1];
+real zmin = 0, zmax = 1;
+mesh3 Th = buildlayers(Th0, nn, zbound=[zmin, zmax],
+    reffacemid=rmid, reffaceup=rup, reffacelow=rdown);
+
+medit(&quot;c8x8x8&quot;, Th); // 3D mesh visualization with medit
+
+// Fespaces
+fespace Vh2(Th0, P2);
+Vh2 ux, uz, p2;
+
+fespace VVh(Th, [P2, P2, P2, P1]);
+VVh [u1, u2, u3, p];
+VVh [v1, v2, v3, q];
+
+// Macro
+macro Grad(u) [dx(u), dy(u), dz(u)] //
+macro div(u1,u2,u3) (dx(u1) + dy(u2) + dz(u3)) //
+
+// Problem (directly solved)
+solve vStokes ([u1, u2, u3, p], [v1, v2, v3, q])
+    = int3d(Th, qforder=3)(
+          Grad(u1)&#39; * Grad(v1)
+        + Grad(u2)&#39; * Grad(v2)
+        + Grad(u3)&#39; * Grad(v3)
+        - div(u1, u2, u3) * q
+        - div(v1, v2, v3) * p
+        + 1e-10 * q * p
+    )
+    + on(2, u1=1., u2=0, u3=0)
+    + on(1, u1=0, u2=0, u3=0)
+    ;
+
+// Plot
+plot(p, wait=1, nbiso=5); // 3D visualization of pressure isolines
+
+// See 10 plan of the velocity in 2D
+for(int i = 1; i &lt; 10; i++){
+    // Cut plane
+    real yy = i/10.;
+    // 3D to 2D interpolation
+    ux = u1(x,yy,y);
+    uz = u3(x,yy,y);
+    p2 = p(x,yy,y);
+    // Plot
+    plot([ux, uz], p2, cmm=&quot;cut y = &quot;+yy, wait= 1);
+}
+</pre></div>
+</div>
+<div class="figure" id="id3">
+<img alt="../_images/Stokes3d.jpg" src="../_images/Stokes3d.jpg" />
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Solution</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="../_images/Stokes3d-Th.jpg" src="../_images/Stokes3d-Th.jpg" />
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Associated mesh</span></p>
+</div>
+</div>
+<div class="section" id="cavity">
+<span id="examplecavity"></span><h2>Cavity<a class="headerlink" href="#cavity" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>//Parameters
+int m = 300;
+real L = 1;
+real rho = 500.;
+real mu = 0.1;
+
+real uin = 1;
+func fx = 0;
+func fy = 0;
+int[int] noslip = [1, 2, 4];
+int[int] inflow = [3];
+
+real dt = 0.1;
+real T = 50;
+
+real eps = 1e-3;
+
+//Macros
+macro div(u) (dx(u#x) + dy(u#y))//
+macro grad(u) [dx(u), dy(u)]//
+macro Grad(u) [grad(u#x), grad(u#y)]//
+
+//Time
+real cpu;
+real tabcpu;
+
+//mesh
+border C1(t = 0, L){ x = t; y = 0; label = 1; }
+border C2(t = 0, L){ x = L; y = t; label = 2; }
+border C3(t = 0, L){ x = L-t; y = L; label = 3; }
+border C4(t = 0, L){ x = 0; y = L-t; label = 4; }
+mesh th = buildmesh( C1(m) + C2(m) + C3(m) + C4(m) );
+
+fespace UPh(th, [P2,P2,P1]);
+UPh [ux, uy, p];
+UPh [uhx, uhy, ph];
+UPh [upx, upy, pp];
+
+//Solve
+varf navierstokes([ux, uy, p], [uhx, uhy, ph])
+  = int2d(th)(
+      rho/dt* [ux, uy]&#39;* [uhx, uhy]
+    + mu* (Grad(u):Grad(uh))
+    - p* div(uh)
+    - ph* div(u)
+    - 1e-10 *p*ph
+    )
+
+  + int2d(th) (
+      [fx, fy]&#39; * [uhx, uhy]
+    + rho/dt* [convect([upx, upy], -dt, upx), convect([upx, upy], -dt, upy)]&#39;* [uhx, uhy]
+    )
+
+  + on(noslip, ux=0, uy=0)
+  + on(inflow, ux=uin, uy=0)
+  ;
+
+//Initialization
+[ux, uy, p]=[0, 0, 0];
+
+matrix&lt;real&gt; NS = navierstokes(UPh, UPh, solver=sparsesolver);
+real[int] NSrhs = navierstokes(0, UPh);
+
+//Time loop
+for(int j = 0; j &lt; T/dt; j++){
+  [upx, upy, pp]=[ux, uy, p];
+
+  NSrhs = navierstokes(0, UPh);
+  ux[] = NS^-1 * NSrhs;
+
+  plot( [ux,uy], p, wait=0, cmm=j);
+}
+
+//CPU
+cout &lt;&lt; &quot; CPU = &quot; &lt;&lt; clock()-cpu &lt;&lt; endl ;
+tabcpu = clock()-cpu;
+</pre></div>
+</div>
+</div>
+<div class="section" id="mesh-generation">
+<span id="examplemeshgeneration"></span><h2>Mesh Generation<a class="headerlink" href="#mesh-generation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mesh-adaptation">
+<span id="examplemeshadaptation"></span><h3>Mesh adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real eps = 0.0001;
+real h = 1;
+real hmin = 0.05;
+func f = 10.0*x^3 + y^3 + h*atan2(eps, sin(5.0*y)-2.0*x);
+
+// Mesh
+mesh Th = square(5, 5, [-1+2*x, -1+2*y]);
+
+// Fespace
+fespace Vh(Th,P1);
+Vh fh = f;
+plot(fh);
+
+// Adaptmesh
+for (int i = 0; i &lt; 2; i++){
+    Th = adaptmesh(Th, fh);
+    fh = f; //old mesh is deleted
+    plot(Th, fh, wait=true);
+}
+</pre></div>
+</div>
+<div class="figure" id="id5">
+<img alt="../_images/MeshAdaptation1.jpg" src="../_images/MeshAdaptation1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Initial mesh</span></p>
+</div>
+<div class="figure" id="id6">
+<img alt="../_images/MeshAdaptation2.jpg" src="../_images/MeshAdaptation2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">Adapted mesh</span></p>
+</div>
+</div>
+<div class="section" id="mesh-adaptation-for-the-poisson-s-problem">
+<span id="examplemeshadaptationforthepoissonproblem"></span><h3>Mesh adaptation for the Poisson’s problem<a class="headerlink" href="#mesh-adaptation-for-the-poisson-s-problem" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real error = 0.1;
+
+// Mesh
+border ba(t=0, 1){x=t; y=0; label=1;}
+border bb(t=0, 0.5){x=1; y=t; label=1;}
+border bc(t=0, 0.5){x=1-t; y=0.5; label=1;}
+border bd(t=0.5, 1){x=0.5; y=t; label=1;}
+border be(t=0.5, 1){x=1-t; y=1; label=1;}
+border bf(t=0, 1){x=0; y=1-t; label=1;}
+mesh Th = buildmesh(ba(6) + bb(4) + bc(4) + bd(4) + be(4) + bf(6));
+
+// Fespace
+fespace Vh(Th, P1);
+Vh u, v;
+
+// Function
+func f = 1;
+
+// Problem
+problem Poisson(u, v, solver=CG, eps=1.e-6)
+    = int2d(Th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    - int2d(Th)(
+          f*v
+    )
+    + on(1, u=0);
+
+// Adaptmesh loop
+for (int i = 0; i &lt; 4; i++){
+    Poisson;
+    Th = adaptmesh(Th, u, err=error);
+    error = error/2;
+}
+
+// Plot
+plot(u);
+</pre></div>
+</div>
+<div class="figure" id="id7">
+<img alt="../_images/MeshAdaptationPoisson1.jpg" src="../_images/MeshAdaptationPoisson1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Initial mesh</span></p>
+</div>
+<div class="figure" id="id8">
+<img alt="../_images/MeshAdaptationPoisson2.jpg" src="../_images/MeshAdaptationPoisson2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Adapted mesh</span></p>
+</div>
+<div class="figure" id="id9">
+<img alt="../_images/MeshAdaptationPoissonU.jpg" src="../_images/MeshAdaptationPoissonU.jpg" />
+<p class="caption"><span class="caption-number">Fig. 101 </span><span class="caption-text">Solution on adapted mesh</span></p>
+</div>
+</div>
+<div class="section" id="uniform-mesh-adaptation">
+<span id="exampleuniformmeshadaptation"></span><h3>Uniform mesh adaptation<a class="headerlink" href="#uniform-mesh-adaptation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(2, 2); // The initial mesh
+plot(Th, wait=true);
+
+Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000);
+plot(Th, wait=true);
+
+Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); // More than one time due to the
+Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); // adaptation bound `maxsubdiv=`
+plot(Th, wait=true);
+</pre></div>
+</div>
+<div class="figure" id="id10">
+<img alt="../_images/UniformMeshAdaptation1.jpg" src="../_images/UniformMeshAdaptation1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 102 </span><span class="caption-text">Initial mesh</span></p>
+</div>
+<div class="figure" id="id11">
+<img alt="../_images/UniformMeshAdaptation2.jpg" src="../_images/UniformMeshAdaptation2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 103 </span><span class="caption-text">Adapted mesh</span></p>
+</div>
+</div>
+<div class="section" id="borders">
+<span id="exampleborders"></span><h3>Borders<a class="headerlink" href="#borders" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>{
+    int upper = 1;
+    int others = 2;
+    int inner = 3;
+
+    border C01(t=0, 1){x=0; y=-1+t; label=upper;}
+    border C02(t=0, 1){x=1.5-1.5*t; y=-1; label=upper;}
+    border C03(t=0, 1){x=1.5; y=-t; label=upper;}
+    border C04(t=0, 1){x=1+0.5*t; y=0; label=others;}
+    border C05(t=0, 1){x=0.5+0.5*t; y=0; label=others;}
+    border C06(t=0, 1){x=0.5*t; y=0; label=others;}
+    border C11(t=0, 1){x=0.5; y=-0.5*t; label=inner;}
+    border C12(t=0, 1){x=0.5+0.5*t; y=-0.5; label=inner;}
+    border C13(t=0, 1){x=1; y=-0.5+0.5*t; label=inner;}
+
+    int n = 10;
+    plot(C01(-n) + C02(-n) + C03(-n) + C04(-n) + C05(-n)
+        + C06(-n) + C11(n) + C12(n) + C13(n), wait=true);
+
+    mesh Th = buildmesh(C01(-n) + C02(-n) + C03(-n) + C04(-n) + C05(-n)
+        + C06(-n) + C11(n) + C12(n) + C13(n));
+
+    plot(Th, wait=true);
+
+    cout &lt;&lt; &quot;Part 1 has region number &quot; &lt;&lt; Th(0.75, -0.25).region &lt;&lt; endl;
+    cout &lt;&lt; &quot;Part 2 has redion number &quot; &lt;&lt; Th(0.25, -0.25).region &lt;&lt; endl;
+}
+
+{
+    border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
+    border b(t=0, 2*pi){x=0.3+0.3*cos(t); y=0.3*sin(t); label=2;}
+    plot(a(50) + b(30)); //to see a plot of the border mesh
+    mesh Thwithouthole = buildmesh(a(50) + b(30));
+    mesh Thwithhole = buildmesh(a(50) + b(-30));
+    plot(Thwithouthole);
+    plot(Thwithhole);
+}
+
+{
+    real r=1;
+    border a(t=0, 2*pi){x=r*cos(t); y=r*sin(t); label=1;}
+    r=0.3;
+    border b(t=0, 2*pi){x=r*cos(t); y=r*sin(t); label=1;}
+//  mesh Thwithhole = buildmesh(a(50) + b(-30)); // do not do this because the two
+                                                 // circles have the same radius = $0.3$
+}
+</pre></div>
+</div>
+<div class="figure" id="id12">
+<img alt="../_images/Borders1.jpg" src="../_images/Borders1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 104 </span><span class="caption-text">Mesh with two regions</span></p>
+</div>
+<p>..figure:: images/Borders2.jpg</p>
+<blockquote>
+<div>Mesh without a hole</div></blockquote>
+<div class="figure" id="id13">
+<img alt="../_images/Borders3.jpg" src="../_images/Borders3.jpg" />
+<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">Mesh with a hole</span></p>
+</div>
+</div>
+<div class="section" id="change">
+<span id="examplechange"></span><h3>Change<a class="headerlink" href="#change" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>verbosity=3;
+
+// Mesh
+mesh Th1 = square(10, 10);
+mesh Th2 = square(20, 10, [x+1, y]);
+
+int[int] r1=[2, 0];
+plot(Th1, wait=true);
+
+Th1 = change(Th1, label=r1); // Change edges&#39; label from 2 to 0
+plot(Th1, wait=true);
+
+int[int] r2=[4, 0];
+Th2 = change(Th2, label=r2); // Change edges&#39; label from 4 to 0
+plot(Th2, wait=true);
+
+mesh Th = Th1 + Th2; // &#39;gluing together&#39; Th1 and Th2 meshes
+cout &lt;&lt; &quot;nb lab = &quot; &lt;&lt; int1d(Th1,1,3,4)(1./lenEdge)+int1d(Th2,1,2,3)(1./lenEdge)
+     &lt;&lt; &quot; == &quot; &lt;&lt; int1d(Th,1,2,3,4)(1./lenEdge) &lt;&lt; &quot; == &quot; &lt;&lt; ((10+20)+10)*2 &lt;&lt; endl;
+plot(Th, wait=true);
+
+fespace Vh(Th, P1);
+Vh u, v;
+
+macro Grad(u) [dx(u),dy(u)] // Definition of a macro
+
+solve P(u, v)
+    = int2d(Th)(
+          Grad(u)&#39;*Grad(v)
+    )
+    -int2d(Th)(
+          v
+    )
+    + on(1, 3, u=0)
+    ;
+
+plot(u, wait=1);
+</pre></div>
+</div>
+<div class="figure" id="id14">
+<img alt="../_images/Change.jpg" src="../_images/Change.jpg" />
+<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+<div class="section" id="cube">
+<span id="examplecube"></span><h3>Cube<a class="headerlink" href="#cube" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;
+
+int[int] l6 = [37, 42, 45, 40, 25, 57];
+int r11 = 11;
+mesh3 Th = cube(4, 5, 6, [x*2-1, y*2-1, z*2-1], label=l6, flags =3, region=r11);
+
+cout &lt;&lt; &quot;Volume = &quot; &lt;&lt; Th.measure &lt;&lt; &quot;, border area = &quot; &lt;&lt; Th.bordermeasure &lt;&lt; endl;
+
+int err = 0;
+for(int i = 0; i &lt; 100; ++i){
+    real s = int2d(Th,i)(1.);
+    real sx = int2d(Th,i)(x);
+    real sy = int2d(Th,i)(y);
+    real sz = int2d(Th,i)(z);
+
+    if(s){
+        int ix = (sx/s+1.5);
+        int iy = (sy/s+1.5);
+        int iz = (sz/s+1.5);
+        int ii = (ix + 4*(iy+1) + 16*(iz+1) );
+        //value of ix,iy,iz =&gt; face min 0, face max 2, no face 1
+        cout &lt;&lt; &quot;Label = &quot; &lt;&lt; i &lt;&lt; &quot;, s = &quot; &lt;&lt; s &lt;&lt; &quot; &quot; &lt;&lt; ix &lt;&lt; iy &lt;&lt; iz &lt;&lt; &quot; : &quot; &lt;&lt; ii &lt;&lt; endl;
+        if( i != ii ) err++;
+    }
+}
+real volr11 = int3d(Th,r11)(1.);
+cout &lt;&lt; &quot;Volume region = &quot; &lt;&lt; 11 &lt;&lt; &quot;: &quot; &lt;&lt; volr11 &lt;&lt; endl;
+if((volr11 - Th.measure )&gt;1e-8) err++;
+plot(Th, fill=false);
+cout &lt;&lt; &quot;Nb err = &quot; &lt;&lt; err &lt;&lt; endl;
+assert(err==0);
+</pre></div>
+</div>
+<div class="figure" id="id15">
+<img alt="../_images/Cube.jpg" src="../_images/Cube.jpg" />
+<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Cube</span></p>
+</div>
+</div>
+<div class="section" id="empty-mesh">
+<span id="exampleemptymesh"></span><h3>Empty mesh<a class="headerlink" href="#empty-mesh" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>{
+    border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
+    mesh Th = buildmesh(a(20));
+    Th = emptymesh(Th);
+    plot(Th);
+}
+{
+    mesh Th = square(10, 10);
+    int[int] ssd(Th.nt);
+    // Builds the pseudo region numbering
+    for(int i = 0; i &lt; ssd.n; i++){
+        int iq = i/2; // Because we have 2 triangles per quad
+        int ix = iq%10;
+        int iy = iq/10;
+        ssd[i] = 1 + (ix&gt;=5) + (iy&gt;=5)*2;
+    }
+    // Builds an emtpy mesh with all edges that satisfy e=T1 cap T2 and ssd[T1] != ssd[T2]
+    Th = emptymesh(Th, ssd);
+    // Plot
+    plot(Th);
+}
+</pre></div>
+</div>
+<div class="figure" id="id16">
+<img alt="../_images/EmptyMesh1.jpg" src="../_images/EmptyMesh1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">Empty square</span></p>
+</div>
+<div class="figure" id="id17">
+<img alt="../_images/EmptyMesh2.jpg" src="../_images/EmptyMesh2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">Empty diamond</span></p>
+</div>
+</div>
+<div class="section" id="points">
+<span id="example3points"></span><h3>3 points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Square for Three-Point Bend Specimens fixed on Fix1, Fix2
+// It will be loaded on Load
+real a = 1, b = 5, c = 0.1;
+int n = 5, m = b*n;
+border Left(t=0, 2*a){x=-b; y=a-t;}
+border Bot1(t=0, b/2-c){x=-b+t; y=-a;}
+border Fix1(t=0, 2*c){x=-b/2-c+t; y=-a;}
+border Bot2(t=0, b-2*c){x=-b/2+c+t; y=-a;}
+border Fix2(t=0, 2*c){x=b/2-c+t; y=-a;}
+border Bot3(t=0, b/2-c){x=b/2+c+t; y=-a;}
+border Right(t=0, 2*a){x=b; y=-a+t;}
+border Top1(t=0, b-c){x=b-t; y=a;}
+border Load(t=0, 2*c){x=c-t; y=a;}
+border Top2(t=0, b-c){x=-c-t; y=a;}
+
+mesh Th = buildmesh(Left(n) + Bot1(m/4) + Fix1(5) + Bot2(m/2)
+    + Fix2(5) + Bot3(m/4) + Right(n) + Top1(m/2) + Load(10) + Top2(m/2));
+plot(Th, bw=true);
+</pre></div>
+</div>
+<div class="figure" id="id18">
+<img alt="../_images/3Points.jpg" src="../_images/3Points.jpg" />
+<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">3 Points</span></p>
+</div>
+</div>
+<div class="section" id="bezier">
+<span id="examplebezier"></span><h3>Bezier<a class="headerlink" href="#bezier" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// A cubic Bezier curve connecting two points with two control points
+func real bzi(real p0, real p1, real q1, real q2, real t){
+    return p0*(1-t)^3 + q1*3*(1-t)^2*t + q2*3*(1-t)*t^2 + p1*t^3;
+}
+
+real[int] p00 = [0, 1], p01 = [0, -1], q00 = [-2, 0.1], q01 = [-2, -0.5];
+real[int] p11 = [1,-0.9], q10 = [0.1, -0.95], q11=[0.5, -1];
+real[int] p21 = [2, 0.7], q20 = [3, -0.4], q21 = [4, 0.5];
+real[int] q30 = [0.5, 1.1], q31 = [1.5, 1.2];
+border G1(t=0, 1){
+    x=bzi(p00[0], p01[0], q00[0], q01[0], t);
+    y=bzi(p00[1], p01[1], q00[1], q01[1], t);
+}
+border G2(t=0, 1){
+    x=bzi(p01[0], p11[0], q10[0], q11[0], t);
+    y=bzi(p01[1], p11[1], q10[1], q11[1], t);
+}
+border G3(t=0, 1){
+    x=bzi(p11[0], p21[0], q20[0], q21[0], t);
+    y=bzi(p11[1], p21[1], q20[1], q21[1], t);
+}
+border G4(t=0, 1){
+    x=bzi(p21[0], p00[0], q30[0], q31[0], t);
+    y=bzi(p21[1], p00[1], q30[1], q31[1], t);
+}
+int m = 5;
+mesh Th = buildmesh(G1(2*m) + G2(m) + G3(3*m) + G4(m));
+plot(Th, bw=true);
+</pre></div>
+</div>
+<div class="figure" id="id19">
+<img alt="../_images/Bezier.jpg" src="../_images/Bezier.jpg" />
+<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">Bezier</span></p>
+</div>
+</div>
+<div class="section" id="build-layer-mesh">
+<span id="examplebuildlayermesh"></span><h3>Build layer mesh<a class="headerlink" href="#build-layer-mesh" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;
+load &quot;tetgen&quot;
+load &quot;medit&quot;
+
+// Parameters
+int C1 = 99;
+int C2 = 98;
+
+// 2D mesh
+border C01(t=0, pi){x=t; y=0; label=1;}
+border C02(t=0, 2*pi){ x=pi; y=t; label=1;}
+border C03(t=0, pi){ x=pi-t; y=2*pi; label=1;}
+border C04(t=0, 2*pi){ x=0; y=2*pi-t; label=1;}
+
+border C11(t=0, 0.7){x=0.5+t; y=2.5; label=C1;}
+border C12(t=0, 2){x=1.2; y=2.5+t; label=C1;}
+border C13(t=0, 0.7){x=1.2-t; y=4.5; label=C1;}
+border C14(t=0, 2){x=0.5; y=4.5-t; label=C1;}
+
+border C21(t=0, 0.7){x=2.3+t; y=2.5; label=C2;}
+border C22(t=0, 2){x=3; y=2.5+t; label=C2;}
+border C23(t=0, 0.7){x=3-t; y=4.5; label=C2;}
+border C24(t=0, 2){x=2.3; y=4.5-t; label=C2;}
+
+mesh Th = buildmesh(C01(10) + C02(10) + C03(10) + C04(10)
+    + C11(5) + C12(5) + C13(5) + C14(5)
+    + C21(-5) + C22(-5) + C23(-5) + C24(-5));
+
+mesh Ths = buildmesh(C01(10) + C02(10) + C03(10) + C04(10)
+    + C11(5) + C12(5) + C13(5) + C14(5));
+
+// Construction of a box with one hole and two regions
+func zmin = 0.;
+func zmax = 1.;
+int MaxLayer = 10;
+
+func XX = x*cos(y);
+func YY = x*sin(y);
+func ZZ = z;
+
+int[int] r1 = [0, 41], r2 = [98, 98, 99, 99, 1, 56];
+int[int] r3 = [4, 12]; // Change upper surface mesh&#39;s triangles labels
+                       // generated by the 2D mesh&#39;s triangles Th
+                       // from label 4 to label 12
+int[int] r4 = [4, 45]; // Change lower surface mesh&#39;s triangles labels
+                       // generated by the 2D mesh&#39;s triangles Th
+                       // from label 4 to label 45
+
+mesh3 Th3 = buildlayers(Th, MaxLayer, zbound=[zmin, zmax], region=r1,
+    labelmid=r2, labelup=r3, labeldown=r4);
+medit(&quot;box 2 regions 1 hole&quot;, Th3);
+
+// Construction of a sphere with TetGen
+func XX1 = cos(y)*sin(x);
+func YY1 = sin(y)*sin(x);
+func ZZ1 = cos(x);
+
+real[int] domain = [0., 0., 0., 0, 0.001];
+string test = &quot;paACQ&quot;;
+cout &lt;&lt; &quot;test = &quot; &lt;&lt; test &lt;&lt; endl;
+mesh3 Th3sph = tetgtransfo(Ths, transfo=[XX1, YY1, ZZ1],
+    switch=test, nbofregions=1, regionlist=domain);
+medit(&quot;sphere 2 regions&quot;, Th3sph);
+</pre></div>
+</div>
+<div class="figure" id="id20">
+<img alt="../_images/BuildLayerMesh1.jpg" src="../_images/BuildLayerMesh1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Box with a hole</span></p>
+</div>
+<div class="figure" id="id21">
+<img alt="../_images/BuildLayerMesh2.jpg" src="../_images/BuildLayerMesh2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Sphere</span></p>
+</div>
+</div>
+<div class="section" id="sphere">
+<span id="examplesphere"></span><h3>Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameter
+real hh = 0.1;
+
+// Mesh 2D
+mesh Th = square(10, 20, [x*pi-pi/2, 2*y*pi]); // ]-pi/2, pi/2[X]0, 2pi[
+// A parametrization of a sphere
+func f1 = cos(x)*cos(y);
+func f2 = cos(x)*sin(y);
+func f3 = sin(x);
+// Partial derivative of the parametrization DF
+func f1x = sin(x)*cos(y);
+func f1y = -cos(x)*sin(y);
+func f2x = -sin(x)*sin(y);
+func f2y = cos(x)*cos(y);
+func f3x = cos(x);
+func f3y = 0;
+//M = DF^t DF
+func m11 = f1x^2 + f2x^2 + f3x^2;
+func m21 = f1x*f1y + f2x*f2y + f3x*f3y;
+func m22 = f1y^2 + f2y^2 + f3y^2;
+
+// Periodic condition
+func perio = [[4, y], [2, y], [1, x], [3, x]];
+
+// Mesh adaptation
+real vv = 1/square(hh);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, inquire=1, periodic=perio);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, periodic=perio);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, periodic=perio);
+Th = adaptmesh(Th, m11*vv, m21*vv, m22*vv, IsMetric=1, periodic=perio);
+
+// Sphere
+mesh3 Th3 = movemesh23(Th, transfo=[f1, f2, f3]);
+plot(Th3);
+</pre></div>
+</div>
+<div class="figure" id="id22">
+<img alt="../_images/Sphere1.jpg" src="../_images/Sphere1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Initial mesh</span></p>
+</div>
+<div class="figure" id="id23">
+<img alt="../_images/Sphere2.jpg" src="../_images/Sphere2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Sphere</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="finite-element">
+<span id="examplefinteelement"></span><h2>Finite Element<a class="headerlink" href="#finite-element" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="periodic-3d">
+<span id="exampleperiodic3d"></span><h3>Periodic 3D<a class="headerlink" href="#periodic-3d" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;
+load &quot;medit&quot;
+
+// Parameters
+searchMethod=1; // More safe seach algo
+real a = 1, d = 0.5, h = 0.5;
+int nnb = 7, nni = 10;
+int nz = 3;
+func zmin = 0;
+func zmax = h;
+
+// Mesh 2D
+border b1(t=0.5, -0.5){x=a*t; y=-a/2; label=1;}
+border b2(t=0.5, -0.5){x=a/2; y=a*t; label=2;}
+border b3(t=0.5, -0.5){x=a*t; y=a/2; label=3;}
+border b4(t=0.5, -0.5){x=-a/2; y=a*t; label=4;}
+border i1(t=0, 2.*pi){x=d/2*cos(t); y=-d/2*sin(t); label=7;}
+mesh Th = buildmesh(b1(-nnb) + b3(nnb) + b2(-nnb) + b4(nnb) + i1(nni));
+
+{ // Cleaning the memory correctly
+    int[int] old2new(0:Th.nv-1);
+    fespace Vh2(Th, P1);
+    Vh2 sorder = x + y;
+    sort(sorder[], old2new);
+    int[int] new2old = old2new^-1; // Inverse permutation
+    Th = change(Th, renumv=new2old);
+    sorder[] = 0:Th.nv-1;
+}
+{
+    fespace Vh2(Th, P1);
+    Vh2 nu;
+    nu[] = 0:Th.nv-1;
+    plot(nu, cmm=&quot;nu=&quot;, wait=true);
+}
+
+// Mesh 3D
+int[int] rup = [0, 5], rlow = [0, 6], rmid = [1, 1, 2, 2, 3, 3, 4, 4, 7, 7], rtet = [0, 41];
+mesh3 Th3 = buildlayers(Th, nz, zbound=[zmin, zmax],
+    reftet=rtet, reffacemid=rmid, reffaceup=rup, reffacelow=rlow);
+for(int i = 1; i &lt;= 6; ++i)
+    cout &lt;&lt; &quot; int &quot; &lt;&lt; i &lt;&lt; &quot; : &quot; &lt;&lt; int2d(Th3,i)(1.) &lt;&lt; &quot; &quot; &lt;&lt; int2d(Th3,i)(1./area) &lt;&lt; endl;
+
+plot(Th3, wait=true);
+medit(&quot;Th3&quot;, Th3);
+
+fespace Vh(Th3, P2, periodic=[[1, x, z], [3, x, z], [2, y, z], [4, y, z], [5, x, y], [6, x, y]]);
+</pre></div>
+</div>
+<div class="figure" id="id24">
+<img alt="../_images/Periodic.jpg" src="../_images/Periodic.jpg" />
+<p class="caption"><span class="caption-number">Fig. 116 </span><span class="caption-text">Periodic mesh</span></p>
+</div>
+</div>
+<div class="section" id="lagrange-multipliers">
+<span id="examplelagrangemultipliers"></span><h3>Lagrange multipliers<a class="headerlink" href="#lagrange-multipliers" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+func f = 1 + x - y;
+
+// Mesh
+mesh Th = square(10, 10);
+
+// Fespace
+fespace Vh(Th, P1);
+int n = Vh.ndof;
+int n1 = n+1;
+Vh uh, vh;
+
+// Problem
+varf va (uh, vh)
+    = int2d(Th)(
+          dx(uh)*dx(vh)
+        + dy(uh)*dy(vh)
+    )
+    ;
+
+varf vL (uh, vh) = int2d(Th)(f*vh);
+varf vb (uh, vh) = int2d(Th)(1.*vh);
+
+matrix A = va(Vh, Vh);
+real[int] b = vL(0, Vh);
+real[int] B = vb(0, Vh);
+
+// Block matrix
+matrix AA = [ [ A, B ], [ B&#39;, 0 ] ];
+set(AA, solver=sparsesolver);
+
+real[int] bb(n+1), xx(n+1), b1(1), l(1);
+b1 = 0;
+// Builds the right hand side block
+bb = [b, b1];
+
+// Solve
+xx = AA^-1 * bb;
+
+// Set values
+[uh[],l] = xx;
+
+// Display
+cout &lt;&lt; &quot; l = &quot; &lt;&lt; l(0) &lt;&lt; &quot; , b(u, 1) =&quot; &lt;&lt; B&#39;*uh[] &lt;&lt; endl;
+
+// Plot
+plot(uh);
+</pre></div>
+</div>
+<div class="figure" id="id25">
+<img alt="../_images/LagrangeMultipliers.jpg" src="../_images/LagrangeMultipliers.jpg" />
+<p class="caption"><span class="caption-number">Fig. 117 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="visualization">
+<span id="examplevisualization"></span><h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plot">
+<span id="exampleplot"></span><h3>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(5,5);
+fespace Vh(Th, P1);
+
+// Plot scalar and vectorial FE function
+Vh uh=x*x+y*y, vh=-y^2+x^2;
+plot(Th, uh, [uh, vh], value=true, wait=true);
+
+// Zoom on box defined by the two corner points [0.1,0.2] and [0.5,0.6]
+plot(uh, [uh, vh], bb=[[0.1, 0.2], [0.5, 0.6]],
+    wait=true, grey=true, fill=true, value=true);
+
+// Compute a cut
+int n = 10;
+real[int] xx(10), yy(10);
+for (int i = 0; i &lt; n; i++){
+    x = i/real(n);
+    y = i/real(n);
+    xx[i] = i;
+    yy[i] = uh; // Value of uh at point (i/10., i/10.)
+}
+plot([xx, yy], wait=true);
+
+{ // File for gnuplot
+    ofstream gnu(&quot;plot.gp&quot;);
+    for (int i = 0; i &lt; n; i++)
+        gnu &lt;&lt; xx[i] &lt;&lt; &quot; &quot; &lt;&lt; yy[i] &lt;&lt; endl;
+}
+
+// Calls the gnuplot command, waits 5 seconds and generates a postscript plot (UNIX ONLY)
+exec(&quot;echo &#39;plot \&quot;plot.gp\&quot; w l \n pause 5 \n set term postscript \n set output \&quot;gnuplot.eps\&quot; \n replot \n quit&#39; | gnuplot&quot;);
+</pre></div>
+</div>
+<div class="figure" id="id26">
+<img alt="../_images/Plot1.jpg" src="../_images/Plot1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 118 </span><span class="caption-text">First plot</span></p>
+</div>
+<div class="figure" id="id27">
+<img alt="../_images/Plot2.jpg" src="../_images/Plot2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 119 </span><span class="caption-text">Second plot</span></p>
+</div>
+<div class="figure" id="id28">
+<img alt="../_images/Plot3.png" src="../_images/Plot3.png" />
+<p class="caption"><span class="caption-number">Fig. 120 </span><span class="caption-text">Gnuplot</span></p>
+</div>
+</div>
+<div class="section" id="hsv">
+<span id="examplehsv"></span><h3>HSV<a class="headerlink" href="#hsv" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// From: http://en.wikipedia.org/wiki/HSV_color_space
+// The HSV (Hue, Saturation, Value) model defines a color space
+// in terms of three constituent components:
+// HSV color space as a color wheel
+// Hue, the color type (such as red, blue, or yellow):
+// Ranges from 0-360 (but normalized to 0-100% in some applications like here)
+// Saturation, the &quot;vibrancy&quot; of the color: Ranges from 0-100%
+// The lower the saturation of a color, the more &quot;grayness&quot; is present
+// and the more faded the color will appear.
+// Value, the brightness of the color: Ranges from 0-100%
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh uh=2-x*x-y*y;
+
+real[int] colorhsv=[ // Color hsv model
+    4./6., 1 , 0.5, // Dark blue
+    4./6., 1 , 1, // Blue
+    5./6., 1 , 1, // Magenta
+    1, 1. , 1, // Red
+    1, 0.5 , 1 // Light red
+    ];
+ real[int] viso(31);
+
+ for (int i = 0; i &lt; viso.n; i++)
+    viso[i] = i*0.1;
+
+ plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
+</pre></div>
+</div>
+<div class="figure" id="id29">
+<img alt="../_images/HSV.jpg" src="../_images/HSV.jpg" />
+<p class="caption"><span class="caption-number">Fig. 121 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+<div class="section" id="medit">
+<span id="examplemedit"></span><h3>Medit<a class="headerlink" href="#medit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;medit&quot;
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+medit(&quot;u&quot;, Th, u);
+
+// Old way
+savemesh(Th, &quot;u&quot;, [x, y, u*.5]); // Saves u.points and u.faces file
+// build a u.bb file for medit
+{
+    ofstream file(&quot;u.bb&quot;);
+    file &lt;&lt; &quot;2 1 1 &quot; &lt;&lt; u[].n &lt;&lt; &quot; 2 \n&quot;;
+    for (int j = 0; j &lt; u[].n; j++)
+        file &lt;&lt; u[][j] &lt;&lt; endl;
+}
+// Calls medit command
+exec(&quot;ffmedit u&quot;);
+// Cleans files on unix-like OS
+exec(&quot;rm u.bb u.faces u.points&quot;);
+</pre></div>
+</div>
+<div class="figure" id="id30">
+<img alt="../_images/Medit1.jpg" src="../_images/Medit1.jpg" />
+<p class="caption"><span class="caption-number">Fig. 122 </span><span class="caption-text">2D plot</span></p>
+</div>
+<div class="figure" id="id31">
+<img alt="../_images/Medit2.jpg" src="../_images/Medit2.jpg" />
+<p class="caption"><span class="caption-number">Fig. 123 </span><span class="caption-text">Plot with elevation</span></p>
+</div>
+</div>
+<div class="section" id="paraview">
+<span id="exampleparaview"></span><h3>Paraview<a class="headerlink" href="#paraview" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;iovtk&quot;
+
+mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+
+fespace Vh(Th, P1);
+Vh u=2-x*x-y*y;
+
+int[int] Order = [1];
+string DataName = &quot;u&quot;;
+savevtk(&quot;u.vtu&quot;, Th, u, dataname=DataName, order=Order);
+</pre></div>
+</div>
+<div class="figure" id="id32">
+<img alt="../_images/Paraview.jpg" src="../_images/Paraview.jpg" />
+<p class="caption"><span class="caption-number">Fig. 124 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="algorithms-optimizations">
+<span id="examplealgorithmsoptimization"></span><h2>Algorithms &amp; Optimizations<a class="headerlink" href="#algorithms-optimizations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="algorithms">
+<span id="examplealgorithms"></span><h3>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+int nerr = 0;
+int debugJ = 0;
+int debugdJ = 0;
+real umax = 0;
+
+// Algorithms tests
+{
+    func bool stop (int iter, real[int] u, real[int] g){
+        cout &lt;&lt; &quot; stop = &quot; &lt;&lt; iter &lt;&lt; &quot; &quot; &lt;&lt; u.linfty &lt;&lt; &quot; &quot; &lt;&lt; g.linfty &lt;&lt; endl;
+        return g.linfty &lt; 1e-5 || iter &gt; 15;
+    }
+    // minimization of J(u) = 1./2 * sum (i+1) u_i^2 - b_i
+    real[int] b(10), u(10);
+
+    //J
+    func real J (real[int] &amp; u){
+        real s = 0;
+        for (int i = 0; i &lt; u.n; i++)
+            s += (i+1)*u[i]*u[i]*0.5 - b[i]*u[i];
+        if (debugJ)
+            cout &lt;&lt; &quot;J = &quot; &lt;&lt; s &lt;&lt; &quot;, u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; endl;
+        return s;
+    }
+
+    //the gradiant of J (this is a affine version (the RHS is in)
+    func real[int] DJ (real[int] &amp;u){
+        for (int i = 0; i &lt; u.n; i++)
+            u[i] = (i+1)*u[i];
+        if (debugdJ)
+            cout &lt;&lt; &quot;dJ: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+        u -= b;
+        if (debugdJ)
+            cout &lt;&lt; &quot;dJ-b: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+        return u; //return of global variable ok
+    }
+
+    //the gradiant of the bilinear part of J (the RHS is remove)
+    func real[int] DJ0 (real[int] &amp;u){
+        for (int i = 0 ; i &lt; u.n; i++)
+            u[i] = (i+1)*u[i];
+        if(debugdJ)
+            cout &lt;&lt; &quot;dJ0: u =&quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+        return u; //return of global variable ok
+    }
+
+    //erro calculation
+    func real error (real[int] &amp; u, real[int] &amp; b){
+        real s = 0;
+        for (int i = 0; i &lt; u.n; i++)
+            s += abs((i+1)*u[i] - b[i]);
+        return s;
+    }
+
+    func real[int] matId (real[int] &amp;u){ return u; }
+
+    int verb=5; //verbosity
+    b = 1.; //set right hand side
+    u = 0.; //set initial gest
+
+    LinearCG(DJ, u, eps=1.e-6, nbiter=20, precon=matId, verbosity=verb);
+    cout &lt;&lt; &quot;LinearGC (Affine) : J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    b = 1;
+    u = 0;
+    LinearCG(DJ, u, eps=1.e-15, nbiter=20, precon=matId, verbosity=verb, stop=stop);
+    cout &lt;&lt; &quot;LinearGC (Affine with stop) : J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    b = 1;
+    u = 0;
+    LinearCG(DJ0, u, b, eps=1.e-6, nbiter=20, precon=matId, verbosity=verb);
+    cout &lt;&lt; &quot;LinearGC (Linear) : J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    b = 1;
+    u = 0;
+    AffineGMRES(DJ, u, eps=1.e-6, nbiter=20, precon=matId, verbosity=verb);
+    cout &lt;&lt; &quot;AffineGMRES (Affine) : J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    b=1;
+    u=0;
+    LinearGMRES(DJ0, u, b, eps=1.e-6, nbiter=20, precon=matId, verbosity=verb);
+    cout &lt;&lt; &quot;LinearGMRES (Linear) : J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    b=1;
+    u=0;
+    NLCG(DJ, u, eps=1.e-6, nbiter=20, precon=matId, verbosity=verb);
+    cout &lt;&lt; &quot;NLCG: J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    nerr += !(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u =&quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    //warning: BFGS use a full matrix of size nxn (where n=u.n)
+    b=1;
+    u=2;
+    BFGS(J, DJ, u, eps=1.e-6, nbiter=20, nbiterline=20);
+    cout &lt;&lt; &quot;BFGS: J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+    assert(error(u,b) &lt; 1e-5);
+    if(nerr) cout &lt;&lt; &quot;sol: u =&quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+
+    assert(nerr==0);
+}
+
+{ // A real non linear test
+    // Parameters
+    real a = 0.001;
+    real eps = 1e-6;
+    //f(u) = a*u + u-ln(1+u), f&#39;(u) = a+ u/(1+u), f&#39;&#39;(u) = 1/(1+u)^2
+    func real f(real u) { return u*a+u-log(1+u); }
+    func real df(real u) { return a+u/(1+u); }
+    func real ddf(real u) { return 1/((1+u)*(1+u)); }
+
+    // Mesh
+    mesh Th = square(20, 20);
+
+    // Fespace
+    fespace Vh(Th, P1);
+    Vh b = 1;
+    Vh u = 0;
+
+    fespace Ph(Th, P0);
+    Ph alpha; //store df(|nabla u|^2)
+
+    // The functionnal J
+    //J(u) = 1/2 int_Omega f(|nabla u|^2) - int_Omega u b
+    func real J (real[int] &amp; u){
+        Vh w;
+        w[] = u;
+        real r = int2d(Th)(0.5*f(dx(w)*dx(w) + dy(w)*dy(w)) - b*w);
+        cout &lt;&lt; &quot;J(u) = &quot; &lt;&lt; r &lt;&lt; &quot; &quot; &lt;&lt; u.min &lt;&lt; &quot; &quot; &lt;&lt; u.max &lt;&lt; endl;
+        return r;
+    }
+
+    // The gradiant of J
+    func real[int] dJ (real[int] &amp; u){
+        Vh w;
+        w[] = u;
+        alpha = df(dx(w)*dx(w) + dy(w)*dy(w));
+        varf au (uh, vh)
+            = int2d(Th)(
+                  alpha*(dx(w)*dx(vh) + dy(w)*dy(vh))
+                - b*vh
+            )
+            + on(1, 2, 3, 4, uh=0)
+            ;
+
+        u = au(0, Vh);
+        return u; //warning: no return of local array
+    }
+
+    // Problem
+    alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+    varf alap (uh, vh)
+        = int2d(Th)(
+              alpha*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
+        )
+        + on(1, 2, 3, 4, uh=0)
+        ;
+
+    varf amass(uh, vh)
+        = int2d(Th)(
+              uh*vh
+        )
+        + on(1, 2, 3, 4, uh=0)
+        ;
+
+    matrix Amass = amass(Vh, Vh, solver=CG);
+    matrix Alap= alap(Vh, Vh, solver=Cholesky, factorize=1);
+
+    // Preconditionner
+    func real[int] C(real[int] &amp; u){
+        real[int] w = u;
+        u = Alap^-1*w;
+        return u; //warning: no return of local array variable
+    }
+
+    // Solve
+    int conv=0;
+    for(int i = 0; i &lt; 20; i++){
+        conv = NLCG(dJ, u[], nbiter=10, precon=C, veps=eps, verbosity=5);
+        if (conv) break;
+
+        alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+        Alap = alap(Vh, Vh, solver=Cholesky, factorize=1);
+        cout &lt;&lt; &quot;Restart with new preconditionner &quot; &lt;&lt; conv &lt;&lt; &quot;, eps =&quot; &lt;&lt; eps &lt;&lt; endl;
+    }
+
+    // Plot
+    plot (u, wait=true, cmm=&quot;solution with NLCG&quot;);
+    umax = u[].max;
+
+    Vh sss= df(dx(u)*dx(u) + dy(u)*dy(u));
+    plot (sss, fill=true, value=true);
+}
+
+assert(nerr==0);
+</pre></div>
+</div>
+<div class="figure" id="id33">
+<img alt="../_images/Algorithms1.png" src="../_images/Algorithms1.png" />
+<p class="caption"><span class="caption-number">Fig. 125 </span><span class="caption-text">Result <code class="docutils literal highlight highlight-freefem"><span></span>u</code></span></p>
+</div>
+<div class="figure" id="id34">
+<img alt="../_images/Algorithms2.png" src="../_images/Algorithms2.png" />
+<p class="caption"><span class="caption-number">Fig. 126 </span><span class="caption-text"><code class="docutils literal highlight highlight-freefem"><span></span>df(dx(u)*dx(u) + dy(u)*dy(u))</code></span></p>
+</div>
+</div>
+<div class="section" id="cmaes-variational-inequality">
+<span id="examplecmaesvaritionalinequality"></span><h3>CMAES variational inequality<a class="headerlink" href="#cmaes-variational-inequality" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;ff-cmaes&quot;
+
+// Parameters
+int NN = 7;
+func f1 = 1.;
+func f2 = -1.;
+func g1 = 0.;
+func g2 = 0.1;
+int iter = 0;
+int nadapt = 1;
+real starttol = 1e-10;
+real bctol = 6.e-12;
+real pena = 1000.;
+
+// Mesh
+mesh Th = square(NN, NN);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh ou1, ou2;
+
+// Mesh adaptation loops
+for (int al = 0; al &lt; nadapt; ++al){
+    // Problem
+    varf BVF (v, w)
+        = int2d(Th)(
+              0.5*dx(v)*dx(w)
+            + 0.5*dy(v)*dy(w)
+        )
+        ;
+    varf LVF1 (v, w) = int2d(Th)(f1*w);
+    varf LVF2 (v, w) = int2d(Th)(f2*w);
+
+    matrix A =  BVF(Vh, Vh);
+    real[int] b1 = LVF1(0, Vh);
+    real[int] b2 = LVF2(0, Vh);
+
+    varf Vbord (v, w) = on(1, 2, 3, 4, v=1);
+
+    Vh In, Bord;
+    Bord[] = Vbord(0, Vh, tgv=1);
+    In[] = Bord[] ? 0:1;
+    Vh gh1 = Bord*g1;
+    Vh gh2 = Bord*g2;
+
+    // Function which creates a vector of the search space type from
+    // two finite element functions
+    func int FEFToSSP (real[int] &amp;fef1, real[int] &amp;fef2, real[int] &amp;ssp){
+        int kX = 0;
+        for (int i = 0; i &lt; Vh.ndof; ++i){
+            if (In[][i]){
+                ssp[kX] = fef1[i];
+                ssp[kX+In[].sum] = fef2[i];
+                ++kX;
+            }
+        }
+        return 1;
+    }
+
+    // Splits a vector from the search space and fills
+    // two finite element functions with it
+    func int SSPToFEF (real[int] &amp;fef1, real[int] &amp;fef2, real[int] &amp;ssp){
+        int kX = 0;
+        for (int i = 0; i &lt; Vh.ndof; ++i){
+            if (In[][i]){
+                fef1[i] = ssp[kX];
+                fef2[i] = ssp[kX+In[].sum];
+                ++kX;
+            }
+            else{
+                fef1[i] = gh1[][i];
+                fef2[i] = gh2[][i];
+            }
+        }
+        return 1;
+    }
+
+    func real IneqC (real[int] &amp;X){
+        real[int] constraints(In[].sum);
+        for (int i = 0; i &lt; In[].sum; ++i){
+            constraints[i] = X[i] - X[i+In[].sum];
+            constraints[i] = constraints[i] &lt;= 0 ? 0. : constraints[i];
+        }
+        return constraints.l2;
+    }
+
+    func real J (real[int] &amp;X){
+        Vh u1, u2;
+        SSPToFEF(u1[], u2[], X);
+        iter++;
+        real[int] Au1 = A*u1[], Au2 = A*u2[];
+        Au1 -= b1;
+        Au2 -= b2;
+        real val = u1[]&#39;*Au1 + u2[]&#39;*Au2;
+        val +=  pena * IneqC(X);
+        if (iter%200 == 199)
+            plot(u1, u2, nbiso=30, fill=1, dim=3, cmm=&quot;adapt level &quot;+al+&quot; - iteration &quot;+iter+&quot; - J = &quot;+val, value=1);
+        return val ;
+    }
+
+    // Solve
+    real[int] start(2*In[].sum);
+
+    if (al == 0){
+        start(0:In[].sum-1) = 0.;
+        start(In[].sum:2*In[].sum-1) = 0.1;
+    }
+    else
+        FEFToSSP(ou1[], ou2[], start);
+
+    real mini = cmaes(J, start, stopMaxFunEval=10000*(al+1), stopTolX=1.e-3/(10*(al+1)), initialStdDev=(0.025/(pow(100.,al))));
+    Vh best1, best2;
+    SSPToFEF(best1[], best2[], start);
+
+    // Mesh adaptation
+    Th = adaptmesh(Th, best1, best2);
+    ou1 = best1;
+    ou2 = best2;
+}
+</pre></div>
+</div>
+<div class="figure" id="id35">
+<img alt="../_images/CMAESVariationalInequality.png" src="../_images/CMAESVariationalInequality.png" />
+<p class="caption"><span class="caption-number">Fig. 127 </span><span class="caption-text">Results</span></p>
+</div>
+</div>
+<div class="section" id="ipopt-minimal-surface-volume">
+<span id="exampleipoptminimalsurfacevolume"></span><h3>IPOPT minimal surface &amp; volume<a class="headerlink" href="#ipopt-minimal-surface-volume" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;;
+load &quot;medit&quot;;
+load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nadapt = 3;
+real alpha = 0.9;
+int np = 30;
+real regtest;
+int shapeswitch = 1;
+real sigma = 2*pi/40.;
+real treshold = 0.1;
+real e = 0.1;
+real r0 = 0.25;
+real rr = 2-r0;
+real E = 1./(e*e);
+real RR = 1./(rr*rr);
+
+// Mesh
+mesh Th = square(2*np, np, [2*pi*x, pi*y]);
+
+// Fespace
+fespace Vh(Th, P1, periodic=[[2, y], [4, y]]);
+//Initial shape definition
+//outside of the mesh adaptation loop to initialize with the previous optimial shape found on further iterations
+Vh startshape = 5;
+Vh uz = 1., lz = 1.;
+
+// Mesh adaptation loop
+real[int] lm = [1];
+for(int kkk = 0; kkk &lt; nadapt; ++kkk){
+    int iter=0;
+    func sin2 = square(sin(y));
+
+    // A function which transform Th in 3d mesh (r=rho)
+    //a point (theta,phi) of Th becomes ( r(theta,phi)*cos(theta)*sin(phi) , r(theta,phi)*sin(theta)*sin(phi) , r(theta,phi)*cos(phi) )
+    //then displays the resulting mesh with medit
+    func int Plot3D (real[int] &amp;rho, string cmm, bool ffplot){
+        Vh rhoo;
+        rhoo[] = rho;
+        //mesh sTh = square(np, np/2, [2*pi*x, pi*y]);
+        //fespace sVh(sTh, P1);
+        //Vh rhoplot = rhoo;
+        try{
+            mesh3 Sphere = movemesh23(Th, transfo=[rhoo(x,y)*cos(x)*sin(y), rhoo(x,y)*sin(x)*sin(y), rhoo(x,y)*cos(y)]);
+            if(ffplot)
+                plot(Sphere);
+            else
+                medit(cmm, Sphere);
+        }
+        catch(...){
+            cout &lt;&lt; &quot;PLOT ERROR&quot; &lt;&lt; endl;
+        }
+        return 1;
+    }
+
+    // Surface computation
+    //Maybe is it possible to use movemesh23 to have the surface function less complicated
+    //However, it would not simplify the gradient and the hessian
+    func real Area (real[int] &amp;X){
+        Vh rho;
+        rho[] = X;
+        Vh rho2 = square(rho);
+        Vh rho4 = square(rho2);
+        real res = int2d(Th)(sqrt(rho4*sin2 + rho2*square(dx(rho)) + rho2*sin2*square(dy(rho))));
+        ++iter;
+        if(1)
+            plot(rho, value=true, fill=true, cmm=&quot;rho(theta,phi) on [0,2pi]x[0,pi] - S=&quot;+res, dim=3);
+        else
+            Plot3D(rho[], &quot;shape_evolution&quot;, 1);
+        return res;
+    }
+
+    func real[int] GradArea (real[int] &amp;X){
+        Vh rho, rho2;
+        rho[] = X;
+        rho2[] = square(X);
+        Vh sqrtPsi, alpha;
+        {
+            Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+            sqrtPsi = sqrt(rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+            alpha = 2.*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+        }
+        varf dArea (u, v)
+            = int2d(Th)(
+                1./sqrtPsi * (alpha*v + rho2*dx(rho)*dx(v) + rho2*dy(rho)*sin2*dy(v))
+            )
+            ;
+
+        real[int] grad = dArea(0, Vh);
+        return grad;
+    }
+
+    matrix hessianA;
+    func matrix HessianArea (real[int] &amp;X){
+        Vh rho, rho2;
+        rho[] = X;
+        rho2 = square(rho);
+        Vh sqrtPsi, sqrtPsi3, C00, C01, C02, C11, C12, C22, A;
+        {
+            Vh C0, C1, C2;
+            Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+            sqrtPsi = sqrt( rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+            sqrtPsi3 = (rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2)*sqrtPsi;
+            C0 = 2*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+            C1 = rho2*dx(rho);
+            C2 = rho2*sin2*dy(rho);
+            C00 = square(C0);
+            C01 = C0*C1;
+            C02 = C0*C2;
+            C11 = square(C1);
+            C12 = C1*C2;
+            C22 = square(C2);
+            A = 6.*rho2*sin2 + dxrho2 + dyrho2*sin2;
+        }
+        varf d2Area (w, v)
+            =int2d(Th)(
+                1./sqrtPsi * (
+                      A*w*v
+                    + 2*rho*dx(rho)*dx(w)*v
+                    + 2*rho*dx(rho)*w*dx(v)
+                    + 2*rho*dy(rho)*sin2*dy(w)*v
+                    + 2*rho*dy(rho)*sin2*w*dy(v)
+                    + rho2*dx(w)*dx(v)
+                    + rho2*sin2*dy(w)*dy(v)
+                )
+                + 1./sqrtPsi3 * (
+                      C00*w*v
+                    + C01*dx(w)*v
+                    + C01*w*dx(v)
+                    + C02*dy(w)*v
+                    + C02*w*dy(v)
+                    + C11*dx(w)*dx(v)
+                    + C12*dx(w)*dy(v)
+                    + C12*dy(w)*dx(v)
+                    + C22*dy(w)*dy(v)
+                )
+            )
+            ;
+        hessianA = d2Area(Vh, Vh);
+        return hessianA;
+    }
+
+    // Volume computation
+    func real Volume (real[int] &amp;X){
+        Vh rho;
+        rho[] = X;
+        Vh rho3 = rho*rho*rho;
+        real res = 1./3.*int2d(Th)(rho3*sin(y));
+        return res;
+    }
+
+    func real[int] GradVolume (real[int] &amp;X){
+        Vh rho;
+        rho[] = X;
+        varf dVolume(u, v) = int2d(Th)(rho*rho*sin(y)*v);
+        real[int] grad = dVolume(0, Vh);
+        return grad;
+    }
+    matrix hessianV;
+    func matrix HessianVolume(real[int] &amp;X){
+        Vh rho;
+        rho[] = X;
+        varf d2Volume(w, v) = int2d(Th)(2*rho*sin(y)*v*w);
+        hessianV = d2Volume(Vh, Vh);
+        return hessianV;
+    }
+
+    //if we want to use the volume as a constraint function
+    //we must wrap it in some freefem functions returning the appropriate type
+    //The lagrangian hessian also have to be wrapped since the Volume is not linear with
+    //respect to rho, it will constribbute to the hessian.
+    func real[int] ipVolume (real[int] &amp;X){ real[int] vol = [Volume(X)]; return vol; }
+    matrix mdV;
+    func matrix ipGradVolume (real[int] &amp;X) { real[int,int] dvol(1,Vh.ndof); dvol(0,:) = GradVolume(X); mdV = dvol; return mdV; }
+    matrix HLagrangian;
+    func matrix ipHessianLag (real[int] &amp;X, real objfact, real[int] &amp;lambda){
+        HLagrangian = objfact*HessianArea(X) + lambda[0]*HessianVolume(X);
+        return HLagrangian;
+    }
+
+    //building struct for GradVolume
+    int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
+    gvi = 0;
+
+    Vh rc = startshape; //the starting value
+    Vh ub = 1.e19; //bounds definition
+    Vh lb = 0;
+
+    func real Gaussian (real X, real Y, real theta, real phi){
+        real deltax2 = square((X-theta)*sin(Y)), deltay2 = square(Y-phi);
+        return exp(-0.5 * (deltax2 + deltay2) / (sigma*sigma));
+    }
+
+    func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
+    func disc2 = sqrt(1./(RR+(E-RR)*cos(x)*cos(x)*sin2));
+
+    if(1){
+        lb = r0;
+        for (int q = 0; q &lt; 5; ++q){
+            func f = rr*Gaussian(x, y, 2*q*pi/5., pi/3.);
+            func g = rr*Gaussian(x, y, 2*q*pi/5.+pi/5., 2.*pi/3.);
+            lb = max(max(lb, f), g);
+        }
+        lb = max(lb, rr*Gaussian(x, y, 2*pi, pi/3));
+    }
+    lb = max(lb, max(disc1, disc2));
+    real Vobj = Volume(lb[]);
+    real Vnvc = 4./3.*pi*pow(lb[].linfty,3);
+
+    if(1)
+        Plot3D(lb[], &quot;object_inside&quot;, 1);
+    real[int] clb = 0., cub = [(1-alpha)*Vobj + alpha*Vnvc];
+
+    // Call IPOPT
+    int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
+            rc[], ub=ub[], lb=lb[], clb=clb, cub=cub, checkindex=1, maxiter=kkk&lt;nadapt-1 ? 40:150,
+            warmstart=kkk, lm=lm, uz=uz[], lz=lz[], tol=0.00001, structjacc=[gvi,gvj]);
+    cout &lt;&lt; &quot;IPOPT: res =&quot; &lt;&lt; res &lt;&lt; endl ;
+
+    // Plot
+    Plot3D(rc[], &quot;Shape_at_&quot;+kkk, 1);
+    Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
+
+    // Mesh adaptation
+    if (kkk &lt; nadapt-1){
+        Th = adaptmesh(Th, rc*cos(x)*sin(y), rc*sin(x)*sin(y), rc*cos(y),
+            nbvx=50000, periodic=[[2, y], [4, y]]);
+        plot(Th, wait=true);
+        startshape = rc;
+        uz = uz;
+        lz = lz;
+    }
+
+    regtest = rc[]&#39;*rc[];
+}
+</pre></div>
+</div>
+<div class="figure" id="id36">
+<img alt="../_images/IPOPTMinimalSurfaceVolume.png" src="../_images/IPOPTMinimalSurfaceVolume.png" />
+<p class="caption"><span class="caption-number">Fig. 128 </span><span class="caption-text">Mesh</span></p>
+</div>
+</div>
+<div class="section" id="cmaes-mpi-variational-inequality">
+<span id="examplecmaesmpivariationalinequality"></span><h3>CMAES MPI variational inequality<a class="headerlink" href="#cmaes-mpi-variational-inequality" title="Permalink to this headline">¶</a></h3>
+<p>Command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ff-mpirun -np <span class="m">4</span> CMAESMPIVariationalInequality.edp -glut ffglut
+</pre></div>
+</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;mpi-cmaes&quot;
+
+// Parameters
+int NN = 10;
+func f1 = 1.;
+func f2 = -1.;
+func g1 = 0.;
+func g2 = 0.1;
+int iter = 0;
+int nadapt = 1;
+real starttol = 1e-10;
+real bctol = 6.e-12;
+real pena = 1000;
+
+// Mesh
+mesh Th = square(NN, NN);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh ou1, ou2;
+
+// Mehs adaptation loop
+for (int al = 0; al &lt; nadapt; ++al){
+    // Problem
+    varf BVF (v, w)
+        = int2d(Th)(
+              0.5*dx(v)*dx(w)
+            + 0.5*dy(v)*dy(w)
+        )
+        ;
+    varf LVF1 (v, w) = int2d(Th)(f1*w);
+    varf LVF2 (v, w) = int2d(Th)(f2*w);
+    matrix A = BVF(Vh, Vh);
+    real[int] b1 = LVF1(0, Vh);
+    real[int] b2 = LVF2(0, Vh);
+
+    varf Vbord (v, w) = on(1, 2, 3, 4, v=1);
+
+    Vh In, Bord;
+    Bord[] = Vbord(0, Vh, tgv=1);
+    In[] = Bord[] ? 0:1;
+    Vh gh1 = Bord*g1, gh2 = Bord*g2;
+
+    //Function which create a vector of the search space type from
+    //two finite element functions
+    func int FEFToSSP (real[int] &amp;fef1, real[int] &amp;fef2, real[int] &amp;ssp){
+        int kX = 0;
+        for (int i = 0; i &lt; Vh.ndof; ++i){
+            if (In[][i]){
+                ssp[kX] = fef1[i];
+                ssp[kX+In[].sum] = fef2[i];
+                ++kX;
+            }
+        }
+        return 1;
+    }
+
+    //Function spliting a vector from the search space and fills
+    //two finite element functions with it
+    func int SSPToFEF (real[int] &amp;fef1, real[int] &amp;fef2, real[int] &amp;ssp){
+        int kX = 0;
+        for (int i = 0; i &lt; Vh.ndof; ++i){
+            if (In[][i]){
+                fef1[i] = ssp[kX];
+                fef2[i] = ssp[kX+In[].sum];
+                ++kX;
+            }
+            else{
+                fef1[i] = gh1[][i];
+                fef2[i] = gh2[][i];
+            }
+        }
+        return 1;
+    }
+
+    func real IneqC (real[int] &amp;X){
+        real[int] constraints(In[].sum);
+        for (int i = 0; i &lt; In[].sum; ++i){
+            constraints[i] = X[i] - X[i+In[].sum];
+            constraints[i] = constraints[i] &lt;= 0 ? 0. : constraints[i];
+        }
+        return constraints.l2;
+    }
+
+    func real J (real[int] &amp;X){
+        Vh u1, u2;
+        SSPToFEF(u1[], u2[], X);
+        iter++;
+        real[int] Au1 = A*u1[], Au2 = A*u2[];
+        Au1 -= b1;
+        Au2 -= b2;
+        real val = u1[]&#39;*Au1 + u2[]&#39;*Au2;
+        val +=  pena * IneqC(X);
+        plot(u1, u2, nbiso=30, fill=1, dim=3, cmm=&quot;adapt level &quot;+al+&quot; - iteration &quot;+iter+&quot; - J = &quot;+val, value=1);
+        return val ;
+    }
+
+    // Solve
+    real[int] start(2*In[].sum);
+
+    if (al==0){
+        start(0:In[].sum-1) = 0.;
+        start(In[].sum:2*In[].sum-1) = 0.1;
+    }
+    else
+        FEFToSSP(ou1[], ou2[], start);
+
+    real mini = cmaesMPI(J, start, stopMaxFunEval=10000*(al+1), stopTolX=1.e-4/(10*(al+1)), initialStdDev=(0.025/(pow(100.,al))));
+    Vh best1, best2;
+    SSPToFEF(best1[], best2[], start);
+
+    // Mesh adaptation
+    Th = adaptmesh(Th, best1, best2);
+    ou1 = best1;
+    ou2 = best2;
+}
+</pre></div>
+</div>
+<div class="figure" id="id37">
+<img alt="../_images/CMAESMPIVariationalInequality.png" src="../_images/CMAESMPIVariationalInequality.png" />
+<p class="caption"><span class="caption-number">Fig. 129 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="parallelization">
+<span id="exampleparallelization"></span><h2>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mpi-gmres-2d">
+<span id="examplempigmres2d"></span><h3>MPI-GMRES 2D<a class="headerlink" href="#mpi-gmres-2d" title="Permalink to this headline">¶</a></h3>
+<p>To launch this script, use for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ff-mpirun -np <span class="m">12</span> MPIGMRES2D.edp -d <span class="m">1</span> -k <span class="m">1</span> -gmres <span class="m">2</span> -n <span class="m">50</span>
+</pre></div>
+</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>//usage :
+//ff-mpirun [mpi parameter] MPIGMRES2d.edp [-glut ffglut] [-n N] [-k K] [-d D] [-ns] [-gmres [0|1]
+//arguments:
+//-glut ffglut : to see graphicaly the process
+//-n N: set the mesh cube split NxNxN
+//-d D: set debug flag D must be one for mpiplot
+//-k K: to refined by K all element
+//-ns: remove script dump
+//-gmres
+//0: use iterative schwarz algo.
+//1: Algo GMRES on residu of schwarz algo
+//2: DDM GMRES
+//3: DDM GMRES with coarse grid preconditionner (Good one)
+
+load &quot;MPICG&quot;
+load &quot;medit&quot;
+load &quot;metis&quot;
+include &quot;getARGV.idp&quot;
+include &quot;MPIplot.idp&quot;
+include &quot;MPIGMRESmacro.idp&quot;
+
+searchMethod = 0; //more safe seach algo (warning can be very expensive in case of lot of ouside point)
+assert(version &gt;= 3.11); //need at least v3.11
+real[int] ttt(10);
+int ittt=0;
+macro settt {ttt[ittt++] = mpiWtime();}//
+
+// Arguments
+verbosity = getARGV(&quot;-vv&quot;, 0);
+int vdebug = getARGV(&quot;-d&quot;, 1);
+int ksplit = getARGV(&quot;-k&quot;, 3);
+int nloc = getARGV(&quot;-n&quot;, 10);
+string sff = getARGV(&quot;-p&quot;, &quot;&quot;);
+int gmres = getARGV(&quot;-gmres&quot;, 2);
+bool dplot = getARGV(&quot;-dp&quot;, 0);
+int nC = getARGV(&quot;-N&quot;, max(nloc/10, 4));
+
+if (mpirank==0 &amp;&amp; verbosity){
+    cout &lt;&lt; &quot;ARGV: &quot;;
+    for (int i = 0; i &lt; ARGV.n; ++i)
+        cout &lt;&lt; ARGV[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+}
+
+if(mpirank==0 &amp;&amp; verbosity)
+cout &lt;&lt; &quot; vdebug: &quot; &lt;&lt; vdebug &lt;&lt; &quot;, kspilt &quot;&lt;&lt; ksplit &lt;&lt; &quot;, nloc &quot;&lt;&lt; nloc &lt;&lt; &quot;, sff &quot;&lt;&lt; sff &lt;&lt; &quot;.&quot; &lt;&lt; endl;
+
+// Parameters
+int withplot = 0;
+bool withmetis = 1;
+bool RAS = 1;
+string sPk = &quot;P2-2gd&quot;;
+func Pk = P2;
+int sizeoverlaps = 1; //size of overlap
+int[int] l111 = [1, 1, 1, 1]; //mesh labels
+
+// MPI function
+func bool plotMPIall(mesh &amp;Th, real[int] &amp;u, string cm){
+    if(vdebug)
+        PLOTMPIALL(mesh, Pk, Th, u, {cmm=cm, nbiso=20, fill=1, dim=3, value=1});
+    return 1;
+}
+
+// MPI
+mpiComm comm(mpiCommWorld,0,0); //trick : make a no split mpiWorld
+
+int npart = mpiSize(comm); //total number of partion
+int ipart = mpiRank(comm); //current partition number
+
+int njpart = 0; //Number of part with intersection (a jpart) with ipart without ipart
+int[int] jpart(npart); //list of jpart
+if(ipart==0)
+    cout &lt;&lt; &quot; Final N = &quot; &lt;&lt; ksplit*nloc &lt;&lt; &quot;, nloc = &quot; &lt;&lt; nloc &lt;&lt; &quot;, split = &quot; &lt;&lt; ksplit &lt;&lt; endl;
+settt
+
+// Mesh
+mesh Thg = square(nloc, nloc, label=l111);
+mesh ThC = square(nC, nC, label=l111);// Coarse mesh
+
+mesh Thi, Thin; //with overlap, without olverlap
+
+// Fespace
+fespace Phg(Thg, P0);
+Phg part;
+
+fespace Vhg(Thg, P1);
+Vhg unssd; //boolean function: 1 in the subdomain, 0 elswhere
+
+fespace VhC(ThC, P1); // of the coarse problem
+
+// Partitioning
+{
+    int[int] nupart(Thg.nt);
+    nupart = 0;
+    if (npart &gt; 1 &amp;&amp; ipart == 0)
+        metisdual(nupart, Thg, npart);
+
+    broadcast(processor(0, comm), nupart);
+    for(int i = 0; i &lt; nupart.n; ++i)
+        part[][i] = nupart[i];
+}
+
+if (withplot &gt; 1)
+    plot(part, fill=1, cmm=&quot;dual&quot;, wait=1);
+
+// Overlapping partition
+Phg suppi = abs(part-ipart) &lt; 0.1;
+
+Thin = trunc(Thg, suppi&gt;0, label=10); // non-overlapping mesh, interfaces have label 10
+int nnn = sizeoverlaps*2;// to be sure
+AddLayers(Thg, suppi[], nnn, unssd[]); //see above! suppi and unssd are modified
+unssd[] *= nnn; //to put value nnn a 0
+real nnn0 = nnn - sizeoverlaps + 0.001;
+Thi = trunc(Thg, unssd&gt;nnn0, label=10); //overlapping mesh, interfaces have label 10
+
+settt
+
+// Fespace
+fespace Vhi(Thi,P1);
+int npij = npart;
+Vhi[int] pij(npij); //local partition of unit + pii
+Vhi pii;
+
+real nnn1 = +0.001;
+{
+    /*
+    construction of the partition of the unit,
+    let phi_i P1 FE function 1 on Thin and zero ouside of Thi and positive
+    the partition is build with
+    p_i = phi_i/ \sum phi_i
+
+    to build the partition of one domain i
+    we nned to find all j such that supp(phi_j) \cap supp(phi_j) is not empty
+    &lt;=&gt; int phi_j
+    */
+    //build a local mesh of thii such that all computation of the unit partition are
+    //exact in thii
+    mesh Thii = trunc(Thg, unssd&gt;nnn1, label=10); //overlapping mesh, interfaces have label 10
+
+    {
+        //find all j mes (supp(p_j) cap supp(p_i)) &gt;0
+        //compute all phi_j on Thii
+        //remark: supp p_i include in Thi
+
+        // Fespace
+        fespace Phii(Thii, P0);
+        fespace Vhii(Thii, P1);
+        Vhi sumphi = 0;
+        Vhii phii = 0;
+
+        jpart = 0;
+        njpart = 0;
+        int nlayer = RAS ? 1 : sizeoverlaps;
+        if (ipart == 0)
+            cout &lt;&lt; &quot;nlayer = &quot; &lt;&lt; nlayer &lt;&lt; endl;
+        pii = max(unssd-nnn+nlayer, 0.)/nlayer;
+        if(dplot)
+            plot(pii, wait=1, cmm=&quot; 0000&quot;);
+        sumphi[] += pii[];
+        if(dplot)
+            plot(sumphi, wait=1, cmm=&quot; summ 0000&quot;);
+
+        real epsmes = 1e-10*Thii.area;
+        for (int i = 0; i &lt; npart; ++i)
+            if (i != ipart){
+            Phii suppii = abs(i-part) &lt; 0.2;
+            if (suppii[].max &gt; 0.5){
+                AddLayers(Thii, suppii[], nlayer, phii[]);
+                assert(phii[].min &gt;= 0);
+                real interij = int2d(Thi)(phii);
+                if (interij &gt; epsmes){
+                    pij[njpart] = abs(phii);
+                    if(vdebug &gt; 2)
+                        cout &lt;&lt; &quot; ***** &quot; &lt;&lt; int2d(Thi)(real(pij[njpart])&lt;0) &lt;&lt; &quot; &quot; &lt;&lt;pij[njpart][].min &lt;&lt; &quot; &quot; &lt;&lt; phii[].min &lt;&lt; endl;
+                    assert(int2d(Thi)(real(pij[njpart]) &lt; 0) == 0);
+                    if(dplot)
+                        plot(pij[njpart], wait=1, cmm=&quot; j = &quot;+ i + &quot; &quot; + njpart);
+                    sumphi[] += pij[njpart][];
+                    if(dplot)
+                        plot(sumphi, wait=1, cmm=&quot; sum j = &quot;+ i + &quot; &quot; + njpart);
+                    jpart[njpart++] = i;
+                }
+            }
+        }
+
+        if(dplot)
+            plot(sumphi, wait=1, dim=3, cmm=&quot;sum &quot;, fill=1);
+        pii[] = pii[] ./ sumphi[];
+        for (int j = 0; j &lt; njpart; ++j)
+            pij[j][] = pij[j][] ./ sumphi[];
+        jpart.resize(njpart);
+        for (int j = 0; j &lt; njpart; ++j)
+            assert(pij[j][].max &lt;= 1);
+        {
+            cout &lt;&lt; ipart &lt;&lt; &quot; number of jpart &quot; &lt;&lt; njpart &lt;&lt; &quot; : &quot;;
+            for (int j = 0; j &lt; njpart; ++j)
+                cout &lt;&lt; jpart[j] &lt;&lt; &quot; &quot;;
+            cout &lt;&lt; endl;
+        }
+        sumphi[] = pii[];
+        for (int j = 0; j &lt; njpart; ++j)
+            sumphi[] += pij[j][];
+        if(vdebug &gt; 2)
+            cout &lt;&lt; &quot;sum min &quot; &lt;&lt; sumphi[].min &lt;&lt; &quot; &quot; &lt;&lt; sumphi[].max &lt;&lt; endl;
+        assert(sumphi[].min &gt; 1.-1e-6 &amp;&amp; sumphi[].max &lt; 1.+1e-6);
+    }
+} //Thii is remove here
+// end of the construction of the local partition of the unity ...
+// on Thi
+if (ipart == 0)
+    cout &lt;&lt; &quot;End build partition&quot; &lt;&lt; endl;
+
+// Computation of number of intersection
+//here pii and the pij is the local partition of the unit on
+//Thi (mesh with overlap)
+if ( dplot){
+    plot(Thi, wait=1);
+    for(int j = 0; j &lt; njpart; ++j)
+        plot(pij[j], cmm=&quot; j=&quot;+j, wait=1);
+}
+
+//Partition of the unity on Thi
+//computation of message
+//all j &gt; we have to receive
+//data on intersection of the support of pij[0] and pij[j]
+settt
+
+if(vdebug)
+    plotMPIall(Thi, pii[], &quot;pi_i&quot;);
+
+mesh[int] aThij(njpart);
+matrix Pii;
+matrix[int] sMj(njpart); //M of send to j
+matrix[int] rMj(njpart); //M to recv from j
+fespace Whi(Thi, Pk);
+mesh Thij = Thi;
+fespace Whij(Thij, Pk);//
+
+//construction of the mesh intersect i,j part
+for(int jp = 0; jp &lt; njpart; ++jp)
+    aThij[jp] = trunc(Thi, pij[jp] &gt; 1e-6, label=10); //mesh of the supp of pij
+
+for(int jp = 0; jp &lt; njpart; ++jp)
+    aThij[jp] = trunc(aThij[jp], 1, split=ksplit);
+
+Thi = trunc(Thi, 1, split=ksplit);
+
+settt
+
+if (ipart == 0)
+    cout &lt;&lt; &quot;End build mesh intersection&quot; &lt;&lt; endl;
+
+// Construction of transfert matrix
+{
+    Whi wpii = pii;
+    Pii = wpii[];
+    for(int jp = 0; jp &lt; njpart; ++jp){
+        int j = jpart[jp];
+        Thij = aThij[jp];
+        matrix I = interpolate(Whij, Whi); //Whji &lt;- Whi
+        sMj[jp] = I*Pii; //Whi -&gt; s Whij
+        rMj[jp] = interpolate(Whij, Whi, t=1); //Whji -&gt; Whi
+        if(vdebug &gt; 10){
+            {Whi uuu=1; Whij vvv=-1; vvv[]+=I*uuu[]; cout &lt;&lt; jp &lt;&lt; &quot; %%% &quot; &lt;&lt; vvv[].linfty &lt;&lt; endl; assert(vvv[].linfty &lt; 1e-6);}
+            {Whi uuu=1; Whij vvv=-1; vvv[]+=rMj[jp]&#39;*uuu[]; cout &lt;&lt; jp &lt;&lt; &quot; ### &quot; &lt;&lt; vvv[].linfty &lt;&lt; endl; assert(vvv[].linfty &lt; 1e-6);}
+        }
+    }
+}
+if (ipart == 0)
+    cout &lt;&lt; &quot;End build transfert matrix&quot; &lt;&lt; endl;
+
+// Allocate array of send and recv data
+InitU(njpart, Whij, Thij, aThij, Usend) //initU(n, Vh, Th, aTh, U)
+InitU(njpart, Whij, Thij, aThij, Vrecv)
+if (ipart == 0)
+    cout &lt;&lt; &quot;End init data for send/revc&quot; &lt;&lt; endl;
+
+Whi ui, vi;
+
+func bool Update(real[int] &amp;ui, real[int] &amp;vi){
+    for(int j = 0; j &lt; njpart; ++j)
+        Usend[j][] = sMj[j]*ui;
+    SendRecvUV(comm, jpart, Usend, Vrecv)
+    vi = Pii*ui;
+    for(int j = 0; j &lt; njpart; ++j)
+        vi += rMj[j]*Vrecv[j][];
+    return true;
+}
+
+// Definition of the Problem
+func G = x*0.1;
+func F = 1.;
+macro grad(u) [dx(u),dy(u)] //
+varf vBC (U, V) = on(1, U=G);
+varf vPb (U, V) = int2d(Thi)(grad(U)&#39;*grad(V)) + int2d(Thi)(F*V) + on(10, U=0) + on(1, U=G);
+varf vPbC (U, V) = int2d(ThC)(grad(U)&#39;*grad(V)) + on(1, U=0);
+varf vPbon (U, V) = on(10, U=1) + on(1, U=1);
+varf vPbon10only (U, V) = on(10, U=1) + on(1, U=0);
+//remark the order is important we want 0 part on 10 and 1
+
+matrix Ai = vPb(Whi, Whi, solver=sparsesolver);
+matrix AC, Rci, Pci;
+
+if (mpiRank(comm) == 0)
+    AC = vPbC(VhC, VhC, solver=sparsesolver);
+
+Pci = interpolate(Whi, VhC);
+Rci = Pci&#39;*Pii;
+
+real[int] onG10 = vPbon10only(0, Whi);
+real[int] onG = vPbon(0, Whi);
+real[int] Bi=vPb(0, Whi);
+
+int kiter = -1;
+
+func bool CoarseSolve(real[int] &amp;V, real[int] &amp;U, mpiComm &amp;comm){
+    //solving the coarse probleme
+    real[int] Uc(Rci.n), Bc(Uc.n);
+    Uc = Rci*U;
+    mpiReduce(Uc, Bc, processor(0, comm), mpiSUM);
+    if (mpiRank(comm) == 0)
+        Uc = AC^-1*Bc;
+    broadcast(processor(0, comm), Uc);
+    V = Pci*Uc;
+}
+
+func real[int] DJ (real[int] &amp;U){
+    ++kiter;
+    real[int] V(U.n);
+    V = Ai*U;
+    V = onG10 ? 0.: V; //remove internal boundary
+    return V;
+}
+
+func real[int] PDJ (real[int] &amp;U){
+    real[int] V(U.n);
+
+    real[int] b = onG10 ? 0. : U;
+    V = Ai^-1*b;
+    Update(V, U);
+    return U;
+}
+
+func real[int] PDJC (real[int] &amp;U){
+    real[int] V(U.n);
+    CoarseSolve(V, U, comm);
+    V = -V; //-C2*Uo
+    U += Ai*V; //U = (I-A C2) Uo
+    real[int] b = onG10 ? 0. : U;
+    U = Ai^-1*b; // (C1( I -A C2) Uo
+    V = U -V;
+    Update(V, U);
+    return U;
+}
+
+func real[int] DJ0(real[int] &amp;U){
+    ++kiter;
+    real[int] V(U.n);
+    real[int] b = onG .* U;
+    b = onG ? b : Bi ;
+    V = Ai^-1*b;
+    Update(V, U);
+    V -= U;
+    return V;
+}
+
+Whi u = 0, v;
+{ //verification
+    Whi u = 1, v;
+    Update(u[], v[]);
+    u[] -= v[];
+    assert(u[].linfty &lt; 1e-6);
+}
+
+settt
+u[] = vBC(0, Whi, tgv=1); //set u with tgv BC value
+
+real epss = 1e-6;
+int rgmres = 0;
+if (gmres == 1){
+    rgmres = MPIAffineGMRES(DJ0, u[], veps=epss, nbiter=300, comm=comm, dimKrylov=100, verbosity=ipart ? 0: 50);
+    real[int] b = onG .* u[];
+    b = onG ? b : Bi;
+    v[] = Ai^-1*b;
+    Update(v[], u[]);
+}
+else if (gmres == 2)
+    rgmres = MPILinearGMRES(DJ, precon=PDJ, u[], Bi, veps=epss, nbiter=300, comm=comm, dimKrylov=100, verbosity=ipart ? 0: 50);
+else if (gmres == 3)
+    rgmres = MPILinearGMRES(DJ, precon=PDJC, u[], Bi, veps=epss, nbiter=300, comm=comm, dimKrylov=100, verbosity=ipart ? 0: 50);
+else //algo Shwarz for demo
+    for(int iter = 0; iter &lt; 10; ++iter){
+        real[int] b = onG .* u[];
+        b = onG ? b : Bi ;
+        v[] = Ai^-1*b;
+
+        Update(v[], u[]);
+        if(vdebug)
+            plotMPIall(Thi, u[], &quot;u-&quot;+iter);
+        v[] -= u[];
+
+        real err = v[].linfty;
+        real umax = u[].max;
+        real[int] aa = [err, umax], bb(2);
+        mpiAllReduce(aa, bb, comm, mpiMAX);
+        real errg = bb[0];
+        real umaxg = bb[1];
+
+        if (ipart == 0)
+            cout &lt;&lt; ipart &lt;&lt; &quot; err = &quot; &lt;&lt; errg &lt;&lt; &quot; u. max &quot; &lt;&lt; umaxg &lt;&lt; endl;
+        if (errg &lt; 1e-5) break;
+    }
+
+if (vdebug)
+    plotMPIall(Thi, u[], &quot;u-final&quot;);
+
+settt
+
+real errg = 1, umaxg;
+{
+    real umax = u[].max, umaxg;
+    real[int] aa = [umax], bb(1);
+    mpiAllReduce(aa, bb, comm, mpiMAX);
+    errg = bb[0];
+    if (ipart == 0)
+        cout &lt;&lt; &quot;umax global = &quot; &lt;&lt; bb[0] &lt;&lt; &quot; Wtime = &quot; &lt;&lt; (ttt[ittt-1]-ttt[ittt-2]) &lt;&lt; &quot; s &quot; &lt;&lt; &quot; &quot; &lt;&lt; kiter &lt;&lt; endl;
+}
+
+if (sff != &quot;&quot;){
+    ofstream ff(sff+&quot;.txt&quot;, append);
+    cout &lt;&lt; &quot; ++++ &quot;;
+    cout &lt;&lt; mpirank &lt;&lt; &quot;/&quot; &lt;&lt; mpisize &lt;&lt; &quot; k=&quot; &lt;&lt; ksplit &lt;&lt; &quot; n= &quot; &lt;&lt; nloc &lt;&lt; &quot; &quot; &lt;&lt; sizeoverlaps &lt;&lt; &quot; it= &quot; &lt;&lt; kiter;
+    for (int i = 1; i &lt; ittt; ++i)
+        cout &lt;&lt; &quot; &quot; &lt;&lt; ttt[i]-ttt[i-1] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; epss &lt;&lt; &quot; &quot; &lt;&lt; Ai.nbcoef &lt;&lt; &quot; &quot; &lt;&lt; Ai.n &lt;&lt; endl;
+
+    /*
+    1 mpirank
+    2 mpisize
+    3 ksplit
+    4 nloc
+    5 sizeoverlaps
+    6 kiter
+    7 mesh &amp; part build
+    8 build the partion
+    9 build mesh, transfere , and the fine mesh ..
+    10 build the matrix, the trans matrix, factorizatioon
+    11 GMRES
+    */
+
+    ff &lt;&lt; mpirank &lt;&lt; &quot; &quot; &lt;&lt; mpisize &lt;&lt; &quot; &quot; &lt;&lt; sPk &lt;&lt; &quot; &quot;;
+    ff &lt;&lt; ksplit &lt;&lt; &quot; &quot; &lt;&lt; nloc &lt;&lt; &quot; &quot; &lt;&lt; sizeoverlaps &lt;&lt; &quot; &quot; &lt;&lt; kiter;
+    for (int i = 1; i &lt; ittt; ++i)
+        ff &lt;&lt; &quot; &quot; &lt;&lt; ttt[i]-ttt[i-1] &lt;&lt; &quot; &quot;;
+    ff &lt;&lt; epss &lt;&lt; &quot; &quot; &lt;&lt; Ai.nbcoef &lt;&lt; &quot; &quot; &lt;&lt; Ai.n &lt;&lt; &quot; &quot; &lt;&lt; gmres &lt;&lt; endl;
+}
+</pre></div>
+</div>
+<div class="figure" id="id38">
+<img alt="../_images/MPIGMRES2D.png" src="../_images/MPIGMRES2D.png" />
+<p class="caption"><span class="caption-number">Fig. 130 </span><span class="caption-text">Results</span></p>
+</div>
+</div>
+<div class="section" id="mpi-gmres-3d">
+<span id="examplempigmres3d"></span><h3>MPI-GMRES 3D<a class="headerlink" href="#mpi-gmres-3d" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">todo</p>
+</div>
+</div>
+<div class="section" id="direct-solvers">
+<span id="exampledirectsolvers"></span><h3>Direct solvers<a class="headerlink" href="#direct-solvers" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;MUMPS_FreeFem&quot;
+//default solver: real-&gt; MUMPS, complex -&gt; MUMPS
+load &quot;real_SuperLU_DIST_FreeFem&quot;
+default solver: real-&gt; SuperLU_DIST, complex -&gt; MUMPS
+load &quot;real_pastix_FreeFem&quot;
+//default solver: real-&gt; pastix, complex -&gt; MUMPS
+
+// Solving with pastix
+{
+    matrix A =
+        [[1, 2, 2, 1, 1],
+        [ 2, 12, 0, 10 , 10],
+        [ 2, 0, 1, 0, 2],
+        [ 1, 10, 0, 22, 0.],
+        [ 1, 10, 2, 0., 22]];
+
+    real[int] xx = [1, 32, 45, 7, 2], x(5), b(5), di(5);
+    b = A*xx;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;xx = &quot; &lt;&lt; xx &lt;&lt; endl;
+
+    set(A, solver=sparsesolver, datafilename=&quot;ffpastix_iparm_dparm.txt&quot;);
+    cout &lt;&lt; &quot;solve&quot; &lt;&lt; endl;
+    x = A^-1*b;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;x = &quot; &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; endl;
+    di = xx - x;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;x-xx = &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Linf = &quot; &lt;&lt; di.linfty &lt;&lt; &quot;, L2 = &quot; &lt;&lt; di.l2 &lt;&lt; endl;
+    }
+}
+
+// Solving with SuperLU_DIST
+realdefaulttoSuperLUdist();
+//default solver: real-&gt; SuperLU_DIST, complex -&gt; MUMPS
+{
+    matrix A =
+        [[1, 2, 2, 1, 1],
+        [ 2, 12, 0, 10 , 10],
+        [ 2, 0, 1, 0, 2],
+        [ 1, 10, 0, 22, 0.],
+        [ 1, 10, 2, 0., 22]];
+
+    real[int] xx = [1, 32, 45, 7, 2], x(5), b(5), di(5);
+    b = A*xx;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;xx = &quot; &lt;&lt; xx &lt;&lt; endl;
+
+    set(A, solver=sparsesolver, datafilename=&quot;ffsuperlu_dist_fileparam.txt&quot;);
+    cout &lt;&lt; &quot;solve&quot; &lt;&lt; endl;
+    x = A^-1*b;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;x = &quot; &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; endl;
+    di = xx - x;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;x-xx = &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Linf = &quot; &lt;&lt; di.linfty &lt;&lt; &quot;, L2 = &quot; &lt;&lt; di.l2 &lt;&lt; endl;
+    }
+}
+
+// Solving with MUMPS
+defaulttoMUMPS();
+//default solver: real-&gt; MUMPS, complex -&gt; MUMPS
+{
+    matrix A =
+        [[1, 2, 2, 1, 1],
+        [ 2, 12, 0, 10 , 10],
+        [ 2, 0, 1, 0, 2],
+        [ 1, 10, 0, 22, 0.],
+        [ 1, 10, 2, 0., 22]];
+
+    real[int] xx = [1, 32, 45, 7, 2], x(5), b(5), di(5);
+    b = A*xx;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;xx = &quot; &lt;&lt; xx &lt;&lt; endl;
+
+    set(A, solver=sparsesolver, datafilename=&quot;ffmumps_fileparam.txt&quot;);
+    cout &lt;&lt; &quot;solving solution&quot; &lt;&lt; endl;
+    x = A^-1*b;
+    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;x = &quot; &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; endl;
+    di = xx - x;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;x-xx = &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Linf = &quot; &lt;&lt; di.linfty &lt;&lt; &quot;, L2 &quot; &lt;&lt; di.l2 &lt;&lt; endl;
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="solver-mumps">
+<span id="examplesolvermumps"></span><h3>Solver MUMPS<a class="headerlink" href="#solver-mumps" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;MUMPS_FreeFem&quot;
+
+// Parameters
+int[int] ICNTL(40); //declaration of ICNTL parameter for MUMPS
+
+//get value of ICNTL from file
+if (mpirank == 0){
+    ifstream ff(&quot;ffmumps_fileparam.txt&quot;);
+    string line;
+    getline(ff, line);
+    getline(ff, line);
+    for (int iii = 0; iii &lt; 40; iii++){
+        ff &gt;&gt; ICNTL[iii];
+        getline(ff, line);
+    }
+}
+
+broadcast(processor(0), ICNTL);
+
+// Given data of MUMPS solver in array lparams(SYM, PAR, ICNTL)
+// There is no symmetric storage for a matrix associated with a sparse solver.
+// Therefore, the matrix will be considered unsymmetric for parallel sparse solver even if symmetric.
+{
+    // Problem
+    int SYM = 0;
+    int PAR = 1;
+    matrix A =
+        [
+            [40, 0, 45, 0, 0],
+            [0, 12, 0, 0, 0],
+            [0, 0, 40, 0, 0],
+            [12, 0, 0, 22, 0],
+            [0, 0, 20, 0, 22]
+        ];
+
+    // Construction of integer parameter for MUMPS
+    int[int] MumpsLParams(42);
+    MumpsLParams[0] = SYM;
+    MumpsLParams[1] = PAR;
+    for (int ii = 0; ii &lt; 40; ii++)
+        MumpsLParams[ii+2] = ICNTL[ii]; //ICNTL begin with index 0 here
+
+    real[int] xx = [1, 32, 45, 7, 2], x(5), b(5), di(5);
+    b = A*xx;
+    if (mpirank == 0)
+        cout &lt;&lt; &quot;xx = &quot; &lt;&lt; xx &lt;&lt; endl;
+
+    set(A, solver=sparsesolver, lparams=MumpsLParams); //we take the default value for CNTL MUMPS parameter
+
+    // Solve
+    if (mpirank == 0)
+        cout &lt;&lt; &quot;Solve&quot; &lt;&lt; endl;
+    x = A^-1*b;
+    if (mpirank == 0)
+        cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    if (mpirank == 0)
+        cout &lt;&lt; &quot;x = &quot; &lt;&lt; endl; cout &lt;&lt; x &lt;&lt; endl;
+    di = xx-x;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;x-xx = &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Linf = &quot; &lt;&lt; di.linfty &lt;&lt; &quot;, L2 = &quot; &lt;&lt; di.l2 &lt;&lt; endl;
+    }
+}
+
+// Read parameter of MUMPS solver in file ffmumps_fileparam.txt
+{
+    // Problem
+    matrix A =
+        [
+            [40, 0, 45, 0, 0],
+            [0, 12, 0, 0 , 0],
+            [0, 0, 40, 0, 0],
+            [12, 0, 0, 22, 0],
+            [0, 0, 20, 0, 22]
+        ];
+
+    real[int] xx = [1, 32, 45, 7000, 2], x(5), b(5), di(5);
+    b = A*xx;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+        cout &lt;&lt; &quot;xx = &quot; &lt;&lt; xx &lt;&lt; endl;
+    }
+
+    set(A, solver=sparsesolver, datafilename=&quot;ffmumps_fileparam.txt&quot;);
+
+    // Solve
+    if (mpirank == 0)
+        cout &lt;&lt; &quot;Solve&quot; &lt;&lt; endl;
+    x = A^-1*b;
+
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+        cout &lt;&lt; &quot;x = &quot; &lt;&lt; x &lt;&lt; endl;
+    }
+    di = xx-x;
+    if (mpirank == 0){
+        cout &lt;&lt; &quot;x-xx = &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Linf = &quot; &lt;&lt; di.linfty &lt;&lt; &quot;, L2 = &quot; &lt;&lt; di.l2 &lt;&lt; endl;
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="solver-superlu-dist">
+<span id="examplesolversuperludist"></span><h3>Solver superLU_DIST<a class="headerlink" href="#solver-superlu-dist" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">write code (SuperLU_DIST seems to have a bug)</p>
+</div>
+</div>
+<div class="section" id="solver-pastix">
+<span id="examplesolverpastix"></span><h3>Solver PaStiX<a class="headerlink" href="#solver-pastix" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">write code (PaStiX seems to have a bug)</p>
+</div>
+</div>
+</div>
+<div class="section" id="developers">
+<span id="exampledevelopers"></span><h2>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fft">
+<span id="examplefft"></span><h3>FFT<a class="headerlink" href="#fft" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;dfft&quot;
+
+// Parameters
+int nx = 32;
+real ny = 16;
+real N = nx*ny;
+func f1 = cos(2*x*2*pi)*cos(3*y*2*pi);
+
+// Mesh
+//warning: the fourier space is not exactly the unit square due to periodic condition
+mesh Th = square(nx-1, ny-1, [(nx-1)*x/nx, (ny-1)*y/ny]);
+//warning: the numbering of the vertices (x,y) is
+//given by i = x/nx + nx*y/ny
+
+// Fespace
+fespace Vh(Th,P1);
+Vh&lt;complex&gt; u = f1, v;
+Vh w = f1;
+Vh ur, ui;
+
+// FFT
+//in dfft the matrix n, m is in row-major order and array n, m is
+//store j + m*i (the transpose of the square numbering)
+v[] = dfft(u[], ny, -1);
+u[] = dfft(v[], ny, +1);
+cout &lt;&lt; &quot;||u||_\infty &quot; &lt;&lt; u[].linfty &lt;&lt; endl;
+
+u[] *= 1./N;
+cout &lt;&lt; &quot;||u||_\infty &quot; &lt;&lt; u[].linfty &lt;&lt; endl;
+
+ur = real(u);
+
+// Plot
+plot(w, wait=1, value=1, cmm=&quot;w&quot;);
+plot(ur, wait=1, value=1, cmm=&quot;u&quot;);
+v = w - u;
+cout &lt;&lt; &quot;diff = &quot; &lt;&lt; v[].max &lt;&lt; &quot; &quot; &lt;&lt; v[].min &lt;&lt; endl;
+assert( norm(v[].max) &lt; 1e-10 &amp;&amp; norm(v[].min) &lt; 1e-10);
+
+// Other example
+//FFT Lapacian
+//-\Delta u = f with biperiodic condition
+func f = cos(3*2*pi*x)*cos(2*2*pi*y);
+func ue = (1./(square(2*pi)*13.))*cos(3*2*pi*x)*cos(2*2*pi*y); //the exact solution
+Vh&lt;complex&gt; ff = f;
+Vh&lt;complex&gt; fhat;
+Vh&lt;complex&gt; wij;
+
+// FFT
+fhat[] = dfft(ff[],ny,-1);
+
+//warning in fact we take mode between -nx/2, nx/2 and -ny/2, ny/2
+//thanks to the operator ?:
+wij = square(2.*pi)*(square(( x&lt;0.5?x*nx:(x-1)*nx)) + square((y&lt;0.5?y*ny:(y-1)*ny)));
+wij[][0] = 1e-5; //to remove div / 0
+fhat[] = fhat[] ./ wij[];
+u[] = dfft(fhat[], ny, 1);
+u[] /= complex(N);
+ur = real(u); //the solution
+w = real(ue); //the exact solution
+
+// Plot
+plot(w, ur, value=1, cmm=&quot;ue&quot;, wait=1);
+
+// Error
+w[] -= ur[];
+real err = abs(w[].max) + abs(w[].min);
+cout &lt;&lt; &quot;err = &quot; &lt;&lt; err &lt;&lt; endl;
+assert(err &lt; 1e-6);
+
+fftwplan p1 = plandfft(u[], v[], ny, -1);
+fftwplan p2 = plandfft(u[], v[], ny, 1);
+real ccc = square(2.*pi);
+cout &lt;&lt; &quot;ny = &quot; &lt;&lt; ny &lt;&lt; endl;
+map(wij[], ny, ccc*(x*x+y*y));
+wij[][0] = 1e-5;
+plot(wij, cmm=&quot;wij&quot;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="complex">
+<span id="examplecomplex"></span><h3>Complex<a class="headerlink" href="#complex" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = 2.45, b = 5.33;
+complex z1 = a + b*1i, z2 = a + sqrt(2.)*1i;
+
+func string pc(complex z){
+    string r = &quot;(&quot; + real(z);
+    if (imag(z) &gt;= 0) r = r + &quot;+&quot;;
+    return r + imag(z) + &quot;i)&quot;;
+}
+
+func string toPolar(complex z){
+    return &quot;&quot;;//abs(z) + &quot;*(cos(&quot; + arg(z) + &quot;)+i*sin(&quot; + arg(z) + &quot;))&quot;;
+}
+
+cout &lt;&lt; &quot;Standard output of the complex &quot; &lt;&lt; pc(z1) &lt;&lt; &quot; is the pair: &quot; &lt;&lt; z1 &lt;&lt; endl;
+cout &lt;&lt; pc(z1) &lt;&lt; &quot; + &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(z1+z2) &lt;&lt; endl;
+cout &lt;&lt; pc(z1) &lt;&lt; &quot; - &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(z1-z2) &lt;&lt; endl;
+cout &lt;&lt; pc(z1) &lt;&lt; &quot; * &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(z1*z2) &lt;&lt; endl;
+cout &lt;&lt; pc(z1) &lt;&lt; &quot; / &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(z1/z2) &lt;&lt; endl;
+cout &lt;&lt; &quot;Real part of &quot; &lt;&lt; pc(z1) &lt;&lt; &quot; = &quot; &lt;&lt; real(z1) &lt;&lt; endl;
+cout &lt;&lt; &quot;Imaginary part of &quot; &lt;&lt; pc(z1) &lt;&lt; &quot; = &quot; &lt;&lt; imag(z1) &lt;&lt; endl;
+cout &lt;&lt; &quot;abs(&quot; &lt;&lt; pc(z1) &lt;&lt; &quot;) = &quot; &lt;&lt; abs(z1) &lt;&lt; endl;
+cout &lt;&lt; &quot;Polar coordinates of &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; toPolar(z2) &lt;&lt; endl;
+cout &lt;&lt; &quot;de Moivre formula: &quot; &lt;&lt; pc(z2) &lt;&lt; &quot;^3 = &quot; &lt;&lt; toPolar(z2^3) &lt;&lt; endl;
+cout &lt;&lt; &quot; and polar(&quot; &lt;&lt; abs(z2) &lt;&lt; &quot;, &quot; &lt;&lt; arg(z2) &lt;&lt; &quot;) = &quot; &lt;&lt; pc(polar(abs(z2), arg(z2))) &lt;&lt; endl;
+cout &lt;&lt; &quot;Conjugate of &quot; &lt;&lt;pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(conj(z2)) &lt;&lt;endl;
+cout &lt;&lt; pc(z1) &lt;&lt; &quot; ^ &quot; &lt;&lt; pc(z2) &lt;&lt; &quot; = &quot; &lt;&lt; pc(z1^z2) &lt;&lt; endl;
+</pre></div>
+</div>
+<p>Output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Standard output of the complex <span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> is the pair: <span class="o">(</span><span class="m">2</span>.45,5.33<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> + <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">4</span>.9+6.74421i<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> - <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">0</span>+3.91579i<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> * <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span>-1.53526+16.5233i<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> / <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">1</span>.692+1.19883i<span class="o">)</span>
+Real part of <span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> <span class="o">=</span> <span class="m">2</span>.45
+Imaginary part of <span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> <span class="o">=</span> <span class="m">5</span>.33
+abs<span class="o">((</span><span class="m">2</span>.45+5.33i<span class="o">))</span> <span class="o">=</span> <span class="m">5</span>.86612
+Polar coordinates of <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span>
+de Moivre formula: <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span>^3 <span class="o">=</span>
+ and polar<span class="o">(</span><span class="m">2</span>.82887, <span class="m">0</span>.523509<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span>
+Conjugate of <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">2</span>.45-1.41421i<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>.45+5.33i<span class="o">)</span> ^ <span class="o">(</span><span class="m">2</span>.45+1.41421i<span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="m">8</span>.37072-12.7078i<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string">
+<span id="examplestring"></span><h3>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Concatenation
+string tt = &quot;toto1&quot; + 1 + &quot; -- 77&quot;;
+
+// Append
+string t1 = &quot;0123456789&quot;;
+t1(4:3) = &quot;abcdefghijk-&quot;;
+
+// Sub string
+string t55 = t1(4:14);
+
+cout &lt;&lt; &quot;tt = &quot; &lt;&lt; tt &lt;&lt; endl;
+
+cout &lt;&lt; &quot;t1 = &quot; &lt;&lt; t1 &lt;&lt; endl;
+cout &lt;&lt; &quot;t1.find(abc) = &quot; &lt;&lt; t1.find(&quot;abc&quot;) &lt;&lt; endl;
+cout &lt;&lt; &quot;t1.rfind(abc) = &quot; &lt;&lt; t1.rfind(&quot;abc&quot;) &lt;&lt; endl;
+cout &lt;&lt; &quot;t1.find(abc, 10) = &quot; &lt;&lt; t1.find(&quot;abc&quot;,10) &lt;&lt; endl;
+cout &lt;&lt; &quot;t1.ffind(abc, 10) = &quot; &lt;&lt; t1.rfind(&quot;abc&quot;,10) &lt;&lt; endl;
+cout &lt;&lt; &quot;t1.length = &quot; &lt;&lt; t1.length &lt;&lt; endl;
+
+cout &lt;&lt; &quot;t55 = &quot; &lt;&lt; t55 &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">tt</span> <span class="o">=</span> toto11 -- <span class="m">77</span>
+<span class="nv">t1</span> <span class="o">=</span> 0123abcdefghijk-456789
+t1.find<span class="o">(</span>abc<span class="o">)</span> <span class="o">=</span> <span class="m">4</span>
+t1.rfind<span class="o">(</span>abc<span class="o">)</span> <span class="o">=</span> <span class="m">4</span>
+t1.find<span class="o">(</span>abc, <span class="m">10</span><span class="o">)</span> <span class="o">=</span> -1
+t1.ffind<span class="o">(</span>abc, <span class="m">10</span><span class="o">)</span> <span class="o">=</span> <span class="m">4</span>
+t1.length <span class="o">=</span> <span class="m">22</span>
+<span class="nv">t55</span> <span class="o">=</span> abcdefghijk
+</pre></div>
+</div>
+</div>
+<div class="section" id="elementary-function">
+<span id="exampleelementaryfunction"></span><h3>Elementary function<a class="headerlink" href="#elementary-function" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real b = 1.;
+real a = b;
+func real phix(real t){
+    return (a+b)*cos(t) - b*cos(t*(a+b)/b);
+}
+func real phiy(real t){
+    return (a+b)*sin(t) - b*sin(t*(a+b)/b);
+}
+
+border C(t=0, 2*pi){x=phix(t); y=phiy(t);}
+mesh Th = buildmesh(C(50));
+plot(Th);
+</pre></div>
+</div>
+<div class="figure" id="id39">
+<img alt="../_images/ElementaryFunction.png" src="../_images/ElementaryFunction.png" />
+<p class="caption"><span class="caption-number">Fig. 131 </span><span class="caption-text">Mesh</span></p>
+</div>
+</div>
+<div class="section" id="array">
+<span id="examplearray"></span><h3>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] tab(10), tab1(10); //2 array of 10 real
+//real[int] tab2; //bug: array with no size
+
+tab = 1.03; //set all the array to 1.03
+tab[1] = 2.15;
+
+cout &lt;&lt; &quot;tab: &quot; &lt;&lt; tab &lt;&lt; endl;
+cout &lt;&lt; &quot;min: &quot; &lt;&lt; tab.min &lt;&lt; endl;
+cout &lt;&lt; &quot;max: &quot; &lt;&lt; tab.max &lt;&lt; endl;
+cout &lt;&lt; &quot;sum: &quot; &lt;&lt; tab.sum &lt;&lt; endl;
+
+tab.resize(12); //change the size of array tab to 12 with preserving first value
+tab(10:11) = 3.14; //set values 10 &amp; 11
+cout &lt;&lt; &quot;resized tab: &quot; &lt;&lt; tab &lt;&lt; endl;
+
+tab.sort ; //sort the array tab
+cout &lt;&lt; &quot;sorted tab:&quot; &lt;&lt; tab &lt;&lt; endl;
+
+real[string] tt; //array with string index
+tt[&quot;+&quot;] = 1.5;
+cout &lt;&lt; &quot;tt[\&quot;a\&quot;] = &quot; &lt;&lt; tt[&quot;a&quot;] &lt;&lt; endl;
+cout &lt;&lt; &quot;tt[\&quot;+\&quot;] = &quot; &lt;&lt; tt[&quot;+&quot;] &lt;&lt; endl;
+
+real[int] a(5), b(5), c(5), d(5);
+a = 1;
+b = 2;
+c = 3;
+a[2] = 0;
+d = ( a ? b : c ); //for i = 0, n-1 : d[i] = a[i] ? b[i] : c[i]
+cout &lt;&lt; &quot; d = ( a ? b : c ) is &quot; &lt;&lt; d &lt;&lt; endl;
+d = ( a ? 1 : c ); //for i = 0, n-1: d[i] = a[i] ? 1 : c[i]
+d = ( a ? b : 0 ); //for i = 0, n-1: d[i] = a[i] ? b[i] : 0
+d = ( a ? 1 : 0 ); //for i = 0, n-1: d[i] = a[i] ? 0 : 1
+
+int[int] ii(0:d.n-1); //set array ii to 0, 1, ..., d.n-1
+d = -1:-5; //set d to -1, -2, ..., -5
+
+sort(d, ii); //sort array d and ii in parallel
+cout &lt;&lt; &quot;d: &quot; &lt;&lt; d &lt;&lt; endl;
+cout &lt;&lt; &quot;ii: &quot; &lt;&lt; ii &lt;&lt; endl;
+
+{
+    int[int] A1(2:10); //2, 3, 4, 5, 6, 7, 8, 9, 10
+    int[int] A2(2:3:10); //2, 5, 8
+    cout &lt;&lt; &quot;A1(2:10): &quot; &lt;&lt; A1 &lt;&lt; endl;
+    cout &lt;&lt; &quot;A2(2:3:10): &quot; &lt;&lt; A1 &lt;&lt; endl;
+    A1 = 1:2:5;
+    cout &lt;&lt; &quot;1:2:5 =&gt; &quot; &lt;&lt; A1 &lt;&lt; endl;
+}
+{
+    real[int] A1(2:10); //2, 3, 4, 5, 6, 7, 8, 9, 10
+    real[int] A2(2:3:10); //2, 5, 8
+    cout &lt;&lt; &quot;A1(2:10): &quot; &lt;&lt; A1 &lt;&lt; endl;
+    cout &lt;&lt; &quot;A2(2:3:10): &quot; &lt;&lt; A1 &lt;&lt; endl;
+    A1 = 1.:0.5:3.999;
+    cout &lt;&lt; &quot;1.:0.5:3.999 =&gt; &quot; &lt;&lt; A1 &lt;&lt; endl;
+}
+{
+    complex[int] A1(2.+0i:10.+0i); //2, 3, 4, 5, 6, 7, 8, 9, 10
+    complex[int] A2(2.:3.:10.); //2, 5, 8
+    cout &lt;&lt; &quot; A1(2.+0i:10.+0i): &quot; &lt;&lt; A1 &lt;&lt; endl;
+    cout &lt;&lt; &quot; A2(2.:3.:10.)= &quot; &lt;&lt; A2 &lt;&lt; endl;
+    cout &lt;&lt; &quot; A1.re real part array: &quot; &lt;&lt; A1.re &lt;&lt; endl ;
+    // he real part array of the complex array
+    cout &lt;&lt; &quot; A1.im imag part array: &quot; &lt;&lt; A1.im &lt;&lt; endl ;
+    //the imaginary part array of the complex array
+}
+
+// Integer array operators
+{
+    int N = 5;
+    real[int] a(N), b(N), c(N);
+    a = 1;
+    a(0:4:2) = 2;
+    a(3:4) = 4;
+    cout &lt;&lt; &quot;a: &quot; &lt;&lt; a &lt;&lt; endl;
+    b = a + a;
+    cout &lt;&lt;&quot;b = a + a: &quot; &lt;&lt; b &lt;&lt; endl;
+    b += a;
+    cout &lt;&lt;&quot;b += a: &quot; &lt;&lt; b &lt;&lt; endl;
+    b += 2*a;
+    cout &lt;&lt;&quot;b += 2*a: &quot; &lt;&lt; b &lt;&lt; endl;
+    b /= 2;
+    cout &lt;&lt;&quot; b /= 2: &quot; &lt;&lt; b &lt;&lt; endl;
+    b .*= a; // same as b = b .* a
+    cout &lt;&lt; &quot;b .*= a: &quot; &lt;&lt; b &lt;&lt; endl;
+    b ./= a; //same as b = b ./ a
+    cout &lt;&lt; &quot;b ./= a: &quot; &lt;&lt; b &lt;&lt; endl;
+    c = a + b;
+    cout &lt;&lt; &quot;c = a + b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = 2*a + 4*b;
+    cout &lt;&lt; &quot;c = 2*a + 4b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = a + 4*b;
+    cout &lt;&lt; &quot;c = a + 4b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = -a + 4*b;
+    cout &lt;&lt; &quot;c = -a + 4b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = -a - 4*b;
+    cout &lt;&lt; &quot;c = -a - 4b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = -a - b;
+    cout &lt;&lt; &quot;c = -a -b: &quot; &lt;&lt; c &lt;&lt; endl;
+
+    c = a .* b;
+    cout &lt;&lt; &quot;c = a .* b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = a ./ b;
+    cout &lt;&lt; &quot;c = a ./ b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = 2 * b;
+    cout &lt;&lt; &quot;c = 2 * b: &quot; &lt;&lt; c &lt;&lt; endl;
+    c = b * 2;
+    cout &lt;&lt; &quot;c = b * 2: &quot; &lt;&lt; c &lt;&lt; endl;
+
+    //this operator do not exist
+    //c = b/2;
+    //cout &lt;&lt; &quot;c = b / 2: &quot; &lt;&lt; c &lt;&lt; endl;
+
+    //Array methods
+    cout &lt;&lt; &quot;||a||_1 = &quot; &lt;&lt; a.l1 &lt;&lt; endl;
+    cout &lt;&lt; &quot;||a||_2 = &quot; &lt;&lt; a.l2 &lt;&lt; endl;
+    cout &lt;&lt; &quot;||a||_infty = &quot; &lt;&lt; a.linfty &lt;&lt; endl;
+    cout &lt;&lt; &quot;sum a_i = &quot; &lt;&lt; a.sum &lt;&lt; endl;
+    cout &lt;&lt; &quot;max a_i = &quot; &lt;&lt; a.max &lt;&lt; &quot; a[ &quot; &lt;&lt; a.imax &lt;&lt; &quot; ] = &quot; &lt;&lt; a[a.imax] &lt;&lt; endl;
+    cout &lt;&lt; &quot;min a_i = &quot; &lt;&lt; a.min &lt;&lt; &quot; a[ &quot; &lt;&lt; a.imin &lt;&lt; &quot; ] = &quot; &lt;&lt; a[a.imin] &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;a&#39; * a = &quot; &lt;&lt; (a&#39;*a) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a quantile 0.2 = &quot; &lt;&lt; a.quantile(0.2) &lt;&lt; endl;
+
+    //Array mapping
+    int[int] I = [2, 3, 4, -1, 3];
+    b = c = -3;
+    b = a(I); //for (i = 0; i &lt; b.n; i++) if (I[i] &gt;= 0) b[i] = a[I[i]];
+    c(I) = a; //for (i = 0; i &lt; I.n; i++) if (I[i] &gt;= 0) C(I[i]) = a[i];
+    cout &lt;&lt; &quot;b = a(I) : &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;c(I) = a &quot; &lt;&lt; c &lt;&lt; endl;
+    c(I) += a; //for (i = 0; i &lt; I.n; i++) if (I[i] &gt;= 0) C(I[i]) += a[i];
+    cout &lt;&lt; &quot;b = a(I) : &quot; &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; &quot;c(I) = a &quot; &lt;&lt; c &lt;&lt; endl;
+
+}
+
+{
+    // Array versus matrix
+    int N = 3, M = 4;
+
+    real[int, int] A(N, M);
+    real[int] b(N), c(M);
+    b = [1, 2, 3];
+    c = [4, 5, 6, 7];
+
+    complex[int, int] C(N, M);
+    complex[int] cb = [1, 2, 3], cc = [10i, 20i, 30i, 40i];
+
+    b = [1, 2, 3];
+
+    int [int] I = [2, 0, 1];
+    int [int] J = [2, 0, 1, 3];
+
+    A = 1; //set all the matrix
+    A(2, :) = 4; //the full line 2
+    A(:, 1) = 5; //the full column 1
+    A(0:N-1, 2) = 2; //set the column 2
+    A(1, 0:2) = 3; //set the line 1 from 0 to 2
+
+    cout &lt;&lt; &quot;A = &quot; &lt;&lt; A &lt;&lt; endl;
+
+    //outer product
+    C = cb * cc&#39;;
+    C += 3 * cb * cc&#39;;
+    C -= 5i * cb * cc&#39;;
+    cout &lt;&lt; &quot;C = &quot; &lt;&lt; C &lt;&lt; endl;
+
+    //this transforms an array into a sparse matrix
+    matrix B;
+    B = A;
+    B = A(I, J); //B(i, j) = A(I(i), J(j))
+    B = A(I^-1, J^-1); //B(I(i), J(j)) = A(i,j)
+
+    //outer product
+    A = 2. * b * c&#39;;
+    cout &lt;&lt; &quot;A = &quot; &lt;&lt; A &lt;&lt; endl;
+    B = b*c&#39;; //outer product B(i, j) = b(i)*c(j)
+    B = b*c&#39;; //outer product B(i, j) = b(i)*c(j)
+    B = (2*b*c&#39;)(I, J); //outer product B(i, j) = b(I(i))*c(J(j))
+    B = (3.*b*c&#39;)(I^-1,J^-1); //outer product B(I(i), J(j)) = b(i)*c(j)
+    cout &lt;&lt; &quot;B = (3.*b*c&#39;)(I^-1,J^-1) = &quot; &lt;&lt; B &lt;&lt; endl;
+
+    //row and column of the maximal coefficient of A
+    int i, j, ii, jj;
+    ijmax(A, ii, jj);
+
+    i = A.imax;
+    j = A.jmax;
+
+    cout &lt;&lt; &quot;Max &quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;, = &quot; &lt;&lt; A.max &lt;&lt; endl;
+
+    //row and column of the minimal coefficient of A
+    ijmin(A, i, j);
+
+    ii = A.imin;
+    jj = A.jmin;
+
+    cout &lt;&lt; &quot;Min &quot; &lt;&lt; ii &lt;&lt; &quot; &quot; &lt;&lt; jj &lt;&lt; &quot;, = &quot; &lt;&lt; A.min &lt;&lt; endl;
+}
+</pre></div>
+</div>
+<p>The output os this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tab: <span class="m">10</span>
+    <span class="m">1</span>.03    <span class="m">2</span>.15    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03
+    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03
+
+min: <span class="m">1</span>.03
+max: <span class="m">2</span>.15
+sum: <span class="m">11</span>.42
+resized tab: <span class="m">12</span>
+    <span class="m">1</span>.03    <span class="m">2</span>.15    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03
+    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03
+    <span class="m">3</span>.14    <span class="m">3</span>.14
+sorted tab:12
+    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03
+    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">1</span>.03    <span class="m">2</span>.15
+    <span class="m">3</span>.14    <span class="m">3</span>.14
+tt<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">0</span>
+tt<span class="o">[</span><span class="s2">&quot;+&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">1</span>.5
+ <span class="nv">d</span> <span class="o">=</span> <span class="o">(</span> a ? b : c <span class="o">)</span> is <span class="m">5</span>
+      <span class="m">2</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">2</span>   <span class="m">2</span>
+
+d: <span class="m">5</span>
+     -5  -4  -3  -2  -1
+
+ii: <span class="m">5</span>
+      <span class="m">4</span>   <span class="m">3</span>   <span class="m">2</span>   <span class="m">1</span>   <span class="m">0</span>
+
+A1<span class="o">(</span><span class="m">2</span>:10<span class="o">)</span>: <span class="m">9</span>
+      <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>
+      <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+A2<span class="o">(</span><span class="m">2</span>:3:10<span class="o">)</span>: <span class="m">9</span>
+      <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>
+      <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+<span class="m">1</span>:2:5 <span class="o">=</span>&gt; <span class="m">3</span>
+      <span class="m">1</span>   <span class="m">3</span>   <span class="m">5</span>
+A1<span class="o">(</span><span class="m">2</span>:10<span class="o">)</span>: <span class="m">9</span>
+      <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>
+      <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+A2<span class="o">(</span><span class="m">2</span>:3:10<span class="o">)</span>: <span class="m">9</span>
+      <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>
+      <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+<span class="m">1</span>.:0.5:3.999 <span class="o">=</span>&gt; <span class="m">6</span>
+      <span class="m">1</span> <span class="m">1</span>.5   <span class="m">2</span> <span class="m">2</span>.5   <span class="m">3</span>
+    <span class="m">3</span>.5
+ A1<span class="o">(</span><span class="m">2</span>.+0i:10.+0i<span class="o">)</span>: <span class="m">9</span>
+    <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">3</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">4</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">5</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">6</span>,0<span class="o">)</span>
+    <span class="o">(</span><span class="m">7</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">8</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">9</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">10</span>,0<span class="o">)</span>
+ A2<span class="o">(</span><span class="m">2</span>.:3.:10.<span class="o">)=</span> <span class="m">3</span>
+    <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">5</span>,0<span class="o">)</span>   <span class="o">(</span><span class="m">8</span>,0<span class="o">)</span>
+ A1.re real part array: <span class="m">9</span>
+      <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>
+      <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+ A1.im imag part array: <span class="m">9</span>
+      <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+      <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+a: <span class="m">5</span>
+      <span class="m">2</span>   <span class="m">1</span>   <span class="m">2</span>   <span class="m">4</span>   <span class="m">4</span>
+
+<span class="nv">b</span> <span class="o">=</span> a + a: <span class="m">5</span>
+      <span class="m">4</span>   <span class="m">2</span>   <span class="m">4</span>   <span class="m">8</span>   <span class="m">8</span>
+
+<span class="nv">b</span> <span class="o">+=</span> a: <span class="m">5</span>
+      <span class="m">6</span>   <span class="m">3</span>   <span class="m">6</span>  <span class="m">12</span>  <span class="m">12</span>
+
+<span class="nv">b</span> <span class="o">+=</span> <span class="m">2</span>*a: <span class="m">5</span>
+     <span class="m">10</span>   <span class="m">5</span>  <span class="m">10</span>  <span class="m">20</span>  <span class="m">20</span>
+
+ b /<span class="o">=</span> <span class="m">2</span>: <span class="m">5</span>
+      <span class="m">5</span> <span class="m">2</span>.5   <span class="m">5</span>  <span class="m">10</span>  <span class="m">10</span>
+
+b .*<span class="o">=</span> a: <span class="m">5</span>
+     <span class="m">10</span> <span class="m">2</span>.5  <span class="m">10</span>  <span class="m">40</span>  <span class="m">40</span>
+
+b ./<span class="o">=</span> a: <span class="m">5</span>
+      <span class="m">5</span> <span class="m">2</span>.5   <span class="m">5</span>  <span class="m">10</span>  <span class="m">10</span>
+
+<span class="nv">c</span> <span class="o">=</span> a + b: <span class="m">5</span>
+      <span class="m">7</span> <span class="m">3</span>.5   <span class="m">7</span>  <span class="m">14</span>  <span class="m">14</span>
+
+<span class="nv">c</span> <span class="o">=</span> <span class="m">2</span>*a + 4b: <span class="m">5</span>
+     <span class="m">24</span>  <span class="m">12</span>  <span class="m">24</span>  <span class="m">48</span>  <span class="m">48</span>
+
+<span class="nv">c</span> <span class="o">=</span> a + 4b: <span class="m">5</span>
+     <span class="m">22</span>  <span class="m">11</span>  <span class="m">22</span>  <span class="m">44</span>  <span class="m">44</span>
+
+<span class="nv">c</span> <span class="o">=</span> -a + 4b: <span class="m">5</span>
+     <span class="m">18</span>   <span class="m">9</span>  <span class="m">18</span>  <span class="m">36</span>  <span class="m">36</span>
+
+<span class="nv">c</span> <span class="o">=</span> -a - 4b: <span class="m">5</span>
+    -22 -11 -22 -44 -44
+
+<span class="nv">c</span> <span class="o">=</span> -a -b: <span class="m">5</span>
+     -7 -3.5     -7 -14 -14
+
+<span class="nv">c</span> <span class="o">=</span> a .* b: <span class="m">5</span>
+     <span class="m">10</span> <span class="m">2</span>.5  <span class="m">10</span>  <span class="m">40</span>  <span class="m">40</span>
+
+<span class="nv">c</span> <span class="o">=</span> a ./ b: <span class="m">5</span>
+    <span class="m">0</span>.4 <span class="m">0</span>.4 <span class="m">0</span>.4 <span class="m">0</span>.4 <span class="m">0</span>.4
+
+<span class="nv">c</span> <span class="o">=</span> <span class="m">2</span> * b: <span class="m">5</span>
+     <span class="m">10</span>   <span class="m">5</span>  <span class="m">10</span>  <span class="m">20</span>  <span class="m">20</span>
+
+<span class="nv">c</span> <span class="o">=</span> b * <span class="m">2</span>: <span class="m">5</span>
+     <span class="m">10</span>   <span class="m">5</span>  <span class="m">10</span>  <span class="m">20</span>  <span class="m">20</span>
+
+<span class="o">||</span>a<span class="o">||</span><span class="nv">_1</span> <span class="o">=</span> <span class="m">13</span>
+<span class="o">||</span>a<span class="o">||</span><span class="nv">_2</span> <span class="o">=</span> <span class="m">6</span>.40312
+<span class="o">||</span>a<span class="o">||</span><span class="nv">_infty</span> <span class="o">=</span> <span class="m">4</span>
+sum <span class="nv">a_i</span> <span class="o">=</span> <span class="m">13</span>
+max <span class="nv">a_i</span> <span class="o">=</span> <span class="m">4</span> a<span class="o">[</span> <span class="m">3</span> <span class="o">]</span> <span class="o">=</span> <span class="m">4</span>
+min <span class="nv">a_i</span> <span class="o">=</span> <span class="m">1</span> a<span class="o">[</span> <span class="m">1</span> <span class="o">]</span> <span class="o">=</span> <span class="m">1</span>
+a<span class="s1">&#39; * a = 41</span>
+<span class="s1">a quantile 0.2 = 2</span>
+<span class="s1">b = a(I) : 5</span>
+<span class="s1">      2   4   4  -3   4</span>
+
+<span class="s1">c(I) = a 5</span>
+<span class="s1">     -3  -3   2   4   2</span>
+
+<span class="s1">b = a(I) : 5</span>
+<span class="s1">      2   4   4  -3   4</span>
+
+<span class="s1">c(I) = a 5</span>
+<span class="s1">     -3  -3   4   9   4</span>
+
+<span class="s1">A = 3 4</span>
+<span class="s1">       1   5   2   1</span>
+<span class="s1">       3   3   3   1</span>
+<span class="s1">       4   5   2   4</span>
+
+<span class="s1">C = 3 4</span>
+<span class="s1">     (-50,-40) (-100,-80) (-150,-120) (-200,-160)</span>
+<span class="s1">     (-100,-80) (-200,-160) (-300,-240) (-400,-320)</span>
+<span class="s1">     (-150,-120) (-300,-240) (-450,-360) (-600,-480)</span>
+
+<span class="s1">A = 3 4</span>
+<span class="s1">       8  10  12  14</span>
+<span class="s1">      16  20  24  28</span>
+<span class="s1">      24  30  36  42</span>
+
+<span class="s1">B = (3.*b*c&#39;</span><span class="o">)(</span>I^-1,J^-1<span class="o">)</span> <span class="o">=</span> <span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">3</span> <span class="m">4</span> <span class="m">0</span>  <span class="m">12</span>
+        <span class="m">1</span>         <span class="m">1</span> <span class="m">10</span>
+        <span class="m">1</span>         <span class="m">2</span> <span class="m">12</span>
+        <span class="m">1</span>         <span class="m">3</span> <span class="m">8</span>
+        <span class="m">1</span>         <span class="m">4</span> <span class="m">14</span>
+        <span class="m">2</span>         <span class="m">1</span> <span class="m">15</span>
+        <span class="m">2</span>         <span class="m">2</span> <span class="m">18</span>
+        <span class="m">2</span>         <span class="m">3</span> <span class="m">12</span>
+        <span class="m">2</span>         <span class="m">4</span> <span class="m">21</span>
+        <span class="m">3</span>         <span class="m">1</span> <span class="m">5</span>
+        <span class="m">3</span>         <span class="m">2</span> <span class="m">6</span>
+        <span class="m">3</span>         <span class="m">3</span> <span class="m">4</span>
+        <span class="m">3</span>         <span class="m">4</span> <span class="m">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="block-matrix">
+<span id="exampleblockmatrix"></span><h3>Block matrix<a class="headerlink" href="#block-matrix" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real f1 = 1.;
+real f2 = 1.5;
+
+// Mesh
+mesh Th1 = square(10, 10);
+mesh Th2 = square(10, 10, [1+x, -1+y]);
+plot(Th1, Th2);
+
+// Fespace
+fespace Uh1(Th1, P1);
+Uh1 u1;
+
+fespace Uh2(Th2, P2);
+Uh2 u2;
+
+// Macro
+macro grad(u) [dx(u), dy(u)] //
+
+// Problem
+varf vPoisson1 (u, v)
+    = int2d(Th1)(
+          grad(u)&#39; * grad(v)
+    )
+    - int2d(Th1)(
+          f1 * v
+    )
+    + on(1, 2, 3, 4, u=0)
+    ;
+
+varf vPoisson2 (u, v)
+    = int2d(Th2)(
+          grad(u)&#39; * grad(v)
+    )
+    - int2d(Th2)(
+          f1 * v
+    )
+    + on(1, 2, 3, 4, u=0)
+    ;
+matrix&lt;real&gt; Poisson1 = vPoisson1(Uh1, Uh1);
+real[int] Poisson1b = vPoisson1(0, Uh1);
+
+matrix&lt;real&gt; Poisson2 = vPoisson2(Uh2, Uh2);
+real[int] Poisson2b = vPoisson2(0, Uh2);
+
+//block matrix
+matrix&lt;real&gt; G = [[Poisson1, 0], [0, Poisson2]];
+set(G, solver=sparsesolver);
+
+//block right hand side
+real[int] Gb = [Poisson1b, Poisson2b];
+
+// Solve
+real[int] sol = G^-1 * Gb;
+
+// Dispatch
+[u1[], u2[]] = sol;
+
+// Plot
+plot(u1, u2);
+</pre></div>
+</div>
+<div class="figure" id="id40">
+<img alt="../_images/BlockMatrix.png" src="../_images/BlockMatrix.png" />
+<p class="caption"><span class="caption-number">Fig. 132 </span><span class="caption-text">Result</span></p>
+</div>
+</div>
+<div class="section" id="matrix-operations">
+<span id="examplematrixoperations"></span><h3>Matrix operations<a class="headerlink" href="#matrix-operations" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Mesh
+mesh Th = square(2, 1);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh f, g;
+f = x*y;
+g = sin(pi*x);
+
+Vh&lt;complex&gt; ff, gg; //a complex valued finite element function
+ff= x*(y+1i);
+gg = exp(pi*x*1i);
+
+// Problem
+varf mat (u, v)
+    = int2d(Th)(
+          1*dx(u)*dx(v)
+        + 2*dx(u)*dy(v)
+        + 3*dy(u)*dx(v)
+        + 4*dy(u)*dy(v)
+    )
+    + on(1, 2, 3, 4, u=1)
+    ;
+
+varf mati (u, v)
+    = int2d(Th)(
+         1*dx(u)*dx(v)
+        + 2i*dx(u)*dy(v)
+        + 3*dy(u)*dx(v)
+        + 4*dy(u)*dy(v)
+    )
+    + on(1, 2, 3, 4, u=1)
+    ;
+
+matrix A = mat(Vh, Vh);
+matrix&lt;complex&gt; AA = mati(Vh, Vh); //a complex sparse matrix
+
+// Operations
+Vh m0; m0[] = A*f[];
+Vh m01; m01[] = A&#39;*f[];
+Vh m1; m1[] = f[].*g[];
+Vh m2; m2[] = f[]./g[];
+
+// Display
+cout &lt;&lt; &quot;f = &quot; &lt;&lt; f[] &lt;&lt; endl;
+cout &lt;&lt; &quot;g = &quot; &lt;&lt; g[] &lt;&lt; endl;
+cout &lt;&lt; &quot;A = &quot; &lt;&lt; A &lt;&lt; endl;
+cout &lt;&lt; &quot;m0 = &quot; &lt;&lt; m0[] &lt;&lt; endl;
+cout &lt;&lt; &quot;m01 = &quot; &lt;&lt; m01[] &lt;&lt; endl;
+cout &lt;&lt; &quot;m1 = &quot;&lt;&lt; m1[] &lt;&lt; endl;
+cout &lt;&lt; &quot;m2 = &quot;&lt;&lt; m2[] &lt;&lt; endl;
+cout &lt;&lt; &quot;dot Product = &quot;&lt;&lt; f[]&#39;*g[] &lt;&lt; endl;
+cout &lt;&lt; &quot;hermitien Product = &quot;&lt;&lt; ff[]&#39;*gg[] &lt;&lt; endl;
+cout &lt;&lt; &quot;outer Product = &quot;&lt;&lt; (A=f[]*g[]&#39;) &lt;&lt; endl;
+cout &lt;&lt; &quot;hermitien outer Product = &quot;&lt;&lt; (AA=ff[]*gg[]&#39;) &lt;&lt; endl;
+
+// Diagonal
+real[int] diagofA(A.n);
+diagofA = A.diag; //get the diagonal of the matrix
+A.diag = diagofA ; //set the diagonal of the matrix
+
+// Sparse matrix set
+int[int] I(1), J(1);
+real[int] C(1);
+
+[I, J, C] = A; //get the sparse term of the matrix A (the array are resized)
+cout &lt;&lt; &quot;I = &quot; &lt;&lt; I &lt;&lt; endl;
+cout &lt;&lt; &quot;J = &quot; &lt;&lt; J &lt;&lt; endl;
+cout &lt;&lt; &quot;C = &quot; &lt;&lt; C &lt;&lt; endl;
+
+A = [I, J, C]; //set a new matrix
+matrix D = [diagofA]; //set a diagonal matrix D from the array diagofA
+cout &lt;&lt; &quot;D = &quot; &lt;&lt; D &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span> <span class="o">=</span> <span class="m">6</span>
+      <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span> <span class="m">0</span>.5
+      <span class="m">1</span>
+<span class="nv">g</span> <span class="o">=</span> <span class="m">6</span>
+      <span class="m">0</span>   <span class="m">1</span> <span class="m">1</span>.224646799e-16   <span class="m">0</span>   <span class="m">1</span>
+    <span class="m">1</span>.224646799e-16
+<span class="nv">A</span> <span class="o">=</span> <span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">6</span> <span class="m">6</span> <span class="m">0</span>  <span class="m">24</span>
+        <span class="m">1</span>         <span class="m">1</span> <span class="m">1</span>.0000000000000000199e+30
+        <span class="m">1</span>         <span class="m">2</span> <span class="m">0</span>.49999999999999994449
+        <span class="m">1</span>         <span class="m">4</span> <span class="m">0</span>
+        <span class="m">1</span>         <span class="m">5</span> -2.5
+        <span class="m">2</span>         <span class="m">1</span> <span class="m">0</span>
+        <span class="m">2</span>         <span class="m">2</span> <span class="m">1</span>.0000000000000000199e+30
+        <span class="m">2</span>         <span class="m">3</span> <span class="m">0</span>.49999999999999994449
+        <span class="m">2</span>         <span class="m">5</span> <span class="m">0</span>.49999999999999977796
+        <span class="m">2</span>         <span class="m">6</span> -2.5
+        <span class="m">3</span>         <span class="m">2</span> <span class="m">0</span>
+        <span class="m">3</span>         <span class="m">3</span> <span class="m">1</span>.0000000000000000199e+30
+        <span class="m">3</span>         <span class="m">6</span> <span class="m">0</span>.49999999999999977796
+        <span class="m">4</span>         <span class="m">1</span> <span class="m">0</span>.49999999999999977796
+        <span class="m">4</span>         <span class="m">4</span> <span class="m">1</span>.0000000000000000199e+30
+        <span class="m">4</span>         <span class="m">5</span> <span class="m">0</span>
+        <span class="m">5</span>         <span class="m">1</span> -2.5
+        <span class="m">5</span>         <span class="m">2</span> <span class="m">0</span>.49999999999999977796
+        <span class="m">5</span>         <span class="m">4</span> <span class="m">0</span>.49999999999999994449
+        <span class="m">5</span>         <span class="m">5</span> <span class="m">1</span>.0000000000000000199e+30
+        <span class="m">5</span>         <span class="m">6</span> <span class="m">0</span>
+        <span class="m">6</span>         <span class="m">2</span> -2.5
+        <span class="m">6</span>         <span class="m">3</span> <span class="m">0</span>
+        <span class="m">6</span>         <span class="m">5</span> <span class="m">0</span>.49999999999999994449
+        <span class="m">6</span>         <span class="m">6</span> <span class="m">1</span>.0000000000000000199e+30
+
+<span class="nv">m0</span> <span class="o">=</span> <span class="m">6</span>
+    -1.25   -2.25   <span class="m">0</span>.5   <span class="m">0</span> 5e+29
+    1e+30
+<span class="nv">m01</span> <span class="o">=</span> <span class="m">6</span>
+    -1.25   -2.25     <span class="m">0</span> <span class="m">0</span>.25    5e+29
+    1e+30
+<span class="nv">m1</span> <span class="o">=</span> <span class="m">6</span>
+      <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span> <span class="m">0</span>.5
+    <span class="m">1</span>.224646799e-16
+<span class="nv">m2</span> <span class="o">=</span> <span class="m">6</span>
+    -nan      <span class="m">0</span>   <span class="m">0</span> -nan    <span class="m">0</span>.5
+    <span class="m">8</span>.165619677e+15
+dot <span class="nv">Product</span> <span class="o">=</span> <span class="m">0</span>.5
+hermitien <span class="nv">Product</span> <span class="o">=</span> <span class="o">(</span><span class="m">1</span>.11022e-16,2.5<span class="o">)</span>
+outer <span class="nv">Product</span> <span class="o">=</span> <span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">6</span> <span class="m">6</span> <span class="m">0</span>  <span class="m">8</span>
+        <span class="m">5</span>         <span class="m">2</span> <span class="m">0</span>.5
+        <span class="m">5</span>         <span class="m">3</span> <span class="m">6</span>.1232339957367660359e-17
+        <span class="m">5</span>         <span class="m">5</span> <span class="m">0</span>.5
+        <span class="m">5</span>         <span class="m">6</span> <span class="m">6</span>.1232339957367660359e-17
+        <span class="m">6</span>         <span class="m">2</span> <span class="m">1</span>
+        <span class="m">6</span>         <span class="m">3</span> <span class="m">1</span>.2246467991473532072e-16
+        <span class="m">6</span>         <span class="m">5</span> <span class="m">1</span>
+        <span class="m">6</span>         <span class="m">6</span> <span class="m">1</span>.2246467991473532072e-16
+
+hermitien outer <span class="nv">Product</span> <span class="o">=</span> <span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">6</span> <span class="m">6</span> <span class="m">0</span>  <span class="m">24</span>
+        <span class="m">2</span>         <span class="m">1</span> <span class="o">(</span><span class="m">0</span>,0.5<span class="o">)</span>
+        <span class="m">2</span>         <span class="m">2</span> <span class="o">(</span><span class="m">0</span>.5,3.0616169978683830179e-17<span class="o">)</span>
+        <span class="m">2</span>         <span class="m">3</span> <span class="o">(</span><span class="m">6</span>.1232339957367660359e-17,-0.5<span class="o">)</span>
+        <span class="m">2</span>         <span class="m">4</span> <span class="o">(</span><span class="m">0</span>,0.5<span class="o">)</span>
+        <span class="m">2</span>         <span class="m">5</span> <span class="o">(</span><span class="m">0</span>.5,3.0616169978683830179e-17<span class="o">)</span>
+        <span class="m">2</span>         <span class="m">6</span> <span class="o">(</span><span class="m">6</span>.1232339957367660359e-17,-0.5<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">1</span> <span class="o">(</span><span class="m">0</span>,1<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">2</span> <span class="o">(</span><span class="m">1</span>,6.1232339957367660359e-17<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">3</span> <span class="o">(</span><span class="m">1</span>.2246467991473532072e-16,-1<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">4</span> <span class="o">(</span><span class="m">0</span>,1<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">5</span> <span class="o">(</span><span class="m">1</span>,6.1232339957367660359e-17<span class="o">)</span>
+        <span class="m">3</span>         <span class="m">6</span> <span class="o">(</span><span class="m">1</span>.2246467991473532072e-16,-1<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">1</span> <span class="o">(</span><span class="m">0</span>.5,0.5<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">2</span> <span class="o">(</span><span class="m">0</span>.5,-0.49999999999999994449<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">3</span> <span class="o">(</span>-0.49999999999999994449,-0.50000000000000011102<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">4</span> <span class="o">(</span><span class="m">0</span>.5,0.5<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">5</span> <span class="o">(</span><span class="m">0</span>.5,-0.49999999999999994449<span class="o">)</span>
+        <span class="m">5</span>         <span class="m">6</span> <span class="o">(</span>-0.49999999999999994449,-0.50000000000000011102<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">1</span> <span class="o">(</span><span class="m">1</span>,1<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">2</span> <span class="o">(</span><span class="m">1</span>,-0.99999999999999988898<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">3</span> <span class="o">(</span>-0.99999999999999988898,-1.000000000000000222<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">4</span> <span class="o">(</span><span class="m">1</span>,1<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">5</span> <span class="o">(</span><span class="m">1</span>,-0.99999999999999988898<span class="o">)</span>
+        <span class="m">6</span>         <span class="m">6</span> <span class="o">(</span>-0.99999999999999988898,-1.000000000000000222<span class="o">)</span>
+
+<span class="nv">I</span> <span class="o">=</span> <span class="m">8</span>
+      <span class="m">4</span>   <span class="m">4</span>   <span class="m">4</span>   <span class="m">4</span>   <span class="m">5</span>
+      <span class="m">5</span>   <span class="m">5</span>   <span class="m">5</span>
+<span class="nv">J</span> <span class="o">=</span> <span class="m">8</span>
+      <span class="m">1</span>   <span class="m">2</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">1</span>
+      <span class="m">2</span>   <span class="m">4</span>   <span class="m">5</span>
+<span class="nv">C</span> <span class="o">=</span> <span class="m">8</span>
+    <span class="m">0</span>.5 <span class="m">6</span>.123233996e-17 <span class="m">0</span>.5 <span class="m">6</span>.123233996e-17   <span class="m">1</span>
+    <span class="m">1</span>.224646799e-16   <span class="m">1</span> <span class="m">1</span>.224646799e-16
+  -- Raw Matrix    <span class="nv">nxm</span>  <span class="o">=</span>6x6 nb  none zero coef. <span class="m">8</span>
+  -- Raw Matrix    <span class="nv">nxm</span>  <span class="o">=</span>6x6 nb  none zero coef. <span class="m">6</span>
+<span class="nv">D</span> <span class="o">=</span> <span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">6</span> <span class="m">6</span> <span class="m">1</span>  <span class="m">6</span>
+        <span class="m">1</span>         <span class="m">1</span> <span class="m">0</span>
+        <span class="m">2</span>         <span class="m">2</span> <span class="m">0</span>
+        <span class="m">3</span>         <span class="m">3</span> <span class="m">0</span>
+        <span class="m">4</span>         <span class="m">4</span> <span class="m">0</span>
+        <span class="m">5</span>         <span class="m">5</span> <span class="m">0</span>.5
+        <span class="m">6</span>         <span class="m">6</span> <span class="m">1</span>.2246467991473532072e-16
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Due to <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> indices starting at one, the output of a diagonal matrix <code class="docutils literal highlight highlight-freefem"><span></span>D</code> is indexed from 1. but in <strong>FreeFem++</strong>, the indices start from 0.</p>
+</div>
+</div>
+<div class="section" id="matrix-inversion">
+<span id="examplematrixinversion"></span><h3>Matrix inversion<a class="headerlink" href="#matrix-inversion" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;lapack&quot;
+load &quot;fflapack&quot;
+
+// Matrix
+int n = 5;
+real[int, int] A(n, n), A1(n, n), B(n,n);
+for (int i = 0; i &lt; n; ++i)
+    for (int j = 0; j &lt; n; ++j)
+        A(i, j) = (i == j) ? n+1 : 1;
+cout &lt;&lt; A &lt;&lt; endl;
+
+// Inversion (lapack)
+A1 = A^-1; //def in &quot;lapack&quot;
+cout &lt;&lt; A1 &lt;&lt; endl;
+
+B = 0;
+for (int i = 0; i &lt; n; ++i)
+    for (int j = 0; j &lt; n; ++j)
+        for (int k = 0; k &lt; n; ++k)
+            B(i, j) += A(i,k)*A1(k,j);
+cout &lt;&lt; B &lt;&lt; endl;
+
+// Inversion (fflapack)
+inv(A1); //def in &quot;fflapack&quot;
+cout &lt;&lt; A1 &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">5</span> <span class="m">5</span>
+       <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>
+
+<span class="m">5</span> <span class="m">5</span>
+     <span class="m">0</span>.18 -0.02 -0.02 -0.02 -0.02
+     -0.02 <span class="m">0</span>.18 -0.02 -0.02 -0.02
+     -0.02 -0.02 <span class="m">0</span>.18 -0.02 -0.02
+     -0.02 -0.02 -0.02 <span class="m">0</span>.18 -0.02
+     -0.02 -0.02 -0.02 -0.02 <span class="m">0</span>.18
+
+<span class="m">5</span> <span class="m">5</span>
+       <span class="m">1</span> <span class="m">1</span>.040834086e-17 <span class="m">1</span>.040834086e-17 <span class="m">1</span>.734723476e-17 <span class="m">2</span>.775557562e-17
+     <span class="m">3</span>.469446952e-18   <span class="m">1</span> -1.734723476e-17 <span class="m">1</span>.734723476e-17 <span class="m">2</span>.775557562e-17
+     <span class="m">2</span>.428612866e-17 -3.122502257e-17   <span class="m">1</span> <span class="m">1</span>.734723476e-17 <span class="m">2</span>.775557562e-17
+     <span class="m">2</span>.081668171e-17 -6.938893904e-17 -3.469446952e-17   <span class="m">1</span>   <span class="m">0</span>
+     <span class="m">2</span>.775557562e-17 -4.163336342e-17 -2.775557562e-17   <span class="m">0</span>   <span class="m">1</span>
+
+<span class="m">5</span> <span class="m">5</span>
+       <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>   <span class="m">1</span>
+       <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">1</span>   <span class="m">6</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>To compile <code class="docutils literal highlight highlight-freefem"><span></span>lapack.cpp</code> and <code class="docutils literal highlight highlight-freefem"><span></span>fflapack.cpp</code>, you must have the <code class="docutils literal highlight highlight-freefem"><span></span>lapack</code> library on your system and compile the plugin with the command:</p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>ff-c++ lapack.cpp -llapack     ff-c++ fflapack.cpp -llapack
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fe-array">
+<span id="examplefearray"></span><h3>FE array<a class="headerlink" href="#fe-array" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Mesh
+mesh Th = square(20, 20, [2*x, 2*y]);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh u, v, f;
+
+// Problem
+problem Poisson (u, v)
+    = int2d(Th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    + int2d(Th)(
+        - f*v
+    )
+    + on(1, 2, 3, 4, u=0)
+    ;
+
+Vh[int] uu(3); //an array of FE function
+// Solve problem 1
+f = 1;
+Poisson;
+uu[0] = u;
+// Solve problem 2
+f = sin(pi*x)*cos(pi*y);
+Poisson;
+uu[1] = u;
+// Solve problem 3
+f = abs(x-1)*abs(y-1);
+Poisson;
+uu[2] = u;
+
+// Plot
+for (int i = 0; i &lt; 3; i++)
+    plot(uu[i], wait=true);
+</pre></div>
+</div>
+<div class="figure" id="id41">
+<img alt="../_images/FEArray1.png" src="../_images/FEArray1.png" />
+<p class="caption"><span class="caption-number">Fig. 133 </span><span class="caption-text">First result</span></p>
+</div>
+<div class="figure" id="id42">
+<img alt="../_images/FEArray2.png" src="../_images/FEArray2.png" />
+<p class="caption"><span class="caption-number">Fig. 134 </span><span class="caption-text">Second result</span></p>
+</div>
+<div class="figure" id="id43">
+<img alt="../_images/FEArray3.png" src="../_images/FEArray3.png" />
+<p class="caption"><span class="caption-number">Fig. 135 </span><span class="caption-text">Third result</span></p>
+</div>
+</div>
+<div class="section" id="loop">
+<span id="exampleloop"></span><h3>Loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>for (int i = 0; i &lt; 10; i=i+1)
+    cout &lt;&lt; i &lt;&lt; endl;
+
+real eps = 1.;
+while (eps &gt; 1e-5){
+    eps = eps/2;
+    if (i++ &lt; 100)
+        break;
+    cout &lt;&lt; eps &lt;&lt; endl;
+}
+
+for (int j = 0; j &lt; 20; j++){
+    if (j &lt; 10) continue;
+    cout &lt;&lt; &quot;j = &quot; &lt;&lt; j &lt;&lt; endl;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="implicit-loop">
+<span id="exampleimplicitloop"></span><h3>Implicit loop<a class="headerlink" href="#implicit-loop" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real [int, int] a(10, 10);
+real [int] b(10);
+
+for [i, bi : b]{
+    bi = i+1;
+    cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; bi &lt;&lt; endl;
+}
+cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+
+for [i, j, aij : a]{
+    aij = 1./(2+i+j);
+    if (abs(aij) &lt; 0.2) aij = 0;
+}
+cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
+
+matrix A = a;
+string[string] ss; //a map
+ss[&quot;1&quot;] = 1;
+ss[&quot;2&quot;] = 2;
+ss[&quot;3&quot;] = 5;
+for [i, bi : ss]
+    bi = i + 6 + &quot;-dddd&quot;;
+cout &lt;&lt; &quot;ss = &quot; &lt;&lt; ss &lt;&lt; endl;
+
+int[string] si;
+si[1] = 2;
+si[50] = 1;
+for [i, vi : si]{
+    cout &lt;&lt; &quot; i &quot; &lt;&lt; setw(3) &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; setw(10) &lt;&lt; vi &lt;&lt; endl;
+    vi = atoi(i)*2;
+}
+cout &lt;&lt; &quot;si = &quot; &lt;&lt; si &lt;&lt; endl;
+
+for [i, j, aij : A]{
+    cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot; &quot; &lt;&lt; aij &lt;&lt; endl;
+    aij = -aij;
+}
+cout &lt;&lt; A &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span>
+<span class="m">1</span> <span class="m">2</span>
+<span class="m">2</span> <span class="m">3</span>
+<span class="m">3</span> <span class="m">4</span>
+<span class="m">4</span> <span class="m">5</span>
+<span class="m">5</span> <span class="m">6</span>
+<span class="m">6</span> <span class="m">7</span>
+<span class="m">7</span> <span class="m">8</span>
+<span class="m">8</span> <span class="m">9</span>
+<span class="m">9</span> <span class="m">10</span>
+<span class="nv">b</span> <span class="o">=</span> <span class="m">10</span>
+      <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>
+      <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>  <span class="m">10</span>
+
+<span class="nv">a</span> <span class="o">=</span> <span class="m">10</span> <span class="m">10</span>
+     <span class="m">0</span>.5 <span class="m">0</span>.3333333333 <span class="m">0</span>.25 <span class="m">0</span>.2   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+     <span class="m">0</span>.3333333333 <span class="m">0</span>.25 <span class="m">0</span>.2   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+     <span class="m">0</span>.25 <span class="m">0</span>.2   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+     <span class="m">0</span>.2   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+       <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>   <span class="m">0</span>
+
+<span class="nv">ss</span> <span class="o">=</span> <span class="m">1</span> <span class="m">1</span>
+<span class="m">2</span> <span class="m">2</span>
+<span class="m">3</span> <span class="m">5</span>
+
+ i   <span class="m">1</span>          <span class="m">2</span>
+ i  <span class="m">50</span>          <span class="m">1</span>
+<span class="nv">si</span> <span class="o">=</span> <span class="m">1</span> <span class="m">2</span>
+<span class="m">50</span> <span class="m">100</span>
+
+<span class="m">0</span> <span class="m">0</span> <span class="m">0</span>.5
+<span class="m">0</span> <span class="m">1</span> <span class="m">0</span>.333333
+<span class="m">0</span> <span class="m">2</span> <span class="m">0</span>.25
+<span class="m">0</span> <span class="m">3</span> <span class="m">0</span>.2
+<span class="m">1</span> <span class="m">0</span> <span class="m">0</span>.333333
+<span class="m">1</span> <span class="m">1</span> <span class="m">0</span>.25
+<span class="m">1</span> <span class="m">2</span> <span class="m">0</span>.2
+<span class="m">2</span> <span class="m">0</span> <span class="m">0</span>.25
+<span class="m">2</span> <span class="m">1</span> <span class="m">0</span>.2
+<span class="m">3</span> <span class="m">0</span> <span class="m">0</span>.2
+<span class="c1"># Sparse Matrix (Morse)</span>
+<span class="c1"># first line: n m (is symmetic) nbcoef</span>
+<span class="c1"># after for each nonzero coefficient:   i j a_ij where (i,j) \in  {1,...,n}x{1,...,m}</span>
+<span class="m">10</span> <span class="m">10</span> <span class="m">0</span>  <span class="m">10</span>
+        <span class="m">1</span>         <span class="m">1</span> -0.5
+        <span class="m">1</span>         <span class="m">2</span> -0.33333333333333331483
+        <span class="m">1</span>         <span class="m">3</span> -0.25
+        <span class="m">1</span>         <span class="m">4</span> -0.2000000000000000111
+        <span class="m">2</span>         <span class="m">1</span> -0.33333333333333331483
+        <span class="m">2</span>         <span class="m">2</span> -0.25
+        <span class="m">2</span>         <span class="m">3</span> -0.2000000000000000111
+        <span class="m">3</span>         <span class="m">1</span> -0.25
+        <span class="m">3</span>         <span class="m">2</span> -0.2000000000000000111
+        <span class="m">4</span>         <span class="m">1</span> -0.2000000000000000111
+</pre></div>
+</div>
+</div>
+<div class="section" id="i-o">
+<span id="exampleio"></span><h3>I/O<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int i;
+cout &lt;&lt; &quot;std-out&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot; enter i = ?&quot;;
+cin &gt;&gt; i;
+
+{
+    ofstream f(&quot;toto.txt&quot;);
+    f &lt;&lt; i &lt;&lt; &quot;hello world&#39;\n&quot;;
+} //close the file f because the variable f is delete
+
+{
+    ifstream f(&quot;toto.txt&quot;);
+    f &gt;&gt; i;
+}
+
+{
+    ofstream f(&quot;toto.txt&quot;, append);
+    //to append to the existing file &quot;toto.txt&quot;
+    f &lt;&lt; i &lt;&lt; &quot;hello world&#39;\n&quot;;
+} //close the file f because the variable f is delete
+
+cout &lt;&lt; i &lt;&lt; endl;
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-stream">
+<span id="examplefilestream"></span><h3>File stream<a class="headerlink" href="#file-stream" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int where;
+real[int] f = [0, 1, 2, 3, 4, 5];
+real[int] g(6);
+
+{
+    ofstream file(&quot;f.txt&quot;, binary);
+    file.precision(16);
+    file &lt;&lt; f &lt;&lt; endl;
+    where = file.tellp();
+    file &lt;&lt; 0.1 ;
+
+    cout &lt;&lt; &quot;Where in file &quot; &lt;&lt; where &lt;&lt; endl;
+    file &lt;&lt; &quot; # comment bla bla ... 0.3 \n&quot;;
+    file &lt;&lt; 0.2 &lt;&lt; endl;
+    file.flush; //to flush the buffer of file
+}
+
+//Function to skip comment starting with # in a file
+func ifstream skipcomment(ifstream &amp;ff){
+    while(1){
+        int where = ff.tellg(); //store file position
+        string comment;
+        ff &gt;&gt; comment;
+        if (!ff.good()) break;
+        if (comment(0:0)==&quot;#&quot;){
+            getline(ff, comment);
+            cout &lt;&lt; &quot; -- #&quot; &lt;&lt; comment &lt;&lt; endl;
+        }
+        else{
+            ff.seekg(where); //restore file position
+            break;
+        }
+    }
+    return ff;
+}
+
+{
+    real xx;
+    ifstream file(&quot;f.txt&quot;, binary);
+    cout &lt;&lt; &quot;Where &quot; &lt;&lt; file.seekg &lt;&lt; endl;
+    file.seekg(where);
+    file &gt;&gt; xx;
+    cout &lt;&lt; &quot; xx = &quot; &lt;&lt; xx &lt;&lt; &quot; good ? &quot; &lt;&lt; file.good() &lt;&lt; endl;
+    assert(xx == 0.1);
+    skipcomment(file) &gt;&gt; xx;
+    assert(xx == 0.2);
+    file.seekg(0); //rewind
+    cout &lt;&lt; &quot;Where &quot; &lt;&lt; file.tellg() &lt;&lt; &quot; &quot; &lt;&lt; file.good() &lt;&lt; endl;
+    file &gt;&gt; g;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<span id="examplecommandlinearguments"></span><h3>Command line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h3>
+<p>When using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FreeFem++ script.edp arg1 arg2
+</pre></div>
+</div>
+<p>The arguments can be used in the script with:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>for (int i = 0; i &lt; ARGV.n; i++)
+    cout &lt;&lt; ARGV[i] &lt;&lt; endl;
+</pre></div>
+</div>
+<p>When using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FreeFem++ script.edp -n <span class="m">10</span> -a <span class="m">1</span>. -d <span class="m">42</span>.
+</pre></div>
+</div>
+<p>The arguments can be used in the script with:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>include &quot;getARGV.idp&quot;
+
+int n = getARGV(&quot;-n&quot;, 1);
+real a = getARGV(&quot;-a&quot;, 1.);
+real d = getARGV(&quot;-d&quot;, 1.);
+</pre></div>
+</div>
+</div>
+<div class="section" id="macro">
+<span id="examplemacro"></span><h3>Macro<a class="headerlink" href="#macro" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Macro without parameters
+macro xxx() {
+    real i = 0;
+    int j = 0;
+    cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;
+}//
+
+xxx
+
+// Macro with parameters
+macro toto(i) i //
+
+toto({real i = 0; int j = 0; cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;})
+
+// Macro as parameter of a macro
+real[int,int] CC(7, 7), EE(6, 3), EEps(4, 4);
+
+macro VIL6(v, i) [v(1,i), v(2,i), v(4,i), v(5,i), v(6,i)] //
+macro VIL3(v, i) [v(1,i), v(2,i)] //
+macro VV6(v, vv) [
+    v(vv,1), v(vv,2),
+    v(vv,4), v(vv,5),
+    v(vv,6)] //
+macro VV3(v, vv) [v(vv,1), v(vv,2)] //
+
+func C5x5 = VV6(VIL6, CC);
+func E5x2 = VV6(VIL3, EE);
+func Eps = VV3(VIL3, EEps);
+
+// Macro concatenation
+mesh Th = square(2, 2);
+fespace Vh(Th, P1);
+Vh Ux=x, Uy=y;
+
+macro div(V) (dx(V#x) + dy(V#y)) //
+
+cout &lt;&lt; int2d(Th)(div(U)) &lt;&lt; endl;
+
+// Verify the quoting
+macro foo(i, j, k) i j k //
+foo(, , )
+foo({int[}, {int] a(10}, {);})
+
+//NewMacro - EndMacro
+NewMacro grad(u) [dx(u), dy(u)] EndMacro
+cout &lt;&lt; int2d(Th)(grad(Ux)&#39; * grad(Uy)) &lt;&lt; endl;
+
+// IFMACRO - ENDIFMACRO
+macro AA CAS1 //
+
+IFMACRO(AA,CAS1 )
+cout &lt;&lt; &quot;AA = &quot; &lt;&lt; Stringification(AA) &lt;&lt; endl;
+macro CASE file1.edp//
+ENDIFMACRO
+IFMACRO(AA, CAS2)
+macro CASE file2.edp//
+ENDIFMACRO
+
+cout &lt;&lt; &quot;CASE = &quot; &lt;&lt; Stringification(CASE) &lt;&lt; endl;
+
+IFMACRO(CASE)
+include Stringification(CASE)
+ENDIFMACRO
+
+// FILE - LINE
+cout &lt;&lt; &quot;In &quot; &lt;&lt; FILE &lt;&lt; &quot;, line &quot; &lt;&lt; LINE &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output script generated with macros is:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>1 : // Macro without parameters
+2 :  macro xxx {
+3 :     real i = 0;
+4 :     int j = 0;
+5 :     cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;
+6 : }//
+7 :
+8 :
+1 :
+2 :
+3 :
+4 :  {
+1 :     real i = 0;
+2 :     int j = 0;
+3 :     cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;
+4 : }
+9 :
+10 : // Macro with parameters
+11 :  macro toto(i )   i //
+12 :
+13 :                    real i = 0; int j = 0; cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;
+14 :
+15 : // Macro as parameter of a macro
+16 : real[int,int] CC(7, 7), EE(6, 3), EEps(4, 4);
+17 :
+18 :   macro VIL6(v,i )   [v(1,i), v(2,i), v(4,i), v(5,i), v(6,i)] //
+19 :   macro VIL3(v,i )   [v(1,i), v(2,i)] //
+20 :   macro VV6(v,vv )   [
+21 :    v(vv,1), v(vv,2),
+22 :    v(vv,4), v(vv,5),
+23 :    v(vv,6)] //
+24 :   macro VV3(v,vv )   [v(vv,1), v(vv,2)] //
+25 :
+26 : func C5x5 =
+1 :
+2 :
+3 :       [
+1 :             [ CC(1,1),  CC(2,1),  CC(4,1),  CC(5,1),  CC(6,1)] ,         [ CC(1,2),  CC(2,2),  CC(4,2),  CC(5,2),  CC(6,2)] ,
+2 :             [ CC(1,4),  CC(2,4),  CC(4,4),  CC(5,4),  CC(6,4)] ,         [ CC(1,5),  CC(2,5),  CC(4,5),  CC(5,5),  CC(6,5)] ,
+3 :             [ CC(1,6),  CC(2,6),  CC(4,6),  CC(5,6),  CC(6,6)] ] ;
+27 : func E5x2 =
+1 :
+2 :
+3 :       [
+1 :          [ EE(1,1),  EE(2,1)] ,      [ EE(1,2),  EE(2,2)] ,
+2 :          [ EE(1,4),  EE(2,4)] ,      [ EE(1,5),  EE(2,5)] ,
+3 :          [ EE(1,6),  EE(2,6)] ] ;
+28 : func Eps =      [     [ EEps(1,1),  EEps(2,1)] ,      [ EEps(1,2),  EEps(2,2)] ] ;
+29 :
+30 : // Macro concatenation
+31 : mesh Th = square(2, 2);
+32 : fespace Vh(Th, P1);
+33 : Vh Ux=x, Uy=y;
+34 :
+35 :  macro div(V )   (dx(V#x) + dy(V#y)) //
+36 :
+37 : cout &lt;&lt; int2d(Th)(     (dx(Ux) + dy(Uy)) ) &lt;&lt; endl;
+38 :
+39 : // Verify the quoting
+40 :    macro foo(i,j,k )   i j k //
+41 :
+42 :         int[ int] a(10 );
+43 :
+44 : //NewMacro - EndMacro
+45 :  macro grad(u )   [dx(u), dy(u)]
+46 : cout &lt;&lt; int2d(Th)(    [dx(Ux), dy(Ux)] &#39; *     [dx(Uy), dy(Uy)] ) &lt;&lt; endl;
+47 :
+48 : // IFMACRO - ENDIFMACRO
+49 :   macro AACAS1 //
+50 :
+51 :
+1 : cout &lt;&lt; &quot;AA = &quot; &lt;&lt; Stringification( CAS1 ) &lt;&lt; endl;
+2 :   macro CASEfile1.edp//
+3 :
+52 :
+53 :
+54 : cout &lt;&lt; &quot;CASE = &quot; &lt;&lt; Stringification(file1.edp) &lt;&lt; endl;
+55 :
+56 :
+1 : include Stringification(file1.edp)cout &lt;&lt; &quot;This is the file 1&quot; &lt;&lt; endl;
+2 :
+2 :
+57 :
+58 : // FILE - LINE
+59 : cout &lt;&lt; &quot;In &quot; &lt;&lt; FILE &lt;&lt; &quot;, line &quot; &lt;&lt; LINE &lt;&lt; endl;
+</pre></div>
+</div>
+<p>The output os this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">AA</span> <span class="o">=</span> CAS1
+<span class="nv">CASE</span> <span class="o">=</span> file1.edp
+This is the file <span class="m">1</span>
+In Macro.edp, line <span class="m">59</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-error-handling">
+<span id="examplebasicerrorhandling"></span><h3>Basic error handling<a class="headerlink" href="#basic-error-handling" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a;
+try{
+    a = 1./0.;
+}
+catch (...) //all exceptions can be caught
+{
+    cout &lt;&lt; &quot;Catch an ExecError&quot; &lt;&lt; endl;
+    a = 0.;
+}
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>/0 : d d d
+  current <span class="nv">line</span> <span class="o">=</span> <span class="m">3</span>
+Exec error :  Div by <span class="m">0</span>
+   -- number :1
+Catch an ExecError
+</pre></div>
+</div>
+</div>
+<div class="section" id="error-handling">
+<span id="exampleerrorhandling"></span><h3>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+int nn = 5;
+func f = 1; //right hand side function
+func g = 0; //boundary condition function
+
+// Mesh
+mesh Th = square(nn, nn);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh uh, vh;
+
+// Problem
+real cpu = clock();
+problem laplace (uh, vh, solver=Cholesky, tolpivot=1e-6)
+    = int2d(Th)(
+          dx(uh)*dx(vh)
+        + dy(uh)*dy(vh)
+    )
+    + int2d(Th)(
+        - f*vh
+    )
+    ;
+
+try{
+    cout &lt;&lt; &quot;Try Cholesky&quot; &lt;&lt; endl;
+
+    // Solve
+    laplace;
+
+    // Plot
+    plot(uh);
+
+    // Display
+    cout &lt;&lt; &quot;laplacian Cholesky &quot; &lt;&lt; nn &lt;&lt; &quot;, x_&quot; &lt;&lt; nn &lt;&lt; &quot; : &quot; &lt;&lt; -cpu+clock() &lt;&lt; &quot; s, max = &quot; &lt;&lt; uh[].max &lt;&lt; endl;
+}
+catch(...) { //catch all error
+    cout &lt;&lt; &quot; Catch cholesky PB &quot; &lt;&lt; endl;
+}
+</pre></div>
+</div>
+<p>The output of this script is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Try Cholesky
+ERREUR choleskypivot <span class="o">(</span><span class="m">35</span><span class="o">)=</span> -6.43929e-15 &lt; 1e-06
+  current <span class="nv">line</span> <span class="o">=</span> <span class="m">29</span>
+Exec error : FATAL ERREUR dans ./../femlib/MatriceCreuse_tpl.hpp
+cholesky line:
+   -- number :688
+ catch an erreur in  <span class="nv">solve</span>  <span class="o">=</span>&gt;  <span class="nb">set</span>  <span class="nv">sol</span> <span class="o">=</span> <span class="m">0</span> !!!!!!!
+ Catch cholesky PB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#poisson-s-equation">Poisson’s Equation</a></li>
+<li><a class="reference internal" href="#poisson-s-equation-3d">Poisson’s equation 3D</a></li>
+<li><a class="reference internal" href="#stokes-equation-on-a-cube">Stokes Equation on a cube</a></li>
+<li><a class="reference internal" href="#cavity">Cavity</a></li>
+<li><a class="reference internal" href="#mesh-generation">Mesh Generation</a><ul>
+<li><a class="reference internal" href="#mesh-adaptation">Mesh adaptation</a></li>
+<li><a class="reference internal" href="#mesh-adaptation-for-the-poisson-s-problem">Mesh adaptation for the Poisson’s problem</a></li>
+<li><a class="reference internal" href="#uniform-mesh-adaptation">Uniform mesh adaptation</a></li>
+<li><a class="reference internal" href="#borders">Borders</a></li>
+<li><a class="reference internal" href="#change">Change</a></li>
+<li><a class="reference internal" href="#cube">Cube</a></li>
+<li><a class="reference internal" href="#empty-mesh">Empty mesh</a></li>
+<li><a class="reference internal" href="#points">3 points</a></li>
+<li><a class="reference internal" href="#bezier">Bezier</a></li>
+<li><a class="reference internal" href="#build-layer-mesh">Build layer mesh</a></li>
+<li><a class="reference internal" href="#sphere">Sphere</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finite-element">Finite Element</a><ul>
+<li><a class="reference internal" href="#periodic-3d">Periodic 3D</a></li>
+<li><a class="reference internal" href="#lagrange-multipliers">Lagrange multipliers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#visualization">Visualization</a><ul>
+<li><a class="reference internal" href="#plot">Plot</a></li>
+<li><a class="reference internal" href="#hsv">HSV</a></li>
+<li><a class="reference internal" href="#medit">Medit</a></li>
+<li><a class="reference internal" href="#paraview">Paraview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#algorithms-optimizations">Algorithms &amp; Optimizations</a><ul>
+<li><a class="reference internal" href="#algorithms">Algorithms</a></li>
+<li><a class="reference internal" href="#cmaes-variational-inequality">CMAES variational inequality</a></li>
+<li><a class="reference internal" href="#ipopt-minimal-surface-volume">IPOPT minimal surface &amp; volume</a></li>
+<li><a class="reference internal" href="#cmaes-mpi-variational-inequality">CMAES MPI variational inequality</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parallelization">Parallelization</a><ul>
+<li><a class="reference internal" href="#mpi-gmres-2d">MPI-GMRES 2D</a></li>
+<li><a class="reference internal" href="#mpi-gmres-3d">MPI-GMRES 3D</a></li>
+<li><a class="reference internal" href="#direct-solvers">Direct solvers</a></li>
+<li><a class="reference internal" href="#solver-mumps">Solver MUMPS</a></li>
+<li><a class="reference internal" href="#solver-superlu-dist">Solver superLU_DIST</a></li>
+<li><a class="reference internal" href="#solver-pastix">Solver PaStiX</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#developers">Developers</a><ul>
+<li><a class="reference internal" href="#fft">FFT</a></li>
+<li><a class="reference internal" href="#complex">Complex</a></li>
+<li><a class="reference internal" href="#string">String</a></li>
+<li><a class="reference internal" href="#elementary-function">Elementary function</a></li>
+<li><a class="reference internal" href="#array">Array</a></li>
+<li><a class="reference internal" href="#block-matrix">Block matrix</a></li>
+<li><a class="reference internal" href="#matrix-operations">Matrix operations</a></li>
+<li><a class="reference internal" href="#matrix-inversion">Matrix inversion</a></li>
+<li><a class="reference internal" href="#fe-array">FE array</a></li>
+<li><a class="reference internal" href="#loop">Loop</a></li>
+<li><a class="reference internal" href="#implicit-loop">Implicit loop</a></li>
+<li><a class="reference internal" href="#i-o">I/O</a></li>
+<li><a class="reference internal" href="#file-stream">File stream</a></li>
+<li><a class="reference internal" href="#command-line-arguments">Command line arguments</a></li>
+<li><a class="reference internal" href="#macro">Macro</a></li>
+<li><a class="reference internal" href="#basic-error-handling">Basic error handling</a></li>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../tutorial/matlabOctavePlot.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Plotting in Matlab and Octave</div>
+         </div>
+     </a>
+     <a id="button-next" href="../model/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Mathematical Models</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Whispering gallery modes &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/model/whisperingGalleryModes.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Compressible Neo-Hookean materials" href="compressibleNeoHookeanMaterials.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Mathematical Models</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Whispering gallery modes</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/model/whisperingGalleryModes.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="whispering-gallery-modes">
+<h1>Whispering gallery modes<a class="headerlink" href="#whispering-gallery-modes" title="Permalink to this headline">¶</a></h1>
+<p>Author: <a class="reference external" href="http://grudinin.com/">I. S. Grudinin</a></p>
+<p>In whispering gallery mode (WGM) resonators, which are typically spheres or disks, electromagnetic field is trapped by total internal reflections from the boundary.
+Modes of such resonators are distinguished by compact volume and record high quality factors (Q) in a broad range of frequencies.</p>
+<p>Modern applications of such resonators include microwave and optical cavities for atomic clocks, cavity optomechanics, nonlinear and quantum optics.
+Analytical solutions for WG modes are only available for a limited number of idealized geometries, such as sphere or ellipsoid.
+Since resonator dimensions are typically much larger than optical wavelength, direct application of numerical 3D finite difference time domain (FDTD) or finite element methods (FEM) is not practical.
+It’s possible to solve the vectorial wave equation by reducing it to a two dimensional case by taking axial symmetry into account.</p>
+<p>Such reduction leads to a system of 3 equations to be solved in a 2D “<span class="math notranslate nohighlight">\(\rho-z\)</span>” section of a resonator.
+Please refer to <a class="reference internal" href="#oxborrow2007" id="id1">[OXBORROW2007]</a> for a detailed derivation and to <a class="reference internal" href="#grudinin2012" id="id2">[GRUDININ2012]</a> for an example of using FreeFem++ to compute WGMs.</p>
+<div class="section" id="wave-equation-for-the-wgms">
+<h2>Wave equation for the WGMs<a class="headerlink" href="#wave-equation-for-the-wgms" title="Permalink to this headline">¶</a></h2>
+<p>Since electric field is discontinuous on the surface of a dielectric and magnetic field is typically not, we derive our equations for the magnetic field.
+The electric field can be easily derived at a later stage from <span class="math notranslate nohighlight">\(\vec{E}=\frac{i}{\omega\epsilon_0}\hat{\epsilon}^{-1}\nabla\times\vec{H}\)</span>.
+Following a standard procedure starting with Maxwell equations we derive a wave equation in a single-axis anisotropic medium such as an optical crystal:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-wave">
+<span class="eqno">(52)<a class="headerlink" href="#equation-eqn-wave" title="Permalink to this equation">¶</a></span>\[\nabla\times\left(\hat{\epsilon}^{-1}\nabla\times\vec{H}\right)-k_0^2\vec{H}-\alpha\nabla\left(\nabla\cdot\vec{H}\right)=0\]</div>
+<p>Here <span class="math notranslate nohighlight">\(k_0=\omega/c\)</span> is the wavenumber, <span class="math notranslate nohighlight">\(\alpha\)</span> is the penalty term added to fight spurious FEM solutions.
+For anisotropic single-axis medium with <span class="math notranslate nohighlight">\(\partial\hat{\epsilon}/\partial\phi=0\)</span> in cylindrical system of coordinates we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\epsilon}=\begin{pmatrix} \epsilon_{\rho} &amp; 0 &amp; 0 \\ 0 &amp; \epsilon_{\rho} &amp; 0 \\ 0 &amp; 0 &amp; \epsilon_z \end{pmatrix}. \nonumber\end{split}\]</div>
+<p>We now assume axial symmetry of our electromagnetic fields and insert an imaginary unity in front of the <span class="math notranslate nohighlight">\(H_{\phi}\)</span> to allow all field components to be real numbers and also to account for the phase shift of this component <span class="math notranslate nohighlight">\(\vec{H}(\rho,\phi,z)=\left\{H_{\rho}(\rho,z),iH_{\phi}(\rho,z),H_z(\rho,z)\right\}\times e^{im\phi}\)</span>.</p>
+<p>We write the wave equation <a class="reference internal" href="#equation-eqn-wave">(52)</a> explicitly in cylindrical coordinates, thus obtaining a set of three differential equations for the domain <span class="math notranslate nohighlight">\(\Omega\)</span> given by the resonator’s cross section and some space outside:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-system">
+<span class="eqno">(53)<a class="headerlink" href="#equation-eqn-system" title="Permalink to this equation">¶</a></span>\[\begin{split}A_1\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&amp;=&amp;0\\ \nonumber
+A_2\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&amp;=&amp;0\\ \nonumber
+A_3\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&amp;=&amp;0\end{split}\]</div>
+<p>The numerical solutions of these equations and boundary conditions can be found with FreeFem++ if we write the system in the weak, or integral form.</p>
+</div>
+<div class="section" id="weak-formulation">
+<h2>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h2>
+<p>In general, to obtain the integral or “weak” statements equivalent to system <a class="reference internal" href="#equation-eqn-system">(53)</a> and boundary conditions we form a scalar dot product between an arbitrary magnetic field test function <span class="math notranslate nohighlight">\(\mathbf{H}^t=\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}\)</span> and the components of our vectorial equation <span class="math notranslate nohighlight">\(A_1,A_2,A_3\)</span>, and integrate over the resonator’s cross section domain <span class="math notranslate nohighlight">\(\Omega\)</span> (and its boundary for the boundary conditions):</p>
+<div class="math notranslate nohighlight">
+\[\int\limits_{\Omega}(H^t_{\rho}A_1+H^t_{\phi}A_2+H^t_{z}A_3)d\Omega\]</div>
+<p>We can reduce the order of partial derivatives in this integral by using the Green’s formula for integration by parts.
+For example:</p>
+<div class="math notranslate nohighlight">
+\[\int\limits_{\Omega}H_z^t \frac{\partial^2 H_z}{\partial \rho^2 }d\Omega=
+-\int\limits_{\Omega}\frac{\partial H_z^t}{\partial \rho}\frac{\partial H_z}{\partial \rho }d\Omega+\oint H_z^t\frac{\partial H_z}{\partial \rho}n_{\rho}d\Gamma\]</div>
+<p>Thus converting equations <a class="reference internal" href="#equation-eqn-system">(53)</a> we obtain a large expression for the weak form.</p>
+</div>
+<div class="section" id="a-dielectric-sphere-example-with-freefem">
+<h2>A dielectric sphere example with FreeFem++<a class="headerlink" href="#a-dielectric-sphere-example-with-freefem" title="Permalink to this headline">¶</a></h2>
+<p>We now compute the fundamental mode frequency for a fused silica sphere.
+The sphere is 36 micrometer in diameter, the refractive index is 1.46, the boundary condition is the magnetic wall (which can actually be omitted as it holds automatically).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Parameters
+real radius = 36; //approximate radius of the cavity
+real yb = -10, yt = -yb; //window yb=bottom and yt=top coordinates
+real xl = radius-5, xr = radius+3; //window xl=left and xr=right coordinates
+real angle = asin((yt)/radius); //angle of the sphere segment to model in radians
+int Nm = 60; //number of mesh vertices per border
+real ne = 1.46; //n_e-extraordinary refractive index (root of permittivity parallel to z-axis, epara)
+real no = 1.46; //n_o-ordinary refractive index (root of permittivity orthogonal to z-axis, eorto)
+real nm = 1; //refractive index of surrounding medium (air)
+
+int nev = 4; // number of eigen values to find
+
+int M = 213; //azimuthal mode order ~ 2Pi*n*R/lambda
+real alpha = 1; //penalty term
+
+// Mesh
+border W1l(t=0, 1){x=xl+(radius*cos(angle)-xl)*(1-t); y=yt; label=1;}
+border W1r(t=0, 1){x=xr-(xr-radius*cos(angle))*(t); y=yt; label=1;}
+border W2(t=0, 1){x=xr; y=yb+(yt-yb)*t; label=1;}
+border W3l(t=0, 1){x=xl+(radius*cos(angle)-xl)*(t); y=yb; label=1;}
+border W3r(t=0, 1){x=xr-(xr-radius*cos(angle))*(1-t); y=yb; label=1;}
+border W4(t=0, 1){x=xl; y=yt-(yt-yb)*t; label=1;}
+border S(t=0, 1){x=radius*cos((t-0.5)*2*angle); y=radius*sin((t-0.5)*2*angle); label=2;}
+mesh Th = buildmesh(W1r(Nm/4) + W1l(Nm/4) + W4(Nm) + W3l(Nm/4) + W3r(Nm/4) + W2(Nm) + S(Nm));
+plot(Th, WindowIndex=0);
+
+// Fespace
+fespace Ph(Th, P0);
+Ph reg = region;
+
+int ncav = reg(xl+1, 0); // cavity
+int nair = reg(xr-1, 0); //air
+Ph eorto = no^2*(region==ncav) + nm^2*(region==nair); //subdomains for epsilon values inside and outside the resonators
+Ph epara = ne^2*(region==ncav) + nm^2*(region==nair); //subdomains for epsilon values inside and outside the resonators
+
+//supplementary variables to store eigenvectors, defined on mesh Th with P2 elements - Largange quadratic.
+fespace Supp(Th, P2);
+Supp eHsqr;
+
+//3d vector FE space
+fespace Vh(Th, [P2, P2, P2]);
+Vh [Hr, Hphi, Hz], [vHr, vHphi, vHz]; //magnetic field components on Vh space and test functions vH
+
+// Macro
+//boundary condition macros
+macro EWall(Hr, Hphi, Hz) (
+      dy(Hr) - dx(Hz) + Hr*N.x + Hz*N.y
+    - epara*(Hz*M - dy(Hphi)*x)*N.y
+    + eorto*(Hphi - Hr*M+dx(Hphi)*x)*N.x) //
+macro MWall(Hr, Hphi, Hz) (
+      Hphi + Hz*N.x - Hr*N.y
+    + epara*(Hz*M - dy(Hphi)*x)*N.x
+    + eorto*(Hphi - Hr*M+dx(Hphi)*x)*N.y ) //
+
+// Problem
+real sigma =(M/(ne*radius))^2+2; // value of the shift (k^2), where the modes will be found
+varf b ([Hr, Hphi, Hz], [vHr, vHphi, vHz])
+    = int2d(Th)(
+          x*(Hr*vHr+Hphi*vHphi+Hz*vHz)
+    )
+    ;
+// OP = A - sigma B ; // the shifted matrix
+varf op ([Hr, Hphi, Hz], [vHr, vHphi, vHz])=
+    int2d(Th)(
+          (
+              (eorto*(vHphi*Hphi - M*(vHphi*Hr + Hphi*vHr) + M^2*vHr*Hr) + epara*M^2*vHz*Hz)/x //A/r
+            + eorto*(dx(vHphi)*(Hphi - M*Hr) + dx(Hphi)*(vHphi - M*vHr)) - epara*M*(vHz*dy(Hphi) + Hz*dy(vHphi)) //B
+            + x*(eorto*dx(vHphi)*dx(Hphi) + epara*((dx(vHz) - dy(vHr))*(dx(Hz) - dy(Hr)) + dy(vHphi)*dy(Hphi))) //C
+        )/(eorto*epara)
+        + alpha*(
+              (vHr*Hr - M*(vHphi*Hr + Hphi*vHr) + M^2*vHphi*Hphi)/x //D/r
+            + (dx(vHr) + dy(vHz))*(Hr - M*Hphi) + (vHr - M*vHphi)*(dx(Hr) + dy(Hz)) //E
+            + x*(dx(vHr) + dy(vHz))*(dx(Hr) + dy(Hz)) //F
+        )
+        -sigma*x*(vHr*Hr + vHphi*Hphi + vHz*Hz)
+    )
+    //electric wall boundary condition on the boundary of computation domain
+    +int1d(Th, 1)(
+          EWall(Hr, Hphi, Hz)*EWall(vHr, vHphi, vHz)
+    )
+    ;
+//setting sparce matrices and assigning the solver UMFPACK to solve eigenvalue problem
+matrix B = b(Vh, Vh, solver=UMFPACK);
+matrix OP = op(Vh, Vh, solver=UMFPACK);
+
+// Solve
+real[int] ev(nev); //to store the nev eigenvalue
+Vh[int] [eHr, eHphi, eHz](nev); //to store the nev eigenvector
+//calling ARPACK on sparce matrices with the assigned solver UMFPACK:
+int k = EigenValue(OP, B, sym=true, sigma=sigma, value=ev, vector=eHr, tol=1e-10, maxit=0, ncv=0);
+
+k = min(k, nev); //sometimes the number of converged eigen values
+                 //can be greater than nev
+
+//file to output mode values
+ofstream f(&quot;modes.txt&quot;);
+//setting number of digits in the file output
+int nold = f.precision(11);
+
+// Plot &amp; Save
+for (int i = 0; i &lt; k; i++){
+    real lambda = 2*pi/sqrt(ev[i]);
+    eHsqr = (sqrt(eHr[i]^2 + eHphi[i]^2 + eHz[i]^2)); //intensity from magnetic field components
+    plot(eHsqr, WindowIndex=i, value=1, nbiso=20,LabelColors=1, aspectratio=1, cmm=&quot;Mode &quot;+i+&quot;, lambda=&quot;+lambda+&quot;, F=&quot;+(299792.458/lambda));
+    f &lt;&lt; &quot;Mode &quot;&lt;&lt; i &lt;&lt; &quot;, ka=&quot; &lt;&lt; sqrt(ev[i])*radius &lt;&lt; endl;
+}
+</pre></div>
+</div>
+<table class="docutils citation" frame="void" id="oxborrow2007" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[OXBORROW2007]</a></td><td>OXBORROW, Mark. Traceable 2-D finite-element simulation of the whispering-gallery modes of axisymmetric electromagnetic resonators. IEEE Transactions on Microwave Theory and Techniques, 2007, vol.&nbsp;55, no 6, p.&nbsp;1209-1218.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="grudinin2012" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[GRUDININ2012]</a></td><td>GRUDININ, Ivan S. et YU, Nan. Finite-element modeling of coupled optical microdisk resonators for displacement sensing. JOSA B, 2012, vol.&nbsp;29, no 11, p.&nbsp;3010-3014.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Whispering gallery modes</a><ul>
+<li><a class="reference internal" href="#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
+<li><a class="reference internal" href="#weak-formulation">Weak formulation</a></li>
+<li><a class="reference internal" href="#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="compressibleNeoHookeanMaterials.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Compressible Neo-Hookean materials</div>
+         </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

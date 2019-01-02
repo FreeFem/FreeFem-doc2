@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Plotting in Matlab and Octave &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/matlabOctavePlot.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../example/index.html" />
+    <link rel="prev" title="Wifi Propagation" href="wifiPropagation.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Plotting in Matlab and Octave</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/matlabOctavePlot.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="plotting-in-matlab-and-octave">
+<span id="tutorialmatlaboctaveplot"></span><h1>Plotting in Matlab and Octave<a class="headerlink" href="#plotting-in-matlab-and-octave" title="Permalink to this headline">¶</a></h1>
+<p>This chapter is about plotting FreeFem++ simulation results with <a class="reference external" href="https://www.mathworks.com/">Matlab©</a> and <a class="reference external" href="https://www.gnu.org/software/octave/">Octave</a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In order to create a plot of FreeFem++ simulation results in Matlab / Octave two steps are necessary:</p>
+<ul class="simple">
+<li>The mesh and the FE-space functions must be exported to text files</li>
+<li>The text files have to be imported into Matlab / Octave and plotted with the <a class="reference external" href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib commands</a></li>
+</ul>
+<p>Both steps are explained in more detail below using the example of a stripline capacitor.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To be able to call <code class="docutils literal highlight highlight-freefem"><span></span>ffmatlib</code> commands the path name of the <code class="docutils literal highlight highlight-freefem"><span></span>ffmatlib</code> must be added to the search path with the command <code class="code matlab docutils literal highlight highlight-matlab"><span></span><span class="n">addpath</span><span class="p">(</span><span class="s">&#39;Path to ffmatlib&#39;</span><span class="p">)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="d-problem">
+<h2>2D Problem<a class="headerlink" href="#d-problem" title="Permalink to this headline">¶</a></h2>
+<p>To create some example simulation data consider the problem of a stripline capacitor which is also shown in <a class="reference internal" href="#figmatlabboundaryplot"><span class="std std-numref">Fig. 87</span></a>.
+On the two boundaries (the electrodes) <span class="math notranslate nohighlight">\(C_{A}\)</span>, <span class="math notranslate nohighlight">\(C_{K}\)</span> a dirichlet condition and on the enclosure <span class="math notranslate nohighlight">\(C_{B}\)</span> a Neumann condition is set.
+The electrostatic potential <span class="math notranslate nohighlight">\(u\)</span> between the two electrodes is given by the Laplace equation:</p>
+<div class="math notranslate nohighlight">
+\[\Delta u(x,y) = 0\]</div>
+<p>and the electrostatic field is calculated by</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{E} = -\nabla u\]</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int CA=3, CK=4, CB=5;
+real w2=1.0, h=0.4, d2=0.5;
+
+border bottomA(t=-w2,w2){ x=t; y=d2; label=CA;};
+border rightA(t=d2,d2+h){ x=w2; y=t; label=CA;};
+border topA(t=w2,-w2){ x=t; y=d2+h; label=CA;};
+border leftA(t=d2+h,d2){ x=-w2; y=t; label=CA;};
+
+border bottomK(t=-w2,w2){ x=t; y=-d2-h; label=CK;};
+border rightK(t=-d2-h,-d2){ x=w2; y=t; label=CK;};
+border topK(t=w2,-w2){ x=t; y=-d2; label=CK;};
+border leftK(t=-d2,-d2-h){ x=-w2; y=t; label=CK;};
+
+border enclosure(t=0,2*pi){x=5*cos(t); y=5*sin(t); label=CB;}
+
+int n=15;
+mesh Th = buildmesh(enclosure(3*n)+
+             bottomA(-w2*n)+topA(-w2*n)+rightA(-h*n)+leftA(-h*n)+
+             bottomK(-w2*n)+topK(-w2*n)+rightK(-h*n)+leftK(-h*n));
+
+fespace Vh(Th,P1);
+
+Vh u,v;
+real u0=2.0;
+
+problem Laplace(u,v,solver=LU) =
+          int2d(Th)(dx(u)*dx(v) + dy(u)*dy(v))
+        + on(CA,u=u0)+on(CK,u=0);
+
+real error=0.01;
+for (int i=0;i&lt;1;i++){
+   Laplace;
+   Th=adaptmesh(Th,u,err=error);
+   error=error/2.0;
+}
+Laplace;
+
+Vh Ex, Ey;
+Ex = -dx(u);
+Ey = -dy(u);
+
+plot(u,[Ex,Ey],wait=true);
+</pre></div>
+</div>
+</div>
+<div class="section" id="exporting-data">
+<h2>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">¶</a></h2>
+<p>To export a FEM mesh FreeFem++ offers the <a class="reference external" href="/documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">savemesh()</a> command.
+FE-space functions must be written to text files by for-loops.
+The following code section writes the mesh, the potential <span class="math notranslate nohighlight">\(u\)</span> and the 2D vector field <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> of the stripline capacitor example into three different files:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>//Stores the Mesh
+savemesh(Th,&quot;capacitor.msh&quot;);
+
+//Stores the potential u
+{
+ofstream file(&quot;capacitor_potential.txt&quot;);
+for (int j=0; j&lt;u[].n; j++)
+   file &lt;&lt; u[][j] &lt;&lt; endl;
+}
+
+//Stores the 2D vector field
+{
+ofstream file(&quot;capacitor_field.txt&quot;);
+for (int j=0; j&lt;Ex[].n; j++)
+   file &lt;&lt; Ex[][j] &lt;&lt; &quot; &quot; &lt;&lt; Ey[][j] &lt;&lt; endl;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="importing-data">
+<h2>Importing Data<a class="headerlink" href="#importing-data" title="Permalink to this headline">¶</a></h2>
+<p>A mesh file as previously written with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>savemesh(Th,&quot;filename.msh&quot;)</code> command consists of <a class="reference external" href="/documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">three main sections</a>:</p>
+<ol class="arabic simple">
+<li>The mesh points as nodal coordinates</li>
+<li>A list of boundary edges including boundary labels</li>
+<li>List of triangles defining the mesh in terms of connectivity</li>
+</ol>
+<p>A mesh file is loaded to the Matlab / Octave workspace with the following command:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">nv</span><span class="p">,</span><span class="n">nbe</span><span class="p">,</span><span class="n">nt</span><span class="p">,</span><span class="n">labels</span><span class="p">]</span> <span class="p">=</span> <span class="n">ffreadmesh</span><span class="p">(</span><span class="s">&#39;filename.msh&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The three data sections mentioned are stored in the variables <code class="docutils literal highlight highlight-freefem"><span></span>p</code>, <code class="docutils literal highlight highlight-freefem"><span></span>b</code> and <code class="docutils literal highlight highlight-freefem"><span></span>t</code>. On the other hand the simulation data can be loaded into the Matlab / Octave workspace with the function:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="p">=</span> <span class="n">ffreaddata</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Therefore to load the complete simulation result from the capacitor example the following statement sequence must be executed:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%Where to find the ffmatlib commands</span>
+<span class="n">addpath</span><span class="p">(</span><span class="s">&#39;ffmatlib&#39;</span><span class="p">);</span>
+<span class="c">%Loads the mesh</span>
+<span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">nv</span><span class="p">,</span><span class="n">nbe</span><span class="p">,</span><span class="n">nt</span><span class="p">,</span><span class="n">labels</span><span class="p">]=</span><span class="n">ffreadmesh</span><span class="p">(</span><span class="s">&#39;capacitor.msh&#39;</span><span class="p">);</span>
+<span class="c">%Loads scalar data</span>
+<span class="p">[</span><span class="n">u</span><span class="p">]=</span><span class="n">ffreaddata</span><span class="p">(</span><span class="s">&#39;capacitor_potential.txt&#39;</span><span class="p">);</span>
+<span class="c">%Loads vector field data</span>
+<span class="p">[</span><span class="n">Ex</span><span class="p">,</span><span class="n">Ey</span><span class="p">]=</span><span class="n">ffreaddata</span><span class="p">(</span><span class="s">&#39;capacitor_field.txt&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-plot-examples">
+<h2>2D Plot Examples<a class="headerlink" href="#d-plot-examples" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>ffpdeplot()</code> is a plot solution for creating patch, contour, quiver, border, and mesh plots of 2D geometries.
+The basic syntax is:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">handles</span><span class="p">,</span><span class="n">varargout</span><span class="p">]</span> <span class="p">=</span> <span class="n">ffpdeplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">varargin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>varargin</code> specifies parameter name / value pairs to control the plot behaviour.
+A table showing all options can be found in the <a class="reference external" href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib documentation</a>.</p>
+<ul class="simple">
+<li>Plot of the boundary and the mesh:</li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">ffpdeplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s">&#39;Mesh&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span><span class="s">&#39;Boundary&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="figure" id="figmatlabboundaryplot">
+<img alt="../_images/capacitor_boundary_mesh_500x400.png" src="../_images/capacitor_boundary_mesh_500x400.png" />
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Boundary and Mesh</span></p>
+</div>
+<ul class="simple">
+<li>Patch plot (2D map or density plot) including mesh and boundary:</li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">ffpdeplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s">&#39;XYData&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s">&#39;Mesh&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span><span class="s">&#39;Boundary&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="c">...</span>
+          <span class="s">&#39;XLim&#39;</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">],</span><span class="s">&#39;YLim&#39;</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="figure" id="figmatlabpatchplot">
+<img alt="../_images/capacitor_patch_500x400.png" src="../_images/capacitor_patch_500x400.png" />
+<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Patch Plot with Mesh</span></p>
+</div>
+<ul class="simple">
+<li>3D surf plot:</li>
+</ul>
+<div class="code matlab highlight-freefem notranslate"><div class="highlight"><pre><span></span>ffpdeplot(p,b,t,&#39;XYData&#39;,u,&#39;ZStyle&#39;,&#39;continuous&#39;,&#39;Mesh&#39;,&#39;off&#39;);
+lighting gouraud;
+view([-47,24]);
+camlight(&#39;headlight&#39;);
+</pre></div>
+</div>
+<div class="figure" id="figmatlabsurf">
+<img alt="../_images/capacitor_surf_500x400.png" src="../_images/capacitor_surf_500x400.png" />
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">3D Surf Plot</span></p>
+</div>
+<ul class="simple">
+<li>Contour (isovalue) and quiver (vector field) plot:</li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">ffpdeplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s">&#39;XYData&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s">&#39;XYStyle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="s">&#39;Mesh&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="s">&#39;Boundary&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="c">...</span>
+          <span class="s">&#39;Contour&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span><span class="s">&#39;CStyle&#39;</span><span class="p">,</span><span class="s">&#39;monochrome&#39;</span><span class="p">,</span><span class="s">&#39;CColor&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="c">...</span>
+          <span class="s">&#39;CGridParam&#39;</span><span class="p">,[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span><span class="s">&#39;FlowData&#39;</span><span class="p">,[</span><span class="n">Ex</span><span class="p">,</span><span class="n">Ey</span><span class="p">],</span><span class="s">&#39;FGridParam&#39;</span><span class="p">,[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span> <span class="c">...</span>
+          <span class="s">&#39;ColorBar&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="s">&#39;XLim&#39;</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">],</span><span class="s">&#39;YLim&#39;</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span> <span class="mi">2</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="figure" id="figmatlabcontour">
+<img alt="../_images/capacitor_contour_quiver_500x400.png" src="../_images/capacitor_contour_quiver_500x400.png" />
+<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">Contour and Quiver Plot</span></p>
+</div>
+<p><strong>Download run through example:</strong></p>
+<p><a class="reference external" href="/tutorials/scripts/matlab_octave_2d_examples.m">Matlab / Octave file</a></p>
+<p><a class="reference external" href="/tutorials/scripts/matlab_octave_2d_examples.edp">FreeFem++ script</a></p>
+</div>
+<div class="section" id="id1">
+<h2>3D Plot Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>A 3D plot command <code class="docutils literal highlight highlight-freefem"><span></span>ffpdeplot3D()</code> is under development.
+Note: The interface is not yet frozen and can still change.</p>
+<p>The following example shows a slicing feature on a three-dimensional parallel plate capacitor.</p>
+<div class="figure" id="figmatlabslice">
+<img alt="../_images/capacitor3d_slice_500x400.png" src="../_images/capacitor3d_slice_500x400.png" />
+<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Slice on a 3D Parall Plate Capacitor</span></p>
+</div>
+<p><strong>Download run through example:</strong></p>
+<p><a class="reference external" href="/tutorials/scripts/matlab_octave_3d_examples.m">Matlab / Octave file</a></p>
+<p><a class="reference external" href="/tutorials/scripts/matlab_octave_3d_examples.edp">FreeFem++ script</a></p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.gnu.org/software/octave/">Octave</a></li>
+<li><a class="reference external" href="https://www.mathworks.com/">Matlab</a></li>
+<li><a class="reference external" href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib</a></li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Plotting in Matlab and Octave</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#d-problem">2D Problem</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+<li><a class="reference internal" href="#importing-data">Importing Data</a></li>
+<li><a class="reference internal" href="#d-plot-examples">2D Plot Examples</a></li>
+<li><a class="reference internal" href="#id1">3D Plot Examples</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="wifiPropagation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Wifi Propagation</div>
+         </div>
+     </a>
+     <a id="button-next" href="../example/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Examples</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

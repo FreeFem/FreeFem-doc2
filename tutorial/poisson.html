@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Solving Poisson’s equation &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/poisson.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Classification of partial differential equations" href="equationsClassification.html" />
+    <link rel="prev" title="Getting started" href="tutorial.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Solving Poisson’s equation</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/poisson.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="solving-poisson-s-equation">
+<h1>Solving Poisson’s equation<a class="headerlink" href="#solving-poisson-s-equation" title="Permalink to this headline">¶</a></h1>
+<p>For a given function <span class="math notranslate nohighlight">\(f(x,y)\)</span>, find a function <span class="math notranslate nohighlight">\(u(x,y)\)</span> satisfying :</p>
+<div class="math notranslate nohighlight" id="equation-eqn-poisson">
+<span class="eqno">(35)<a class="headerlink" href="#equation-eqn-poisson" title="Permalink to this equation">¶</a></span>\[\begin{split}-\Delta u(x,y) &amp;= f(x,y) &amp; \mbox{ for all }(x,y)\mbox{ in }\Omega\\
+u(x,y) &amp;= 0 &amp; \mbox{ for all }(x,y)\mbox{ on }\partial\Omega\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\partial\Omega\)</span> is the boundary of the bounded open set <span class="math notranslate nohighlight">\(\Omega\subset\mathbb{R}^2\)</span> and <span class="math notranslate nohighlight">\(\Delta u = \frac{\partial^2 u}{\partial x^2 } + \frac{\partial^2 u}{\partial y^2}\)</span>.</p>
+<p>We will compute <span class="math notranslate nohighlight">\(u\)</span> with <span class="math notranslate nohighlight">\(f(x,y)=xy\)</span> and <span class="math notranslate nohighlight">\(\Omega\)</span> the unit disk. The boundary <span class="math notranslate nohighlight">\(C=\partial\Omega\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[C=\{(x,y)|\; x=\cos(t),\, y=\sin(t),\, 0\le t\le 2\pi\}\]</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In FreeFem++, the domain <span class="math notranslate nohighlight">\(\Omega\)</span> is assumed to be described by the left side of its boundary.</p>
+</div>
+<p>The following is the Freefem++ program which computes <span class="math notranslate nohighlight">\(u\)</span>:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Define mesh boundary
+border C(t=0, 2*pi){x=cos(t); y=sin(t);}
+
+// The triangulated domain Th is on the left side of its boundary
+mesh Th = buildmesh(C(50));
+
+// The finite element space defined over Th is called here Vh
+fespace Vh(Th, P1);
+Vh u, v;// Define u and v as piecewise-P1 continuous functions
+
+// Define a function f
+func f= x*y;
+
+// Get the clock in second
+real cpu=clock();
+
+// Define the PDE
+solve Poisson(u, v, solver=LU)
+    = int2d(Th)(    // The bilinear part
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    - int2d(Th)(    // The right hand side
+          f*v
+    )
+    + on(C, u=0);   // The Dirichlet boundary condition
+
+// Plot the result
+plot(u);
+
+// Display the total computational time
+cout &lt;&lt; &quot;CPU time = &quot; &lt;&lt; (clock()-cpu) &lt;&lt; endl;
+</pre></div>
+</div>
+<p>As illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 38</span></a>, we can see the isovalue of <span class="math notranslate nohighlight">\(u\)</span> by using Freefem++ <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot</code> command (see line 29 above).</p>
+<div class="inline2 figure" id="figpoissonmesh">
+<img alt="../_images/firstTh.png" src="../_images/firstTh.png" />
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Mesh Th by <code class="code freefem docutils literal highlight highlight-freefem"><span></span>buildmesh(C(50))</code></span></p>
+</div>
+<div class="inline2 figure" id="figpoissonu">
+<img alt="../_images/firstU.png" src="../_images/firstU.png" />
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Isovalue by <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot(u)</code></span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The qualifier <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solver=LU</code> (line 18) is not required and by default a multi-frontal <code class="code freefem docutils literal highlight highlight-freefem"><span></span>LU</code> is used.</p>
+<p class="last">The lines containing <code class="code freefem docutils literal highlight highlight-freefem"><span></span>clock</code> are equally not required.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Note how close to the mathematics FreeFem++ language is.</p>
+<p>Lines 19 to 24 correspond to the mathematical variational equation:</p>
+<div class="math notranslate nohighlight">
+\[\int_{T_h}
+(
+   \frac{\partial u}{\partial x}\frac{\partial v}{\partial x}
+   + \frac{\partial u}{\partial y}\frac{\partial v}{\partial y}
+)\text{d} x \text{d} y
+= \int_{T_h}f v\text{d} x\text{d} y\]</div>
+<p class="last">for all <span class="math notranslate nohighlight">\(v\)</span> which are in the finite element space <span class="math notranslate nohighlight">\(V_h\)</span> and zero on the boundary <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Change <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P1</code> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span>P2</code> and run the program.</p>
+</div>
+<p>This first example shows how FreeFem++ executes with no effort all the usual steps required by the finite element method (FEM).
+Let’s go through them one by one.</p>
+<p><strong>On the line 2</strong>:</p>
+<p>The boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is described analytically by a parametric equation for <span class="math notranslate nohighlight">\(x\)</span> and for <span class="math notranslate nohighlight">\(y\)</span>.
+When <span class="math notranslate nohighlight">\(\Gamma=\sum_{j=0}^J \Gamma_j\)</span> then each curve <span class="math notranslate nohighlight">\(\Gamma_j\)</span> must be specified and crossings of <span class="math notranslate nohighlight">\(\Gamma_j\)</span> are not allowed except at end points.</p>
+<p>The keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>label</code> can be added to define a group of boundaries for later use (boundary conditions for instance).
+Hence the circle could also have been described as two half circle with the same label:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>border Gamma1(t=0, pi){x=cos(t); y=sin(t); label=C};
+border Gamma2(t=pi, 2.*pi){x=cos(t); y=sin(t); label=C};
+</pre></div>
+</div>
+<p>Boundaries can be referred to either by name (<code class="docutils literal highlight highlight-freefem"><span></span>Gamma1</code> for example) or by label (<code class="docutils literal highlight highlight-freefem"><span></span>C</code> here) or even by its internal number here 1 for the first half circle and 2 for the second (more examples are in <span class="math notranslate nohighlight">\(\ref{Meshing Examples}\)</span>).</p>
+<p><strong>On the line 5</strong></p>
+<p>The triangulation <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> of <span class="math notranslate nohighlight">\(\Omega\)</span> is automatically generated by <code class="code freefem docutils literal highlight highlight-freefem"><span></span>buildmesh(C(50))</code> using 50 points on <code class="docutils literal highlight highlight-freefem"><span></span>C</code> as in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 37</span></a>.</p>
+<p>The domain is assumed to be on the left side of the boundary which is implicitly oriented by the parametrization. So an elliptic hole can be added by typing:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>border C(t=2.*pi, 0){x=0.1+0.3*cos(t); y=0.5*sin(t);};
+</pre></div>
+</div>
+<p>If by mistake one had written:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>border C(t=0, 2.*pi){x=0.1+0.3*cos(t); y=0.5*sin(t);};
+</pre></div>
+</div>
+<p>then the inside of the ellipse would be triangulated as well as the outside.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Automatic mesh generation is based on the Delaunay-Voronoi algorithm.
+Refinement of the mesh are done by increasing the number of points on <span class="math notranslate nohighlight">\(\Gamma\)</span>, for example <code class="code freefem docutils literal highlight highlight-freefem"><span></span>buildmesh(C(100))</code>, because inner vertices are determined by the density of points on the boundary.</p>
+<p class="last">Mesh adaptation can be performed also against a given function <cite>f</cite> by calling <code class="code freefem docutils literal highlight highlight-freefem"><span></span>adaptmesh(Th,f)</code>.</p>
+</div>
+<p>Now the name <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code> in FreeFem++) refers to the family <span class="math notranslate nohighlight">\(\{T_k\}_{k=1,\cdots,n_t}\)</span> of triangles shown in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 37</span></a>.</p>
+<p>Traditionally <span class="math notranslate nohighlight">\(h\)</span> refers to the mesh size, <span class="math notranslate nohighlight">\(n_t\)</span> to the number of triangles in <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> and <span class="math notranslate nohighlight">\(n_v\)</span> to the number of vertices, but it is seldom that we will have to use them explicitly.</p>
+<p>If <span class="math notranslate nohighlight">\(\Omega\)</span> is not a polygonal domain, a “skin” remains between the exact domain <span class="math notranslate nohighlight">\(\Omega\)</span> and its approximation <span class="math notranslate nohighlight">\(\Omega_h=\cup_{k=1}^{n_t}T_k\)</span>.
+However, we notice that all corners of <span class="math notranslate nohighlight">\(\Gamma_h = \partial\Omega_h\)</span> are on <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
+<p><strong>On line 8:</strong></p>
+<p>A finite element space is, usually, a space of polynomial functions on elements, triangles here only, with certain matching properties at edges, vertices etc. Here <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace Vh(Th, P1)</code> defines <span class="math notranslate nohighlight">\(V_h\)</span> to be the space of continuous functions which are affine in <span class="math notranslate nohighlight">\(x,y\)</span> on each triangle of <span class="math notranslate nohighlight">\(T_h\)</span>.</p>
+<p>As it is a linear vector space of finite dimension, basis can be found.
+The canonical basis is made of functions, called the <em>hat function</em> <span class="math notranslate nohighlight">\(\phi_k\)</span> which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a class="reference internal" href="#figpoissonhat"><span class="std std-numref">Fig. 40</span></a>.</p>
+<div class="inline2 figure" id="figpoissonmesh2">
+<img alt="../_images/meshTh_2.png" src="../_images/meshTh_2.png" />
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh Th</code></span></p>
+</div>
+<div class="inline2 figure" id="figpoissonhat">
+<img alt="../_images/hat_functions.png" src="../_images/hat_functions.png" />
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Graph of <span class="math notranslate nohighlight">\(\phi_1\)</span> (left) and <span class="math notranslate nohighlight">\(\phi_6\)</span> (right)</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The easiest way to define <span class="math notranslate nohighlight">\(\phi_k\)</span> is by making use of the <em>barycentric coordinates</em> <span class="math notranslate nohighlight">\(\lambda_i(x,y),~i=1,2,3\)</span> of a point <span class="math notranslate nohighlight">\(q=(x,y)\in T\)</span>, defined by <span class="math notranslate nohighlight">\(\sum_i\lambda_i=1,~~~\sum_i\lambda_i\vec q^i=\vec q\)</span> where <span class="math notranslate nohighlight">\(q^i,~i=1,2,3\)</span> are the 3 vertices of <span class="math notranslate nohighlight">\(T\)</span>.
+Then it is easy to see that the restriction of <span class="math notranslate nohighlight">\(\phi_k\)</span> on <span class="math notranslate nohighlight">\(T\)</span> is precisely <span class="math notranslate nohighlight">\(\lambda_k\)</span>.</p>
+</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight" id="equation-equation3">
+<span class="eqno">(36)<a class="headerlink" href="#equation-equation3" title="Permalink to this equation">¶</a></span>\[V_h(\mathcal{T}_h,P_1)=\left\{w(x,y)\left|\; w(x,y)=\sum_{k=1}^{M}w_k\phi_k(x,y),\, w_k\textrm{ are real numbers}\right.\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(M\)</span> is the dimension of <span class="math notranslate nohighlight">\(V_h\)</span>, i.e.&nbsp;the number of vertices.
+The <span class="math notranslate nohighlight">\(w_k\)</span> are called the <em>degree of freedom</em> of <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(M\)</span> the number of degree of freedom.</p>
+<p>It is said also that the <em>nodes</em> of this finite element method are the vertices.</p>
+<p><strong>Setting the problem</strong></p>
+<p>On line 9, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Vh u, v</code> declares that <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are approximated as above, namely:</p>
+<div class="math notranslate nohighlight" id="equation-defu">
+<span class="eqno">(37)<a class="headerlink" href="#equation-defu" title="Permalink to this equation">¶</a></span>\[u(x,y)\simeq u_h(x,y)=\sum_{k=0}^{M-1} u_k\phi_k(x,y)\]</div>
+<p>On the line 12, the right hand side <code class="docutils literal highlight highlight-freefem"><span></span>f</code> is defined analytically using the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>.</p>
+<p>Line 18 to 26 define the bilinear form of equation <a class="reference internal" href="#equation-eqn-poisson">(35)</a> and its Dirichlet boundary conditions.</p>
+<p>This <em>variational formulation</em> is derived by multiplying <a class="reference internal" href="#equation-eqn-poisson">(35)</a> by <span class="math notranslate nohighlight">\(v(x,y)\)</span> and integrating the result over <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[-\int_{\Omega}v\Delta u \,\text{d} x\text{d} y = \int_{\Omega} vf\, \text{d} x\text{d} y\]</div>
+<p>Then, by Green’s formula, the problem is converted into finding <span class="math notranslate nohighlight">\(u\)</span> such that</p>
+<div class="math notranslate nohighlight" id="equation-eqn-weakform">
+<span class="eqno">(38)<a class="headerlink" href="#equation-eqn-weakform" title="Permalink to this equation">¶</a></span>\[\begin{split}&amp;&amp;a(u,v) - \ell(f,v) = 0
+\qquad \forall v \hbox{ satisfying $v=0$ on }\partial\Omega.\\
+&amp;&amp;\hbox{with }a(u,v)=\int_{\Omega}\nabla u\cdot \nabla v \,\text{d} x\text{d} y ,
+\quad \ell(f,v)=\int_{\Omega}fv\, \text{d} x\text{d} y\end{split}\]</div>
+<p>In FreeFem++ the <strong>Poisson</strong> problem can be declared only as in:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh u,v; problem Poisson(u,v) = ...
+</pre></div>
+</div>
+<p>and solved later as in:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Poisson; //the problem is solved here
+</pre></div>
+</div>
+<p>or declared and solved at the same time as in:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh u,v; solve Poisson(u,v) = ...
+</pre></div>
+</div>
+<p>and <a class="reference internal" href="#equation-eqn-weakform">(38)</a> is written with <code class="code freefem docutils literal highlight highlight-freefem"><span></span>dx(u)</code> <span class="math notranslate nohighlight">\(=\partial u/\partial x\)</span>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>dy(u)</code> <span class="math notranslate nohighlight">\(=\partial u/\partial y\)</span> and:</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \text{d} x\text{d} y \longrightarrow}\)</span>
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)( dx(u)*dx(v) + dy(u)*dy(v) )</code></p>
+<p><span class="math notranslate nohighlight">\(\displaystyle{\int_{\Omega}fv\, \text{d} x\text{d} y \longrightarrow}\)</span>
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d(Th)( f*v )</code> (Notice here, <span class="math notranslate nohighlight">\(u\)</span> is unused)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In FreeFem++ <strong>bilinear terms and linear terms should not be under the same integral</strong> indeed to construct the linear systems FreeFem++ finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here <code class="docutils literal highlight highlight-freefem"><span></span>u</code>) and test functions (here <code class="docutils literal highlight highlight-freefem"><span></span>v</code>) are present.</p>
+</div>
+<p><strong>Solution and visualization</strong></p>
+<p>On line 15, the current time in seconds is stored into the real-valued variable <code class="docutils literal highlight highlight-freefem"><span></span>cpu</code>.</p>
+<p>Line 18, the problem is solved.</p>
+<p>Line 29, the visualization is done as illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 38</span></a>.</p>
+<p><strong>(see</strong> <a class="reference internal" href="../documentation/visualization.html#plot"><span class="std std-ref">Plot</span></a> <strong>for zoom, postscript and other commands).</strong></p>
+<p>Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using FreeFem++, but it helps to guess what is allowed in the language.</p>
+<p><strong>Access to matrices and vectors</strong></p>
+<p>Internally FreeFem++ will solve a linear system of the type</p>
+<div class="math notranslate nohighlight" id="equation-eqn-equation">
+<span class="eqno">(39)<a class="headerlink" href="#equation-eqn-equation" title="Permalink to this equation">¶</a></span>\[\sum_{j=0}^{M-1} A_{ij}u_j - F_i=0 ,\quad i=0,\cdots,M-1;\qquad
+F_i=\int_{\Omega}f\phi_i\, \text{d} x\text{d} y\]</div>
+<p>which is found by using <a class="reference internal" href="#equation-defu">(37)</a> and replacing <span class="math notranslate nohighlight">\(v\)</span> by <span class="math notranslate nohighlight">\(\phi_i\)</span> in <a class="reference internal" href="#equation-eqn-weakform">(38)</a>.
+The Dirichlet conditions are implemented by penalty, namely by setting <span class="math notranslate nohighlight">\(A_{ii}=10^{30}\)</span> and <span class="math notranslate nohighlight">\(F_i=10^{30}*0\)</span> if <span class="math notranslate nohighlight">\(i\)</span> is a boundary degree of freedom.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The number <span class="math notranslate nohighlight">\(10^{30}\)</span> is called <code class="code freefem docutils literal highlight highlight-freefem"><span></span>tgv</code> (<em>très grande valeur</em> or <em>very high value</em> in english) and it is generally possible to change this value, see the item :freefem`solve, tgv=`</p>
+</div>
+<p>The matrix <span class="math notranslate nohighlight">\(A=(A_{ij})\)</span> is called <em>stiffness matrix</em>.
+If the user wants to access <span class="math notranslate nohighlight">\(A\)</span> directly he can do so by using (see section <a class="reference internal" href="../documentation/finiteElement.html#variationalformsparsematrixpde"><span class="std std-ref">Variational form, Sparse matrix, PDE data vector</span></a> for details).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>varf a(u,v)
+    = int2d(Th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    + on(C, u=0)
+    ;
+matrix A = a(Vh, Vh); //stiffness matrix
+</pre></div>
+</div>
+<p>The vector <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#equation-eqn-equation">(39)</a> can also be constructed manually:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>varf l(unused,v)
+    = int2d(Th)(
+          f*v
+    )
+    + on(C, unused=0)
+    ;
+Vh F;
+F[] = l(0,Vh); //F[] is the vector associated to the function F
+</pre></div>
+</div>
+<p>The problem can then be solved by:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>u[] = A^-1*F[]; //u[] is the vector associated to the function u
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Here <code class="docutils literal highlight highlight-freefem"><span></span>u</code> and <code class="docutils literal highlight highlight-freefem"><span></span>F</code> are finite element function, and <code class="docutils literal highlight highlight-freefem"><span></span>u[]</code> and <code class="docutils literal highlight highlight-freefem"><span></span>F[]</code> give the array of value associated (<code class="docutils literal highlight highlight-freefem"><span></span>u[]</code> <span class="math notranslate nohighlight">\(\equiv (u_i)_{i=0,\dots,M-1}\)</span> and <code class="docutils literal highlight highlight-freefem"><span></span>F[]</code> <span class="math notranslate nohighlight">\(\equiv (F_i)_{i=0,\dots,M-1}\)</span>).</p>
+<p>So we have:</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{u}(x,y) = \sum_{i=0}^{M-1} \mathtt{u[][}i\mathtt{]} \phi_i(x,y) ,
+\qquad \mathtt{F}(x,y) = \sum_{i=0}^{M-1} \mathtt{F[][}i\mathtt{]} \phi_i(x,y)\]</div>
+<p class="last">where <span class="math notranslate nohighlight">\(\phi_i, i=0...,,M-1\)</span> are the basis functions of <cite>Vh</cite> like in equation (ref{equation3}), and <span class="math notranslate nohighlight">\(M = \mathtt{Vh.ndof}\)</span> is the number of degree of freedom (i.e. the dimension of the space <cite>Vh</cite>).</p>
+</div>
+<p>The linear system <a class="reference internal" href="#equation-eqn-equation">(39)</a> is solved by <code class="code freefem docutils literal highlight highlight-freefem"><span></span>UMFPACK</code> unless another option is mentioned specifically as in:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh u, v;
+problem Poisson(u, v, solver=CG) = int2d(...
+</pre></div>
+</div>
+<p>meaning that <code class="docutils literal highlight highlight-freefem"><span></span>Poisson</code> is declared only here and when it is called (by simply writing <code class="docutils literal highlight highlight-freefem"><span></span>Poisson;</code>) then <a class="reference internal" href="#equation-eqn-equation">(39)</a> will be solved by the Conjugate Gradient method.</p>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="tutorial.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Getting started</div>
+         </div>
+     </a>
+     <a id="button-next" href="equationsClassification.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Classification of partial differential equations</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

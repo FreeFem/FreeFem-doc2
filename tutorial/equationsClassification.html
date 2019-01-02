@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Classification of partial differential equations &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/tutorial/equationsClassification.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Membrane" href="membrane.html" />
+    <link rel="prev" title="Solving Poisson’s equation" href="poisson.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Classification of partial differential equations</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/tutorial/equationsClassification.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="classification-of-partial-differential-equations">
+<h1>Classification of partial differential equations<a class="headerlink" href="#classification-of-partial-differential-equations" title="Permalink to this headline">¶</a></h1>
+<p><strong>Summary :</strong> <em>It is usually not easy to determine the type of a system.</em>
+<em>Yet the approximations and algorithms suited to the problem depend on its type:</em></p>
+<ul class="simple">
+<li><em>Finite Elements compatible (LBB conditions) for elliptic systems</em></li>
+<li><em>Finite difference on the parabolic variable and a time loop on each elliptic subsystem of parabolic systems; better stability diagrams when the schemes are implicit in time.</em></li>
+<li><em>Upwinding, Petrov-Galerkin, Characteristics-Galerkin, Discontinuous-Galerkin, Finite Volumes for hyperbolic systems plus, possibly, a time loop.</em></li>
+</ul>
+<p><em>When the system changes type, then expect difficulties (like shock discontinuities) !</em></p>
+<p><strong>Elliptic, parabolic and hyperbolic equations</strong></p>
+<p>A partial differential equation (PDE) is a relation between a function of several variables and its derivatives.</p>
+<div class="math notranslate nohighlight">
+\[F\left(\varphi(x),{\partial\varphi\over\partial
+x_1}(x),\cdots,{\partial\varphi\over\partial
+x_d}(x),{\partial^2\varphi\over\partial
+x^2_1}(x),\cdots,{\partial^m\varphi\over\partial x^m_d}(x)\right) =
+0,\quad\forall x\in\Omega\subset \mathbb{R}^d\]</div>
+<p>The range of <span class="math notranslate nohighlight">\(x\)</span> over which the equation is taken, here <span class="math notranslate nohighlight">\(\Omega\)</span>, is called the <em>domain</em> of the PDE.
+The highest derivation index, here <span class="math notranslate nohighlight">\(m\)</span>, is called the <em>order</em>.
+If <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\varphi\)</span> are vector valued functions, then the PDE is actually a <em>system</em> of PDEs.</p>
+<p>Unless indicated otherwise, here by convention <em>one</em> PDE corresponds to one scalar valued <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\varphi\)</span>.
+If <span class="math notranslate nohighlight">\(F\)</span> is linear with respect to its arguments, then the PDE is said to be <em>linear</em>.</p>
+<p>The general form of a second order, linear scalar PDE is <span class="math notranslate nohighlight">\({\partial^2\varphi\over\partial x_i\partial x_j}\)</span> and <span class="math notranslate nohighlight">\(A:B\)</span> means <span class="math notranslate nohighlight">\(\sum^d_{i,j=1} a_{ij} b_{ij}.\)</span></p>
+<div class="math notranslate nohighlight">
+\[\alpha\varphi + a\cdot\nabla\varphi + B :\nabla(\nabla\varphi) =
+f{\quad\hbox{ in }\quad}\Omega\subset \mathbb{R}^d,\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(x),\alpha(x)\in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(a(x)\in \mathbb{R}^d\)</span>, <span class="math notranslate nohighlight">\(B(x)\in \mathbb{R}^{d\times d}\)</span> are the PDE <em>coefficients</em>.
+If the coefficients are independent of <span class="math notranslate nohighlight">\(x\)</span>, the PDE is said to have <em>constant coefficients</em>.</p>
+<p>To a PDE we associate a quadratic form, by replacing <span class="math notranslate nohighlight">\(\varphi\)</span> by <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(\partial\varphi/\partial x_i\)</span> by <span class="math notranslate nohighlight">\(z_i\)</span> and <span class="math notranslate nohighlight">\(\partial^2\varphi/\partial x_i\partial x_j\)</span> by <span class="math notranslate nohighlight">\(z_i z_j\)</span>, where <span class="math notranslate nohighlight">\(z\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\alpha + A\cdot z + z^T Bz = f.\]</div>
+<p>If it is the equation of an ellipse (ellipsoid if <span class="math notranslate nohighlight">\(d \geq 2\)</span>), the PDE is said to be <em>elliptic</em>; if it is the equation of a parabola or a hyperbola, the PDE is said to be <em>parabolic</em> or <em>hyperbolic</em>.</p>
+<p>If <span class="math notranslate nohighlight">\(A \equiv 0\)</span>, the degree is no longer 2 but 1, and for reasons that will appear more clearly later, the PDE is still said to be hyperbolic.</p>
+<p>These concepts can be generalized to systems, by studying whether or not the polynomial system <span class="math notranslate nohighlight">\(P(z)\)</span> associated with the PDE system has branches at infinity (ellipsoids have no branches at infinity, paraboloids have one, and hyperboloids have several).</p>
+<p>If the PDE is not linear, it is said to be <em>non-linear</em>.
+Those are said to be locally elliptic, parabolic, or hyperbolic according to the type of the linearized equation.</p>
+<p>For example, for the non-linear equation</p>
+<div class="math notranslate nohighlight">
+\[{\partial^2\varphi\over\partial t^2} - {\partial\varphi\over\partial x}{\partial^2\varphi\over\partial x^2} = 1\]</div>
+<p>we have <span class="math notranslate nohighlight">\(d=2\)</span>, <span class="math notranslate nohighlight">\(x_1 = t\)</span>, <span class="math notranslate nohighlight">\(x_2 = x\)</span> and its linearized form is:</p>
+<div class="math notranslate nohighlight">
+\[{\partial^2 u\over\partial t^2} - {\partial u\over\partial x}{\partial^2\varphi\over\partial x^2} - {\partial\varphi\over\partial x}{\partial^2 u\over\partial x^2} = 0\]</div>
+<p>which for the unknown <span class="math notranslate nohighlight">\(u\)</span> is locally elliptic if <span class="math notranslate nohighlight">\({\partial\varphi\over\partial x} &lt; 0\)</span> and locally hyperbolic if <span class="math notranslate nohighlight">\({\partial\varphi\over\partial x} &gt; 0\)</span>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Laplace’s equation is elliptic:</p>
+<div class="last math notranslate nohighlight">
+\[\Delta\varphi \equiv {\partial^2\varphi\over\partial x^2_1}
+    + {\partial^2\varphi\over\partial x^2_2}
+    + \cdots
+    + {\partial^2\varphi\over\partial x^2_d} = f,\ \forall x
+    \in \Omega\subset \mathbb{R}^d\]</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The <em>heat</em> equation is parabolic in <span class="math notranslate nohighlight">\(Q = \Omega\times]0,T[\subset \mathbb{R}^{d+1}\)</span>:</p>
+<div class="last math notranslate nohighlight">
+\[{\partial\varphi\over\partial t} - \mu\Delta\varphi = f
+    \ \forall x\in\Omega\subset \mathbb{R}^d, \ \forall t\in]0,T[\]</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>If <span class="math notranslate nohighlight">\(\mu&gt;0\)</span>, the <em>wave</em> equation is hyperbolic:</p>
+<div class="last math notranslate nohighlight">
+\[{\partial^2\varphi\over\partial t^2} - \mu\Delta\varphi
+    = f{\ \hbox{ in }\ } Q.\]</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The <em>convection diffusion</em> equation is parabolic if <span class="math notranslate nohighlight">\(\mu \neq 0\)</span> and hyperbolic otherwise:</p>
+<div class="last math notranslate nohighlight">
+\[{\partial\varphi\over\partial t}
+    + a\nabla\varphi
+    - \mu\Delta\varphi
+    = f\]</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The <em>biharmonic</em> equation is elliptic:</p>
+<div class="last math notranslate nohighlight">
+\[\Delta(\Delta\varphi) = f{\ \hbox{ in }\ }\Omega.\]</div>
+</div>
+<p><strong>Boundary conditions</strong></p>
+<p>A relation between a function and its derivatives is not sufficient to define the function.
+Additional information on the boundary <span class="math notranslate nohighlight">\(\Gamma=\partial\Omega\)</span> of <span class="math notranslate nohighlight">\(\Omega\)</span>, or on part of <span class="math notranslate nohighlight">\(\Gamma\)</span> is necessary.
+Such information is called a <em>boundary condition</em>.</p>
+<p>For example:</p>
+<div class="math notranslate nohighlight">
+\[\varphi(x) \ \hbox{given},\ \forall x\in \Gamma,\]</div>
+<p>is called a <em>Dirichlet boundary condition</em>. The <em>Neumann</em> condition is</p>
+<div class="math notranslate nohighlight">
+\[{\partial\varphi\over\partial \mathbf{n}}(x) \ \hbox{given on }\
+\Gamma \hbox{ (or } \mathbf{n}\cdot B\nabla\varphi,\hbox{given on }\
+\Gamma\hbox{ for a general second order PDE)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is the normal at <span class="math notranslate nohighlight">\(x\in\Gamma\)</span> directed towards the exterior of <span class="math notranslate nohighlight">\(\Omega\)</span> (by definition <span class="math notranslate nohighlight">\({\partial\varphi\over\partial \mathbf{n}}=\nabla\varphi\cdot \mathbf{n}\)</span>).</p>
+<p>Another classical condition, called a <em>Robin</em> (or <em>Fourier</em>) condition is written as:</p>
+<div class="math notranslate nohighlight">
+\[\varphi(x) + \beta(x) {\partial\varphi\over\partial n}(x) \ \hbox{given on}\ \Gamma.\]</div>
+<p>Finding a set of boundary conditions that defines a unique <span class="math notranslate nohighlight">\(\varphi\)</span> is a difficult art.</p>
+<p>In general, an elliptic equation is well posed (<em>i.e.</em> <span class="math notranslate nohighlight">\(\varphi\)</span> is unique) with one Dirichlet, Neumann or Robin condition on the whole boundary.</p>
+<p>Thus, Laplace’s equation is well posed with a Dirichlet or Neumann condition but also with :</p>
+<div class="math notranslate nohighlight">
+\[\varphi \ \hbox{given on}\ \Gamma_1,\ {\partial\varphi\over\partial n} \ \hbox{given on}\ \Gamma_2, \ \Gamma_1\cup\Gamma_2 =\Gamma,\ {\dot{\Gamma_1}\cap\dot{\Gamma_2}} =\emptyset.\]</div>
+<p>Parabolic and hyperbolic equations rarely require boundary conditions on all of <span class="math notranslate nohighlight">\(\Gamma\times]0,T[\)</span>.
+For instance, the heat equation is well posed with :</p>
+<div class="math notranslate nohighlight">
+\[\varphi \ \hbox{given at}\ t=0 \ \hbox{and Dirichlet or Neumann or mixed conditions on}\
+\partial\Omega.\]</div>
+<p>Here <span class="math notranslate nohighlight">\(t\)</span> is time so the first condition is called an initial condition.
+The whole set of conditions is also called Cauchy condition.</p>
+<p>The wave equation is well posed with :</p>
+<div class="math notranslate nohighlight">
+\[\varphi \ \hbox{and}\ {\partial\varphi\over\partial t} \
+\hbox{given at}\ t=0
+\ \hbox{and Dirichlet or Neumann or mixed conditions on}\
+\partial\Omega.\]</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="poisson.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Solving Poisson’s equation</div>
+         </div>
+     </a>
+     <a id="button-next" href="membrane.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Membrane</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Algorithms &amp; Optimization &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/documentation/algorithmsOptimization.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parallelization" href="parallelization.html" />
+    <link rel="prev" title="Visualization" href="visualization.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Documentation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Algorithms &amp; Optimization</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/documentation/algorithmsOptimization.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="algorithms-optimization">
+<h1>Algorithms &amp; Optimization<a class="headerlink" href="#algorithms-optimization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conjugate-gradient-gmres">
+<h2>Conjugate Gradient/GMRES<a class="headerlink" href="#conjugate-gradient-gmres" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we want to solve the Euler problem (here <span class="math notranslate nohighlight">\(x\)</span> has nothing to do with the reserved variable for the first coordinate in FreeFem++):</p>
+<p>find <span class="math notranslate nohighlight">\(x\in \mathbb{R}^n\)</span> such that</p>
+<div class="math notranslate nohighlight" id="equation-eqndj">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eqndj" title="Permalink to this equation">¶</a></span>\[\nabla J(x) = \left(\frac{\partial J}{\partial x_i} (\mathbf{x})\right) = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(J\)</span> is a function (to minimize for example) from <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</p>
+<p>If the function is convex we can use the conjugate gradient algorithm to solve the problem, and we just need the function (named <code class="code freefem docutils literal highlight highlight-freefem"><span></span>dJ</code> for example) which computes <span class="math notranslate nohighlight">\(\nabla J\)</span>, so the parameters are the name of that function with prototype <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func real[int] dJ(real[int] &amp;xx);</code> which computes <span class="math notranslate nohighlight">\(\nabla J\)</span>, and a vector <code class="code freefem docutils literal highlight highlight-freefem"><span></span>x</code> of type (of course the number 20 can be changed) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int] x(20);</code> to initialize the process and get the result.</p>
+<p>Given an initial value <span class="math notranslate nohighlight">\(\mathbf{x}^{(0)}\)</span>, a maximum number <span class="math notranslate nohighlight">\(i_{\max}\)</span> of iterations, and an error tolerance <span class="math notranslate nohighlight">\(0&lt;\epsilon&lt;1\)</span>:</p>
+<p>Put <span class="math notranslate nohighlight">\(\mathbf{x}=\mathbf{x}^{(0)}\)</span> and write</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=epsilon, stop=stopfunc);
+</pre></div>
+</div>
+<p>will give the solution of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of <span class="math notranslate nohighlight">\(\nabla J(\mathbf{x})=0\)</span>.
+We can omit parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span>precon, nbiter, eps, stop</code>.
+Here <span class="math notranslate nohighlight">\(M\)</span> is the preconditioner whose default is the identity matrix.</p>
+<p>The stopping test is</p>
+<div class="math notranslate nohighlight">
+\[\|\nabla J(\mathbf{x})\|_P\le \epsilon\| \nabla J(\mathbf{x}^{(0)})\|_P\]</div>
+<p>Writing the minus value in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>eps=</code>, i.e.,</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=-epsilon);
+</pre></div>
+</div>
+<p>We can use the stopping test:</p>
+<div class="math notranslate nohighlight">
+\[\| \nabla J(\mathbf{x})\|_P^2\le \epsilon\]</div>
+<p>The parameters of these three functions are:</p>
+<ul>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbiter=</code> set the number of iteration (by default 100)</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>precon=</code> set the preconditioner function (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>P</code> for example) by default it is the identity, note the prototype is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func real[int] P(real[int] &amp;x)</code>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>eps=</code> set the value of the stop test <span class="math notranslate nohighlight">\(\varepsilon\)</span> (<span class="math notranslate nohighlight">\(=10^{-6}\)</span> by default) if positive then relative test <span class="math notranslate nohighlight">\(||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P\)</span>, otherwise the absolute test is <span class="math notranslate nohighlight">\(||\nabla J(x)||_P^2\leq |\varepsilon|\)</span>.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>veps=</code> set and return the value of the stop test, if positive, then relative test is <span class="math notranslate nohighlight">\(||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P\)</span>, otherwise the absolute test is <span class="math notranslate nohighlight">\(||\nabla J(x)||_P^2\leq |\varepsilon|\)</span>.
+The return value is minus the real stop test (remark: it is useful in loop).</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stop=</code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopfunc</code> add your test function to stop before the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>eps</code> criterion. The prototype for the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopfunc</code> is</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func bool stopfunc(int iter, real[int] u, real[int] g)
+</pre></div>
+</div>
+<p>where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>u</code> is the current solution, and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>g</code>, the current gradient, is not preconditioned.</p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><a class="reference internal" href="../example/index.html#examplealgorithms"><span class="std std-ref">Algorithms.edp</span></a></p>
+<p>For a given function <span class="math notranslate nohighlight">\(b\)</span>, let us find the minimizer <span class="math notranslate nohighlight">\(u\)</span> of the function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J(u) &amp;=&amp; \frac{1}{2}\int_{\Omega} f(|\nabla u|^2) - \int_{\Omega} u b \\
+f(x) &amp;=&amp; ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}{(1+x)^2}\end{split}\]</div>
+<p>under the boundary condition <span class="math notranslate nohighlight">\(u=0\)</span> on <span class="math notranslate nohighlight">\(\partial\Omega\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Ph(Th, P0);
+Ph alpha; //store df(|nabla u|^2)
+
+// The functionn J
+//J(u) = 1/2 int_Omega f(|nabla u|^2) - int_Omega u b
+func real J (real[int] &amp; u){
+   Vh w;
+   w[] = u;
+   real r = int2d(Th)(0.5*f(dx(w)*dx(w) + dy(w)*dy(w)) - b*w);
+   cout &lt;&lt; &quot;J(u) = &quot; &lt;&lt; r &lt;&lt; &quot; &quot; &lt;&lt; u.min &lt;&lt; &quot; &quot; &lt;&lt; u.max &lt;&lt; endl;
+   return r;
+}
+
+// The gradiant of J
+func real[int] dJ (real[int] &amp; u){
+   Vh w;
+   w[] = u;
+   alpha = df(dx(w)*dx(w) + dy(w)*dy(w));
+   varf au (uh, vh)
+      = int2d(Th)(
+           alpha*(dx(w)*dx(vh) + dy(w)*dy(vh))
+         - b*vh
+      )
+      + on(1, 2, 3, 4, uh=0)
+      ;
+
+   u = au(0, Vh);
+   return u; //warning: no return of local array
+}
+</pre></div>
+</div>
+<p>We also want to construct a preconditioner <span class="math notranslate nohighlight">\(C\)</span> with solving the problem:</p>
+<p>find <span class="math notranslate nohighlight">\(u_h \in V_{0h}\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[\forall v_h \in V_{0h}, \quad \int_\Omega \alpha \nabla u_h . \nabla v_h = \int_\Omega b v_h\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha=f'(|\nabla u|^2)\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+varf alap (uh, vh)
+   = int2d(Th)(
+        alpha*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
+   )
+   + on(1, 2, 3, 4, uh=0)
+   ;
+
+varf amass(uh, vh)
+   = int2d(Th)(
+        uh*vh
+   )
+   + on(1, 2, 3, 4, uh=0)
+   ;
+
+matrix Amass = amass(Vh, Vh, solver=CG);
+matrix Alap= alap(Vh, Vh, solver=Cholesky, factorize=1);
+
+// Preconditionner
+func real[int] C(real[int] &amp; u){
+   real[int] w = u;
+   u = Alap^-1*w;
+   return u; //warning: no return of local array variable
+}
+</pre></div>
+</div>
+<p>To solve the problem, we make 10 iterations of the conjugate gradient, recompute the preconditioner and restart the conjugate gradient:</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>int conv=0;
+for(int i = 0; i &lt; 20; i++){
+   conv = NLCG(dJ, u[], nbiter=10, precon=C, veps=eps, verbosity=5);
+   if (conv) break;
+
+   alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+   Alap = alap(Vh, Vh, solver=Cholesky, factorize=1);
+   cout &lt;&lt; &quot;Restart with new preconditionner &quot; &lt;&lt; conv &lt;&lt; &quot;, eps =&quot; &lt;&lt; eps &lt;&lt; endl;
+}
+
+// Plot
+plot (u, wait=true, cmm=&quot;solution with NLCG&quot;);
+</pre></div>
+</div>
+</div>
+<p>For a given symmetric positive matrix <span class="math notranslate nohighlight">\(A\)</span>, consider the quadratic form</p>
+<div class="math notranslate nohighlight">
+\[J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}\]</div>
+<p>then <span class="math notranslate nohighlight">\(J(\mathbf{x})\)</span> is minimized by the solution <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of <span class="math notranslate nohighlight">\(A\mathbf{x}=\mathbf{b}\)</span>.
+In this case, we can use the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>AffineCG</code></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>AffineCG(A, x, precon=M, nbiter=imax, eps=epsilon, stop=stp);
+</pre></div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is not symmetric, we can use GMRES(Generalized Minimum Residual) algorithm by</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>AffineGMRES(A, x, precon=M, nbiter=imax, eps=epsilon);
+</pre></div>
+</div>
+<p>Also, we can use the non-linear version of GMRES algorithm (the function <span class="math notranslate nohighlight">\(J\)</span> is just convex)</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>AffineGMRES(dJ, x, precon=M, nbiter=imax, eps=epsilon);
+</pre></div>
+</div>
+<p>For the details of these algorithms, refer to <a class="reference internal" href="#pironneau1998" id="id1">[PIRONNEAU1998]</a>, Chapter IV, 1.3.</p>
+</div>
+<div class="section" id="algorithms-for-unconstrained-optimization">
+<h2>Algorithms for Unconstrained Optimization<a class="headerlink" href="#algorithms-for-unconstrained-optimization" title="Permalink to this headline">¶</a></h2>
+<p>Two algorithms of COOOL package are interfaced with the Newton Raphson method (called <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Newton</code>) and the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>BFGS</code> method.
+These two are directly available in FreeFem (no dynamical link to load).
+Be careful with these algorithms, because their implementation uses full matrices.
+We also provide several optimization algorithms from the <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt library</a> as well as an interface for Hansen’s implementation of CMAES (a MPI version of this one is also available).</p>
+<div class="section" id="example-of-usage-for-bfgs-or-cmaes">
+<h3>Example of usage for BFGS or CMAES<a class="headerlink" href="#example-of-usage-for-bfgs-or-cmaes" title="Permalink to this headline">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>BFGS</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] b(10), u(10);
+
+//J
+func real J (real[int] &amp; u){
+   real s = 0;
+   for (int i = 0; i &lt; u.n; i++)
+      s += (i+1)*u[i]*u[i]*0.5 - b[i]*u[i];
+   if (debugJ)
+      cout &lt;&lt; &quot;J = &quot; &lt;&lt; s &lt;&lt; &quot;, u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; endl;
+   return s;
+}
+
+//the gradiant of J (this is a affine version (the RHS is in)
+func real[int] DJ (real[int] &amp;u){
+   for (int i = 0; i &lt; u.n; i++)
+      u[i] = (i+1)*u[i];
+   if (debugdJ)
+      cout &lt;&lt; &quot;dJ: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+   u -= b;
+   if (debugdJ)
+      cout &lt;&lt; &quot;dJ-b: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+   return u; //return of global variable ok
+}
+
+b=1;
+u=2;
+BFGS(J, DJ, u, eps=1.e-6, nbiter=20, nbiterline=20);
+cout &lt;&lt; &quot;BFGS: J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+</pre></div>
+</div>
+</div>
+<p>It is almost the same a using the CMA evolution strategy except, that since it is a derivative free optimizer, the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>dJ</code> argument is omitted and there are some other named parameters to control the behavior of the algorithm.
+With the same objective function as above, an example of utilization would be (see <span class="xref std std-ref">CMAES Variational inequality</span> for a complete example):</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;ff-cmaes&quot;
+//define J, u, ...
+real min = cmaes(J, u, stopTolFun=1e-6, stopMaxIter=3000);
+cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
+</pre></div>
+</div>
+<p>This algorithm works with a normal multivariate distribution in the parameters space and tries to adapt its covariance matrix using the information provided by the successive function evaluations (see <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a> for more details).
+Therefore, some specific parameters can be passed to control the starting distribution, size of the sample generations, etc…
+Named parameters for this are the following:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>seed=</code> Seed for random number generator (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>val</code> is an integer).
+No specified value will lead to a clock based seed initialization.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>initialStdDev=</code> Value for the standard deviations of the initial covariance matrix ( <code class="code freefem docutils literal highlight highlight-freefem"><span></span>val</code> is a real).
+If the value <span class="math notranslate nohighlight">\(\sigma\)</span> is passed, the initial covariance matrix will be set to <span class="math notranslate nohighlight">\(\sigma I\)</span>.
+The expected initial distance between initial <span class="math notranslate nohighlight">\(X\)</span> and the <span class="math notranslate nohighlight">\(argmin\)</span> should be roughly initialStdDev. Default is 0.3.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>initialStdDevs=</code> Same as above except that the argument is an array allowing to set a value of the initial standard deviation for each parameter.
+Entries differing by several orders of magnitude should be avoided (if it can’t be, try rescaling the problem).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopTolFun=</code> Stops the algorithm if function value differences are smaller than the passed one, default is <span class="math notranslate nohighlight">\(10^{-12}\)</span>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopTolFunHist=</code> Stops the algorithm if function value differences from the best values are smaller than the passed one, default is 0 (unused).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopTolX=</code> Stopping criteria is triggered if step sizes in the parameters space are smaller than this real value, default is 0.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopTolXFactor=</code> Stopping criteria is triggered when the standard deviation increases more than this value. The default value is <span class="math notranslate nohighlight">\(10^{3}\)</span>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopMaxFunEval=</code> Stops the algorithm when <code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopMaxFunEval</code> function evaluations have been done.
+Set to <span class="math notranslate nohighlight">\(900(n+3)^{2}\)</span> by default, where <span class="math notranslate nohighlight">\(n\)</span> is the parameters space dimension.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopMaxIter=</code> Integer stopping the search when <code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopMaxIter</code> generations have been sampled.
+Unused by default.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>popsize=</code> Integer value used to change the sample size.
+The default value is <span class="math notranslate nohighlight">\(4+ \lfloor 3\ln (n) \rfloor\)</span>.
+Increasing the population size usually improves the global search capabilities at the cost of, at most, a linear reduction of the convergence speed with respect to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>popsize</code>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>paramFile=</code> This <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code> type parameter allows the user to pass all the parameters using an extern file, as in Hansen’s original code.
+More parameters related to the CMA-ES algorithm can be changed with this file.
+Note that the parameters passed to the CMAES function in the <strong>FreeFem++</strong> script will be ignored if an input parameters file is given.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ipopt">
+<h2>IPOPT<a class="headerlink" href="#ipopt" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ff-Ipopt</code> package is an interface for the <a class="reference external" href="https://projects.coin-or.org/Ipopt">IPOPT</a> <a class="reference internal" href="#wachter2006" id="id2">[WÄCHTER2006]</a> optimizer.
+IPOPT is a software library for large scale, non-linear, constrained optimization.
+It implements a primal-dual interior point method along with filter method based line searches.</p>
+<p>IPOPT needs a direct sparse symmetric linear solver.
+If your version of <strong>FreeFem++</strong> has been compiled with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>--enable-downlad</code> tag, it will automatically be linked with a sequential version of MUMPS.
+An alternative to MUMPS would be to download the HSL subroutines (see <a class="reference external" href="http://www.coin-or.org/Ipopt/documentation/node16.html">Compiling and Installing the Java Interface JIPOPT</a>) and place them in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>/ipopt/Ipopt-3.10.2/ThirdParty/HSL</code> directory of the <strong>FreeFem++</strong> downloads folder before compiling.</p>
+<div class="section" id="short-description-of-the-algorithm">
+<h3>Short description of the algorithm<a class="headerlink" href="#short-description-of-the-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>In this section, we give a very brief glimpse at the underlying mathematics of IPOPT.
+For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult <a class="reference internal" href="#forsgren2002" id="id3">[FORSGREN2002]</a>, or <a class="reference internal" href="#wachter2006" id="id4">[WÄCHTER2006]</a> for more IPOPT specific elements.
+IPOPT is designed to perform optimization for both equality and inequality constrained problems.
+However, nonlinear inequalities are rearranged before the beginning of the optimization process in order to restrict the panel of nonlinear constraints to those of the equality kind.
+Each nonlinear inequality is transformed into a pair of simple bound inequalities and nonlinear equality constraints by the introduction of as many slack variables as is needed : <span class="math notranslate nohighlight">\(c_{i}(x)\leq 0\)</span> becomes <span class="math notranslate nohighlight">\(c_{i}(x) + s_{i} = 0\)</span> and <span class="math notranslate nohighlight">\(s_{i}\leq 0\)</span>, where <span class="math notranslate nohighlight">\(s_{i}\)</span> is added to the initial variables of the problems <span class="math notranslate nohighlight">\(x_{i}\)</span>.
+Thus, for convenience, we will assume that the minimization problem does not contain any nonlinear inequality constraint.
+It means that, given a function <span class="math notranslate nohighlight">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>, we want to find:</p>
+<div class="math notranslate nohighlight" id="equation-minimproblem">
+<span class="eqno">(18)<a class="headerlink" href="#equation-minimproblem" title="Permalink to this equation">¶</a></span>\[\begin{split}x_{0} = \underset{x\in V}{\operatorname{argmin}} f(x) \\
+\mathrm{with}\ V = \left\lbrace x\in\mathbb{R}^{n}\ \vert\ c(x)= 0 \ \text{and}\ x_{l}\leq x\leq x_{u}\right\rbrace\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(c:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}\)</span> and <span class="math notranslate nohighlight">\(x_{l},x_{u}\in\mathbb{R}^{n}\)</span> and inequalities hold componentwise.
+The <span class="math notranslate nohighlight">\(f\)</span> function as well as the constraints <span class="math notranslate nohighlight">\(c\)</span> should be twice-continuously differentiable.</p>
+<p>As a barrier method, interior points algorithms try to find a Karush-Kuhn-Tucker point for <a class="reference internal" href="#equation-minimproblem">(18)</a> by solving a sequence of problems, unconstrained with respect to the inequality constraints, of the form:</p>
+<div class="math notranslate nohighlight" id="equation-barrier">
+<span class="eqno">(19)<a class="headerlink" href="#equation-barrier" title="Permalink to this equation">¶</a></span>\[\mathrm{for\ a\ given\ }\mu &gt; 0,\ \mathrm{find}\ x_{\mu} = \underset{x\in\mathbb{R}^{n}\ \vert\ c(x)=0}{\operatorname{argmin}}\ B(x,\mu)\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mu\)</span> is a positive real number and</p>
+<div class="math notranslate nohighlight">
+\[B(x,\mu) = f(x) - \displaystyle{\mu\sum_{i=1}^{n} \ln (x_{u,i}-x_{i})} - \displaystyle{\mu\sum_{i=1}^{m} \ln(x_{i}-x_{l,i})}\]</div>
+<p>The remaining equality constraints are handled with the usual Lagrange multipliers method.
+If the sequence of barrier parameters <span class="math notranslate nohighlight">\(\mu\)</span> converge to 0, intuition suggests that the sequence of minimizers of <a class="reference internal" href="#equation-barrier">(19)</a> converge to a local constrained minimizer of <a class="reference internal" href="#equation-minimproblem">(18)</a>.
+For a given <span class="math notranslate nohighlight">\(\mu\)</span>, <a class="reference internal" href="#equation-barrier">(19)</a> is solved by finding <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\in\mathbb{R}^{n}\times\mathbb{R}^{m}\)</span> such that:</p>
+<div class="math notranslate nohighlight" id="equation-muproblem">
+<span class="eqno">(20)<a class="headerlink" href="#equation-muproblem" title="Permalink to this equation">¶</a></span>\[\begin{split}\nabla B(x_{\mu},\mu) + \displaystyle{\sum_{i=1}^{m}\lambda_{\mu,i}\nabla c_{i}(x_{\mu})}= \nabla B(x_{\mu},\mu) + J_{c}(x_{\mu})^{T}\lambda_{\mu}&amp;= 0\\
+c(x_{\mu}) &amp;= 0\end{split}\]</div>
+<p>The derivations for <span class="math notranslate nohighlight">\(\nabla B\)</span> only holds for the <span class="math notranslate nohighlight">\(x\)</span> variables, so that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla B(x,\mu) = \nabla f(x) + \left(\begin{matrix}\mu/(x_{u,1}-x_{1}) \\ \vdots \\ \mu/(x_{u,n}-x_{n})\end{matrix}\right) - \left(\begin{matrix}\mu/(x_{1}-x_{l,1}) \\ \vdots \\ \mu/(x_{n}-x_{l,n})\end{matrix}\right)\end{split}\]</div>
+<p>If we respectively call <span class="math notranslate nohighlight">\(z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x_{u,n}-x_{n})\right)\)</span> and <span class="math notranslate nohighlight">\(z_{l}(x,\mu)\)</span> the other vector appearing in the above equation, then the optimum <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\)</span> satisfies:</p>
+<div class="math notranslate nohighlight" id="equation-muproblemlambda">
+<span class="eqno">(21)<a class="headerlink" href="#equation-muproblemlambda" title="Permalink to this equation">¶</a></span>\[\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0\]</div>
+<p>In this equation, the <span class="math notranslate nohighlight">\(z_l\)</span> and <span class="math notranslate nohighlight">\(z_u\)</span> vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when <span class="math notranslate nohighlight">\(\mu\rightarrow 0\)</span>, they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see <a class="reference internal" href="#forsgren2002" id="id5">[FORSGREN2002]</a>).</p>
+<p>Equation <a class="reference internal" href="#equation-muproblemlambda">(21)</a> is solved by performing a Newton method in order to find a solution of <a class="reference internal" href="#equation-muproblem">(20)</a> for each of the decreasing values of <span class="math notranslate nohighlight">\(\mu\)</span>.
+Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see <a class="reference internal" href="#forsgren2002" id="id6">[FORSGREN2002]</a> for details about them.
+In the most classic IP algorithms, the Newton method is directly applied to <a class="reference internal" href="#equation-muproblem">(20)</a>.
+This is in most case inefficient due to frequent computation of infeasible points.
+These difficulties are avoided in Primal-Dual interior point methods where <a class="reference internal" href="#equation-muproblem">(20)</a> is transformed into an extended system where <span class="math notranslate nohighlight">\(z_u\)</span> and <span class="math notranslate nohighlight">\(z_l\)</span> are treated as unknowns and the barrier problems are finding <span class="math notranslate nohighlight">\((x,\lambda,z_u,z_l)\in\mathbb{R}^n\times\mathbb{R}^m\times\mathbb{R}^n\times\mathbb{R}^n\)</span> such that:</p>
+<div class="math notranslate nohighlight" id="equation-primaldualipbarrierproblem">
+<span class="eqno">(22)<a class="headerlink" href="#equation-primaldualipbarrierproblem" title="Permalink to this equation">¶</a></span>\[\begin{split}\left\lbrace
+\begin{array}{rcl}
+   \nabla f(x) + J_{c}(x)^{T}\lambda+ z_{u} - z_{l} &amp; = &amp; 0 \\
+   c(x) &amp; = &amp; 0 \\
+   (X_u - X) z_u - \mu e &amp; = &amp; 0 \\
+   (X - X_l) z_l - \mu e &amp; = &amp; 0
+\end{array}
+\right.\end{split}\]</div>
+<p>Where if <span class="math notranslate nohighlight">\(a\)</span> is a vector of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> denotes the diagonal matrix <span class="math notranslate nohighlight">\(A=(a_i \delta_{ij})_{1\leq i,j\leq n}\)</span> and <span class="math notranslate nohighlight">\(e\in\mathbb{R}^{n} = (1,1,\dots,1)\)</span>.
+Solving this nonlinear system by the Newton method is known as being the <em>primal-dual</em> interior point method.
+Here again, more details are available in <a class="reference internal" href="#forsgren2002" id="id7">[FORSGREN2002]</a>.
+Most actual implementations introduce features in order to globalize the convergence capability of the method, essentially by adding some line-search steps to the Newton algorithm, or by using trust regions.
+For the purpose of IPOPT, this is achieved by a <em>filter line search</em> methods, the details of which can be found in <a class="reference internal" href="#wachter2006" id="id8">[WÄCHTER2006]</a>.</p>
+<p>More IPOPT specific features or implementation details can be found in <a class="reference internal" href="#wachter2006" id="id9">[WÄCHTER2006]</a>.
+We will just retain that IPOPT is a smart Newton method for solving constrained optimization problems, with global convergence capabilities due to a robust line search method (in the sense that the algorithm will converge no matter the initializer).
+Due to the underlying Newton method, the optimization process requires expressions of all derivatives up to the order 2 of the fitness function as well as those of the constraints.
+For problems whose Hessian matrices are difficult to compute or lead to high dimensional dense matrices, it is possible to use a BFGS approximation of these objects at the cost of a much slower convergence rate.</p>
+</div>
+<div class="section" id="ipopt-in-freefem">
+<h3>IPOPT in <strong>FreeFem++</strong><a class="headerlink" href="#ipopt-in-freefem" title="Permalink to this headline">¶</a></h3>
+<p>Calling the IPOPT optimizer in a <strong>FreeFem++</strong> script is done with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>IPOPT</code> function included in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ff-Ipopt</code> dynamic library.
+IPOPT is designed to solve constrained minimization problems in the form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{find} &amp; x_{0} = \underset{x\in\mathbb{R}^{n}}{\operatorname{argmin}} f(x) \\
+\mathrm{s.t.} &amp; \left\lbrace
+\begin{array}{l r}
+   \forall i\leq n,\ x_{i}^{\mathrm{lb}}\leq x_{i}\leq x_{i}^{\mathrm{ub}} &amp; \mathrm{\ (simple\ bounds)} \\
+   \forall i\leq m,\ c_{i}^{\mathrm{lb}}\leq c_{i}(x)\leq c_{i}^{\mathrm{ub}} &amp; \mathrm{(constraints\ functions)}
+\end{array}
+\right.\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mathrm{ub}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{lb}\)</span> stand for “upper bound” and “lower bound”.
+If for some <span class="math notranslate nohighlight">\(i, 1\leq i\leq m\)</span> we have <span class="math notranslate nohighlight">\(c_{i}^{\mathrm{lb}} = c_{i}^{\mathrm{ub}}\)</span>, it means that <span class="math notranslate nohighlight">\(c_{i}\)</span> is an equality constraint, and an inequality one if <span class="math notranslate nohighlight">\(c_{i}^{\mathrm{lb}} &lt; c_{i}^{\mathrm{ub}}\)</span>.</p>
+<p>There are different ways to pass the fitness function and constraints.
+The more general one is to define the functions using the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>.
+Any returned matrix must be a sparse one (type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code>, not a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int,int]</code>):</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func real J (real[int] &amp;X) {...} //Fitness Function, returns a scalar
+func real[int] gradJ (real[int] &amp;X) {...} //Gradient is a vector
+
+func real[int] C (real[int] &amp;X) {...} //Constraints
+func matrix jacC (real[int] &amp;X) {...} //Constraints Jacobian
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>In the current version of FreeFem++, returning a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code> object that is local to a function block leads to undefined results.
+For each sparse matrix returning function you define, an extern matrix object has to be declared, whose associated function will overwrite and return on each call.
+Here is an example for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>jacC</code>:</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix jacCBuffer; //just declare, no need to define yet
+func matrix jacC (real[int] &amp;X){
+   ...//fill jacCBuffer
+   return jacCBuffer;
+}
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">IPOPT requires the structure of each matrix at the initialization of the algorithm.
+Some errors may occur if the matrices are not constant and are built with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix A = [I,J,C]</code> syntax, or with an intermediary full matrix (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int,int]</code>), because any null coefficient is discarded during the construction of the sparse matrix.
+It is also the case when making matrices linear combinations, for which any zero coefficient will result in the suppression of the matrix from the combination.
+Some controls are available to avoid such problems.
+Check the named parameter descriptions (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>checkindex</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>structhess</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>structjac</code> can help).
+We strongly advice to use <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> as much as possible for the matrix forging.</p>
+</div>
+<p>The Hessian returning function is somewhat different because it has to
+be the Hessian of the Lagrangian function:</p>
+<div class="math notranslate nohighlight">
+\[(x,\sigma_{f},\lambda)\mapsto\sigma_{f}\nabla^{2}f(x)+\displaystyle{\sum_{i=1}^{m}\lambda_{i}\nabla^{2}c_{i}(x)}\ \mathrm{ where }\ \lambda\in\mathbb{R}^{m}\ \mathrm{ and }\ \sigma\in\mathbb{R}\]</div>
+<p>Your Hessian function should then have the following prototype:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix hessianLBuffer; //Just to keep it in mind
+func matrix hessianL (real[int] &amp;X, real sigma, real[int] &amp;lambda){...}
+</pre></div>
+</div>
+<p>If the constraints functions are all affine, or if there are only simple bound constraints, or no constraint at all, the Lagrangian Hessian is equal to the fitness function Hessian, one can then omit the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>sigma</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>lambda</code> parameters:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix hessianJBuffer;
+func matrix hessianJ (real[int] &amp;X){...} //Hessian prototype when constraints are affine
+</pre></div>
+</div>
+<p>When these functions are defined, IPOPT is called this way:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] Xi = ... ; //starting point
+IPOPT(J, gradJ, hessianL, C, jacC, Xi, /*some named parameters*/);
+</pre></div>
+</div>
+<p>If the Hessian is omitted, the interface will tell IPOPT to use the (L)BFGS approximation (it can also be enabled with a named parameter, see further).
+Simple bound or unconstrained problems do not require the constraints part, so the following expressions are valid:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>IPOPT(J, gradJ, C, jacC, Xi, ... ); //IPOPT with BFGS
+IPOPT(J, gradJ, hessianJ, Xi, ... ); //Newton IPOPT without constraints
+IPOPT(J, gradJ, Xi, ... ); //BFGS, no constraints
+</pre></div>
+</div>
+<p>Simple bounds are passed using the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>lb</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ub</code> named parameters, while constraint bounds are passed with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>clb</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>cub</code> ones.
+Unboundedness in some directions can be achieved by using the <span class="math notranslate nohighlight">\(1e^{19}\)</span> and <span class="math notranslate nohighlight">\(-1e^{19}\)</span> values that IPOPT recognizes as <span class="math notranslate nohighlight">\(+\infty\)</span> and <span class="math notranslate nohighlight">\(-\infty\)</span>:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real[int] xlb(n), xub(n), clb(m), cub(m);
+//fill the arrays...
+IPOPT(J, gradJ, hessianL, C, jacC, Xi, lb=xlb, ub=xub, clb=clb, cub=cub, /*some other named parameters*/);
+</pre></div>
+</div>
+<p><strong>P2 fitness function and affine constraints function :</strong> In the case where the fitness function or constraints function can be expressed respectively in the following forms:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c c}
+    \forall x\in\mathbb{R}^{n},\ f(x) = \frac{1}{2}\left\langle Ax,x \right\rangle + \left\langle b,x\right\rangle &amp; (A,b)\in\mathcal{M}_{n,n}(\mathbb{R})\times\mathbb{R}^{n} \\
+    \mathrm{or} ,\ C(x) = Ax + b &amp; (A,b)\in\mathcal{M}_{n,m}(\mathbb{R})\times\mathbb{R}^{m}
+\end{array}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constant, it is possible to directly pass the <span class="math notranslate nohighlight">\((A,b)\)</span> pair instead of defining 3 (or 2) functions.
+It also indicates to IPOPT that some objects are constant and that they have to be evaluated only once, thus avoiding multiple copies of the same matrix.
+The syntax is:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Affine constraints with &quot;standard&quot; fitness function
+matrix A = ... ; //linear part of the constraints
+real[int] b = ... ; //constant part of constraints
+IPOPT(J, gradJ, hessianJ, [A, b], Xi, /*bounds and named parameters*/);
+//[b, A] would work as well.
+</pre></div>
+</div>
+<p>Note that if you define the constraints in this way, they don’t contribute to the Hessian, so the Hessian should only take one <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> as an argument.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Affine constraints and P2 fitness func
+matrix A = ... ; //bilinear form matrix
+real[int] b = ... ; //linear contribution to f
+matrix Ac = ... ; //linear part of the constraints
+real[int] bc = ... ; //constant part of constraints
+IPOPT([A, b], [Ac, bc], Xi, /*bounds and named parameters*/);
+</pre></div>
+</div>
+<p>If both objective and constraint functions are given this way, it automatically activates the IPOPT <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mehrotra_algorithm</code> option (better for linear and quadratic programming according to the documentation).
+Otherwise, this option can only be set through the option file (see the named parameters section).</p>
+<p>A false case is the one of defining <span class="math notranslate nohighlight">\(f\)</span> in this manner while using standard functions for the constraints:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix A = ... ; //bilinear form matrix
+real[int] b = ... ; //linear contribution to f
+func real[int] C(real[int] &amp;X){...} //constraints
+func matrix jacC(real[int] &amp;X){...} //constraints Jacobian
+IPOPT([A, b], C, jacC, Xi, /*bounds and named parameters*/);
+</pre></div>
+</div>
+<p>Indeed, when passing <code class="code freefem docutils literal highlight highlight-freefem"><span></span>[A, b]</code> in order to define <span class="math notranslate nohighlight">\(f\)</span>, the Lagrangian Hessian is automatically built and has the constant <span class="math notranslate nohighlight">\(x \mapsto A\)</span> function, with no way to add possible constraint contributions, leading to incorrect second order derivatives.
+So, a problem should be defined like that in only two cases:</p>
+<ol class="arabic simple">
+<li>constraints are nonlinear but you want to use the BFGS mode (then add <code class="code freefem docutils literal highlight highlight-freefem"><span></span>bfgs=1</code> to the named parameter),</li>
+<li>constraints are affine, but in this case, compatible to pass in the same way</li>
+</ol>
+<p>Here are some other valid definitions of the problem (cases when <span class="math notranslate nohighlight">\(f\)</span> is a pure quadratic or linear form, or <span class="math notranslate nohighlight">\(C\)</span> a pure linear function, etc…):</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Pure quadratic f - A is a matrix
+IPOPT(A, /*constraints arguments*/, Xi, /*bound and named parameters*/);
+// Pure linear f - b is a real[int]
+IPOPT(b, /*constraints arguments*/, Xi, /*bound and named parameters*/);
+// Linear constraints - Ac is a matrix
+IPOPT(/*fitness function arguments*/, Ac, Xi, /*bound and named parameters*/);
+</pre></div>
+</div>
+<p><strong>Returned Value :</strong> The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>IPOPT</code> function returns an error code of type <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>.
+A zero value is obtained when the algorithm succeeds and positive values reflect the fact that IPOPT encounters minor troubles.
+Negative values reveal more problematic cases.
+The associated IPOPT return tags are listed in the table below.
+The <a class="reference external" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT pdf documentation</a> provides a more accurate description of these return statuses:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="54%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Success</th>
+<th class="head">Failures</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0 <code class="docutils literal highlight highlight-freefem"><span></span>Solve_Succeeded</code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>1 <code class="docutils literal highlight highlight-freefem"><span></span>Solved_To_Acceptable_Level</code></td>
+<td>-1 <code class="docutils literal highlight highlight-freefem"><span></span>Maximum_Iterations_Exceeded</code></td>
+</tr>
+<tr class="row-even"><td>2 <code class="docutils literal highlight highlight-freefem"><span></span>Infeasible_Problem_Detected</code></td>
+<td>-2 <code class="docutils literal highlight highlight-freefem"><span></span>Restoration_Failed</code></td>
+</tr>
+<tr class="row-odd"><td>3 <code class="docutils literal highlight highlight-freefem"><span></span>Search_Direction_Becomes_Too_Small</code></td>
+<td>-3 <code class="docutils literal highlight highlight-freefem"><span></span>Error_In_Step_Computation</code></td>
+</tr>
+<tr class="row-even"><td>4 <code class="docutils literal highlight highlight-freefem"><span></span>Diverging_Iterates</code></td>
+<td>-4 <code class="docutils literal highlight highlight-freefem"><span></span>Maximum_CpuTime_Exceeded</code></td>
+</tr>
+<tr class="row-odd"><td>5 <code class="docutils literal highlight highlight-freefem"><span></span>User_Requested_Stop</code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>6 <code class="docutils literal highlight highlight-freefem"><span></span>Feasible_Point_Found</code></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Problem definition issues</th>
+<th class="head">Critical errors</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-10 <code class="docutils literal highlight highlight-freefem"><span></span>Not_Enough_Degrees_Of_Freedom</code></td>
+<td>-100 <code class="docutils literal highlight highlight-freefem"><span></span>Unrecoverable_Exception</code></td>
+</tr>
+<tr class="row-odd"><td>-11 <code class="docutils literal highlight highlight-freefem"><span></span>Invalid_Problem_Definition</code></td>
+<td>-101 <code class="docutils literal highlight highlight-freefem"><span></span>NonIpopt_Exception_Thrown</code></td>
+</tr>
+<tr class="row-even"><td>-12 <code class="docutils literal highlight highlight-freefem"><span></span>Invalid_Option</code></td>
+<td>-102 <code class="docutils literal highlight highlight-freefem"><span></span>Insufficient_Memory</code></td>
+</tr>
+<tr class="row-odd"><td>-13 <code class="docutils literal highlight highlight-freefem"><span></span>Invalid_Number_Detected</code></td>
+<td>-199 <code class="docutils literal highlight highlight-freefem"><span></span>Internal_Error</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Named Parameters :</strong> The available named parameters in this interface are those we thought to be the most subject to variations from one optimization to another, plus a few that are interface specific.
+Though, as one could see at <a class="reference external" href="http://www.coin-or.org/Ipopt/documentation/node59.html">IPOPT Linear solver</a>, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior.
+These parameters can still be controlled by placing an option file in the execution directory.
+Note that <a class="reference external" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT’s pdf documentation</a> may provides more information than the previously mentioned online version for certain parameters.
+The in-script available parameters are:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>lb</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ub</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> for lower and upper simple bounds upon the search variables must be of size <span class="math notranslate nohighlight">\(n\)</span> (search space dimension).
+If two components of the same index in these arrays are equal then the corresponding search variable is fixed.
+By default IPOPT will remove any fixed variable from the optimization process and always use the fixed value when calling functions.
+It can be changed using the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fixedvar</code> parameter.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>clb</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>cub</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> of size <span class="math notranslate nohighlight">\(m\)</span> (number of constraints) for lower and upper constraints bounds.
+Equality between two components of the same index <span class="math notranslate nohighlight">\(i\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>clb</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>cub</code> reflect an equality constraint.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>structjacc</code> : To pass the greatest possible structure (indexes of non null coefficients) of the constraint Jacobians under the form <code class="code freefem docutils literal highlight highlight-freefem"><span></span>[I,J]</code> where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>I</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>J</code> are two integer arrays.
+If not defined, the structure of the constraint Jacobians, evaluated in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Xi</code>, is used (no issue if the Jacobian is constant or always defined with the same <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code>, hazardous if it is with a triplet array or if a full matrix is involved).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>structhess</code> : Same as above but for the Hessian function (unused if <span class="math notranslate nohighlight">\(f\)</span> is P2 or less and constraints are affine).
+Here again, keep in mind that it is the Hessian of the Lagrangian function (which is equal to the Hessian of <span class="math notranslate nohighlight">\(f\)</span> only if constraints are affine).
+If no structure is given with this parameter, the Lagrangian Hessian is evaluated on the starting point, with <span class="math notranslate nohighlight">\(\sigma=1\)</span> and <span class="math notranslate nohighlight">\(\lambda = (1,1,\dots,1)\)</span> (it is safe if all the constraints and fitness function Hessians are constant or build with <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code>, and here again it is less reliable if built with a triplet array or a full matrix).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>checkindex</code> : A <code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code> that triggers a dichotomic index search when matrices are copied from <strong>FreeFem++</strong> functions to IPOPT arrays.
+It is used to avoid wrong index matching when some null coefficients are removed from the matrices by <strong>FreeFem++</strong>.
+It will not solve the problems arising when a too small structure has been given at the initialization of the algorithm.
+Enabled by default (except in cases where all matrices are obviously constant).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>warmstart</code> : If set to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>true</code>, the constraints dual variables <span class="math notranslate nohighlight">\(\lambda\)</span>, and simple bound dual variables are initialized with the values of the arrays passed to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>lm`</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>lz</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>uz</code> named parameters (see below).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>lm`</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> of size <span class="math notranslate nohighlight">\(m\)</span>, which is used to get the final values of the constraints dual variables <span class="math notranslate nohighlight">\(\lambda\)</span> and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>lz</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>uz</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> of size <span class="math notranslate nohighlight">\(n\)</span> to get the final values and/or initialize (in case of a warm start) the dual variables associated to simple bounds.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tol</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>, convergence tolerance for the algorithm, the default value is <span class="math notranslate nohighlight">\(10^{-8}\)</span>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>maxiter</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>, maximum number of iterations with 3000 as default value.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>maxcputime</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value, maximum runtime duration. Default is <span class="math notranslate nohighlight">\(10^{6}\)</span> (almost 11 and a halfdays).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>bfgs</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code> enabling or not the (low-storage) BFGS approximation of the Lagrangian Hessian.
+It is set to false by default, unless there is no way to compute the Hessian with the functions that have been passed to IPOPT.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>derivativetest</code> : Used to perform a comparison of the derivatives given to IPOPT with finite differences computation.
+The possible <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code> values are : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;none&quot;</code> (default), <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;first-order&quot;</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;second-order&quot;</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;only-second-order&quot;</code>.
+The associated derivative error tolerance can be changed via the option file.
+One should not care about any error given by it before having tried, and failed, to perform a first optimization.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>dth</code> : Perturbation parameter for the derivative test computations with finite differences.
+Set by default to <span class="math notranslate nohighlight">\(10^{-8}\)</span>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>dttol</code> : Tolerance value for the derivative test error detection (default value unknown yet, maybe <span class="math notranslate nohighlight">\(10^{-5}\)</span>).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>optfile</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code> parameter to specify the IPOPT option file name.
+IPOPT will look for a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ipopt.opt</code> file by default.
+Options set in the file will overwrite those defined in the <strong>FreeFem++</strong> script.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>printlevel</code> : An <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> to control IPOPT output print level, set to 5 by default, the possible values are from 0 to 12.
+A description of the output information is available in the <a class="reference external" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">PDF documentation</a> of IPOPT.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fixedvar</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code> for the definition of simple bound equality constraints treatment : use <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;make_parameter&quot;</code> (default value) to simply remove them from the optimization process (the functions will always be evaluated with the fixed value for those variables), <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;make_constraint&quot;</code> to treat them as any other constraint or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;relax_bounds&quot;</code> to relax fixing bound constraints.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>mustrategy</code> : a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code> to choose the update strategy for the barrier parameter <span class="math notranslate nohighlight">\(\mu\)</span>.
+The two possible tags are <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;monotone&quot;</code>, to use the monotone (Fiacco-McCormick) strategy, or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>&quot;adaptive&quot;</code> (default setting).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>muinit</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> positive value for the barrier parameter initialization.
+It is only relevant when <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mustrategy</code> has been set to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>monotone</code>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>pivtol</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value to set the pivot tolerance for the linear solver. A smaller number pivots for sparsity, a larger number pivots for stability.
+The value has to be in the <span class="math notranslate nohighlight">\([0,1]\)</span> interval and is set to <span class="math notranslate nohighlight">\(10^{-6}\)</span> by default.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>brf</code> : Bound relax factor: before starting the optimization, the bounds given by the user are relaxed.
+This option sets the factor for this relaxation.
+If it is set to zero, then the bound relaxation is disabled.
+This <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> has to be positive and its default value is <span class="math notranslate nohighlight">\(10^{-8}\)</span>.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>objvalue</code> : An identifier to a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> type variable to get the last value of the objective function (best value in case of success).</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>mumin</code> : minimum value for the barrier parameter <span class="math notranslate nohighlight">\(\mu\)</span>, a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> with <span class="math notranslate nohighlight">\(10^{-11}\)</span> as default value.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>linesearch</code> : A boolean which disables the line search when set to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>false</code>.
+The line search is activated by default.
+When disabled, the method becomes a standard Newton algorithm instead of a primal-dual system.
+The global convergence is then no longer assured, meaning that many initializers could lead to diverging iterates.
+But on the other hand, it can be useful when trying to catch a precise local minimum without having some out of control process making the iterate caught by some other near optimum.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="some-short-examples-using-ipopt">
+<h2>Some short examples using IPOPT<a class="headerlink" href="#some-short-examples-using-ipopt" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Ipopt variational inequality
+A very simple example consisting of, given two functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> (defined on <span class="math notranslate nohighlight">\(\Omega\subset\mathbb{R}^{2}\)</span>), minimizing <span class="math notranslate nohighlight">\(J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ \)</span>, with <span class="math notranslate nohighlight">\(u\leq g\)</span> almost everywhere:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Solve
+//- Delta u = f
+//u &lt; g
+//u = 0 on Gamma
+load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nn = 20;
+func f = 1.; //rhs function
+real r = 0.03, s = 0.1;
+func g = r - r/2*exp(-0.5*(square(x-0.5) + square(y-0.5))/square(s));
+
+// Mesh
+mesh Th = square(nn, nn);
+
+// Fespace
+fespace Vh(Th, P2);
+Vh u = 0;
+Vh lb = -1.e19;
+Vh ub = g;
+
+// Macro
+macro Grad(u) [dx(u), dy(u)] //
+
+// Problem
+varf vP (u, v)
+   = int2d(Th)(
+        Grad(u)&#39;*Grad(v)
+   )
+   - int2d(Th)(
+        f*v
+   )
+   ;
+</pre></div>
+</div>
+<p>Here we build the matrix and second member associated to the function to fully and finally minimize it.
+The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>[A,b]</code> syntax for the fitness function is then used to pass it to IPOPT.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix A = vP(Vh, Vh, solver=CG);
+real[int] b = vP(0, Vh);
+</pre></div>
+</div>
+<p>We use simple bounds to impose the boundary condition <span class="math notranslate nohighlight">\(u=0\)</span> on <span class="math notranslate nohighlight">\(\partial\Omega\)</span>, as well as the <span class="math notranslate nohighlight">\(u\leq g\)</span> condition.</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>varf vGamma (u, v) = on(1, 2, 3, 4, u=1);
+real[int] onGamma = vGamma(0, Vh);
+
+//warning: the boundary conditions are given with lb and ub on border
+ub[] = onGamma ? 0. : ub[];
+lb[] = onGamma ? 0. : lb[];
+
+// Solve
+IPOPT([A, b], u[], lb=lb[], ub=ub[]);
+
+// Plot
+plot(u);
+</pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Ipopt variational inequality 2</p>
+<p>Let <span class="math notranslate nohighlight">\(\Omega\)</span> be a domain of <span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span>.
+<span class="math notranslate nohighlight">\(f_{1}, f_{2}\in L^{2}(\Omega)\)</span> and <span class="math notranslate nohighlight">\(g_{1}, g_{2} \in L^{2}(\partial\Omega)\)</span> four given functions with <span class="math notranslate nohighlight">\(g_{1}\leq g_{2}\)</span> almost everywhere.
+We define the space:</p>
+<div class="math notranslate nohighlight">
+\[V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace\]</div>
+<p>as well as the function <span class="math notranslate nohighlight">\(J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}\]</div>
+<p>The problem entails finding (numerically) two functions <span class="math notranslate nohighlight">\((u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nn = 10;
+func f1 = 10;//right hand side
+func f2 = -15;
+func g1 = -0.1;//Boundary condition functions
+func g2 = 0.1;
+
+// Mesh
+mesh Th = square(nn, nn);
+
+// Fespace
+fespace Vh(Th, [P1, P1]);
+Vh [uz, uz2] = [1, 1];
+Vh [lz, lz2] = [1, 1];
+Vh [u1, u2] = [0, 0]; //starting point
+
+fespace Wh(Th, [P1]);
+Wh lm=1.;
+
+// Macro
+macro Grad(u) [dx(u), dy(u)] //
+
+// Loop
+int iter=0;
+while (++iter){
+   // Problem
+   varf vP ([u1, u2], [v1, v2])
+      = int2d(Th)(
+           Grad(u1)&#39;*Grad(v1)
+         + Grad(u2)&#39;*Grad(v2)
+      )
+      - int2d(Th)(
+           f1*v1
+         + f2*v2
+      )
+      ;
+
+   matrix A = vP(Vh, Vh); //fitness function matrix
+   real[int] b = vP(0, Vh); //and linear form
+
+   int[int] II1 = [0], II2 = [1];//Constraints matrix
+   matrix C1 = interpolate (Wh, Vh, U2Vc=II1);
+   matrix C2 = interpolate (Wh, Vh, U2Vc=II2);
+   matrix CC = -1*C1 + C2; // u2 - u1 &gt; 0
+   Wh cl = 0; //constraints lower bounds (no upper bounds)
+
+   //Boundary conditions
+   varf vGamma ([u1, u2], [v1, v2]) = on(1, 2, 3, 4, u1=1, u2=1);
+   real[int] onGamma = vGamma(0, Vh);
+   Vh [ub1, ub2] = [g1, g2];
+   Vh [lb1, lb2] = [g1, g2];
+   ub1[] = onGamma ? ub1[] : 1e19; //Unbounded in interior
+   lb1[] = onGamma ? lb1[] : -1e19;
+
+   Vh [uzi, uzi2] = [uz, uz2], [lzi, lzi2] = [lz, lz2];
+   Wh lmi = lm;
+   Vh [ui1, ui2] = [u1, u2];
+
+   // Solve
+   IPOPT([b, A], CC, ui1[], lb=lb1[], clb=cl[], ub=ub1[], warmstart=iter&gt;1, uz=uzi[], lz=lzi[], lm=lmi[]);
+
+   // Plot
+   plot(ui1, ui2, wait=true, nbiso=60, dim=3);
+
+   if(iter &gt; 1) break;
+
+   // Mesh adpatation
+   Th = adaptmesh(Th, [ui1, ui2], err=0.004, nbvx=100000);
+   [uz, uz2] = [uzi, uzi2];
+   [lz, lz2] = [lzi, lzi2];
+   [u1, u2] = [ui1, ui2];
+   lm = lmi;
+}
+</pre></div>
+</div>
+<div class="figure" id="figalgovarineqfill">
+<img alt="../_images/VarIneqFill.jpg" src="../_images/VarIneqFill.jpg" />
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
+</div>
+<div class="last figure" id="figalgovarineqiso">
+<img alt="../_images/VarIneqIso.jpg" src="../_images/VarIneqIso.jpg" />
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="d-constrained-minimum-surface-with-ipopt">
+<h2>3D constrained minimum surface with IPOPT<a class="headerlink" href="#d-constrained-minimum-surface-with-ipopt" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="area-and-volume-expressions">
+<h3>Area and volume expressions<a class="headerlink" href="#area-and-volume-expressions" title="Permalink to this headline">¶</a></h3>
+<p>This example is aimed at numerically solving some constrained minimum surface problems with the IPOPT algorithm.
+We restrain to <span class="math notranslate nohighlight">\(C^{k}\)</span> (<span class="math notranslate nohighlight">\(k\geq 1\)</span>), closed, spherically parametrizable surfaces, i.e.&nbsp;surfaces <span class="math notranslate nohighlight">\(S\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\exists \rho \in C^{k}([0,2\pi ]\times[0,\pi] ) \vert
+S = \left\lbrace
+X = \left(
+\begin{array} {c}
+ \rho(\theta,\phi) \\
+ 0 \\
+ 0
+\end{array}
+\right)
+, (\theta,\phi) \in [0,2\pi ]\times[0,\pi]
+ \right\rbrace\end{split}\]</div>
+<p>Where the components are expressed in the spherical coordinate system.
+Let’s call <span class="math notranslate nohighlight">\(\Omega\)</span> the <span class="math notranslate nohighlight">\([0,2\pi ]\times[0,\pi]\)</span> angular parameters set.
+In order to exclude self crossing and opened shapes, the following assumptions upon <span class="math notranslate nohighlight">\(\rho\)</span> are made:</p>
+<div class="math notranslate nohighlight">
+\[\rho \geq 0\ \ \mathrm{and}\ \ \forall \phi, \rho(0,\phi) = \rho(2\pi,\phi)\]</div>
+<p>For a given function <span class="math notranslate nohighlight">\(\rho\)</span> the first fundamental form (the metric) of the defined surface has the following matrix representation:</p>
+<div class="math notranslate nohighlight" id="equation-msfff">
+<span class="eqno">(23)<a class="headerlink" href="#equation-msfff" title="Permalink to this equation">¶</a></span>\[\begin{split}G =
+\left(
+\begin{array}{c c}
+    \rho^{2}\sin^{2}(\phi) + (\partial_{\theta}\rho)^{2} &amp;\partial_{\theta}\rho\partial_{\phi}\rho \\
+    \partial_{\theta}\rho\partial_{\phi}\rho &amp; \rho^{2} + (\partial_{\phi}\rho)^{2} \\
+\end{array}
+\right)\end{split}\]</div>
+<p>This metric is used to express the area of the surface.
+Let <span class="math notranslate nohighlight">\(g=\det(G)\)</span>, then we have:</p>
+<div class="math notranslate nohighlight" id="equation-msarea">
+<span class="eqno">(24)<a class="headerlink" href="#equation-msarea" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ll}
+    \mathcal{A}(\rho) &amp;= \int{\Omega}{\left\| \partial_{\theta} X \wedge \partial_{\phi} X \right\|} =\int{\Omega}{\sqrt{g}}\\
+        &amp;=\int{\Omega}{\sqrt{ \rho^{2}(\partial_{\theta}\rho)^{2} + \rho^{4}\sin^{2}(\phi) + \rho^{2}(\partial_{\phi}\rho)^{2}\sin^{2}(\phi)}d\theta d\phi}
+\end{array}\end{split}\]</div>
+<p>The volume of the space enclosed within the shape is easier to express:</p>
+<div class="math notranslate nohighlight" id="equation-msvolume">
+<span class="eqno">(25)<a class="headerlink" href="#equation-msvolume" title="Permalink to this equation">¶</a></span>\[\mathcal{V}(\rho)
+= \int{\Omega}{\int_{0}^{\rho(\theta,\phi)} r^{2}\sin(\phi) dr d\theta d\phi}
+= \frac{1}{3}\int{\Omega}{\rho^{3} \sin(\phi) d\theta d\phi}\]</div>
+</div>
+<div class="section" id="derivatives">
+<h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
+<p>In order to use a Newton based interior point optimization algorithm, one must be able to evaluate the derivatives of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> with respect to <span class="math notranslate nohighlight">\(rho\)</span>.
+Concerning the area, we have the following result:</p>
+<div class="math notranslate nohighlight">
+\[\forall v\in C^{1}(\Omega) \ , \ \langle d\mathcal{A}(\rho),v\rangle
+= \int{\Omega}{\frac{1}{2} \frac{ d\bar{g}(\rho)(v)}{\sqrt{g}}d\theta d\phi }\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\bar{g}\)</span> is the application mapping the <span class="math notranslate nohighlight">\((\theta,\phi) \mapsto g(\theta,\phi)\)</span> scalar field to <span class="math notranslate nohighlight">\(\rho\)</span>.
+This leads to the following expression, easy to transpose in a freefem script using:</p>
+<div class="math notranslate nohighlight" id="equation-msdarea">
+<span class="eqno">(26)<a class="headerlink" href="#equation-msdarea" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{r c l}
+    \forall v\in C^{1}(\Omega)&amp; &amp;\\
+    \langle d\mathcal{A}(\rho),v\rangle &amp;=&amp; \int{\Omega}{ \left(2\rho^{3}\sin^{2}(\phi) + \rho(\partial_{\theta}\rho)^{2} + \rho(\partial_{\phi}\rho)^{2}\sin^{2}(\phi) \right) v} \\
+    &amp; &amp; +\int{\Omega}{\ \rho^{2}\partial_{\theta}\rho\partial_{\theta} v\ + \ \rho^{2}\partial_{\phi}\rho\sin^{2}(\phi)\partial_{\phi} v }
+\end{array}\end{split}\]</div>
+<p>With a similar approach, one can derive an expression for second order derivatives.
+However, comporting no specific difficulties, the detailed calculus are tedious, the result is that these derivatives can be written using a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> whose coefficients are expressed in term of <span class="math notranslate nohighlight">\(\rho\)</span> and its derivatives with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>, such that:</p>
+<div class="math notranslate nohighlight" id="equation-msd2area">
+<span class="eqno">(27)<a class="headerlink" href="#equation-msd2area" title="Permalink to this equation">¶</a></span>\[\begin{split}\forall (w,v)\in C^{1}(\Omega)\ ,\ d^{2}\mathcal{A}(\rho)(w,v) = \int{\Omega}
+{
+   \left(\begin{array}{c c c} w &amp; \partial_{\theta} w &amp; \partial_{\phi} w \end{array}\right)
+   \mathbf{B}
+} \left( \begin{array}{c} v \\ \partial_{\theta} v \\ \partial_{\phi} v \end{array} \right) d\theta d\phi\end{split}\]</div>
+<p>Deriving the volume function derivatives is again an easier task.
+We immediately get the following expressions:</p>
+<div class="math notranslate nohighlight" id="equation-msdvolume">
+<span class="eqno">(28)<a class="headerlink" href="#equation-msdvolume" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{r c l}
+   \forall v\ ,\ \langle d\mathcal{V}(\rho),v\rangle &amp; = &amp; \int{\Omega}{\rho^{2}\sin(\phi)v\ d\theta d\phi} \\
+   \forall w,v\ , d^{2}\mathcal{V}(\rho)(w,v) &amp; = &amp; \int{\Omega}{2\rho\sin(\phi)wv\ d\theta d\phi}
+\end{array}\end{split}\]</div>
+</div>
+<div class="section" id="the-problem-and-its-script">
+<h3>The problem and its script<a class="headerlink" href="#the-problem-and-its-script" title="Permalink to this headline">¶</a></h3>
+<p>The whole code is available in <a class="reference external" href="exampleIPOPTMinimalSurfaceVolume">IPOPT minimal surface &amp; volume example</a>.
+We propose to solve the following problem:</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Given a positive function <span class="math notranslate nohighlight">\(\rho_{\mathrm{object}}\)</span> piecewise continuous, and a scalar <span class="math notranslate nohighlight">\(\mathcal{V}_{\mathrm{max}} &gt; \mathcal{V}(\rho_{\mathrm{object}})\)</span>, find <span class="math notranslate nohighlight">\(\rho_{0}\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[\rho_{0} = \underset{\rho\in C^{1}(\Omega)}{\operatorname{argmin}}\ \mathcal{A}(\rho)\ ,\ \mathrm{s.t.}\ \rho_{0}\geq\rho_{\mathrm{object}} \ \mathrm{and\ } \mathcal{V}(\rho_{0})\leq \mathcal{V}_{\mathrm{max}}\]</div>
+<p>If $rho_{mathrm{object}}$ is the spherical parametrization of the surface of a 3-dimensional object (domain) $mathcal{O}$, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If $mathcal{V}_{mathrm{max}}$ is close to $mathcal{V}(rho_{mathrm{object}})$, so should be $rho_{0}$ and $rho_{mathrm{object}}$. With higher values of $mathcal{V}_{mathrm{max}}$, $rho$ should be closer to the unconstrained minimum surface surrounding $mathcal{O}$ which is obtained as soon as $mathcal{V}_{mathrm{max}} geq frac{4}{3}pi |rho_{mathrm{object}}|_{infty}^{3}$ (sufficient but not necessary).</p>
+<p>It also could be interesting to solve the same problem with the constraint $mathcal{V}(rho_{0})geq mathcal{V}_{mathrm{min}}$ which leads to a sphere when $mathcal{V}_{mathrm{min}} geq frac{1}{6}pi mathrm{diam}(mathcal{O})^{3}$ and moves toward the solution of the unconstrained problem as $mathcal{V}_{mathrm{min}}$ decreases.</p>
+<p>We start by meshing the domain $[0,2pi ]times[0,pi ]$, then a periodic P1 finite elements space is defined.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;msh3&quot;;
+load &quot;medit&quot;;
+load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nadapt = 3;
+real alpha = 0.9;
+int np = 30;
+real regtest;
+int shapeswitch = 1;
+real sigma = 2*pi/40.;
+real treshold = 0.1;
+real e = 0.1;
+real r0 = 0.25;
+real rr = 2-r0;
+real E = 1./(e*e);
+real RR = 1./(rr*rr);
+
+// Mesh
+mesh Th = square(2*np, np, [2*pi*x, pi*y]);
+
+// Fespace
+fespace Vh(Th, P1, periodic=[[2, y], [4, y]]);
+//Initial shape definition
+//outside of the mesh adaptation loop to initialize with the previous optimial shape found on further iterations
+Vh startshape = 5;
+</pre></div>
+</div>
+<p>We create some finite element functions whose underlying arrays will be used to store the values of dual variables associated to all the constraints in order to reinitialize the algorithm with it in the case where we use mesh adaptation. Doing so, the algorithm will almost restart at the accuracy level it reached before mesh adaptation, thus saving many iterations.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Vh uz = 1., lz = 1.;
+rreal[int] lm = [1];
+</pre></div>
+</div>
+<p>Then, follows the mesh adaptation loop, and a rendering function, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Plot3D</code>, using 3D mesh to display the shape it is passed with <code class="code freefem docutils literal highlight highlight-freefem"><span></span>medit</code> (the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>movemesh23</code> procedure often crashes when called with ragged shapes).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>for(int kkk = 0; kkk &lt; nadapt; ++kkk){
+   int iter=0;
+   func sin2 = square(sin(y));
+
+   // A function which transform Th in 3d mesh (r=rho)
+   //a point (theta,phi) of Th becomes ( r(theta,phi)*cos(theta)*sin(phi) , r(theta,phi)*sin(theta)*sin(phi) , r(theta,phi)*cos(phi) )
+   //then displays the resulting mesh with medit
+   func int Plot3D (real[int] &amp;rho, string cmm, bool ffplot){
+      Vh rhoo;
+      rhoo[] = rho;
+      //mesh sTh = square(np, np/2, [2*pi*x, pi*y]);
+      //fespace sVh(sTh, P1);
+      //Vh rhoplot = rhoo;
+      try{
+         mesh3 Sphere = movemesh23(Th, transfo=[rhoo(x,y)*cos(x)*sin(y), rhoo(x,y)*sin(x)*sin(y), rhoo(x,y)*cos(y)]);
+         if(ffplot)
+            plot(Sphere);
+         else
+            medit(cmm, Sphere);
+      }
+      catch(...){
+         cout &lt;&lt; &quot;PLOT ERROR&quot; &lt;&lt; endl;
+      }
+      return 1;
+   }
+}
+</pre></div>
+</div>
+<p>Here are the functions related to the area computation and its shape derivative, according to equations <a class="reference internal" href="#equation-msarea">(24)</a> and <a class="reference internal" href="#equation-msdarea">(26)</a>:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Surface computation
+//Maybe is it possible to use movemesh23 to have the surface function less complicated
+//However, it would not simplify the gradient and the hessian
+func real Area (real[int] &amp;X){
+   Vh rho;
+   rho[] = X;
+   Vh rho2 = square(rho);
+   Vh rho4 = square(rho2);
+   real res = int2d(Th)(sqrt(rho4*sin2 + rho2*square(dx(rho)) + rho2*sin2*square(dy(rho))));
+   ++iter;
+   if(1)
+      plot(rho, value=true, fill=true, cmm=&quot;rho(theta,phi) on [0,2pi]x[0,pi] - S=&quot;+res, dim=3);
+   else
+      Plot3D(rho[], &quot;shape_evolution&quot;, 1);
+   return res;
+}
+
+func real[int] GradArea (real[int] &amp;X){
+   Vh rho, rho2;
+   rho[] = X;
+   rho2[] = square(X);
+   Vh sqrtPsi, alpha;
+   {
+      Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+      sqrtPsi = sqrt(rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+      alpha = 2.*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+   }
+   varf dArea (u, v)
+      = int2d(Th)(
+           1./sqrtPsi * (alpha*v + rho2*dx(rho)*dx(v) + rho2*dy(rho)*sin2*dy(v))
+      )
+      ;
+
+   real[int] grad = dArea(0, Vh);
+   return grad;
+}
+</pre></div>
+</div>
+<p>The function returning the hessian of the area for a given shape is a bit blurry, thus we won’t show here all of equation <a class="reference internal" href="#equation-msd2area">(27)</a> coefficients definition, they can be found in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>edp</code> file.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix hessianA;
+func matrix HessianArea (real[int] &amp;X){
+   Vh rho, rho2;
+   rho[] = X;
+   rho2 = square(rho);
+   Vh sqrtPsi, sqrtPsi3, C00, C01, C02, C11, C12, C22, A;
+   {
+      Vh C0, C1, C2;
+      Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+      sqrtPsi = sqrt( rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+      sqrtPsi3 = (rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2)*sqrtPsi;
+      C0 = 2*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+      C1 = rho2*dx(rho);
+      C2 = rho2*sin2*dy(rho);
+      C00 = square(C0);
+      C01 = C0*C1;
+      C02 = C0*C2;
+      C11 = square(C1);
+      C12 = C1*C2;
+      C22 = square(C2);
+      A = 6.*rho2*sin2 + dxrho2 + dyrho2*sin2;
+   }
+   varf d2Area (w, v)
+      =int2d(Th)(
+           1./sqrtPsi * (
+              A*w*v
+            + 2*rho*dx(rho)*dx(w)*v
+            + 2*rho*dx(rho)*w*dx(v)
+            + 2*rho*dy(rho)*sin2*dy(w)*v
+            + 2*rho*dy(rho)*sin2*w*dy(v)
+            + rho2*dx(w)*dx(v)
+            + rho2*sin2*dy(w)*dy(v)
+         )
+         + 1./sqrtPsi3 * (
+              C00*w*v
+            + C01*dx(w)*v
+            + C01*w*dx(v)
+            + C02*dy(w)*v
+            + C02*w*dy(v)
+            + C11*dx(w)*dx(v)
+            + C12*dx(w)*dy(v)
+            + C12*dy(w)*dx(v)
+            + C22*dy(w)*dy(v)
+         )
+      )
+      ;
+   hessianA = d2Area(Vh, Vh);
+   return hessianA;
+}
+</pre></div>
+</div>
+<p>And the volume related functions:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Volume computation
+func real Volume (real[int] &amp;X){
+   Vh rho;
+   rho[] = X;
+   Vh rho3 = rho*rho*rho;
+   real res = 1./3.*int2d(Th)(rho3*sin(y));
+   return res;
+}
+
+func real[int] GradVolume (real[int] &amp;X){
+   Vh rho;
+   rho[] = X;
+   varf dVolume(u, v) = int2d(Th)(rho*rho*sin(y)*v);
+   real[int] grad = dVolume(0, Vh);
+   return grad;
+}
+
+matrix hessianV;
+func matrix HessianVolume(real[int] &amp;X){
+   Vh rho;
+   rho[] = X;
+   varf d2Volume(w, v) = int2d(Th)(2*rho*sin(y)*v*w);
+   hessianV = d2Volume(Vh, Vh);
+   return hessianV;
+}
+</pre></div>
+</div>
+<p>If we want to use the volume as a constraint function we must wrap it and its derivatives in some <strong>FreeFem++</strong> functions returning the appropriate types.
+It is not done in the above functions in cases where one wants to use it as a fitness function.
+The lagrangian hessian also has to be wrapped since the Volume is not linear with respect to <span class="math notranslate nohighlight">\(\rho\)</span>, it has some non-null second order derivatives.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func real[int] ipVolume (real[int] &amp;X){ real[int] vol = [Volume(X)]; return vol; }
+matrix mdV;
+func matrix ipGradVolume (real[int] &amp;X) { real[int,int] dvol(1,Vh.ndof); dvol(0,:) = GradVolume(X); mdV = dvol; return mdV; }
+matrix HLagrangian;
+func matrix ipHessianLag (real[int] &amp;X, real objfact, real[int] &amp;lambda){
+   HLagrangian = objfact*HessianArea(X) + lambda[0]*HessianVolume(X);
+   return HLagrangian;
+}
+</pre></div>
+</div>
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ipGradVolume</code> function could pose some troubles during the optimization process because the gradient vector is transformed in a sparse matrix, so any null coefficient will be discarded.
+Here we create the IPOPT structure manually and use the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>checkindex</code> named-parameter to avoid bad indexing during copies.
+This gradient is actually dense, there is no reason for some components to be constantly zero:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
+gvi = 0;
+</pre></div>
+</div>
+<p>These two arrays will be passed to IPOPT with <code class="code freefem docutils literal highlight highlight-freefem"><span></span>structjacc=[gvi,gvj]</code>.
+The last remaining things are the bound definitions.
+The simple lower bound must be equal to the components of the P1 projection of <span class="math notranslate nohighlight">\(\rho_{object}\)</span>.
+And we choose <span class="math notranslate nohighlight">\(\alpha\in [0,1]\)</span> to set <span class="math notranslate nohighlight">\(\mathcal{V}_{\mathrm{max}}\)</span> to <span class="math notranslate nohighlight">\((1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}\)</span>:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
+func disc2 = sqrt(1./(RR+(E-RR)*cos(x)*cos(x)*sin2));
+
+if(1){
+   lb = r0;
+   for (int q = 0; q &lt; 5; ++q){
+      func f = rr*Gaussian(x, y, 2*q*pi/5., pi/3.);
+      func g = rr*Gaussian(x, y, 2*q*pi/5.+pi/5., 2.*pi/3.);
+      lb = max(max(lb, f), g);
+   }
+   lb = max(lb, rr*Gaussian(x, y, 2*pi, pi/3));
+}
+lb = max(lb, max(disc1, disc2));
+real Vobj = Volume(lb[]);
+real Vnvc = 4./3.*pi*pow(lb[].linfty,3);
+
+if(1)
+   Plot3D(lb[], &quot;object_inside&quot;, 1);
+real[int] clb = 0., cub = [(1-alpha)*Vobj + alpha*Vnvc];
+</pre></div>
+</div>
+<p>Calling IPOPT:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
+   rc[], ub=ub[], lb=lb[], clb=clb, cub=cub, checkindex=1, maxiter=kkk&lt;nadapt-1 ? 40:150,
+   warmstart=kkk, lm=lm, uz=uz[], lz=lz[], tol=0.00001, structjacc=[gvi,gvj]);
+cout &lt;&lt; &quot;IPOPT: res =&quot; &lt;&lt; res &lt;&lt; endl ;
+
+// Plot
+Plot3D(rc[], &quot;Shape_at_&quot;+kkk, 1);
+Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
+</pre></div>
+</div>
+<p>Finally, before closing the mesh adaptation loop, we have to perform the said adaptation.
+The mesh is adaptated with respect to the <span class="math notranslate nohighlight">\(X=(\rho, 0, 0)\)</span> (in spherical coordinates) vector field, not directly with respect to <span class="math notranslate nohighlight">\(\rho\)</span>, otherwise the true curvature of the 3D-shape would not be well taken into account.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>if (kkk &lt; nadapt-1){
+   Th = adaptmesh(Th, rc*cos(x)*sin(y), rc*sin(x)*sin(y), rc*cos(y),
+      nbvx=50000, periodic=[[2, y], [4, y]]);
+   plot(Th, wait=true);
+   startshape = rc;
+   uz = uz;
+   lz = lz;
+}
+</pre></div>
+</div>
+<p>Here are some pictures of the resulting surfaces obtained for decreasing values of <span class="math notranslate nohighlight">\(\alpha\)</span> (and a slightly more complicated object than two orthogonal discs).
+We return to the enclosed object when <span class="math notranslate nohighlight">\(\alpha=0\)</span>:</p>
+<div class="last figure">
+<img alt="../_images/minsurf3D.jpg" src="../_images/minsurf3D.jpg" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-nlopt-optimizers">
+<h2>The nlOpt optimizers<a class="headerlink" href="#the-nlopt-optimizers" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ff-NLopt</code> package provides a <strong>FreeFem++</strong> interface to the free/open-source library for nonlinear optimization, easing the use of several different free optimization (constrained or not) routines available online along with the PDE solver.
+All the algorithms are well documented in <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>, therefore no exhaustive information concerning their mathematical specificities will be found here and we will focus on the way they are used in a <strong>FreeFem++</strong> script.
+If needing detailed information about these algorithms, visit the website where a description of each of them is given, as well as many bibliographical links.</p>
+<p>Most of the gradient based algorithms of NLopt uses a full matrix approximation of the Hessian, so if you’re planning to solve a large scale problem, use the IPOPT optimizer which definitely surpass them.</p>
+<p>All the NLopt features are identified that way:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;ff-NLopt&quot;
+//define J, u, and maybe grad(J), some constraints etc...
+real min = nloptXXXXXX(J, u, //Unavoidable part
+   grad=&lt;name of grad(J)&gt;, //if needed
+   lb= //Lower bounds array
+   ub= //Upper bounds array
+   ... //Some optional arguments:
+   //Constraints functions names,
+   //Stopping criteria,
+   //Algorithm specific parameters,
+   //Etc...
+);
+</pre></div>
+</div>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span>XXXXXX</code> refers to the algorithm tag (not necessarily 6 characters long).
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>u</code> is the starting position (a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> type array) which will be overwritten by the algorithm, the value at the end being the found <span class="math notranslate nohighlight">\(argmin\)</span>.
+And as usual, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>J</code> is a function taking a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> type array as argument and returning a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>.
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>grad</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>lb</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ub</code> are “half-optional” arguments, in the sense that they are obligatory for some routines but not all.</p>
+<p>The possible optionally named parameters are the following, note that they are not used by all algorithms (some do not support constraints, or a type of constraints, some are gradient-based and others are derivative free, etc…).
+One can refer to the table after the parameters description to check which are the named parameters supported by a specific algorithm.
+Using an unsupported parameter will not stop the compiler work, seldom breaks runtime, and will just be ignored.
+When it is obvious you are missing a routine, you will get a warning message at runtime (for example if you pass a gradient to a derivative free algorithm, or set the population of a non-genetic one, etc…).
+In the following description, <span class="math notranslate nohighlight">\(n\)</span> stands for the dimension of the search space.</p>
+<p><strong>Half-optional parameters :</strong></p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>grad=</code> The name of the function which computes the gradient of the cost function (prototype should be <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>, both argument and result should have the size <span class="math notranslate nohighlight">\(n\)</span>).
+This is needed as soon as a gradient-based method is involved, which is ignored if defined in a derivative free context.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>lb</code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span>ub</code> = Lower and upper bounds arrays ( <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> type) of size <span class="math notranslate nohighlight">\(n\)</span>.
+Used to define the bounds within which the search variable is allowed to move.
+Needed for some algorithms, optional, or unsupported for others.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>subOpt</code> : Only enabled for the Augmented Lagrangian and MLSL methods who need a sub-optimizer in order to work.
+Just pass the tag of the desired local algorithm with a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>.</li>
+</ul>
+<p><strong>Constraints related parameters (optional - unused if not specified):</strong></p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>IConst</code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span>EConst</code> : Allows to pass the name of a function implementing some inequality (resp. equality) constraints on the search space.
+The function type must be <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> where the size of the returned array is equal to the number of constraints (of the same type - it means that all of the constraints are computed in one vectorial function).
+In order to mix inequality and equality constraints in a same minimization attempt, two vectorial functions have to be defined and passed.
+See example <a class="reference internal" href="#equation-varineqex">(29)</a> for more details about how these constraints have to be implemented.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>gradIConst</code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span>gradEConst</code> : Use to provide the inequality (resp. equality) constraints gradient.
+These are <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int,int]</code> type functions.
+Assuming we have defined a constraint function (either inequality or equality) with <span class="math notranslate nohighlight">\(p\)</span> constraints, the size of the matrix returned by its associated gradient must be <span class="math notranslate nohighlight">\(p\times n\)</span> (the <span class="math notranslate nohighlight">\(i\)</span>-th line of the matrix is the gradient of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint).
+It is needed in a gradient-based context as soon as an inequality or equality constraint function is passed to the optimizer and ignored in all other cases.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tolIConst</code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span>tolEConst</code> : Tolerance values for each constraint.
+This is an array of size equal to the number of inequality (resp. equality) constraints.
+Default value is set to <span class="math notranslate nohighlight">\(10^{-12}\)</span> for each constraint of any type.</li>
+</ul>
+<p><strong>Stopping criteria :</strong></p>
+<ul>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopFuncValue</code> : Makes the algorithm end when the objective function reaches this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopRelXTol</code> : Stops the algorithm when the relative moves in each direction of the search space is smaller than this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopAbsXTol</code> : Stops the algorithm when the moves in each direction of the search space is smaller than the corresponding value in this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code> array.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopRelFTol</code> : Stops the algorithm when the relative variation of the objective function is smaller than this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopAbsFTol</code> : Stops the algorithm when the variation of the objective function is smaller than this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopMaxFEval</code> : Stops the algorithm when the number of fitness evaluations reaches this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>integer</code> value.</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stopTime</code> : Stops the algorithm when the optimization time in seconds exceeds this <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> value.
+This is not a strict maximum: the time may exceed it slightly, depending upon the algorithm and on how slow your function evaluation is.</p>
+<p>Note that when an AUGLAG or MLSL method is used, the meta-algorithm and the sub-algorithm may have different termination criteria.
+Thus, for algorithms of this kind, the following named parameters has been defined (just adding the SO prefix - for Sub-Optimizer) to set the ending condition of the sub-algorithm (the meta one uses the ones above): <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SOStopFuncValue</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SOStopRelXTol</code>, and so on… If these are not used, the sub-optimizer will use those of the master routine.</p>
+</li>
+</ul>
+<p><strong>Other named parameters :</strong></p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>popSize</code> : <code class="code freefem docutils literal highlight highlight-freefem"><span></span>integer</code> used to change the size of the sample for stochastic search methods.
+Default value is a peculiar heuristic to the chosen algorithm.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>SOPopSize</code> : Same as above, but when the stochastic search is passed to a meta-algorithm.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nGradStored</code> : The number (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>integer</code> type) of gradients to “remember” from previous optimization steps: increasing this increases the memory requirements but may speed convergence.
+It is set to a heuristic value by default.
+If used with AUGLAG or MLSL, it will only affect the given subsidiary algorithm.</li>
+</ul>
+<p>The following table sums up the main characteristics of each algorithm, providing the more important information about which features are supported by which algorithm and what are the unavoidable arguments they need.
+More details can be found in <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>.</p>
+<div class="figure">
+<img alt="../_images/nlopttab.png" src="../_images/nlopttab.png" />
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Variational inequality</p>
+<p>Let <span class="math notranslate nohighlight">\(\Omega\)</span> be a domain of <span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span>, <span class="math notranslate nohighlight">\(f_{1}, f_{2}\in L^{2}(\Omega)\)</span> and <span class="math notranslate nohighlight">\(g_{1}, g_{2} \in L^{2}(\partial\Omega)\)</span> four given functions with <span class="math notranslate nohighlight">\(g_{1}\leq g_{2}\)</span> almost everywhere.</p>
+<p>We define the space:</p>
+<div class="math notranslate nohighlight">
+\[V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace\]</div>
+<p>as well as the function <span class="math notranslate nohighlight">\(J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-varineqex">
+<span class="eqno">(29)<a class="headerlink" href="#equation-varineqex" title="Permalink to this equation">¶</a></span>\[J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}\]</div>
+<p>The problem consists in finding (numerically) two functions <span class="math notranslate nohighlight">\((u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})\)</span>.</p>
+<p>This can be interpreted as finding <span class="math notranslate nohighlight">\(u_{1}, u_{2}\)</span> as close as possible (in a certain sense) to the solutions of the Laplace equation with respectively <span class="math notranslate nohighlight">\(f_{1}, f_{2}\)</span> second members and <span class="math notranslate nohighlight">\(g_{1}, g_{2}\)</span> Dirichlet boundary conditions with the <span class="math notranslate nohighlight">\(u_{1}\leq u_{2}\)</span> almost everywhere constraint.</p>
+<p>Here is the corresponding script to treat this variational inequality problem with one of the NLOpt algorithms.</p>
+<div class="last highlight-freefem notranslate"><div class="highlight"><pre><span></span>//A brief script to demonstrate how to use the freefemm interfaced nlopt routines
+//The problem consist in solving a simple variational inequality using one of the
+//optimization algorithm of nlopt. We restart the algorithlm a few times after
+//performing some mesh adaptation to get a more precise output
+
+load &quot;ff-NLopt&quot;
+
+// Parameters
+int kas = 3; //choose of the algorithm
+int NN = 10;
+func f1 = 1.;
+func f2 = -1.;
+func g1 = 0.;
+func g2 = 0.1;
+int iter = 0;
+int nadapt = 2;
+real starttol = 1e-6;
+real bctol = 6.e-12;
+
+// Mesh
+mesh Th = square(NN, NN);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh oldu1, oldu2;
+
+// Adaptation loop
+for (int al = 0; al &lt; nadapt; ++al){
+   varf BVF (v, w) = int2d(Th)(0.5*dx(v)*dx(w) + 0.5*dy(v)*dy(w));
+   varf LVF1 (v, w) = int2d(Th)(f1*w);
+   varf LVF2 (v, w) = int2d(Th)(f2*w);
+   matrix A = BVF(Vh, Vh);
+   real[int] b1 = LVF1(0, Vh), b2 = LVF2(0, Vh);
+
+   varf Vbord (v, w) = on(1, 2, 3, 4, v=1);
+
+   Vh In, Bord;
+   Bord[] = Vbord(0, Vh, tgv=1);
+   In[] = Bord[] ? 0:1;
+   Vh gh1 = Bord*g1, gh2 = Bord*g2;
+
+   func real J (real[int] &amp;X){
+      Vh u1, u2;
+      u1[] = X(0:Vh.ndof-1);
+      u2[] = X(Vh.ndof:2*Vh.ndof-1);
+      iter++;
+      real[int] Au1 = A*u1[], Au2 = A*u2[];
+      Au1 -= b1;
+      Au2 -= b2;
+      real val = u1[]&#39;*Au1 + u2[]&#39;*Au2;
+      if (iter%10 == 9)
+         plot(u1, u2, nbiso=30, fill=1, dim=3, cmm=&quot;adapt level &quot;+al+&quot; - iteration &quot;+iter+&quot; - J = &quot;+val, value=1);
+      return val;
+   }
+
+   varf dBFV (v, w) = int2d(Th)(dx(v)*dx(w)+dy(v)*dy(w));
+   matrix dA = dBFV(Vh, Vh);
+   func real[int] dJ (real[int] &amp;X){
+      Vh u1, u2;
+      u1[] = X(0:Vh.ndof-1);
+      u2[] = X(Vh.ndof:2*Vh.ndof-1);
+
+      real[int] grad1 = dA*u1[], grad2 = dA*u2[];
+      grad1 -= b1;
+      grad2 -= b2;
+      real[int] Grad(X.n);
+      Grad(0:Vh.ndof-1) = grad1;
+      Grad(Vh.ndof:2*Vh.ndof-1) = grad2;
+      return Grad;
+   }
+
+   func real[int] IneqC (real[int] &amp;X){
+      real[int] constraints(Vh.ndof);
+      for (int i = 0; i &lt; Vh.ndof; ++i) constraints[i] = X[i] - X[i+Vh.ndof];
+      return constraints;
+   }
+
+   func real[int,int] dIneqC (real[int] &amp;X){
+      real[int, int] dconst(Vh.ndof, 2*Vh.ndof);
+      dconst = 0;
+      for(int i = 0; i &lt; Vh.ndof; ++i){
+         dconst(i, i) = 1.;
+         dconst(i, i+Vh.ndof) = -1.;
+      }
+      return dconst;
+   }
+
+   real[int] BordIndex(Th.nbe); //Indexes of border d.f.
+   {
+      int k = 0;
+      for (int i = 0; i &lt; Bord.n; ++i) if (Bord[][i]){ BordIndex[k] = i; ++k; }
+   }
+
+   func real[int] BC (real[int] &amp;X){
+      real[int] bc(2*Th.nbe);
+      for (int i = 0; i &lt; Th.nbe; ++i){
+         int I = BordIndex[i];
+         bc[i] = X[I] - gh1[][I];
+         bc[i+Th.nbe] = X[I+Th.nv] - gh2[][I];
+      }
+      return bc;
+   }
+
+   func real[int, int] dBC(real[int] &amp;X){
+      real[int, int] dbc(2*Th.nbe,2*Th.nv);
+      dbc = 0.;
+      for (int i = 0; i &lt; Th.nbe; ++i){
+         int I = BordIndex[i];
+         dbc(i, I) = 1.;
+         dbc(i+Th.nbe, I+Th.nv) = 1.;
+      }
+      return dbc;
+   }
+
+   real[int] start(2*Vh.ndof), up(2*Vh.ndof), lo(2*Vh.ndof);
+
+   if (al == 0){
+      start(0:Vh.ndof-1) = 0.;
+      start(Vh.ndof:2*Vh.ndof-1) = 0.01;
+   }
+   else{
+      start(0:Vh.ndof-1) = oldu1[];
+      start(Vh.ndof:2*Vh.ndof-1) = oldu2[];
+   }
+
+   up = 1000000;
+   lo = -1000000;
+   for (int i = 0; i &lt; Vh.ndof; ++i){
+      if (Bord[][i]){
+         up[i] = gh1[][i] + bctol;
+         lo[i] = gh1[][i] - bctol;
+         up[i+Vh.ndof] = gh2[][i] + bctol;
+         lo[i+Vh.ndof] = gh2[][i] - bctol;
+      }
+   }
+
+   real mini = 1e100;
+   if (kas == 1)
+      mini = nloptAUGLAG(J, start, grad=dJ, lb=lo,
+         ub=up, IConst=IneqC, gradIConst=dIneqC,
+         subOpt=&quot;LBFGS&quot;, stopMaxFEval=10000, stopAbsFTol=starttol);
+   else if (kas == 2)
+      mini = nloptMMA(J, start, grad=dJ, lb=lo, ub=up, stopMaxFEval=10000, stopAbsFTol=starttol);
+   else if (kas == 3)
+      mini = nloptAUGLAG(J, start, grad=dJ, IConst=IneqC,
+         gradIConst=dIneqC, EConst=BC, gradEConst=dBC,
+         subOpt=&quot;LBFGS&quot;, stopMaxFEval=200, stopRelXTol=1e-2);
+   else if (kas == 4)
+      mini = nloptSLSQP(J, start, grad=dJ, IConst=IneqC,
+         gradIConst=dIneqC, EConst=BC, gradEConst=dBC,
+         stopMaxFEval=10000, stopAbsFTol=starttol);
+   Vh best1, best2;
+   best1[] = start(0:Vh.ndof-1);
+   best2[] = start(Vh.ndof:2*Vh.ndof-1);
+
+   Th = adaptmesh(Th, best1, best2);
+   oldu1 = best1;
+   oldu2 = best2;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="optimization-with-mpi">
+<h2>Optimization with MPI<a class="headerlink" href="#optimization-with-mpi" title="Permalink to this headline">¶</a></h2>
+<p>The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm).
+Somehow, we provide a parallel version of the CMA-ES algorithm.
+The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated <span class="math notranslate nohighlight">\(N\)</span> times without any dependence at all, these <span class="math notranslate nohighlight">\(N\)</span> calculus are then equally distributed to each process.
+Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the <a class="reference external" href="/examples/#cmaes-mpi-variational-inequality">CMAES MPI variational inequality example</a>):</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;mpi-cmaes&quot;
+... // Define J, u and all here
+real min = cmaesMPI(J, u, stopTolFun=1e-6, stopMaxIter=3000);
+cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
+</pre></div>
+</div>
+<p>If the population size is not changed using the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>popsize</code> parameter, it will use the heuristic value slightly changed to be equal to the closest greatest multiple of the size of the communicator used by the optimizer.
+The <strong>FreeFem++</strong> <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mpicommworld</code> is used by default.
+The user can specify his own MPI communicator with the named parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span>comm=</code>, see the MPI section of this manual for more information about communicators in <strong>FreeFem++</strong>.</p>
+<table class="docutils citation" frame="void" id="pironneau1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[PIRONNEAU1998]</a></td><td>PIRONNEAU, Olivier et LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wachter2006" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[WÄCHTER2006]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>, <a class="fn-backref" href="#id8">3</a>, <a class="fn-backref" href="#id9">4</a>)</em> WÄCHTER, Andreas et BIEGLER, Lorenz T. On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 2006, vol.&nbsp;106, no 1, p.&nbsp;25-57.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="forsgren2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[FORSGREN2002]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id5">2</a>, <a class="fn-backref" href="#id6">3</a>, <a class="fn-backref" href="#id7">4</a>)</em> FORSGREN, Anders, GILL, Philip E., et WRIGHT, Margaret H. Interior methods for nonlinear optimization. SIAM review, 2002, vol.&nbsp;44, no 4, p.&nbsp;525-597.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Algorithms &amp; Optimization</a><ul>
+<li><a class="reference internal" href="#conjugate-gradient-gmres">Conjugate Gradient/GMRES</a></li>
+<li><a class="reference internal" href="#algorithms-for-unconstrained-optimization">Algorithms for Unconstrained Optimization</a><ul>
+<li><a class="reference internal" href="#example-of-usage-for-bfgs-or-cmaes">Example of usage for BFGS or CMAES</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ipopt">IPOPT</a><ul>
+<li><a class="reference internal" href="#short-description-of-the-algorithm">Short description of the algorithm</a></li>
+<li><a class="reference internal" href="#ipopt-in-freefem">IPOPT in <strong>FreeFem++</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#some-short-examples-using-ipopt">Some short examples using IPOPT</a></li>
+<li><a class="reference internal" href="#d-constrained-minimum-surface-with-ipopt">3D constrained minimum surface with IPOPT</a><ul>
+<li><a class="reference internal" href="#area-and-volume-expressions">Area and volume expressions</a></li>
+<li><a class="reference internal" href="#derivatives">Derivatives</a></li>
+<li><a class="reference internal" href="#the-problem-and-its-script">The problem and its script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-nlopt-optimizers">The nlOpt optimizers</a></li>
+<li><a class="reference internal" href="#optimization-with-mpi">Optimization with MPI</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="visualization.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Visualization</div>
+         </div>
+     </a>
+     <a id="button-next" href="parallelization.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Parallelization</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

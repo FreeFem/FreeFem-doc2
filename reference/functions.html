@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Functions &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/reference/functions.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="External libraries" href="externalLibraries.html" />
+    <link rel="prev" title="I/O" href="IO.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Language references</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Functions</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/reference/functions.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abs">
+<h2>abs<a class="headerlink" href="#abs" title="Permalink to this headline">¶</a></h2>
+<p>Return the absolute value.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = abs(b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="acos">
+<h2>acos<a class="headerlink" href="#acos" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\arccos\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = acos(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id1">
+<img alt="arccos function" src="../_images/arccos.svg" /><p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">arccos function</span></p>
+</div>
+</div>
+<div class="section" id="acosh">
+<h2>acosh<a class="headerlink" href="#acosh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator\arccosh{arccosh}\)</span> <span class="math notranslate nohighlight">\(\arccosh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = acosh(x);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\arccosh(x) = \ln\left(x + \sqrt{x^2-1}\right)\]</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="arccosh function" src="../_images/arccosh.svg" /><p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">arccosh function</span></p>
+</div>
+</div>
+<div class="section" id="adaptmesh">
+<h2>adaptmesh<a class="headerlink" href="#adaptmesh" title="Permalink to this headline">¶</a></h2>
+<p>Mesh adaptation function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Thnew = adaptmesh(Th, [fx, fy], hmin=HMin, hmax=HMax, err=Err, errg=ErrG, nbvx=NbVx, nbsmooth=NbSmooth, nbjacoby=NbJacoby, ratio=Ratio, omega=Omega, iso=Iso, abserror=AbsError, cutoff=CutOff, verbosity=Verbosity, inquire=Inquire, splitpbedge=SplitPbEdge, maxsubdiv=MaxSubdiv, rescaling=Rescaling, keepbackvertices=KeepBackVertices, IsMetric=isMetric, power=Power, thetamax=ThetaMax, splitin2=SplitIn2, metric=Metric, nomeshgeneration=NoMeshGeneration, periodic=Periodic);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Mesh to refine</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>[fx, fy]</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function), scalar or vectorial Function to follow for the mesh adaptation</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>hmin=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Minimum edge size</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>hmax=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Maximum edge size</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>err=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Error level (P1 interpolation)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>errg=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Relative geometrical error</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbvx=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Maximum number of vertices</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbsmooth=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of smoothing iterations</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbjacoby=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of iterations for the smoothing procedure</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>ratio=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Ratio of the triangles</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>omega=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Relaxation parameter for the smoothing procedure</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>iso=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) Isotropic adaptation (if true)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>abserror=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) Error (if true) - Relative error (if false)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>cutoff=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Lower limit of the relative error evaluation</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>verbosity=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Verbosity level</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>inquire=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, inquire graphically</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>splitpbedge=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, split all internal edges in half</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>maxsubdiv=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Bound the maximum subdivisions</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>rescaling=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) Rescale the function in [0, 1]</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>keepbackvertices=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, try to keep vertices of the original mesh</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>IsMetric=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, the metric is defined explicitly</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>power=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Exponent of the Hessian</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>thetamax=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Minimum corner angle (in degree)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>splitin2=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) Split all triangles into 4 sub-triangles if true</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>metric=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>[real[int], real[int], real[int]]</code>) Array of 3 real arrays defining the metric</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nomeshgeneration=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, the mesh is not generated</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>periodic=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int, int]</code>) Build an adapted periodic mesh</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Thnew</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
+</ul>
+</div>
+<div class="section" id="adj">
+<h2>adj<a class="headerlink" href="#adj" title="Permalink to this headline">¶</a></h2>
+<p>Adjacent triangle of the triangle <span class="math notranslate nohighlight">\(k\)</span> by the edge <span class="math notranslate nohighlight">\(e\)</span></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int T = Th[k].adj(e);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>e</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Edge number</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>T</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Triangle number</li>
+</ul>
+</div>
+<div class="section" id="affinecg">
+<span id="functionaffinecg"></span><h2>AffineCG<a class="headerlink" href="#affinecg" title="Permalink to this headline">¶</a></h2>
+<p>Affine conjugate gradient solver</p>
+<p>Used to solve a problem like <span class="math notranslate nohighlight">\(Ax=b\)</span></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int Conv = AffineCG(A, x, precon=Precon, nbiter=NbIter, eps=Eps, veps=VEps, stop=Stop);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>A</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code>) Matrix of the problem <span class="math notranslate nohighlight">\(Ax=b\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) Solution vector</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>precon=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) Preconditionning function</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbiter=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Maximum number of iterations</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>eps=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</p>
+<p>Convergence criterion</p>
+<p>If <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>: test <span class="math notranslate nohighlight">\(||A(x)||_p \leq \epsilon||A(x_0)||_p\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(\varepsilon&lt;0\)</span>: test <span class="math notranslate nohighlight">\(||A(x)||_p^2 \leq |\epsilon|\)</span></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>veps=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Same as <code class="docutils literal highlight highlight-freefem"><span></span>eps</code>, but return <code class="docutils literal highlight highlight-freefem"><span></span>-eps</code></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>stop=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>) Convergence criterion as a function</p>
+<p>Prototype is <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func bool StopFunc (int Iter, real[int] U, real[int] g)</code></p>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>u</code>: current solution, <code class="docutils literal highlight highlight-freefem"><span></span>g</code>: current gradient (not preconditionned)</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Conv (int) 0: converged - !0: not converged</li>
+</ul>
+</div>
+<div class="section" id="affinegmres">
+<h2>AffineGMRES<a class="headerlink" href="#affinegmres" title="Permalink to this headline">¶</a></h2>
+<p>Affine GMRES solver</p>
+<p>Parameters and output are the same as <a class="reference internal" href="#functionaffinecg"><span class="std std-ref">AffineCG</span></a></p>
+</div>
+<div class="section" id="arg">
+<h2>arg<a class="headerlink" href="#arg" title="Permalink to this headline">¶</a></h2>
+<p>Return the argument of a complex number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = arg(c);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="asin">
+<h2>asin<a class="headerlink" href="#asin" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\arcsin\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = asin(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="arcsin function" src="../_images/arcsin.svg" /><p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">arcsin function</span></p>
+</div>
+</div>
+<div class="section" id="asinh">
+<h2>asinh<a class="headerlink" href="#asinh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator\arcsinh{arcsinh}\)</span> <span class="math notranslate nohighlight">\(\arcsinh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = asinh(x);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\arcsinh(x) = \ln\left(x + \sqrt{x^2+1}\right)\]</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id4">
+<img alt="arcsinh function" src="../_images/arcsinh.svg" /><p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">arcsinh function</span></p>
+</div>
+</div>
+<div class="section" id="assert">
+<h2>assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h2>
+<p>Verify if a condition is true (same as C), if not the program stops.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>assert(x==0)
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li>Boolean condition</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="atan">
+<h2>atan<a class="headerlink" href="#atan" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\arctan\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = atan(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id5">
+<img alt="arctan function" src="../_images/arctan.svg" /><p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">arctan function</span></p>
+</div>
+</div>
+<div class="section" id="atan2">
+<h2>atan2<a class="headerlink" href="#atan2" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\displaystyle{\arctan\left(\frac{y}{x}\right)}\)</span> function, returning the correct sign for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = atan2(y, x)
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="atanh">
+<h2>atanh<a class="headerlink" href="#atanh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator\arctanh{arctanh}\)</span> <span class="math notranslate nohighlight">\(\arctanh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real theta = atanh(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id6">
+<img alt="arctanh function" src="../_images/arctanh.svg" /><p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">arctanh function</span></p>
+</div>
+</div>
+<div class="section" id="atoi">
+<h2>atoi<a class="headerlink" href="#atoi" title="Permalink to this headline">¶</a></h2>
+<p>Convert a string to an interger.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int a = atoi(s);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>s</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="atof">
+<h2>atof<a class="headerlink" href="#atof" title="Permalink to this headline">¶</a></h2>
+<p>Convert a string to a real.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = atof(s);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>s</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="bfgs">
+<h2>BFGS<a class="headerlink" href="#bfgs" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">todo</p>
+</div>
+</div>
+<div class="section" id="buildmesh">
+<h2>buildmesh<a class="headerlink" href="#buildmesh" title="Permalink to this headline">¶</a></h2>
+<p>Build a 2D mesh using border elements.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = buildmesh(b1(nn) + b2(nn) + b3(nn) + b4(nn), [nbvx=Nbvx], [fixedborder=FixedBorder]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>b1</code>, <code class="docutils literal highlight highlight-freefem"><span></span>b2</code>, <code class="docutils literal highlight highlight-freefem"><span></span>b3</code>, <code class="docutils literal highlight highlight-freefem"><span></span>b4</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>border</code>)</p>
+<p>Geometry border, <code class="docutils literal highlight highlight-freefem"><span></span>b1(nn)</code> means <code class="docutils literal highlight highlight-freefem"><span></span>b1</code> border discretized by <code class="docutils literal highlight highlight-freefem"><span></span>nn</code> vertices</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbvx=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Maximum number of vertices Default: 9000</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fixedborder=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) <em>[Optional]</em></p>
+<p>If true, mesh generator cannot change the boundary mesh</p>
+<p>Default: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>false</code></p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Resulting mesh</li>
+</ul>
+</div>
+<div class="section" id="ceil">
+<h2>ceil<a class="headerlink" href="#ceil" title="Permalink to this headline">¶</a></h2>
+<p>Round fractions up of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int c = ceil(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="change">
+<h2>change<a class="headerlink" href="#change" title="Permalink to this headline">¶</a></h2>
+<p>Change a property of a mesh.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int[int] L = [0, 1];
+Thnew = change(Th, label=L);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Original mesh</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>label=</code> L (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) Pair of old and new label</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>region=</code> R (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) Pair of old and new region</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>flabel=</code> l (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func int</code>) Function of int given the new label</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fregion=</code> r (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func int</code>) Function of int given the new region</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Thnew</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Mesh with changed
+parameters</li>
+</ul>
+</div>
+<div class="section" id="chi">
+<h2>chi<a class="headerlink" href="#chi" title="Permalink to this headline">¶</a></h2>
+<p>Characteristic function of a mesh.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int IsInMesh = chi(Th)(x, y);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Position <span class="math notranslate nohighlight">\(x\)</span></li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>y</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Position <span class="math notranslate nohighlight">\(y\)</span></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>IsInMesh</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) 1 if <span class="math notranslate nohighlight">\((x,y)\in\)</span> <code class="docutils literal highlight highlight-freefem"><span></span>Th</code> 0 if
+<span class="math notranslate nohighlight">\((x,y)\not\in\)</span> <code class="docutils literal highlight highlight-freefem"><span></span>Th</code></li>
+</ul>
+</div>
+<div class="section" id="checkmovemesh">
+<h2>checkmovemesh<a class="headerlink" href="#checkmovemesh" title="Permalink to this headline">¶</a></h2>
+<p>Check a <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a> without mesh generation.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real minT = checkmovemesh(Th, [Dx, Dy]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<p>Same as <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a></p>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>minT</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Minimum triangle area</li>
+</ul>
+</div>
+<div class="section" id="clock">
+<h2>clock<a class="headerlink" href="#clock" title="Permalink to this headline">¶</a></h2>
+<p>Get the clock in second.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real t = clock();
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>t</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Current CPU time</li>
+</ul>
+</div>
+<div class="section" id="complexeigenvalue">
+<h2>complexEigenValue<a class="headerlink" href="#complexeigenvalue" title="Permalink to this headline">¶</a></h2>
+<p>Same as <a class="reference internal" href="#functioneigenvalue"><span class="std std-ref">EigenValue</span></a> for complex problems.</p>
+</div>
+<div class="section" id="conj">
+<h2>conj<a class="headerlink" href="#conj" title="Permalink to this headline">¶</a></h2>
+<p>Caculate the conjuguate of a complex number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>complex C1 = 1 + 1i;
+complex C2 = conj(C1);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>C1</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>) Complex number</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>C2</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>) Conjuguate of C1</li>
+</ul>
+</div>
+<div class="section" id="convect">
+<h2>convect<a class="headerlink" href="#convect" title="Permalink to this headline">¶</a></h2>
+<p>Characteristics Galerkin method.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real cgm = convect([Ux, Uy], dt, c);
+real cgm = convect([Ux, Uy, Uz], dt, c);
+</pre></div>
+</div>
+<p>Compute <span class="math notranslate nohighlight">\(c\circ \mathbf{X}\)</span> with <span class="math notranslate nohighlight">\(\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}_{\tau}\)</span> is the solution of:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dot{\mathbf{x}}_{\tau} &amp;=&amp; \mathbf{u}(\mathbf{x}_{\tau})\\
+\mathbf{x}_{\tau} &amp;=&amp; \mathbf{x}\end{split}\]</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>ux</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Velocity: <span class="math notranslate nohighlight">\(x\)</span> component</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>uy</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Velocity: <span class="math notranslate nohighlight">\(y\)</span> component</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>uz</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) <strong>3D only</strong></p>
+<p>Velocity: <span class="math notranslate nohighlight">\(z\)</span> component</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>dt</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Time step</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Function to convect</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>cgm</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Result</li>
+</ul>
+</div>
+<div class="section" id="copysign">
+<h2>copysign<a class="headerlink" href="#copysign" title="Permalink to this headline">¶</a></h2>
+<p>C++ :cpp`copysign` function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real s = copysign(a, b);
+</pre></div>
+</div>
+</div>
+<div class="section" id="cos">
+<h2>cos<a class="headerlink" href="#cos" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\cos\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = cos(theta);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<div class="figure" id="id7">
+<img alt="cos function" src="../_images/cos.svg" /><p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">cos function</span></p>
+</div>
+</div>
+<div class="section" id="cosh">
+<h2>cosh<a class="headerlink" href="#cosh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\cosh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = cosh(theta);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\cosh(x) = \frac{e^x + e^{-x}}{2}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="diffnp">
+<h2>diffnp<a class="headerlink" href="#diffnp" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>diffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? (b-a) : 0;
+</pre></div>
+</div>
+</div>
+<div class="section" id="diffpos">
+<h2>diffpos<a class="headerlink" href="#diffpos" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>diffpos(a, b) = max(b-a, 0);
+</pre></div>
+</div>
+</div>
+<div class="section" id="dist">
+<h2>dist<a class="headerlink" href="#dist" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>dist(a, b) = sqrt(a^2 + b^2);
+dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
+</pre></div>
+</div>
+</div>
+<div class="section" id="dumptable">
+<h2>dumptable<a class="headerlink" href="#dumptable" title="Permalink to this headline">¶</a></h2>
+<p>Show all types, operators and functions in <strong>FreeFem++</strong>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>dumptable(out);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>out</code> (<code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ostream</span></code>) <code class="code freefem docutils literal highlight highlight-freefem"><span></span>cout</code> of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>ofstream</code> file.</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="dx">
+<h2>dx<a class="headerlink" href="#dx" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(x\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh up = dx(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial x}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>up</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dxx">
+<h2>dxx<a class="headerlink" href="#dxx" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(x\)</span> double derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dxx(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial x^2}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dxy">
+<h2>dxy<a class="headerlink" href="#dxy" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(xy\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dxy(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial x\partial y}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dxz">
+<h2>dxz<a class="headerlink" href="#dxz" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(xz\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dxz(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial x\partial z}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dy">
+<h2>dy<a class="headerlink" href="#dy" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(y\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh up = dy(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial y}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dyx">
+<h2>dyx<a class="headerlink" href="#dyx" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(yx\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dyx(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial y\partial x}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dyy">
+<h2>dyy<a class="headerlink" href="#dyy" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(y\)</span> double derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dyy(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial x^2}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dyz">
+<h2>dyz<a class="headerlink" href="#dyz" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(yz\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dyz(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial y\partial z}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dz">
+<h2>dz<a class="headerlink" href="#dz" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(z\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh up = dz(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial z}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dzx">
+<h2>dzx<a class="headerlink" href="#dzx" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(zx\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dzx(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial z\partial x}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dzy">
+<h2>dzy<a class="headerlink" href="#dzy" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(zy\)</span> derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dzy(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial z\partial y}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="dzz">
+<h2>dzz<a class="headerlink" href="#dzz" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(z\)</span> double derivative.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Uh upp = dzz(u);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 u}{\partial z^2}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>upp</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+</div>
+<div class="section" id="eigenvalue">
+<span id="functioneigenvalue"></span><h2>EigenValue<a class="headerlink" href="#eigenvalue" title="Permalink to this headline">¶</a></h2>
+<p>Compute the generalized eigenvalue of <span class="math notranslate nohighlight">\(Au=\lambda Bu\)</span>.
+The shifted-inverse method is used by default with <code class="code freefem docutils literal highlight highlight-freefem"><span></span>sigma=</code><span class="math notranslate nohighlight">\(\sigma\)</span>, the shift of the method.
+The function <code class="code freefem docutils literal highlight highlight-freefem"><span></span>EigenValue</code> can be used for either matrices or functions returning a matrix vector product.
+The use of the matrix version is shown below.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int k = EigenValue(A,B,nev= , sigma= );
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>A</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>B</code>: matrices of same size</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nev=n</code>: number of desired eigenvalues given by an integer <code class="docutils literal highlight highlight-freefem"><span></span>n</code></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>sym=</code>: the problem is symmetric or not</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>tol=</code>: the relative accuracy to which eigenvalues are to be determined</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>value=</code>: an array to store the real part of the eigenvalues</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>ivalue=</code>: an array to store the imaginary part of the eigenvalues</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>vector=</code>: a Finite Element function array to store the eigenvectors</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>sigma=</code>: the shift value</li>
+<li>Other parameters are available for more advanced use: see the ARPACK documentation.</li>
+</ul>
+<p>Output: The output is the number of converged eigenvalues, which can be different than the number of requested eigenvalues given by <code class="code freefem docutils literal highlight highlight-freefem"><span></span>nev=</code>.
+Note that the eigenvalues and the eigenvectors are stored for further purposes using the parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span>value=</code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span>vector=</code>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int Res = EigenValue()
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">todo</p>
+</div>
+</div>
+<div class="section" id="emptymesh">
+<h2>emptymesh<a class="headerlink" href="#emptymesh" title="Permalink to this headline">¶</a></h2>
+<p>Build an empty mesh.</p>
+<p>Useful to handle Lagrange multipliers in mixed and Mortar methods.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh eTh = emptymesh(Th, ssd);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Mesh to empty</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>ssd</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) Pseudo subregion label</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>eTh</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Empty mesh</li>
+</ul>
+</div>
+<div class="section" id="erf">
+<span id="functionerf"></span><h2>erf<a class="headerlink" href="#erf" title="Permalink to this headline">¶</a></h2>
+<p>The error function:</p>
+<div class="math notranslate nohighlight">
+\[erf(x) = \frac{2}{\sqrt{pi}}\int_{0}^{x}{\exp(-t^2)dt}\]</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real err = erf(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>err</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="erfc">
+<h2>erfc<a class="headerlink" href="#erfc" title="Permalink to this headline">¶</a></h2>
+<p>Complementary of the <a class="reference internal" href="#functionerf"><span class="std std-ref">error function</span></a>:</p>
+<div class="math notranslate nohighlight">
+\[erfc(x) = 1-erf(x)\]</div>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real errc = erfc(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>err</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="exec">
+<h2>exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
+<p>Execute an external command.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int v = exec(command);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>command</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Command to execute</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>v</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Value returned by the command</li>
+</ul>
+</div>
+<div class="section" id="exit">
+<h2>exit<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h2>
+<p>Exit function, equivalent to <code class="code freefem docutils literal highlight highlight-freefem"><span></span>return</code>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>exit(N);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>N</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Return value</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="exp">
+<h2>exp<a class="headerlink" href="#exp" title="Permalink to this headline">¶</a></h2>
+<p>Exponential function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = exp(b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+</div>
+<div class="section" id="fdim">
+<h2>fdim<a class="headerlink" href="#fdim" title="Permalink to this headline">¶</a></h2>
+<p>Positive difference (<code class="docutils literal highlight highlight-freefem"><span></span>cmath</code> function).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real fd = fdim(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>fd</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) If <span class="math notranslate nohighlight">\(x &gt; y\)</span>, return <span class="math notranslate nohighlight">\(x-y\)</span>If <span class="math notranslate nohighlight">\(x \leq y\)</span>, return <span class="math notranslate nohighlight">\(0\)</span></li>
+</ul>
+</div>
+<div class="section" id="floor">
+<h2>floor<a class="headerlink" href="#floor" title="Permalink to this headline">¶</a></h2>
+<p>Floor function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real a = floor(b);
+</pre></div>
+</div>
+<p>Return the largest integer value not greater than <code class="docutils literal highlight highlight-freefem"><span></span>b</code>.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="fmax">
+<h2>fmax<a class="headerlink" href="#fmax" title="Permalink to this headline">¶</a></h2>
+<p>Maximum (<code class="docutils literal highlight highlight-freefem"><span></span>cmath</code> function).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real Max = fmax(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Max</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="fmin">
+<h2>fmin<a class="headerlink" href="#fmin" title="Permalink to this headline">¶</a></h2>
+<p>Minimum (<code class="docutils literal highlight highlight-freefem"><span></span>cmath</code> function).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real Min = fmin(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Min</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="fmod">
+<h2>fmod<a class="headerlink" href="#fmod" title="Permalink to this headline">¶</a></h2>
+<p>Remainder of <span class="math notranslate nohighlight">\(a/b\)</span> (<code class="docutils literal highlight highlight-freefem"><span></span>cmath</code> function).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real Mod = fmod(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Min</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Mod</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="imag">
+<h2>imag<a class="headerlink" href="#imag" title="Permalink to this headline">¶</a></h2>
+<p>Imaginary part of a complex number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>complex c = 1. + 1i;
+real Im = imag(c);
+</pre></div>
+</div>
+</div>
+<div class="section" id="int1d">
+<h2>int1d<a class="headerlink" href="#int1d" title="Permalink to this headline">¶</a></h2>
+<p>1D integral.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int1d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+</div>
+<p>Used in <a class="reference internal" href="types.html#typeproblem"><span class="std std-ref">problem</span></a>, <a class="reference internal" href="types.html#typesolve"><span class="std std-ref">solve</span></a> or <a class="reference internal" href="types.html#typevarf"><span class="std std-ref">varf</span></a> definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.</p>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Mesh where the integral is calculated</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Label</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Label of the 1D border Default: all borders of the mesh</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfe=</code> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature formula, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint1d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>qforder=</code> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature order, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint1d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li><p class="first">Depending on the situation: In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition: Non relevant.</p>
+<p>Outside: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> (example: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real l = int1d(Th, 1)(1.);</code>).</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition, the content of <code class="docutils literal highlight highlight-freefem"><span></span>int1d</code> must be a linear or bilinear form.</p>
+</div>
+</div>
+<div class="section" id="int2d">
+<h2>int2d<a class="headerlink" href="#int2d" title="Permalink to this headline">¶</a></h2>
+<p>2D integral.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int2d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+</div>
+<p>Or</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int2d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+</div>
+<p>Used in <a class="reference internal" href="types.html#typeproblem"><span class="std std-ref">problem</span></a>, <a class="reference internal" href="types.html#typesolve"><span class="std std-ref">solve</span></a> or <a class="reference internal" href="types.html#typevarf"><span class="std std-ref">varf</span></a> definition to: - Calculate integral in 2D simulation - Impose a boundary condition in 3D simulation Or outside to calculate a quantity.</p>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Mesh where the integral is calculated</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Region</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em> Label of the 2D region (2D simulation) Default: all regions of the mesh</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Label</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em> Label of the 2D border (3D simulation) Default: all borders of the mesh</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>qfe=</code> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature formula, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint2d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+<li><p class="first"><em>:freefem:`qforder`=</em> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature order, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint2d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Depending on the situation: In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition: Non relevant. Outside: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> (example: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real s = int2d(Th, 1)(1.);</code>).</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition, the content of the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int2d</code> must be a linear or bilinear form.</p>
+</div>
+</div>
+<div class="section" id="int3d">
+<h2>int3d<a class="headerlink" href="#int3d" title="Permalink to this headline">¶</a></h2>
+<p>3D integral.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int3d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+</div>
+<p>Used in <a class="reference internal" href="types.html#typeproblem"><span class="std std-ref">problem</span></a>, <a class="reference internal" href="types.html#typesolve"><span class="std std-ref">solve</span></a> or <a class="reference internal" href="types.html#typevarf"><span class="std std-ref">varf</span></a> definition to calculate integral in 3D simulation, or outside to calculate a quantity.</p>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Mesh where the integral is calculated</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Region</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Label of the 3D region</p>
+<p>Default: all regions of the mesh</p>
+</li>
+<li><p class="first"><em>:freefem:`qfe`=</em> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature formula, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint3d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>qforder=</code> (<a class="reference internal" href="quadratureFormulae.html#quadratureformulae"><span class="std std-ref">quadrature formula</span></a>) <em>[Optional]</em></p>
+<p>Quadrature order, see <a class="reference internal" href="quadratureFormulae.html#quadratureformulaeint3d"><span class="std std-ref">quadrature formulae</span></a></p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Depending on the situation: In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition: Non relevant. Outside: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> (example: <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real v = int3d(Th, 1)(1.);</code>).</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In a <code class="code freefem docutils literal highlight highlight-freefem"><span></span>problem</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>solve</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>varf</code> definition, the content of the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int3d</code> must be a linear or bilinear form.</p>
+</div>
+</div>
+<div class="section" id="intalledges">
+<span id="functionintalledges"></span><h2>intalledges<a class="headerlink" href="#intalledges" title="Permalink to this headline">¶</a></h2>
+<p>Integral on all edges.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>intalledges(Th, [Region])(
+    ...
+)
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>) Mesh where the integral is calculated</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Region</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Label of the region</p>
+<p>Default: all regions of the mesh</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Non relevant</li>
+</ul>
+</div>
+<div class="section" id="intallfaces">
+<h2>intallfaces<a class="headerlink" href="#intallfaces" title="Permalink to this headline">¶</a></h2>
+<p>Intergal on all faces.</p>
+<p>Same as <a class="reference internal" href="#functionintalledges"><span class="std std-ref">intalledges</span></a> for <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>.</p>
+</div>
+<div class="section" id="interpolate">
+<h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
+<p>Interpolation operator from a finite element space to another.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix I = interpolate(Wh, Vh, [inside=Inside], [t=T], [op=Op], [U2Vc=U2VC]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Wh</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code>) Target finite element space</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Vh</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code>) Original finite element space</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>inside=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, create a zero extension outside the <code class="docutils literal highlight highlight-freefem"><span></span>Vh</code> domain</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>t=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, return the transposed matrix</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>op=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) 0: interpolate the function (default value) 1: interpolate <span class="math notranslate nohighlight">\(\partial_x\)</span> 2: interpolate <span class="math notranslate nohighlight">\(\partial_y\)</span> 3: interpolate <span class="math notranslate nohighlight">\(\partial_z\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>U2Vc=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) Array of the same size of <code class="docutils literal highlight highlight-freefem"><span></span>Wh</code> describing which component of <code class="docutils literal highlight highlight-freefem"><span></span>Vh</code>is interpolated in <code class="docutils literal highlight highlight-freefem"><span></span>Wh</code></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>I</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>matrix</code>) Interpolation matrix operator</li>
+</ul>
+</div>
+<div class="section" id="invdiff">
+<h2>invdiff<a class="headerlink" href="#invdiff" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>invdif(a, b) = (-abs(a-b) &gt; 10^(-30)) ? 1(/b-a) : 0
+invdif(a, b, e) = (-abs(a-b) &gt; e) ? 1(/b-a) : 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="invdiffnp">
+<h2>invdiffnp<a class="headerlink" href="#invdiffnp" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>invdiffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? 1/(b-a) : 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="invdiffpos">
+<h2>invdiffpos<a class="headerlink" href="#invdiffpos" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>invdiffpos(a, b) = (a&lt;b) ? 1./(b-a) : 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="isinf">
+<h2>isInf<a class="headerlink" href="#isinf" title="Permalink to this headline">¶</a></h2>
+<p>The C++ <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">isInf</span></code> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int i = isInf(a);
+</pre></div>
+</div>
+</div>
+<div class="section" id="isnan">
+<h2>isNaN<a class="headerlink" href="#isnan" title="Permalink to this headline">¶</a></h2>
+<p>The C++ <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">isNan</span></code> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int i = isNaN(a);
+</pre></div>
+</div>
+</div>
+<div class="section" id="j0">
+<h2>j0<a class="headerlink" href="#j0" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of first kind, order 0.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real b = j0(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="j1">
+<h2>j1<a class="headerlink" href="#j1" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of first kind, order 1.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real b = j1(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="jn">
+<h2>jn<a class="headerlink" href="#jn" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of first kind, order n.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real b = jn(n, x);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>n</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="jump">
+<h2>jump<a class="headerlink" href="#jump" title="Permalink to this headline">¶</a></h2>
+<p>Jump function across an edge.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>intalledges(
+    ... jump(c) ...
+)
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Discontinuous function</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Non relevant</li>
+</ul>
+</div>
+<div class="section" id="linearcg">
+<h2>LinearCG<a class="headerlink" href="#linearcg" title="Permalink to this headline">¶</a></h2>
+<p>Linear CG solver</p>
+<p>Parameters and output are the same as <a class="reference internal" href="#functionaffinecg"><span class="std std-ref">AffineCG</span></a></p>
+</div>
+<div class="section" id="lineargmres">
+<h2>LinearGMRES<a class="headerlink" href="#lineargmres" title="Permalink to this headline">¶</a></h2>
+<p>Linear GMRES solver</p>
+<p>Parameters and output are the same as <a class="reference internal" href="#functionaffinecg"><span class="std std-ref">AffineCG</span></a></p>
+</div>
+<div class="section" id="lgamma">
+<h2>lgamma<a class="headerlink" href="#lgamma" title="Permalink to this headline">¶</a></h2>
+<p>Natural logarithm of the absolute value of the <span class="math notranslate nohighlight">\(\Gamma\)</span> function of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real lg = lgamma(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>lg</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="log">
+<h2>log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h2>
+<p>Natural logarithm.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real l = log(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>l</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Complex value</p>
+<p>For complex value, the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>log</code> function is defined as:</p>
+<div class="last math notranslate nohighlight">
+\[\log(z) = \log(|z|) + i\arg(z)\]</div>
+</div>
+</div>
+<div class="section" id="log10">
+<h2>log10<a class="headerlink" href="#log10" title="Permalink to this headline">¶</a></h2>
+<p>Common logarithm.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real l = log10(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>l</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="lrint">
+<h2>lrint<a class="headerlink" href="#lrint" title="Permalink to this headline">¶</a></h2>
+<p>Integer value nearest to <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int l = lrint(a);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>l</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="lround">
+<h2>lround<a class="headerlink" href="#lround" title="Permalink to this headline">¶</a></h2>
+<p>Round a value, and return an integer value.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int l = lround(a);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>l</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="max">
+<h2>max<a class="headerlink" href="#max" title="Permalink to this headline">¶</a></h2>
+<p>Maximum value of two values.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real m = max(a, b);
+real m = max(a, b, c);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) <em>[Optional]</em></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="min">
+<h2>min<a class="headerlink" href="#min" title="Permalink to this headline">¶</a></h2>
+<p>Minimum value of two values.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real m = min(a, b);
+real m = min(a, b, c);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) <em>[Optional]</em></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="movemesh">
+<span id="functionmovemesh"></span><h2>movemesh<a class="headerlink" href="#movemesh" title="Permalink to this headline">¶</a></h2>
+<p>Move a mesh.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh MovedTh = movemesh(Th, [Dx, Dy]);
+mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [facemerge=FaceMerge], [ptmerge=PtMerge], [orientation=Orientation]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Mesh to move</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Dx</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Displacement along <span class="math notranslate nohighlight">\(x\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Dy</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Displacement along <span class="math notranslate nohighlight">\(y\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Dz</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) <strong>3D only</strong></p>
+<p>Displacement along <span class="math notranslate nohighlight">\(z\)</span></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>region=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em> <strong>3D only</strong></p>
+<p>Set label to tetrahedra</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>label=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) <em>[Optional]</em> <strong>3D only</strong></p>
+<p>Set label of faces (see <a class="reference external" href="#change">change</a> for more information)</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>facemerge=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em> <strong>3D only</strong></p>
+<p>If equal to 1, some faces can be merged during the mesh moving Default: 1</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>ptmerge=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) <em>[Optional]</em> <strong>3D only</strong></p>
+<p>Criteria to define when two points merge</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>orientation=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em> <strong>3D only</strong></p>
+<p>If equal to 1, allow orientation reverse if tetrahedra is not positive Default: 1</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>MovedTh</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Moved mesh</li>
+</ul>
+</div>
+<div class="section" id="nan">
+<h2>NaN<a class="headerlink" href="#nan" title="Permalink to this headline">¶</a></h2>
+<p>C++ <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">nan</span></code> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real n = NaN([String]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>String</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Default: <code class="docutils literal highlight highlight-freefem"><span></span>&quot;&quot;</code></li>
+</ul>
+</div>
+<div class="section" id="nlcg">
+<h2>NLCG<a class="headerlink" href="#nlcg" title="Permalink to this headline">¶</a></h2>
+<p>Non-linear conjugate gradient.</p>
+<p>Parameters and output are the same as <a class="reference internal" href="#functionaffinecg"><span class="std std-ref">AffineCG</span></a></p>
+</div>
+<div class="section" id="on">
+<h2>on<a class="headerlink" href="#on" title="Permalink to this headline">¶</a></h2>
+<p>Dirichlet condition function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>problem (u, v)
+    ...
+    + on(Label, u=uD)
+    ...
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Used only in problem, solve and varf</p>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Label</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>border</code> in 2D)</p>
+<p>Boundary reference where to impose the Dirichlet condition</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>uD</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</p>
+<p>Dirichlet condition (<code class="docutils literal highlight highlight-freefem"><span></span>u</code> is an unknown of the problem)</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>Non relevant</li>
+</ul>
+</div>
+<div class="section" id="plot">
+<span id="referenceplot"></span><h2>plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h2>
+<p>Plot meshes and results.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>plot([Th], [u], [[Ux, Uy, Uz]], [wait=Wait], [ps=PS], [coef=Coef], [fill=Fill], cmm=[Cmm], [value=Value], [aspectratio=AspectRatio], [bb=Bb], [nbiso=NbIso], [nbarrow=NbArrow], [viso=VIso], [varrow=VArrow], [bw=Bw], [grey=Grey], [hsv=Hsv], [boundary=Boundary], [dim=Dim], [prev=Prev], [WindowIndex=WI]);
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only one of <code class="docutils literal highlight highlight-freefem"><span></span>Th</code>, <code class="docutils literal highlight highlight-freefem"><span></span>u</code> or <code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy]</code> / <code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy, Uz]</code> is needed for the <code class="code freefem docutils literal highlight highlight-freefem"><span></span>plot</code> command.</p>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Mesh to display</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>u</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function) Scalar <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function to display</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy]</code> / <code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy, Uz]</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function array) Vectorial <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function to display</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy]</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>[real[int], real[int]]</code>) Couple a real array to display a curve</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>wait=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, wait before continue</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>ps=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Name of the file to save the plot (<code class="docutils literal highlight highlight-freefem"><span></span>.ps</code> or <code class="docutils literal highlight highlight-freefem"><span></span>.eps format</code>)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>coef=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Arrow size</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>fill=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, fill color between isovalue (usable with scalar <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function only)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>cmm=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Text comment in the graphic window</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>value=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, show the value scale</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>aspectratio=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, preserve the aspect ratio</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>bb=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>[real[int], real[int]]</code>) Specify a bounding box using two corner points</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbiso=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of isovalues</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>nbarrow=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of colors of arrows values</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>viso=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) Specify an array of isovalues</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>varrow=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) Specify an array of arrows values color</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>bw=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, the plot is in black and white</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>grey=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, the plot is in grey scale</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>hsv=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>) Array of <span class="math notranslate nohighlight">\(3\times n\)</span> values defining HSV color model <span class="math notranslate nohighlight">\([h_1, s_1, v_1, ..., h_n, s_n, v_n]\)</span></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>boundary=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, display the boundary of the domain</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>dim=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Set the dimension of the plot: 2 or 3</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>prev=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) Use the graphic state of the previous state</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>WindowIndex=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Specify window index for multiple windows graphics</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>See the <a class="reference external" href="/documentation/Visualization">visualization</a> chapter for in-graphic commands.</p>
+</div>
+<div class="section" id="polar">
+<h2>polar<a class="headerlink" href="#polar" title="Permalink to this headline">¶</a></h2>
+<p>Polar coordinates.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>complex p = polar(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>p</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+</div>
+<div class="section" id="pow">
+<h2>pow<a class="headerlink" href="#pow" title="Permalink to this headline">¶</a></h2>
+<p>Power function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real p = pow(a, b);
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(p=a^b\)</span></p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>p</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="projection">
+<h2>projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real p = projection(a, b, x);
+</pre></div>
+</div>
+<p>Projection is equivalent to:</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>projection(a, b, x) = min(max(a, x), b)*(a &lt; b) + min(max(b, x), a)*(1-(a &lt; b));
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>p</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="randinit">
+<span id="referencerandinit"></span><h2>randinit<a class="headerlink" href="#randinit" title="Permalink to this headline">¶</a></h2>
+<p>Initialize the state vector by using a seed.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>randinit(seed);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>seed</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="randint31">
+<span id="referencerandint31"></span><h2>randint31<a class="headerlink" href="#randint31" title="Permalink to this headline">¶</a></h2>
+<p>Generate <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">unsigned</span> <span class="kt">int</span></code> (31 bits) random number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int r = randint31();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="randint32">
+<span id="referencerandint32"></span><h2>randint32<a class="headerlink" href="#randint32" title="Permalink to this headline">¶</a></h2>
+<p>Generate <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">unsigned</span> <span class="kt">int</span></code> (32 bits) random number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int r = randint32();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="randreal1">
+<span id="referencerandreal1"></span><h2>randreal1<a class="headerlink" href="#randreal1" title="Permalink to this headline">¶</a></h2>
+<p>Generate uniform <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> in <span class="math notranslate nohighlight">\([0, 1]\)</span> (32 bits).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = randreal1();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="randreal2">
+<span id="referencerandreal2"></span><h2>randreal2<a class="headerlink" href="#randreal2" title="Permalink to this headline">¶</a></h2>
+<p>Generate uniform <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> in <span class="math notranslate nohighlight">\([0, 1)\)</span> (32 bits).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = randreal2();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="randreal3">
+<span id="referencerandreal3"></span><h2>randreal3<a class="headerlink" href="#randreal3" title="Permalink to this headline">¶</a></h2>
+<p>Generate uniform <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> in <span class="math notranslate nohighlight">\((0, 1)\)</span> (32 bits).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = randreal3();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="randres53">
+<span id="referencerandres53"></span><h2>randres53<a class="headerlink" href="#randres53" title="Permalink to this headline">¶</a></h2>
+<p>Generate uniform <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> in <span class="math notranslate nohighlight">\([0, 1)\)</span> (53 bits).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = randres53();
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="readmesh">
+<h2>readmesh<a class="headerlink" href="#readmesh" title="Permalink to this headline">¶</a></h2>
+<p>Read a 2D mesh file at different formats (see <a class="reference external" href="/documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation</a>).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = readmesh(MeshFileName);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>MeshFileName</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+</ul>
+</div>
+<div class="section" id="readmesh3">
+<h2>readmesh3<a class="headerlink" href="#readmesh3" title="Permalink to this headline">¶</a></h2>
+<p>Read a 3D mesh file at different formats (see <a class="reference external" href="/documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation</a>).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh3 Th = readmesh3(MeshFileName);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>MeshFileName</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
+</ul>
+</div>
+<div class="section" id="real">
+<h2>real<a class="headerlink" href="#real" title="Permalink to this headline">¶</a></h2>
+<p>Return the real part of a complex number.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = real(c);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="rint">
+<h2>rint<a class="headerlink" href="#rint" title="Permalink to this headline">¶</a></h2>
+<p>Integer value nearest to <span class="math notranslate nohighlight">\(x\)</span> (real value).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = rint(a);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="round">
+<h2>round<a class="headerlink" href="#round" title="Permalink to this headline">¶</a></h2>
+<p>Round a value (real value).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real r = round(a);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>r</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="savemesh">
+<h2>savemesh<a class="headerlink" href="#savemesh" title="Permalink to this headline">¶</a></h2>
+<p>Save a 2D or 3D mesh in different formats (see <a class="reference external" href="/documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation 2D</a> and <a class="reference external" href="/documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation 3D</a>).</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>savemesh(Th, MeshFileName);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>MeshFileName</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="set">
+<span id="functionset"></span><h2>set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h2>
+<p>Set a property to a matrix. See <a class="reference external" href="../Types/#matrix">matrix</a>.</p>
+</div>
+<div class="section" id="sign">
+<h2>sign<a class="headerlink" href="#sign" title="Permalink to this headline">¶</a></h2>
+<p>Sign of a value.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int s = sign(a);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>s</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+</ul>
+</div>
+<div class="section" id="signbit">
+<h2>signbit<a class="headerlink" href="#signbit" title="Permalink to this headline">¶</a></h2>
+<p>C++ <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">signbit</span></code> function</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int s = signbit(a);
+</pre></div>
+</div>
+</div>
+<div class="section" id="sin">
+<h2>sin<a class="headerlink" href="#sin" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\sin\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = sin(theta);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>complex</code>)</li>
+</ul>
+<div class="figure" id="id8">
+<img alt="sin function" src="../_images/sin.svg" /><p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">sin function</span></p>
+</div>
+</div>
+<div class="section" id="sinh">
+<h2>sinh<a class="headerlink" href="#sinh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\sinh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = sinh(theta);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\sinh(x) = \frac{e^{x} - e^{-x}}{2}\]</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id9">
+<img alt="sinh function" src="../_images/sinh.svg" /><p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">sinh function</span></p>
+</div>
+</div>
+<div class="section" id="sort">
+<h2>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
+<p>Sort two array in parallel</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>sort(A, B);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>A</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>B</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>A</code> is sorted in ascending order, <code class="docutils literal highlight highlight-freefem"><span></span>B</code> is sorted as <code class="docutils literal highlight highlight-freefem"><span></span>A</code>.</p>
+</div>
+<div class="section" id="splitmesh">
+<h2>splitmesh<a class="headerlink" href="#splitmesh" title="Permalink to this headline">¶</a></h2>
+<p>Split mesh triangles according to a function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>Th = splitmesh(Th0, f);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th0</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>f</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+</ul>
+</div>
+<div class="section" id="sqrt">
+<h2>sqrt<a class="headerlink" href="#sqrt" title="Permalink to this headline">¶</a></h2>
+<p>Square root</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real s = sqrt(a);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>s</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="square">
+<h2>square<a class="headerlink" href="#square" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Square of a number.</li>
+</ol>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real S = square(a);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>S</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Build a structured square mesh.</li>
+</ol>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = square(nnX, nnY, [[L*x, H*y]], [flags=Flags]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>nnX</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Discretization along <span class="math notranslate nohighlight">\(x\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>nnY</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Discretization along <span class="math notranslate nohighlight">\(y\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>L</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) <em>[Optional]</em> Length along <span class="math notranslate nohighlight">\(x\)</span></p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>H</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) <em>[Optional]</em> Height along <span class="math notranslate nohighlight">\(y\)</span></p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>flags=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Structured mesh type, see <a class="reference external" href="/documentation/MeshGeneration/#square">Mesh Generation chapter</a> for more information</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+</ul>
+</div>
+<div class="section" id="swap">
+<h2>swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h2>
+<p>Swap values.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>swap(a, b);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+</div>
+<div class="section" id="system">
+<h2>system<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>Execute a system command.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int Res = system(Command);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Command</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) System command</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Res</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Value returned by the system command</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>On Windows, the full path of the command is needed. For example, to execute <code class="docutils literal highlight highlight-freefem"><span></span>ls.exe</code>:</p>
+<p>. code-block:: freefem</p>
+<blockquote class="last">
+<div>int Res = exec(“C:\cygwin\bin\ls.exe”);</div></blockquote>
+</div>
+</div>
+<div class="section" id="tan">
+<h2>tan<a class="headerlink" href="#tan" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\tan\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = tan(theta);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id10">
+<img alt="tan function" src="../_images/tan.svg" /><p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">tan function</span></p>
+</div>
+</div>
+<div class="section" id="tanh">
+<h2>tanh<a class="headerlink" href="#tanh" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\tanh\)</span> function.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real x = tanh(theta);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>theta</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<div class="figure" id="id11">
+<img alt="tanh function" src="../_images/tanh.svg" /><p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">tanh function</span></p>
+</div>
+</div>
+<div class="section" id="tgamma">
+<h2>tgamma<a class="headerlink" href="#tgamma" title="Permalink to this headline">¶</a></h2>
+<p>Calculate the <span class="math notranslate nohighlight">\(\Gamma\)</span> function of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real tg = tgamma(x);
+</pre></div>
+</div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>tg</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="trunc">
+<h2>trunc<a class="headerlink" href="#trunc" title="Permalink to this headline">¶</a></h2>
+<p>Split triangle of a mesh.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = trunc(Th0, R, [split=Split], [label=Label]);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th0</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</p>
+</li>
+<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>R</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Split triangles where <code class="docutils literal highlight highlight-freefem"><span></span>R</code> is true or different from 0</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>split=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Level of splitting Default: 1</p>
+</li>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>label=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
+<p>Label number of new boundary item Default: 1</p>
+</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+</ul>
+</div>
+<div class="section" id="y0">
+<h2>y0<a class="headerlink" href="#y0" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of second kind, order 0.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real B = y0(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="y1">
+<h2>y1<a class="headerlink" href="#y1" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of second kind, order 1.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real B = y1(x);
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+<div class="section" id="yn">
+<h2>yn<a class="headerlink" href="#yn" title="Permalink to this headline">¶</a></h2>
+<p>Bessel function of second kind, order n.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real B = yn(n, x);
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[Y_n(x) = \lim_{\lambda\rightarrow n}{\frac{J_{\lambda}(x)\cos(\lambda\pi)-J_{-\lambda}(x)}{\sin(\lambda\pi)}}\]</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>n</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>x</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>b</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>)</li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Functions</a><ul>
+<li><a class="reference internal" href="#abs">abs</a></li>
+<li><a class="reference internal" href="#acos">acos</a></li>
+<li><a class="reference internal" href="#acosh">acosh</a></li>
+<li><a class="reference internal" href="#adaptmesh">adaptmesh</a></li>
+<li><a class="reference internal" href="#adj">adj</a></li>
+<li><a class="reference internal" href="#affinecg">AffineCG</a></li>
+<li><a class="reference internal" href="#affinegmres">AffineGMRES</a></li>
+<li><a class="reference internal" href="#arg">arg</a></li>
+<li><a class="reference internal" href="#asin">asin</a></li>
+<li><a class="reference internal" href="#asinh">asinh</a></li>
+<li><a class="reference internal" href="#assert">assert</a></li>
+<li><a class="reference internal" href="#atan">atan</a></li>
+<li><a class="reference internal" href="#atan2">atan2</a></li>
+<li><a class="reference internal" href="#atanh">atanh</a></li>
+<li><a class="reference internal" href="#atoi">atoi</a></li>
+<li><a class="reference internal" href="#atof">atof</a></li>
+<li><a class="reference internal" href="#bfgs">BFGS</a></li>
+<li><a class="reference internal" href="#buildmesh">buildmesh</a></li>
+<li><a class="reference internal" href="#ceil">ceil</a></li>
+<li><a class="reference internal" href="#change">change</a></li>
+<li><a class="reference internal" href="#chi">chi</a></li>
+<li><a class="reference internal" href="#checkmovemesh">checkmovemesh</a></li>
+<li><a class="reference internal" href="#clock">clock</a></li>
+<li><a class="reference internal" href="#complexeigenvalue">complexEigenValue</a></li>
+<li><a class="reference internal" href="#conj">conj</a></li>
+<li><a class="reference internal" href="#convect">convect</a></li>
+<li><a class="reference internal" href="#copysign">copysign</a></li>
+<li><a class="reference internal" href="#cos">cos</a></li>
+<li><a class="reference internal" href="#cosh">cosh</a></li>
+<li><a class="reference internal" href="#diffnp">diffnp</a></li>
+<li><a class="reference internal" href="#diffpos">diffpos</a></li>
+<li><a class="reference internal" href="#dist">dist</a></li>
+<li><a class="reference internal" href="#dumptable">dumptable</a></li>
+<li><a class="reference internal" href="#dx">dx</a></li>
+<li><a class="reference internal" href="#dxx">dxx</a></li>
+<li><a class="reference internal" href="#dxy">dxy</a></li>
+<li><a class="reference internal" href="#dxz">dxz</a></li>
+<li><a class="reference internal" href="#dy">dy</a></li>
+<li><a class="reference internal" href="#dyx">dyx</a></li>
+<li><a class="reference internal" href="#dyy">dyy</a></li>
+<li><a class="reference internal" href="#dyz">dyz</a></li>
+<li><a class="reference internal" href="#dz">dz</a></li>
+<li><a class="reference internal" href="#dzx">dzx</a></li>
+<li><a class="reference internal" href="#dzy">dzy</a></li>
+<li><a class="reference internal" href="#dzz">dzz</a></li>
+<li><a class="reference internal" href="#eigenvalue">EigenValue</a></li>
+<li><a class="reference internal" href="#emptymesh">emptymesh</a></li>
+<li><a class="reference internal" href="#erf">erf</a></li>
+<li><a class="reference internal" href="#erfc">erfc</a></li>
+<li><a class="reference internal" href="#exec">exec</a></li>
+<li><a class="reference internal" href="#exit">exit</a></li>
+<li><a class="reference internal" href="#exp">exp</a></li>
+<li><a class="reference internal" href="#fdim">fdim</a></li>
+<li><a class="reference internal" href="#floor">floor</a></li>
+<li><a class="reference internal" href="#fmax">fmax</a></li>
+<li><a class="reference internal" href="#fmin">fmin</a></li>
+<li><a class="reference internal" href="#fmod">fmod</a></li>
+<li><a class="reference internal" href="#imag">imag</a></li>
+<li><a class="reference internal" href="#int1d">int1d</a></li>
+<li><a class="reference internal" href="#int2d">int2d</a></li>
+<li><a class="reference internal" href="#int3d">int3d</a></li>
+<li><a class="reference internal" href="#intalledges">intalledges</a></li>
+<li><a class="reference internal" href="#intallfaces">intallfaces</a></li>
+<li><a class="reference internal" href="#interpolate">interpolate</a></li>
+<li><a class="reference internal" href="#invdiff">invdiff</a></li>
+<li><a class="reference internal" href="#invdiffnp">invdiffnp</a></li>
+<li><a class="reference internal" href="#invdiffpos">invdiffpos</a></li>
+<li><a class="reference internal" href="#isinf">isInf</a></li>
+<li><a class="reference internal" href="#isnan">isNaN</a></li>
+<li><a class="reference internal" href="#j0">j0</a></li>
+<li><a class="reference internal" href="#j1">j1</a></li>
+<li><a class="reference internal" href="#jn">jn</a></li>
+<li><a class="reference internal" href="#jump">jump</a></li>
+<li><a class="reference internal" href="#linearcg">LinearCG</a></li>
+<li><a class="reference internal" href="#lineargmres">LinearGMRES</a></li>
+<li><a class="reference internal" href="#lgamma">lgamma</a></li>
+<li><a class="reference internal" href="#log">log</a></li>
+<li><a class="reference internal" href="#log10">log10</a></li>
+<li><a class="reference internal" href="#lrint">lrint</a></li>
+<li><a class="reference internal" href="#lround">lround</a></li>
+<li><a class="reference internal" href="#max">max</a></li>
+<li><a class="reference internal" href="#min">min</a></li>
+<li><a class="reference internal" href="#movemesh">movemesh</a></li>
+<li><a class="reference internal" href="#nan">NaN</a></li>
+<li><a class="reference internal" href="#nlcg">NLCG</a></li>
+<li><a class="reference internal" href="#on">on</a></li>
+<li><a class="reference internal" href="#plot">plot</a></li>
+<li><a class="reference internal" href="#polar">polar</a></li>
+<li><a class="reference internal" href="#pow">pow</a></li>
+<li><a class="reference internal" href="#projection">projection</a></li>
+<li><a class="reference internal" href="#randinit">randinit</a></li>
+<li><a class="reference internal" href="#randint31">randint31</a></li>
+<li><a class="reference internal" href="#randint32">randint32</a></li>
+<li><a class="reference internal" href="#randreal1">randreal1</a></li>
+<li><a class="reference internal" href="#randreal2">randreal2</a></li>
+<li><a class="reference internal" href="#randreal3">randreal3</a></li>
+<li><a class="reference internal" href="#randres53">randres53</a></li>
+<li><a class="reference internal" href="#readmesh">readmesh</a></li>
+<li><a class="reference internal" href="#readmesh3">readmesh3</a></li>
+<li><a class="reference internal" href="#real">real</a></li>
+<li><a class="reference internal" href="#rint">rint</a></li>
+<li><a class="reference internal" href="#round">round</a></li>
+<li><a class="reference internal" href="#savemesh">savemesh</a></li>
+<li><a class="reference internal" href="#set">set</a></li>
+<li><a class="reference internal" href="#sign">sign</a></li>
+<li><a class="reference internal" href="#signbit">signbit</a></li>
+<li><a class="reference internal" href="#sin">sin</a></li>
+<li><a class="reference internal" href="#sinh">sinh</a></li>
+<li><a class="reference internal" href="#sort">sort</a></li>
+<li><a class="reference internal" href="#splitmesh">splitmesh</a></li>
+<li><a class="reference internal" href="#sqrt">sqrt</a></li>
+<li><a class="reference internal" href="#square">square</a></li>
+<li><a class="reference internal" href="#swap">swap</a></li>
+<li><a class="reference internal" href="#system">system</a></li>
+<li><a class="reference internal" href="#tan">tan</a></li>
+<li><a class="reference internal" href="#tanh">tanh</a></li>
+<li><a class="reference internal" href="#tgamma">tgamma</a></li>
+<li><a class="reference internal" href="#trunc">trunc</a></li>
+<li><a class="reference internal" href="#y0">y0</a></li>
+<li><a class="reference internal" href="#y1">y1</a></li>
+<li><a class="reference internal" href="#yn">yn</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="IO.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>I/O</div>
+         </div>
+     </a>
+     <a id="button-next" href="externalLibraries.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>External libraries</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

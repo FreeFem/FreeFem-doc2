@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Developers &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/documentation/developers.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Language references" href="../reference/index.html" />
+    <link rel="prev" title="Plugins" href="plugins.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Documentation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Developers</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/documentation/developers.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="developers">
+<h1>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-formats">
+<h2>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mesh-file-data-structure">
+<h3>Mesh file data structure<a class="headerlink" href="#mesh-file-data-structure" title="Permalink to this headline">¶</a></h3>
+<p>The mesh data structure, output of a mesh generation algorithm, refers to the geometric data structure and in some case to another mesh data structure.</p>
+<p>In this case, the fields are</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MeshVersionFormatted</span> <span class="mi">0</span>
+
+<span class="n">Dimension</span> <span class="p">[</span><span class="n">DIM</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">Vertices</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">X_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Y_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_1</span><span class="p">(</span><span class="kt">double</span><span class="p">))</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">X_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Y_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">))</span> <span class="n">Ref_nv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">Edges</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">edges</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">Vertex1_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">Triangles</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">triangles</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">Vertex1_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">Quadrilaterals</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">Quadrilaterals</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex4_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">Vertex1_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex4_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">Geometry</span>
+<span class="p">[</span><span class="n">File</span> <span class="n">name</span> <span class="n">of</span> <span class="n">geometric</span> <span class="n">support</span><span class="p">](</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span>
+
+   <span class="n">VertexOnGeometricVertex</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">geometric</span> <span class="n">vertex</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexGeometry_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Vertex_nvg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexGeometry_nvg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+   <span class="n">EdgeOnGeometricEdge</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">geometric</span> <span class="n">edge</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Edge_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeGeometry_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Edge_neg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeGeometry_neg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">CrackedEdges</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">cracked</span> <span class="n">edges</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Edge1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Edge2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">Edge1_nce</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Edge2_nce</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the current mesh refers to a previous mesh, we have in addition</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MeshSupportOfVertices</span>
+<span class="p">[</span><span class="n">File</span> <span class="n">name</span> <span class="n">of</span> <span class="n">mesh</span> <span class="n">support</span><span class="p">](</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span>
+
+   <span class="n">VertexOnSupportVertex</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">vertex</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Vertex_nvsv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexSupport_nvsv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+
+   <span class="n">VertexOnSupportEdge</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">edge</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Vertex_nvse</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeSupport_nvse</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvse</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+
+   <span class="n">VertexOnSupportTriangle</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">triangle</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Vertex_nvst</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvst</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvst</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_nvst</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+
+   <span class="n">VertexOnSupportQuadrilaterals</span>
+   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">quadrilaterals</span><span class="p">]</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="p">...</span>
+   <span class="n">Vertex_nvsq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvsq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvsq</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_nvsq</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nv</code> means the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>ne</code> means the number of edges</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nt</code> means the number of triangles</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nq</code> means the number of quadrilaterals</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nvg</code> means the number of vertex on geometric vertex</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>neg</code> means the number of edges on geometric edge</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nce</code> means the number of cracked edges</li>
+</ul>
+</div>
+<div class="section" id="bb-file-type-to-store-solutions">
+<h3>bb file type to Store Solutions<a class="headerlink" href="#bb-file-type-to-store-solutions" title="Permalink to this headline">¶</a></h3>
+<p>The file is formatted such that:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">2</span>
+
+<span class="n">U_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">U_1_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>ns</code> means the number of solutions</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nv</code> means the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>U_i_j</code> is the solution component <code class="docutils literal highlight highlight-freefem"><span></span>i</code> at the vertex <code class="docutils literal highlight highlight-freefem"><span></span>j</code> on the associated mesh.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>BB file type to store solutions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The file is formatted such that:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Type</span> <span class="mi">1</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">...</span> <span class="p">[</span><span class="n">Type</span> <span class="n">ns</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">2</span>
+
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+
+<span class="p">...</span>
+
+<span class="n">U_1_1_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">U_1_nbv_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>ns</code> means the number of solutions</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>type_k</code> mean the type of solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code>:<ul>
+<li>1: the solution is scalar (1 value per vertex)</li>
+<li>2: the solution is vectorial (2 values per vertex)</li>
+<li>3: the solution is a <span class="math notranslate nohighlight">\(2\times 2\)</span> symmetric matrix (3 values per vertex)</li>
+<li>4: the solution is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix (4 values per vertex)</li>
+</ul>
+</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nbv</code> means the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>U_i_j_k</code> is the value of the component <code class="docutils literal highlight highlight-freefem"><span></span>i</code>of the solution
+<code class="docutils literal highlight highlight-freefem"><span></span>k</code> at vertex <code class="docutils literal highlight highlight-freefem"><span></span>j</code> on the associated mesh</li>
+</ul>
+</div>
+<div class="section" id="metric-file">
+<h3>Metric file<a class="headerlink" href="#metric-file" title="Permalink to this headline">¶</a></h3>
+<p>A metric file can be of two types, isotropic or anisotropic.</p>
+<p>The isotropic file is such that</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">1</span>
+<span class="n">h_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">h_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nv</code> is the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>h_i</code> is the wanted mesh size near the vertex <code class="docutils literal highlight highlight-freefem"><span></span>i</code> on associated mesh.</li>
+</ul>
+<p>The metric is <span class="math notranslate nohighlight">\(\mathcal{M}_i = h_i^{-2}I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.</p>
+<p>The anisotropic file is such that</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">3</span>
+<span class="n">a11_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a21_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a22_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">a11_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a21_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a22_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nv</code> is the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>a11_i</code>, <code class="docutils literal highlight highlight-freefem"><span></span>a21_i</code> and <code class="docutils literal highlight highlight-freefem"><span></span>a22_i</code> represent metric <span class="math notranslate nohighlight">\(\mathcal{M}_i = \left(\begin{array}{cc}a_{11,i} &amp; a_{12,i}\\a{12}_i &amp; a_{22,i}\end{array}\right)\)</span> which define the wanted size in a vicinity of the vertex <code class="docutils literal highlight highlight-freefem"><span></span>i</code> such that <span class="math notranslate nohighlight">\(h\)</span> in direction <span class="math notranslate nohighlight">\(u \in \mathbb{R}^2\)</span> is equal to <span class="math notranslate nohighlight">\(|u|/\sqrt{u\cdot\mathcal{M}_i\, u}\)</span>, where <span class="math notranslate nohighlight">\(\cdot\)</span> is the dot product in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and <span class="math notranslate nohighlight">\(|\cdot|\)</span> is the classical norm.</li>
+</ul>
+</div>
+<div class="section" id="list-of-am-fmt-amdba-meshes">
+<h3>List of AM_FMT, AMDBA Meshes<a class="headerlink" href="#list-of-am-fmt-amdba-meshes" title="Permalink to this headline">¶</a></h3>
+<p>The mesh is only composed of triangles and can be defined with the help of the following two integers and four arrays:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nbt</code> the number of triangles</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nbv</code> the number of vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nu(1:3, 1:nbt)</code> an integer array giving the three vertex numbers counterclockwise for each triangle</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>c(1:2, 1:nbv)</code> a real array giving tje two coordinates of each vertex</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>refs(1:nbv)</code> an integer array giving the reference numbers of the vertices</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>reft(1:nbt)</code> an integer array giving the reference numbers of the triangles</li>
+</ul>
+<p><strong>AM_FMT Files</strong></p>
+<p>In <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> the <code class="docutils literal highlight highlight-freefem"><span></span>am_fmt</code> files are read as follows:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;xxx.am_fmt&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">nbv</span><span class="p">,</span> <span class="n">nbt</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">nu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">(</span> <span class="n">reft</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">(</span> <span class="n">refs</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">)</span>
+<span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>AM Files</strong></p>
+<p>In <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> the <code class="docutils literal highlight highlight-freefem"><span></span>am</code> files are read as follows:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;xxx.am&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">nbv</span><span class="p">,</span> <span class="n">nbt</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">((</span><span class="n">nu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">),</span>
+<span class="p">&amp;</span> <span class="p">((</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">),</span>
+<span class="p">&amp;</span> <span class="p">(</span><span class="n">reft</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">),</span>
+<span class="p">&amp;</span> <span class="p">(</span><span class="n">refs</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">)</span>
+<span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>AMDBA Files</strong></p>
+<p>In <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> the <code class="docutils literal highlight highlight-freefem"><span></span>amdba</code> files are read as follows:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;xxx.amdba&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">nbv</span><span class="p">,</span> <span class="n">nbt</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">refs</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">nu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">reft</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">)</span>
+<span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>msh Files</strong></p>
+<p>First, we add the notions of boundary edges</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nbbe</code> the number of boundary edge</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nube(1:2, 1:nbbe)</code> an integer array giving the two vertex numbers of boundary edges</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>refbe(1:nbbe)</code> an integer array giving the reference numbers of boundary edges</li>
+</ul>
+<p>In <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> the <code class="docutils literal highlight highlight-freefem"><span></span>msh</code> files are read as follows:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;xxx.msh&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">nbv</span><span class="p">,</span> <span class="n">nbt</span><span class="p">,</span> <span class="n">nbbe</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">refs</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbv</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">nu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">reft</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbt</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">ne</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">refbe</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nbbe</span><span class="p">)</span>
+<span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ftq Files</strong></p>
+<p>In <code class="docutils literal highlight highlight-freefem"><span></span>Fortran</code> the <code class="docutils literal highlight highlight-freefem"><span></span>ftq</code> files are read as follows:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;xxx.ftq&#39;</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">nbv</span><span class="p">,</span><span class="n">nbe</span><span class="p">,</span><span class="n">nbt</span><span class="p">,</span><span class="n">nbq</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">k</span><span class="p">(</span><span class="n">j</span><span class="p">),(</span><span class="n">nu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">(</span><span class="n">j</span><span class="p">)),</span><span class="n">reft</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nbe</span><span class="p">)</span>
+<span class="k">read</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">refs</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nbv</span><span class="p">)</span>
+<span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where if <code class="docutils literal highlight highlight-freefem"><span></span>k(j) = 3</code> when the element <code class="docutils literal highlight highlight-freefem"><span></span>j</code> is a triangle and <code class="docutils literal highlight highlight-freefem"><span></span>k(j) = 4</code> when the the element <code class="docutils literal highlight highlight-freefem"><span></span>j</code> is a quadrilateral.</p>
+</div>
+<div class="section" id="sol-and-solb-files">
+<h3>sol and solb files<a class="headerlink" href="#sol-and-solb-files" title="Permalink to this headline">¶</a></h3>
+<p>With the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>savesol</code>, we can store a scalar functions, a scalar finite element functions, a vector fields, a vector finite element fields, a symmetric tensor and a symmetric finite element tensor.</p>
+<p>Such format is used in <code class="code freefem docutils literal highlight highlight-freefem"><span></span>medit</code>.</p>
+<p><strong>Extension file .sol</strong></p>
+<p>The first two lines of the file are :</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>MeshVersionFormatted 0</code></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>Dimension [DIM](int)</code></li>
+</ul>
+<p>The following fields begin with one of the following keyword:
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtVertices</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtEdges</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtTriangles</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtQuadrilaterals</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtTetrahedra</code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtPentahedra</code>,
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtHexahedra</code>.</p>
+<p>In each field, we give then in the next line the number of elements in the solutions (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtVertices</code>: number of vertices, <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtTriangles</code>: number of triangles, …).
+In other lines, we give the number of solutions, the type of solution (1: scalar, 2: vector, 3: symmetric tensor).
+And finally, we give the values of the solutions on the elements.</p>
+<p>The file must be ended with the keyword End.</p>
+<p>The real element of symmetric tensor :</p>
+<div class="math notranslate nohighlight" id="equation-savesol-def-symtensor">
+<span class="eqno">(32)<a class="headerlink" href="#equation-savesol-def-symtensor" title="Permalink to this equation">¶</a></span>\[\begin{split}ST^{3d}=\left(
+\begin{array}{ccc}
+   ST_{xx}^{3d} &amp; ST_{xy}^{3d} &amp; ST_{xz}^{3d}\\
+   ST_{yx}^{3d} &amp; ST_{yy}^{3d} &amp; ST_{yz}^{3d} \\
+   ST_{zx}^{3d} &amp; ST_{zy}^{3d} &amp; ST_{zz}^{3d}
+\end{array}
+\right)
+\quad
+ST^{2d}= \left(
+\begin{array}{cc}
+   ST_{xx}^{2d} &amp; ST_{xy}^{2d} \\
+   ST_{yx}^{2d} &amp; ST_{yy}^{2d}
+\end{array}
+\right)\end{split}\]</div>
+<p>stored in the extension <code class="code freefem docutils literal highlight highlight-freefem"><span></span>.sol</code> are respectively <span class="math notranslate nohighlight">\(ST_{xx}^{3d}, ST_{yx}^{3d}, ST_{yy}^{3d}, ST_{zx}^{3d}, ST_{zy}^{3d}, ST_{zz}^{3d}\)</span> and <span class="math notranslate nohighlight">\(ST_{xx}^{2d}, ST_{yx}^{2d}, ST_{yy}^{2d}\)</span></p>
+<p>An example of field with the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span>SolAtTetrahedra</code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SolAtTetrahedra</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">tetrahedra</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Type</span> <span class="n">of</span> <span class="n">solution</span> <span class="mi">1</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">...</span> <span class="p">[</span><span class="n">Type</span> <span class="n">of</span> <span class="n">soution</span> <span class="n">nt</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">U_1_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+
+<span class="p">...</span>
+
+<span class="n">U_1_1_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">U_1_ns_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span>ns</code> is the number of solutions</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>typesol_k</code>, type of the solution number <code class="docutils literal highlight highlight-freefem"><span></span>k</code><ul>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>typesol_k = 1</code> the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> is scalar</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>typesol_k = 2</code> the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> is vectorial</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>typesol_k = 3</code> the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> is a symmetric tensor or symmetric matrix</li>
+</ul>
+</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nrs_k</code> is the number of real to describe solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code><ul>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nrs_k = 1</code> if the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> is scalar</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nrs_k = dim</code> if the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> is vectorial (<code class="docutils literal highlight highlight-freefem"><span></span>dim</code> is the dimension of the solution)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>nrs_k = dim*(dim+1)/2</code> if the solution k is a symmetric tensor or symmetric matrix</li>
+</ul>
+</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span>U_i_j_^k</code> is a real equal to the value of the component <code class="docutils literal highlight highlight-freefem"><span></span>i</code> of the solution <code class="docutils literal highlight highlight-freefem"><span></span>k</code> at tetrahedron <code class="docutils literal highlight highlight-freefem"><span></span>j</code> on the associated mesh</li>
+</ul>
+<p>The format <code class="code freefem docutils literal highlight highlight-freefem"><span></span>.solb</code> is the same as format <code class="code freefem docutils literal highlight highlight-freefem"><span></span>.sol</code> but in binary (read/write is faster, storage is less).</p>
+<p>A real scalar functions <span class="math notranslate nohighlight">\(f1\)</span>, a vector fields <span class="math notranslate nohighlight">\(\mathbf{\Phi} = [\Phi1, \Phi2, \Phi3]\)</span> and a symmetric tensor <span class="math notranslate nohighlight">\(ST^{3d}\)</span> <a class="reference internal" href="#equation-savesol-def-symtensor">(32)</a> at the vertices of the three dimensional mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th3</code> is stored in the file <code class="code freefem docutils literal highlight highlight-freefem"><span></span>f1PhiTh3.sol</code> using :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>savesol(&quot;f1PhiST3dTh3.sol&quot;, Th3, :math:`f1`, [Phi(1), Phi(2), Phi(3)], VV3, order=1);
+</pre></div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(VV3 = [ST_{xx}^{3d}, ST_{yx}^{3d}, ST_{yy}^{3d}, ST_{zx}^{3d}, ST_{zy}^{3d}, ST_{zz}^{3d}]\)</span>.</p>
+<p>For a two dimensional mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span>Th</code>, A real scalar functions <span class="math notranslate nohighlight">\(f2\)</span>, a vector fields <span class="math notranslate nohighlight">\(\mathbf{\Psi} = [\Psi1, \Psi2]\)</span> and a symmetric tensor <span class="math notranslate nohighlight">\(ST^{2d}\)</span> <a class="reference internal" href="#equation-savesol-def-symtensor">(32)</a> at triangles is stored in the file <code class="code freefem docutils literal highlight highlight-freefem"><span></span>f2PsiST2dTh3.solb</code> using :</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>savesol(&quot;f2PsiST2dTh3.solb&quot;, Th, f2, [Psi(1), Psi(2)], VV2, order=0);
+</pre></div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(VV2 = [ST_{xx}^{2d}, ST_{yx}^{2d}, ST_{yy}^{2d}]\)</span></p>
+<p>The arguments of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>savesol</code> functions are the name of a file, a mesh and solutions.
+These arguments must be given in this order.</p>
+<p>The parameters of this keyword are :</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>order =</code> 0 is the solution is given at the center of gravity of elements.
+1 is the solution is given at the vertices of elements.</li>
+</ul>
+<p>In the file, solutions are stored in this order : scalar solutions, vector solutions and finally symmetric tensor solutions.</p>
+</div>
+</div>
+<div class="section" id="adding-a-new-finite-element">
+<h2>Adding a new finite element<a class="headerlink" href="#adding-a-new-finite-element" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="some-notations">
+<h3>Some notations<a class="headerlink" href="#some-notations" title="Permalink to this headline">¶</a></h3>
+<p>For a function <span class="math notranslate nohighlight">\(\boldsymbol{f}\)</span> taking value in <span class="math notranslate nohighlight">\(\mathbb{R}^{N},\, N=1,2,\cdots\)</span>, we define the finite element approximation <span class="math notranslate nohighlight">\(\Pi_h\boldsymbol{f}\)</span> of <span class="math notranslate nohighlight">\(\boldsymbol{f}\)</span>.</p>
+<p>Let us denote the number of the degrees of freedom of the finite element by <span class="math notranslate nohighlight">\(NbDoF\)</span>.
+Then the <span class="math notranslate nohighlight">\(i\)</span>-th base <span class="math notranslate nohighlight">\(\boldsymbol{\omega}^{K}_{i}\)</span> (<span class="math notranslate nohighlight">\(i=0,\cdots,NbDoF-1\)</span>) of the finite element space has the <span class="math notranslate nohighlight">\(j\)</span>-th component <span class="math notranslate nohighlight">\(\mathbf{\omega}^{K}_{ij}\)</span> for <span class="math notranslate nohighlight">\(j=0,\cdots,N-1\)</span>.</p>
+<p>The operator <span class="math notranslate nohighlight">\(\Pi_{h}\)</span> is called the interpolator of the finite element.</p>
+<p>We have the identity <span class="math notranslate nohighlight">\(\boldsymbol{\omega}^{K}_{i} = \Pi_{h} \boldsymbol{\omega}^{K}_{i}\)</span>.</p>
+<p>Formally, the interpolator <span class="math notranslate nohighlight">\(\Pi_{h}\)</span> is constructed by the following formula:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interpo">
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-interpo" title="Permalink to this equation">¶</a></span>\[\Pi_{h} \boldsymbol{f} = \sum_{k=0}^{\mathtt{kPi}-1} \alpha_k \boldsymbol{f}_{j_{k}}(P_{p_{k}}) \boldsymbol{\omega}^{K}_{i_{k}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{p}\)</span> is a set of <span class="math notranslate nohighlight">\(npPi\)</span> points,</p>
+<p>In the formula <a class="reference internal" href="#equation-eq-interpo">(33)</a>, the list <span class="math notranslate nohighlight">\(p_{k},\, j_{k},\, i_{k}\)</span> depend just on the type of finite element (not on the element), but the coefficient <span class="math notranslate nohighlight">\(\alpha_{k}\)</span> can be depending on the element.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Classical scalar Lagrange finite element</p>
+<p>With the classical scalar Lagrange finite element, we have <span class="math notranslate nohighlight">\(\mathtt{kPi}=\mathtt{npPi}=\mathtt{NbOfNode}\)</span> and</p>
+<ul class="last simple">
+<li><span class="math notranslate nohighlight">\(P_{p}\)</span> is the point of the nodal points.</li>
+<li>the <span class="math notranslate nohighlight">\(\alpha_k=1\)</span>, because we take the value of the function at the point <span class="math notranslate nohighlight">\(P_{k}\)</span>.</li>
+<li><span class="math notranslate nohighlight">\(p_{k}=k\)</span> , <span class="math notranslate nohighlight">\(j_{k}=k\)</span> because we have one node per function.</li>
+<li><span class="math notranslate nohighlight">\(j_{k}=0\)</span> because <span class="math notranslate nohighlight">\(N=1\)</span>.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The Raviart-Thomas finite element</p>
+<div class="math notranslate nohighlight" id="equation-eq-rt0-fe">
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-rt0-fe" title="Permalink to this equation">¶</a></span>\[RT0_{h} = \{ \mathbf{v} \in H(div) / \forall K \in
+\mathcal{T}_{h} \quad \mathbf{v}_{|K}(x,y) =
+\vecttwo{\alpha_{K}}{\beta_{K}} + \gamma_{K}\vecttwo{x}{y} \}\]</div>
+<p>The degrees of freedom are the flux through an edge <span class="math notranslate nohighlight">\(e\)</span> of the mesh, where the flux of the function <span class="math notranslate nohighlight">\(\mathbf{f} : \mathbb{R}^2 \longrightarrow \mathbb{R}^2\)</span> is <span class="math notranslate nohighlight">\(\int_{e} \mathbf{f}.n_{e}\)</span>, <span class="math notranslate nohighlight">\(n_{e}\)</span> is the unit normal of edge <span class="math notranslate nohighlight">\(e\)</span> (this implies a orientation of all the edges of the mesh, for example we can use the global numbering of the edge vertices and we just go to small to large number).</p>
+<p>To compute this flux, we use a quadrature formula with one point, the middle point of the edge.
+Consider a triangle <span class="math notranslate nohighlight">\(T\)</span> with three vertices <span class="math notranslate nohighlight">\((\mathbf{a},\mathbf{b},\mathbf{c})\)</span>.</p>
+<p>Let denote the vertices numbers by <span class="math notranslate nohighlight">\(i_{a},i_{b},i_{c}\)</span>, and define the three edge vectors <span class="math notranslate nohighlight">\(\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}\)</span> by <span class="math notranslate nohighlight">\(sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})\)</span>, <span class="math notranslate nohighlight">\(sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})\)</span>, <span class="math notranslate nohighlight">\(sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})\)</span>.</p>
+<p>The three basis functions are:
+begin{equation}
+boldsymbol{omega}^{K}_{0}= frac{sgn(i_{b}-i_{c})}{2|T|}(x-a),quad boldsymbol{omega}^{K}_{1}= frac{sgn(i_{c}-i_{a})}{2|T|}(x-b),quad boldsymbol{omega}^{K}_{2}= frac{sgn(i_{a}-i_{b})}{2|T|}(x-c),
+end{equation}
+where <span class="math notranslate nohighlight">\(|T|\)</span> is the area of the triangle <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>So we have <span class="math notranslate nohighlight">\(N=2\)</span>, <span class="math notranslate nohighlight">\(\mathtt{kPi}=6; \mathtt{npPi}=3;\)</span> and:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><span class="math notranslate nohighlight">\(P_{p} = \left\{\frac{\mathbf{b}+\mathbf{c}}{2}, \frac{\mathbf{a}+\mathbf{c}}{2}, \frac{\mathbf{b}+\mathbf{a}}{2} \right\}\)</span></li>
+<li><dl class="first docutils">
+<dt><span class="math notranslate nohighlight">\(\alpha_{0}= - \mathbf{e}^{0}_{2}, \alpha_{1}= \mathbf{e}^{0}_{1}\)</span>,</dt>
+<dd><span class="math notranslate nohighlight">\(\alpha_{2}= - \mathbf{e}^{1}_{2}, \alpha_{3}= \mathbf{e}^{1}_{1}\)</span>,
+<span class="math notranslate nohighlight">\(\alpha_{4}= - \mathbf{e}^{2}_{2}, \alpha_{5}= \mathbf{e}^{2}_{1}\)</span> (effectively, the vector
+<span class="math notranslate nohighlight">\((-\mathbf{e}^{m}_{2}, \mathbf{e}^{m}_{1})\)</span> is orthogonal to the edge <span class="math notranslate nohighlight">\(\mathbf{e}^{m}= (e^m_{1},e^m_{2})\)</span> with
+a length equal to the side of the edge or equal to <span class="math notranslate nohighlight">\(\int_{e^m} 1\)</span>).</dd>
+</dl>
+</li>
+<li><span class="math notranslate nohighlight">\(i_{k}=\{0,0,1,1,2,2\}\)</span>,</li>
+<li><span class="math notranslate nohighlight">\(p_{k}=\{0,0,1,1,2,2\}\)</span> , <span class="math notranslate nohighlight">\(j_{k}=\{0,1,0,1,0,1,0,1\}\)</span>.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="which-class-to-add">
+<h3>Which class to add?<a class="headerlink" href="#which-class-to-add" title="Permalink to this headline">¶</a></h3>
+<p>Add file <code class="docutils literal highlight highlight-freefem"><span></span>FE_ADD.cpp</code> in directory <code class="docutils literal highlight highlight-freefem"><span></span>FreeFem-sources/src/femlib</code> for
+example first to initialize :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;error.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;rgraph.hpp&quot;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#include</span> <span class="cpf">&quot;RNM.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;fem.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;FESpace.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;AddNewFE.h&quot;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">Fem2D</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then add a class which derive for <code class="docutils literal highlight highlight-freefem"><span></span>public TypeOfFE</code> like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TypeOfFE_RTortho</span> <span class="o">:</span> <span class="k">public</span> <span class="n">TypeOfFE</span> <span class="p">{</span> <span class="k">public</span><span class="o">:</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">Data</span><span class="p">[];</span> <span class="c1">//some numbers</span>
+    <span class="n">TypeOfFE_RTortho</span><span class="p">()</span><span class="o">:</span>
+    <span class="n">TypeOfFE</span><span class="p">(</span>
+        <span class="mi">0</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span>  <span class="c1">//nb degree of freedom on element</span>
+        <span class="mi">2</span><span class="p">,</span>      <span class="c1">//dimension N of vectorial FE (1 if scalar FE)</span>
+        <span class="n">Data</span><span class="p">,</span>   <span class="c1">//the array data</span>
+        <span class="mi">1</span><span class="p">,</span>      <span class="c1">//nb of subdivision for plotting</span>
+        <span class="mi">1</span><span class="p">,</span>      <span class="c1">//nb of sub finite element (generaly 1)</span>
+        <span class="mi">6</span><span class="p">,</span>      <span class="c1">//number kPi of coef to build the interpolator</span>
+        <span class="mi">3</span><span class="p">,</span>      <span class="c1">//number npPi of integration point to build interpolator</span>
+        <span class="mi">0</span>       <span class="c1">//an array to store the coef \alpha_k to build interpolator</span>
+        <span class="c1">//here this array is no constant so we have</span>
+        <span class="c1">//to rebuilt for each element</span>
+    <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">const</span> <span class="n">R2</span> <span class="n">Pt</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">R2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">R2</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">R2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">};</span>
+        <span class="c1">// the set of Point in hat{K}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">P_Pi_h</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">pij_alpha</span><span class="p">[</span><span class="n">kk</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">IPJ</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="c1">//definition of i_k, p_k, j_k in interpolator</span>
+
+    <span class="kt">void</span> <span class="n">FB</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="o">*</span><span class="n">watdd</span><span class="p">,</span> <span class="k">const</span> <span class="n">Mesh</span> <span class="o">&amp;</span><span class="n">Th</span><span class="p">,</span> <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">R2</span> <span class="o">&amp;</span><span class="n">PHat</span><span class="p">,</span> <span class="n">RNMK_</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">Pi_h_alpha</span><span class="p">(</span><span class="k">const</span> <span class="n">baseFElement</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span> <span class="n">KN_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">}</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>where the array data is formed with the concatenation of five array of
+size <code class="docutils literal highlight highlight-freefem"><span></span>NbDoF</code> and one array of size <code class="docutils literal highlight highlight-freefem"><span></span>N</code>.</p>
+<p>This array is:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">TypeOfFE_RTortho</span><span class="o">::</span><span class="n">Data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//for each df 0, 1, 3:</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">//the support of the node of the df</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//the number of the df on the node</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">//the node of the df</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//the df come from which FE (generally 0)</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">//which are the df on sub FE</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="p">};</span> <span class="c1">//for each component j=0, N-1 it give the sub FE associated</span>
+</pre></div>
+</div>
+<p>where the support is a number <span class="math notranslate nohighlight">\(0,1,2\)</span> for vertex support,
+<span class="math notranslate nohighlight">\(3,4,5\)</span> for edge support, and finally <span class="math notranslate nohighlight">\(6\)</span> for element
+support.</p>
+<p>The function to defined the function
+<span class="math notranslate nohighlight">\(\boldsymbol{\omega}^{K}_{i}\)</span>, this function return the value of
+all the basics function or this derivatives in array <code class="docutils literal highlight highlight-freefem"><span></span>val</code>, computed
+at point <code class="docutils literal highlight highlight-freefem"><span></span>Phat</code> on the reference triangle corresponding to point
+<code class="docutils literal highlight highlight-freefem"><span></span>R2 P=K(Phat);</code> on the current triangle <code class="docutils literal highlight highlight-freefem"><span></span>K</code>.</p>
+<p>The index <span class="math notranslate nohighlight">\(i,j,k\)</span> of the array <span class="math notranslate nohighlight">\(val(i,j,k)\)</span> correspond to:</p>
+<ul>
+<li><p class="first"><span class="math notranslate nohighlight">\(i\)</span> is the basic function number on finite element
+<span class="math notranslate nohighlight">\(i \in [0,NoF[\)</span></p>
+</li>
+<li><p class="first"><span class="math notranslate nohighlight">\(j\)</span> is the value of component <span class="math notranslate nohighlight">\(j \in [0,N[\)</span></p>
+</li>
+<li><p class="first"><span class="math notranslate nohighlight">\(k\)</span> is the type of computed value
+<span class="math notranslate nohighlight">\(f(P),dx(f)(P), dy(f)(P), ...\ i \in [0,\mathtt{last\_operatortype}[\)</span>.</p>
+<p>!!!note For optimization, this value is computed only if <code class="docutils literal highlight highlight-freefem"><span></span>whatd[k]</code>
+is true, and the numbering is defined with</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>```cpp
+enum operatortype {
+    op_id = 0,
+    op_dx = 1, op_dy = 2,
+    op_dxx = 3,op_dyy = 4,
+    op_dyx = 5,op_dxy = 5,
+    op_dz = 6,
+    op_dzz = 7,
+    op_dzx = 8, op_dxz = 8,
+    op_dzy = 9, op_dyz = 9
+};
+const int last_operatortype = 10;
+```
+</pre></div>
+</div>
+<p>The shape function :</p>
+</li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TypeOfFE_RTortho</span><span class="o">::</span><span class="n">FB</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="o">*</span><span class="n">whatd</span><span class="p">,</span> <span class="k">const</span> <span class="n">Mesh</span> <span class="o">&amp;</span><span class="n">Th</span><span class="p">,</span> <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span> <span class="n">K</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">R2</span> <span class="o">&amp;</span><span class="n">PHat</span><span class="p">,</span><span class="n">RNMK_</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="n">R2</span> <span class="n">P</span><span class="p">(</span><span class="n">K</span><span class="p">(</span><span class="n">PHat</span><span class="p">));</span>
+    <span class="n">R2</span> <span class="nf">A</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="n">R</span> <span class="n">l0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">R</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">N</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">M</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">R</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="p">.</span><span class="n">area</span><span class="p">);</span>
+    <span class="n">R</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">R</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">R</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_id</span><span class="p">]){</span> <span class="c1">//value of the function</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_id</span><span class="p">);</span>
+        <span class="n">RN_</span> <span class="nf">f0</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span> <span class="c1">//value first component</span>
+        <span class="n">RN_</span> <span class="nf">f1</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span> <span class="c1">//value second component</span>
+        <span class="n">f1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span><span class="p">;</span>
+
+        <span class="n">f1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">B</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">B</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span>
+
+        <span class="n">f1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">C</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">C</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dx</span><span class="p">]){</span> <span class="c1">//value of the dx of function</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_dx</span><span class="p">);</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a0</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dy</span><span class="p">]){</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_dy</span><span class="p">);</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a0</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a1</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">op_dy</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">last_operatortype</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dx</span><span class="p">])</span>
+            <span class="n">assert</span><span class="p">(</span><span class="n">op_dy</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!--- ** ---><p>The function to defined the coefficient <span class="math notranslate nohighlight">\(\alpha_{k}\)</span>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TypeOfFE_RT</span><span class="o">::</span><span class="n">Pi_h_alpha</span><span class="p">(</span><span class="k">const</span> <span class="n">baseFElement</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span> <span class="n">KN_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">(</span><span class="n">K</span><span class="p">.</span><span class="n">T</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">R2</span> <span class="n">E</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">Edge</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+        <span class="n">R</span> <span class="n">signe</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">signe</span><span class="o">*</span><span class="n">E</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">signe</span><span class="o">*</span><span class="n">E</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now , we just need to add a new key work in <strong>``FreeFem++``</strong>.</p>
+<p>Two way, with static or dynamic link so at the end of the file, we add:</p>
+<p><strong>With dynamic link</strong> it is very simple (see section <a class="reference external" href="#dynamical-link">Dynamical
+link</a>), just add before the end of
+<code class="docutils literal highlight highlight-freefem"><span></span>:::cpp FEM2d namespace</code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>    <span class="k">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
+    <span class="k">static</span> <span class="nf">AddNewFE</span><span class="p">(</span><span class="s">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">//FEM2d namespace</span>
+</pre></div>
+</div>
+<p>Try with <code class="docutils literal highlight highlight-freefem"><span></span>./load.link</code> command in
+<code class="docutils literal highlight highlight-freefem"><span></span>`examples++-load/</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load">https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load</a>&gt;`__
+and see <code class="docutils literal highlight highlight-freefem"><span></span>BernardiRaugel.cpp</code> or <code class="docutils literal highlight highlight-freefem"><span></span>Morley.cpp</code> new finite element
+examples.</p>
+<p><strong>Otherwise with static link</strong> (for expert only), add</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//let the 2 globals variables</span>
+<span class="k">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
+<span class="c1">//the name in freefem</span>
+<span class="k">static</span> <span class="n">ListOfTFE</span> <span class="nf">typefemRTOrtho</span><span class="p">(</span><span class="s">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
+
+<span class="c1">//link with FreeFem++ do not work with static library .a</span>
+<span class="c1">//so add a extern name to call in init_static_FE</span>
+<span class="c1">//(see end of FESpace.cpp)</span>
+<span class="kt">void</span> <span class="nf">init_FE_ADD</span><span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
+<span class="c1">//end</span>
+<span class="p">}</span> <span class="c1">//FEM2d namespace</span>
+</pre></div>
+</div>
+<p>To inforce in loading of this new finite element, we have to add the two
+new lines close to the end of files <code class="docutils literal highlight highlight-freefem"><span></span>src/femlib/FESpace.cpp</code> like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//correct problem of static library link with new make file</span>
+<span class="kt">void</span> <span class="nf">init_static_FE</span><span class="p">()</span>
+<span class="p">{</span> <span class="c1">//list of other FE file.o</span>
+    <span class="k">extern</span> <span class="kt">void</span> <span class="n">init_FE_P2h</span><span class="p">()</span> <span class="p">;</span>
+    <span class="n">init_FE_P2h</span><span class="p">()</span> <span class="p">;</span>
+    <span class="k">extern</span> <span class="kt">void</span> <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="c1">//new line 1</span>
+    <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="c1">//new line 2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and now you have to change the makefile.</p>
+<p>First, create a file <code class="docutils literal highlight highlight-freefem"><span></span>FE_ADD.cpp</code> contening all this code, like in
+file <code class="docutils literal highlight highlight-freefem"><span></span>src/femlib/Element_P2h.cpp</code>, after modify the <code class="docutils literal highlight highlight-freefem"><span></span>Makefile.am</code> by
+adding the name of your file to the variable <code class="docutils literal highlight highlight-freefem"><span></span>EXTRA_DIST</code> like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># Makefile using Automake + Autoconf</span>
+<span class="cp"># ----------------------------------</span>
+<span class="cp"># Id</span>
+
+<span class="cp"># This is not compiled as a separate library because its</span>
+<span class="cp"># interconnections with other libraries have not been solved.</span>
+
+<span class="n">EXTRA_DIST</span><span class="o">=</span><span class="n">BamgFreeFem</span><span class="p">.</span><span class="n">cpp</span> <span class="n">BamgFreeFem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CGNL</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CheckPtr</span><span class="p">.</span><span class="n">cpp</span>        \
+<span class="n">ConjuguedGradrientNL</span><span class="p">.</span><span class="n">cpp</span> <span class="n">DOperator</span><span class="p">.</span><span class="n">hpp</span> <span class="n">Drawing</span><span class="p">.</span><span class="n">cpp</span> <span class="n">Element_P2h</span><span class="p">.</span><span class="n">cpp</span>      \
+<span class="n">Element_P3</span><span class="p">.</span><span class="n">cpp</span> <span class="n">Element_RT</span><span class="p">.</span><span class="n">cpp</span> <span class="n">fem3</span><span class="p">.</span><span class="n">hpp</span> <span class="n">fem</span><span class="p">.</span><span class="n">cpp</span> <span class="n">fem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace</span><span class="p">.</span><span class="n">cpp</span>      \
+<span class="n">FESpace</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace</span><span class="o">-</span><span class="n">v0</span><span class="p">.</span><span class="n">cpp</span> <span class="n">FQuadTree</span><span class="p">.</span><span class="n">cpp</span> <span class="n">FQuadTree</span><span class="p">.</span><span class="n">hpp</span> <span class="n">gibbs</span><span class="p">.</span><span class="n">cpp</span>        \
+<span class="n">glutdraw</span><span class="p">.</span><span class="n">cpp</span> <span class="n">gmres</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse_tpl</span><span class="p">.</span><span class="n">hpp</span>          \
+<span class="n">MeshPoint</span><span class="p">.</span><span class="n">hpp</span> <span class="n">mortar</span><span class="p">.</span><span class="n">cpp</span> <span class="n">mshptg</span><span class="p">.</span><span class="n">cpp</span> <span class="n">QuadratureFormular</span><span class="p">.</span><span class="n">cpp</span>              \
+<span class="n">QuadratureFormular</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RefCounter</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_opc</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_op</span><span class="p">.</span><span class="n">hpp</span>    \
+<span class="n">RNM_tpl</span><span class="p">.</span><span class="n">hpp</span>     <span class="n">FE_ADD</span><span class="p">.</span><span class="n">cpp</span>
+</pre></div>
+</div>
+<p>and do in the <strong>``FreeFem++``</strong> root directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>autoreconf
+./reconfigure
+make
+</pre></div>
+</div>
+<p>For codewarrior compilation add the file in the project an remove the
+flag in panal PPC linker FreeFm++ Setting Dead-strip Static
+Initializition Code Flag.</p>
+</div>
+</div>
+<div class="section" id="dynamical-link">
+<h2>Dynamical link<a class="headerlink" href="#dynamical-link" title="Permalink to this headline">¶</a></h2>
+<p>Now, it’s possible to add built-in functionnalites in <strong>``FreeFem++``</strong>
+under the three environnents Linux, Windows and MacOS X 10.3 or newer.</p>
+<p>It is agood idea to first try the example <code class="docutils literal highlight highlight-freefem"><span></span>load.edp</code> in directory
+<code class="docutils literal highlight highlight-freefem"><span></span>`example++-load</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load">https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load</a>&gt;`__.</p>
+<p>You will need to install a <code class="docutils literal highlight highlight-freefem"><span></span>compiler</code> (generally <code class="docutils literal highlight highlight-freefem"><span></span>g++/gcc</code> compiler)
+to compile your function.</p>
+<ul class="simple">
+<li>Windows Install the <code class="docutils literal highlight highlight-freefem"><span></span>cygwin</code> environnent or the <code class="docutils literal highlight highlight-freefem"><span></span>mingw</code> one</li>
+<li>MacOs Install the developer tools <code class="docutils literal highlight highlight-freefem"><span></span>Xcode</code> on the apple DVD</li>
+<li>Linux/Unix Install the correct compiler (<code class="docutils literal highlight highlight-freefem"><span></span>gcc</code> for instance)</li>
+</ul>
+<p>Now, assume that you are in a shell window (a <code class="docutils literal highlight highlight-freefem"><span></span>cygwin</code> window under
+Windows) in the directory
+<code class="docutils literal highlight highlight-freefem"><span></span>`example++-load</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load">https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load</a>&gt;`__.</p>
+<p>!!!note In the sub directory <code class="docutils literal highlight highlight-freefem"><span></span>include</code>, they are all the
+<strong>``FreeFem++``</strong> include file to make the link with <strong>``FreeFem++``</strong>.</p>
+<p>!!!note If you try to load dynamically a file with command
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>load &quot;xxx&quot;</code> * Under Unix (Linux or MacOs), the file
+<code class="docutils literal highlight highlight-freefem"><span></span>xxx.so</code> will be loaded so it must be either in the search directory
+of routine <code class="docutils literal highlight highlight-freefem"><span></span>dlopen</code> (see the environment variable
+<code class="docutils literal highlight highlight-freefem"><span></span>$LD_LIBRARY_PATH.</code> or in the current directory, and the suffix
+<code class="docutils literal highlight highlight-freefem"><span></span>&quot;.so&quot;</code> or the prefix <code class="docutils literal highlight highlight-freefem"><span></span>&quot;./&quot;</code> is automatically added.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>* Under Windows, the file `xxx.dll` will be loaded so it must be in the `loadLibary` search directory which includes the directory of the application,
+</pre></div>
+</div>
+<p><strong>Compilation of your module:</strong></p>
+<p>The script <code class="docutils literal highlight highlight-freefem"><span></span>ff-c++</code> compiles and makes the link with
+<strong>``FreeFem++``</strong>, but be careful, the script has no way to known if you
+try to compile for a pure Windows environment or for a cygwin
+environment so to build the load module under cygwin you must add the
+<code class="docutils literal highlight highlight-freefem"><span></span>-cygwin</code> parameter.</p>
+<div class="section" id="a-first-example-myfunction-cpp">
+<h3>A first example myfunction.cpp<a class="headerlink" href="#a-first-example-myfunction-cpp" title="Permalink to this headline">¶</a></h3>
+<p>The following defines a new function call <code class="docutils literal highlight highlight-freefem"><span></span>myfunction</code> with no
+parameter, but using the <span class="math notranslate nohighlight">\(x,y\)</span> current value.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cfloat&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#include</span> <span class="cpf">&quot;error.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;AFunction.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;rgraph.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;RNM.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;fem.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;FESpace.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;MeshPoint.hpp&quot;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Fem2D</span><span class="p">;</span>
+<span class="kt">double</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">){</span>
+    <span class="c1">//to get FreeFem++ data</span>
+    <span class="n">MeshPoint</span> <span class="o">&amp;</span><span class="n">mp</span> <span class="o">=</span> <span class="o">*</span><span class="n">MeshPointStack</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span> <span class="c1">//the struct to get x, y, normal, value</span>
+    <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="c1">//get the current x value</span>
+    <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="c1">//get the current y value</span>
+    <span class="c1">//cout &lt;&lt; &quot;x = &quot; &lt;&lt; x &lt;&lt; &quot; y=&quot; &lt;&lt; y &lt;&lt; endl;</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!--- ** ---><p>Now the Problem is to build the link with <strong>``FreeFem++``</strong>, to do that
+we need two classes, one to call the function <code class="docutils literal highlight highlight-freefem"><span></span>myfunction</code>.</p>
+<p>All <strong>``FreeFem++``</strong> evaluable expression must be a <code class="docutils literal highlight highlight-freefem"><span></span>C++</code>
+<code class="docutils literal highlight highlight-freefem"><span></span>struct</code>/<code class="docutils literal highlight highlight-freefem"><span></span>class</code> which derivate from <code class="docutils literal highlight highlight-freefem"><span></span>E_F0</code>. By default this
+expression does not depend of the mesh position, but if they derivate
+from <code class="docutils literal highlight highlight-freefem"><span></span>E_F0mps</code> the expression depends of the mesh position, and for
+more details see <a class="reference external" href="#HECHT2002">HECHT2002</a>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//A class build the link with FreeFem++</span>
+<span class="c1">//generaly this class are already in AFunction.hpp</span>
+<span class="c1">//but unfortunatly, I have no simple function with no parameter</span>
+<span class="c1">//in FreeFem++ depending of the mesh</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">OneOperator0s</span> <span class="o">:</span> <span class="k">public</span> <span class="n">OneOperator</span> <span class="p">{</span>
+    <span class="c1">//the class to define and evaluate a new function</span>
+    <span class="c1">//It must devive from E_F0 if it is mesh independent</span>
+    <span class="c1">//or from E_F0mps if it is mesh dependent</span>
+    <span class="k">class</span> <span class="nc">E_F0_F</span> <span class="o">:</span><span class="k">public</span> <span class="n">E_F0mps</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">typedef</span> <span class="n">R</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">);</span>
+        <span class="n">func</span> <span class="n">f</span><span class="p">;</span> <span class="c1">//the pointeur to the fnction myfunction</span>
+        <span class="n">E_F0_F</span><span class="p">(</span><span class="n">func</span> <span class="n">ff</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="c1">//the operator evaluation in FreeFem++</span>
+        <span class="n">AnyType</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">SetAny</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">stack</span><span class="p">));}</span>
+    <span class="p">};</span>
+    <span class="k">typedef</span> <span class="nf">R</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="n">Stack</span><span class="p">);</span>
+    <span class="n">func</span> <span class="n">f</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="c1">//the function which build the FreeFem++ byte code</span>
+        <span class="n">E_F0</span> <span class="o">*</span><span class="n">code</span><span class="p">(</span><span class="k">const</span> <span class="n">basicAC_F0</span> <span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">E_F0_F</span><span class="p">(</span><span class="n">f</span><span class="p">);</span> <span class="p">}</span>
+        <span class="c1">//the constructor to say ff is a function without parameter</span>
+        <span class="c1">//and returning a R</span>
+        <span class="n">OneOperator0s</span><span class="p">(</span><span class="n">func</span> <span class="n">ff</span><span class="p">)</span> <span class="o">:</span> <span class="n">OneOperator</span><span class="p">(</span><span class="n">map_type</span><span class="p">[</span><span class="k">typeid</span><span class="p">(</span><span class="n">R</span><span class="p">).</span><span class="n">name</span><span class="p">()]),</span><span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">){}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<!--- ** ---><p>To finish we must add this new function in <strong>``FreeFem++``</strong> table, to
+do that include :</p>
+<p><code class="docutils literal highlight highlight-freefem"><span></span>cpp void init(){     Global.Add(&quot;myfunction&quot;, &quot;(&quot;, new OneOperator0s&lt;double&gt;(myfunction)); } LOADFUNC(init);</code>cpp</p>
+<p>It will be called automatically at load module time.</p>
+<p>To compile and link, use the <code class="docutils literal highlight highlight-freefem"><span></span>ff-c++</code> script :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ff</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">cpp</span>
+<span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">Iinclude</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">cpp</span>
+<span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">bundle</span> <span class="o">-</span><span class="n">undefined</span> <span class="n">dynamic_lookup</span> <span class="o">-</span><span class="n">g</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">o</span> <span class="o">-</span><span class="n">o</span> <span class="p">.</span><span class="o">/</span><span class="n">myfunction</span><span class="p">.</span><span class="n">dylib</span>
+</pre></div>
+</div>
+<p>To try the simple example under Linux or MacOS, do
+<code class="docutils literal highlight highlight-freefem"><span></span>FreeFem++-nw load.edp</code></p>
+<p>The output must be:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">FreeFem</span><span class="o">++</span> <span class="n">v</span>  <span class="o">*</span><span class="p">.</span><span class="o">******</span> <span class="p">(</span><span class="n">date</span> <span class="o">***</span> <span class="o">**</span> <span class="o">***</span> <span class="o">****</span><span class="p">,</span> <span class="o">**:**:**</span> <span class="p">(</span><span class="n">UTC</span><span class="o">+</span><span class="mi">0</span><span class="o">*</span><span class="mo">00</span><span class="p">))</span>
+ <span class="nl">Load</span><span class="p">:</span> <span class="n">lg_fem</span> <span class="n">lg_mesh</span> <span class="n">lg_mesh3</span> <span class="n">eigenvalue</span>
+    <span class="mi">1</span> <span class="o">:</span> <span class="c1">// Example of dynamic function load</span>
+    <span class="mi">2</span> <span class="o">:</span> <span class="c1">// --------------------------------</span>
+    <span class="mi">3</span> <span class="o">:</span> <span class="c1">// $Id$</span>
+    <span class="mi">4</span> <span class="o">:</span>
+    <span class="mi">5</span> <span class="o">:</span>  <span class="n">load</span> <span class="s">&quot;myfunction&quot;</span>
+    <span class="mi">6</span> <span class="o">:</span> <span class="c1">// dumptable(cout);</span>
+    <span class="mi">7</span> <span class="o">:</span>  <span class="n">mesh</span> <span class="n">Th</span><span class="o">=</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+    <span class="mi">8</span> <span class="o">:</span>  <span class="n">fespace</span> <span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="n">P1</span><span class="p">);</span>
+    <span class="mi">9</span> <span class="o">:</span>  <span class="n">Vh</span> <span class="n">uh</span><span class="o">=</span> <span class="n">myfunction</span><span class="p">();</span> <span class="c1">// warning do not forget ()</span>
+   <span class="mi">10</span> <span class="o">:</span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">uh</span><span class="p">[].</span><span class="n">min</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">uh</span><span class="p">[].</span><span class="n">max</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="mi">11</span> <span class="o">:</span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; test io ( &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="mi">12</span> <span class="o">:</span>  <span class="n">testio</span><span class="p">();</span>
+   <span class="mi">13</span> <span class="o">:</span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ) end test io .. &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="n">sizestack</span> <span class="o">+</span> <span class="mi">1024</span> <span class="o">=</span><span class="mi">1416</span>  <span class="p">(</span> <span class="mi">392</span> <span class="p">)</span>
+
+  <span class="o">--</span> <span class="n">Square</span> <span class="nl">mesh</span> <span class="p">:</span> <span class="n">nb</span> <span class="n">vertices</span>  <span class="o">=</span><span class="mi">36</span> <span class="p">,</span>  <span class="n">nb</span> <span class="n">triangles</span> <span class="o">=</span> <span class="mi">50</span> <span class="p">,</span>  <span class="n">nb</span> <span class="n">boundary</span> <span class="n">edges</span> <span class="mi">20</span>
+<span class="mi">0</span> <span class="mf">0.841471</span>
+ <span class="n">test</span> <span class="n">io</span> <span class="p">(</span>
+ <span class="n">test</span> <span class="n">cout</span> <span class="mf">3.14159</span>
+ <span class="n">test</span> <span class="n">cout</span> <span class="mi">512</span>
+ <span class="n">test</span> <span class="n">cerr</span> <span class="mf">3.14159</span>
+ <span class="n">test</span> <span class="n">cerr</span> <span class="mi">512</span>
+ <span class="p">)</span> <span class="n">end</span> <span class="n">test</span> <span class="n">io</span> <span class="p">..</span>
+<span class="nl">times</span><span class="p">:</span> <span class="n">compile</span> <span class="mf">0.012854</span><span class="n">s</span><span class="p">,</span> <span class="n">execution</span> <span class="mf">0.000313</span><span class="n">s</span><span class="p">,</span>  <span class="nl">mpirank</span><span class="p">:</span><span class="mi">0</span>
+ <span class="nl">CodeAlloc</span> <span class="p">:</span> <span class="n">nb</span> <span class="n">ptr</span>  <span class="mi">2715</span><span class="p">,</span>  <span class="nl">size</span> <span class="p">:</span><span class="mi">371104</span> <span class="nl">mpirank</span><span class="p">:</span> <span class="mi">0</span>
+<span class="nl">Ok</span><span class="p">:</span> <span class="n">Normal</span> <span class="n">End</span>
+</pre></div>
+</div>
+<p>Under Windows, launch <strong>``FreeFem++``</strong> with the mouse (or ctrl O) on
+the example.</p>
+</div>
+<div class="section" id="example-discrete-fast-fourier-transform">
+<h3>Example: Discrete Fast Fourier Transform<a class="headerlink" href="#example-discrete-fast-fourier-transform" title="Permalink to this headline">¶</a></h3>
+<p>This will add FFT to <strong>``FreeFem++``</strong>, taken from
+<a class="reference external" href="http://www.fftw.org/">FFTW</a>. To download and install under
+<code class="docutils literal highlight highlight-freefem"><span></span>download/include</code> just go in <code class="docutils literal highlight highlight-freefem"><span></span>download/fftw</code> and try <code class="docutils literal highlight highlight-freefem"><span></span>make</code>.</p>
+<p>The 1D dfft (fast discret fourier transform) for a simple array
+<span class="math notranslate nohighlight">\(f\)</span> of size <span class="math notranslate nohighlight">\(n\)</span> is defined by the following formula</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{dfft}(f,\varepsilon)_{k} = \sum_{j=0}^{n-1} f_i e^{\varepsilon 2\pi i kj/n}\]</div>
+<p>The 2D DFFT for an array of size <span class="math notranslate nohighlight">\(N=n\times m\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{dfft}(f,m,\varepsilon)_{k+nl} = \sum_{j'=0}^{m-1} \sum_{j=0}^{n-1} f_{i+nj} e^{\varepsilon 2\pi i (kj/n+lj'/m) }\]</div>
+<p>!!!note The value <span class="math notranslate nohighlight">\(n\)</span> is given by <span class="math notranslate nohighlight">\(size(f)/m\)</span>, and the
+numbering is row-major order.</p>
+<p>So the classical discrete DFFT is
+<span class="math notranslate nohighlight">\(\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}\)</span> and the reverse dFFT
+<span class="math notranslate nohighlight">\(f=\mathtt{dfft}(\hat{f},1)/\sqrt{n}\)</span></p>
+<p>!!!note The 2D Laplace operator is</p>
+<div class="math notranslate nohighlight">
+\[f(x,y) = 1/\sqrt{N} \sum_{j'=0}^{m-1} \sum_{j=0}^{n-1} \hat{f}_{i+nj} e^{\varepsilon 2\pi i (x j+ yj') }\]</div>
+<p>and we have</p>
+<div class="math notranslate nohighlight">
+\[f_{k+nl} = f(k/n,l/m)\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\widehat{\Delta f_{kl}} = -( (2\pi)^2 ( (\tilde{k})^2+(\tilde{l})^2)) \widehat{ f_{kl}} \\\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{k} = k\)</span> if <span class="math notranslate nohighlight">\(k \leq n/2\)</span> else
+<span class="math notranslate nohighlight">\(\tilde{k} = k-n\)</span> and <span class="math notranslate nohighlight">\(\tilde{l} = l\)</span> if <span class="math notranslate nohighlight">\(l \leq m/2\)</span>
+else <span class="math notranslate nohighlight">\(\tilde{l} = l-m\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>And to have a real function we need all modes to be symmetric around zero, so :math:`n` and :math:`m` must be odd.
+</pre></div>
+</div>
+<p><strong>Compile to build a new library</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ff-c++ dfft.cpp ../download/install/lib/libfftw3.a -I../download/install/include
+<span class="nb">export</span> <span class="nv">MACOSX_DEPLOYMENT_TARGET</span><span class="o">=</span><span class="m">10</span>.3
+g++ -c -Iinclude -I../download/install/include dfft.cpp
+g++ -bundle -undefined dynamic_lookup dfft.o -o ./dfft.dylib ../download/install/lib/libfftw3.a
+</pre></div>
+</div>
+<p>To test, try <a class="reference external" href="/examples/#fft">FFT example</a>.</p>
+</div>
+<div class="section" id="load-module-for-dervieux-p0-p1-finite-volume-method">
+<h3>Load Module for Dervieux P0-P1 Finite Volume Method<a class="headerlink" href="#load-module-for-dervieux-p0-p1-finite-volume-method" title="Permalink to this headline">¶</a></h3>
+<p>The associed edp file is
+<code class="docutils literal highlight highlight-freefem"><span></span>`examples++-load/convect_dervieux.edp</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/convect_dervieux.edp">https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/convect_dervieux.edp</a>&gt;`__.</p>
+<p>See
+<code class="docutils literal highlight highlight-freefem"><span></span>`mat_dervieux.cpp</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/mat_dervieux.cpp">https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/mat_dervieux.cpp</a>&gt;`__.</p>
+</div>
+<div class="section" id="more-on-adding-a-new-finite-element">
+<h3>More on Adding a new finite element<a class="headerlink" href="#more-on-adding-a-new-finite-element" title="Permalink to this headline">¶</a></h3>
+<p>First read the <a class="reference external" href="#adding-a-new-finite-element">Adding a new finite element
+section</a>, we add two new finite
+elements examples in the directory
+<code class="docutils literal highlight highlight-freefem"><span></span>`examples++-load</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load">https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load</a>&gt;`__.</p>
+<div class="section" id="the-bernardi-raugel-element">
+<h4>The Bernardi-Raugel Element<a class="headerlink" href="#the-bernardi-raugel-element" title="Permalink to this headline">¶</a></h4>
+<p>The Bernardi-Raugel finite element is meant to solve the Navier Stokes
+equations in <span class="math notranslate nohighlight">\(u,p\)</span> formulation; the velocity space
+<span class="math notranslate nohighlight">\(P^{br}_K\)</span> is minimal to prove the inf-sup condition with
+piecewise constant pressure by triangle.</p>
+<p>The finite element space <span class="math notranslate nohighlight">\(V_h\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[V_h= \{u\in H^1(\Omega)^2 ; \quad \forall K \in T_h, u_{|K} \in P^{br}_K \}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[P^{br}_K = span \{ \lambda^K_i e_k \}_{i=1,2,3, k= 1,2} \cup \{ \lambda^K_i\lambda^K_{i+1} n^K_{i+2}\}_{i=1,2,3}\]</div>
+<p>with notation <span class="math notranslate nohighlight">\(4=1, 5=2\)</span> and where <span class="math notranslate nohighlight">\(\lambda^K_i\)</span> are the
+barycentric coordinates of the triangle <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\((e_k)_{k=1,2}\)</span>
+the canonical basis of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> and <span class="math notranslate nohighlight">\(n^K_k\)</span> the outer normal
+of triangle <span class="math notranslate nohighlight">\(K\)</span> opposite to vertex <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<!--- __ ---><p>See
+<code class="docutils literal highlight highlight-freefem"><span></span>`BernardiRaugel.cpp</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/BernardiRaugel.cpp">https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/BernardiRaugel.cpp</a>&gt;`__.</p>
+<p>A way to check the finite element</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;BernardiRaugel&quot;
+
+// Macro
+//a macro the compute numerical derivative
+macro DD(f, hx, hy) ( (f(x1+hx, y1+hy) - f(x1-hx, y1-hy))/(2*(hx+hy)) ) //
+
+// Mesh
+mesh Th = square(1, 1, [10*(x+y/3), 10*(y-x/3)]);
+
+// Parameters
+real x1 = 0.7, y1 = 0.9, h = 1e-7;
+int it1 = Th(x1, y1).nuTriangle;
+
+// Fespace
+fespace Vh(Th, P2BR);
+Vh [a1, a2], [b1, b2], [c1, c2];
+
+for (int i = 0; i &lt; Vh.ndofK; ++i)
+    cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; Vh(0,i) &lt;&lt; endl;
+
+for (int i = 0; i &lt; Vh.ndofK; ++i)
+{
+    a1[] = 0;
+    int j = Vh(it1, i);
+    a1[][j] = 1;
+    plot([a1, a2], wait=1);
+    [b1, b2] = [a1, a2]; //do the interpolation
+
+    c1[] = a1[] - b1[];
+    cout &lt;&lt; &quot; ---------&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; c1[].max &lt;&lt; &quot; &quot; &lt;&lt; c1[].min &lt;&lt; endl;
+    cout &lt;&lt; &quot; a = &quot; &lt;&lt; a1[] &lt;&lt;endl;
+    cout &lt;&lt; &quot; b = &quot; &lt;&lt; b1[] &lt;&lt;endl;
+    assert(c1[].max &lt; 1e-9 &amp;&amp; c1[].min &gt; -1e-9); //check if the interpolation is correct
+
+    // check the derivative and numerical derivative
+    cout &lt;&lt; &quot; dx(a1)(x1, y1) = &quot; &lt;&lt; dx(a1)(x1, y1) &lt;&lt; &quot; == &quot; &lt;&lt; DD(a1, h, 0) &lt;&lt; endl;
+    assert( abs(dx(a1)(x1, y1) - DD(a1, h, 0) ) &lt; 1e-5);
+    assert( abs(dx(a2)(x1, y1) - DD(a2, h, 0) ) &lt; 1e-5);
+    assert( abs(dy(a1)(x1, y1) - DD(a1, 0, h) ) &lt; 1e-5);
+    assert( abs(dy(a2)(x1, y1) - DD(a2, 0, h) ) &lt; 1e-5);
+}
+</pre></div>
+</div>
+<p>A real example using this finite element, just a small modification of
+the Navier-Stokes P2-P1 example, just the begenning is change to</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;BernardiRaugel&quot;
+
+real s0 = clock();
+mesh Th = square(10, 10);
+fespace Vh2(Th, P2BR);
+fespace Vh(Th, P0);
+Vh2 [u1, u2], [up1, up2];
+Vh2 [v1, v2];
+</pre></div>
+</div>
+<p>And the plot instruction is also changed because the pressure is
+constant, and we cannot plot isovalues of peacewise constant functions.</p>
+</div>
+<div class="section" id="the-morley-element">
+<h4>The Morley Element<a class="headerlink" href="#the-morley-element" title="Permalink to this headline">¶</a></h4>
+<p>See the example
+<code class="docutils literal highlight highlight-freefem"><span></span>`bilapMorley.edp</code> &lt;<a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/bilapMorley.edp">https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/bilapMorley.edp</a>&gt;`__.</p>
+<!---
+### Add a new sparse solver
+
+Warning the sparse solver interface as been completely rewritten in version 3.2, so the section is obsolete, the example in are correct/
+
+Only a fast sketch of the code is given here; for details see the .cpp code from `SuperLU.cpp` or `NewSolve.cpp`.
+
+First the include files:
+```cpp
+#@include  <iostream>
+@using @namespace std;
+
+#@include "rgraph.hpp"
+#@include "error.hpp"
+#@include "AFunction.hpp"
+
+//#include "lex.hpp"
+#@include "MatriceCreuse_tpl.hpp"
+#@include "slu_ddefs.h"
+#@include "slu_zdefs.h"
+```
+
+A small template driver to unified the `:::cpp double` and `:::cpp complex` version.
+
+```cpp
+@template <class R> @struct SuperLUDriver
+{
+
+};
+
+@template <> @struct SuperLUDriver<@double>
+{
+  ....  @double version
+};
+
+@template <> @struct SuperLUDriver<@Complex>
+{
+....  @Complex version
+};
+```
+
+To get Matrix value, we have just to remark that the Morse Matrice the storage, is the `SLU_NR` format is the compressed row storage, this is the transpose of the compressed column storage.
+
+So if `AA` is a MatriceMorse you have with SuperLU notation.
+```cpp
+    n=AA.n;
+    m=AA.m;
+    nnz=AA.nbcoef;
+    a=AA.a;
+    asub=AA.cl;
+    xa=AA.lg;
+    options.Trans = TRANS;
+
+    Dtype_t R_SLU = SuperLUDriver<R>::R_SLU_T();
+    Create_CompCol_Matrix(&A, m, n, nnz, a, asub, xa, SLU_NC, R_SLU, SLU_GE);
+```
+
+To get vector infomation, to solver the linear solver $x = A^{-1} b$
+
+```cpp
+    @void Solver(@const MatriceMorse<R> &AA,KN_<R> &x,@const KN_<R> &b) @const
+    {
+    ....
+    Create_Dense_Matrix(&B, m, 1, b, m, SLU_DN, R_SLU, SLU_GE);
+    Create_Dense_Matrix(&X, m, 1, x, m, SLU_DN, R_SLU, SLU_GE);
+    ....
+ }
+```
+
+The two `BuildSolverSuperLU` functions, to change the default sparse solver variable
+
+`:::cpp DefSparseSolver<@double>::solver`
+
+```cpp
+MatriceMorse<double>::VirtualSolver *
+BuildSolverSuperLU(DCL_ARG_SPARSE_SOLVER(double,A))
+{
+    @if(verbosity>9)
+    @cout << " BuildSolverSuperLU<double>" << endl;
+    @return new SolveSuperLU<double>(*A,ds.strategy,ds.tgv,ds.epsilon,ds.tol_pivot,ds.tol_pivot_sym,ds.sparams,ds.perm_r,ds.perm_c);
+}
+
+MatriceMorse<Complex>::VirtualSolver *
+BuildSolverSuperLU(DCL_ARG_SPARSE_SOLVER(Complex,A))
+{
+    @if(verbosity>9)
+        @cout << " BuildSolverSuperLU<Complex>" << endl;
+    @return new SolveSuperLU<Complex>(*A,ds.strategy,ds.tgv,ds.epsilon,ds.tol_pivot,ds.tol_pivot_sym,ds.sparams,ds.perm_r,ds.perm_c);
+}
+```
+
+The link to __`FreeFem++`__
+
+```cpp
+@class Init { @public:
+    Init();
+};
+```
+
+To set the 2 default sparse solver double and complex:
+
+```cpp
+DefSparseSolver<@double>::SparseMatSolver SparseMatSolver_R ; ;
+DefSparseSolver<Complex>::SparseMatSolver SparseMatSolver_C;
+```cpp
+
+To save the default solver type
+
+```cpp
+TypeSolveMat::TSolveMat TypeSolveMatdefaultvalue=TypeSolveMat::defaultvalue;
+```
+
+To reset to the default solver, call this function:
+
+```cpp
+@bool SetDefault()
+{
+   @if(verbosity>1)
+      @cout << " SetDefault sparse to default" << endl;
+    DefSparseSolver<@double>::solver =SparseMatSolver_R;
+    DefSparseSolver<Complex>::solver =SparseMatSolver_C;
+    TypeSolveMat::defaultvalue =TypeSolveMat::SparseSolver;
+}
+```
+
+To set the default solver to superLU, call this function:
+
+```cpp
+@bool SetSuperLU()
+{
+    @if(verbosity>1)
+      @cout << " SetDefault sparse solver to SuperLU" << endl;
+    DefSparseSolver<@double>::solver  =BuildSolverSuperLU;
+    DefSparseSolver<Complex>::solver =BuildSolverSuperLU;
+    TypeSolveMat::defaultvalue =TypeSolveMatdefaultvalue;
+}
+```
+
+To add new function/name `:::freefem defaultsolver,defaulttoSuperLU` in __`FreeFem++`__, and set the default solver to the new solver, just do:
+
+```cpp
+void init()
+{
+
+  SparseMatSolver_R= DefSparseSolver<@double>::solver;
+  SparseMatSolver_C= DefSparseSolver<@Complex>::solver;
+
+  @if(verbosity>1)
+    @cout << "\n Add: SuperLU,  defaultsolver defaultsolverSuperLU" << endl;
+  TypeSolveMat::defaultvalue=TypeSolveMat::SparseSolver;
+  DefSparseSolver<@double>::solver =BuildSolverSuperLU;
+  DefSparseSolver<@Complex>::solver =BuildSolverSuperLU;
+  //  test if the name "defaultsolver" exist in freefem++
+ @if(! Global.Find("defaultsolver").NotNull() )
+    Global.Add("defaultsolver","(",new OneOperator0<bool>(SetDefault));
+  Global.Add("defaulttoSuperLU","(",new OneOperator0<bool>(SetSuperLU));
+}
+
+LOADFUNC(init);
+```
+
+To compile `superlu.cpp`, just do:
+
+ * download the SuperLu 3.0 package and do
+
+    `curl http://crd.lbl.gov/~xiaoye/SuperLU/superlu_3.0.tar.gz -o superlu_3.0.tar.gz`
+
+    `tar xvfz superlu_3.0.tar.gz`
+
+go SuperLU_3.0 directory
+```cpp
+$EDITOR make.inc
+make
+```
+
+ * In directoy include do to have a correct version of `SuperLu` header due to mistake in case of inclusion of `:::cpp double` and `:::cpp complex` version in the same file.
+    ```bash
+    tar xvfz ../SuperLU_3.0-include-ff.tar.gz
+    ```
+    I will give a correct one to compile with freefm++.
+
+To compile the __`FreeFem++`__ load file of SuperLu with freefem do:
+some find like :
+```bash
+ff-c++ SuperLU.cpp -L$HOME/work/LinearSolver/SuperLU_3.0/ -lsuperlu_3.0
+```
+
+And to test the simple example:
+
+A example:
+
+```freefem
+@load "SuperLU"
+verbosity=2;
+@for(int i=0;i<3;++i)
+{
+// if i == 0 then SuperLu  solver \hfilll
+//    i == 1 then GMRES    solver \hfilll
+//    i == 2 then Default  solver \hfilll
+  {
+    @matrix A =
+      [[ 0, 1, 0, 10],
+       [ 0,  0,  2, 0],
+       [ 0, 0, 0,  3],
+       [ 4,0 , 0, 0]];
+    @real[int] xx = [ 4,1,2,3], x(4), b(4);
+    b = A*xx;
+    @cout << b << " " << xx << endl;
+    @set(A,solver=sparsesolver);
+    x = A^-1*b;
+    @cout << x << endl;
+  }
+
+  {
+    @matrix<complex> A =
+      [[ 0, 1i, 0, 10],
+       [ 0 ,  0,  2i, 0],
+       [ 0, 0, 0,  3i],
+       [ 4i,0 , 0, 0]];
+    @complex[int] xx = [ 4i,1i,2i,3i], x(4), b(4);
+    b = A*xx;
+    @cout << b << " " << xx << endl;
+    @set(A,solver=sparsesolver);
+    x = A^-1*b;
+    @cout << x << endl;
+  }
+  @if(i==0)defaulttoGMRES();
+  @if(i==1)defaultsolver();
+}
+```
+
+To Test do for exemple:
+```bash
+FreeFem++ SuperLu.edp
+```
+---></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[HECHT2002] HECHT, Frédéric. C++ Tools to construct our user-level
+language. ESAIM: Mathematical Modelling and Numerical Analysis, 2002,
+vol.&nbsp;36, no 5, p.&nbsp;809-836.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Developers</a><ul>
+<li><a class="reference internal" href="#file-formats">File formats</a><ul>
+<li><a class="reference internal" href="#mesh-file-data-structure">Mesh file data structure</a></li>
+<li><a class="reference internal" href="#bb-file-type-to-store-solutions">bb file type to Store Solutions</a></li>
+<li><a class="reference internal" href="#id1">BB file type to store solutions</a></li>
+<li><a class="reference internal" href="#metric-file">Metric file</a></li>
+<li><a class="reference internal" href="#list-of-am-fmt-amdba-meshes">List of AM_FMT, AMDBA Meshes</a></li>
+<li><a class="reference internal" href="#sol-and-solb-files">sol and solb files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-a-new-finite-element">Adding a new finite element</a><ul>
+<li><a class="reference internal" href="#some-notations">Some notations</a></li>
+<li><a class="reference internal" href="#which-class-to-add">Which class to add?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dynamical-link">Dynamical link</a><ul>
+<li><a class="reference internal" href="#a-first-example-myfunction-cpp">A first example myfunction.cpp</a></li>
+<li><a class="reference internal" href="#example-discrete-fast-fourier-transform">Example: Discrete Fast Fourier Transform</a></li>
+<li><a class="reference internal" href="#load-module-for-dervieux-p0-p1-finite-volume-method">Load Module for Dervieux P0-P1 Finite Volume Method</a></li>
+<li><a class="reference internal" href="#more-on-adding-a-new-finite-element">More on Adding a new finite element</a><ul>
+<li><a class="reference internal" href="#the-bernardi-raugel-element">The Bernardi-Raugel Element</a></li>
+<li><a class="reference internal" href="#the-morley-element">The Morley Element</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="plugins.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Plugins</div>
+         </div>
+     </a>
+     <a id="button-next" href="../reference/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Language references</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

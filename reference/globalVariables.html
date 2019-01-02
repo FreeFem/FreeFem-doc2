@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Global variables &#8212; FreeFem++ 3.61.2 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="canonical" href="doc.freefem.org/dev/reference/globalVariables.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quadrature formulae" href="quadratureFormulae.html" />
+    <link rel="prev" title="Types" href="types.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Language references</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Global variables</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/reference/globalVariables.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  FreeFem++
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="externalLibraries.html">External libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="global-variables">
+<h1>Global variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="area">
+<h2>area<a class="headerlink" href="#area" title="Permalink to this headline">¶</a></h2>
+<p>Area of the current triangle.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh0(Th, P0);
+Vh0 A = area;
+</pre></div>
+</div>
+</div>
+<div class="section" id="argv">
+<h2>ARGV<a class="headerlink" href="#argv" title="Permalink to this headline">¶</a></h2>
+<p>Array that contains all the command line arguments.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>for (int i = 0; i &lt; ARGV.n; i++)
+    cout &lt;&lt; ARGV[i] &lt;&lt; endl;
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../example/index.html#examplecommandlinearguments"><span class="std std-ref">Command line arguments example</span></a> for a complete example.</p>
+</div>
+<div class="section" id="boundaryedge">
+<h2>BoundaryEdge<a class="headerlink" href="#boundaryedge" title="Permalink to this headline">¶</a></h2>
+<p>Return 1 if the current edge is on a boundary, 0 otherwise.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real B = int2d(Th)(BoundaryEdge);
+</pre></div>
+</div>
+</div>
+<div class="section" id="cg">
+<h2>CG<a class="headerlink" href="#cg" title="Permalink to this headline">¶</a></h2>
+<p>Conjugate gradient solver.</p>
+<p>Usable in <a class="reference internal" href="types.html#typeproblem"><span class="std std-ref">problem</span></a> and <a class="reference internal" href="types.html#typesolve"><span class="std std-ref">solve</span></a> definition</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>problem Laplacian (U, V, solver=CG) = ...
+</pre></div>
+</div>
+<p>Or in <a class="reference internal" href="types.html#typematrix"><span class="std std-ref">matrix</span></a> construction</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=CG);
+</pre></div>
+</div>
+<p>Or in <a class="reference internal" href="functions.html#functionset"><span class="std std-ref">set function</span></a></p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>set(A, solver=CG);
+</pre></div>
+</div>
+</div>
+<div class="section" id="cholesky">
+<h2>Cholesky<a class="headerlink" href="#cholesky" title="Permalink to this headline">¶</a></h2>
+<p>Cholesky solver.</p>
+</div>
+<div class="section" id="crout">
+<h2>Crout<a class="headerlink" href="#crout" title="Permalink to this headline">¶</a></h2>
+<p>Crout solver.</p>
+</div>
+<div class="section" id="edgeorientation">
+<h2>edgeOrientation<a class="headerlink" href="#edgeorientation" title="Permalink to this headline">¶</a></h2>
+<p>Sign of <span class="math notranslate nohighlight">\(i-j\)</span> if the current edge is <span class="math notranslate nohighlight">\([q_i, q_j]\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real S = int1d(Th, 1)(edgeOrientation);
+</pre></div>
+</div>
+</div>
+<div class="section" id="false">
+<h2>false<a class="headerlink" href="#false" title="Permalink to this headline">¶</a></h2>
+<p>False boolean value.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>bool b = false;
+</pre></div>
+</div>
+</div>
+<div class="section" id="gmres">
+<h2>GMRES<a class="headerlink" href="#gmres" title="Permalink to this headline">¶</a></h2>
+<p>GMRES solver (Generalized minimal residual method).</p>
+</div>
+<div class="section" id="htriangle">
+<h2>hTriangle<a class="headerlink" href="#htriangle" title="Permalink to this headline">¶</a></h2>
+<p>Size of the current triangle.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh(Th, P0);
+Vh h = hTriangle;
+</pre></div>
+</div>
+</div>
+<div class="section" id="include">
+<h2>include<a class="headerlink" href="#include" title="Permalink to this headline">¶</a></h2>
+<p>Include an <a class="reference internal" href="externalLibraries.html#externallibraries"><span class="std std-ref">external library</span></a>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>include &quot;iovtk&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="internaledge">
+<h2>InternalEdge<a class="headerlink" href="#internaledge" title="Permalink to this headline">¶</a></h2>
+<p>Return 0 if the current edge is on a boundary, 1 otherwise.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real I = int2d(Th)(InternalEdge);
+</pre></div>
+</div>
+</div>
+<div class="section" id="label">
+<h2>label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h2>
+<p>Label number of a boundary if the current point is on a boundary, 0 otherwise.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int L = Th(xB, yB).label;
+</pre></div>
+</div>
+</div>
+<div class="section" id="lenedge">
+<h2>lenEdge<a class="headerlink" href="#lenedge" title="Permalink to this headline">¶</a></h2>
+<p>Length of the current edge.</p>
+<p>For an edge <span class="math notranslate nohighlight">\([q_i, g_j]\)</span>, return <span class="math notranslate nohighlight">\(|q_i-q_j|\)</span>.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real L = int1d(Th, 1)(lenEdge);
+</pre></div>
+</div>
+</div>
+<div class="section" id="load">
+<h2>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
+<p>Load a script.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;Element_P3&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="lu">
+<h2>LU<a class="headerlink" href="#lu" title="Permalink to this headline">¶</a></h2>
+<p>LU solver.</p>
+</div>
+<div class="section" id="n">
+<h2>N<a class="headerlink" href="#n" title="Permalink to this headline">¶</a></h2>
+<p>Outward unit normal at the current point if it is on a curve defined by a border.
+<code class="code freefem docutils literal highlight highlight-freefem"><span></span>N.x, N.y, N.z</code> are respectively the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> components of the normal.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>func Nx = N.x;
+func Ny = N.y;
+func Nz = N.z;
+</pre></div>
+</div>
+</div>
+<div class="section" id="ntonedge">
+<h2>nTonEdge<a class="headerlink" href="#ntonedge" title="Permalink to this headline">¶</a></h2>
+<p>Number of adjacent triangles of the current edge.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real nTE = int2d(Th)(nTonEdge);
+</pre></div>
+</div>
+</div>
+<div class="section" id="nuedge">
+<h2>nuEdge<a class="headerlink" href="#nuedge" title="Permalink to this headline">¶</a></h2>
+<p>Index of the current edge in the triangle.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real nE = int2d(Th)(nuEdge);
+</pre></div>
+</div>
+</div>
+<div class="section" id="nutriangle">
+<h2>nuTriangle<a class="headerlink" href="#nutriangle" title="Permalink to this headline">¶</a></h2>
+<p>Index of the current triangle.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh(Th, P0);
+Vh n = nuTriangle;
+</pre></div>
+</div>
+</div>
+<div class="section" id="p">
+<h2>P<a class="headerlink" href="#p" title="Permalink to this headline">¶</a></h2>
+<p>Current point.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real cx = P.x;
+real cy = P.y;
+real cz = P.z;
+</pre></div>
+</div>
+</div>
+<div class="section" id="pi">
+<h2>pi<a class="headerlink" href="#pi" title="Permalink to this headline">¶</a></h2>
+<p>Pi = 3.14159.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real Pi = pi;
+</pre></div>
+</div>
+<p>This is a real value.</p>
+</div>
+<div class="section" id="region">
+<h2>region<a class="headerlink" href="#region" title="Permalink to this headline">¶</a></h2>
+<p>Region number of the current point. If the point is outside, then <code class="code freefem docutils literal highlight highlight-freefem"><span></span>region == notaregion</code> where <code class="code freefem docutils literal highlight highlight-freefem"><span></span>notaregion</code> is a <strong>FreeFem++</strong> integer constant.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int R = Th(xR, yR).region;
+</pre></div>
+</div>
+</div>
+<div class="section" id="sparsesolver">
+<h2>sparsesolver<a class="headerlink" href="#sparsesolver" title="Permalink to this headline">¶</a></h2>
+<p>Sparse matrix solver.</p>
+</div>
+<div class="section" id="true">
+<h2>true<a class="headerlink" href="#true" title="Permalink to this headline">¶</a></h2>
+<p>True boolean value.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>bool b = true;
+</pre></div>
+</div>
+</div>
+<div class="section" id="verbosity">
+<h2>verbosity<a class="headerlink" href="#verbosity" title="Permalink to this headline">¶</a></h2>
+<p>Verbosity level.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int Verbosity = verbosity;
+verbosity = 0;
+</pre></div>
+</div>
+<p>0 = nothing, 1 = little information, 10 = a lot of information, …</p>
+<p>This is an integer value.</p>
+</div>
+<div class="section" id="version">
+<h2>version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>FreeFem++ version.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>cout &lt;&lt; version &lt;&lt; endl;
+</pre></div>
+</div>
+</div>
+<div class="section" id="volume">
+<h2>volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p>Volume of the current tetrahedra.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>fespace Vh0(Th, P0);
+Vh0 V = volume;
+</pre></div>
+</div>
+</div>
+<div class="section" id="x">
+<h2>x<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="math notranslate nohighlight">\(x\)</span> coordinate at the current point.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real CurrentX = x;
+</pre></div>
+</div>
+<p>This is a real value.</p>
+</div>
+<div class="section" id="y">
+<h2>y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="math notranslate nohighlight">\(y\)</span> coordinate at the current point.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real CurrentY = y;
+</pre></div>
+</div>
+<p>This is a real value.</p>
+</div>
+<div class="section" id="z">
+<h2>z<a class="headerlink" href="#z" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="math notranslate nohighlight">\(z\)</span> coordinate at the current point.</p>
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>real CurrentZ = z;
+</pre></div>
+</div>
+<p>This is a real value.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Global variables</a><ul>
+<li><a class="reference internal" href="#area">area</a></li>
+<li><a class="reference internal" href="#argv">ARGV</a></li>
+<li><a class="reference internal" href="#boundaryedge">BoundaryEdge</a></li>
+<li><a class="reference internal" href="#cg">CG</a></li>
+<li><a class="reference internal" href="#cholesky">Cholesky</a></li>
+<li><a class="reference internal" href="#crout">Crout</a></li>
+<li><a class="reference internal" href="#edgeorientation">edgeOrientation</a></li>
+<li><a class="reference internal" href="#false">false</a></li>
+<li><a class="reference internal" href="#gmres">GMRES</a></li>
+<li><a class="reference internal" href="#htriangle">hTriangle</a></li>
+<li><a class="reference internal" href="#include">include</a></li>
+<li><a class="reference internal" href="#internaledge">InternalEdge</a></li>
+<li><a class="reference internal" href="#label">label</a></li>
+<li><a class="reference internal" href="#lenedge">lenEdge</a></li>
+<li><a class="reference internal" href="#load">load</a></li>
+<li><a class="reference internal" href="#lu">LU</a></li>
+<li><a class="reference internal" href="#n">N</a></li>
+<li><a class="reference internal" href="#ntonedge">nTonEdge</a></li>
+<li><a class="reference internal" href="#nuedge">nuEdge</a></li>
+<li><a class="reference internal" href="#nutriangle">nuTriangle</a></li>
+<li><a class="reference internal" href="#p">P</a></li>
+<li><a class="reference internal" href="#pi">pi</a></li>
+<li><a class="reference internal" href="#region">region</a></li>
+<li><a class="reference internal" href="#sparsesolver">sparsesolver</a></li>
+<li><a class="reference internal" href="#true">true</a></li>
+<li><a class="reference internal" href="#verbosity">verbosity</a></li>
+<li><a class="reference internal" href="#version">version</a></li>
+<li><a class="reference internal" href="#volume">volume</a></li>
+<li><a class="reference internal" href="#x">x</a></li>
+<li><a class="reference internal" href="#y">y</a></li>
+<li><a class="reference internal" href="#z">z</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="types.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Types</div>
+         </div>
+     </a>
+     <a id="button-next" href="quadratureFormulae.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Quadrature formulae</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">FreeFem++</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2018, FreeFem++.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>
