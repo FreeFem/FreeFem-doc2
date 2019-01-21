@@ -374,7 +374,7 @@ The range is :math:`0 -- 2^{31}-1`.
 
 .. note:: If :freefem:`srandomdev` is not defined, a seed based on the current time is used.
 
-:freefem:`gsl` plugin equally allows usage of all random functions of the ``gsllib``, see `gsl external library <../ExternalLibraries/#ff_gsl_awk>`__.
+:freefem:`gsl` plugin equally allows usage of all random functions of the ``gsllib``, see :ref:`gsl external library <referenceFFGSLAWK>`.
 
 FE-functions
 ~~~~~~~~~~~~
@@ -434,7 +434,7 @@ In order to solve the problem, just call:
 
    The default solver is :freefem:`sparsesolver` or :freefem:`LU` if any direct sparse solver is available.
 
-   Solvers are listed in the [Global variables](../GlobalVariables/) section.
+   Solvers are listed in the :ref:`Global variables <globalVariables>` section.
 
 .. note:: Stop test
 
@@ -845,21 +845,21 @@ Matrices are designed using templates, so they can be real or complex:
 
 .. note:: datafilename
 
-   Name of the file containing solver parameters, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
+   Name of the file containing solver parameters, see :ref:`Parallel sparse solvers <parallelSparseSolvers>`
 
 .. note:: :freefem:`lparams`
 
-   Vector of integer parameters for the solver, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
+   Vector of integer parameters for the solver, see :ref:`Parallel sparse solvers <parallelSparseSolvers>`
 
 .. note:: :freefem:`dparams`
 
-   Vector of real parameters for the solver, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
+   Vector of real parameters for the solver, see :ref:`Parallel sparse solvers <parallelSparseSolvers>`
 
 .. note::  :freefem:`sparams`
 
-   String parameters for the solver, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
+   String parameters for the solver, see :ref:`Parallel sparse solvers <parallelSparseSolvers>`
 
-.. tip:: To modify the :freefem:`solver`, the stop test,… after the matrix construction, use the `:freefem:`set` keyword <../Functions/#set>`__.
+.. tip:: To modify the :freefem:`solver`, the stop test,… after the matrix construction, use the :ref:`set keyword <functionSet>`.
 
 Matrix size
 ~~~~~~~~~~~
@@ -927,9 +927,9 @@ The outer product of two matrices is realized using:
 
    matrix C = A * B'
 
-See `Matrix operations example </examples/#matrix-operations>`__ for a complete example.
+See :ref:`Matrix operations example <exampleMatrixOperations>` for a complete example.
 
 Matrix inversion
 ~~~~~~~~~~~~~~~~
 
-See `Matrix inversion example </examples/#matrix-inversion>`__.
+See :ref:`Matrix inversion example <exampleMatrixInversion>`.

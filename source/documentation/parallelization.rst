@@ -594,6 +594,8 @@ And small include to make graphic in parallel of distribute solution of vector :
 
 .. note:: The :freefem:`cmm=cm, ...` in the macro argument is a way to quote macro argument so the argument is :freefem:`cmm=cm, ...`.
 
+.. _parallelSparseSolvers:
+
 Parallel sparse solvers
 -----------------------
 

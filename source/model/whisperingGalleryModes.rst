@@ -1,7 +1,7 @@
 Whispering gallery modes
 ========================
 
-Author: `I. S. Grudinin <http://grudinin.com/>`__
+Author: `I. S. Grudinin <http://linkeding.com/in/grudinin>`__
 
 In whispering gallery mode (WGM) resonators, which are typically spheres or disks, electromagnetic field is trapped by total internal reflections from the boundary.
 Modes of such resonators are distinguished by compact volume and record high quality factors (Q) in a broad range of frequencies.

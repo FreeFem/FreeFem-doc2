@@ -23,7 +23,9 @@ Latest binary packages
 +-------------------+-------------------+-----------+--------------+
 | `Windows 32bits`_ | ``3.46``          |  66.4 Mb  | May 09, 2017 |
 +-------------------+-------------------+-----------+--------------+
-| `Source`_         | ``latest``        |  25.1 Mb  | Feb 22, 2018 |
+| `Source_4.0`_     | ``4.0-beta``      | 3.2 Mb    | Jan 18, 2019 |
++-------------------+-------------------+-----------+--------------+
+| `Source`_         | ``latest``        | ``-``     | Feb 22, 2018 |
 +-------------------+-------------------+-----------+--------------+
 | `Older versions`_ | ``-``             | ``-``     | ``-``        |
 +-------------------+-------------------+-----------+--------------+
@@ -38,6 +40,7 @@ The source code is available on the `FreeFem++ GitHub Repository <https://github
 .. _Windows 64bits: https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-win64.exe
 .. _Windows 32bits: http://www3.freefem.org/ff++/ftp/FreeFem++-3.46-win32.exe
 .. _Source: https://github.com/FreeFem/FreeFem-sources/releases/latest
+.. _Source_4.0: http://www3.freefem.org/ff++/ftp/freefem++-4.0-beta.tar.gz
 .. _Older versions: http://www3.freefem.org/ff++/ftp/
 
 Syntax highlighters

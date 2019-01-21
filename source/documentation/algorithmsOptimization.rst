@@ -483,7 +483,7 @@ Note that if you define the constraints in this way, they don’t contribute to 
    real[int] bc = ... ; //constant part of constraints
    IPOPT([A, b], [Ac, bc], Xi, /*bounds and named parameters*/);
 
-If both objective and constraint functions are given this way, it automatically activates the IPOPT :freefem:`mehrotra_algorithm` option (better for linear and quadratic programming according to the documentation).
+If both objective and constraint functions are given this way, it automatically activates the IPOPT ``mehrotra_algorithm`` option (better for linear and quadratic programming according to the documentation).
 Otherwise, this option can only be set through the option file (see the named parameters section).
 
 A false case is the one of defining :math:`f` in this manner while using standard functions for the constraints:
@@ -570,8 +570,8 @@ The in-script available parameters are:
    It is used to avoid wrong index matching when some null coefficients are removed from the matrices by **FreeFem++**.
    It will not solve the problems arising when a too small structure has been given at the initialization of the algorithm.
    Enabled by default (except in cases where all matrices are obviously constant).
--  :freefem:`warmstart` : If set to :freefem:`true`, the constraints dual variables :math:`\lambda`, and simple bound dual variables are initialized with the values of the arrays passed to :freefem:`lm``, :freefem:`lz` and :freefem:`uz` named parameters (see below).
--  :freefem:`lm`` : :freefem:`real[int]` of size :math:`m`, which is used to get the final values of the constraints dual variables :math:`\lambda` and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).
+-  :freefem:`warmstart` : If set to :freefem:`true`, the constraints dual variables :math:`\lambda`, and simple bound dual variables are initialized with the values of the arrays passed to :freefem:`lm`, :freefem:`lz` and :freefem:`uz` named parameters (see below).
+-  :freefem:`lm` : :freefem:`real[int]` of size :math:`m`, which is used to get the final values of the constraints dual variables :math:`\lambda` and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).
 -  :freefem:`lz`, :freefem:`uz` : :freefem:`real[int]` of size :math:`n` to get the final values and/or initialize (in case of a warm start) the dual variables associated to simple bounds.
 -  :freefem:`tol` : :freefem:`real`, convergence tolerance for the algorithm, the default value is :math:`10^{-8}`.
 -  :freefem:`maxiter` : :freefem:`int`, maximum number of iterations with 3000 as default value.

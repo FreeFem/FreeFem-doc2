@@ -1,6 +1,8 @@
 .. role:: freefem(code)
   :language: freefem
 
+.. _globalVariables:
+
 Global variables
 ================
 

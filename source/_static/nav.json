@@ -24,6 +24,15 @@ let navData = [
             "visualization": "Visualization",
             "algorithmsOptimization": "Algorithms & Optimization",
             "parallelization": "Parallelization",
+            "ffddm/index": {
+                    "title": "ffddm",
+                    "children": {
+                        "introddm": "Introduction to DDM",
+                        "documentation": "ffddm documentation",
+                        "parameters": "ffddm parameters",
+                        "examples": "Examples"
+                    }
+                },
             "plugins": "Plugins",
             "developers": "Developers"
         }

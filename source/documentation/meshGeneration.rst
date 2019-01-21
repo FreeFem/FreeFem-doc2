@@ -11,6 +11,8 @@ Mesh Generation
 
 Let us begin with the two important keywords: :freefem:`border` and :freefem:`buildmesh`.
 
+.. _meshSquare:
+
 Square
 ~~~~~~
 
@@ -102,7 +104,7 @@ Boundaries are defined piecewise by parametrized curves. The pieces can only int
   cout << "Part 1 has region number " << Th(0.75, -0.25).region << endl;
   cout << "Part 2 has redion number " << Th(0.25, -0.25).region << endl;
 
-Borders and mesh are respectively shown in :numref:`figMultipleBorder` and Fig. :numref:`figGeneratedMesh`.
+Borders and mesh are respectively shown in :numref:`figMultipleBorder` and :numref:`figGeneratedMesh`.
 
 .. figure:: images/MeshGeneration_Border1.png
     :figclass: inline2
@@ -224,6 +226,8 @@ And a more complex example to define a square with small circles:
    plot(bb(nn), cc(NC), wait=1);
    mesh th = buildmesh(bb(nn) + cc(NC));
    plot(th, wait=1);
+
+.. _meshDataStructureReadWrite:
 
 Data Structures and Read/Write Statements for a Mesh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1048,7 +1052,7 @@ To speed up the adaptation, the default parameter :freefem:`err` of :freefem:`ad
 
 The problem is coercive and symmetric, so the linear system can be solved with the conjugate gradient method (parameter :freefem:`solver=CG`) with the stopping criteria on the residual, here :freefem:`eps=1.e-6`).
 
-By :freefem:`adaptmesh`, the slope of the final solution is correctly computed near the point of intersection of :math:`bc` and :math:`bd` as in Fig. 16.
+By :freefem:`adaptmesh`, the slope of the final solution is correctly computed near the point of intersection of :math:`bc` and :math:`bd` as in :numref:`adaptMesh3`.
 
 This method is described in detail in [HECHT1998]_.
 It has a number of default parameters which can be modified.
@@ -1266,6 +1270,8 @@ Another way to split mesh triangles is to use :freefem:`splitmesh`, for example:
     :name: splitMesh2
 
     All left mesh triangle is split conformaly in :freefem:`int(1+5*(square(x-0.5)+y*y)^2` triangles
+
+.. _meshExamples:
 
 Meshing Examples
 ----------------
@@ -1644,6 +1650,8 @@ The output of this script is:
     :name: meshGeneration_cube
 
     The mesh 3d of function :freefem:`cube(4, 5, 6, flags=3)`
+
+.. _meshReadWrite3D:
 
 Read/Write Statements for a Mesh in 3D
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

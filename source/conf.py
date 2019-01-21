@@ -47,13 +47,10 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-# highlight_language = 'freefem'
-# highlight_options = {'linenos':1, 'linenosthreshold':5}
+highlight_language = 'default'
+highlight_options = {'linenos': 1}
 
 # -- Options for HTML output -------------------------------------------------
-
-html_favicon = 'images/favicon.png'
-html_logo = 'images/Logo.png'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.

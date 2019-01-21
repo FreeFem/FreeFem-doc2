@@ -13,6 +13,7 @@ Documentation
   parallelization
   plugins
   developers
+  ffddm/index
 
 .. only:: html
 

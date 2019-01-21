@@ -1726,7 +1726,7 @@ Output:
 
 -  None
 
-See the `visualization </documentation/Visualization>`__ chapter for in-graphic commands.
+See the :ref:`plot <plot>` section for in-graphic commands.
 
 polar
 -----
@@ -1927,7 +1927,7 @@ Output:
 readmesh
 --------
 
-Read a 2D mesh file at different formats (see `Mesh Generation </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__).
+Read a 2D mesh file at different formats (see :ref:`Mesh Generation <meshDataStructureReadWrite>`).
 
 .. code-block:: freefem
 
@@ -1944,7 +1944,7 @@ Output:
 readmesh3
 ---------
 
-Read a 3D mesh file at different formats (see `Mesh Generation </documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d>`__).
+Read a 3D mesh file at different formats (see :ref:`Mesh Generation <meshReadWrite3D>`).
 
 .. code-block:: freefem
 
@@ -2012,7 +2012,7 @@ Output:
 savemesh
 --------
 
-Save a 2D or 3D mesh in different formats (see `Mesh Generation 2D </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__ and `Mesh Generation 3D </documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d>`__).
+Save a 2D or 3D mesh in different formats (see :ref:`Mesh Generation 2D <meshDataStructureReadWrite>` and :ref:`Mesh Generation 3D <meshReadWrite3D>`).
 
 .. code-block:: freefem
 
@@ -2032,7 +2032,7 @@ Output:
 set
 ---
 
-Set a property to a matrix. See `matrix <../Types/#matrix>`__.
+Set a property to a matrix. See :ref:`matrix <typeMatrix>`.
 
 sign
 ----
@@ -2197,7 +2197,7 @@ Parameters:
 -  ``H`` (:freefem:`real`) *[Optional]*\  Height along :math:`y`
 -  :freefem:`flags=` (:freefem:`int`) *[Optional]*
 
-   Structured mesh type, see `Mesh Generation chapter </documentation/MeshGeneration/#square>`__ for more information
+   Structured mesh type, see :ref:`Mesh Generation chapter <meshSquare>` for more information
 
 Output:
 

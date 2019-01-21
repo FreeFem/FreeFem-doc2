@@ -86,7 +86,7 @@ and the electrostatic field is calculated by
 Exporting Data
 --------------
 
-To export a FEM mesh FreeFem++ offers the `savemesh() </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__ command.
+To export a FEM mesh FreeFem++ offers the :ref:`savemesh() <meshDataStructureReadWrite>` command.
 FE-space functions must be written to text files by for-loops.
 The following code section writes the mesh, the potential :math:`u` and the 2D vector field :math:`\mathbf{E}` of the stripline capacitor example into three different files:
 
@@ -112,7 +112,7 @@ The following code section writes the mesh, the potential :math:`u` and the 2D v
 Importing Data
 --------------
 
-A mesh file as previously written with the :freefem:`savemesh(Th,"filename.msh")` command consists of `three main sections </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__:
+A mesh file as previously written with the :freefem:`savemesh(Th,"filename.msh")` command consists of :ref:`three main sections <meshDataStructureReadWrite>`:
 
 1. The mesh points as nodal coordinates
 2. A list of boundary edges including boundary labels
@@ -209,9 +209,9 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 
 **Download run through example:**
 
-`Matlab / Octave file </tutorials/scripts/matlab_octave_2d_examples.m>`__
+:download:`Matlab / Octave file <scripts/matlab_octave_2d_examples.m>`
 
-`FreeFem++ script </tutorials/scripts/matlab_octave_2d_examples.edp>`__
+:download:`FreeFem++ script <scripts/matlab_octave_2d_examples.edp>`
 
 3D Plot Examples
 ----------------
@@ -228,9 +228,9 @@ The following example shows a slicing feature on a three-dimensional parallel pl
 
 **Download run through example:**
 
-`Matlab / Octave file </tutorials/scripts/matlab_octave_3d_examples.m>`__
+:download:`Matlab / Octave file <scripts/matlab_octave_3d_examples.m>`
 
-`FreeFem++ script </tutorials/scripts/matlab_octave_3d_examples.edp>`__
+:download:`FreeFem++ script <scripts/matlab_octave_3d_examples.edp>`
 
 References
 ----------

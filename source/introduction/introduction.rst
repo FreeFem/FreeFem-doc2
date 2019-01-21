@@ -8,7 +8,7 @@ Problems involving partial differential equations from several branches of physi
 
 **FreeFem++** is written in C++ and its language is a C++ idiom.
 
-.. image:: ../images/Logo.png
+.. image:: ../_static/img/Logo.png
    :class: center
    :alt: FreeFem++
 

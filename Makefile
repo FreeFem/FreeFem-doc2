@@ -21,8 +21,10 @@ help:
 html: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-	cd tools && npm i lunr && npm i cheerio && node build_index.js && cd .. && cp tools/lunr_index.js build/html/_static/
+	cd tools && npm i && npm run build && npm run deploy
 
 htmlonly: Makefile
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	#  -n -b linkcheck # parameters for dead-link check (take a long)
+	@echo $(SPHINXOPTS)
+	#  To check dead-links (take a long time)
+	# SPHINXOPTS='-n -b linkcheck' make -e html
