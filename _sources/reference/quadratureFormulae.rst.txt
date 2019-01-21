@@ -1,13 +1,11 @@
+.. math::
+    \def\boldx{{\mathbf{x}}}
+    \def\boldxi{{\boldsymbol{\xi}}}
+
 .. _quadratureFormulae:
 
 Quadrature formulae
 ===================
-
-.. todo:: Write only freefem code, not math equation, refere to doc / fintie element
-
-.. math::
-   \newcommand{\boldx}{\mathbf{x}}
-   \newcommand{\boldxi}{\boldsymbol{\xi}}
 
 The quadrature formula is like the following:
 
@@ -36,15 +34,15 @@ with :math:`0\leq t\leq 1`; :math:`\boldx=(1-t)\boldx_0+t\boldx_1`.
 qf1pE
 ~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf1pE)( ... )
 
 or
 
-.. code:: freefem
+.. code-block:: freefem
 
-   int1d(Th, qfe=qforder=2)( ... )
+   int1d(Th, qforder=2)( ... )
 
 This quadrature formula is exact on :math:`\mathbb{P}_1`.
 
@@ -54,15 +52,15 @@ This quadrature formula is exact on :math:`\mathbb{P}_1`.
 qf2pE
 ~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf2pE)( ... )
 
 or
 
-.. code:: freefem
+.. code-block:: freefem
 
-   int1d(Th, qfe=qforder=3)( ... )
+   int1d(Th, qforder=3)( ... )
 
 This quadrature formula is exact on :math:`\mathbb{P}_3`.
 
@@ -75,15 +73,15 @@ This quadrature formula is exact on :math:`\mathbb{P}_3`.
 qf3pE
 ~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf3pE)( ... )
 
 or
 
-.. code:: freefem
+.. code-block:: freefem
 
-   int1d(Th, qfe=qforder=6)( ... )
+   int1d(Th, qforder=6)( ... )
 
 This quadrature formula is exact on :math:`\mathbb{P}_5`.
 
@@ -99,15 +97,15 @@ This quadrature formula is exact on :math:`\mathbb{P}_5`.
 qf4pE
 ~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf4pE)( ... )
 
 or
 
-.. code:: freefem
+.. code-block:: freefem
 
-   int1d(Th, qfe=qforder=8)( ... )
+   int1d(Th, qforder=8)( ... )
 
 This quadrature formula is exact on :math:`\mathbb{P}_7`.
 
@@ -122,15 +120,15 @@ This quadrature formula is exact on :math:`\mathbb{P}_7`.
 qf5pE
 ~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf5pE)( ... )
 
 or
 
-.. code:: freefem
+.. code-block:: freefem
 
-   int1d(Th, qfe=qforder=10)( ... )
+   int1d(Th, qforder=10)( ... )
 
 This quadrature formula is exact on :math:`\mathbb{P}_9`.
 
@@ -146,7 +144,7 @@ This quadrature formula is exact on :math:`\mathbb{P}_9`.
 qf1pElump
 ~~~~~~~~~
 
-.. code:: freefem
+.. code-block:: freefem
 
    int1d(Th, qfe=qf1pElump)( ... )
 
@@ -163,40 +161,100 @@ This quadrature formula is exact on :math:`\mathbb{P}_2`.
 int2d
 -----
 
+.. note:: Complete formulas are no longer detailed
+
 qf1pT
 ~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf1pT)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int2d(Th, qforder=2)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_1`.
 
 qf2pT
 ~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf2pT)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int2d(Th, qforder=3)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_2`.
 
 qf5pT
 ~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf5pT)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int2d(Th, qforder=6)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_5`.
 
 qf1pTlump
 ~~~~~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf1pTlump)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_1`.
 
 qf2pT4P1
 ~~~~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf2pT4P1)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_1`.
 
 qf7pT
 ~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf7pT)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int2d(Th, qforder=8)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_7`.
 
 qf9pT
 ~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int2d(Th, qfe=qf9pT)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int2d(Th, qforder=10)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_9`.
 
 .. _quadratureFormulaeInt3d:
 
@@ -206,19 +264,53 @@ int3d
 qfV1
 ~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int3d(Th, qfe=qfV1)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int3d(Th, qforder=2)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_1`.
 
 qfV2
 ~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int3d(Th, qfe=qfV2)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int3d(Th, qforder=3)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_2`.
 
 qfV5
 ~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int3d(Th, qfe=qfV5)( ... )
+
+or
+
+.. code-block:: freefem
+
+    int3d(Th, qforder=6)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_5`.
 
 qfV1lump
 ~~~~~~~~
 
-.. todo:: todo
+.. code-block:: freefem
+
+    int3d(Th, qfe=qfV1lump)( ... )
+
+This quadrature formula is exact on :math:`\mathbb{P}_1`.

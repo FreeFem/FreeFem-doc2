@@ -4,8 +4,10 @@ Newton Method for the Steady Navier-Stokes equations
 The problem is find the velocity field :math:`\mathbf{u}=(u_i)_{i=1}^d` and the pressure :math:`p` of a Flow satisfying in the domain :math:`\Omega \subset \mathbb{R}^d (d=2,3)`:
 
 .. math::
-   (\mathbf{u}\cdot\nabla) \mathbf{u}-\nu \Delta \mathbf{u}+\nabla p&=&0\\
-       \nabla\cdot \mathbf{u}&=&0
+    \begin{array}{rcl}
+        (\mathbf{u}\cdot\nabla) \mathbf{u}-\nu \Delta \mathbf{u}+\nabla p&=&0\\
+        \nabla\cdot \mathbf{u}&=&0
+    \end{array}
 
 where :math:`\nu` is the viscosity of the fluid, :math:`\nabla = (\partial_i )_{i=1}^d`, the dot product is :math:`\cdot`, and :math:`\Delta = \nabla\cdot\nabla` with the same boundary conditions (:math:`\mathbf{u}` is given on :math:`\Gamma`).
 
@@ -35,10 +37,12 @@ Where :math:`DF(u)` is the differential of :math:`F` at point :math:`u`, this is
 For Navier Stokes, :math:`F` and :math:`DF` are:
 
 .. math::
-   F(\mathbf{u},p) = \int_\Omega &&((\mathbf{u}\cdot\nabla) \mathbf{u} ). \mathbf{v} + \nu \nabla \mathbf{u}:\nabla \mathbf{v}
-    - p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{u}\\
-   DF(\mathbf{u},p)(\mathbf{\delta u} ,\delta p) = \int_\Omega &&((\mathbf{\delta u}\cdot\nabla) \mathbf{u} ). \mathbf v + ((\mathbf{u}\cdot\nabla) \mathbf{\delta u} ). \mathbf{v} \\
-    &+& \nu \nabla \mathbf{\delta u}:\nabla \mathbf{v} - \delta p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{\delta u}
+    \begin{array}{rcl}
+        F(\mathbf{u},p) &=& \int_\Omega((\mathbf{u}\cdot\nabla) \mathbf{u} ). \mathbf{v} + \nu \nabla \mathbf{u}:\nabla \mathbf{v}
+        - p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{u}\\
+        DF(\mathbf{u},p)(\mathbf{\delta u} ,\delta p) &=& \int_\Omega ((\mathbf{\delta u}\cdot\nabla) \mathbf{u} ). \mathbf v + ((\mathbf{u}\cdot\nabla) \mathbf{\delta u} ). \mathbf{v} \\
+        &+& \nu \nabla \mathbf{\delta u}:\nabla \mathbf{v} - \delta p \nabla\cdot \mathbf{v} - q \nabla\cdot \mathbf{\delta u}
+    \end{array}
 
 So the Newton algorithm become:
 
@@ -161,12 +165,14 @@ So the Newton algorithm become:
 
 .. note:: We use a trick to make continuation on the viscosity :math:`\nu`, because the Newton method blowup owe start with the final viscosity :math:`\nu`.
 
-   :math:`nu` is gradually increased to the desired value.
+    :math:`\nu` is gradually increased to the desired value.
 
 .. figure:: images/NSNewtonTh.jpg
+    :figclass: inline2
 
-   Mesh
+    Mesh
 
 .. figure:: images/NSNewtonUP.jpg
+    :figclass: inline2
 
-   Velocity and pressure at Reynolds 200
+    Velocity and pressure at Reynolds 200

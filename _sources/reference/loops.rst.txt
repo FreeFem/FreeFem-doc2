@@ -6,6 +6,8 @@ Loops
 
 See :ref:`Loop example <exampleLoop>`.
 
+.. _loopFor:
+
 for
 ---
 

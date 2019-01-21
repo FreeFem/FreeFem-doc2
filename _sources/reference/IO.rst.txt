@@ -115,7 +115,7 @@ Get the current line.
 Output format
 -------------
 
-In the descriptions below, ``f`` is an output stream, for example :freefem`cout` or a :freefem:`ofstream`.
+In the descriptions below, ``f`` is an output stream, for example :freefem:`cout` or a :freefem:`ofstream`.
 
 All this methods, excepted the first, return a stream, so they can be chained:
 
@@ -128,7 +128,7 @@ precision
 
 Set the number of digits printed to the right of the decimal point.
 This applies to all subsequent floating point numbers written to that output stream.
-However, this won’t make floating-point “integers” print with a decimal point.
+However, this won’t make floating-point “integers" print with a decimal point.
 It’s necessary to use :freefem:`fixed` for that effect.
 
 .. code-block:: freefem

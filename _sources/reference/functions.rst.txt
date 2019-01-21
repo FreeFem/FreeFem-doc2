@@ -4,6 +4,11 @@
 .. role:: cpp(code)
    :language: cpp
 
+.. math::
+    \def\arccosh{{\text{arccosh}}}
+    \def\arcsinh{{\text{arcsinh}}}
+    \def\arctanh{{\text{arctanh}}}
+
 Functions
 =========
 
@@ -41,7 +46,7 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arccos.svg
+.. figure:: images/arccos.png
    :alt: arccos function
 
    arccos function
@@ -49,7 +54,7 @@ Output:
 acosh
 -----
 
-:math:`\DeclareMathOperator\arccosh{arccosh}` :math:`\arccosh` function.
+.. :math:`\DeclareMathOperator\arccosh{arccosh}` :math:`\arccosh` function.
 
 .. code-block:: freefem
 
@@ -68,10 +73,12 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arccosh.svg
+.. figure:: images/arccosh.png
    :alt: arccosh function
 
    arccosh function
+
+.. _referenceAdaptMesh:
 
 adaptmesh
 ---------
@@ -211,7 +218,7 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arcsin.svg
+.. figure:: images/arcsin.png
    :alt: arcsin function
 
    arcsin function
@@ -219,7 +226,7 @@ Output:
 asinh
 -----
 
-:math:`\DeclareMathOperator\arcsinh{arcsinh}` :math:`\arcsinh` function.
+.. :math:`\DeclareMathOperator\arcsinh{arcsinh}` :math:`\arcsinh` function.
 
 .. code-block:: freefem
 
@@ -238,7 +245,7 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arcsinh.svg
+.. figure:: images/arcsinh.png
    :alt: arcsinh function
 
    arcsinh function
@@ -277,7 +284,7 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arctan.svg
+.. figure:: images/arctan.png
    :alt: arctan function
 
    arctan function
@@ -302,7 +309,7 @@ Output:
 atanh
 -----
 
-:math:`\DeclareMathOperator\arctanh{arctanh}` :math:`\arctanh` function.
+.. :math:`\DeclareMathOperator\arctanh{arctanh}` :math:`\arctanh` function.
 
 .. code-block:: freefem
 
@@ -316,7 +323,7 @@ Output:
 
 -  ``theta`` (:freefem:`real`)
 
-.. figure:: images/arctanh.svg
+.. figure:: images/arctanh.png
    :alt: arctanh function
 
    arctanh function
@@ -359,6 +366,8 @@ BFGS
 ----
 
 .. todo:: todo
+
+.. _referenceBuildMesh:
 
 buildmesh
 ---------
@@ -518,8 +527,10 @@ Characteristics Galerkin method.
 Compute :math:`c\circ \mathbf{X}` with :math:`\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}` and :math:`\mathbf{x}_{\tau}` is the solution of:
 
 .. math::
-   \dot{\mathbf{x}}_{\tau} &=& \mathbf{u}(\mathbf{x}_{\tau})\\
-   \mathbf{x}_{\tau} &=& \mathbf{x}
+    \begin{array}{rcl}
+        \dot{\mathbf{x}}_{\tau} &=& \mathbf{u}(\mathbf{x}_{\tau})\\
+        \mathbf{x}_{\tau} &=& \mathbf{x}
+    \end{array}
 
 Parameters:
 
@@ -538,7 +549,7 @@ Output:
 copysign
 --------
 
-C++ :cpp`copysign` function.
+C++ :cpp:`copysign` function.
 
 .. code-block:: freefem
 
@@ -561,7 +572,7 @@ Output:
 
 -  ``x`` (:freefem:`real` or :freefem:`complex`)
 
-.. figure:: images/cos.svg
+.. figure:: images/cos.png
    :alt: cos function
 
    cos function
@@ -926,12 +937,6 @@ Parameters:
 Output: The output is the number of converged eigenvalues, which can be different than the number of requested eigenvalues given by :freefem:`nev=`.
 Note that the eigenvalues and the eigenvectors are stored for further purposes using the parameters :freefem:`value=` and :freefem:`vector=`.
 
-.. code-block:: freefem
-
-   int Res = EigenValue()
-
-.. todo:: todo
-
 emptymesh
 ---------
 
@@ -1223,7 +1228,7 @@ Parameters:
 -  :freefem:`qfe=` (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
 
    Quadrature formula, see :ref:`quadrature formulae <quadratureFormulaeInt2d>`
--  *:freefem:`qforder`\ =* (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
+-  :freefem:`qforder=` (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
 
    Quadrature order, see :ref:`quadrature formulae <quadratureFormulaeInt2d>`
 
@@ -1254,7 +1259,7 @@ Parameters:
    Label of the 3D region
 
    Default: all regions of the mesh
--  *:freefem:`qfe`\ =* (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
+-  :freefem:`qfe=` (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
 
    Quadrature formula, see :ref:`quadrature formulae <quadratureFormulaeInt3d>`
 -  :freefem:`qforder=` (:ref:`quadrature formula <quadratureFormulae>`) *[Optional]*
@@ -1721,7 +1726,7 @@ Output:
 
 -  None
 
-See the `visualization </documentation/Visualization>`__ chapter for in-graphic commands.
+See the :ref:`plot <plot>` section for in-graphic commands.
 
 polar
 -----
@@ -1922,7 +1927,7 @@ Output:
 readmesh
 --------
 
-Read a 2D mesh file at different formats (see `Mesh Generation </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__).
+Read a 2D mesh file at different formats (see :ref:`Mesh Generation <meshDataStructureReadWrite>`).
 
 .. code-block:: freefem
 
@@ -1939,7 +1944,7 @@ Output:
 readmesh3
 ---------
 
-Read a 3D mesh file at different formats (see `Mesh Generation </documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d>`__).
+Read a 3D mesh file at different formats (see :ref:`Mesh Generation <meshReadWrite3D>`).
 
 .. code-block:: freefem
 
@@ -2007,7 +2012,7 @@ Output:
 savemesh
 --------
 
-Save a 2D or 3D mesh in different formats (see `Mesh Generation 2D </documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh>`__ and `Mesh Generation 3D </documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d>`__).
+Save a 2D or 3D mesh in different formats (see :ref:`Mesh Generation 2D <meshDataStructureReadWrite>` and :ref:`Mesh Generation 3D <meshReadWrite3D>`).
 
 .. code-block:: freefem
 
@@ -2027,7 +2032,7 @@ Output:
 set
 ---
 
-Set a property to a matrix. See `matrix <../Types/#matrix>`__.
+Set a property to a matrix. See :ref:`matrix <typeMatrix>`.
 
 sign
 ----
@@ -2072,7 +2077,7 @@ Output:
 
 -  ``x`` (:freefem:`real` or :freefem:`complex`)
 
-.. figure:: images/sin.svg
+.. figure:: images/sin.png
    :alt: sin function
 
    sin function
@@ -2099,7 +2104,7 @@ Output:
 
 -  ``x`` (:freefem:`real`)
 
-.. figure:: images/sinh.svg
+.. figure:: images/sinh.png
    :alt: sinh function
 
    sinh function
@@ -2159,6 +2164,8 @@ Output:
 
 -  ``s`` (:freefem:`real`)
 
+.. _functionSquare:
+
 square
 ------
 
@@ -2190,7 +2197,7 @@ Parameters:
 -  ``H`` (:freefem:`real`) *[Optional]*\  Height along :math:`y`
 -  :freefem:`flags=` (:freefem:`int`) *[Optional]*
 
-   Structured mesh type, see `Mesh Generation chapter </documentation/MeshGeneration/#square>`__ for more information
+   Structured mesh type, see :ref:`Mesh Generation chapter <meshSquare>` for more information
 
 Output:
 
@@ -2233,7 +2240,7 @@ Output:
 
 .. note:: On Windows, the full path of the command is needed. For example, to execute ``ls.exe``:
 
-   . code-block:: freefem
+   .. code-block:: freefem
 
       int Res = exec("C:\\cygwin\\bin\\ls.exe");
 
@@ -2254,7 +2261,7 @@ Output:
 
 -  ``x`` (:freefem:`real`)
 
-.. figure:: images/tan.svg
+.. figure:: images/tan.png
    :alt: tan function
 
    tan function
@@ -2276,7 +2283,7 @@ Output:
 
 -  ``x`` (:freefem:`real`)
 
-.. figure:: images/tanh.svg
+.. figure:: images/tanh.png
    :alt: tanh function
 
    tanh function

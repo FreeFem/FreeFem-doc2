@@ -66,11 +66,13 @@ We assume that the elastic plate is fixed on :math:`\Gamma_D\times ]-h,h[,\, \Ga
 If the body force :math:`\mathbf{f}=(f_1,f_2,f_3)` is given in :math:`\Omega\times]-h,h[` and surface force :math:`\mathbf{g}` is given in :math:`\Gamma_N\times]-h,h[, \Gamma_N=\partial\Omega\setminus\overline{\Gamma_D}`, then the equation of equilibrium is given as follows:
 
 .. math::
-   -\partial_j \sigma_{ij}&=&f_i~~\textrm{in }\Omega\times ]-h,h[,\quad
-   i=1,2,3\\
-   \sigma_{ij}n_j&=&g_i~~\textrm{on }\Gamma_N\times ]-h,h[,\quad
-   u_i=0~~\textrm{on }\Gamma_D\times ]-h,h[,\quad i=1,2,3
-   :label: eqn::elasticity
+    \begin{array}{rcl}
+        -\partial_j \sigma_{ij}&=&f_i~~\textrm{in }\Omega\times ]-h,h[,\quad
+        i=1,2,3\\
+        \sigma_{ij}n_j&=&g_i~~\textrm{on }\Gamma_N\times ]-h,h[,\quad
+        u_i=0~~\textrm{on }\Gamma_D\times ]-h,h[,\quad i=1,2,3
+    \end{array}
+    :label: eqn::elasticity
 
 We now explain the plain elasticity.
 
@@ -274,16 +276,18 @@ If the elasticity is homogeneous isotropic, then the displacement :math:`\mathbf
 with :math:`\mathbf{u}_{k,R} \in H^2(\Omega_\Sigma\cap U_k)^2`, where :math:`U_k,\, k=1,2` are open neighborhoods of :math:`\gamma_k` such that :math:`\partial L_1\cap U_1=\gamma_1,\, \partial L_m\cap U_2=\gamma_2`, and
 
 .. math::
-    S^C_{k1}(\theta_k) & = & \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
-       \left[ \begin{array}{c}
-       [2\kappa-1]\cos(\theta_k/2)-\cos(3\theta_k/2)\\
-       -[2\kappa+1]\sin(\theta_k/2)+\sin(3\theta_k/2)
-       \end{array}\right],\\
-       S^C_{k2}(\theta_k) & = & \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
-       \left[ \begin{array}{c}
-       -[2\kappa-1]\sin(\theta_k/2)+3\sin(3\theta_k/2)\\
-       -[2\kappa+1]\cos(\theta_k/2)+\cos(3\theta_k/2)
-       \end{array}\right]. \nonumber
+    \begin{array}{rcl}
+        S^C_{k1}(\theta_k) & = & \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
+            \left[ \begin{array}{c}
+            [2\kappa-1]\cos(\theta_k/2)-\cos(3\theta_k/2)\\
+            -[2\kappa+1]\sin(\theta_k/2)+\sin(3\theta_k/2)
+            \end{array}\right],\\
+        S^C_{k2}(\theta_k) & = & \frac 1 {4\mu} \frac 1 {(2\pi)^{1/2}}
+            \left[ \begin{array}{c}
+            -[2\kappa-1]\sin(\theta_k/2)+3\sin(3\theta_k/2)\\
+            -[2\kappa+1]\cos(\theta_k/2)+\cos(3\theta_k/2)
+            \end{array}\right]. \nonumber
+    \end{array}
 
 where :math:`\mu` is the shear modulus of elasticity, :math:`\kappa=3-4\nu` (:math:`\nu` is the Poisson’s ratio) for plane strain and :math:`\kappa=\frac {3-\nu} {1+\nu}` for plane stress.
 
@@ -296,14 +300,13 @@ For simplicity, we consider the following simple crack
    \Sigma=\{(x,y):\; -1\le x\le 0, y=0\}
 
 with only one crack tip :math:`\gamma=(0,0)`.
-Unfortunately, FreeFem++ cannot treat crack, so we use the modification of the domain with U-shape channel (see `U-shape example </documentation/MeshGeneration/#Fig30>`__) with :math:`d=0.0001`.
+Unfortunately, **FreeFem++** cannot treat crack, so we use the modification of the domain with U-shape channel (see :ref:`U-shape example <meshExamples>`, :numref:`ushape`) with :math:`d=0.0001`.
 The undeformed crack :math:`\Sigma` is approximated by
 
 .. math::
-   \Sigma_d&=&\{(x,y):\; -1\le x\le -10*d, -d\le y\le d\}\\
-   &&\cup\{(x,y):\; -10*d\le x\le 0, -d+0.1*x\le y\le d-0.1*x\}
+    \Sigma_d = \{(x,y):\; -1\le x\le -10*d, -d\le y\le d\} \cup\{(x,y):\; -10*d\le x\le 0, -d+0.1*x\le y\le d-0.1*x\}
 
-and :math:`\Gamma_D=`\ :freefem:`R` in `U-shape figure </documentation/MeshGeneration/#Fig30>`__.
+and :math:`\Gamma_D=`\ :freefem:`R` in :ref:`U-shape example <meshExamples>`, :numref:`ushape`.
 
 In this example, we use three technique:
 
@@ -329,98 +332,102 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 
 .. tip:: Crack Opening, :math:`K_2(\gamma)=0`
 
-   .. code-block:: freefem
+    .. code-block:: freefem
 
-      //Parameters
-      real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
+        //Parameters
+        real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
 
-      real E = 21.5;
-      real sigma = 0.29;
+        real E = 21.5;
+        real sigma = 0.29;
 
-      // Mesh
-      border L1(t=0, ca-d){x=-cb; y=-d-t;}
-      border L2(t=0, ca-d){x=-cb; y=ca-t;}
-      border B(t=0, 2){x=cb*(t-1); y=-ca;}
-      border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
-      border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
-      border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
-      border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
-      border C4(t=0, 2*d){x=-ca; y=-d+t;}
-      border R(t=0, 2){x=cb; y=cb*(t-1);}
-      border T(t=0, 2){x=cb*(1-t); y=ca;}
-      mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
-          + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-      plot(Th, wait=true);
+        // Mesh
+        border L1(t=0, ca-d){x=-cb; y=-d-t;}
+        border L2(t=0, ca-d){x=-cb; y=ca-t;}
+        border B(t=0, 2){x=cb*(t-1); y=-ca;}
+        border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
+        border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
+        border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
+        border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
+        border C4(t=0, 2*d){x=-ca; y=-d+t;}
+        border R(t=0, 2){x=cb; y=cb*(t-1);}
+        border T(t=0, 2){x=cb*(1-t); y=ca;}
+        mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
+            + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+        plot(Th, wait=true);
 
-      cb=0.1; ca=0.1;
-      mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
-          + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-      plot(Zoom, wait=true);
+        cb=0.1; ca=0.1;
+        mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
+            + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+        plot(Zoom, wait=true);
 
-      // Fespace
-      fespace Vh(Th, [P2, P2]);
-      Vh [u, v];
-      Vh [w, s];
+        // Fespace
+        fespace Vh(Th, [P2, P2]);
+        Vh [u, v];
+        Vh [w, s];
 
-      fespace zVh(Zoom, P2);
-      zVh Sx, Sy, Sxy, N;
+        fespace zVh(Zoom, P2);
+        zVh Sx, Sy, Sxy, N;
 
-      // Problem
-      real mu = E/(2*(1+sigma));
-      real lambda = E*sigma/((1+sigma)*(1-2*sigma));
-      solve Problem ([u, v], [w, s])
-          = int2d(Th)(
-                2*mu*(dx(u)*dx(w) + ((dx(v)+dy(u))*(dx(s)+dy(w)))/4)
-              + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
-          )
-          -int1d(Th, T)(
-                0.1*(1-x)*s
-          )
-          +int1d(Th, B)(
-                0.1*(1-x)*s
-          )
-          +on(R, u=0, v=0)
-          ;
+        // Problem
+        real mu = E/(2*(1+sigma));
+        real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+        solve Problem ([u, v], [w, s])
+            = int2d(Th)(
+                  2*mu*(dx(u)*dx(w) + ((dx(v)+dy(u))*(dx(s)+dy(w)))/4)
+                + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
+            )
+            -int1d(Th, T)(
+                  0.1*(1-x)*s
+            )
+            +int1d(Th, B)(
+                  0.1*(1-x)*s
+            )
+            +on(R, u=0, v=0)
+            ;
 
-      // Loop
-      for (int i = 1; i <= 5; i++){
-          mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
-          Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
-          Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
-          Sxy = mu*(dy(u) + dx(v));
-          N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
-          if (i == 1){
-              plot(Plate, bw=1);
-              plot(N, bw=1);
-          }
-          else if (i == 5){
-              plot(Plate, bw=1);
-              plot(N, bw=1);
-              break;
-          }
+        // Loop
+        for (int i = 1; i <= 5; i++){
+            mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
+            Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
+            Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
+            Sxy = mu*(dy(u) + dx(v));
+            N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
+            if (i == 1){
+                plot(Plate, bw=1);
+                plot(N, bw=1);
+            }
+            else if (i == 5){
+                plot(Plate, bw=1);
+                plot(N, bw=1);
+                break;
+            }
 
-          // Adaptmesh
-          Th = adaptmesh(Th, [u, v]);
+            // Adaptmesh
+            Th = adaptmesh(Th, [u, v]);
 
-          // Solve
-          Problem;
-      }
+            // Solve
+            Problem;
+        }
 
-   .. figure:: images/Elasticity_Fracture1.png
+    .. figure:: images/Elasticity_Fracture1.png
+        :figclass: inline2
 
-      Crack open displacement (COD) on the first mesh
+        Crack open displacement (COD) on the first mesh
 
-   .. figure:: images/Elasticity_Fracture2.png
+    .. figure:: images/Elasticity_Fracture2.png
+        :figclass: inline2
 
-      Principal stress difference on the first mesh
+        Principal stress difference on the first mesh
 
-   .. figure:: images/Elasticity_Fracture3.png
+    .. figure:: images/Elasticity_Fracture3.png
+        :figclass: inline2
 
-      COD on the last adaptive mesh
+        COD on the last adaptive mesh
 
-   .. figure:: images/Elasticity_Fracture4.png
+    .. figure:: images/Elasticity_Fracture4.png
+        :figclass: inline2
 
-      Principal stress difference on the last adaptive mesh
+        Principal stress difference on the last adaptive mesh
 
 It is difficult to create mode II deformation by the opposed shear force on :freefem:`B` and :freefem:`T` that is observed in a laboratory.
 So we use the body shear force along :math:`\Sigma`, that is, the :math:`x`-component :math:`f_1` of the body force :math:`\mathbf{f}` is given by
@@ -432,99 +439,99 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
 .. tip:: Crack Sliding, :math:`K_2(\gamma)=0`
 
-   .. code-block:: freefem
+    .. code-block:: freefem
 
-      // Parameters
-      real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
+        // Parameters
+        real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
 
-      real E = 21.5;
-      real sigma = 0.29;
+        real E = 21.5;
+        real sigma = 0.29;
 
-      // Mesh
-      border L1(t=0, ca-d){x=-cb; y=-d-t;}
-      border L2(t=0, ca-d){x=-cb; y=ca-t;}
-      border B(t=0, 2){x=cb*(t-1); y=-ca;}
-      border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
-      border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
-      border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
-      border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
-      border C4(t=0, 2*d){x=-ca; y=-d+t;}
-      border R(t=0, 2){x=cb; y=cb*(t-1);}
-      border T(t=0, 2){x=cb*(1-t); y=ca;}
-      mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
-          + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-      plot(Th, wait=true);
+        // Mesh
+        border L1(t=0, ca-d){x=-cb; y=-d-t;}
+        border L2(t=0, ca-d){x=-cb; y=ca-t;}
+        border B(t=0, 2){x=cb*(t-1); y=-ca;}
+        border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
+        border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
+        border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
+        border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
+        border C4(t=0, 2*d){x=-ca; y=-d+t;}
+        border R(t=0, 2){x=cb; y=cb*(t-1);}
+        border T(t=0, 2){x=cb*(1-t); y=ca;}
+        mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
+            + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+        plot(Th, wait=true);
 
-      cb=0.1; ca=0.1;
-      mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
-          + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-      plot(Zoom, wait=true);
+        cb=0.1; ca=0.1;
+        mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
+            + C21(3) + C22(3) + C3(n) + R(n) + T(n));
+        plot(Zoom, wait=true);
 
-      // Fespace
-      fespace Vh(Th, [P2, P2]);
-      Vh [u, v];
-      Vh [w, s];
+        // Fespace
+        fespace Vh(Th, [P2, P2]);
+        Vh [u, v];
+        Vh [w, s];
 
-      fespace zVh(Zoom, P2);
-      zVh Sx, Sy, Sxy, N;
+        fespace zVh(Zoom, P2);
+        zVh Sx, Sy, Sxy, N;
 
-      fespace Vh1(Th,P1);
-      Vh1 fx = ((y>0.001)*(y<0.1))-((y<-0.001)*(y>-0.1));
+        fespace Vh1(Th,P1);
+        Vh1 fx = ((y>0.001)*(y<0.1))-((y<-0.001)*(y>-0.1));
 
-      // Problem
-      real mu = E/(2*(1+sigma));
-      real lambda = E*sigma/((1+sigma)*(1-2*sigma));
-      solve Problem ([u, v], [w, s])
-          = int2d(Th)(
-                2*mu*(dx(u)*dx(w) + ((dx(v) + dy(u))*(dx(s)+ dy(w)))/4)
-              + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
-          )
-          -int2d(Th)(
-                fx*w
-          )
-          +on(R, u=0, v=0)
-          ;
+        // Problem
+        real mu = E/(2*(1+sigma));
+        real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+        solve Problem ([u, v], [w, s])
+            = int2d(Th)(
+                  2*mu*(dx(u)*dx(w) + ((dx(v) + dy(u))*(dx(s)+ dy(w)))/4)
+                + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
+            )
+            -int2d(Th)(
+                  fx*w
+            )
+            +on(R, u=0, v=0)
+            ;
 
-      // Loop
-      for (int i = 1; i <= 3; i++){
-          mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
-          Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
-          Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
-          Sxy = mu*(dy(u) + dx(v));
-          N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
-          if (i == 1){
-              plot(Plate, bw=1);
-              plot(N, bw=1);
-          }
-          else if (i == 3) {
-              plot(Plate, bw=1);
-              plot(N, bw=1);
-              break;
-          }
+        // Loop
+        for (int i = 1; i <= 3; i++){
+            mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
+            Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
+            Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
+            Sxy = mu*(dy(u) + dx(v));
+            N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
+            if (i == 1){
+                plot(Plate, bw=1);
+                plot(N, bw=1);
+            }
+            else if (i == 3) {
+                plot(Plate, bw=1);
+                plot(N, bw=1);
+                break;
+            }
 
-          // Adaptmesh
-          Th=adaptmesh(Th, [u, v]);
+            // Adaptmesh
+            Th=adaptmesh(Th, [u, v]);
 
-          // Solve
-          Problem;
-      }
+            // Solve
+            Problem;
+        }
 
-   .. figure:: images/Elasticity_FractureSliding1.png
+    .. figure:: images/Elasticity_FractureSliding1.png
+        :figclass: inline2
 
-      COD on the first mesh
+        COD on the first mesh
 
-   .. figure:: images/Elasticity_FractureSliding2.png
+    .. figure:: images/Elasticity_FractureSliding2.png
+        :figclass: inline2
 
-      Principal stress difference in the first mesh
+        Principal stress difference in the first mesh
 
-   .. figure:: images/Elasticity_FractureSliding3.png
+    .. figure:: images/Elasticity_FractureSliding3.png
+        :figclass: inline2
 
-      COD on the last adaptive mesh
+        COD on the last adaptive mesh
 
-   .. figure:: images/Elasticity_FractureSliding4.png
+    .. figure:: images/Elasticity_FractureSliding4.png
+        :figclass: inline2
 
-      Principal stress difference on the last adaptive mesh
-
-.. [NECAS2017] NECAS, Jindrich et HLAVÁCEK, Ivan. Mathematical theory of elastic and elasto-plastic bodies: an introduction. Elsevier, 2017.
-
-.. [OHTSUKA2000] OHTSUKA, K. Theoretical and Numerical analysis of energy release rate in 2D fracture. INFORMATION, 2000, vol. 3, p. 303-315.
+        Principal stress difference on the last adaptive mesh

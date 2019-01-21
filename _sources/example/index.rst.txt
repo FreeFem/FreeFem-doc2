@@ -1,3 +1,6 @@
+.. role:: freefem(code)
+    :language: freefem
+
 .. _examples:
 
 Examples
@@ -9,6 +12,7 @@ Poisson's Equation
 ------------------
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int nn = 20;
@@ -66,14 +70,16 @@ Poisson's Equation
    }
 
 .. figure:: images/poisson_associated_mesh.jpg
-   :name: figExamplePoisson
+    :figclass: inline2
+    :name: figExamplePoisson
 
-   Adapted mesh
+    Adapted mesh
 
 .. figure:: images/poisson_adapted_mesh.jpg
-   :name: figExamplePoissonAdapt
+    :figclass: inline2
+    :name: figExamplePoissonAdapt
 
-   Solution on adapted mesh
+    Solution on adapted mesh
 
 .. _examplePoissonEquation3D:
 
@@ -81,6 +87,7 @@ Poisson's equation 3D
 ---------------------
 
 .. code-block:: freefem
+   :linenos:
 
    load "tetgen"
 
@@ -166,6 +173,7 @@ Stokes Equation on a cube
 -------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "medit" // Dynamically loaded tools for 3D
@@ -227,12 +235,14 @@ Stokes Equation on a cube
 
 
 .. figure:: images/Stokes3d.jpg
+    :figclass: inline2
 
-   Solution
+    Solution
 
 .. figure:: images/Stokes3d-Th.jpg
+    :figclass: inline2
 
-   Associated mesh
+    Associated mesh
 
 .. _exampleCavity:
 
@@ -240,6 +250,7 @@ Cavity
 ------
 
 .. code-block:: freefem
+   :linenos:
 
    //Parameters
    int m = 300;
@@ -323,12 +334,39 @@ Cavity
 Mesh Generation
 ---------------
 
+.. _exampleMeshSquare:
+
+Square mesh
+~~~~~~~~~~~
+
+.. code-block:: freefem
+
+    mesh Th0 = square(10 ,10);
+
+    mesh Th1 = square(4, 5);
+
+    real x0 = 1.2;
+    real x1 = 1.8;
+    real y0 = 0;
+    real y1 = 1;
+    int n = 5;
+    real m = 20;
+    mesh Th2 = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y]);
+
+    for (int i = 0; i < 5; ++i){
+        int[int] labs = [11, 12, 13, 14];
+        mesh Th3 = square(3, 3, flags=i, label=labs, region=10);
+        plot(Th3, wait=1, cmm="square flags = "+i );
+    }
+
+
 .. _exampleMeshAdaptation:
 
 Mesh adaptation
 ~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real eps = 0.0001;
@@ -352,12 +390,14 @@ Mesh adaptation
    }
 
 .. figure:: images/MeshAdaptation1.jpg
+    :figclass: inline2
 
-   Initial mesh
+    Initial mesh
 
 .. figure:: images/MeshAdaptation2.jpg
+    :figclass: inline2
 
-   Adapted mesh
+    Adapted mesh
 
 .. _exampleMeshAdaptationForThePoissonProblem:
 
@@ -365,6 +405,7 @@ Mesh adaptation for the Poisson's problem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real error = 0.1;
@@ -407,16 +448,19 @@ Mesh adaptation for the Poisson's problem
    plot(u);
 
 .. figure:: images/MeshAdaptationPoisson1.jpg
+    :figclass: inline3
 
-   Initial mesh
+    Initial mesh
 
 .. figure:: images/MeshAdaptationPoisson2.jpg
+    :figclass: inline3
 
-   Adapted mesh
+    Adapted mesh
 
 .. figure:: images/MeshAdaptationPoissonU.jpg
+    :figclass: inline3
 
-   Solution on adapted mesh
+    Solution on adapted mesh
 
 .. _exampleUniformMeshAdaptation:
 
@@ -424,6 +468,7 @@ Uniform mesh adaptation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = square(2, 2); // The initial mesh
    plot(Th, wait=true);
@@ -436,12 +481,14 @@ Uniform mesh adaptation
    plot(Th, wait=true);
 
 .. figure:: images/UniformMeshAdaptation1.jpg
+    :figclass: inline2
 
-   Initial mesh
+    Initial mesh
 
 .. figure:: images/UniformMeshAdaptation2.jpg
+    :figclass: inline2
 
-   Adapted mesh
+    Adapted mesh
 
 .. _exampleBorders:
 
@@ -449,6 +496,7 @@ Borders
 ~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    {
        int upper = 1;
@@ -498,16 +546,19 @@ Borders
    }
 
 .. figure:: images/Borders1.jpg
+    :figclass: inline3
 
-   Mesh with two regions
+    Mesh with two regions
 
-..figure:: images/Borders2.jpg
+.. figure:: images/Borders2.jpg
+    :figclass: inline3
 
-   Mesh without a hole
+    Mesh without a hole
 
 .. figure:: images/Borders3.jpg
+    :figclass: inline3
 
-   Mesh with a hole
+    Mesh with a hole
 
 .. _exampleChange:
 
@@ -515,6 +566,7 @@ Change
 ~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    verbosity=3;
 
@@ -564,6 +616,7 @@ Cube
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
 
@@ -607,6 +660,7 @@ Empty mesh
 ~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    {
        border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
@@ -631,12 +685,14 @@ Empty mesh
    }
 
 .. figure:: images/EmptyMesh1.jpg
+    :figclass: inline2
 
-   Empty square
+    Empty square
 
 .. figure:: images/EmptyMesh2.jpg
+    :figclass: inline2
 
-   Empty diamond
+    Empty diamond
 
 .. _example3Points:
 
@@ -644,6 +700,7 @@ Empty mesh
 ~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Square for Three-Point Bend Specimens fixed on Fix1, Fix2
    // It will be loaded on Load
@@ -674,6 +731,7 @@ Bezier
 ~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // A cubic Bezier curve connecting two points with two control points
    func real bzi(real p0, real p1, real q1, real q2, real t){
@@ -714,6 +772,7 @@ Build layer mesh
 ~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "tetgen"
@@ -780,12 +839,14 @@ Build layer mesh
    medit("sphere 2 regions", Th3sph);
 
 .. figure:: images/BuildLayerMesh1.jpg
+    :figclass: inline2
 
-   Box with a hole
+    Box with a hole
 
 .. figure:: images/BuildLayerMesh2.jpg
+    :figclass: inline2
 
-   Sphere
+    Sphere
 
 .. _exampleSphere:
 
@@ -793,6 +854,7 @@ Sphere
 ~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameter
    real hh = 0.1;
@@ -830,12 +892,14 @@ Sphere
    plot(Th3);
 
 .. figure:: images/Sphere1.jpg
+    :figclass: inline2
 
-   Initial mesh
+    Initial mesh
 
 .. figure:: images/Sphere2.jpg
+    :figclass: inline2
 
-   Sphere
+    Sphere
 
 .. _exampleFinteElement:
 
@@ -848,6 +912,7 @@ Periodic 3D
 ~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "medit"
@@ -906,6 +971,7 @@ Lagrange multipliers
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    func f = 1 + x - y;
@@ -970,6 +1036,7 @@ Plot
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = square(5,5);
    fespace Vh(Th, P1);
@@ -1003,16 +1070,19 @@ Plot
    exec("echo 'plot \"plot.gp\" w l \n pause 5 \n set term postscript \n set output \"gnuplot.eps\" \n replot \n quit' | gnuplot");
 
 .. figure:: images/Plot1.jpg
+    :figclass: inline3
 
-   First plot
+    First plot
 
 .. figure:: images/Plot2.jpg
+    :figclass: inline3
 
-   Second plot
+    Second plot
 
 .. figure:: images/Plot3.png
+    :figclass: inline3
 
-   Gnuplot
+    Gnuplot
 
 .. _exampleHSV:
 
@@ -1020,6 +1090,7 @@ HSV
 ~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // From: http://en.wikipedia.org/wiki/HSV_color_space
    // The HSV (Hue, Saturation, Value) model defines a color space
@@ -1061,6 +1132,7 @@ Medit
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "medit"
 
@@ -1086,12 +1158,14 @@ Medit
    exec("rm u.bb u.faces u.points");
 
 .. figure:: images/Medit1.jpg
+    :figclass: inline2
 
-   2D plot
+    2D plot
 
 .. figure:: images/Medit2.jpg
+    :figclass: inline2
 
-   Plot with elevation
+    Plot with elevation
 
 .. _exampleParaview:
 
@@ -1099,6 +1173,7 @@ Paraview
 ~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "iovtk"
 
@@ -1126,6 +1201,7 @@ Algorithms
 ~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int nerr = 0;
@@ -1336,19 +1412,22 @@ Algorithms
    assert(nerr==0);
 
 .. figure:: images/Algorithms1.png
+    :figclass: inline2
 
-   Result ``u``
+    Result ``u``
 
 .. figure:: images/Algorithms2.png
+    :figclass: inline2
 
-   ``df(dx(u)*dx(u) + dy(u)*dy(u))``
+    :freefem:`df(dx(u)*dx(u) + dy(u)*dy(u))`
 
-.. _exampleCMAESVaritionalInequality:
+.. _exampleCMAESVariationalInequality:
 
 CMAES variational inequality
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "ff-cmaes"
 
@@ -1480,6 +1559,7 @@ IPOPT minimal surface & volume
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3";
    load "medit";
@@ -1730,10 +1810,12 @@ CMAES MPI variational inequality
 Command:
 
 .. code-block:: bash
+   :linenos:
 
    ff-mpirun -np 4 CMAESMPIVariationalInequality.edp -glut ffglut
 
 .. code-block:: freefem
+   :linenos:
 
    load "mpi-cmaes"
 
@@ -1869,10 +1951,12 @@ MPI-GMRES 2D
 To launch this script, use for example:
 
 .. code-block:: bash
+   :linenos:
 
    ff-mpirun -np 12 MPIGMRES2D.edp -d 1 -k 1 -gmres 2 -n 50
 
 .. code-block:: freefem
+   :linenos:
 
    //usage :
    //ff-mpirun [mpi parameter] MPIGMRES2d.edp [-glut ffglut] [-n N] [-k K] [-d D] [-ns] [-gmres [0|1]
@@ -2826,6 +2910,7 @@ Direct solvers
 ~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "MUMPS_FreeFem"
    //default solver: real-> MUMPS, complex -> MUMPS
@@ -2925,6 +3010,7 @@ Solver MUMPS
 ~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "MUMPS_FreeFem"
 
@@ -3052,6 +3138,7 @@ FFT
 ~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "dfft"
 
@@ -3137,6 +3224,7 @@ Complex
 ~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 2.45, b = 5.33;
    complex z1 = a + b*1i, z2 = a + sqrt(2.)*1i;
@@ -3168,6 +3256,7 @@ Complex
 Output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    Standard output of the complex (2.45+5.33i) is the pair: (2.45,5.33)
    (2.45+5.33i) + (2.45+1.41421i) = (4.9+6.74421i)
@@ -3189,6 +3278,7 @@ String
 ~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Concatenation
    string tt = "toto1" + 1 + " -- 77";
@@ -3214,6 +3304,7 @@ String
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    tt = toto11 -- 77
    t1 = 0123abcdefghijk-456789
@@ -3230,6 +3321,7 @@ Elementary function
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real b = 1.;
    real a = b;
@@ -3254,6 +3346,7 @@ Array
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] tab(10), tab1(10); //2 array of 10 real
    //real[int] tab2; //bug: array with no size
@@ -3461,6 +3554,7 @@ Array
 The output os this script is:
 
 .. code-block:: bash
+   :linenos:
 
    tab: 10
        1.03    2.15    1.03    1.03    1.03
@@ -3625,6 +3719,7 @@ Block matrix
 ~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real f1 = 1.;
@@ -3697,6 +3792,7 @@ Matrix operations
 ~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    mesh Th = square(2, 1);
@@ -3775,6 +3871,7 @@ Matrix operations
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    f = 6
          0   0   0   0 0.5
@@ -3897,6 +3994,7 @@ Matrix inversion
 ~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    load "lapack"
    load "fflapack"
@@ -3927,6 +4025,7 @@ Matrix inversion
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    5 5
           6   1   1   1   1
@@ -3958,9 +4057,10 @@ The output of this script is:
 
 .. tip:: To compile ``lapack.cpp`` and ``fflapack.cpp``, you must have the ``lapack`` library on your system and compile the plugin with the command:
 
-   .. code-block:: bash
+    .. code-block:: bash
+        :linenos:
 
-      ff-c++ lapack.cpp -llapack     ff-c++ fflapack.cpp -llapack
+        ff-c++ lapack.cpp -llapack     ff-c++ fflapack.cpp -llapack
 
 .. _exampleFEArray:
 
@@ -3968,6 +4068,7 @@ FE array
 ~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    mesh Th = square(20, 20, [2*x, 2*y]);
@@ -4007,16 +4108,19 @@ FE array
        plot(uu[i], wait=true);
 
 .. figure:: images/FEArray1.png
+    :figclass: inline3
 
-   First result
+    First result
 
 .. figure:: images/FEArray2.png
+    :figclass: inline3
 
-   Second result
+    Second result
 
 .. figure:: images/FEArray3.png
+    :figclass: inline3
 
-   Third result
+    Third result
 
 .. _exampleLoop:
 
@@ -4024,6 +4128,7 @@ Loop
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    for (int i = 0; i < 10; i=i+1)
        cout << i << endl;
@@ -4047,6 +4152,7 @@ Implicit loop
 ~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real [int, int] a(10, 10);
    real [int] b(10);
@@ -4090,6 +4196,7 @@ Implicit loop
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    0 1
    1 2
@@ -4157,6 +4264,7 @@ I/O
 ~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int i;
    cout << "std-out" << endl;
@@ -4187,6 +4295,7 @@ File stream
 ~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int where;
    real[int] f = [0, 1, 2, 3, 4, 5];
@@ -4247,12 +4356,14 @@ Command line arguments
 When using the command:
 
 .. code-block:: bash
+   :linenos:
 
    FreeFem++ script.edp arg1 arg2
 
 The arguments can be used in the script with:
 
 .. code-block:: freefem
+   :linenos:
 
    for (int i = 0; i < ARGV.n; i++)
        cout << ARGV[i] << endl;
@@ -4260,12 +4371,14 @@ The arguments can be used in the script with:
 When using the command:
 
 .. code-block:: bash
+   :linenos:
 
    FreeFem++ script.edp -n 10 -a 1. -d 42.
 
 The arguments can be used in the script with:
 
 .. code-block:: freefem
+   :linenos:
 
    include "getARGV.idp"
 
@@ -4279,6 +4392,7 @@ Macro
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Macro without parameters
    macro xxx() {
@@ -4350,6 +4464,7 @@ Macro
 The output script generated with macros is:
 
 .. code-block:: freefem
+   :linenos:
 
    1 : // Macro without parameters
    2 :  macro xxx {
@@ -4440,6 +4555,7 @@ The output script generated with macros is:
 The output os this script is:
 
 .. code-block:: bash
+   :linenos:
 
    AA = CAS1
    CASE = file1.edp
@@ -4452,6 +4568,7 @@ Basic error handling
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real a;
    try{
@@ -4466,6 +4583,7 @@ Basic error handling
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    1/0 : d d d
      current line = 3
@@ -4479,6 +4597,7 @@ Error handling
 ~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int nn = 5;
@@ -4523,6 +4642,7 @@ Error handling
 The output of this script is:
 
 .. code-block:: bash
+   :linenos:
 
    Try Cholesky
    ERREUR choleskypivot (35)= -6.43929e-15 < 1e-06

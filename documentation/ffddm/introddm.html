@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Domain Decomposition (DD)</title>
+		<link rel="icon" href="../../_static/img/favicon.png">
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../../_static/nav.json"></script>
+		<script src="../../_static/js/nav.js"></script>
+		<script src="../../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../../_static/img/Logo.png" />
+        </a>
+    </div>
+</div>
+<div class="header-title">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
+    </div>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../../")</script>
+			<div class="search">
+				<script async src="../../_static/js/lunr.js"></script>
+<script async src="../../_static/lunr_index.js"></script>
+
+<script src="../../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
+    </div>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">Domain Decomposition (DD)</a><ul>
+<li><a class="reference internal" href="#mesh-decomposition">Mesh Decomposition</a></li>
+<li><a class="reference internal" href="#distributed-linear-algebra">Distributed Linear Algebra</a></li>
+<li><a class="reference internal" href="#partition-of-unity-matrices-poum">Partition of Unity Matrices (POUM)</a><ul>
+<li><a class="reference internal" href="#distributed-scalar-product">Distributed scalar product</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#distributed-matrix-and-vector-resulting-from-a-variational-formulation">Distributed Matrix and Vector resulting from a variational formulation</a></li>
+<li><a class="reference internal" href="#distributed-linear-solvers">Distributed Linear Solvers</a><ul>
+<li><a class="reference internal" href="#distributed-direct-solvers">Distributed Direct Solvers</a></li>
+<li><a class="reference internal" href="#schwarz-methods">Schwarz methods</a><ul>
+<li><a class="reference internal" href="#restricted-additive-schwarz-ras">Restricted Additive Schwarz (RAS)</a></li>
+<li><a class="reference internal" href="#optimized-restricted-additive-schwarz-oras">Optimized Restricted Additive Schwarz (ORAS)</a></li>
+<li><a class="reference internal" href="#two-level-methods">Two level methods</a><ul>
+<li><a class="reference internal" href="#coarse-mesh">Coarse Mesh</a></li>
+<li><a class="reference internal" href="#geneo">GenEO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="math notranslate nohighlight">
+\[\def\R{{\mathbb{R}}}
+\def\C{{\mathbb{C}}}\]</div>
+<div class="section" id="domain-decomposition-dd">
+<span id="ffddmintroduction"></span><h1>Domain Decomposition (DD)<a class="headerlink" href="#domain-decomposition-dd" title="Permalink to this headline">¶</a></h1>
+<p>When the size of a three dimensional problem is large (whatever it means), it is necessary to distribute data among several processors especially for solving linear systems.
+A natural way is to do it via domain decomposition.</p>
+<div class="section" id="mesh-decomposition">
+<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Permalink to this headline">¶</a></h2>
+<!--- INSERER FIGURE? The overlap is the minimum width of the overlap between sub-meshes.
+implicit  global renvoie a implicit en fait ---><p>The starting point is a collection of <span class="math notranslate nohighlight">\(N\)</span> sub-meshes <span class="math notranslate nohighlight">\((Th_i)_{i=1}^N\)</span> that together form a global mesh</p>
+<div class="math notranslate nohighlight">
+\[Th:= \cup_{i=1}^N Th_i\,.\]</div>
+<p>This induces a natural decomposition of the global finite element space <span class="math notranslate nohighlight">\(Vh\)</span> on <span class="math notranslate nohighlight">\(Th\)</span> into <span class="math notranslate nohighlight">\(N\)</span> local finite element spaces <span class="math notranslate nohighlight">\((Vh_i)_{i=1}^N\)</span> each of them defined on <span class="math notranslate nohighlight">\(Th_i\)</span>.</p>
+<p><strong>Note</strong> By global, we mean that the corresponding structure can be refered to in the code (most often only) by its local values.
+In computer science term, it corresponds to a distributed data where each piece of data is stored by a MPI process.</p>
+</div>
+<div class="section" id="distributed-linear-algebra">
+<h2>Distributed Linear Algebra<a class="headerlink" href="#distributed-linear-algebra" title="Permalink to this headline">¶</a></h2>
+<p>The domain decomposition induces a natural decomposition of the set of the global degrees of freedom (d.o.f.) <span class="math notranslate nohighlight">\({\mathcal N}\)</span> of the finite element space <span class="math notranslate nohighlight">\(Vh\)</span> into the <span class="math notranslate nohighlight">\(N\)</span> subsets of d.o.f.’s <span class="math notranslate nohighlight">\(({\mathcal N})_{i=1}^N\)</span> each associated with the local finite element space <span class="math notranslate nohighlight">\(Vh_i\)</span>.
+We have thus</p>
+<div class="math notranslate nohighlight">
+\[{\mathcal N} = \cup_{i=1}^N {\mathcal N}_i\,,\]</div>
+<p>but with duplications of some of the d.o.f.’s.</p>
+<p>Associated with this decomposition of the set of d.o.f.’s <span class="math notranslate nohighlight">\({\mathcal N}\)</span>, a <em>distributed vector</em> is a collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf V_i}_{1\le i\le N})\)</span> so that the values on the duplicated d.o.f.’s are the same.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In mathematical terms, it can be described as follows for a real valued problem.
+For a real value problem, simply replace <span class="math notranslate nohighlight">\(\R\)</span> with <span class="math notranslate nohighlight">\(\C\)</span>.
+Let <span class="math notranslate nohighlight">\(R_i\)</span> be the restriction operator from <span class="math notranslate nohighlight">\(\R^{\#{\mathcal N}}\)</span> to <span class="math notranslate nohighlight">\(\R^{\#{\mathcal N}_i}\)</span>, where <span class="math notranslate nohighlight">\(\#{\mathcal N}_i\)</span> denotes the number of elements of <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span>.
+A collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf V}_i)_{1\le i\le N}\in \Pi_{i=1}^N \R^{\#{\mathcal N}_i}\)</span> is a distributed vector iff there exists a global vector <span class="math notranslate nohighlight">\({\mathbf V}\in\R^{\#{\mathcal N}}\)</span> such that for all subset <span class="math notranslate nohighlight">\(1\le i\le N\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf V}_i = R_i\,{\mathbf V}\,.\]</div>
+<p class="last">We will also say that the collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf V}_i)_{1\le i\le N}\)</span> is consistent.</p>
+</div>
+</div>
+<div class="section" id="partition-of-unity-matrices-poum">
+<h2>Partition of Unity Matrices (POUM)<a class="headerlink" href="#partition-of-unity-matrices-poum" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\((D_i)_{1\le i \le N}\)</span> be square diagonal matrices of size <span class="math notranslate nohighlight">\(\#{\mathcal N}_i\)</span> which form a partition of unity in the sense that:</p>
+<div class="math notranslate nohighlight">
+\[Id_{} = \sum_{i=1}^N R_i^T\,D_i\,R_i\text{ in }\R^{\#{\mathcal N}\times \#{\mathcal N}} \,.\]</div>
+<p>For instance if a degree of freedom is shared by <span class="math notranslate nohighlight">\(k\)</span> subdomains defining the corresponding entry of the diagonal matrix <span class="math notranslate nohighlight">\(D\)</span> to be <span class="math notranslate nohighlight">\(1/k\)</span> yields partition of unity matrices.
+The matrices <span class="math notranslate nohighlight">\(R_i\)</span> and <span class="math notranslate nohighlight">\(D_i\)</span> are the heart of distributed linear algebra.</p>
+<div class="section" id="distributed-scalar-product">
+<h3>Distributed scalar product<a class="headerlink" href="#distributed-scalar-product" title="Permalink to this headline">¶</a></h3>
+<p>For two global vectors <span class="math notranslate nohighlight">\({\mathbf U}\)</span> and <span class="math notranslate nohighlight">\({\mathbf V}\)</span> of size <span class="math notranslate nohighlight">\(\#{\mathcal N}\)</span>, the formula for the scalar product <span class="math notranslate nohighlight">\({\mathbf V}^T\,{\mathbf U}=({\mathbf U},\,{\mathbf V})\)</span> in terms of their distributed vector counterparts is:</p>
+<div class="math notranslate nohighlight">
+\[({\mathbf U}, {\mathbf V}) = \left({\mathbf U}, \sum_{i=1}^N R_i^T D_i R_i {\mathbf V}\right) = \sum_{i=1}^N(R_i {\mathbf U}, D_i R_i {\mathbf V})
+=\sum_{i=1}^N\left({\mathbf U}_i, D_i {\mathbf V}_i\right)\,.\]</div>
+<p>Local scalar products are performed concurrently.
+Thus, the implementation is parallel except for the sum which corresponds to a MPI_Reduce call across the <span class="math notranslate nohighlight">\(N\)</span> MPI processes.
+Note also that the implementation relies on the knowledge of a partition of unity so that the FreeFem++ syntax is <code class="docutils literal highlight highlight-default"><span></span><span class="n">dscalprod</span><span class="p">(</span><span class="n">Di</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span></code> or equivalently <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span><span class="c1">#scalprod(u,v)</span></code> where <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span></code> is a user defined prefix that refers to the domain decomposition and thus implicitely also to the partition of unity.</p>
+</div>
+<div class="section" id="update">
+<span id="ffddmdocumentationupdate"></span><h3>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<p>From a collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf U}_i)_{1\le i \le N}\)</span>, it is possible ensure consistency of the duplicated data and thus creating a distributed vector <span class="math notranslate nohighlight">\(({\mathbf V}_i)_{1\le i \le N}\)</span> by calling the function <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span><span class="c1">#update(Ui, TRUE)</span></code> where <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span></code> is a user defined prefix that refers to the domain decomposition.
+This function performs the following operation for all <span class="math notranslate nohighlight">\(1\le i \le N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf V}_i \leftarrow R_i\, \sum_{j=1}^N R_j^T D_j {\mathbf U}_j\]</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The implementation corresponds to</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf V}_i := R_i \sum_{j=1}^N R_j^T D_j {\mathbf U}_j = D_i {\mathbf U}_i + \sum_{j\in \mathcal{O}(i)} R_i\,R_j^T\,D_j {\mathbf U}_j\]</div>
+<p class="last">where <span class="math notranslate nohighlight">\(\mathcal{O}(i)\)</span> is the set of neighbors of subdomain <span class="math notranslate nohighlight">\(i\)</span>.
+Therefore, the matrix vector product is computed in three steps: - concurrent computing of <span class="math notranslate nohighlight">\(D_j {\mathbf U}_j\)</span> for all <span class="math notranslate nohighlight">\(1\le j\le N\)</span>; - neighbor to neighbor MPI-communications (<span class="math notranslate nohighlight">\(R_i\,R_j^T\)</span>) ; - concurrent sum of neighbor contributions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="distributed-matrix-and-vector-resulting-from-a-variational-formulation">
+<h2>Distributed Matrix and Vector resulting from a variational formulation<a class="headerlink" href="#distributed-matrix-and-vector-resulting-from-a-variational-formulation" title="Permalink to this headline">¶</a></h2>
+<p>The discretization of a variational formulation on the global mesh <span class="math notranslate nohighlight">\(Th\)</span> yields a global matrix <span class="math notranslate nohighlight">\(A\)</span> and a global right hand side <span class="math notranslate nohighlight">\(\mathbf{RHS}\)</span>.
+Thanks to the sparsity of finite element matrices for partial differential equations and thanks to the overlap between subdomains, the knowledge of the local matrix <span class="math notranslate nohighlight">\(R_i A R_i^T\)</span> on each subdomain <span class="math notranslate nohighlight">\(1\le i\le N\)</span> is sufficient to perform the matrix-vector product <span class="math notranslate nohighlight">\(A\times \mathbf{U}\)</span> for any global vector <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>.
+Once the problem has been set up by a call to <code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">myprefix</span><span class="p">,</span><span class="n">myFEprefix</span><span class="p">,</span><span class="n">myVarf</span><span class="p">)</span></code>, the matrix-vector product is performed by calling the function <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span><span class="c1">#A(Ui)</span></code> where <code class="docutils literal highlight highlight-default"><span></span><span class="n">pr</span></code> is a user defined prefix that refers to the problem at hand which itself implicitly refers to the triplet (domain decomposition, finite element, variational formulation).
+See more on problem defintion in this <a class="reference internal" href="documentation.html#ffddmdocumentationdefineproblemtosolve"><span class="std std-ref">documentation</span></a> and more on distributed linear algebra in chapter 8 of <a class="reference external" href="http://bookstore.siam.org/ot144/">“An Introduction to Domain Decomposition Methods: algorithms, theory and parallel implementation” SIAM 2015</a>.</p>
+</div>
+<div class="section" id="distributed-linear-solvers">
+<h2>Distributed Linear Solvers<a class="headerlink" href="#distributed-linear-solvers" title="Permalink to this headline">¶</a></h2>
+<p>In many cases, we are interested in the solution of the problem in terms of the vector of d.o.f.’s <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> that satisfies:</p>
+<div class="math notranslate nohighlight">
+\[A\, \mathbf{X} = \mathbf{RHS}\,.\]</div>
+<p><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddm</span></code> offers two parallel solvers: <a class="reference internal" href="#ffddmintroductiondisitributeddirectsolvers"><span class="std std-ref">direct factorization</span></a> and <a class="reference internal" href="#ffddmintroductionschwarzmethods"><span class="std std-ref">Schwarz</span></a> domain decomposition methods.</p>
+<div class="section" id="distributed-direct-solvers">
+<span id="ffddmintroductiondisitributeddirectsolvers"></span><h3>Distributed Direct Solvers<a class="headerlink" href="#distributed-direct-solvers" title="Permalink to this headline">¶</a></h3>
+<p>In order to benefit from the sparsity of the matrix arising from a finite element discretization of a partial differential equation, a variant of Gauss elimination, the frontal method, that automatically avoids a large number of operations involving zero terms was developed.
+A frontal solver builds a <span class="math notranslate nohighlight">\(LU\)</span> or Cholesky decomposition of a sparse matrix given as the assembly of element matrices by eliminating equations only on a subset of elements at a time.
+This subset is called the <em>front</em> and it is essentially the transition region between the part of the system already finished and the part not touched yet.
+These methods are basically sequential since the unknowns are processed the one after another or one front after another.
+In order to benefit from multicore processors, a <a class="reference external" href="https://en.wikipedia.org/wiki/Multifrontal_method">multifrontal solver</a> is an improvement of the frontal solver that uses several independent fronts at the same time.
+The fronts can be worked on by different processors, which enables parallel computing. <code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddm</span></code> provides an interface to the parallel sparse direct solver <a class="reference external" href="http://mumps.enseeiht.fr/">MUMPS</a>.</p>
+</div>
+<div class="section" id="schwarz-methods">
+<span id="ffddmintroductionschwarzmethods"></span><h3>Schwarz methods<a class="headerlink" href="#schwarz-methods" title="Permalink to this headline">¶</a></h3>
+<p>We consider the solve of the equation <span class="math notranslate nohighlight">\(A\, \mathbf{X} = \mathbf{RHS}\)</span> by a flexible GMRES method preconditioned by domain decomposition methods.</p>
+<div class="section" id="restricted-additive-schwarz-ras">
+<h4>Restricted Additive Schwarz (RAS)<a class="headerlink" href="#restricted-additive-schwarz-ras" title="Permalink to this headline">¶</a></h4>
+<p>The RAS preconditioner reads:</p>
+<div class="math notranslate nohighlight">
+\[M^{-1}_{RAS} := \sum_{j=1}^N R_j^T D_j (R_j\, A\,R_j^T)^{-1} R_j\,.\]</div>
+<p>Let <span class="math notranslate nohighlight">\(A_{i}\)</span> denote the local matrix <span class="math notranslate nohighlight">\((R_i\, A\,R_i^T)\)</span>.
+The application of the operator <span class="math notranslate nohighlight">\(M^{-1}_{RAS}\)</span> to a distributed right hand side <span class="math notranslate nohighlight">\((\mathbf{RHS}_i)_{i=1}^N\)</span> consists in computing:</p>
+<div class="math notranslate nohighlight">
+\[R_i\, \sum_{j=1}^N R_j^T\,D_j\, A_{j}^{-1}\,\, \mathbf{ RHS}_j
+= D_i\, A_{i}^{-1}\, \mathbf{ RHS}_i + \sum_{j\in \mathcal{O}(i)} (R_i\,R_j^T)\,D_j\, A_{j}^{-1}\, \mathbf{ RHS}_j\,.\]</div>
+<p>This task is performed by first solving concurrently on all subdomains a linear system for <span class="math notranslate nohighlight">\({\mathbf Y}_j\)</span> for all <span class="math notranslate nohighlight">\(1\le j \le N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A_{j}\, {\mathbf Y}_j = \mathbf{RHS}_j\,.\]</div>
+<p>Each local vector <span class="math notranslate nohighlight">\({\mathbf Y}_j\)</span> is weighted by the partition of unity matrix <span class="math notranslate nohighlight">\(D_j\)</span>.
+Then data transfers between neighboring subdomains implement the <span class="math notranslate nohighlight">\(R_i\,R_j^T\,D_j\,{\mathbf Y}_j\)</span> formula.
+The contribution from neighboring subdomains are summed locally. This
+pattern is very similar to that of the <a class="reference internal" href="#ffddmdocumentationupdate"><span class="std std-ref">update</span></a> procedure.</p>
+</div>
+<div class="section" id="optimized-restricted-additive-schwarz-oras">
+<h4>Optimized Restricted Additive Schwarz (ORAS)<a class="headerlink" href="#optimized-restricted-additive-schwarz-oras" title="Permalink to this headline">¶</a></h4>
+<p>The ORAS preconditioner may be seen as a variant of the RAS preconditioner.
+It reads:</p>
+<div class="math notranslate nohighlight">
+\[M^{-1}_{RAS} := \sum_{j=1}^N R_j^T D_j\, B_j^{-1}\, R_j\,\]</div>
+<p>where <span class="math notranslate nohighlight">\(B_j\)</span> are local matrices of size <span class="math notranslate nohighlight">\(\#{\mathcal N}_j \times \#{\mathcal N}_j\)</span> for <span class="math notranslate nohighlight">\(1\le j \le N\)</span>.
+This variant is very useful when dealing with wave propagation phenomena such as Helmholtz problems in acoustics or Maxwell system in the frequency domain for electromagnetism.
+Defining <span class="math notranslate nohighlight">\(B_j\)</span> as the discretization of the physical equation with impedance conditions on the boundary of the subdomain</p>
+</div>
+<div class="section" id="two-level-methods">
+<h4>Two level methods<a class="headerlink" href="#two-level-methods" title="Permalink to this headline">¶</a></h4>
+<p>The RAS method is called a one-level method in the sense that sub-domains only interact with their direct neighbors.
+For some problems such as Darcy problems or static elasticiy problems and when the number of subdomains is large, such one-level methods may suffer from a slow convergence.
+The fix is to add to the preconditioner an auxiliary coarse problem that couples all subdomains at each iteration and is inexpensive to calculate.
+We consider two ways to build this coarse problem, see below <a class="reference internal" href="#ffddmintroductioncoarsemesh"><span class="std std-ref">Coarse Mesh</span></a> and <a class="reference internal" href="#ffddmintroductiongeneo"><span class="std std-ref">GenEO</span></a></p>
+<div class="section" id="coarse-mesh">
+<span id="ffddmintroductioncoarsemesh"></span><h5>Coarse Mesh<a class="headerlink" href="#coarse-mesh" title="Permalink to this headline">¶</a></h5>
+<p>A first possibility is to discretize the problem on a coarse mesh, following the same principle as multi-grid methods.
+For 3-D problems, a coarsening of the mesh size by a factor 2, reduces by a factor <span class="math notranslate nohighlight">\(2^3=8\)</span> the size of the coarse problem which is then easier to solve by a direct method.</p>
+</div>
+<div class="section" id="geneo">
+<span id="ffddmintroductiongeneo"></span><h5>GenEO<a class="headerlink" href="#geneo" title="Permalink to this headline">¶</a></h5>
+<p>For highly heterogeneous or anisotropic problems, two level methods based on coarse meshes might fail and a more sophisticated construction must be used.
+A provable robust coarse space called GenEO is built by first solving the following local generalized eigenvalue problem in parallel for each subdomain <span class="math notranslate nohighlight">\(1\le i\le N\)</span>, where <span class="math notranslate nohighlight">\(A_i^{\text{Neu}}\)</span> denotes the local matrix resulting from the variational formulation:</p>
+<div class="math notranslate nohighlight">
+\[D_i A_i D_i\, V_{i,k} = \lambda_{i,k}\, A_i^{\text{Neu}} \,V_{i,k}\]</div>
+<p>The eigenvectors selected to enter the coarse space correspond to eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i,k} \ge \tau\)</span>, where the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span> is user-defined.
+The precise formulas are given in this <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">documentation</span></a>.
+From a mathematical point of view, it has been proved that for a symmetric positive definite matrix <span class="math notranslate nohighlight">\(A\)</span>, the spectrum of the preconditioned by the two-level method with a GenEO coarse space lies in the interval <span class="math notranslate nohighlight">\([\displaystyle \frac{1}{1+k_1\,\tau} , k_0 ]\)</span>.</p>
+<p><strong>Note</strong> A heuristic that justifies this construction is as follows.
+We first introduce the Additive Schwarz method (ASM) which can be seen as a symmetrized variant of the RAS preconditioner:</p>
+<div class="math notranslate nohighlight">
+\[M_{ASM}^{-1} := \sum_{j=1}^N R_j^T A_j^{-1} R_j\,.\]</div>
+<p>It can be proved that the lower bound for the eigenvalue of <span class="math notranslate nohighlight">\(M_{ASM}^{-1}\,A\)</span> is close to zero (which is bad for convergence) whereas the upper bound depends only on the number of neigbors of a subdomain (which is good for convergence).</p>
+<p>Second, we also introduce the following preconditioner <span class="math notranslate nohighlight">\(M^{-1}_{NN}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[M^{-1}_{NN} := \sum_{1\le j\le N} D_i\,(A_j^{\text{Neu}})^{-1} D_j\,.\]</div>
+<p>We have a very good lower bound for the preconditioned operator <span class="math notranslate nohighlight">\(M^{-1}_{NN}\,A\)</span> that does not depend on the number of subdomains but only on the maximum multiplicity of intersections <span class="math notranslate nohighlight">\(k_1\)</span> (which is good for convergence).
+But the upper bound for this preconditioner is very large (which is bad for convergence).</p>
+<p>Now, if we compare formulas for <span class="math notranslate nohighlight">\(M^{-1}_{NN}\)</span> and <span class="math notranslate nohighlight">\(M^{-1}_{ASM}\)</span>, we may suspect that vectors <span class="math notranslate nohighlight">\(\mathbf{V}_{ik}\)</span> for which <span class="math notranslate nohighlight">\(D_i\, (A_i^{\text{Neu}})^{-1}\,D_i\,\mathbf{V}_{ik}\)</span> and <span class="math notranslate nohighlight">\(A_{i}^{-1}\,\mathbf{V}_{ik}\)</span> have very different values are responsible for the slow convergence and should contribute to the coarse space.
+This is a way to interpret the above generalized eigenvalue problem which controls the lower bound of the two-level preconditioned system.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
+    </p>
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../../_static/img/GitHub_Logo_White.png" />
+    </a>
+</div>
+		</footer>
+		
+
+		<script src="../../_static/js/toc.js"></script>
+	</body>
+</html>

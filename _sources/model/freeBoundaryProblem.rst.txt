@@ -84,7 +84,7 @@ Finally the new domain :math:`\Omega^{n+1} = \mathcal{F}(\Omega^n)`
 
 .. tip:: Free boundary
 
-   The FreeFem++ implementation is:
+   The **FreeFem++** implementation is:
 
    .. code-block:: freefem
 

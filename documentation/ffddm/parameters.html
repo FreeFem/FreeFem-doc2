@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Parameters</title>
+		<link rel="icon" href="../../_static/img/favicon.png">
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../../_static/nav.json"></script>
+		<script src="../../_static/js/nav.js"></script>
+		<script src="../../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../../_static/img/Logo.png" />
+        </a>
+    </div>
+</div>
+<div class="header-title">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
+    </div>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../../")</script>
+			<div class="search">
+				<script async src="../../_static/js/lunr.js"></script>
+<script async src="../../_static/lunr_index.js"></script>
+
+<script src="../../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
+    </div>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">Parameters</a><ul>
+<li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a></li>
+<li><a class="reference internal" href="#global-parameters">Global parameters</a></li>
+</ul>
+</li>
+</ul>
+
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="section" id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-line-arguments">
+<span id="ffddmparameterscommandline"></span><h2>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_verbosity</span> <span class="n">N</span></code>, the level of verbosity of <strong>ffddm</strong>, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmverbosity</span></a> (default 3).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">seqddm</span> <span class="n">N</span></code> use <strong>ffddm</strong> in sequential mode, with N the number of subdomains.</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">noGlob</span></code> if present, do not define any global quantity (such as saving the global mesh for plotting or building the global restriction matrices).</dt><dd>Cannot be used in sequential mode or with plotting.</dd>
+</dl>
+</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_partitioner</span> <span class="n">N</span></code> specifies how to partition the initial domain, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmpartitioner</span></a> (default 1, <em>metis</em>).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_overlap</span> <span class="n">N</span></code> specifies the width of the overlap region between subdomains, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmoverlap</span></a> (default 1).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_master_p</span> <span class="n">N</span></code>, number of master processes for the coarse problem (for two level preconditioners), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmpCS</span></a> (default 1).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_master_exclude</span> <span class="mi">0</span><span class="o">|</span><span class="mi">1</span></code> exclude master processes from the domain decomposition, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmexclude</span></a> (default 0).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddm_split</span> <span class="n">N</span></code>, level of refinement of the local submeshes with respect to the initial global mesh, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmsplit</span></a> (default 1).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_schwarz_method</span> <span class="n">S</span></code>, specifies the type of one level preconditioner <span class="math notranslate nohighlight">\(M^{-1}_1\)</span>: “asm” (<em>Additive Schwarz</em>), “ras” (<em>Restricted Additive Schwarz</em>), “oras” (<em>Optimized Restricted Additive Schwarz</em>), “soras” (<em>Symmetric Optimized Restricted Additive Schwarz</em>) or “none” (no preconditioner), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmprecond</span></a> (default “ras”).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_geneo_nu</span> <span class="n">N</span></code>, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmnu</span></a> (default 20).</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_geneo_threshold</span> <span class="n">R</span></code>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> (default 0.5).</dt><dd>If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.</dd>
+</dl>
+</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_schwarz_coarse_correction</span> <span class="n">S</span></code>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmcorrection</span></a> (default “ADEF1”).</li>
+</ul>
+</div>
+<div class="section" id="global-parameters">
+<span id="ffddmparametersglobal"></span><h2>Global parameters<a class="headerlink" href="#global-parameters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmverbosity</span></code> initialized by command-line argument <strong>-ffddm_verbosity N</strong>, specifies the level of verbosity of <strong>ffddm</strong> (default 3).</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmpartitioner</span></code> initialized by command-line argument <strong>-ffddm_partitioner N</strong>, specifies how to partition the initial domain:<ul>
+<li>N=0: user-defined partition through the definition of a macro, see <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">ffddmbuildDmesh</span></a></li>
+<li>N=1: use the automatic graph partitioner <em>metis</em> (default)</li>
+<li>N=2: use the automatic graph partitioner <em>scotch</em></li>
+</ul>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmoverlap</span></code> initialized by command-line argument <strong>-ffddm_overlap N</strong>, specifies the number of layers of mesh elements in the overlap region between subdomains N &gt;= 1 (default 1).</dt><dd><strong>Remark</strong> The actual width of the overlap region between subdomains is 2N, since each subdomain is extended by N layers of elements in a symmetric way.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddminterfacelabel</span></code> the label of the new border of the subdomain meshes (the interface between the subdomains) (default 10).</dt><dd>Used for imposing problem-dependent boundary conditions at the interface between subdomains for the preconditioner, for example optimized Robin boundary conditions (see ORAS).</dd>
+</dl>
+</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmpCS</span></code> initialized by command-line argument <strong>-ffddm_master_p N</strong>, number of mpi processes used for the assembly and resolution of the coarse problem for two level preconditioners (default 1).</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmexclude</span></code> initialized by command-line argument <strong>-ffddm_master_exclude</strong>, 0 or 1 (default 0).</dt><dd>If true, mpi ranks participating in the assembly and resolution of the coarse problem for two level preconditioners will be excluded from the spatial domain decomposition and will only work on the coarse problem.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmsplit</span></code> initialized by command-line argument <strong>ffddm_split N</strong>, level of refinement of the local submeshes with respect to the initial global mesh (default 1).</dt><dd>This is useful for large problems, where we want to avoid working with a very large global mesh.
+The idea is to start from a coarser global mesh, and generate finer local meshes in parallel during the mesh decomposition step in order to reach the desired level of refinement for the subdomains.
+For example, calling <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">ffddmbuildDmesh</span></a> with <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmsplit</span></a> = 3 will generate local submeshes where each mesh element of the initial mesh is split into <span class="math notranslate nohighlight">\(3^d\)</span> elements.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmprecond</span></code> initialized by command-line argument <strong>-ffddm_schwarz_method S</strong>, specifies the type of one level preconditioner <span class="math notranslate nohighlight">\(M^{-1}_1\)</span> to build when calling <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a>: “asm” (<em>Additive Schwarz</em>), “ras” (<em>Restricted Additive Schwarz</em>), “oras” (<em>Optimized Restricted Additive Schwarz</em>), “soras” (<em>Symmetric Optimized Restricted Additive Schwarz</em>) or “none” (no preconditioner).</dt><dd>Default is “ras”.
+See <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a> for more details.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmnu</span></code> initialized by command-line argument <strong>-ffddm_geneo_nu N</strong>, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method (default 20).</dt><dd>See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmtau</span></code> initialized by command-line argument <strong>-ffddm_geneo_threshold R</strong>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method (default 0.5).</dt><dd>If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.
+See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmcorrection</span></code> initialized by command-line argument <strong>-ffddm_schwarz_coarse_correction S</strong>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction).</dt><dd>Default is “ADEF1”.
+See the section about <a class="reference internal" href="documentation.html#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">Two level preconditioners</span></a> for more details.</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
+    </p>
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../../_static/img/GitHub_Logo_White.png" />
+    </a>
+</div>
+		</footer>
+		
+
+		<script src="../../_static/js/toc.js"></script>
+	</body>
+</html>

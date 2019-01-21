@@ -42,7 +42,7 @@ where :math:`n` is the size of the problem, and the operators are now defined th
    func real[int] FOP1(real[int] & u){ real[int] Au = OP^-1*u; return Au; }
    func real[int] FB(real[int] & u){ real[int] Au = B*u; return Au; }
 
-If you want finer control over the method employed in ``ARPACK``, you can specify which mode ``ARPACK`` will work with (:freefem:`mode=` , see `ARPACK documentation <#LEHOUCQ1998>`__). The operators necessary for the chosen mode can be passed through the optional parameters :freefem:`A=`, :freefem:`A1=`, :freefem:`B=`, :freefem:`B1=`, (see below).
+If you want finer control over the method employed in ``ARPACK``, you can specify which mode ``ARPACK`` will work with (:freefem:`mode=` , see ARPACK documentation [LEHOUCQ1998]_). The operators necessary for the chosen mode can be passed through the optional parameters :freefem:`A=`, :freefem:`A1=`, :freefem:`B=`, :freefem:`B1=`, (see below).
 
 -  :freefem:`mode=1`: Regular mode for solving :math:`A u = \lambda u`
 
@@ -95,101 +95,101 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
 
 .. tip:: Laplace eigenvalue
 
-   In the first example, we compute the eigenvalues and the eigenvectors of the Dirichlet problem on square :math:`\Omega=]0,\pi[^2`.
+    In the first example, we compute the eigenvalues and the eigenvectors of the Dirichlet problem on square :math:`\Omega=]0,\pi[^2`.
 
-   The problem is to find: :math:`\lambda`, and :math:`\nabla u_{\lambda}` in :math:`\mathbb{R}{\times} H^1_0(\Omega)`
+    The problem is to find: :math:`\lambda`, and :math:`\nabla u_{\lambda}` in :math:`\mathbb{R}{\times} H^1_0(\Omega)`
 
-   .. math::
-      \int_\Omega \nabla u_{\lambda} \nabla v = \lambda \int_\Omega u v \quad \forall v \in H^1_0(\Omega)
+    .. math::
+        \int_\Omega \nabla u_{\lambda} \nabla v = \lambda \int_\Omega u v \quad \forall v \in H^1_0(\Omega)
 
-   The exact eigenvalues are :math:`\lambda_{n,m} =(n^2+m^2), (n,m)\in {\mathbb{N}_*}^2` with the associated eigenvectors are :math:`u_{{m,n}}=sin(nx)*sin(my)`.
+    The exact eigenvalues are :math:`\lambda_{n,m} =(n^2+m^2), (n,m)\in {\mathbb{N}_*}^2` with the associated eigenvectors are :math:`u_{{m,n}}=\sin(nx)*\sin(my)`.
 
-   We use the generalized inverse shift mode of the `arpack++` library, to find 20 eigenvalues and eigenvectors close to the shift value :math:`\sigma=20`.
+    We use the generalized inverse shift mode of the `arpack++` library, to find 20 eigenvalues and eigenvectors close to the shift value :math:`\sigma=20`.
 
-   .. code-block:: freefem
+    .. code-block:: freefem
 
-      // Parameters
-      verbosity=0;
-      real sigma = 20; //value of the shift
-      int nev = 20; //number of computed eigen value close to sigma
+        // Parameters
+        verbosity=0;
+        real sigma = 20; //value of the shift
+        int nev = 20; //number of computed eigen value close to sigma
 
-      // Mesh
-      mesh Th = square(20, 20, [pi*x, pi*y]);
+        // Mesh
+        mesh Th = square(20, 20, [pi*x, pi*y]);
 
-      // Fespace
-      fespace Vh(Th, P2);
-      Vh u1, u2;
+        // Fespace
+        fespace Vh(Th, P2);
+        Vh u1, u2;
 
-      // Problem
-      // OP = A - sigma B ; // the shifted matrix
-      varf op (u1, u2)
-          = int2d(Th)(
-                dx(u1)*dx(u2)
-              + dy(u1)*dy(u2)
-              - sigma* u1*u2
-          )
-          + on(1, 2, 3, 4, u1=0)
-          ;
+        // Problem
+        // OP = A - sigma B ; // the shifted matrix
+        varf op (u1, u2)
+            = int2d(Th)(
+                  dx(u1)*dx(u2)
+                + dy(u1)*dy(u2)
+                - sigma* u1*u2
+            )
+            + on(1, 2, 3, 4, u1=0)
+            ;
 
-      varf b ([u1], [u2]) = int2d(Th)(u1*u2); //no boundary condition
+        varf b ([u1], [u2]) = int2d(Th)(u1*u2); //no boundary condition
 
-      matrix OP = op(Vh, Vh, solver=Crout, factorize=1); //crout solver because the matrix in not positive
-      matrix B = b(Vh, Vh, solver=CG, eps=1e-20);
+        matrix OP = op(Vh, Vh, solver=Crout, factorize=1); //crout solver because the matrix in not positive
+        matrix B = b(Vh, Vh, solver=CG, eps=1e-20);
 
-      // important remark:
-      // the boundary condition is make with exact penalization:
-      // we put 1e30=tgv on the diagonal term of the lock degree of freedom.
-      // So take Dirichlet boundary condition just on $a$ variational form
-      // and not on $b$ variational form.
-      // because we solve $ w=OP^-1*B*v $
+        // important remark:
+        // the boundary condition is make with exact penalization:
+        // we put 1e30=tgv on the diagonal term of the lock degree of freedom.
+        // So take Dirichlet boundary condition just on $a$ variational form
+        // and not on $b$ variational form.
+        // because we solve $ w=OP^-1*B*v $
 
-      // Solve
-      real[int] ev(nev); //to store the nev eigenvalue
-      Vh[int] eV(nev); //to store the nev eigenvector
+        // Solve
+        real[int] ev(nev); //to store the nev eigenvalue
+        Vh[int] eV(nev); //to store the nev eigenvector
 
-      int k = EigenValue(OP, B, sym=true, sigma=sigma, value=ev, vector=eV,
-          tol=1e-10, maxit=0, ncv=0);
+        int k = EigenValue(OP, B, sym=true, sigma=sigma, value=ev, vector=eV,
+            tol=1e-10, maxit=0, ncv=0);
 
-      // Display & Plot
-      for (int i = 0; i < k; i++){
-          u1 = eV[i];
-          real gg = int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1));
-          real mm = int2d(Th)(u1*u1) ;
-          cout << "lambda[" << i << "] = " << ev[i] << ", err= " << int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1) - (ev[i])*u1*u1) << endl;
-          plot(eV[i], cmm="Eigen Vector "+i+" value ="+ev[i], wait=true, value=true);
-      }
+        // Display & Plot
+        for (int i = 0; i < k; i++){
+            u1 = eV[i];
+            real gg = int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1));
+            real mm = int2d(Th)(u1*u1) ;
+            cout << "lambda[" << i << "] = " << ev[i] << ", err= " << int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1) - (ev[i])*u1*u1) << endl;
+            plot(eV[i], cmm="Eigen Vector "+i+" value ="+ev[i], wait=true, value=true);
+        }
 
-   The output of this example is:
+    The output of this example is:
 
-   .. code-block:: bash
+    .. code-block:: bash
 
-      lambda[0] = 5.0002, err= -1.46519e-11
-      lambda[1] = 8.00074, err= -4.05158e-11
-      lambda[2] = 10.0011, err= 2.84925e-12
-      lambda[3] = 10.0011, err= -7.25456e-12
-      lambda[4] = 13.002, err= -1.74257e-10
-      lambda[5] = 13.0039, err= 1.22554e-11
-      lambda[6] = 17.0046, err= -1.06274e-11
-      lambda[7] = 17.0048, err= 1.03883e-10
-      lambda[8] = 18.0083, err= -4.05497e-11
-      lambda[9] = 20.0096, err= -2.21678e-13
-      lambda[10] = 20.0096, err= -4.16212e-14
-      lambda[11] = 25.014, err= -7.42931e-10
-      lambda[12] = 25.0283, err= 6.77444e-10
-      lambda[13] = 26.0159, err= 3.19864e-11
-      lambda[14] = 26.0159, err= -4.9652e-12
-      lambda[15] = 29.0258, err= -9.99573e-11
-      lambda[16] = 29.0273, err= 1.38242e-10
-      lambda[17] = 32.0449, err= 1.2522e-10
-      lambda[18] = 34.049, err= 3.40213e-11
-      lambda[19] = 34.0492, err= 2.41751e-10
+        lambda[0] = 5.0002, err= -1.46519e-11
+        lambda[1] = 8.00074, err= -4.05158e-11
+        lambda[2] = 10.0011, err= 2.84925e-12
+        lambda[3] = 10.0011, err= -7.25456e-12
+        lambda[4] = 13.002, err= -1.74257e-10
+        lambda[5] = 13.0039, err= 1.22554e-11
+        lambda[6] = 17.0046, err= -1.06274e-11
+        lambda[7] = 17.0048, err= 1.03883e-10
+        lambda[8] = 18.0083, err= -4.05497e-11
+        lambda[9] = 20.0096, err= -2.21678e-13
+        lambda[10] = 20.0096, err= -4.16212e-14
+        lambda[11] = 25.014, err= -7.42931e-10
+        lambda[12] = 25.0283, err= 6.77444e-10
+        lambda[13] = 26.0159, err= 3.19864e-11
+        lambda[14] = 26.0159, err= -4.9652e-12
+        lambda[15] = 29.0258, err= -9.99573e-11
+        lambda[16] = 29.0273, err= 1.38242e-10
+        lambda[17] = 32.0449, err= 1.2522e-10
+        lambda[18] = 34.049, err= 3.40213e-11
+        lambda[19] = 34.0492, err= 2.41751e-10
 
-   .. figure:: images/EigenValueProblems1.png
+    .. figure:: images/EigenValueProblems1.png
+        :figclass: inline2
 
-      Isovalue of 11th eigenvector :math:`u_{4,3}-u_{3,4}`
+        Isovalue of 11th eigenvector :math:`u_{4,3}-u_{3,4}`
 
-   .. figure:: images/EigenValueProblems2.png
+    .. figure:: images/EigenValueProblems2.png
+        :figclass: inline2
 
-      Isovalue of 12th eigenvector :math:`u_{4,3}+u_{3,4}`
-
-.. [LEHOUCQ1998] LEHOUCQ, Richard B., SORENSEN, Danny C., et YANG, Chao. ARPACK users’ guide: solution of large-scale eigenvalue problems with implicitly restarted Arnoldi methods. Siam, 1998.
+        Isovalue of 12th eigenvector :math:`u_{4,3}+u_{3,4}`

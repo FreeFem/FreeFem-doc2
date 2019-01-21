@@ -7,7 +7,7 @@ Algorithms & Optimization
 Conjugate Gradient/GMRES
 ------------------------
 
-Suppose we want to solve the Euler problem (here :math:`x` has nothing to do with the reserved variable for the first coordinate in FreeFem++):
+Suppose we want to solve the Euler problem (here :math:`x` has nothing to do with the reserved variable for the first coordinate in **FreeFem++**):
 
 find :math:`x\in \mathbb{R}^n` such that
 
@@ -68,8 +68,10 @@ The parameters of these three functions are:
    For a given function :math:`b`, let us find the minimizer :math:`u` of the function
 
    .. math::
-      J(u) &=& \frac{1}{2}\int_{\Omega} f(|\nabla u|^2) - \int_{\Omega} u b \\
-      f(x) &=& ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}{(1+x)^2}
+       \begin{array}{rcl}
+          J(u) &=& \frac{1}{2}\int_{\Omega} f(|\nabla u|^2) - \int_{\Omega} u b \\
+          f(x) &=& ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}{(1+x)^2}
+       \end{array}
 
    under the boundary condition :math:`u=0` on :math:`\partial\Omega`.
 
@@ -189,7 +191,7 @@ Algorithms for Unconstrained Optimization
 -----------------------------------------
 
 Two algorithms of COOOL package are interfaced with the Newton Raphson method (called :freefem:`Newton`) and the :freefem:`BFGS` method.
-These two are directly available in FreeFem (no dynamical link to load).
+These two are directly available in **FreeFem++** (no dynamical link to load).
 Be careful with these algorithms, because their implementation uses full matrices.
 We also provide several optimization algorithms from the `NLopt library <https://nlopt.readthedocs.io/en/latest/>`__ as well as an interface for Hansen’s implementation of CMAES (a MPI version of this one is also available).
 
@@ -274,7 +276,7 @@ It implements a primal-dual interior point method along with filter method based
 
 IPOPT needs a direct sparse symmetric linear solver.
 If your version of **FreeFem++** has been compiled with the :freefem:`--enable-downlad` tag, it will automatically be linked with a sequential version of MUMPS.
-An alternative to MUMPS would be to download the HSL subroutines (see `Compiling and Installing the Java Interface JIPOPT <http://www.coin-or.org/Ipopt/documentation/node16.html>`__) and place them in the :freefem:`/ipopt/Ipopt-3.10.2/ThirdParty/HSL` directory of the **FreeFem++** downloads folder before compiling.
+An alternative to MUMPS would be to download the HSL subroutines (see `Compiling and Installing the Java Interface JIPOPT <https://www.coin-or.org/Ipopt/documentation/node16.html>`__) and place them in the :freefem:`/ipopt/Ipopt-3.10.2/ThirdParty/HSL` directory of the **FreeFem++** downloads folder before compiling.
 
 Short description of the algorithm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -386,7 +388,7 @@ Any returned matrix must be a sparse one (type :freefem:`matrix`, not a :freefem
    func real[int] C (real[int] &X) {...} //Constraints
    func matrix jacC (real[int] &X) {...} //Constraints Jacobian
 
-.. warning:: In the current version of FreeFem++, returning a :freefem:`matrix` object that is local to a function block leads to undefined results.
+.. warning:: In the current version of **FreeFem++**, returning a :freefem:`matrix` object that is local to a function block leads to undefined results.
    For each sparse matrix returning function you define, an extern matrix object has to be declared, whose associated function will overwrite and return on each call.
    Here is an example for :freefem:`jacC`:
 
@@ -481,7 +483,7 @@ Note that if you define the constraints in this way, they don’t contribute to 
    real[int] bc = ... ; //constant part of constraints
    IPOPT([A, b], [Ac, bc], Xi, /*bounds and named parameters*/);
 
-If both objective and constraint functions are given this way, it automatically activates the IPOPT :freefem:`mehrotra_algorithm` option (better for linear and quadratic programming according to the documentation).
+If both objective and constraint functions are given this way, it automatically activates the IPOPT ``mehrotra_algorithm`` option (better for linear and quadratic programming according to the documentation).
 Otherwise, this option can only be set through the option file (see the named parameters section).
 
 A false case is the one of defining :math:`f` in this manner while using standard functions for the constraints:
@@ -548,7 +550,7 @@ The `IPOPT pdf documentation <https://projects.coin-or.org/Ipopt/browser/stable/
 +---------------------------------------+------------------------------------+
 
 **Named Parameters :** The available named parameters in this interface are those we thought to be the most subject to variations from one optimization to another, plus a few that are interface specific.
-Though, as one could see at `IPOPT Linear solver <http://www.coin-or.org/Ipopt/documentation/node59.html>`__, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior.
+Though, as one could see at `IPOPT Linear solver <https://www.coin-or.org/Ipopt/documentation/node59.html>`__, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior.
 These parameters can still be controlled by placing an option file in the execution directory.
 Note that `IPOPT’s pdf documentation <https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw>`__ may provides more information than the previously mentioned online version for certain parameters.
 The in-script available parameters are:
@@ -568,8 +570,8 @@ The in-script available parameters are:
    It is used to avoid wrong index matching when some null coefficients are removed from the matrices by **FreeFem++**.
    It will not solve the problems arising when a too small structure has been given at the initialization of the algorithm.
    Enabled by default (except in cases where all matrices are obviously constant).
--  :freefem:`warmstart` : If set to :freefem:`true`, the constraints dual variables :math:`\lambda`, and simple bound dual variables are initialized with the values of the arrays passed to :freefem:`lm``, :freefem:`lz` and :freefem:`uz` named parameters (see below).
--  :freefem:`lm`` : :freefem:`real[int]` of size :math:`m`, which is used to get the final values of the constraints dual variables :math:`\lambda` and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).
+-  :freefem:`warmstart` : If set to :freefem:`true`, the constraints dual variables :math:`\lambda`, and simple bound dual variables are initialized with the values of the arrays passed to :freefem:`lm`, :freefem:`lz` and :freefem:`uz` named parameters (see below).
+-  :freefem:`lm` : :freefem:`real[int]` of size :math:`m`, which is used to get the final values of the constraints dual variables :math:`\lambda` and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).
 -  :freefem:`lz`, :freefem:`uz` : :freefem:`real[int]` of size :math:`n` to get the final values and/or initialize (in case of a warm start) the dual variables associated to simple bounds.
 -  :freefem:`tol` : :freefem:`real`, convergence tolerance for the algorithm, the default value is :math:`10^{-8}`.
 -  :freefem:`maxiter` : :freefem:`int`, maximum number of iterations with 3000 as default value.
@@ -769,11 +771,13 @@ Some short examples using IPOPT
       }
 
    .. figure:: images/VarIneqFill.jpg
+      :figclass: inline2
       :name: figAlgoVarineqFill
 
       Numerical Approximation of the Variational Inequality
 
    .. figure:: images/VarIneqIso.jpg
+      :figclass: inline2
       :name: figAlgoVarineqIso
 
       Numerical Approximation of the Variational Inequality
@@ -882,7 +886,7 @@ We immediately get the following expressions:
 The problem and its script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The whole code is available in `IPOPT minimal surface & volume example <exampleIPOPTMinimalSurfaceVolume>`__.
+The whole code is available in :ref:`IPOPT minimal surface & volume example <exampleIPOPTMinimalSurfaceVolume>`.
 We propose to solve the following problem:
 
 .. tip::
@@ -892,11 +896,11 @@ We propose to solve the following problem:
    .. math::
       \rho_{0} = \underset{\rho\in C^{1}(\Omega)}{\operatorname{argmin}}\ \mathcal{A}(\rho)\ ,\ \mathrm{s.t.}\ \rho_{0}\geq\rho_{\mathrm{object}} \ \mathrm{and\ } \mathcal{V}(\rho_{0})\leq \mathcal{V}_{\mathrm{max}}
 
-   If $\rho_{\mathrm{object}}$ is the spherical parametrization of the surface of a 3-dimensional object (domain) $\mathcal{O}$, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If $\mathcal{V}_{\mathrm{max}}$ is close to $\mathcal{V}(\rho_{\mathrm{object}})$, so should be $\rho_{0}$ and $\rho_{\mathrm{object}}$. With higher values of $\mathcal{V}_{\mathrm{max}}$, $\rho$ should be closer to the unconstrained minimum surface surrounding $\mathcal{O}$ which is obtained as soon as $\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}$ (sufficient but not necessary).
+   If :math:`\rho_{\mathrm{object}}` is the spherical parametrization of the surface of a 3-dimensional object (domain) :math:`\mathcal{O}`, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If :math:`\mathcal{V}_{\mathrm{max}}` is close to :math:`\mathcal{V}(\rho_{\mathrm{object}})`, so should be :math:`\rho_{0}` and :math:`\rho_{\mathrm{object}}`. With higher values of :math:`\mathcal{V}_{\mathrm{max}}`, :math:`\rho` should be closer to the unconstrained minimum surface surrounding :math:`\mathcal{O}` which is obtained as soon as :math:`\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}` (sufficient but not necessary).
 
-   It also could be interesting to solve the same problem with the constraint $\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}$ which leads to a sphere when $\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3}$ and moves toward the solution of the unconstrained problem as $\mathcal{V}_{\mathrm{min}}$ decreases.
+   It also could be interesting to solve the same problem with the constraint :math:`\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}` which leads to a sphere when :math:`\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3}` and moves toward the solution of the unconstrained problem as :math:`\mathcal{V}_{\mathrm{min}}` decreases.
 
-   We start by meshing the domain $[0,2\pi ]\times\ [0,\pi ]$, then a periodic P1 finite elements space is defined.
+   We start by meshing the domain :math:`[0,2\pi]\times\ [0,\pi]`, then a periodic P1 finite elements space is defined.
 
    .. code-block:: freefem
 
@@ -1452,7 +1456,7 @@ Optimization with MPI
 The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm).
 Somehow, we provide a parallel version of the CMA-ES algorithm.
 The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated :math:`N` times without any dependence at all, these :math:`N` calculus are then equally distributed to each process.
-Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the `CMAES MPI variational inequality example </examples/#cmaes-mpi-variational-inequality>`__):
+Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the :ref:`CMAES MPI variational inequality example <exampleCMAESMPIVariationalInequality>`):
 
 .. code-block:: freefem
 
@@ -1464,10 +1468,3 @@ Calling the MPI version of CMA-ES is nearly the same as calling its sequential v
 If the population size is not changed using the :freefem:`popsize` parameter, it will use the heuristic value slightly changed to be equal to the closest greatest multiple of the size of the communicator used by the optimizer.
 The **FreeFem++** :freefem:`mpicommworld` is used by default.
 The user can specify his own MPI communicator with the named parameter :freefem:`comm=`, see the MPI section of this manual for more information about communicators in **FreeFem++**.
-
-
-.. [PIRONNEAU1998] PIRONNEAU, Olivier et LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.
-
-.. [WÄCHTER2006] WÄCHTER, Andreas et BIEGLER, Lorenz T. On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 2006, vol. 106, no 1, p. 25-57.
-
-.. [FORSGREN2002] FORSGREN, Anders, GILL, Philip E., et WRIGHT, Margaret H. Interior methods for nonlinear optimization. SIAM review, 2002, vol. 44, no 4, p. 525-597.

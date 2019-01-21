@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Documentation</title>
+		<link rel="icon" href="../../_static/img/favicon.png">
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../../_static/nav.json"></script>
+		<script src="../../_static/js/nav.js"></script>
+		<script src="../../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../../_static/img/Logo.png" />
+        </a>
+    </div>
+</div>
+<div class="header-title">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
+    </div>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../../")</script>
+			<div class="search">
+				<script async src="../../_static/js/lunr.js"></script>
+<script async src="../../_static/lunr_index.js"></script>
+
+<script src="../../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
+    </div>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">Documentation</a></li>
+</ul>
+
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ffddm.html">What is ffddm ?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ffddm.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ffddm.html#minimal-example">Minimal Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introddm.html">Domain Decomposition (DD)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introddm.html#mesh-decomposition">Mesh Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introddm.html#distributed-linear-algebra">Distributed Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introddm.html#partition-of-unity-matrices-poum">Partition of Unity Matrices (POUM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introddm.html#distributed-scalar-product">Distributed scalar product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introddm.html#update">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introddm.html#distributed-matrix-and-vector-resulting-from-a-variational-formulation">Distributed Matrix and Vector resulting from a variational formulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introddm.html#distributed-linear-solvers">Distributed Linear Solvers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introddm.html#distributed-direct-solvers">Distributed Direct Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introddm.html#schwarz-methods">Schwarz methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introddm.html#restricted-additive-schwarz-ras">Restricted Additive Schwarz (RAS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introddm.html#optimized-restricted-additive-schwarz-oras">Optimized Restricted Additive Schwarz (ORAS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introddm.html#two-level-methods">Two level methods</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="introddm.html#coarse-mesh">Coarse Mesh</a></li>
+<li class="toctree-l5"><a class="reference internal" href="introddm.html#geneo">GenEO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">ffddm documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#minimal-example">Minimal example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#overlapping-mesh-decomposition">Overlapping mesh decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#local-finite-element-spaces">Local finite element spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#define-the-problem-to-solve">Define the problem to solve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#one-level-preconditioners">One level preconditioners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#two-level-preconditioners">Two level preconditioners</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation.html#building-the-geneo-coarse-space">Building the GenEO coarse space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation.html#building-the-coarse-space-from-a-coarse-mesh">Building the coarse space from a coarse mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#solving-the-linear-system">Solving the linear system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#command-line-arguments">Command-line arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#global-parameters">Global parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#what-is-ffddm">What is <strong>ffddm</strong> ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#why-domain-decomposition-methods">Why Domain Decomposition Methods ?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#step-1-decompose-the-mesh">Step 1: Decompose the mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#step-2-define-your-finite-element">Step 2: Define your finite element</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial.html#distributed-vectors-and-restriction-operators">Distributed vectors and restriction operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial.html#partition-of-unity">Partition of unity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial.html#data-exchange-between-neighbors">Data exchange between neighbors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#step-3-define-your-problem">Step 3: Define your problem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#summary-so-far-translating-your-sequential-freefem-script">Summary so far: translating your sequential <em>FreeFem++</em> script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#id1">Step 1: Decompose the mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#solve-the-linear-system">Solve the linear system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#solve-the-linear-system-with-the-parallel-direct-solver-mumps">Solve the linear system with the parallel direct solver <em>MUMPS</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#step-4-define-the-one-level-dd-preconditioner">Step 4: Define the one level DD preconditioner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#step-5-solve-the-linear-system-with-preconditioned-gmres">Step 5: Solve the linear system with preconditioned GMRES</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#define-a-two-level-dd-preconditioner">Define a two level DD preconditioner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#build-the-geneo-coarse-space">Build the GenEO coarse space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#build-the-coarse-space-from-a-coarse-mesh">Build the coarse space from a coarse mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#use-hpddm-within-ffddm">Use <strong>HPDDM</strong> within <strong>ffddm</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#some-results-heterogeneous-3d-elasticity-with-geneo">Some results: Heterogeneous 3D elasticity with GenEO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#some-results-2-level-dd-for-maxwell-equations-scattering-from-the-cobra-cavity">Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#id2">Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</div>
+<script>goto('ffddm.html')</script></div>
+
+
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
+    </p>
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../../_static/img/GitHub_Logo_White.png" />
+    </a>
+</div>
+		</footer>
+		
+
+		<script src="../../_static/js/toc.js"></script>
+	</body>
+</html>

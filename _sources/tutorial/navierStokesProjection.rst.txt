@@ -1,41 +1,52 @@
 A projection algorithm for the Navier-Stokes equations
 ======================================================
 
-**Summary :** *Fluid flows require good algorithms and good triangultions. We show here an example of a complex algorithm and or first example of mesh adaptation.*
+**Summary :**
+*Fluid flows require good algorithms and good triangultions. We show here an example of a complex algorithm and or first example of mesh adaptation.*
 
 An incompressible viscous fluid satisfies:
 
 .. math::
-   \partial_t \mathbf{u} + \mathbf{u}\cdot\nabla\mathbf{u} + \nabla p - \nu\Delta\mathbf{u} &= 0 &\hbox{ in } \Omega\times ]0,T[\\
-   \nabla\cdot\mathbf{u} &= 0 &\hbox{ in } \Omega\times ]0,T[\\
-   \mathbf{u}|_{t=0} = \mathbf{u}^0\\
-   \mathbf{u}|_\Gamma = \mathbf{u}_\Gamma
+    \begin{array}{rcl}
+        \partial_t \mathbf{u} + \mathbf{u}\cdot\nabla\mathbf{u} + \nabla p - \nu\Delta\mathbf{u} &= 0 &\hbox{ in } \Omega\times ]0,T[\\
+        \nabla\cdot\mathbf{u} &= 0 &\hbox{ in } \Omega\times ]0,T[\\
+        \mathbf{u}|_{t=0} &= \mathbf{u}^0\\
+        \mathbf{u}|_\Gamma &= \mathbf{u}_\Gamma
+    \end{array}
 
 A possible algorithm, proposed by Chorin, is:
 
 .. math::
-   {1\over \delta t}[\mathbf{u}^{m+1} - \mathbf{u}^mo\mathbf{X}^m] + \nabla p^m -\nu\Delta \mathbf{u}^m &= 0\\
-   \mathbf{u}|_\Gamma &= \mathbf{u}_\Gamma\\
-   \nu \partial_n \mathbf{u}|_{\Gamma_{out}} &=0
+    \begin{array}{rcl}
+        {1\over \delta t}[\mathbf{u}^{m+1} - \mathbf{u}^mo\mathbf{X}^m] + \nabla p^m -\nu\Delta \mathbf{u}^m &=& 0\\
+        \mathbf{u}|_\Gamma &=& \mathbf{u}_\Gamma\\
+        \nu \partial_n \mathbf{u}|_{\Gamma_{out}} &=&0
+    \end{array}
 
 .. math::
-   -\Delta p^{m+1} &= -\nabla\cdot \mathbf{u}^mo\mathbf{X}^m &\\
-   \partial_n p^{m+1} &= 0 &\mbox{ on } \Gamma\\
-   p^{m+1} &= 0 &\mbox{ on } \Gamma_{out}
+    \begin{array}{rcl}
+        -\Delta p^{m+1} &= -\nabla\cdot \mathbf{u}^mo\mathbf{X}^m &\\
+        \partial_n p^{m+1} &= 0 &\mbox{ on } \Gamma\\
+        p^{m+1} &= 0 &\mbox{ on } \Gamma_{out}
+    \end{array}
 
 where :math:`\mathbf{u}o\mathbf{X}(x) = \mathbf{u}(\mathbf{x}-\mathbf{u}(\mathbf{x})\delta t)` since :math:`\partial_t \mathbf{u} + \mathbf{u}\cdot\nabla \mathbf{u}` is approximated by the method of characteristics, as in the previous section.
 
 We use the Chorin’s algorithm with free boundary condition at outlet (i.e. :math:`p=0,\nu \partial_n u = 0`), to compute a correction, q, to the pressure.
 
 .. math::
-   -\Delta q &= \nabla\cdot\mathbf{u}\\
-   q &= 0 \mbox{ on } \Gamma_{out}
+    \begin{array}{rcl}
+        -\Delta q &= \nabla\cdot\mathbf{u}&\\
+        q &= 0 \mbox{ on } &\Gamma_{out}
+    \end{array}
 
 and define
 
 .. math::
-   \mathbf{u}^{m+1} &= \tilde{\mathbf{u}} + P \nabla q\delta t\\
-   p^{m+1} &= p^m-q
+    \begin{array}{rcl}
+        \mathbf{u}^{m+1} &=& \tilde{\mathbf{u}} + P \nabla q\delta t\\
+        p^{m+1} &=& p^m-q
+    \end{array}
 
 where :math:`\tilde{\mathbf{u}}` is the :math:`(\mathbf{u}^{m+1}, v^{m+1})` of Chorin’s algorithm, and where :math:`P` is the :math:`L^2` projection with mass lumping ( a sparse matrix).
 

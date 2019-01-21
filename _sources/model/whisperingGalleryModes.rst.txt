@@ -1,7 +1,7 @@
 Whispering gallery modes
 ========================
 
-Author: `I. S. Grudinin <http://grudinin.com/>`__
+Author: `I. S. Grudinin <http://linkeding.com/in/grudinin>`__
 
 In whispering gallery mode (WGM) resonators, which are typically spheres or disks, electromagnetic field is trapped by total internal reflections from the boundary.
 Modes of such resonators are distinguished by compact volume and record high quality factors (Q) in a broad range of frequencies.
@@ -11,7 +11,7 @@ Analytical solutions for WG modes are only available for a limited number of ide
 Since resonator dimensions are typically much larger than optical wavelength, direct application of numerical 3D finite difference time domain (FDTD) or finite element methods (FEM) is not practical.
 It’s possible to solve the vectorial wave equation by reducing it to a two dimensional case by taking axial symmetry into account.
 
-Such reduction leads to a system of 3 equations to be solved in a 2D “:math:`\rho-z`” section of a resonator.
+Such reduction leads to a system of 3 equations to be solved in a 2D “:math:`\rho-z`" section of a resonator.
 Please refer to [OXBORROW2007]_ for a detailed derivation and to [GRUDININ2012]_ for an example of using FreeFem++ to compute WGMs.
 
 Wave equation for the WGMs
@@ -36,17 +36,19 @@ We now assume axial symmetry of our electromagnetic fields and insert an imagina
 We write the wave equation :eq:`eqn::wave` explicitly in cylindrical coordinates, thus obtaining a set of three differential equations for the domain :math:`\Omega` given by the resonator’s cross section and some space outside:
 
 .. math::
-   A_1\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0\\ \nonumber
-   A_2\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0\\ \nonumber
-   A_3\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0
-   :label: eqn::system
+    \begin{array}{rcl}
+        A_1\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0\\ \nonumber
+        A_2\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0\\ \nonumber
+        A_3\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0
+    \end{array}
+    :label: eqn::system
 
 The numerical solutions of these equations and boundary conditions can be found with FreeFem++ if we write the system in the weak, or integral form.
 
 Weak formulation
 ----------------
 
-In general, to obtain the integral or “weak” statements equivalent to system :eq:`eqn::system` and boundary conditions we form a scalar dot product between an arbitrary magnetic field test function :math:`\mathbf{H}^t=\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}` and the components of our vectorial equation :math:`A_1,A_2,A_3`, and integrate over the resonator’s cross section domain :math:`\Omega` (and its boundary for the boundary conditions):
+In general, to obtain the integral or “weak" statements equivalent to system :eq:`eqn::system` and boundary conditions we form a scalar dot product between an arbitrary magnetic field test function :math:`\mathbf{H}^t=\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}` and the components of our vectorial equation :math:`A_1,A_2,A_3`, and integrate over the resonator’s cross section domain :math:`\Omega` (and its boundary for the boundary conditions):
 
 .. math::
    \int\limits_{\Omega}(H^t_{\rho}A_1+H^t_{\phi}A_2+H^t_{z}A_3)d\Omega
@@ -174,7 +176,3 @@ The sphere is 36 micrometer in diameter, the refractive index is 1.46, the bound
        plot(eHsqr, WindowIndex=i, value=1, nbiso=20,LabelColors=1, aspectratio=1, cmm="Mode "+i+", lambda="+lambda+", F="+(299792.458/lambda));
        f << "Mode "<< i << ", ka=" << sqrt(ev[i])*radius << endl;
    }
-
-.. [OXBORROW2007] OXBORROW, Mark. Traceable 2-D finite-element simulation of the whispering-gallery modes of axisymmetric electromagnetic resonators. IEEE Transactions on Microwave Theory and Techniques, 2007, vol. 55, no 6, p. 1209-1218.
-
-.. [GRUDININ2012] GRUDININ, Ivan S. et YU, Nan. Finite-element modeling of coupled optical microdisk resonators for displacement sensing. JOSA B, 2012, vol. 29, no 11, p. 3010-3014.

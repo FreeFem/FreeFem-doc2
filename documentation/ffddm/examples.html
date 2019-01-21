@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Examples</title>
+		<link rel="icon" href="../../_static/img/favicon.png">
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../../_static/nav.json"></script>
+		<script src="../../_static/js/nav.js"></script>
+		<script src="../../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../../_static/img/Logo.png" />
+        </a>
+    </div>
+</div>
+<div class="header-title">
+    <div>
+        <a href="../../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
+    </div>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../../")</script>
+			<div class="search">
+				<script async src="../../_static/js/lunr.js"></script>
+<script async src="../../_static/lunr_index.js"></script>
+
+<script src="../../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
+    </div>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">Examples</a></li>
+</ul>
+
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="section" id="examples">
+<span id="ffddmexamples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File name</th>
+<th class="head"><span class="math notranslate nohighlight">\(M^{-1}_1\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(M^{-1}_2\)</span></th>
+<th class="head">inexact CS</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-minimal-direct.edp">diffusion-3d-minimal-direct.edp</a></td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>direct solver MUMPS</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-minimal-ddm.edp">diffusion-3d-minimal-ddm.edp</a></td>
+<td>RAS</td>
+<td>GenEO</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-simple.edp">diffusion-3d-simple.edp</a></td>
+<td>RAS</td>
+<td>GenEO</td>
+<td>&#160;</td>
+<td>comparison with direct solver</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-2d-thirdlevelgeneo.edp">diffusion-2d-thirdlevelgeneo.edp</a></td>
+<td>RAS</td>
+<td>GenEO</td>
+<td>RAS + GenEO</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/elasticity-3d-simple.edp">elasticity-3d-simple.edp</a></td>
+<td>RAS</td>
+<td>GenEO</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/elasticity-3d-thirdlevelgeneo.edp">elasticity-3d-thirdlevelgeneo.edp</a></td>
+<td>RAS</td>
+<td>GenEO</td>
+<td>RAS + GenEO</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-simple.edp">Helmholtz-2d-simple.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-marmousi.edp">Helmholtz-2d-marmousi.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-3d-simple.edp">Helmholtz-3d-simple.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-3d-overthrust.edp">Helmholtz-3d-overthrust.edp</a></td>
+<td>ORAS</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-HPDDM-BGMRES.edp">Helmholtz-2d-HPDDM-BGMRES.edp</a></td>
+<td>ORAS</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>multi-rhs Block GMRES with HPDDM</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Navier-2d-marmousi2.edp">Navier-2d-marmousi2.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell-3d-simple.edp">Maxwell-3d-simple.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell_Cobracavity.edp">Maxwell_Cobracavity.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>ORAS</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/natural_convection.edp">natural_convection.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>nonlinear</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/natural_convection_3D_obstacle.edp">natural_convection_3D_obstacle.edp</a></td>
+<td>ORAS</td>
+<td>Coarse Mesh</td>
+<td>&#160;</td>
+<td>nonlinear</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Richards-2d.edp">Richards-2d.edp</a></td>
+<td>RAS</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>nonlinear time dependent mesh adaptation</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
+    </p>
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../../_static/img/GitHub_Logo_White.png" />
+    </a>
+</div>
+		</footer>
+		
+
+		<script src="../../_static/js/toc.js"></script>
+	</body>
+</html>

@@ -1,6 +1,8 @@
 .. role:: freefem(code)
   :language: freefem
 
+.. _visualization:
+
 Visualization
 =============
 
@@ -64,7 +66,7 @@ The keyboard shortcuts are:
 
 For example:
 
-.. code::
+.. code-block:: freefem
 
    real[int] xx(10), yy(10);
 
@@ -90,19 +92,22 @@ For example:
    plot([xx, yy], ps="likegnu.eps", wait=true);
 
 .. figure:: images/Visualization_Plot.png
-   :name: figVisuMesh
+    :figclass: inline3
+    :name: figVisuMesh
 
-   Mesh, isovalue and vector
+    Mesh, isovalue and vector
 
 .. figure:: images/Visualization_Plot_Grey.png
-   :name: figVisuGrey
+    :figclass: inline3
+    :name: figVisuGrey
 
-   Enlargement in grey of isovalue and vector
+    Enlargement in grey of isovalue and vector
 
 .. figure:: images/Visualization_Plot_Gnuplot.png
-   :name: figVisuCut
+    :figclass: inline3
+    :name: figVisuCut
 
-   Plots a cut of :freefem:`uh`. Note that a refinement of the same can be obtained in combination with gnuplot
+    Plots a cut of :freefem:`uh`. Note that a refinement of the same can be obtained in combination with gnuplot
 
 To change the color table and to choose the value of iso line you can do:
 
@@ -138,19 +143,17 @@ To change the color table and to choose the value of iso line you can do:
 
     plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
 
-.. rst-class:: inline2
+.. figure:: images/Visualization_HSV_Space.png
+    :figclass: inline2
+    :name: figVisuHSV
 
-   .. figure:: images/Visualization_HSV_Space.png
-      :name: figVisuHSV
+    HSV color cylinder
 
-      HSV color cylinder
+.. figure:: images/Visualization_HSV.png
+    :figclass: inline2
+    :name: figVisuIsoColorTable
 
-.. rst-class:: inline2
-
-   .. figure:: images/Visualization_HSV.png
-      :name: figVisuIsoColorTable
-
-      Isovalue with an other color table
+    Isovalue with an other color table
 
 .. note:: See :ref:`HSV example <exampleHSV>` for the complete script.
 

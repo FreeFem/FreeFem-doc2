@@ -3,7 +3,7 @@ A Large Fluid Problem
 
 A friend of one of us in Auroville-India was building a ramp to access an air conditioned room.
 As I was visiting the construction site he told me that he expected to cool air escaping by the door to the room to slide down the ramp and refrigerate the feet of the coming visitors.
-I told him “no way” and decided to check numerically.
+I told him “no way" and decided to check numerically.
 
 The fluid velocity and pressure are solution of the Navier-Stokes equations with varying density function of the temperature.
 
@@ -12,24 +12,28 @@ However the Navier-Stokes cum temperature equations have a RANS :math:`k-\epsilo
 This comes to :
 
 .. math::
-   \partial_t\theta+u\nabla\theta-\nabla\cdot(\kappa_T^m\nabla\theta) &=& 0\\
-   \partial_t u +u\nabla u -\nabla\cdot(\mu_T\nabla u) +\nabla p+ e(\theta-\theta_0)\vec e_2 &=&0\\
-   \nabla\cdot u &=& 0\\
-   \mu_T &=& c_\mu\frac{k^2}\epsilon\\
-   \kappa_T &=& \kappa\mu_T\\
-   \partial_t k + u\nabla k + \epsilon -\nabla\cdot(\mu_T\nabla k) &=& \frac{\mu_T}2|\nabla u+\nabla u^T|^2\\
-   \partial_t\epsilon+u\nabla\epsilon + c_2\frac{\epsilon^2} k -\frac{c_\epsilon}{c_\mu}\nabla\cdot (\mu_T\nabla\epsilon) &=& \frac{c_1}2 k|\nabla u+\nabla u^T|^2\\
+    \begin{array}{rcl}
+        \partial_t\theta+u\nabla\theta-\nabla\cdot(\kappa_T^m\nabla\theta) &=& 0\\
+        \partial_t u +u\nabla u -\nabla\cdot(\mu_T\nabla u) +\nabla p+ e(\theta-\theta_0)\vec e_2 &=&0\\
+        \nabla\cdot u &=& 0\\
+        \mu_T &=& c_\mu\frac{k^2}\epsilon\\
+        \kappa_T &=& \kappa\mu_T\\
+        \partial_t k + u\nabla k + \epsilon -\nabla\cdot(\mu_T\nabla k) &=& \frac{\mu_T}2|\nabla u+\nabla u^T|^2\\
+        \partial_t\epsilon+u\nabla\epsilon + c_2\frac{\epsilon^2} k -\frac{c_\epsilon}{c_\mu}\nabla\cdot (\mu_T\nabla\epsilon) &=& \frac{c_1}2 k|\nabla u+\nabla u^T|^2\\
+    \end{array}
 
 We use a time discretization which preserves positivity and uses the method of characteristics (:math:`X^m(x)\approx x-u^m(x)\delta t`)
 
 .. math::
-   \frac 1{\delta t}(\theta^{m+1}-\theta^m \circ X^m)-\nabla\cdot(\kappa_T^m\nabla\theta^{m+1}) &=& 0\\
-   \frac1{\delta t}(u^{m+1}-u^m \circ X^m) -\nabla\cdot(\mu_T^m\nabla u^{m+1}) +\nabla p^{m+1}+ e(\theta^{m+1}-\theta_0)\vec e_2 &=& 0\\
-   \nabla\cdot u^{m+1} &=& 0\\
-   \frac1{\delta t}(k^{m+1}-k^m \circ X^m) + k^{m+1}\frac{\epsilon^m}{k^m} -\nabla\cdot(\mu_T^m\nabla k^{m+1}) &=& \frac{\mu_T^m}2|\nabla u^m+{\nabla u^m}^T|^2\\
-   \frac1{\delta t}(\epsilon^{m+1}-\epsilon^m \circ X^m) + c_2\epsilon^{m+1}\frac{\epsilon^m} {k^m} -\frac{c_\epsilon}{c_\mu}\nabla\dot(\mu_T^m\nabla\epsilon^{m+1}) &=& \frac{c_1}2 k^m|\nabla u^m+{\nabla u^m}^T|^2\\
-   \mu_T ^{m+1} &=& c_\mu\frac{{k^{m+1}}^2}{\epsilon^{m+1}}\\
-   \kappa_T^{m+1} &=& \kappa\mu_T^{m+1}
+    \begin{array}{rcl}
+        \frac 1{\delta t}(\theta^{m+1}-\theta^m \circ X^m)-\nabla\cdot(\kappa_T^m\nabla\theta^{m+1}) &=& 0\\
+        \frac1{\delta t}(u^{m+1}-u^m \circ X^m) -\nabla\cdot(\mu_T^m\nabla u^{m+1}) +\nabla p^{m+1}+ e(\theta^{m+1}-\theta_0)\vec e_2 &=& 0\\
+        \nabla\cdot u^{m+1} &=& 0\\
+        \frac1{\delta t}(k^{m+1}-k^m \circ X^m) + k^{m+1}\frac{\epsilon^m}{k^m} -\nabla\cdot(\mu_T^m\nabla k^{m+1}) &=& \frac{\mu_T^m}2|\nabla u^m+{\nabla u^m}^T|^2\\
+        \frac1{\delta t}(\epsilon^{m+1}-\epsilon^m \circ X^m) + c_2\epsilon^{m+1}\frac{\epsilon^m} {k^m} -\frac{c_\epsilon}{c_\mu}\nabla\dot(\mu_T^m\nabla\epsilon^{m+1}) &=& \frac{c_1}2 k^m|\nabla u^m+{\nabla u^m}^T|^2\\
+        \mu_T ^{m+1} &=& c_\mu\frac{{k^{m+1}}^2}{\epsilon^{m+1}}\\
+        \kappa_T^{m+1} &=& \kappa\mu_T^{m+1}
+    \end{array}
 
 In variational form and with appropriated boundary conditions the problem is :
 
@@ -247,72 +251,62 @@ In variational form and with appropriated boundary conditions the problem is :
    }
    cout << "Total Time = " << clock()-T0 << endl;
 
-.. rst-class:: inline2
+.. figure:: images/ALargeFluidProblem_T_100.png
+    :figclass: inline2
+    :width: 50%
 
-   .. figure:: images/ALargeFluidProblem_T_100.png
-      :width: 50%
+    Temperature at time step 100
 
-      Temperature at time step 100
+.. figure:: images/ALargeFluidProblem_U_100.png
+    :figclass: inline2
+    :width: 50%
 
-.. rst-class:: inline2
+    Velocity at time step 100
 
-   .. figure:: images/ALargeFluidProblem_U_100.png
-      :width: 50%
+.. figure:: images/ALargeFluidProblem_T_200.png
+    :figclass: inline2
+    :width: 50%
 
-      Velocity at time step 100
+    Temperature at time step 200
 
-.. rst-class:: inline2
+.. figure:: images/ALargeFluidProblem_U_200.png
+    :figclass: inline2
+    :width: 50%
 
-   .. figure:: images/ALargeFluidProblem_T_200.png
-      :width: 50%
+    Velocity at time step 200
 
-      Temperature at time step 200
+.. figure:: images/ALargeFluidProblem_T_300.png
+    :figclass: inline2
+    :width: 50%
 
-.. rst-class:: inline2
+    Temperature at time step 300
 
-   .. figure:: images/ALargeFluidProblem_U_200.png
-      :width: 50%
+.. figure:: images/ALargeFluidProblem_U_300.png
+    :figclass: inline2
+    :width: 50%
 
-      Velocity at time step 200
+    Velocity at time step 300
 
-.. rst-class:: inline2
+.. figure:: images/ALargeFluidProblem_T_400.png
+    :figclass: inline2
+    :width: 50%
 
-   .. figure:: images/ALargeFluidProblem_T_300.png
-      :width: 50%
+    Temperature at time step 400
 
-      Temperature at time step 300
+.. figure:: images/ALargeFluidProblem_U_400.png
+    :figclass: inline2
+    :width: 50%
 
-.. rst-class:: inline2
+    Velocity at time step 400
 
-   .. figure:: images/ALargeFluidProblem_U_300.png
-      :width: 50%
+.. figure:: images/ALargeFluidProblem_T_500.png
+    :figclass: inline2
+    :width: 50%
 
-      Velocity at time step 300
+    Temperature at time step 500
 
-.. rst-class:: inline2
+.. figure:: images/ALargeFluidProblem_U_500.png
+    :figclass: inline2
+    :width: 50%
 
-   .. figure:: images/ALargeFluidProblem_T_400.png
-      :width: 50%
-
-      Temperature at time step 400
-
-.. rst-class:: inline2
-
-   .. figure:: images/ALargeFluidProblem_U_400.png
-      :width: 50%
-
-      Velocity at time step 400
-
-.. rst-class:: inline2
-
-   .. figure:: images/ALargeFluidProblem_T_500.png
-      :width: 50%
-
-      Temperature at time step 500
-
-.. rst-class:: inline2
-
-   .. figure:: images/ALargeFluidProblem_U_500.png
-      :width: 50%
-
-      Velocity at time step 500
+    Velocity at time step 500

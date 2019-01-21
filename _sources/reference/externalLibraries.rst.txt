@@ -3376,7 +3376,8 @@ fflapack
 
 Refer to the `LAPACK documentation <http://www.netlib.org/lapack/>`__ for more informations.
 
-###inv
+inv
+~~~
 
 .. todo:: todo
 
@@ -3824,7 +3825,7 @@ Save mesh or solution in vtk/vtu format.
 
 .. code-block:: freefem
 
-   savetk(FileName, Th, [Ux, Uy, Uz], p, [dataname=DataName], [withsurfacemesh=WithSurfaceMesh], [order=Order], [floatmesh=FloatMesh], [floatsol=FloatSol], [bin=Bin], [swap=Swap]);
+   savevtk(FileName, Th, [Ux, Uy, Uz], p, [dataname=DataName], [withsurfacemesh=WithSurfaceMesh], [order=Order], [floatmesh=FloatMesh], [floatsol=FloatSol], [bin=Bin], [swap=Swap]);
 
 Parameters:
 
@@ -3832,7 +3833,7 @@ Parameters:
    ``*.vtu``
 -  ``Th`` (:freefem:`mesh` or :freefem:`mesh3`)
 -  ``[Ux, Uy, Uz], p`` (:freefem:`fespace` function of vector of :freefem:`fespace` functions) Solutions to save, as much as wanted
--  ``:::frefem dataname=`` (:freefem:`string`) Name of solutions, seprated by a space
+-  :freefem:`dataname=` (:freefem:`string`) Name of solutions, seprated by a space
 -  :freefem:`withsurfacemesh=` (:freefem:`bool`)
    .. todo:: todo
 -  :freefem:`order=` (:freefem:`int[int]`) Order of solutions.
@@ -4117,7 +4118,7 @@ Parameters:
    List of surface labels Default: ``[1, 2, 3, 4, 5, 6]``
 -  :freefem:`flags=` (:freefem:`int`) *[Optional]*
 
-   Refer to `square <#square>`__
+   Refer to :ref:`square <functionSquare>`
 -  :freefem:`region=` (:freefem:`int`) *[Optional]*
 
    Region number of the cube volume Default: ``0``
@@ -4467,7 +4468,8 @@ Vtkaddmesh
 
 .. todo:: todo
 
-###Vtkaddscalar
+Vtkaddscalar
+~~~~~~~~~~~~
 
 .. todo:: todo
 

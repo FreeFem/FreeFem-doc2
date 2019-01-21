@@ -367,7 +367,7 @@ while the weak BVP formulation acquires the form:
    )//
 
    //The macros for the auxiliary tensors (D0, D1, D2, ...): Begin
-   ///The tensor quantity D0 = F_{n} (\delta F_{n+1})^T
+   //The tensor quantity D0 = F{n} (delta F{n+1})^T
    macro d0Aux11 (u1, u2, varu1, varu2) (
          dF11(varu1, varu2) * F11(u1, u2)
        + dF12(varu1, varu2) * F12(u1, u2)
@@ -651,10 +651,3 @@ while the weak BVP formulation acquires the form:
    // Plot
    plot(Th1, wait=true);
    plot([u1n,u2n]);
-
-
-.. [OGDEN1984] OGDEN, Ray W. Non-linear elastic deformations. 1984.
-
-.. [RAVIART1998] RAVIART, Pierre-Arnaud, THOMAS, Jean-Marie, CIARLET, Philippe G., et al. Introduction à l’analyse numérique des équations aux dérivées partielles. Paris : Dunod, 1998.
-
-.. [HORGAN2004] HORGAN, Cornelius O. et SACCOMANDI, Giuseppe. Constitutive models for compressible nonlinearly elastic materials with limiting chain extensibility. Journal of Elasticity, 2004, vol. 77, no 2, p. 123-138.

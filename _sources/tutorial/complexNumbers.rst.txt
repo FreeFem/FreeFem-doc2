@@ -5,17 +5,19 @@ In a microwave oven heat comes from molecular excitation by an electromagnetic f
 For a plane monochromatic wave, amplitude is given by Helmholtz’s equation:
 
 .. math::
-   \beta v + \Delta v = 0.
+    \beta v + \Delta v = 0.
 
 We consider a rectangular oven where the wave is emitted by part of the upper wall.
-So the boundary of the domain is made up of a part :math:`\Gamma_1` where :math:`v=0` and of another part :math:`\Gamma_2=[c,d]` where for instance :math:`v=\sin(\pi{y-c\over c-d})`.
+So the boundary of the domain is made up of a part :math:`\Gamma_1` where :math:`v=0` and of another part :math:`\Gamma_2=[c,d]` where for instance :math:`\displaystyle v=\sin\left(\pi{y-c\over c-d}\right)`.
 
 Within an object to be cooked, denoted by :math:`B`, the heat source is proportional to :math:`v^2`.
 At equilibrium, one has :
 
 .. math::
-   -\Delta\theta &=& v^2 I_B\\
-   \theta_\Gamma &=& 0
+    \begin{array}{rcl}
+        -\Delta\theta &=& v^2 I_B\\
+        \theta_\Gamma &=& 0
+    \end{array}
 
 where :math:`I_B` is :math:`1` in the object and :math:`0` elsewhere.
 
@@ -97,25 +99,20 @@ In the program below :math:`\beta = 1/(1-i/2)` in the air and :math:`2/(1-i/2)` 
 
 Results are shown on :numref:`figComplexReal`, :numref:`figComplexImaginary` and :numref:`figComplexTemperature`.
 
-.. rst-class:: inline3
+.. figure:: images/real_microwave.png
+    :figclass: inline3
+    :name: figComplexReal
 
-   .. figure:: images/real_microwave.png
-      :name: figComplexReal
+    Real part
 
-      Real part
+.. figure:: images/imaginary_microwave.png
+    :figclass: inline3
+    :name: figComplexImaginary
 
-.. rst-class:: inline3
+    Imaginary part
 
-   .. figure:: images/imaginary_microwave.png
-      :name: figComplexImaginary
-      :class: inline3
+.. figure:: images/temperature_microwave.png
+    :figclass: inline3
+    :name: figComplexTemperature
 
-      Imaginary part
-
-.. rst-class:: inline3
-
-   .. figure:: images/temperature_microwave.png
-      :name: figComplexTemperature
-      :class: inline3
-
-      Temperature
+    Temperature

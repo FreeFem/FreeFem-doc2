@@ -1,290 +1,109 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
-    <title>Compressible Neo-Hookean materials &#8212; FreeFem++ 3.61.2 documentation</title>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Compressible Neo-Hookean materials</title>
+		<link rel="icon" href="../_static/img/favicon.png">
 
-    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
-    <link rel="canonical" href="doc.freefem.org/dev/model/compressibleNeoHookeanMaterials.html" />
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Whispering gallery modes" href="whisperingGalleryModes.html" />
-    <link rel="prev" title="Non-linear elasticity" href="nonLinearElasticity.html" /> 
-  </head>
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
-    <div class="mdl-layout__header-row">
-        
-        <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link" href="index.html">Mathematical Models</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Compressible Neo-Hookean materials</a>
-        </nav>
-        <div class="mdl-layout-spacer"></div>
-        <nav class="mdl-navigation">
-        
-<form class="form-inline pull-sm-right" action="../search.html" method="get">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
-            <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
-        </div>
-      </div>
-      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
-      Quick search
-      </div>
-</form>
-        
-<a id="button-show-source"
-    class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/model/compressibleNeoHookeanMaterials.rst.txt" rel="nofollow">
-<i class="material-icons">code</i>
-</a>
-<div class="mdl-tooltip" data-mdl-for="button-show-source">
-Show Source
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../_static/nav.json"></script>
+		<script src="../_static/js/nav.js"></script>
+		<script src="../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../_static/img/Logo.png" />
+        </a>
+    </div>
 </div>
-        </nav>
+<div class="header-title">
+    <div>
+        <a href="../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
     </div>
-    <div class="mdl-layout__header-row header-links">
-      <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation">
-      </nav>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../")</script>
+			<div class="search">
+				<script async src="../_static/js/lunr.js"></script>
+<script async src="../_static/lunr_index.js"></script>
+
+<script src="../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
     </div>
-</header><header class="mdl-layout__drawer">
-    
-          <!-- Title -->
-      <span class="mdl-layout-title">
-          <a class="title" href="../index.html">
-              <span class="title-text">
-                  FreeFem++
-              </span>
-          </a>
-      </span>
-    
-    
-      <div class="globaltoc">
-        <span class="mdl-layout-title toc">Table Of Contents</span>
-        
-        
-            
-            <nav class="mdl-navigation">
-                <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">Elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Compressible Neo-Hookean materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">Compressible Neo-Hookean materials</a><ul>
+<li><a class="reference internal" href="#notation">Notation</a></li>
+<li><a class="reference internal" href="#recommended-references">Recommended References</a></li>
+<li><a class="reference internal" href="#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
+<li><a class="reference internal" href="#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
 </ul>
 </li>
 </ul>
 
-            </nav>
-        
-        </div>
-    
-</header>
-        <main class="mdl-layout__content" tabIndex="0">
-<header class="mdl-layout__drawer">
-    
-          <!-- Title -->
-      <span class="mdl-layout-title">
-          <a class="title" href="../index.html">
-              <span class="title-text">
-                  FreeFem++
-              </span>
-          </a>
-      </span>
-    
-    
-      <div class="globaltoc">
-        <span class="mdl-layout-title toc">Table Of Contents</span>
-        
-        
-            
-            <nav class="mdl-navigation">
-                <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../reference/reference.html">Language reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/types.html">Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/globalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/quadratureFormulae.html">Quadrature formulae</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/operators.html">Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/loops.html">Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/IO.html">I/O</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/functions.html">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/externalLibraries.html">External libraries</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="model.html">Mathematical Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="staticProblems.html">Static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">Elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nonLinearStaticProblems.html">Non-linear static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evolutionProblems.html">Evolution problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesEquations.html">Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="domainDecomposition.html">Domain decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Compressible Neo-Hookean materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
-</ul>
-</li>
-</ul>
-
-            </nav>
-        
-        </div>
-    
-</header>
-
-    <div class="document">
-        <div class="page-content">
-        
-  <div class="section" id="compressible-neo-hookean-materials">
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="section" id="compressible-neo-hookean-materials">
 <h1>Compressible Neo-Hookean materials<a class="headerlink" href="#compressible-neo-hookean-materials" title="Permalink to this headline">¶</a></h1>
 <p>Author: <em>Alex Sadovsky</em></p>
 <div class="math notranslate nohighlight">
@@ -363,8 +182,8 @@ The unit volume in the reference (resp., deformed) configuration is denoted <spa
 </div>
 <div class="section" id="recommended-references">
 <h2>Recommended References<a class="headerlink" href="#recommended-references" title="Permalink to this headline">¶</a></h2>
-<p>For an exposition of nonlinear elasticity and of the underlying linear and tensor algebra, see <a class="reference internal" href="#ogden1984" id="id1">[OGDEN1984]</a>.
-For an advanced mathematical analysis of the Finite Element Method, see <a class="reference internal" href="#raviart1998" id="id2">[RAVIART1998]</a>.</p>
+<p>For an exposition of nonlinear elasticity and of the underlying linear and tensor algebra, see <a class="reference internal" href="../reference.html#ogden1984" id="id1">[OGDEN1984]</a>.
+For an advanced mathematical analysis of the Finite Element Method, see <a class="reference internal" href="../reference.html#raviart1998" id="id2">[RAVIART1998]</a>.</p>
 </div>
 <div class="section" id="a-neo-hookean-compressible-material">
 <h2>A Neo-Hookean Compressible Material<a class="headerlink" href="#a-neo-hookean-compressible-material" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +191,7 @@ For an advanced mathematical analysis of the Finite Element Method, see <a class
 <p>The strain energy density function is given by:</p>
 <div class="math notranslate nohighlight">
 \[W = {\mu \over 2}(I_1 - \tr \Id - 2 \ln J)\]</div>
-<p>(see <a class="reference internal" href="#horgan2004" id="id3">[HORGAN2004]</a>, formula (12)).</p>
+<p>(see <a class="reference internal" href="../reference.html#horgan2004" id="id3">[HORGAN2004]</a>, formula (12)).</p>
 <p>The corresponding 2nd Piola-Kirchoff stress tensor is given by:</p>
 <div class="math notranslate nohighlight">
 \[\bS_{n} := {\PD{} W \over \PD{}\bE} (\bF_{n})
@@ -519,462 +338,406 @@ The role of a variational virtual displacement here is played by <span class="ma
 \rra
 \quad
 \mbox{for all test functions} \mathbf{w}\end{split}\]</div>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>// Macro
-//Macros for the gradient of a vector field (u1, u2)
-macro grad11(u1, u2) (dx(u1)) //
-macro grad21(u1, u2) (dy(u1)) //
-macro grad12(u1, u2) (dx(u2)) //
-macro grad22(u1, u2) (dy(u2)) //
-
-//Macros for the deformation gradient
-macro F11(u1, u2) (1.0 + grad11(u1, u2)) //
-macro F12(u1, u2) (0.0 + grad12(u1, u2)) //
-macro F21(u1, u2) (0.0 + grad21(u1, u2)) //
-macro F22(u1, u2) (1.0 + grad22(u1, u2)) //
-
-//Macros for the incremental deformation gradient
-macro dF11(varu1, varu2) (grad11(varu1, varu2)) //
-macro dF12(varu1, varu2) (grad12(varu1, varu2)) //
-macro dF21(varu1, varu2) (grad21(varu1, varu2)) //
-macro dF22(varu1, varu2) (grad22(varu1, varu2)) //
-
-//Macro for the determinant of the deformation gradient
-macro J(u1, u2) (
-      F11(u1, u2)*F22(u1, u2)
-    - F12(u1, u2)*F21(u1, u2)
-) //
-
-//Macros for the inverse of the deformation gradient
-macro Finv11 (u1, u2) (
-      F22(u1, u2) / J(u1, u2)
-) //
-macro Finv22 (u1, u2) (
-      F11(u1, u2) / J(u1, u2)
-) //
-macro Finv12 (u1, u2) (
-    - F12(u1, u2) / J(u1, u2)
-) //
-macro Finv21 (u1, u2) (
-    - F21(u1, u2) / J(u1, u2)
-) //
-
-//Macros for the square of the inverse of the deformation gradient
-macro FFinv11 (u1, u2) (
-      Finv11(u1, u2)^2
-    + Finv12(u1, u2)*Finv21(u1, u2)
-) //
-
-macro FFinv12 (u1, u2) (
-      Finv12(u1, u2)*(Finv11(u1, u2)
-    + Finv22(u1, u2))
-) //
-
-macro FFinv21 (u1, u2) (
-      Finv21(u1, u2)*(Finv11(u1, u2)
-    + Finv22(u1, u2))
-) //
-
-macro FFinv22 (u1, u2) (
-      Finv12(u1, u2)*Finv21(u1, u2)
-    + Finv22(u1, u2)^2
-) //
-
-//Macros for the inverse of the transpose of the deformation gradient
-macro FinvT11(u1, u2) (Finv11(u1, u2)) //
-macro FinvT12(u1, u2) (Finv21(u1, u2)) //
-macro FinvT21(u1, u2) (Finv12(u1, u2)) //
-macro FinvT22(u1, u2) (Finv22(u1, u2)) //
-
-//The left Cauchy-Green strain tensor
-macro B11(u1, u2) (
-      F11(u1, u2)^2 + F12(u1, u2)^2
-)//
-
-macro B12(u1, u2) (
-      F11(u1, u2)*F21(u1, u2)
-    + F12(u1, u2)*F22(u1, u2)
-)//
-
-macro B21(u1, u2) (
-      F11(u1, u2)*F21(u1, u2)
-    + F12(u1, u2)*F22(u1, u2)
-)//
-
-macro B22(u1, u2)(
-      F21(u1, u2)^2 + F22(u1, u2)^2
-)//
-
-//The macros for the auxiliary tensors (D0, D1, D2, ...): Begin
-///The tensor quantity D0 = F_{n} (\delta F_{n+1})^T
-macro d0Aux11 (u1, u2, varu1, varu2) (
-      dF11(varu1, varu2) * F11(u1, u2)
-    + dF12(varu1, varu2) * F12(u1, u2)
-)//
-
-macro d0Aux12 (u1, u2, varu1, varu2) (
-      dF21(varu1, varu2) * F11(u1, u2)
-    + dF22(varu1, varu2) * F12(u1, u2)
-)//
-
-macro d0Aux21 (u1, u2, varu1, varu2) (
-      dF11(varu1, varu2) * F21(u1, u2)
-    + dF12(varu1, varu2) * F22(u1, u2)
-)//
-
-macro d0Aux22 (u1, u2, varu1, varu2) (
-      dF21(varu1, varu2) * F21(u1, u2)
-    + dF22(varu1, varu2) * F22(u1, u2)
-)//
-
-///The tensor quantity D1 = D0 + D0^T
-macro d1Aux11 (u1, u2, varu1, varu2) (
-      2.0 * d0Aux11 (u1, u2, varu1, varu2)
-)//
-
-macro d1Aux12 (u1, u2, varu1, varu2) (
-      d0Aux12 (u1, u2, varu1, varu2)
-    + d0Aux21 (u1, u2, varu1, varu2)
-)//
-
-macro d1Aux21 (u1, u2, varu1, varu2) (
-      d1Aux12 (u1, u2, varu1, varu2)
-)//
-
-macro d1Aux22 (u1, u2, varu1, varu2)(
-      2.0 * d0Aux22 (u1, u2, varu1, varu2)
-)//
-
-///The tensor quantity D2 = F^{-T}_{n} dF_{n+1}
-macro d2Aux11 (u1, u2, varu1, varu2) (
-      dF11(varu1, varu2) * FinvT11(u1, u2)
-    + dF21(varu1, varu2) * FinvT12(u1, u2)
-)//
-
-macro d2Aux12 (u1, u2, varu1, varu2) (
-      dF12(varu1, varu2) * FinvT11(u1, u2)
-    + dF22(varu1, varu2) * FinvT12(u1, u2)
-)//
-
-macro d2Aux21 (u1, u2, varu1, varu2) (
-      dF11(varu1, varu2) * FinvT21(u1, u2)
-    + dF21(varu1, varu2) * FinvT22(u1, u2)
-)//
-
-macro d2Aux22 (u1, u2, varu1, varu2) (
-      dF12(varu1, varu2) * FinvT21(u1, u2)
-    + dF22(varu1, varu2) * FinvT22(u1, u2)
-)//
-
-///The tensor quantity D3 = F^{-2}_{n} dF_{n+1}
-macro d3Aux11 (u1, u2, varu1, varu2, w1, w2) (
-      dF11(varu1, varu2) * FFinv11(u1, u2) * grad11(w1, w2)
-    + dF21(varu1, varu2) * FFinv12(u1, u2) * grad11(w1, w2)
-    + dF11(varu1, varu2) * FFinv21(u1, u2) * grad12(w1, w2)
-    + dF21(varu1, varu2) * FFinv22(u1, u2) * grad12(w1, w2)
-)//
-
-macro d3Aux12 (u1, u2, varu1, varu2, w1, w2) (
-      dF12(varu1, varu2) * FFinv11(u1, u2) * grad11(w1, w2)
-    + dF22(varu1, varu2) * FFinv12(u1, u2) * grad11(w1, w2)
-    + dF12(varu1, varu2) * FFinv21(u1, u2) * grad12(w1, w2)
-    + dF22(varu1, varu2) * FFinv22(u1, u2) * grad12(w1, w2)
-)//
-
-macro d3Aux21 (u1, u2, varu1, varu2, w1, w2) (
-      dF11(varu1, varu2) * FFinv11(u1, u2) * grad21(w1, w2)
-    + dF21(varu1, varu2) * FFinv12(u1, u2) * grad21(w1, w2)
-    + dF11(varu1, varu2) * FFinv21(u1, u2) * grad22(w1, w2)
-    + dF21(varu1, varu2) * FFinv22(u1, u2) * grad22(w1, w2)
-)//
-
-macro d3Aux22 (u1, u2, varu1, varu2, w1, w2) (
-      dF12(varu1, varu2) * FFinv11(u1, u2) * grad21(w1, w2)
-    + dF22(varu1, varu2) * FFinv12(u1, u2) * grad21(w1, w2)
-    + dF12(varu1, varu2) * FFinv21(u1, u2) * grad22(w1, w2)
-    + dF22(varu1, varu2) * FFinv22(u1, u2) * grad22(w1, w2)
-)//
-
-///The tensor quantity D4 = (grad w) * Finv
-macro d4Aux11 (w1, w2, u1, u2) (
-      Finv11(u1, u2)*grad11(w1, w2)
-    + Finv21(u1, u2)*grad12(w1, w2)
-)//
-
-macro d4Aux12 (w1, w2, u1, u2) (
-      Finv12(u1, u2)*grad11(w1, w2)
-    + Finv22(u1, u2)*grad12(w1, w2)
-)//
-
-macro d4Aux21 (w1, w2, u1, u2) (
-      Finv11(u1, u2)*grad21(w1, w2)
-    + Finv21(u1, u2)*grad22(w1, w2)
-)//
-
-macro d4Aux22 (w1, w2, u1, u2) (
-      Finv12(u1, u2)*grad21(w1, w2)
-    + Finv22(u1, u2)*grad22(w1, w2)
-)//
-//The macros for the auxiliary tensors (D0, D1, D2, ...): End
-
-//The macros for the various stress measures: BEGIN
-//The Kirchhoff stress tensor
-macro StressK11(u1, u2) (
-      mu * (B11(u1, u2) - 1.0)
-)//
-
-//The Kirchhoff stress tensor
-macro StressK12(u1, u2) (
-      mu * B12(u1, u2)
-)//
-
-//The Kirchhoff stress tensor
-macro StressK21(u1, u2) (
-      mu * B21(u1, u2)
-)//
-
-//The Kirchhoff stress tensor
-macro StressK22(u1, u2) (
-      mu * (B22(u1, u2) - 1.0)
-)//
-
-//The tangent Kirchhoff stress tensor
-macro TanK11(u1, u2, varu1, varu2) (
-      mu * d1Aux11(u1, u2, varu1, varu2)
-)//
-
-macro TanK12(u1, u2, varu1, varu2) (
-      mu * d1Aux12(u1, u2, varu1, varu2)
-)//
-
-macro TanK21(u1, u2, varu1, varu2) (
-      mu * d1Aux21(u1, u2, varu1, varu2)
-)//
-
-macro TanK22(u1, u2, varu1, varu2) (
-      mu * d1Aux22(u1, u2, varu1, varu2)
-)//
-//The macros for the stress tensor components: END
-
-// Parameters
-real mu = 5.e2; //Elastic coefficients (kg/cm^2)
-real D = 1.e3; //(1 / compressibility)
-real Pa = -3.e2; //Stress loads
-
-real InnerRadius = 1.e0; //The wound radius
-real OuterRadius = 4.e0; //The outer (truncated) radius
-real tol = 1.e-4; //Tolerance (L^2)
-real InnerEllipseExtension = 1.e0; //Extension of the inner ellipse ((major axis) - (minor axis))
-
-int m = 40, n = 20;
-
-// Mesh
-border InnerEdge(t=0, 2.*pi){x=(1.0 + InnerEllipseExtension)*InnerRadius*cos(t); y=InnerRadius*sin(t); label=1;}
-border OuterEdge(t=0, 2.*pi){x=(1.0 + 0.0*InnerEllipseExtension)*OuterRadius*cos(t); y=OuterRadius*sin(t); label=2;}
-mesh Th = buildmesh(InnerEdge(-m) + OuterEdge(n));
-int bottom = 1, right = 2, upper = 3, left = 4;
-plot(Th);
-
-// Fespace
-fespace Wh(Th, P1dc);
-fespace Vh(Th, [P1, P1]);
-Vh [w1, w2], [u1n,u2n], [varu1, varu2];
-Vh [ehat1x, ehat1y], [ehat2x, ehat2y];
-Vh [auxVec1, auxVec2]; //The individual elements of the total 1st Piola-Kirchoff stress
-Vh [ef1, ef2];
-
-fespace Sh(Th, P1);
-Sh p, ppp;
-Sh StrK11, StrK12, StrK21, StrK22;
-Sh u1, u2;
-
-// Problem
-varf vfMass1D(p, q) = int2d(Th)(p*q);
-matrix Mass1D = vfMass1D(Sh, Sh, solver=CG);
-
-p[] = 1;
-ppp[] = Mass1D * p[];
-
-real DomainMass = ppp[].sum;
-cout &lt;&lt; &quot;DomainMass = &quot; &lt;&lt; DomainMass &lt;&lt; endl;
-
-varf vmass ([u1, u2], [v1, v2], solver=CG)
-    = int2d(Th)( (u1*v1 + u2*v2) / DomainMass );
-
-matrix Mass = vmass(Vh, Vh);
-
-matrix Id = vmass(Vh, Vh);
-
-//Define the standard Euclidean basis functions
-[ehat1x, ehat1y] = [1.0, 0.0];
-[ehat2x, ehat2y] = [0.0, 1.0];
-
-real ContParam, dContParam;
-
-problem neoHookeanInc ([varu1, varu2], [w1, w2], solver=LU)
-    = int2d(Th, qforder=1)(
-        - (
-              StressK11 (u1n, u2n) * d3Aux11(u1n, u2n, varu1, varu2, w1, w2)
-            + StressK12 (u1n, u2n) * d3Aux12(u1n, u2n, varu1, varu2, w1, w2)
-            + StressK21 (u1n, u2n) * d3Aux21(u1n, u2n, varu1, varu2, w1, w2)
-            + StressK22 (u1n, u2n) * d3Aux22(u1n, u2n, varu1, varu2, w1, w2)
-        )
-        + TanK11 (u1n, u2n, varu1, varu2) * d4Aux11(w1, w2, u1n, u2n)
-        + TanK12 (u1n, u2n, varu1, varu2) * d4Aux12(w1, w2, u1n, u2n)
-        + TanK21 (u1n, u2n, varu1, varu2) * d4Aux21(w1, w2, u1n, u2n)
-        + TanK22 (u1n, u2n, varu1, varu2) * d4Aux22(w1, w2, u1n, u2n)
-    )
-    + int2d(Th, qforder=1)(
-          StressK11 (u1n, u2n) * d4Aux11(w1, w2, u1n, u2n)
-        + StressK12 (u1n, u2n) * d4Aux12(w1, w2, u1n, u2n)
-        + StressK21 (u1n, u2n) * d4Aux21(w1, w2, u1n, u2n)
-        + StressK22 (u1n, u2n) * d4Aux22(w1, w2, u1n, u2n)
-    )
-    //Choose one of the following two boundary conditions involving Pa:
-    // Load vectors normal to the boundary:
-    - int1d(Th, 1)(
-          Pa * (w1*N.x + w2*N.y)
-    )
-    //Load vectors tangential to the boundary:
-    //- int1d(Th, 1)(
-    //    Pa * (w1*N.y - w2*N.x)
-    //)
-    + on(2, varu1=0, varu2=0)
-    ;
-
-//Auxiliary variables
-matrix auxMat;
-
-// Newton&#39;s method
-ContParam = 0.;
-dContParam = 0.01;
-
-//Initialization:
-[varu1, varu2] = [0., 0.];
-[u1n, u2n] = [0., 0.];
-real res = 2. * tol;
-real eforceres;
-int loopcount = 0;
-int loopmax = 45;
-
-// Iterations
-while (loopcount &lt;= loopmax &amp;&amp; res &gt;= tol){
-    loopcount ++;
-    cout &lt;&lt; &quot;Loop &quot; &lt;&lt; loopcount &lt;&lt; endl;
-
-    // Solve
-    neoHookeanInc;
-
-    // Update
-    u1 = varu1;
-    u2 = varu2;
-
-    // Residual
-    w1[] = Mass*varu1[];
-    res = sqrt(w1[]&#39; * varu1[]); //L^2 norm of [varu1, varu2]
-    cout &lt;&lt; &quot; L^2 residual = &quot; &lt;&lt; res &lt;&lt; endl;
-
-    // Newton
-    u1n[] += varu1[];
-
-    // Plot
-    plot([u1n,u2n], cmm=&quot;displacement&quot;);
-}
-
-// Plot
-plot(Th, wait=true);
-
-// Movemesh
-mesh Th1 = movemesh(Th, [x+u1n, y+u2n]);
-
-// Plot
-plot(Th1, wait=true);
-plot([u1n,u2n]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="c1">// Macro</span>
+<span class="c1">//Macros for the gradient of a vector field (u1, u2)</span>
+<span class="kt">macro</span> <span class="nf">grad11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">grad21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">grad12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">grad22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+
+<span class="c1">//Macros for the deformation gradient</span>
+<span class="kt">macro</span> <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">grad11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="mf">0.0</span> <span class="o">+</span> <span class="n">grad12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="mf">0.0</span> <span class="o">+</span> <span class="n">grad21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">grad22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+
+<span class="c1">//Macros for the incremental deformation gradient</span>
+<span class="kt">macro</span> <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span><span class="n">grad11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span><span class="n">grad12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span><span class="n">grad21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span><span class="n">grad22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">))</span> <span class="c1">//</span>
+
+<span class="c1">//Macro for the determinant of the deformation gradient</span>
+<span class="kt">macro</span> <span class="n">J</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="c1">//Macros for the inverse of the deformation gradient</span>
+<span class="kt">macro</span> <span class="n">Finv11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">Finv22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">Finv12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+    <span class="o">-</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">Finv21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+    <span class="o">-</span> <span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="c1">//Macros for the square of the inverse of the deformation gradient</span>
+<span class="kt">macro</span> <span class="n">FFinv11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+    <span class="o">+</span> <span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">FFinv12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">FFinv21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">FFinv22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+<span class="p">)</span> <span class="c1">//</span>
+
+<span class="c1">//Macros for the inverse of the transpose of the deformation gradient</span>
+<span class="kt">macro</span> <span class="n">FinvT11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">FinvT12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">FinvT21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">FinvT22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span><span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">))</span> <span class="c1">//</span>
+
+<span class="c1">//The left Cauchy-Green strain tensor</span>
+<span class="kt">macro</span> <span class="n">B11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">B12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">B21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">B22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)(</span>
+      <span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">//The macros for the auxiliary tensors (D0, D1, D2, ...): Begin</span>
+<span class="o">//</span><span class="n">The</span> <span class="n">tensor</span> <span class="n">quantity</span> <span class="n">D0</span> <span class="o">=</span> <span class="n">F</span><span class="p">{</span><span class="kr">n</span><span class="p">}</span> <span class="p">(</span><span class="n">delta</span> <span class="n">F</span><span class="p">{</span><span class="kr">n</span><span class="o">+</span><span class="mi">1</span><span class="p">})</span><span class="o">^</span><span class="n">T</span>
+<span class="kt">macro</span> <span class="n">d0Aux11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d0Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d0Aux21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d0Aux22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">F22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">///The tensor quantity D1 = D0 + D0^T</span>
+<span class="kt">macro</span> <span class="n">d1Aux11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="mf">2.0</span> <span class="o">*</span> <span class="n">d0Aux11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d1Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">d0Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">d0Aux21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d1Aux21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">d1Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d1Aux22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)(</span>
+      <span class="mf">2.0</span> <span class="o">*</span> <span class="n">d0Aux22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">///The tensor quantity D2 = F^{-T}_{n} dF_{n+1}</span>
+<span class="kt">macro</span> <span class="n">d2Aux11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d2Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d2Aux21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d2Aux22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FinvT22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">///The tensor quantity D3 = F^{-2}_{n} dF_{n+1}</span>
+<span class="kt">macro</span> <span class="n">d3Aux11</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d3Aux12</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d3Aux21</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF11</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF21</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d3Aux22</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF12</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">dF22</span><span class="p">(</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">FFinv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">///The tensor quantity D4 = (grad w) * Finv</span>
+<span class="kt">macro</span> <span class="n">d4Aux11</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d4Aux12</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d4Aux21</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">d4Aux22</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Finv12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Finv22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="n">grad22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+<span class="c1">//The macros for the auxiliary tensors (D0, D1, D2, ...): End</span>
+
+<span class="c1">//The macros for the various stress measures: BEGIN</span>
+<span class="c1">//The Kirchhoff stress tensor</span>
+<span class="kt">macro</span> <span class="n">StressK11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="n">B11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">//The Kirchhoff stress tensor</span>
+<span class="kt">macro</span> <span class="n">StressK12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">B12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">//The Kirchhoff stress tensor</span>
+<span class="kt">macro</span> <span class="n">StressK21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">B21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">//The Kirchhoff stress tensor</span>
+<span class="kt">macro</span> <span class="n">StressK22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="n">B22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="c1">//The tangent Kirchhoff stress tensor</span>
+<span class="kt">macro</span> <span class="n">TanK11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">d1Aux11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">TanK12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">d1Aux12</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">TanK21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">d1Aux21</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+
+<span class="kt">macro</span> <span class="n">TanK22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">mu</span> <span class="o">*</span> <span class="n">d1Aux22</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span>
+<span class="p">)</span><span class="c1">//</span>
+<span class="c1">//The macros for the stress tensor components: END</span>
+
+<span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">5.e2</span><span class="p">;</span> <span class="c1">//Elastic coefficients (kg/cm^2)</span>
+<span class="kt">real</span> <span class="n">D</span> <span class="o">=</span> <span class="mf">1.e3</span><span class="p">;</span> <span class="c1">//(1 / compressibility)</span>
+<span class="kt">real</span> <span class="n">Pa</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.e2</span><span class="p">;</span> <span class="c1">//Stress loads</span>
+
+<span class="kt">real</span> <span class="n">InnerRadius</span> <span class="o">=</span> <span class="mf">1.e0</span><span class="p">;</span> <span class="c1">//The wound radius</span>
+<span class="kt">real</span> <span class="n">OuterRadius</span> <span class="o">=</span> <span class="mf">4.e0</span><span class="p">;</span> <span class="c1">//The outer (truncated) radius</span>
+<span class="kt">real</span> <span class="kp">tol</span> <span class="o">=</span> <span class="mf">1.e-4</span><span class="p">;</span> <span class="c1">//Tolerance (L^2)</span>
+<span class="kt">real</span> <span class="n">InnerEllipseExtension</span> <span class="o">=</span> <span class="mf">1.e0</span><span class="p">;</span> <span class="c1">//Extension of the inner ellipse ((major axis) - (minor axis))</span>
+
+<span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">InnerEdge</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">InnerEllipseExtension</span><span class="p">)</span><span class="o">*</span><span class="n">InnerRadius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">InnerRadius</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">OuterEdge</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.0</span><span class="o">*</span><span class="n">InnerEllipseExtension</span><span class="p">)</span><span class="o">*</span><span class="n">OuterRadius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">OuterRadius</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">InnerEdge</span><span class="p">(</span><span class="o">-</span><span class="kr">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">OuterEdge</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+<span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
+
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Wh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1dc</span><span class="p">);</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">],</span> <span class="p">[</span><span class="n">u1n</span><span class="p">,</span><span class="n">u2n</span><span class="p">],</span> <span class="p">[</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">];</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">ehat1x</span><span class="p">,</span> <span class="n">ehat1y</span><span class="p">],</span> <span class="p">[</span><span class="n">ehat2x</span><span class="p">,</span> <span class="n">ehat2y</span><span class="p">];</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">auxVec1</span><span class="p">,</span> <span class="n">auxVec2</span><span class="p">];</span> <span class="c1">//The individual elements of the total 1st Piola-Kirchoff stress</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">ef1</span><span class="p">,</span> <span class="n">ef2</span><span class="p">];</span>
+
+<span class="kt">fespace</span> <span class="nf">Sh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Sh</span> <span class="n">p</span><span class="p">,</span> <span class="n">ppp</span><span class="p">;</span>
+<span class="n">Sh</span> <span class="n">StrK11</span><span class="p">,</span> <span class="n">StrK12</span><span class="p">,</span> <span class="n">StrK21</span><span class="p">,</span> <span class="n">StrK22</span><span class="p">;</span>
+<span class="n">Sh</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">;</span>
+
+<span class="c1">// Problem</span>
+<span class="kt">varf</span> <span class="nf">vfMass1D</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">p</span><span class="o">*</span><span class="n">q</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="n">Mass1D</span> <span class="o">=</span> <span class="n">vfMass1D</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="n">Sh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span>
+
+<span class="n">p</span><span class="p">[]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">ppp</span><span class="p">[]</span> <span class="o">=</span> <span class="n">Mass1D</span> <span class="o">*</span> <span class="n">p</span><span class="p">[];</span>
+
+<span class="kt">real</span> <span class="n">DomainMass</span> <span class="o">=</span> <span class="n">ppp</span><span class="p">[].</span><span class="kr">sum</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;DomainMass = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">DomainMass</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+
+<span class="kt">varf</span> <span class="nf">vmass</span> <span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">],</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">],</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span> <span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">v1</span> <span class="o">+</span> <span class="n">u2</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span> <span class="o">/</span> <span class="n">DomainMass</span> <span class="p">);</span>
+
+<span class="kt">matrix</span> <span class="n">Mass</span> <span class="o">=</span> <span class="n">vmass</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+
+<span class="kt">matrix</span> <span class="n">Id</span> <span class="o">=</span> <span class="n">vmass</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+
+<span class="c1">//Define the standard Euclidean basis functions</span>
+<span class="p">[</span><span class="n">ehat1x</span><span class="p">,</span> <span class="n">ehat1y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">];</span>
+<span class="p">[</span><span class="n">ehat2x</span><span class="p">,</span> <span class="n">ehat2y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">];</span>
+
+<span class="kt">real</span> <span class="n">ContParam</span><span class="p">,</span> <span class="n">dContParam</span><span class="p">;</span>
+
+<span class="kt">problem</span> <span class="nf">neoHookeanInc</span> <span class="p">([</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">],</span> <span class="p">[</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">],</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">qforder</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="p">(</span>
+              <span class="n">StressK11</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d3Aux11</span><span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">StressK12</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d3Aux12</span><span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">StressK21</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d3Aux21</span><span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">StressK22</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d3Aux22</span><span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="n">TanK11</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">TanK12</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">TanK21</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">TanK22</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">,</span> <span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">qforder</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span>
+          <span class="n">StressK11</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux11</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">StressK12</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux12</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">StressK21</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux21</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">StressK22</span> <span class="p">(</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span> <span class="o">*</span> <span class="n">d4Aux22</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="c1">//Choose one of the following two boundary conditions involving Pa:</span>
+    <span class="c1">// Load vectors normal to the boundary:</span>
+    <span class="o">-</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span>
+          <span class="n">Pa</span> <span class="o">*</span> <span class="p">(</span><span class="n">w1</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span> <span class="o">+</span> <span class="n">w2</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="c1">//Load vectors tangential to the boundary:</span>
+    <span class="c1">//- int1d(Th, 1)(</span>
+    <span class="c1">//    Pa * (w1*N.y - w2*N.x)</span>
+    <span class="c1">//)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">varu1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">varu2</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
+
+<span class="c1">//Auxiliary variables</span>
+<span class="kt">matrix</span> <span class="n">auxMat</span><span class="p">;</span>
+
+<span class="c1">// Newton&#39;s method</span>
+<span class="n">ContParam</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+<span class="n">dContParam</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+
+<span class="c1">//Initialization:</span>
+<span class="p">[</span><span class="n">varu1</span><span class="p">,</span> <span class="n">varu2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">];</span>
+<span class="p">[</span><span class="n">u1n</span><span class="p">,</span> <span class="n">u2n</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">];</span>
+<span class="kt">real</span> <span class="n">res</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="kp">tol</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">eforceres</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">loopcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">loopmax</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+
+<span class="c1">// Iterations</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">loopcount</span> <span class="o">&lt;=</span> <span class="n">loopmax</span> <span class="o">&amp;&amp;</span> <span class="n">res</span> <span class="o">&gt;=</span> <span class="kp">tol</span><span class="p">){</span>
+    <span class="n">loopcount</span> <span class="o">++</span><span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Loop &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">loopcount</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+
+    <span class="c1">// Solve</span>
+    <span class="n">neoHookeanInc</span><span class="p">;</span>
+
+    <span class="c1">// Update</span>
+    <span class="n">u1</span> <span class="o">=</span> <span class="n">varu1</span><span class="p">;</span>
+    <span class="n">u2</span> <span class="o">=</span> <span class="n">varu2</span><span class="p">;</span>
+
+    <span class="c1">// Residual</span>
+    <span class="n">w1</span><span class="p">[]</span> <span class="o">=</span> <span class="n">Mass</span><span class="o">*</span><span class="n">varu1</span><span class="p">[];</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">w1</span><span class="p">[]</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">varu1</span><span class="p">[]);</span> <span class="c1">//L^2 norm of [varu1, varu2]</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; L^2 residual = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+
+    <span class="c1">// Newton</span>
+    <span class="n">u1n</span><span class="p">[]</span> <span class="o">+=</span> <span class="n">varu1</span><span class="p">[];</span>
+
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">([</span><span class="n">u1n</span><span class="p">,</span><span class="n">u2n</span><span class="p">],</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;</span><span class="kp">displacement</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+
+<span class="c1">// Movemesh</span>
+<span class="kt">mesh</span> <span class="n">Th1</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u1n</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">u2n</span><span class="p">]);</span>
+
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">u1n</span><span class="p">,</span><span class="n">u2n</span><span class="p">]);</span>
 </pre></div>
 </div>
-<table class="docutils citation" frame="void" id="ogden1984" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[OGDEN1984]</a></td><td>OGDEN, Ray W. Non-linear elastic deformations. 1984.</td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="raviart1998" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[RAVIART1998]</a></td><td>RAVIART, Pierre-Arnaud, THOMAS, Jean-Marie, CIARLET, Philippe G., et al.&nbsp;Introduction à l’analyse numérique des équations aux dérivées partielles. Paris : Dunod, 1998.</td></tr>
-</tbody>
-</table>
-<table class="docutils citation" frame="void" id="horgan2004" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[HORGAN2004]</a></td><td>HORGAN, Cornelius O. et SACCOMANDI, Giuseppe. Constitutive models for compressible nonlinearly elastic materials with limiting chain extensibility. Journal of Elasticity, 2004, vol.&nbsp;77, no 2, p.&nbsp;123-138.</td></tr>
-</tbody>
-</table>
 </div>
 </div>
 
 
-        </div>
-        <div class="side-doc-outline">
-            <div class="side-doc-outline--content"> 
-<div class="localtoc">
-    <p class="caption">
-      <span class="caption-text">Table Of Contents</span>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
     </p>
-    <ul>
-<li><a class="reference internal" href="#">Compressible Neo-Hookean materials</a><ul>
-<li><a class="reference internal" href="#notation">Notation</a></li>
-<li><a class="reference internal" href="#recommended-references">Recommended References</a></li>
-<li><a class="reference internal" href="#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
-<li><a class="reference internal" href="#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
-</ul>
-</li>
-</ul>
-
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../_static/img/GitHub_Logo_White.png" />
+    </a>
 </div>
-            </div>
-        </div>
+		</footer>
+		
 
-      <div class="clearer"></div>
-    </div><div class="pagenation">
-     <a id="button-prev" href="nonLinearElasticity.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
-         <i class="pagenation-arrow-L material-icons">arrow_back</i>
-         <div class="pagenation-text">
-            <span class="pagenation-direction">Previous</span>
-            <div>Non-linear elasticity</div>
-         </div>
-     </a>
-     <a id="button-next" href="whisperingGalleryModes.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
-        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
-        <div class="pagenation-text">
-            <span class="pagenation-direction">Next</span>
-            <div>Whispering gallery modes</div>
-        </div>
-     </a>
-  </div>
-        <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer__left-section">
-      <div class="mdl-logo">FreeFem++</div>
-      <div>
-        
-        <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Mathematical Models</a></li>
-</ul>
-
-      </div>
-    </div>
-
-    <div class="mdl-mini-footer__right-section">
-        <div>&copy; Copyright 2018, FreeFem++.</div>
-      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
-    </div>
-</footer>
-        </main>
-    </div>
-  </body>
+		<script src="../_static/js/toc.js"></script>
+	</body>
 </html>

@@ -34,7 +34,7 @@ Authors
    +-----------------------------------------------------------------------+
    | Member of the `Institut Universitaire de                              |
    | France <http://www.iufrance.fr/>`__ and `Academie des                 |
-   | Sciences <http://www.academie-sciences.fr/>`__                        |
+   | Sciences <http://www.academie-sciences.fr/fr/>`__                     |
    +-----------------------------------------------------------------------+
    | https://www.ljll.math.upmc.fr/pironneau/                              |
    +-----------------------------------------------------------------------+
@@ -78,5 +78,4 @@ Authors
    | http://jolivet.perso.enseeiht.fr/                                                                                                                      |
    +--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-And all the dedicated `Github
-contributors <https://github.com/FreeFem/FreeFem-doc/graphs/contributors>`__
+And all the dedicated `Github contributors <https://github.com/FreeFem/FreeFem-doc/graphs/contributors>`__

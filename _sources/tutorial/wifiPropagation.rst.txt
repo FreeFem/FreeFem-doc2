@@ -45,7 +45,7 @@ Coding
 The domain
 ~~~~~~~~~~
 
-In order to create the domain of experimentation, we need to create ``:::freefem border`` objects, like this :
+In order to create the domain of experimentation, we need to create :freefem:`border` objects, like this :
 
 .. code-block:: freefem
 
@@ -139,10 +139,10 @@ Let’s resolve this equation !
 
 A bit of understanding here :
 
--  The ``:::freefem fespace`` keyword defines a finite elements space, no need to know more here.
+-  The :freefem:`fespace` keyword defines a finite elements space, no need to know more here.
 -  The function ``wall`` return 0 if in air and 1 if in a wall (x and y are global variables).
 -  For this example, random numbers are used for the reflexion and the absorption.
--  The problem is defined with ``:::freefem problem`` and we solve it by calling it.
+-  The problem is defined with :freefem:`problem` and we solve it by calling it.
 
 Finally, I plotted the :math:`\log` of the module of the solution ``v`` to see the signal’s power, and here we are :
 
@@ -153,38 +153,32 @@ Finally, I plotted the :math:`\log` of the module of the solution ``v`` to see t
 Beautiful isn’t it ? This is the first position for the hotspot, but there are 6 others, and the electrical field is evolving depending on the position.
 You can see the other positions here :
 
-.. rst-class:: inline3
+.. figure:: images/wifi-propagation/point2.png
+    :figclass: inline3
 
-   .. figure:: images/wifi-propagation/point2.png
+    Point 2
 
-      Point 2
+.. figure:: images/wifi-propagation/point3.png
+    :figclass: inline3
 
-.. rst-class:: inline3
+    Point 3
 
-   .. figure:: images/wifi-propagation/point3.png
+.. figure:: images/wifi-propagation/point4.png
+    :figclass: inline3
 
-      Point 3
+    Point 4
 
-.. rst-class:: inline3
+.. figure:: images/wifi-propagation/point5.png
+    :figclass: inline3
 
-   .. figure:: images/wifi-propagation/point4.png
+    Point 5
 
-      Point 4
+.. figure:: images/wifi-propagation/point6.png
+    :figclass: inline3
 
-.. rst-class:: inline3
+    Point 6
 
-   .. figure:: images/wifi-propagation/point5.png
+.. figure:: images/wifi-propagation/point7.png
+    :figclass: inline3
 
-      Point 5
-
-.. rst-class:: inline3
-
-   .. figure:: images/wifi-propagation/point6.png
-
-      Point 6
-
-.. rst-class:: inline3
-
-   .. figure:: images/wifi-propagation/point7.png
-
-      Point 7
+    Point 7

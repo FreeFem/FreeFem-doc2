@@ -13,3 +13,9 @@ Language references
    IO
    functions
    externalLibraries
+
+.. only:: html
+
+   .. raw:: html
+
+       <script>goto('reference.html')</script>

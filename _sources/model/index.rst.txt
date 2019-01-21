@@ -19,3 +19,9 @@ Mathematical Models
    nonLinearElasticity
    compressibleNeoHookeanMaterials
    whisperingGalleryModes
+
+.. only:: html
+
+   .. raw:: html
+
+       <script>goto('model.html')</script>

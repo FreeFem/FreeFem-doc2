@@ -27,3 +27,9 @@ Tutorials
    timeDependentStokes
    wifiPropagation
    matlabOctavePlot
+
+.. only:: html
+
+   .. raw:: html
+
+       <script>goto('tutorial.html')</script>

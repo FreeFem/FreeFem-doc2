@@ -1,290 +1,843 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
-    <title>External libraries &#8212; FreeFem++ 3.61.2 documentation</title>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>External libraries</title>
+		<link rel="icon" href="../_static/img/favicon.png">
 
-    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/extra.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/notosanscjkjp.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/roboto.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_materialdesign_theme.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
-    <link rel="canonical" href="doc.freefem.org/dev/reference/externalLibraries.html" />
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorials" href="../tutorial/index.html" />
-    <link rel="prev" title="Functions" href="functions.html" /> 
-  </head>
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
-    <div class="mdl-layout__header-row">
-        
-        <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link" href="index.html">Language references</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">External libraries</a>
-        </nav>
-        <div class="mdl-layout-spacer"></div>
-        <nav class="mdl-navigation">
-        
-<form class="form-inline pull-sm-right" action="../search.html" method="get">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
-            <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
-        </div>
-      </div>
-      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
-      Quick search
-      </div>
-</form>
-        
-<a id="button-show-source"
-    class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/reference/externalLibraries.rst.txt" rel="nofollow">
-<i class="material-icons">code</i>
-</a>
-<div class="mdl-tooltip" data-mdl-for="button-show-source">
-Show Source
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- FreeFem++ theme specific -->
+		<link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+		<!-- js -->
+		<script src="../_static/nav.json"></script>
+		<script src="../_static/js/nav.js"></script>
+		<script src="../_static/js/common.js"></script>
+
+		<!-- MathJax -->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div class="header-logo">
+    <div>
+        <a href="../introduction/introduction.html">
+            <img alt="logo" title="FreeFem++ documentation" src="../_static/img/Logo.png" />
+        </a>
+    </div>
 </div>
-        </nav>
+<div class="header-title">
+    <div>
+        <a href="../introduction/introduction.html">
+            <h2>FreeFem++ documentation</h2>
+        </a>
     </div>
-    <div class="mdl-layout__header-row header-links">
-      <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation">
-      </nav>
+</div>
+<div class="header-github">
+    <a href="https://github.com/FreeFem/FreeFem-sources">
+        <div class="header-github-img">
+            <img alt="GitHub" title="FreeFem++ on GitHub" src="../_static/img/GitHub-Mark-120px-plus.png" />
+        </div>
+        <div class="header-github-title">
+            <div class="header-github-title-text">
+                FreeFem++ on GitHub
+            </div>
+            <div class="header-github-title-stars">
+                <span id="headerGithubStars"></span> stars - <span id="headerGithubForks"></span> forks
+            </div>
+        </div>
+    </a>
+</div>
+<script src="../_static/js/github.js"></script>
+		</header>
+		
+		<nav>
+			<script>nav("../")</script>
+			<div class="search">
+				<script async src="../_static/js/lunr.js"></script>
+<script async src="../_static/lunr_index.js"></script>
+
+<script src="../_static/js/search.js"></script>
+
+<div class="search">
+    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
+    <div class="searchResults">
+        <div id="resultCount">
+        </div>
+        <div id="searchResults">
+        </div>
     </div>
-</header><header class="mdl-layout__drawer">
-    
-          <!-- Title -->
-      <span class="mdl-layout-title">
-          <a class="title" href="../index.html">
-              <span class="title-text">
-                  FreeFem++
-              </span>
-          </a>
-      </span>
-    
-    
-      <div class="globaltoc">
-        <span class="mdl-layout-title toc">Table Of Contents</span>
-        
-        
-            
-            <nav class="mdl-navigation">
-                <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</div>
+			</div>
+		</nav>
+		
+
+		
+		<div class="container">
+			<div class="toc" id="toc">
+				<div>
+					<ul>
+<li><a class="reference internal" href="#">External libraries</a><ul>
+<li><a class="reference internal" href="#aniso">aniso</a><ul>
+<li><a class="reference internal" href="#boundaniso">boundaniso</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
+<li><a class="reference internal" href="#bec">BEC</a><ul>
+<li><a class="reference internal" href="#bectrap">BECtrap</a></li>
+<li><a class="reference internal" href="#gpvortex">GPvortex</a></li>
+<li><a class="reference internal" href="#dxgpvortex">dxGPVortex</a></li>
+<li><a class="reference internal" href="#dygpvortex">dyGPVortex</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">External libraries</a></li>
+<li><a class="reference internal" href="#binary-i-o">Binary I/O</a><ul>
+<li><a class="reference internal" href="#loadvec">LoadVec</a></li>
+<li><a class="reference internal" href="#loadflag">LoadFlag</a></li>
+<li><a class="reference internal" href="#savevec">SaveVec</a></li>
+<li><a class="reference internal" href="#flag">flag</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
+<li><a class="reference internal" href="#buildlayer">buildlayer</a><ul>
+<li><a class="reference internal" href="#buildlayers">buildlayers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
+<li><a class="reference internal" href="#closepoints">ClosePoints</a><ul>
+<li><a class="reference internal" href="#radiussearch">radiusSearch</a></li>
+<li><a class="reference internal" href="#voisinage">Voisinage</a></li>
+<li><a class="reference internal" href="#neighborhood">neighborhood</a></li>
+<li><a class="reference internal" href="#closepoints2">ClosePoints2</a></li>
+<li><a class="reference internal" href="#closepoint">ClosePoint</a></li>
+<li><a class="reference internal" href="#closepoints1">ClosePoints1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#curvature">Curvature</a><ul>
+<li><a class="reference internal" href="#extractborder">extractborder</a></li>
+<li><a class="reference internal" href="#id1">curvature</a></li>
+<li><a class="reference internal" href="#raxicurvature">raxicurvature</a></li>
+<li><a class="reference internal" href="#curves">curves</a></li>
+<li><a class="reference internal" href="#setecurveabcisse">setecurveabcisse</a></li>
+<li><a class="reference internal" href="#equiparameter">equiparameter</a></li>
+<li><a class="reference internal" href="#tresca">Tresca</a></li>
+<li><a class="reference internal" href="#vonmises">VonMises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dfft">dfft</a><ul>
+<li><a class="reference internal" href="#plandfft">plandfft</a></li>
+<li><a class="reference internal" href="#execute">execute</a></li>
+<li><a class="reference internal" href="#delete">delete</a></li>
+<li><a class="reference internal" href="#id2">dfft</a></li>
+<li><a class="reference internal" href="#map">map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#distance">distance</a><ul>
+<li><a class="reference internal" href="#id3">distance</a></li>
+<li><a class="reference internal" href="#checkdist">checkdist</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dxwriter">DxWriter</a><ul>
+<li><a class="reference internal" href="#dxaddmesh">Dxaddmesh</a></li>
+<li><a class="reference internal" href="#dxaddtimeseries">Dxaddtimeseries</a></li>
+<li><a class="reference internal" href="#dxaddsol2ts">Dxaddsol2ts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#element-p1bl">Element_P1bl</a><ul>
+<li><a class="reference internal" href="#expert">expert</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exactpartition">exactpartition</a><ul>
+<li><a class="reference internal" href="#id4">exactpartition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-airybiry">ff-AiryBiry</a><ul>
+<li><a class="reference internal" href="#airy">airy</a></li>
+<li><a class="reference internal" href="#biry">biry</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-cmaes">ff-cmaes</a><ul>
+<li><a class="reference internal" href="#cmaes">cmaes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-gsl-awk">ff_gsl_awk</a><ul>
+<li><a class="reference internal" href="#gslcdfugaussianp">gslcdfugaussianP</a></li>
+<li><a class="reference internal" href="#gslcdfugaussianq">gslcdfugaussianQ</a></li>
+<li><a class="reference internal" href="#gslcdfugaussianpinv">gslcdfugaussianPinv</a></li>
+<li><a class="reference internal" href="#gslcdfugaussianqinv">gslcdfugaussianQinv</a></li>
+<li><a class="reference internal" href="#gslcdfgaussianp">gslcdfgaussianP</a></li>
+<li><a class="reference internal" href="#gslcdfgaussianq">gslcdfgaussianQ</a></li>
+<li><a class="reference internal" href="#gslcdfgaussianpinv">gslcdfgaussianPinv</a></li>
+<li><a class="reference internal" href="#gslcdfgaussianqinv">gslcdfgaussianQinv</a></li>
+<li><a class="reference internal" href="#gslcdfgammap">gslcdfgammaP</a></li>
+<li><a class="reference internal" href="#gslcdfgammaq">gslcdfgammaQ</a></li>
+<li><a class="reference internal" href="#gslcdfgammapinv">gslcdfgammaPinv</a></li>
+<li><a class="reference internal" href="#gslcdfgammaqinv">gslcdfgammaQinv</a></li>
+<li><a class="reference internal" href="#gslcdfcauchyp">gslcdfcauchyP</a></li>
+<li><a class="reference internal" href="#gslcdfcauchyq">gslcdfcauchyQ</a></li>
+<li><a class="reference internal" href="#gslcdfcauchypinv">gslcdfcauchyPinv</a></li>
+<li><a class="reference internal" href="#gslcdfcauchyqinv">gslcdfcauchyQinv</a></li>
+<li><a class="reference internal" href="#gslcdflaplacep">gslcdflaplaceP</a></li>
+<li><a class="reference internal" href="#gslcdflaplaceq">gslcdflaplaceQ</a></li>
+<li><a class="reference internal" href="#gslcdflaplacepinv">gslcdflaplacePinv</a></li>
+<li><a class="reference internal" href="#gslcdflaplaceqinv">gslcdflaplaceQinv</a></li>
+<li><a class="reference internal" href="#gslcdfrayleighp">gslcdfrayleighP</a></li>
+<li><a class="reference internal" href="#gslcdfrayleighq">gslcdfrayleighQ</a></li>
+<li><a class="reference internal" href="#gslcdfrayleighpinv">gslcdfrayleighPinv</a></li>
+<li><a class="reference internal" href="#gslcdfrayleighqinv">gslcdfrayleighQinv</a></li>
+<li><a class="reference internal" href="#gslcdfchisqp">gslcdfchisqP</a></li>
+<li><a class="reference internal" href="#gslcdfchisqq">gslcdfchisqQ</a></li>
+<li><a class="reference internal" href="#gslcdfchisqpinv">gslcdfchisqPinv</a></li>
+<li><a class="reference internal" href="#gslcdfchisqqinv">gslcdfchisqQinv</a></li>
+<li><a class="reference internal" href="#gslcdfexponentialp">gslcdfexponentialP</a></li>
+<li><a class="reference internal" href="#gslcdfexponentialq">gslcdfexponentialQ</a></li>
+<li><a class="reference internal" href="#gslcdfexponentialpinv">gslcdfexponentialPinv</a></li>
+<li><a class="reference internal" href="#gslcdfexponentialqinv">gslcdfexponentialQinv</a></li>
+<li><a class="reference internal" href="#gslcdfexppowp">gslcdfexppowP</a></li>
+<li><a class="reference internal" href="#gslcdfexppowq">gslcdfexppowQ</a></li>
+<li><a class="reference internal" href="#gslcdftdistp">gslcdftdistP</a></li>
+<li><a class="reference internal" href="#gslcdftdistq">gslcdftdistQ</a></li>
+<li><a class="reference internal" href="#gslcdftdistpinv">gslcdftdistPinv</a></li>
+<li><a class="reference internal" href="#gslcdftdistqinv">gslcdftdistQinv</a></li>
+<li><a class="reference internal" href="#gslcdffdistp">gslcdffdistP</a></li>
+<li><a class="reference internal" href="#gslcdffdistq">gslcdffdistQ</a></li>
+<li><a class="reference internal" href="#gslcdffdistpinv">gslcdffdistPinv</a></li>
+<li><a class="reference internal" href="#gslcdffdistqinv">gslcdffdistQinv</a></li>
+<li><a class="reference internal" href="#gslcdfbetap">gslcdfbetaP</a></li>
+<li><a class="reference internal" href="#gslcdfbetaq">gslcdfbetaQ</a></li>
+<li><a class="reference internal" href="#gslcdfbetapinv">gslcdfbetaPinv</a></li>
+<li><a class="reference internal" href="#gslcdfbetaqinv">gslcdfbetaQinv</a></li>
+<li><a class="reference internal" href="#gslcdfflatp">gslcdfflatP</a></li>
+<li><a class="reference internal" href="#gslcdfflatq">gslcdfflatQ</a></li>
+<li><a class="reference internal" href="#gslcdfflatpinv">gslcdfflatPinv</a></li>
+<li><a class="reference internal" href="#gslcdfflatqinv">gslcdfflatQinv</a></li>
+<li><a class="reference internal" href="#gslcdflognormalp">gslcdflognormalP</a></li>
+<li><a class="reference internal" href="#gslcdflognormalq">gslcdflognormalQ</a></li>
+<li><a class="reference internal" href="#gslcdflognormalpinv">gslcdflognormalPinv</a></li>
+<li><a class="reference internal" href="#gslcdflognormalqinv">gslcdflognormalQinv</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel1p">gslcdfgumbel1P</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel1q">gslcdfgumbel1Q</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel1pinv">gslcdfgumbel1Pinv</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel1qinv">gslcdfgumbel1Qinv</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel2p">gslcdfgumbel2P</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel2q">gslcdfgumbel2Q</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel2pinv">gslcdfgumbel2Pinv</a></li>
+<li><a class="reference internal" href="#gslcdfgumbel2qinv">gslcdfgumbel2Qinv</a></li>
+<li><a class="reference internal" href="#gslcdfweibullp">gslcdfweibullP</a></li>
+<li><a class="reference internal" href="#gslcdfweibullq">gslcdfweibullQ</a></li>
+<li><a class="reference internal" href="#gslcdfweibullpinv">gslcdfweibullPinv</a></li>
+<li><a class="reference internal" href="#gslcdfweibullqinv">gslcdfweibullQinv</a></li>
+<li><a class="reference internal" href="#gslcdfparetop">gslcdfparetoP</a></li>
+<li><a class="reference internal" href="#gslcdfparetoq">gslcdfparetoQ</a></li>
+<li><a class="reference internal" href="#gslcdfparetopinv">gslcdfparetoPinv</a></li>
+<li><a class="reference internal" href="#gslcdfparetoqinv">gslcdfparetoQinv</a></li>
+<li><a class="reference internal" href="#gslcdflogisticp">gslcdflogisticP</a></li>
+<li><a class="reference internal" href="#gslcdflogisticq">gslcdflogisticQ</a></li>
+<li><a class="reference internal" href="#gslcdflogisticpinv">gslcdflogisticPinv</a></li>
+<li><a class="reference internal" href="#gslcdflogisticqinv">gslcdflogisticQinv</a></li>
+<li><a class="reference internal" href="#gslcdfbinomialp">gslcdfbinomialP</a></li>
+<li><a class="reference internal" href="#gslcdfbinomialq">gslcdfbinomialQ</a></li>
+<li><a class="reference internal" href="#gslcdfpoissonp">gslcdfpoissonP</a></li>
+<li><a class="reference internal" href="#gslcdfpoissonq">gslcdfpoissonQ</a></li>
+<li><a class="reference internal" href="#gslcdfgeometricp">gslcdfgeometricP</a></li>
+<li><a class="reference internal" href="#gslcdfgeometricq">gslcdfgeometricQ</a></li>
+<li><a class="reference internal" href="#gslcdfnegativebinomialp">gslcdfnegativebinomialP</a></li>
+<li><a class="reference internal" href="#gslcdfnegativebinomialq">gslcdfnegativebinomialQ</a></li>
+<li><a class="reference internal" href="#gslcdfpascalp">gslcdfpascalP</a></li>
+<li><a class="reference internal" href="#gslcdfpascalq">gslcdfpascalQ</a></li>
+<li><a class="reference internal" href="#gslranbernoullipdf">gslranbernoullipdf</a></li>
+<li><a class="reference internal" href="#gslranbeta">gslranbeta</a></li>
+<li><a class="reference internal" href="#gslranbetapdf">gslranbetapdf</a></li>
+<li><a class="reference internal" href="#gslranbinomialpdf">gslranbinomialpdf</a></li>
+<li><a class="reference internal" href="#gslranexponential">gslranexponential</a></li>
+<li><a class="reference internal" href="#gslranexponentialpdf">gslranexponentialpdf</a></li>
+<li><a class="reference internal" href="#gslranexppow">gslranexppow</a></li>
+<li><a class="reference internal" href="#gslranexppowpdf">gslranexppowpdf</a></li>
+<li><a class="reference internal" href="#gslrancauchy">gslrancauchy</a></li>
+<li><a class="reference internal" href="#gslrancauchypdf">gslrancauchypdf</a></li>
+<li><a class="reference internal" href="#gslranchisq">gslranchisq</a></li>
+<li><a class="reference internal" href="#gslranchisqpdf">gslranchisqpdf</a></li>
+<li><a class="reference internal" href="#gslranerlang">gslranerlang</a></li>
+<li><a class="reference internal" href="#gslranerlangpdf">gslranerlangpdf</a></li>
+<li><a class="reference internal" href="#gslranfdist">gslranfdist</a></li>
+<li><a class="reference internal" href="#gslranfdistpdf">gslranfdistpdf</a></li>
+<li><a class="reference internal" href="#gslranflat">gslranflat</a></li>
+<li><a class="reference internal" href="#gslranflatpdf">gslranflatpdf</a></li>
+<li><a class="reference internal" href="#gslrangamma">gslrangamma</a></li>
+<li><a class="reference internal" href="#gslrangammaint">gslrangammaint</a></li>
+<li><a class="reference internal" href="#gslrangammapdf">gslrangammapdf</a></li>
+<li><a class="reference internal" href="#gslrangammamt">gslrangammamt</a></li>
+<li><a class="reference internal" href="#gslrangammaknuth">gslrangammaknuth</a></li>
+<li><a class="reference internal" href="#gslrangaussian">gslrangaussian</a></li>
+<li><a class="reference internal" href="#gslrangaussianratiomethod">gslrangaussianratiomethod</a></li>
+<li><a class="reference internal" href="#gslrangaussianziggurat">gslrangaussianziggurat</a></li>
+<li><a class="reference internal" href="#gslrangaussianpdf">gslrangaussianpdf</a></li>
+<li><a class="reference internal" href="#gslranugaussian">gslranugaussian</a></li>
+<li><a class="reference internal" href="#gslranugaussianratiomethod">gslranugaussianratiomethod</a></li>
+<li><a class="reference internal" href="#gslranugaussianpdf">gslranugaussianpdf</a></li>
+<li><a class="reference internal" href="#gslrangaussiantail">gslrangaussiantail</a></li>
+<li><a class="reference internal" href="#gslrangaussiantailpdf">gslrangaussiantailpdf</a></li>
+<li><a class="reference internal" href="#gslranugaussiantail">gslranugaussiantail</a></li>
+<li><a class="reference internal" href="#gslranugaussiantailpdf">gslranugaussiantailpdf</a></li>
+<li><a class="reference internal" href="#gslranlandau">gslranlandau</a></li>
+<li><a class="reference internal" href="#gslranlandaupdf">gslranlandaupdf</a></li>
+<li><a class="reference internal" href="#gslrangeometricpdf">gslrangeometricpdf</a></li>
+<li><a class="reference internal" href="#gslrangumbel1">gslrangumbel1</a></li>
+<li><a class="reference internal" href="#gslrangumbel1pdf">gslrangumbel1pdf</a></li>
+<li><a class="reference internal" href="#gslrangumbel2">gslrangumbel2</a></li>
+<li><a class="reference internal" href="#gslrangumbel2pdf">gslrangumbel2pdf</a></li>
+<li><a class="reference internal" href="#gslranlogistic">gslranlogistic</a></li>
+<li><a class="reference internal" href="#gslranlogisticpdf">gslranlogisticpdf</a></li>
+<li><a class="reference internal" href="#gslranlognormal">gslranlognormal</a></li>
+<li><a class="reference internal" href="#gslranlognormalpdf">gslranlognormalpdf</a></li>
+<li><a class="reference internal" href="#gslranlogarithmicpdf">gslranlogarithmicpdf</a></li>
+<li><a class="reference internal" href="#gslrannegativebinomialpdf">gslrannegativebinomialpdf</a></li>
+<li><a class="reference internal" href="#gslranpascalpdf">gslranpascalpdf</a></li>
+<li><a class="reference internal" href="#gslranpareto">gslranpareto</a></li>
+<li><a class="reference internal" href="#gslranparetopdf">gslranparetopdf</a></li>
+<li><a class="reference internal" href="#gslranpoissonpdf">gslranpoissonpdf</a></li>
+<li><a class="reference internal" href="#gslranrayleigh">gslranrayleigh</a></li>
+<li><a class="reference internal" href="#gslranrayleighpdf">gslranrayleighpdf</a></li>
+<li><a class="reference internal" href="#gslranrayleightail">gslranrayleightail</a></li>
+<li><a class="reference internal" href="#gslranrayleightailpdf">gslranrayleightailpdf</a></li>
+<li><a class="reference internal" href="#gslrantdist">gslrantdist</a></li>
+<li><a class="reference internal" href="#gslrantdistpdf">gslrantdistpdf</a></li>
+<li><a class="reference internal" href="#gslranlaplace">gslranlaplace</a></li>
+<li><a class="reference internal" href="#gslranlaplacepdf">gslranlaplacepdf</a></li>
+<li><a class="reference internal" href="#gslranlevy">gslranlevy</a></li>
+<li><a class="reference internal" href="#gslranweibull">gslranweibull</a></li>
+<li><a class="reference internal" href="#gslranweibullpdf">gslranweibullpdf</a></li>
+<li><a class="reference internal" href="#gslsfairyai">gslsfairyAi</a></li>
+<li><a class="reference internal" href="#gslsfairybi">gslsfairyBi</a></li>
+<li><a class="reference internal" href="#gslsfairyaiscaled">gslsfairyAiscaled</a></li>
+<li><a class="reference internal" href="#gslsfairybiscaled">gslsfairyBiscaled</a></li>
+<li><a class="reference internal" href="#gslsfairyaideriv">gslsfairyAideriv</a></li>
+<li><a class="reference internal" href="#gslsfairybideriv">gslsfairyBideriv</a></li>
+<li><a class="reference internal" href="#gslsfairyaiderivscaled">gslsfairyAiderivscaled</a></li>
+<li><a class="reference internal" href="#gslsfairybiderivscaled">gslsfairyBiderivscaled</a></li>
+<li><a class="reference internal" href="#gslsfairyzeroai">gslsfairyzeroAi</a></li>
+<li><a class="reference internal" href="#gslsfairyzerobi">gslsfairyzeroBi</a></li>
+<li><a class="reference internal" href="#gslsfairyzeroaideriv">gslsfairyzeroAideriv</a></li>
+<li><a class="reference internal" href="#gslsfairyzerobideriv">gslsfairyzeroBideriv</a></li>
+<li><a class="reference internal" href="#gslsfbesselj0">gslsfbesselJ0</a></li>
+<li><a class="reference internal" href="#gslsfbesselj1">gslsfbesselJ1</a></li>
+<li><a class="reference internal" href="#gslsfbesseljn">gslsfbesselJn</a></li>
+<li><a class="reference internal" href="#gslsfbessely0">gslsfbesselY0</a></li>
+<li><a class="reference internal" href="#gslsfbessely1">gslsfbesselY1</a></li>
+<li><a class="reference internal" href="#gslsfbesselyn">gslsfbesselYn</a></li>
+<li><a class="reference internal" href="#gslsfbesseli0">gslsfbesselI0</a></li>
+<li><a class="reference internal" href="#gslsfbesseli1">gslsfbesselI1</a></li>
+<li><a class="reference internal" href="#gslsfbesselin">gslsfbesselIn</a></li>
+<li><a class="reference internal" href="#gslsfbesseli0scaled">gslsfbesselI0scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesseli1scaled">gslsfbesselI1scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselinscaled">gslsfbesselInscaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselk0">gslsfbesselK0</a></li>
+<li><a class="reference internal" href="#gslsfbesselk1">gslsfbesselK1</a></li>
+<li><a class="reference internal" href="#gslsfbesselkn">gslsfbesselKn</a></li>
+<li><a class="reference internal" href="#gslsfbesselk0scaled">gslsfbesselK0scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselk1scaled">gslsfbesselK1scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselknscaled">gslsfbesselKnscaled</a></li>
+<li><a class="reference internal" href="#id5">gslsfbesselj0</a></li>
+<li><a class="reference internal" href="#id6">gslsfbesselj1</a></li>
+<li><a class="reference internal" href="#gslsfbesselj2">gslsfbesselj2</a></li>
+<li><a class="reference internal" href="#gslsfbesseljl">gslsfbesseljl</a></li>
+<li><a class="reference internal" href="#id7">gslsfbessely0</a></li>
+<li><a class="reference internal" href="#id8">gslsfbessely1</a></li>
+<li><a class="reference internal" href="#gslsfbessely2">gslsfbessely2</a></li>
+<li><a class="reference internal" href="#gslsfbesselyl">gslsfbesselyl</a></li>
+<li><a class="reference internal" href="#id9">gslsfbesseli0scaled</a></li>
+<li><a class="reference internal" href="#id10">gslsfbesseli1scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesseli2scaled">gslsfbesseli2scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselilscaled">gslsfbesselilscaled</a></li>
+<li><a class="reference internal" href="#id11">gslsfbesselk0scaled</a></li>
+<li><a class="reference internal" href="#id12">gslsfbesselk1scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselk2scaled">gslsfbesselk2scaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselklscaled">gslsfbesselklscaled</a></li>
+<li><a class="reference internal" href="#gslsfbesseljnu">gslsfbesselJnu</a></li>
+<li><a class="reference internal" href="#gslsfbesselynu">gslsfbesselYnu</a></li>
+<li><a class="reference internal" href="#gslsfbesselinuscaled">gslsfbesselInuscaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselinu">gslsfbesselInu</a></li>
+<li><a class="reference internal" href="#gslsfbesselknuscaled">gslsfbesselKnuscaled</a></li>
+<li><a class="reference internal" href="#gslsfbesselknu">gslsfbesselKnu</a></li>
+<li><a class="reference internal" href="#gslsfbessellnknu">gslsfbessellnKnu</a></li>
+<li><a class="reference internal" href="#gslsfbesselzeroj0">gslsfbesselzeroJ0</a></li>
+<li><a class="reference internal" href="#gslsfbesselzeroj1">gslsfbesselzeroJ1</a></li>
+<li><a class="reference internal" href="#gslsfbesselzerojnu">gslsfbesselzeroJnu</a></li>
+<li><a class="reference internal" href="#gslsfclausen">gslsfclausen</a></li>
+<li><a class="reference internal" href="#gslsfhydrogenicr1">gslsfhydrogenicR1</a></li>
+<li><a class="reference internal" href="#gslsfdawson">gslsfdawson</a></li>
+<li><a class="reference internal" href="#gslsfdebye1">gslsfdebye1</a></li>
+<li><a class="reference internal" href="#gslsfdebye2">gslsfdebye2</a></li>
+<li><a class="reference internal" href="#gslsfdebye3">gslsfdebye3</a></li>
+<li><a class="reference internal" href="#gslsfdebye4">gslsfdebye4</a></li>
+<li><a class="reference internal" href="#gslsfdebye5">gslsfdebye5</a></li>
+<li><a class="reference internal" href="#gslsfdebye6">gslsfdebye6</a></li>
+<li><a class="reference internal" href="#gslsfdilog">gslsfdilog</a></li>
+<li><a class="reference internal" href="#gslsfmultiply">gslsfmultiply</a></li>
+<li><a class="reference internal" href="#gslsfellintkcomp">gslsfellintKcomp</a></li>
+<li><a class="reference internal" href="#gslsfellintecomp">gslsfellintEcomp</a></li>
+<li><a class="reference internal" href="#gslsfellintpcomp">gslsfellintPcomp</a></li>
+<li><a class="reference internal" href="#gslsfellintdcomp">gslsfellintDcomp</a></li>
+<li><a class="reference internal" href="#gslsfellintf">gslsfellintF</a></li>
+<li><a class="reference internal" href="#gslsfellinte">gslsfellintE</a></li>
+<li><a class="reference internal" href="#gslsfellintrc">gslsfellintRC</a></li>
+<li><a class="reference internal" href="#gslsferfc">gslsferfc</a></li>
+<li><a class="reference internal" href="#gslsflogerfc">gslsflogerfc</a></li>
+<li><a class="reference internal" href="#gslsferf">gslsferf</a></li>
+<li><a class="reference internal" href="#gslsferfz">gslsferfZ</a></li>
+<li><a class="reference internal" href="#gslsferfq">gslsferfQ</a></li>
+<li><a class="reference internal" href="#gslsfhazard">gslsfhazard</a></li>
+<li><a class="reference internal" href="#gslsfexp">gslsfexp</a></li>
+<li><a class="reference internal" href="#gslsfexpmult">gslsfexpmult</a></li>
+<li><a class="reference internal" href="#gslsfexpm1">gslsfexpm1</a></li>
+<li><a class="reference internal" href="#gslsfexprel">gslsfexprel</a></li>
+<li><a class="reference internal" href="#gslsfexprel2">gslsfexprel2</a></li>
+<li><a class="reference internal" href="#gslsfexpreln">gslsfexpreln</a></li>
+<li><a class="reference internal" href="#gslsfexpinte1">gslsfexpintE1</a></li>
+<li><a class="reference internal" href="#gslsfexpinte2">gslsfexpintE2</a></li>
+<li><a class="reference internal" href="#gslsfexpinten">gslsfexpintEn</a></li>
+<li><a class="reference internal" href="#gslsfexpinte1scaled">gslsfexpintE1scaled</a></li>
+<li><a class="reference internal" href="#gslsfexpinte2scaled">gslsfexpintE2scaled</a></li>
+<li><a class="reference internal" href="#gslsfexpintenscaled">gslsfexpintEnscaled</a></li>
+<li><a class="reference internal" href="#gslsfexpintei">gslsfexpintEi</a></li>
+<li><a class="reference internal" href="#gslsfexpinteiscaled">gslsfexpintEiscaled</a></li>
+<li><a class="reference internal" href="#gslsfshi">gslsfShi</a></li>
+<li><a class="reference internal" href="#gslsfchi">gslsfChi</a></li>
+<li><a class="reference internal" href="#gslsfexpint3">gslsfexpint3</a></li>
+<li><a class="reference internal" href="#gslsfsi">gslsfSi</a></li>
+<li><a class="reference internal" href="#gslsfci">gslsfCi</a></li>
+<li><a class="reference internal" href="#gslsfatanint">gslsfatanint</a></li>
+<li><a class="reference internal" href="#gslsffermidiracm1">gslsffermidiracm1</a></li>
+<li><a class="reference internal" href="#gslsffermidirac0">gslsffermidirac0</a></li>
+<li><a class="reference internal" href="#gslsffermidirac1">gslsffermidirac1</a></li>
+<li><a class="reference internal" href="#gslsffermidirac2">gslsffermidirac2</a></li>
+<li><a class="reference internal" href="#gslsffermidiracint">gslsffermidiracint</a></li>
+<li><a class="reference internal" href="#gslsffermidiracmhalf">gslsffermidiracmhalf</a></li>
+<li><a class="reference internal" href="#gslsffermidirachalf">gslsffermidirachalf</a></li>
+<li><a class="reference internal" href="#gslsffermidirac3half">gslsffermidirac3half</a></li>
+<li><a class="reference internal" href="#gslsffermidiracinc0">gslsffermidiracinc0</a></li>
+<li><a class="reference internal" href="#gslsflngamma">gslsflngamma</a></li>
+<li><a class="reference internal" href="#gslsfgamma">gslsfgamma</a></li>
+<li><a class="reference internal" href="#gslsfgammastar">gslsfgammastar</a></li>
+<li><a class="reference internal" href="#gslsfgammainv">gslsfgammainv</a></li>
+<li><a class="reference internal" href="#gslsftaylorcoeff">gslsftaylorcoeff</a></li>
+<li><a class="reference internal" href="#gslsffact">gslsffact</a></li>
+<li><a class="reference internal" href="#gslsfdoublefact">gslsfdoublefact</a></li>
+<li><a class="reference internal" href="#gslsflnfact">gslsflnfact</a></li>
+<li><a class="reference internal" href="#gslsflndoublefact">gslsflndoublefact</a></li>
+<li><a class="reference internal" href="#gslsflnchoose">gslsflnchoose</a></li>
+<li><a class="reference internal" href="#gslsfchoose">gslsfchoose</a></li>
+<li><a class="reference internal" href="#gslsflnpoch">gslsflnpoch</a></li>
+<li><a class="reference internal" href="#gslsfpoch">gslsfpoch</a></li>
+<li><a class="reference internal" href="#gslsfpochrel">gslsfpochrel</a></li>
+<li><a class="reference internal" href="#gslsfgammaincq">gslsfgammaincQ</a></li>
+<li><a class="reference internal" href="#gslsfgammaincp">gslsfgammaincP</a></li>
+<li><a class="reference internal" href="#gslsfgammainc">gslsfgammainc</a></li>
+<li><a class="reference internal" href="#gslsflnbeta">gslsflnbeta</a></li>
+<li><a class="reference internal" href="#gslsfbeta">gslsfbeta</a></li>
+<li><a class="reference internal" href="#gslsfbetainc">gslsfbetainc</a></li>
+<li><a class="reference internal" href="#gslsfgegenpoly1">gslsfgegenpoly1</a></li>
+<li><a class="reference internal" href="#gslsfgegenpoly2">gslsfgegenpoly2</a></li>
+<li><a class="reference internal" href="#gslsfgegenpoly3">gslsfgegenpoly3</a></li>
+<li><a class="reference internal" href="#gslsfgegenpolyn">gslsfgegenpolyn</a></li>
+<li><a class="reference internal" href="#gslsfhyperg0f1">gslsfhyperg0F1</a></li>
+<li><a class="reference internal" href="#gslsfhyperg1f1int">gslsfhyperg1F1int</a></li>
+<li><a class="reference internal" href="#gslsfhyperg1f1">gslsfhyperg1F1</a></li>
+<li><a class="reference internal" href="#gslsfhyperguint">gslsfhypergUint</a></li>
+<li><a class="reference internal" href="#gslsfhypergu">gslsfhypergU</a></li>
+<li><a class="reference internal" href="#gslsfhyperg2f0">gslsfhyperg2F0</a></li>
+<li><a class="reference internal" href="#gslsflaguerre1">gslsflaguerre1</a></li>
+<li><a class="reference internal" href="#gslsflaguerre2">gslsflaguerre2</a></li>
+<li><a class="reference internal" href="#gslsflaguerre3">gslsflaguerre3</a></li>
+<li><a class="reference internal" href="#gslsflaguerren">gslsflaguerren</a></li>
+<li><a class="reference internal" href="#gslsflambertw0">gslsflambertW0</a></li>
+<li><a class="reference internal" href="#gslsflambertwm1">gslsflambertWm1</a></li>
+<li><a class="reference internal" href="#gslsflegendrepl">gslsflegendrePl</a></li>
+<li><a class="reference internal" href="#gslsflegendrep1">gslsflegendreP1</a></li>
+<li><a class="reference internal" href="#gslsflegendrep2">gslsflegendreP2</a></li>
+<li><a class="reference internal" href="#gslsflegendrep3">gslsflegendreP3</a></li>
+<li><a class="reference internal" href="#gslsflegendreq0">gslsflegendreQ0</a></li>
+<li><a class="reference internal" href="#gslsflegendreq1">gslsflegendreQ1</a></li>
+<li><a class="reference internal" href="#gslsflegendreql">gslsflegendreQl</a></li>
+<li><a class="reference internal" href="#gslsflegendreplm">gslsflegendrePlm</a></li>
+<li><a class="reference internal" href="#gslsflegendresphplm">gslsflegendresphPlm</a></li>
+<li><a class="reference internal" href="#gslsflegendrearraysize">gslsflegendrearraysize</a></li>
+<li><a class="reference internal" href="#gslsfconicalphalf">gslsfconicalPhalf</a></li>
+<li><a class="reference internal" href="#gslsfconicalpmhalf">gslsfconicalPmhalf</a></li>
+<li><a class="reference internal" href="#gslsfconicalp0">gslsfconicalP0</a></li>
+<li><a class="reference internal" href="#gslsfconicalp1">gslsfconicalP1</a></li>
+<li><a class="reference internal" href="#gslsfconicalpsphreg">gslsfconicalPsphreg</a></li>
+<li><a class="reference internal" href="#gslsfconicalpcylreg">gslsfconicalPcylreg</a></li>
+<li><a class="reference internal" href="#gslsflegendreh3d0">gslsflegendreH3d0</a></li>
+<li><a class="reference internal" href="#gslsflegendreh3d1">gslsflegendreH3d1</a></li>
+<li><a class="reference internal" href="#gslsflegendreh3d">gslsflegendreH3d</a></li>
+<li><a class="reference internal" href="#gslsflog">gslsflog</a></li>
+<li><a class="reference internal" href="#gslsflogabs">gslsflogabs</a></li>
+<li><a class="reference internal" href="#gslsflog1plusx">gslsflog1plusx</a></li>
+<li><a class="reference internal" href="#gslsflog1plusxmx">gslsflog1plusxmx</a></li>
+<li><a class="reference internal" href="#gslsfpowint">gslsfpowint</a></li>
+<li><a class="reference internal" href="#gslsfpsiint">gslsfpsiint</a></li>
+<li><a class="reference internal" href="#gslsfpsi">gslsfpsi</a></li>
+<li><a class="reference internal" href="#gslsfpsi1piy">gslsfpsi1piy</a></li>
+<li><a class="reference internal" href="#gslsfpsi1int">gslsfpsi1int</a></li>
+<li><a class="reference internal" href="#gslsfpsi1">gslsfpsi1</a></li>
+<li><a class="reference internal" href="#gslsfpsin">gslsfpsin</a></li>
+<li><a class="reference internal" href="#gslsfsynchrotron1">gslsfsynchrotron1</a></li>
+<li><a class="reference internal" href="#gslsfsynchrotron2">gslsfsynchrotron2</a></li>
+<li><a class="reference internal" href="#gslsftransport2">gslsftransport2</a></li>
+<li><a class="reference internal" href="#gslsftransport3">gslsftransport3</a></li>
+<li><a class="reference internal" href="#gslsftransport4">gslsftransport4</a></li>
+<li><a class="reference internal" href="#gslsftransport5">gslsftransport5</a></li>
+<li><a class="reference internal" href="#gslsfsin">gslsfsin</a></li>
+<li><a class="reference internal" href="#gslsfcos">gslsfcos</a></li>
+<li><a class="reference internal" href="#gslsfhypot">gslsfhypot</a></li>
+<li><a class="reference internal" href="#gslsfsinc">gslsfsinc</a></li>
+<li><a class="reference internal" href="#gslsflnsinh">gslsflnsinh</a></li>
+<li><a class="reference internal" href="#gslsflncosh">gslsflncosh</a></li>
+<li><a class="reference internal" href="#gslsfanglerestrictsymm">gslsfanglerestrictsymm</a></li>
+<li><a class="reference internal" href="#gslsfanglerestrictpos">gslsfanglerestrictpos</a></li>
+<li><a class="reference internal" href="#gslsfzetaint">gslsfzetaint</a></li>
+<li><a class="reference internal" href="#gslsfzeta">gslsfzeta</a></li>
+<li><a class="reference internal" href="#gslsfzetam1">gslsfzetam1</a></li>
+<li><a class="reference internal" href="#gslsfzetam1int">gslsfzetam1int</a></li>
+<li><a class="reference internal" href="#gslsfhzeta">gslsfhzeta</a></li>
+<li><a class="reference internal" href="#gslsfetaint">gslsfetaint</a></li>
+<li><a class="reference internal" href="#gslsfeta">gslsfeta</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-ipopt">ff-Ipopt</a><ul>
+<li><a class="reference internal" href="#ipopt">IPOPT</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fflapack">fflapack</a><ul>
+<li><a class="reference internal" href="#inv">inv</a></li>
+<li><a class="reference internal" href="#dgeev">dgeev</a></li>
+<li><a class="reference internal" href="#zgeev">zgeev</a></li>
+<li><a class="reference internal" href="#geev">geev</a></li>
+<li><a class="reference internal" href="#id13">geev</a></li>
+<li><a class="reference internal" href="#dggev">dggev</a></li>
+<li><a class="reference internal" href="#zggev">zggev</a></li>
+<li><a class="reference internal" href="#dsygvd">dsygvd</a></li>
+<li><a class="reference internal" href="#dgesdd">dgesdd</a></li>
+<li><a class="reference internal" href="#zhegv">zhegv</a></li>
+<li><a class="reference internal" href="#dsyev">dsyev</a></li>
+<li><a class="reference internal" href="#zheev">zheev</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-mmap-semaphore">ff-mmap-semaphore</a><ul>
+<li><a class="reference internal" href="#wait">Wait</a></li>
+<li><a class="reference internal" href="#trywait">trywait</a></li>
+<li><a class="reference internal" href="#post">Post</a></li>
+<li><a class="reference internal" href="#msync">msync</a></li>
+<li><a class="reference internal" href="#read">Read</a></li>
+<li><a class="reference internal" href="#write">Write</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ffnewuoa">ffnewuoa</a><ul>
+<li><a class="reference internal" href="#newuoa">newuoa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ff-nlopt">ff-NLopt</a><ul>
+<li><a class="reference internal" href="#nloptdirect">nloptDIRECT</a></li>
+<li><a class="reference internal" href="#nloptdirectl">nloptDIRECTL</a></li>
+<li><a class="reference internal" href="#nloptdirectlrand">nloptDIRECTLRand</a></li>
+<li><a class="reference internal" href="#nloptdirectscal">nloptDIRECTScal</a></li>
+<li><a class="reference internal" href="#nloptdirectnoscal">nloptDIRECTNoScal</a></li>
+<li><a class="reference internal" href="#nloptdirectlnoscal">nloptDIRECTLNoScal</a></li>
+<li><a class="reference internal" href="#nloptdirectlrandnoscal">nloptDIRECTLRandNoScal</a></li>
+<li><a class="reference internal" href="#nloptorigdirect">nloptOrigDIRECT</a></li>
+<li><a class="reference internal" href="#nloptorigdirectl">nloptOrigDIRECTL</a></li>
+<li><a class="reference internal" href="#nloptstogo">nloptStoGO</a></li>
+<li><a class="reference internal" href="#nloptstogorand">nloptStoGORand</a></li>
+<li><a class="reference internal" href="#nloptlbfgs">nloptLBFGS</a></li>
+<li><a class="reference internal" href="#nloptpraxis">nloptPRAXIS</a></li>
+<li><a class="reference internal" href="#nloptvar1">nloptVar1</a></li>
+<li><a class="reference internal" href="#nloptvar2">nloptVar2</a></li>
+<li><a class="reference internal" href="#nlopttnewton">nloptTNewton</a></li>
+<li><a class="reference internal" href="#nlopttnewtonrestart">nloptTNewtonRestart</a></li>
+<li><a class="reference internal" href="#nlopttnewtonprecond">nloptTNewtonPrecond</a></li>
+<li><a class="reference internal" href="#nlopttnewtonprecondrestart">nloptTNewtonPrecondRestart</a></li>
+<li><a class="reference internal" href="#nloptcrs2">nloptCRS2</a></li>
+<li><a class="reference internal" href="#nloptmma">nloptMMA</a></li>
+<li><a class="reference internal" href="#nloptcobyla">nloptCOBYLA</a></li>
+<li><a class="reference internal" href="#nloptnewuoa">nloptNEWUOA</a></li>
+<li><a class="reference internal" href="#nloptnewuoabound">nloptNEWUOABound</a></li>
+<li><a class="reference internal" href="#nloptneldermead">nloptNelderMead</a></li>
+<li><a class="reference internal" href="#nloptsbplx">nloptSbplx</a></li>
+<li><a class="reference internal" href="#nloptbobyqa">nloptBOBYQA</a></li>
+<li><a class="reference internal" href="#nloptisres">nloptISRES</a></li>
+<li><a class="reference internal" href="#nloptslsqp">nloptSLSQP</a></li>
+<li><a class="reference internal" href="#nloptmlsl">nloptMLSL</a></li>
+<li><a class="reference internal" href="#nloptmlsllds">nloptMLSLLDS</a></li>
+<li><a class="reference internal" href="#nloptauglag">nloptAUGLAG</a></li>
+<li><a class="reference internal" href="#nloptauglageq">nloptAUGLAGEQ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ffrandom">ffrandom</a><ul>
+<li><a class="reference internal" href="#srandomdev">srandomdev</a></li>
+<li><a class="reference internal" href="#srandom">srandom</a></li>
+<li><a class="reference internal" href="#random">random</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#freefemqa">FreeFemQA</a><ul>
+<li><a class="reference internal" href="#meshgenqa">MeshGenQA</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#freeyams">freeyams</a><ul>
+<li><a class="reference internal" href="#id14">freeyams</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gmsh">gmsh</a><ul>
+<li><a class="reference internal" href="#gmshload">gmshload</a></li>
+<li><a class="reference internal" href="#gmshload3">gmshload3</a></li>
+<li><a class="reference internal" href="#savegmsh">savegmsh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gsl">gsl</a><ul>
+<li><a class="reference internal" href="#gslpolysolvequadratic">gslpolysolvequadratic</a></li>
+<li><a class="reference internal" href="#gslpolysolvecubic">gslpolysolvecubic</a></li>
+<li><a class="reference internal" href="#gslpolycomplexsolve">gslpolycomplexsolve</a></li>
+<li><a class="reference internal" href="#gslrnguniform">gslrnguniform</a></li>
+<li><a class="reference internal" href="#gslrnguniformpos">gslrnguniformpos</a></li>
+<li><a class="reference internal" href="#gslname">gslname</a></li>
+<li><a class="reference internal" href="#gslrngget">gslrngget</a></li>
+<li><a class="reference internal" href="#gslrngmin">gslrngmin</a></li>
+<li><a class="reference internal" href="#gslrngmax">gslrngmax</a></li>
+<li><a class="reference internal" href="#gslrngset">gslrngset</a></li>
+<li><a class="reference internal" href="#gslrngtype">gslrngtype</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ilut">ilut</a><ul>
+<li><a class="reference internal" href="#applyilutprecond">applyIlutPrecond</a></li>
+<li><a class="reference internal" href="#makeilutprecond">makeIlutPrecond</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iohdf5">iohdf5</a><ul>
+<li><a class="reference internal" href="#savehdf5sol">savehdf5sol</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iovtk">iovtk</a><ul>
+<li><a class="reference internal" href="#savevtk">savevtk</a></li>
+<li><a class="reference internal" href="#vtkload">vtkload</a></li>
+<li><a class="reference internal" href="#vtkload3">vtkload3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#isoline">isoline</a><ul>
+<li><a class="reference internal" href="#id15">isoline</a></li>
+<li><a class="reference internal" href="#curve">Curve</a></li>
+<li><a class="reference internal" href="#area">Area</a></li>
+<li><a class="reference internal" href="#findallocalmin">findallocalmin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lapack">lapack</a><ul>
+<li><a class="reference internal" href="#id16">inv</a></li>
+<li><a class="reference internal" href="#id17">dgeev</a></li>
+<li><a class="reference internal" href="#id18">zgeev</a></li>
+<li><a class="reference internal" href="#id19">geev</a></li>
+<li><a class="reference internal" href="#id20">dggev</a></li>
+<li><a class="reference internal" href="#id21">zggev</a></li>
+<li><a class="reference internal" href="#id22">dsygvd</a></li>
+<li><a class="reference internal" href="#id23">dgesdd</a></li>
+<li><a class="reference internal" href="#id24">zhegv</a></li>
+<li><a class="reference internal" href="#id25">dsyev</a></li>
+<li><a class="reference internal" href="#id26">zheev</a></li>
+<li><a class="reference internal" href="#dgelsy">dgelsy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lgbmo">lgbmo</a><ul>
+<li><a class="reference internal" href="#bmo">bmo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mat-dervieux">mat_dervieux</a><ul>
+<li><a class="reference internal" href="#matupwind1">MatUpWind1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mat-psi">mat_psi</a><ul>
+<li><a class="reference internal" href="#matupwind0">MatUpWind0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#medit">medit</a><ul>
+<li><a class="reference internal" href="#id27">medit</a></li>
+<li><a class="reference internal" href="#savesol">savesol</a></li>
+<li><a class="reference internal" href="#readsol">readsol</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metis">metis</a><ul>
+<li><a class="reference internal" href="#metisnodal">metisnodal</a></li>
+<li><a class="reference internal" href="#metisdual">metisdual</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metrickuate">MetricKuate</a><ul>
+<li><a class="reference internal" href="#id28">MetricKuate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metricpk">MetricPk</a><ul>
+<li><a class="reference internal" href="#id29">MetricPk</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmg3d">mmg3d</a><ul>
+<li><a class="reference internal" href="#id30">mmg3d</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmg3d-v4-0">mmg3d-v4.0</a><ul>
+<li><a class="reference internal" href="#id31">mmg3d</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#msh3">msh3</a><ul>
+<li><a class="reference internal" href="#change">change</a></li>
+<li><a class="reference internal" href="#movemesh23">movemesh23</a></li>
+<li><a class="reference internal" href="#movemesh2d3dsurf">movemesh2D3Dsurf</a></li>
+<li><a class="reference internal" href="#movemesh3">movemesh3</a></li>
+<li><a class="reference internal" href="#movemesh">movemesh</a></li>
+<li><a class="reference internal" href="#movemesh3d">movemesh3D</a></li>
+<li><a class="reference internal" href="#deplacement">deplacement</a></li>
+<li><a class="reference internal" href="#checkbemesh">checkbemesh</a></li>
+<li><a class="reference internal" href="#id32">buildlayers</a></li>
+<li><a class="reference internal" href="#bcube">bcube</a></li>
+<li><a class="reference internal" href="#cube">cube</a></li>
+<li><a class="reference internal" href="#trunc">trunc</a></li>
+<li><a class="reference internal" href="#gluemesh">gluemesh</a></li>
+<li><a class="reference internal" href="#extract">extract</a></li>
+<li><a class="reference internal" href="#showborder">showborder</a></li>
+<li><a class="reference internal" href="#getborder">getborder</a></li>
+<li><a class="reference internal" href="#addlayers">AddLayers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mshmet">mshmet</a><ul>
+<li><a class="reference internal" href="#id33">mshmet</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mumps">MUMPS</a><ul>
+<li><a class="reference internal" href="#defaulttomumpsseq">defaulttoMUMPSseq</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mumps-seq">MUMPS_seq</a><ul>
+<li><a class="reference internal" href="#id34">defaulttoMUMPSseq</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#netgen">netgen</a><ul>
+<li><a class="reference internal" href="#netg">netg</a></li>
+<li><a class="reference internal" href="#netgstl">netgstl</a></li>
+<li><a class="reference internal" href="#netgload">netgload</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#newsolver">NewSolver</a><ul>
+<li><a class="reference internal" href="#defaulttoumfpack">defaulttoUMFPACK</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pardiso">PARDISO</a><ul>
+<li><a class="reference internal" href="#defaulttopardiso">defaulttoPARDISO</a></li>
+<li><a class="reference internal" href="#ompsetnumthreads">ompsetnumthreads</a></li>
+<li><a class="reference internal" href="#ompgetnumthreads">ompgetnumthreads</a></li>
+<li><a class="reference internal" href="#ompgetmaxthreads">ompgetmaxthreads</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pcm2rnm">pcm2rnm</a><ul>
+<li><a class="reference internal" href="#readpcm">readpcm</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pipe">pipe</a><ul>
+<li><a class="reference internal" href="#flush">flush</a></li>
+<li><a class="reference internal" href="#sleep">sleep</a></li>
+<li><a class="reference internal" href="#usleep">usleep</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qf11to25">qf11to25</a><ul>
+<li><a class="reference internal" href="#qf1d">QF1d</a></li>
+<li><a class="reference internal" href="#qf2d">QF2d</a></li>
+<li><a class="reference internal" href="#qf3d">QF3d</a></li>
+<li><a class="reference internal" href="#tripleqf">tripleQF</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scotch">scotch</a><ul>
+<li><a class="reference internal" href="#id35">scotch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shell">shell</a><ul>
+<li><a class="reference internal" href="#readdir">readdir</a></li>
+<li><a class="reference internal" href="#unlink">unlink</a></li>
+<li><a class="reference internal" href="#rmdir">rmdir</a></li>
+<li><a class="reference internal" href="#cddir">cddir</a></li>
+<li><a class="reference internal" href="#chdir">chdir</a></li>
+<li><a class="reference internal" href="#basename">basename</a></li>
+<li><a class="reference internal" href="#dirname">dirname</a></li>
+<li><a class="reference internal" href="#mkdir">mkdir</a></li>
+<li><a class="reference internal" href="#chmod">chmod</a></li>
+<li><a class="reference internal" href="#cpfile">cpfile</a></li>
+<li><a class="reference internal" href="#stat">stat</a></li>
+<li><a class="reference internal" href="#isdir">isdir</a></li>
+<li><a class="reference internal" href="#getenv">getenv</a></li>
+<li><a class="reference internal" href="#setenv">setenv</a></li>
+<li><a class="reference internal" href="#unsetenv">unsetenv</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#splitedges">splitedges</a><ul>
+<li><a class="reference internal" href="#splitedgemesh">SplitedgeMesh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#splitmesh12">splitmesh12</a><ul>
+<li><a class="reference internal" href="#id36">splitmesh12</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#splitmesh3">splitmesh3</a><ul>
+<li><a class="reference internal" href="#id37">splitmesh3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#splitmesh4">splitmesh4</a><ul>
+<li><a class="reference internal" href="#splimesh4">splimesh4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#splitmesh6">splitmesh6</a><ul>
+<li><a class="reference internal" href="#id38">splitmesh6</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#superlu">SuperLu</a><ul>
+<li><a class="reference internal" href="#defaulttosuperlu">defaulttoSuperLu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#symmetrizecsr">symmetrizeCSR</a><ul>
+<li><a class="reference internal" href="#id39">symmetrizeCSR</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tetgen">tetgen</a><ul>
+<li><a class="reference internal" href="#tetgconvexhull">tetgconvexhull</a></li>
+<li><a class="reference internal" href="#tetgtransfo">tetgtransfo</a></li>
+<li><a class="reference internal" href="#tetg">tetg</a></li>
+<li><a class="reference internal" href="#tetgreconstruction">tetgreconstruction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#umfpack64">UMFPACK64</a><ul>
+<li><a class="reference internal" href="#defaulttoumfpack64">defaulttoUMFPACK64</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vtk-writer-3d">VTK_writer_3d</a><ul>
+<li><a class="reference internal" href="#vtkaddmesh">Vtkaddmesh</a></li>
+<li><a class="reference internal" href="#vtkaddscalar">Vtkaddscalar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vtk-writer">VTK_writer</a><ul>
+<li><a class="reference internal" href="#id40">Vtkaddmesh</a></li>
+<li><a class="reference internal" href="#id41">Vtkaddscalar</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
-            </nav>
-        
-        </div>
-    
-</header>
-        <main class="mdl-layout__content" tabIndex="0">
-<header class="mdl-layout__drawer">
-    
-          <!-- Title -->
-      <span class="mdl-layout-title">
-          <a class="title" href="../index.html">
-              <span class="title-text">
-                  FreeFem++
-              </span>
-          </a>
-      </span>
-    
-    
-      <div class="globaltoc">
-        <span class="mdl-layout-title toc">Table Of Contents</span>
-        
-        
-            
-            <nav class="mdl-navigation">
-                <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/contributing.html">Contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/citation.html">Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/documentation.html">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/notations.html">Notations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/meshGeneration.html">Mesh Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/finiteElement.html">Finite element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/visualization.html">Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/algorithmsOptimization.html">Algorithms &amp; Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/developers.html">Developers</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="reference.html">Language reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="globalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quadratureFormulae.html">Quadrature formulae</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loops.html">Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IO.html">I/O</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">External libraries</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/tutorial.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../model/model.html">Mathematical Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a></li>
-</ul>
-</li>
-</ul>
-
-            </nav>
-        
-        </div>
-    
-</header>
-
-    <div class="document">
-        <div class="page-content">
-        
-  <div class="section" id="external-libraries">
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					
+    <div class="section" id="external-libraries">
 <span id="externallibraries"></span><h1>External libraries<a class="headerlink" href="#external-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="aniso">
 <h2>aniso<a class="headerlink" href="#aniso" title="Permalink to this headline">¶</a></h2>
@@ -418,18 +971,18 @@ Show Source
 <div class="section" id="extractborder">
 <h3>extractborder<a class="headerlink" href="#extractborder" title="Permalink to this headline">¶</a></h3>
 <p>Extract a border of a mesh.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int Res = extractborder(Th, Label, Points);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">Res</span> <span class="o">=</span> <span class="n">extractborder</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Points</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Label</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Label of the border to extract</li>
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Points</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int, int]</code>) Extracted points Must be allocated as <code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int, int] Points(3, 1);</code></li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code>)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Label</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) Label of the border to extract</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Points</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">]</span></code>) Extracted points Must be allocated as <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">]</span> <span class="n">Points</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span></code></li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Res</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real</code>) Length of the extracted border</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Res</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) Length of the extracted border</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -524,19 +1077,19 @@ Show Source
 <div class="section" id="distance">
 <h2>distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
 <p>Need</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;distance&quot;
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;distance&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="id3">
 <h3>distance<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>distance(Th, d, dist, [distmax=DistMax]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nf">d</span><span class="p">,</span> <span class="nf">dist</span><span class="p">,</span> <span class="p">[</span><span class="kp">distmax</span><span class="o">=</span><span class="n">DistMax</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
-<li><code class="docutils literal highlight highlight-freefem"><span></span>d</code></li>
-<li><code class="docutils literal highlight highlight-freefem"><span></span>dist</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>real[int]</code>)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code>)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">d</span></code></li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">dist</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code>)</li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
@@ -3038,10 +3591,12 @@ Show Source
 <div class="section" id="fflapack">
 <h2>fflapack<a class="headerlink" href="#fflapack" title="Permalink to this headline">¶</a></h2>
 <p>Refer to the <a class="reference external" href="http://www.netlib.org/lapack/">LAPACK documentation</a> for more informations.</p>
-<p>###inv</p>
+<div class="section" id="inv">
+<h3>inv<a class="headerlink" href="#inv" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-39">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
+</div>
 </div>
 <div class="section" id="dgeev">
 <h3>dgeev<a class="headerlink" href="#dgeev" title="Permalink to this headline">¶</a></h3>
@@ -3458,42 +4013,42 @@ Show Source
 <div class="section" id="gmsh">
 <h2>gmsh<a class="headerlink" href="#gmsh" title="Permalink to this headline">¶</a></h2>
 <p>Need</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;gsmh&quot;
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;gsmh&quot;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal highlight highlight-freefem"><span></span>gmsh</code> software is available <a class="reference external" href="http://gmsh.info/">here</a></p>
+<p>The <code class="docutils literal highlight highlight-default"><span></span><span class="n">gmsh</span></code> software is available <a class="reference external" href="http://gmsh.info/">here</a></p>
 <div class="section" id="gmshload">
 <h3>gmshload<a class="headerlink" href="#gmshload" title="Permalink to this headline">¶</a></h3>
 <p>Load a 2D mesh build with Gmsh.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh Th = gmshload(MeshFile, [reftri=RefTri], [renum=Renum]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">gmshload</span><span class="p">(</span><span class="n">MeshFile</span><span class="p">,</span> <span class="p">[</span><span class="kp">reftri</span><span class="o">=</span><span class="n">RefTri</span><span class="p">],</span> <span class="p">[</span><span class="n">renum</span><span class="o">=</span><span class="n">Renum</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>MeshFile</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Mesh file name</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>reftri=</code> (.. todo:: todo)</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>renum=</code> (.. todo:: todo)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">MeshFile</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>) Mesh file name</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">reftri</span><span class="o">=</span></code> (.. todo:: todo)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">renum</span><span class="o">=</span></code> (.. todo:: todo)</li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code>)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code>)</li>
 </ul>
 </div>
 <div class="section" id="gmshload3">
 <h3>gmshload3<a class="headerlink" href="#gmshload3" title="Permalink to this headline">¶</a></h3>
 <p>Load a 3D mesh build with Gmsh.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh3 Th = gmshload(MeshFile, [reftet=RefTet], [renum=Renum]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">gmshload</span><span class="p">(</span><span class="n">MeshFile</span><span class="p">,</span> <span class="p">[</span><span class="kp">reftet</span><span class="o">=</span><span class="n">RefTet</span><span class="p">],</span> <span class="p">[</span><span class="n">renum</span><span class="o">=</span><span class="n">Renum</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>MeshFile</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Mesh file name</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>reftet=</code> (.. todo:: todo)</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span>renum=</code> (.. todo:: todo)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">MeshFile</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>) Mesh file name</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">reftet</span><span class="o">=</span></code> (.. todo:: todo)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">renum</span><span class="o">=</span></code> (.. todo:: todo)</li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code>)</li>
 </ul>
 </div>
 <div class="section" id="savegmsh">
@@ -3616,33 +4171,33 @@ Show Source
 <div class="section" id="savevtk">
 <h3>savevtk<a class="headerlink" href="#savevtk" title="Permalink to this headline">¶</a></h3>
 <p>Save mesh or solution in vtk/vtu format.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>savetk(FileName, Th, [Ux, Uy, Uz], p, [dataname=DataName], [withsurfacemesh=WithSurfaceMesh], [order=Order], [floatmesh=FloatMesh], [floatsol=FloatSol], [bin=Bin], [swap=Swap]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="nf">savevtk</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">,</span> <span class="n">Uz</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="p">[</span><span class="kp">dataname</span><span class="o">=</span><span class="n">DataName</span><span class="p">],</span> <span class="p">[</span><span class="kp">withsurfacemesh</span><span class="o">=</span><span class="n">WithSurfaceMesh</span><span class="p">],</span> <span class="p">[</span><span class="kp">order</span><span class="o">=</span><span class="n">Order</span><span class="p">],</span> <span class="p">[</span><span class="kp">floatmesh</span><span class="o">=</span><span class="n">FloatMesh</span><span class="p">],</span> <span class="p">[</span><span class="kp">floatsol</span><span class="o">=</span><span class="n">FloatSol</span><span class="p">],</span> <span class="p">[</span><span class="kp">bin</span><span class="o">=</span><span class="n">Bin</span><span class="p">],</span> <span class="p">[</span><span class="nf">swap</span><span class="o">=</span><span class="n">Swap</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>FileName</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) File name: <code class="docutils literal highlight highlight-freefem"><span></span>*.vtk</code> or
-<code class="docutils literal highlight highlight-freefem"><span></span>*.vtu</code></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">FileName</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>) File name: <code class="docutils literal highlight highlight-default"><span></span><span class="o">*.</span><span class="n">vtk</span></code> or
+<code class="docutils literal highlight highlight-default"><span></span><span class="o">*.</span><span class="n">vtu</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh</code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>)</p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code>)</p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>[Ux, Uy, Uz], p</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> function of vector of <code class="code freefem docutils literal highlight highlight-freefem"><span></span>fespace</code> functions) Solutions to save, as much as wanted</p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="p">[</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">,</span> <span class="n">Uz</span><span class="p">],</span> <span class="n">p</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">fespace</span></code> function of vector of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">fespace</span></code> functions) Solutions to save, as much as wanted</p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>:::frefem dataname=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>string</code>) Name of solutions, seprated by a space</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">dataname</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>) Name of solutions, seprated by a space</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>withsurfacemesh=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>)
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">withsurfacemesh</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">bool</span></code>)
 .. todo:: todo</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>order=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) Order of solutions.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">order</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code>) Order of solutions.</p>
 <p>Available: 0 or 1</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>floatmesh=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) .. todo:: todo</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">floatmesh</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">bool</span></code>) .. todo:: todo</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>floatsol=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) .. todo:: todo</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">floatsol</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">bool</span></code>) .. todo:: todo</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>bin=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) If true, save file in binary format</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">bin</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">bool</span></code>) If true, save file in binary format</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>swap</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>bool</code>) .. todo:: todo</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">swap</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">bool</span></code>) .. todo:: todo</p>
 </li>
 </ul>
 <p>Output:</p>
@@ -3668,12 +4223,12 @@ Show Source
 <div class="section" id="isoline">
 <h2>isoline<a class="headerlink" href="#isoline" title="Permalink to this headline">¶</a></h2>
 <p>Need</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>load &quot;isoline&quot;
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;</span><span class="nf">isoline</span><span class="s">&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="id15">
 <h3>isoline<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>int N = isoline(Th, u, xy, iso=Iso, close=Close, smoothing=Smoothing, ratio=Ratio, eps=Eps, beginend=BeginEnd, file=File);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="kr">N</span> <span class="o">=</span> <span class="nf">isoline</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="kp">iso</span><span class="o">=</span><span class="n">Iso</span><span class="p">,</span> <span class="kp">close</span><span class="o">=</span><span class="n">Close</span><span class="p">,</span> <span class="kp">smoothing</span><span class="o">=</span><span class="n">Smoothing</span><span class="p">,</span> <span class="kp">ratio</span><span class="o">=</span><span class="n">Ratio</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="n">Eps</span><span class="p">,</span> <span class="kp">beginend</span><span class="o">=</span><span class="n">BeginEnd</span><span class="p">,</span> <span class="kp">file</span><span class="o">=</span><span class="n">File</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-113">
@@ -3705,78 +4260,78 @@ Show Source
 </div>
 <div class="section" id="lapack">
 <h2>lapack<a class="headerlink" href="#lapack" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="inv">
-<h3>inv<a class="headerlink" href="#inv" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>inv<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-117">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id16">
-<h3>dgeev<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>dgeev<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-118">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id17">
-<h3>zgeev<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>zgeev<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-119">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id18">
-<h3>geev<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>geev<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-120">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id19">
-<h3>dggev<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>dggev<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-121">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id20">
-<h3>zggev<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>zggev<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-122">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id21">
-<h3>dsygvd<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3>dsygvd<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-123">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id22">
-<h3>dgesdd<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h3>dgesdd<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-124">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id23">
-<h3>zhegv<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h3>zhegv<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-125">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id24">
-<h3>dsyev<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>dsyev<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-126">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id25">
-<h3>zheev<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h3>zheev<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-127">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3822,8 +4377,8 @@ Show Source
 </div>
 <div class="section" id="medit">
 <span id="referencemedit"></span><h2>medit<a class="headerlink" href="#medit" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id26">
-<h3>medit<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id27">
+<h3>medit<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-132">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3863,8 +4418,8 @@ Show Source
 </div>
 <div class="section" id="metrickuate">
 <h2>MetricKuate<a class="headerlink" href="#metrickuate" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id27">
-<h3>MetricKuate<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id28">
+<h3>MetricKuate<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-137">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3873,8 +4428,8 @@ Show Source
 </div>
 <div class="section" id="metricpk">
 <h2>MetricPk<a class="headerlink" href="#metricpk" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id28">
-<h3>MetricPk<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h3>MetricPk<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-138">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3883,8 +4438,8 @@ Show Source
 </div>
 <div class="section" id="mmg3d">
 <h2>mmg3d<a class="headerlink" href="#mmg3d" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id29">
-<h3>mmg3d<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id30">
+<h3>mmg3d<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-139">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3893,8 +4448,8 @@ Show Source
 </div>
 <div class="section" id="mmg3d-v4-0">
 <h2>mmg3d-v4.0<a class="headerlink" href="#mmg3d-v4-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id30">
-<h3>mmg3d<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h3>mmg3d<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-140">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3959,8 +4514,8 @@ Show Source
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="id31">
-<h3>buildlayers<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id32">
+<h3>buildlayers<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-149">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -3976,36 +4531,36 @@ Show Source
 <div class="section" id="cube">
 <h3>cube<a class="headerlink" href="#cube" title="Permalink to this headline">¶</a></h3>
 <p>Construct a cubic mesh.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh3 Th = cube(nnX, nnY, nnZ, [X(x), Y(y), Z(z)], [label=Label], [flags=Flags], [region=Region]);
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">cube</span><span class="p">(</span><span class="n">nnX</span><span class="p">,</span> <span class="n">nnY</span><span class="p">,</span> <span class="n">nnZ</span><span class="p">,</span> <span class="p">[</span><span class="n">X</span><span class="p">(</span><span class="kr">x</span><span class="p">),</span> <span class="n">Y</span><span class="p">(</span><span class="kr">y</span><span class="p">),</span> <span class="n">Z</span><span class="p">(</span><span class="kr">z</span><span class="p">)],</span> <span class="p">[</span><span class="kr">label</span><span class="o">=</span><span class="n">Label</span><span class="p">],</span> <span class="p">[</span><span class="kp">flags</span><span class="o">=</span><span class="n">Flags</span><span class="p">],</span> <span class="p">[</span><span class="kr">region</span><span class="o">=</span><span class="n">Region</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Parameters:</p>
 <ul>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>nnX</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of discretization point along <span class="math notranslate nohighlight">\(x\)</span></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">nnX</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) Number of discretization point along <span class="math notranslate nohighlight">\(x\)</span></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>nnY</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of discretization point along <span class="math notranslate nohighlight">\(y\)</span></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">nnY</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) Number of discretization point along <span class="math notranslate nohighlight">\(y\)</span></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>nnZ</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) Number of discretization point along <span class="math notranslate nohighlight">\(z\)</span></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">nnZ</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) Number of discretization point along <span class="math notranslate nohighlight">\(z\)</span></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>X(x)</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(x\)</span> to define the length Default: <code class="docutils literal highlight highlight-freefem"><span></span>x</code></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">X</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span></code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(x\)</span> to define the length Default: <code class="docutils literal highlight highlight-default"><span></span><span class="n">x</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Y(y)</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(y\)</span> to define the width Default: <code class="docutils literal highlight highlight-freefem"><span></span>y</code></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">Y</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span></code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(y\)</span> to define the width Default: <code class="docutils literal highlight highlight-default"><span></span><span class="n">y</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal highlight highlight-freefem"><span></span>Z(z)</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>func</code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(z\)</span> to define the height Default: <code class="docutils literal highlight highlight-freefem"><span></span>z</code></p>
+<li><p class="first"><code class="docutils literal highlight highlight-default"><span></span><span class="n">Z</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span></code>) <em>[Optional]</em> Affine function of <span class="math notranslate nohighlight">\(z\)</span> to define the height Default: <code class="docutils literal highlight highlight-default"><span></span><span class="n">z</span></code></p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>label=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int[int]</code>) <em>[Optional]</em></p>
-<p>List of surface labels Default: <code class="docutils literal highlight highlight-freefem"><span></span>[1, 2, 3, 4, 5, 6]</code></p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">label</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code>) <em>[Optional]</em></p>
+<p>List of surface labels Default: <code class="docutils literal highlight highlight-default"><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span></code></p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>flags=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
-<p>Refer to <a class="reference external" href="#square">square</a></p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">flags</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) <em>[Optional]</em></p>
+<p>Refer to <a class="reference internal" href="functions.html#functionsquare"><span class="std std-ref">square</span></a></p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span>region=</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>int</code>) <em>[Optional]</em></p>
-<p>Region number of the cube volume Default: <code class="docutils literal highlight highlight-freefem"><span></span>0</code></p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">region</span><span class="o">=</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) <em>[Optional]</em></p>
+<p>Region number of the cube volume Default: <code class="docutils literal highlight highlight-default"><span></span><span class="mi">0</span></code></p>
 </li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span>Th</code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span>mesh3</code>) Cube mesh</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code>) Cube mesh</li>
 </ul>
 </div>
 <div class="section" id="trunc">
@@ -4053,8 +4608,8 @@ Show Source
 </div>
 <div class="section" id="mshmet">
 <h2>mshmet<a class="headerlink" href="#mshmet" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id32">
-<h3>mshmet<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id33">
+<h3>mshmet<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-157">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4073,8 +4628,8 @@ Show Source
 </div>
 <div class="section" id="mumps-seq">
 <h2>MUMPS_seq<a class="headerlink" href="#mumps-seq" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id33">
-<h3>defaulttoMUMPSseq<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id34">
+<h3>defaulttoMUMPSseq<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-159">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4209,8 +4764,8 @@ Show Source
 </div>
 <div class="section" id="scotch">
 <h2>scotch<a class="headerlink" href="#scotch" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id34">
-<h3>scotch<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id35">
+<h3>scotch<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-175">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4337,8 +4892,8 @@ Show Source
 </div>
 <div class="section" id="splitmesh12">
 <h2>splitmesh12<a class="headerlink" href="#splitmesh12" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id35">
-<h3>splitmesh12<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id36">
+<h3>splitmesh12<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-192">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4347,8 +4902,8 @@ Show Source
 </div>
 <div class="section" id="splitmesh3">
 <h2>splitmesh3<a class="headerlink" href="#splitmesh3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id36">
-<h3>splitmesh3<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id37">
+<h3>splitmesh3<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-193">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4367,8 +4922,8 @@ Show Source
 </div>
 <div class="section" id="splitmesh6">
 <h2>splitmesh6<a class="headerlink" href="#splitmesh6" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id37">
-<h3>splitmesh6<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<h3>splitmesh6<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-195">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4387,8 +4942,8 @@ Show Source
 </div>
 <div class="section" id="symmetrizecsr">
 <h2>symmetrizeCSR<a class="headerlink" href="#symmetrizecsr" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id38">
-<h3>symmetrizeCSR<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id39">
+<h3>symmetrizeCSR<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-197">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4415,7 +4970,7 @@ Show Source
 <div class="section" id="tetg">
 <h3>tetg<a class="headerlink" href="#tetg" title="Permalink to this headline">¶</a></h3>
 <p>Build a 3D mesh from a surface.</p>
-<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span>mesh3 Th = tetg(Th0, [reftet=RefTet], [label=Label], [switch=Switch], [nbofholes=NbOfHoles], [holelist=HoleList], [nbofregions=NbOfRegions], [regionlist=RegionList], [nboffacetcl=NbOfFaceTcl], [facetcl=FaceTcl])
+<div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">tetg</span><span class="p">(</span><span class="n">Th0</span><span class="p">,</span> <span class="p">[</span><span class="kp">reftet</span><span class="o">=</span><span class="n">RefTet</span><span class="p">],</span> <span class="p">[</span><span class="kr">label</span><span class="o">=</span><span class="n">Label</span><span class="p">],</span> <span class="p">[</span><span class="kp">switch</span><span class="o">=</span><span class="n">Switch</span><span class="p">],</span> <span class="p">[</span><span class="kp">nbofholes</span><span class="o">=</span><span class="n">NbOfHoles</span><span class="p">],</span> <span class="p">[</span><span class="kp">holelist</span><span class="o">=</span><span class="n">HoleList</span><span class="p">],</span> <span class="p">[</span><span class="kp">nbofregions</span><span class="o">=</span><span class="n">NbOfRegions</span><span class="p">],</span> <span class="p">[</span><span class="kp">regionlist</span><span class="o">=</span><span class="n">RegionList</span><span class="p">],</span> <span class="p">[</span><span class="kp">nboffacetcl</span><span class="o">=</span><span class="n">NbOfFaceTcl</span><span class="p">],</span> <span class="p">[</span><span class="kp">facetcl</span><span class="o">=</span><span class="n">FaceTcl</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-200">
@@ -4449,7 +5004,9 @@ Show Source
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
-<p>###Vtkaddscalar</p>
+</div>
+<div class="section" id="vtkaddscalar">
+<h3>Vtkaddscalar<a class="headerlink" href="#vtkaddscalar" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-204">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -4458,814 +5015,44 @@ Show Source
 </div>
 <div class="section" id="vtk-writer">
 <h2>VTK_writer<a class="headerlink" href="#vtk-writer" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id39">
-<h3>Vtkaddmesh<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id40">
+<h3>Vtkaddmesh<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-205">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
 </div>
 </div>
-<div class="section" id="vtkaddscalar">
-<h3>Vtkaddscalar<a class="headerlink" href="#vtkaddscalar" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id41">
+<h3>Vtkaddscalar<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
 
 
-        </div>
-        <div class="side-doc-outline">
-            <div class="side-doc-outline--content"> 
-<div class="localtoc">
-    <p class="caption">
-      <span class="caption-text">Table Of Contents</span>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<script>
+    let date = new Date()
+    let currentYear = date.getFullYear()
+</script>
+<div class="footer-text">
+    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+</div>
+<div class="footer-img">
+    <p>
+        Made with <i class="fas fa-heart"></i> on
     </p>
-    <ul>
-<li><a class="reference internal" href="#">External libraries</a><ul>
-<li><a class="reference internal" href="#aniso">aniso</a><ul>
-<li><a class="reference internal" href="#boundaniso">boundaniso</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bec">BEC</a><ul>
-<li><a class="reference internal" href="#bectrap">BECtrap</a></li>
-<li><a class="reference internal" href="#gpvortex">GPvortex</a></li>
-<li><a class="reference internal" href="#dxgpvortex">dxGPVortex</a></li>
-<li><a class="reference internal" href="#dygpvortex">dyGPVortex</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#binary-i-o">Binary I/O</a><ul>
-<li><a class="reference internal" href="#loadvec">LoadVec</a></li>
-<li><a class="reference internal" href="#loadflag">LoadFlag</a></li>
-<li><a class="reference internal" href="#savevec">SaveVec</a></li>
-<li><a class="reference internal" href="#flag">flag</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#buildlayer">buildlayer</a><ul>
-<li><a class="reference internal" href="#buildlayers">buildlayers</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#closepoints">ClosePoints</a><ul>
-<li><a class="reference internal" href="#radiussearch">radiusSearch</a></li>
-<li><a class="reference internal" href="#voisinage">Voisinage</a></li>
-<li><a class="reference internal" href="#neighborhood">neighborhood</a></li>
-<li><a class="reference internal" href="#closepoints2">ClosePoints2</a></li>
-<li><a class="reference internal" href="#closepoint">ClosePoint</a></li>
-<li><a class="reference internal" href="#closepoints1">ClosePoints1</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#curvature">Curvature</a><ul>
-<li><a class="reference internal" href="#extractborder">extractborder</a></li>
-<li><a class="reference internal" href="#id1">curvature</a></li>
-<li><a class="reference internal" href="#raxicurvature">raxicurvature</a></li>
-<li><a class="reference internal" href="#curves">curves</a></li>
-<li><a class="reference internal" href="#setecurveabcisse">setecurveabcisse</a></li>
-<li><a class="reference internal" href="#equiparameter">equiparameter</a></li>
-<li><a class="reference internal" href="#tresca">Tresca</a></li>
-<li><a class="reference internal" href="#vonmises">VonMises</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dfft">dfft</a><ul>
-<li><a class="reference internal" href="#plandfft">plandfft</a></li>
-<li><a class="reference internal" href="#execute">execute</a></li>
-<li><a class="reference internal" href="#delete">delete</a></li>
-<li><a class="reference internal" href="#id2">dfft</a></li>
-<li><a class="reference internal" href="#map">map</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#distance">distance</a><ul>
-<li><a class="reference internal" href="#id3">distance</a></li>
-<li><a class="reference internal" href="#checkdist">checkdist</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dxwriter">DxWriter</a><ul>
-<li><a class="reference internal" href="#dxaddmesh">Dxaddmesh</a></li>
-<li><a class="reference internal" href="#dxaddtimeseries">Dxaddtimeseries</a></li>
-<li><a class="reference internal" href="#dxaddsol2ts">Dxaddsol2ts</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#element-p1bl">Element_P1bl</a><ul>
-<li><a class="reference internal" href="#expert">expert</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#exactpartition">exactpartition</a><ul>
-<li><a class="reference internal" href="#id4">exactpartition</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-airybiry">ff-AiryBiry</a><ul>
-<li><a class="reference internal" href="#airy">airy</a></li>
-<li><a class="reference internal" href="#biry">biry</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-cmaes">ff-cmaes</a><ul>
-<li><a class="reference internal" href="#cmaes">cmaes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-gsl-awk">ff_gsl_awk</a><ul>
-<li><a class="reference internal" href="#gslcdfugaussianp">gslcdfugaussianP</a></li>
-<li><a class="reference internal" href="#gslcdfugaussianq">gslcdfugaussianQ</a></li>
-<li><a class="reference internal" href="#gslcdfugaussianpinv">gslcdfugaussianPinv</a></li>
-<li><a class="reference internal" href="#gslcdfugaussianqinv">gslcdfugaussianQinv</a></li>
-<li><a class="reference internal" href="#gslcdfgaussianp">gslcdfgaussianP</a></li>
-<li><a class="reference internal" href="#gslcdfgaussianq">gslcdfgaussianQ</a></li>
-<li><a class="reference internal" href="#gslcdfgaussianpinv">gslcdfgaussianPinv</a></li>
-<li><a class="reference internal" href="#gslcdfgaussianqinv">gslcdfgaussianQinv</a></li>
-<li><a class="reference internal" href="#gslcdfgammap">gslcdfgammaP</a></li>
-<li><a class="reference internal" href="#gslcdfgammaq">gslcdfgammaQ</a></li>
-<li><a class="reference internal" href="#gslcdfgammapinv">gslcdfgammaPinv</a></li>
-<li><a class="reference internal" href="#gslcdfgammaqinv">gslcdfgammaQinv</a></li>
-<li><a class="reference internal" href="#gslcdfcauchyp">gslcdfcauchyP</a></li>
-<li><a class="reference internal" href="#gslcdfcauchyq">gslcdfcauchyQ</a></li>
-<li><a class="reference internal" href="#gslcdfcauchypinv">gslcdfcauchyPinv</a></li>
-<li><a class="reference internal" href="#gslcdfcauchyqinv">gslcdfcauchyQinv</a></li>
-<li><a class="reference internal" href="#gslcdflaplacep">gslcdflaplaceP</a></li>
-<li><a class="reference internal" href="#gslcdflaplaceq">gslcdflaplaceQ</a></li>
-<li><a class="reference internal" href="#gslcdflaplacepinv">gslcdflaplacePinv</a></li>
-<li><a class="reference internal" href="#gslcdflaplaceqinv">gslcdflaplaceQinv</a></li>
-<li><a class="reference internal" href="#gslcdfrayleighp">gslcdfrayleighP</a></li>
-<li><a class="reference internal" href="#gslcdfrayleighq">gslcdfrayleighQ</a></li>
-<li><a class="reference internal" href="#gslcdfrayleighpinv">gslcdfrayleighPinv</a></li>
-<li><a class="reference internal" href="#gslcdfrayleighqinv">gslcdfrayleighQinv</a></li>
-<li><a class="reference internal" href="#gslcdfchisqp">gslcdfchisqP</a></li>
-<li><a class="reference internal" href="#gslcdfchisqq">gslcdfchisqQ</a></li>
-<li><a class="reference internal" href="#gslcdfchisqpinv">gslcdfchisqPinv</a></li>
-<li><a class="reference internal" href="#gslcdfchisqqinv">gslcdfchisqQinv</a></li>
-<li><a class="reference internal" href="#gslcdfexponentialp">gslcdfexponentialP</a></li>
-<li><a class="reference internal" href="#gslcdfexponentialq">gslcdfexponentialQ</a></li>
-<li><a class="reference internal" href="#gslcdfexponentialpinv">gslcdfexponentialPinv</a></li>
-<li><a class="reference internal" href="#gslcdfexponentialqinv">gslcdfexponentialQinv</a></li>
-<li><a class="reference internal" href="#gslcdfexppowp">gslcdfexppowP</a></li>
-<li><a class="reference internal" href="#gslcdfexppowq">gslcdfexppowQ</a></li>
-<li><a class="reference internal" href="#gslcdftdistp">gslcdftdistP</a></li>
-<li><a class="reference internal" href="#gslcdftdistq">gslcdftdistQ</a></li>
-<li><a class="reference internal" href="#gslcdftdistpinv">gslcdftdistPinv</a></li>
-<li><a class="reference internal" href="#gslcdftdistqinv">gslcdftdistQinv</a></li>
-<li><a class="reference internal" href="#gslcdffdistp">gslcdffdistP</a></li>
-<li><a class="reference internal" href="#gslcdffdistq">gslcdffdistQ</a></li>
-<li><a class="reference internal" href="#gslcdffdistpinv">gslcdffdistPinv</a></li>
-<li><a class="reference internal" href="#gslcdffdistqinv">gslcdffdistQinv</a></li>
-<li><a class="reference internal" href="#gslcdfbetap">gslcdfbetaP</a></li>
-<li><a class="reference internal" href="#gslcdfbetaq">gslcdfbetaQ</a></li>
-<li><a class="reference internal" href="#gslcdfbetapinv">gslcdfbetaPinv</a></li>
-<li><a class="reference internal" href="#gslcdfbetaqinv">gslcdfbetaQinv</a></li>
-<li><a class="reference internal" href="#gslcdfflatp">gslcdfflatP</a></li>
-<li><a class="reference internal" href="#gslcdfflatq">gslcdfflatQ</a></li>
-<li><a class="reference internal" href="#gslcdfflatpinv">gslcdfflatPinv</a></li>
-<li><a class="reference internal" href="#gslcdfflatqinv">gslcdfflatQinv</a></li>
-<li><a class="reference internal" href="#gslcdflognormalp">gslcdflognormalP</a></li>
-<li><a class="reference internal" href="#gslcdflognormalq">gslcdflognormalQ</a></li>
-<li><a class="reference internal" href="#gslcdflognormalpinv">gslcdflognormalPinv</a></li>
-<li><a class="reference internal" href="#gslcdflognormalqinv">gslcdflognormalQinv</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel1p">gslcdfgumbel1P</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel1q">gslcdfgumbel1Q</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel1pinv">gslcdfgumbel1Pinv</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel1qinv">gslcdfgumbel1Qinv</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel2p">gslcdfgumbel2P</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel2q">gslcdfgumbel2Q</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel2pinv">gslcdfgumbel2Pinv</a></li>
-<li><a class="reference internal" href="#gslcdfgumbel2qinv">gslcdfgumbel2Qinv</a></li>
-<li><a class="reference internal" href="#gslcdfweibullp">gslcdfweibullP</a></li>
-<li><a class="reference internal" href="#gslcdfweibullq">gslcdfweibullQ</a></li>
-<li><a class="reference internal" href="#gslcdfweibullpinv">gslcdfweibullPinv</a></li>
-<li><a class="reference internal" href="#gslcdfweibullqinv">gslcdfweibullQinv</a></li>
-<li><a class="reference internal" href="#gslcdfparetop">gslcdfparetoP</a></li>
-<li><a class="reference internal" href="#gslcdfparetoq">gslcdfparetoQ</a></li>
-<li><a class="reference internal" href="#gslcdfparetopinv">gslcdfparetoPinv</a></li>
-<li><a class="reference internal" href="#gslcdfparetoqinv">gslcdfparetoQinv</a></li>
-<li><a class="reference internal" href="#gslcdflogisticp">gslcdflogisticP</a></li>
-<li><a class="reference internal" href="#gslcdflogisticq">gslcdflogisticQ</a></li>
-<li><a class="reference internal" href="#gslcdflogisticpinv">gslcdflogisticPinv</a></li>
-<li><a class="reference internal" href="#gslcdflogisticqinv">gslcdflogisticQinv</a></li>
-<li><a class="reference internal" href="#gslcdfbinomialp">gslcdfbinomialP</a></li>
-<li><a class="reference internal" href="#gslcdfbinomialq">gslcdfbinomialQ</a></li>
-<li><a class="reference internal" href="#gslcdfpoissonp">gslcdfpoissonP</a></li>
-<li><a class="reference internal" href="#gslcdfpoissonq">gslcdfpoissonQ</a></li>
-<li><a class="reference internal" href="#gslcdfgeometricp">gslcdfgeometricP</a></li>
-<li><a class="reference internal" href="#gslcdfgeometricq">gslcdfgeometricQ</a></li>
-<li><a class="reference internal" href="#gslcdfnegativebinomialp">gslcdfnegativebinomialP</a></li>
-<li><a class="reference internal" href="#gslcdfnegativebinomialq">gslcdfnegativebinomialQ</a></li>
-<li><a class="reference internal" href="#gslcdfpascalp">gslcdfpascalP</a></li>
-<li><a class="reference internal" href="#gslcdfpascalq">gslcdfpascalQ</a></li>
-<li><a class="reference internal" href="#gslranbernoullipdf">gslranbernoullipdf</a></li>
-<li><a class="reference internal" href="#gslranbeta">gslranbeta</a></li>
-<li><a class="reference internal" href="#gslranbetapdf">gslranbetapdf</a></li>
-<li><a class="reference internal" href="#gslranbinomialpdf">gslranbinomialpdf</a></li>
-<li><a class="reference internal" href="#gslranexponential">gslranexponential</a></li>
-<li><a class="reference internal" href="#gslranexponentialpdf">gslranexponentialpdf</a></li>
-<li><a class="reference internal" href="#gslranexppow">gslranexppow</a></li>
-<li><a class="reference internal" href="#gslranexppowpdf">gslranexppowpdf</a></li>
-<li><a class="reference internal" href="#gslrancauchy">gslrancauchy</a></li>
-<li><a class="reference internal" href="#gslrancauchypdf">gslrancauchypdf</a></li>
-<li><a class="reference internal" href="#gslranchisq">gslranchisq</a></li>
-<li><a class="reference internal" href="#gslranchisqpdf">gslranchisqpdf</a></li>
-<li><a class="reference internal" href="#gslranerlang">gslranerlang</a></li>
-<li><a class="reference internal" href="#gslranerlangpdf">gslranerlangpdf</a></li>
-<li><a class="reference internal" href="#gslranfdist">gslranfdist</a></li>
-<li><a class="reference internal" href="#gslranfdistpdf">gslranfdistpdf</a></li>
-<li><a class="reference internal" href="#gslranflat">gslranflat</a></li>
-<li><a class="reference internal" href="#gslranflatpdf">gslranflatpdf</a></li>
-<li><a class="reference internal" href="#gslrangamma">gslrangamma</a></li>
-<li><a class="reference internal" href="#gslrangammaint">gslrangammaint</a></li>
-<li><a class="reference internal" href="#gslrangammapdf">gslrangammapdf</a></li>
-<li><a class="reference internal" href="#gslrangammamt">gslrangammamt</a></li>
-<li><a class="reference internal" href="#gslrangammaknuth">gslrangammaknuth</a></li>
-<li><a class="reference internal" href="#gslrangaussian">gslrangaussian</a></li>
-<li><a class="reference internal" href="#gslrangaussianratiomethod">gslrangaussianratiomethod</a></li>
-<li><a class="reference internal" href="#gslrangaussianziggurat">gslrangaussianziggurat</a></li>
-<li><a class="reference internal" href="#gslrangaussianpdf">gslrangaussianpdf</a></li>
-<li><a class="reference internal" href="#gslranugaussian">gslranugaussian</a></li>
-<li><a class="reference internal" href="#gslranugaussianratiomethod">gslranugaussianratiomethod</a></li>
-<li><a class="reference internal" href="#gslranugaussianpdf">gslranugaussianpdf</a></li>
-<li><a class="reference internal" href="#gslrangaussiantail">gslrangaussiantail</a></li>
-<li><a class="reference internal" href="#gslrangaussiantailpdf">gslrangaussiantailpdf</a></li>
-<li><a class="reference internal" href="#gslranugaussiantail">gslranugaussiantail</a></li>
-<li><a class="reference internal" href="#gslranugaussiantailpdf">gslranugaussiantailpdf</a></li>
-<li><a class="reference internal" href="#gslranlandau">gslranlandau</a></li>
-<li><a class="reference internal" href="#gslranlandaupdf">gslranlandaupdf</a></li>
-<li><a class="reference internal" href="#gslrangeometricpdf">gslrangeometricpdf</a></li>
-<li><a class="reference internal" href="#gslrangumbel1">gslrangumbel1</a></li>
-<li><a class="reference internal" href="#gslrangumbel1pdf">gslrangumbel1pdf</a></li>
-<li><a class="reference internal" href="#gslrangumbel2">gslrangumbel2</a></li>
-<li><a class="reference internal" href="#gslrangumbel2pdf">gslrangumbel2pdf</a></li>
-<li><a class="reference internal" href="#gslranlogistic">gslranlogistic</a></li>
-<li><a class="reference internal" href="#gslranlogisticpdf">gslranlogisticpdf</a></li>
-<li><a class="reference internal" href="#gslranlognormal">gslranlognormal</a></li>
-<li><a class="reference internal" href="#gslranlognormalpdf">gslranlognormalpdf</a></li>
-<li><a class="reference internal" href="#gslranlogarithmicpdf">gslranlogarithmicpdf</a></li>
-<li><a class="reference internal" href="#gslrannegativebinomialpdf">gslrannegativebinomialpdf</a></li>
-<li><a class="reference internal" href="#gslranpascalpdf">gslranpascalpdf</a></li>
-<li><a class="reference internal" href="#gslranpareto">gslranpareto</a></li>
-<li><a class="reference internal" href="#gslranparetopdf">gslranparetopdf</a></li>
-<li><a class="reference internal" href="#gslranpoissonpdf">gslranpoissonpdf</a></li>
-<li><a class="reference internal" href="#gslranrayleigh">gslranrayleigh</a></li>
-<li><a class="reference internal" href="#gslranrayleighpdf">gslranrayleighpdf</a></li>
-<li><a class="reference internal" href="#gslranrayleightail">gslranrayleightail</a></li>
-<li><a class="reference internal" href="#gslranrayleightailpdf">gslranrayleightailpdf</a></li>
-<li><a class="reference internal" href="#gslrantdist">gslrantdist</a></li>
-<li><a class="reference internal" href="#gslrantdistpdf">gslrantdistpdf</a></li>
-<li><a class="reference internal" href="#gslranlaplace">gslranlaplace</a></li>
-<li><a class="reference internal" href="#gslranlaplacepdf">gslranlaplacepdf</a></li>
-<li><a class="reference internal" href="#gslranlevy">gslranlevy</a></li>
-<li><a class="reference internal" href="#gslranweibull">gslranweibull</a></li>
-<li><a class="reference internal" href="#gslranweibullpdf">gslranweibullpdf</a></li>
-<li><a class="reference internal" href="#gslsfairyai">gslsfairyAi</a></li>
-<li><a class="reference internal" href="#gslsfairybi">gslsfairyBi</a></li>
-<li><a class="reference internal" href="#gslsfairyaiscaled">gslsfairyAiscaled</a></li>
-<li><a class="reference internal" href="#gslsfairybiscaled">gslsfairyBiscaled</a></li>
-<li><a class="reference internal" href="#gslsfairyaideriv">gslsfairyAideriv</a></li>
-<li><a class="reference internal" href="#gslsfairybideriv">gslsfairyBideriv</a></li>
-<li><a class="reference internal" href="#gslsfairyaiderivscaled">gslsfairyAiderivscaled</a></li>
-<li><a class="reference internal" href="#gslsfairybiderivscaled">gslsfairyBiderivscaled</a></li>
-<li><a class="reference internal" href="#gslsfairyzeroai">gslsfairyzeroAi</a></li>
-<li><a class="reference internal" href="#gslsfairyzerobi">gslsfairyzeroBi</a></li>
-<li><a class="reference internal" href="#gslsfairyzeroaideriv">gslsfairyzeroAideriv</a></li>
-<li><a class="reference internal" href="#gslsfairyzerobideriv">gslsfairyzeroBideriv</a></li>
-<li><a class="reference internal" href="#gslsfbesselj0">gslsfbesselJ0</a></li>
-<li><a class="reference internal" href="#gslsfbesselj1">gslsfbesselJ1</a></li>
-<li><a class="reference internal" href="#gslsfbesseljn">gslsfbesselJn</a></li>
-<li><a class="reference internal" href="#gslsfbessely0">gslsfbesselY0</a></li>
-<li><a class="reference internal" href="#gslsfbessely1">gslsfbesselY1</a></li>
-<li><a class="reference internal" href="#gslsfbesselyn">gslsfbesselYn</a></li>
-<li><a class="reference internal" href="#gslsfbesseli0">gslsfbesselI0</a></li>
-<li><a class="reference internal" href="#gslsfbesseli1">gslsfbesselI1</a></li>
-<li><a class="reference internal" href="#gslsfbesselin">gslsfbesselIn</a></li>
-<li><a class="reference internal" href="#gslsfbesseli0scaled">gslsfbesselI0scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesseli1scaled">gslsfbesselI1scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselinscaled">gslsfbesselInscaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselk0">gslsfbesselK0</a></li>
-<li><a class="reference internal" href="#gslsfbesselk1">gslsfbesselK1</a></li>
-<li><a class="reference internal" href="#gslsfbesselkn">gslsfbesselKn</a></li>
-<li><a class="reference internal" href="#gslsfbesselk0scaled">gslsfbesselK0scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselk1scaled">gslsfbesselK1scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselknscaled">gslsfbesselKnscaled</a></li>
-<li><a class="reference internal" href="#id5">gslsfbesselj0</a></li>
-<li><a class="reference internal" href="#id6">gslsfbesselj1</a></li>
-<li><a class="reference internal" href="#gslsfbesselj2">gslsfbesselj2</a></li>
-<li><a class="reference internal" href="#gslsfbesseljl">gslsfbesseljl</a></li>
-<li><a class="reference internal" href="#id7">gslsfbessely0</a></li>
-<li><a class="reference internal" href="#id8">gslsfbessely1</a></li>
-<li><a class="reference internal" href="#gslsfbessely2">gslsfbessely2</a></li>
-<li><a class="reference internal" href="#gslsfbesselyl">gslsfbesselyl</a></li>
-<li><a class="reference internal" href="#id9">gslsfbesseli0scaled</a></li>
-<li><a class="reference internal" href="#id10">gslsfbesseli1scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesseli2scaled">gslsfbesseli2scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselilscaled">gslsfbesselilscaled</a></li>
-<li><a class="reference internal" href="#id11">gslsfbesselk0scaled</a></li>
-<li><a class="reference internal" href="#id12">gslsfbesselk1scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselk2scaled">gslsfbesselk2scaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselklscaled">gslsfbesselklscaled</a></li>
-<li><a class="reference internal" href="#gslsfbesseljnu">gslsfbesselJnu</a></li>
-<li><a class="reference internal" href="#gslsfbesselynu">gslsfbesselYnu</a></li>
-<li><a class="reference internal" href="#gslsfbesselinuscaled">gslsfbesselInuscaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselinu">gslsfbesselInu</a></li>
-<li><a class="reference internal" href="#gslsfbesselknuscaled">gslsfbesselKnuscaled</a></li>
-<li><a class="reference internal" href="#gslsfbesselknu">gslsfbesselKnu</a></li>
-<li><a class="reference internal" href="#gslsfbessellnknu">gslsfbessellnKnu</a></li>
-<li><a class="reference internal" href="#gslsfbesselzeroj0">gslsfbesselzeroJ0</a></li>
-<li><a class="reference internal" href="#gslsfbesselzeroj1">gslsfbesselzeroJ1</a></li>
-<li><a class="reference internal" href="#gslsfbesselzerojnu">gslsfbesselzeroJnu</a></li>
-<li><a class="reference internal" href="#gslsfclausen">gslsfclausen</a></li>
-<li><a class="reference internal" href="#gslsfhydrogenicr1">gslsfhydrogenicR1</a></li>
-<li><a class="reference internal" href="#gslsfdawson">gslsfdawson</a></li>
-<li><a class="reference internal" href="#gslsfdebye1">gslsfdebye1</a></li>
-<li><a class="reference internal" href="#gslsfdebye2">gslsfdebye2</a></li>
-<li><a class="reference internal" href="#gslsfdebye3">gslsfdebye3</a></li>
-<li><a class="reference internal" href="#gslsfdebye4">gslsfdebye4</a></li>
-<li><a class="reference internal" href="#gslsfdebye5">gslsfdebye5</a></li>
-<li><a class="reference internal" href="#gslsfdebye6">gslsfdebye6</a></li>
-<li><a class="reference internal" href="#gslsfdilog">gslsfdilog</a></li>
-<li><a class="reference internal" href="#gslsfmultiply">gslsfmultiply</a></li>
-<li><a class="reference internal" href="#gslsfellintkcomp">gslsfellintKcomp</a></li>
-<li><a class="reference internal" href="#gslsfellintecomp">gslsfellintEcomp</a></li>
-<li><a class="reference internal" href="#gslsfellintpcomp">gslsfellintPcomp</a></li>
-<li><a class="reference internal" href="#gslsfellintdcomp">gslsfellintDcomp</a></li>
-<li><a class="reference internal" href="#gslsfellintf">gslsfellintF</a></li>
-<li><a class="reference internal" href="#gslsfellinte">gslsfellintE</a></li>
-<li><a class="reference internal" href="#gslsfellintrc">gslsfellintRC</a></li>
-<li><a class="reference internal" href="#gslsferfc">gslsferfc</a></li>
-<li><a class="reference internal" href="#gslsflogerfc">gslsflogerfc</a></li>
-<li><a class="reference internal" href="#gslsferf">gslsferf</a></li>
-<li><a class="reference internal" href="#gslsferfz">gslsferfZ</a></li>
-<li><a class="reference internal" href="#gslsferfq">gslsferfQ</a></li>
-<li><a class="reference internal" href="#gslsfhazard">gslsfhazard</a></li>
-<li><a class="reference internal" href="#gslsfexp">gslsfexp</a></li>
-<li><a class="reference internal" href="#gslsfexpmult">gslsfexpmult</a></li>
-<li><a class="reference internal" href="#gslsfexpm1">gslsfexpm1</a></li>
-<li><a class="reference internal" href="#gslsfexprel">gslsfexprel</a></li>
-<li><a class="reference internal" href="#gslsfexprel2">gslsfexprel2</a></li>
-<li><a class="reference internal" href="#gslsfexpreln">gslsfexpreln</a></li>
-<li><a class="reference internal" href="#gslsfexpinte1">gslsfexpintE1</a></li>
-<li><a class="reference internal" href="#gslsfexpinte2">gslsfexpintE2</a></li>
-<li><a class="reference internal" href="#gslsfexpinten">gslsfexpintEn</a></li>
-<li><a class="reference internal" href="#gslsfexpinte1scaled">gslsfexpintE1scaled</a></li>
-<li><a class="reference internal" href="#gslsfexpinte2scaled">gslsfexpintE2scaled</a></li>
-<li><a class="reference internal" href="#gslsfexpintenscaled">gslsfexpintEnscaled</a></li>
-<li><a class="reference internal" href="#gslsfexpintei">gslsfexpintEi</a></li>
-<li><a class="reference internal" href="#gslsfexpinteiscaled">gslsfexpintEiscaled</a></li>
-<li><a class="reference internal" href="#gslsfshi">gslsfShi</a></li>
-<li><a class="reference internal" href="#gslsfchi">gslsfChi</a></li>
-<li><a class="reference internal" href="#gslsfexpint3">gslsfexpint3</a></li>
-<li><a class="reference internal" href="#gslsfsi">gslsfSi</a></li>
-<li><a class="reference internal" href="#gslsfci">gslsfCi</a></li>
-<li><a class="reference internal" href="#gslsfatanint">gslsfatanint</a></li>
-<li><a class="reference internal" href="#gslsffermidiracm1">gslsffermidiracm1</a></li>
-<li><a class="reference internal" href="#gslsffermidirac0">gslsffermidirac0</a></li>
-<li><a class="reference internal" href="#gslsffermidirac1">gslsffermidirac1</a></li>
-<li><a class="reference internal" href="#gslsffermidirac2">gslsffermidirac2</a></li>
-<li><a class="reference internal" href="#gslsffermidiracint">gslsffermidiracint</a></li>
-<li><a class="reference internal" href="#gslsffermidiracmhalf">gslsffermidiracmhalf</a></li>
-<li><a class="reference internal" href="#gslsffermidirachalf">gslsffermidirachalf</a></li>
-<li><a class="reference internal" href="#gslsffermidirac3half">gslsffermidirac3half</a></li>
-<li><a class="reference internal" href="#gslsffermidiracinc0">gslsffermidiracinc0</a></li>
-<li><a class="reference internal" href="#gslsflngamma">gslsflngamma</a></li>
-<li><a class="reference internal" href="#gslsfgamma">gslsfgamma</a></li>
-<li><a class="reference internal" href="#gslsfgammastar">gslsfgammastar</a></li>
-<li><a class="reference internal" href="#gslsfgammainv">gslsfgammainv</a></li>
-<li><a class="reference internal" href="#gslsftaylorcoeff">gslsftaylorcoeff</a></li>
-<li><a class="reference internal" href="#gslsffact">gslsffact</a></li>
-<li><a class="reference internal" href="#gslsfdoublefact">gslsfdoublefact</a></li>
-<li><a class="reference internal" href="#gslsflnfact">gslsflnfact</a></li>
-<li><a class="reference internal" href="#gslsflndoublefact">gslsflndoublefact</a></li>
-<li><a class="reference internal" href="#gslsflnchoose">gslsflnchoose</a></li>
-<li><a class="reference internal" href="#gslsfchoose">gslsfchoose</a></li>
-<li><a class="reference internal" href="#gslsflnpoch">gslsflnpoch</a></li>
-<li><a class="reference internal" href="#gslsfpoch">gslsfpoch</a></li>
-<li><a class="reference internal" href="#gslsfpochrel">gslsfpochrel</a></li>
-<li><a class="reference internal" href="#gslsfgammaincq">gslsfgammaincQ</a></li>
-<li><a class="reference internal" href="#gslsfgammaincp">gslsfgammaincP</a></li>
-<li><a class="reference internal" href="#gslsfgammainc">gslsfgammainc</a></li>
-<li><a class="reference internal" href="#gslsflnbeta">gslsflnbeta</a></li>
-<li><a class="reference internal" href="#gslsfbeta">gslsfbeta</a></li>
-<li><a class="reference internal" href="#gslsfbetainc">gslsfbetainc</a></li>
-<li><a class="reference internal" href="#gslsfgegenpoly1">gslsfgegenpoly1</a></li>
-<li><a class="reference internal" href="#gslsfgegenpoly2">gslsfgegenpoly2</a></li>
-<li><a class="reference internal" href="#gslsfgegenpoly3">gslsfgegenpoly3</a></li>
-<li><a class="reference internal" href="#gslsfgegenpolyn">gslsfgegenpolyn</a></li>
-<li><a class="reference internal" href="#gslsfhyperg0f1">gslsfhyperg0F1</a></li>
-<li><a class="reference internal" href="#gslsfhyperg1f1int">gslsfhyperg1F1int</a></li>
-<li><a class="reference internal" href="#gslsfhyperg1f1">gslsfhyperg1F1</a></li>
-<li><a class="reference internal" href="#gslsfhyperguint">gslsfhypergUint</a></li>
-<li><a class="reference internal" href="#gslsfhypergu">gslsfhypergU</a></li>
-<li><a class="reference internal" href="#gslsfhyperg2f0">gslsfhyperg2F0</a></li>
-<li><a class="reference internal" href="#gslsflaguerre1">gslsflaguerre1</a></li>
-<li><a class="reference internal" href="#gslsflaguerre2">gslsflaguerre2</a></li>
-<li><a class="reference internal" href="#gslsflaguerre3">gslsflaguerre3</a></li>
-<li><a class="reference internal" href="#gslsflaguerren">gslsflaguerren</a></li>
-<li><a class="reference internal" href="#gslsflambertw0">gslsflambertW0</a></li>
-<li><a class="reference internal" href="#gslsflambertwm1">gslsflambertWm1</a></li>
-<li><a class="reference internal" href="#gslsflegendrepl">gslsflegendrePl</a></li>
-<li><a class="reference internal" href="#gslsflegendrep1">gslsflegendreP1</a></li>
-<li><a class="reference internal" href="#gslsflegendrep2">gslsflegendreP2</a></li>
-<li><a class="reference internal" href="#gslsflegendrep3">gslsflegendreP3</a></li>
-<li><a class="reference internal" href="#gslsflegendreq0">gslsflegendreQ0</a></li>
-<li><a class="reference internal" href="#gslsflegendreq1">gslsflegendreQ1</a></li>
-<li><a class="reference internal" href="#gslsflegendreql">gslsflegendreQl</a></li>
-<li><a class="reference internal" href="#gslsflegendreplm">gslsflegendrePlm</a></li>
-<li><a class="reference internal" href="#gslsflegendresphplm">gslsflegendresphPlm</a></li>
-<li><a class="reference internal" href="#gslsflegendrearraysize">gslsflegendrearraysize</a></li>
-<li><a class="reference internal" href="#gslsfconicalphalf">gslsfconicalPhalf</a></li>
-<li><a class="reference internal" href="#gslsfconicalpmhalf">gslsfconicalPmhalf</a></li>
-<li><a class="reference internal" href="#gslsfconicalp0">gslsfconicalP0</a></li>
-<li><a class="reference internal" href="#gslsfconicalp1">gslsfconicalP1</a></li>
-<li><a class="reference internal" href="#gslsfconicalpsphreg">gslsfconicalPsphreg</a></li>
-<li><a class="reference internal" href="#gslsfconicalpcylreg">gslsfconicalPcylreg</a></li>
-<li><a class="reference internal" href="#gslsflegendreh3d0">gslsflegendreH3d0</a></li>
-<li><a class="reference internal" href="#gslsflegendreh3d1">gslsflegendreH3d1</a></li>
-<li><a class="reference internal" href="#gslsflegendreh3d">gslsflegendreH3d</a></li>
-<li><a class="reference internal" href="#gslsflog">gslsflog</a></li>
-<li><a class="reference internal" href="#gslsflogabs">gslsflogabs</a></li>
-<li><a class="reference internal" href="#gslsflog1plusx">gslsflog1plusx</a></li>
-<li><a class="reference internal" href="#gslsflog1plusxmx">gslsflog1plusxmx</a></li>
-<li><a class="reference internal" href="#gslsfpowint">gslsfpowint</a></li>
-<li><a class="reference internal" href="#gslsfpsiint">gslsfpsiint</a></li>
-<li><a class="reference internal" href="#gslsfpsi">gslsfpsi</a></li>
-<li><a class="reference internal" href="#gslsfpsi1piy">gslsfpsi1piy</a></li>
-<li><a class="reference internal" href="#gslsfpsi1int">gslsfpsi1int</a></li>
-<li><a class="reference internal" href="#gslsfpsi1">gslsfpsi1</a></li>
-<li><a class="reference internal" href="#gslsfpsin">gslsfpsin</a></li>
-<li><a class="reference internal" href="#gslsfsynchrotron1">gslsfsynchrotron1</a></li>
-<li><a class="reference internal" href="#gslsfsynchrotron2">gslsfsynchrotron2</a></li>
-<li><a class="reference internal" href="#gslsftransport2">gslsftransport2</a></li>
-<li><a class="reference internal" href="#gslsftransport3">gslsftransport3</a></li>
-<li><a class="reference internal" href="#gslsftransport4">gslsftransport4</a></li>
-<li><a class="reference internal" href="#gslsftransport5">gslsftransport5</a></li>
-<li><a class="reference internal" href="#gslsfsin">gslsfsin</a></li>
-<li><a class="reference internal" href="#gslsfcos">gslsfcos</a></li>
-<li><a class="reference internal" href="#gslsfhypot">gslsfhypot</a></li>
-<li><a class="reference internal" href="#gslsfsinc">gslsfsinc</a></li>
-<li><a class="reference internal" href="#gslsflnsinh">gslsflnsinh</a></li>
-<li><a class="reference internal" href="#gslsflncosh">gslsflncosh</a></li>
-<li><a class="reference internal" href="#gslsfanglerestrictsymm">gslsfanglerestrictsymm</a></li>
-<li><a class="reference internal" href="#gslsfanglerestrictpos">gslsfanglerestrictpos</a></li>
-<li><a class="reference internal" href="#gslsfzetaint">gslsfzetaint</a></li>
-<li><a class="reference internal" href="#gslsfzeta">gslsfzeta</a></li>
-<li><a class="reference internal" href="#gslsfzetam1">gslsfzetam1</a></li>
-<li><a class="reference internal" href="#gslsfzetam1int">gslsfzetam1int</a></li>
-<li><a class="reference internal" href="#gslsfhzeta">gslsfhzeta</a></li>
-<li><a class="reference internal" href="#gslsfetaint">gslsfetaint</a></li>
-<li><a class="reference internal" href="#gslsfeta">gslsfeta</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-ipopt">ff-Ipopt</a><ul>
-<li><a class="reference internal" href="#ipopt">IPOPT</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#fflapack">fflapack</a><ul>
-<li><a class="reference internal" href="#dgeev">dgeev</a></li>
-<li><a class="reference internal" href="#zgeev">zgeev</a></li>
-<li><a class="reference internal" href="#geev">geev</a></li>
-<li><a class="reference internal" href="#id13">geev</a></li>
-<li><a class="reference internal" href="#dggev">dggev</a></li>
-<li><a class="reference internal" href="#zggev">zggev</a></li>
-<li><a class="reference internal" href="#dsygvd">dsygvd</a></li>
-<li><a class="reference internal" href="#dgesdd">dgesdd</a></li>
-<li><a class="reference internal" href="#zhegv">zhegv</a></li>
-<li><a class="reference internal" href="#dsyev">dsyev</a></li>
-<li><a class="reference internal" href="#zheev">zheev</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-mmap-semaphore">ff-mmap-semaphore</a><ul>
-<li><a class="reference internal" href="#wait">Wait</a></li>
-<li><a class="reference internal" href="#trywait">trywait</a></li>
-<li><a class="reference internal" href="#post">Post</a></li>
-<li><a class="reference internal" href="#msync">msync</a></li>
-<li><a class="reference internal" href="#read">Read</a></li>
-<li><a class="reference internal" href="#write">Write</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ffnewuoa">ffnewuoa</a><ul>
-<li><a class="reference internal" href="#newuoa">newuoa</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ff-nlopt">ff-NLopt</a><ul>
-<li><a class="reference internal" href="#nloptdirect">nloptDIRECT</a></li>
-<li><a class="reference internal" href="#nloptdirectl">nloptDIRECTL</a></li>
-<li><a class="reference internal" href="#nloptdirectlrand">nloptDIRECTLRand</a></li>
-<li><a class="reference internal" href="#nloptdirectscal">nloptDIRECTScal</a></li>
-<li><a class="reference internal" href="#nloptdirectnoscal">nloptDIRECTNoScal</a></li>
-<li><a class="reference internal" href="#nloptdirectlnoscal">nloptDIRECTLNoScal</a></li>
-<li><a class="reference internal" href="#nloptdirectlrandnoscal">nloptDIRECTLRandNoScal</a></li>
-<li><a class="reference internal" href="#nloptorigdirect">nloptOrigDIRECT</a></li>
-<li><a class="reference internal" href="#nloptorigdirectl">nloptOrigDIRECTL</a></li>
-<li><a class="reference internal" href="#nloptstogo">nloptStoGO</a></li>
-<li><a class="reference internal" href="#nloptstogorand">nloptStoGORand</a></li>
-<li><a class="reference internal" href="#nloptlbfgs">nloptLBFGS</a></li>
-<li><a class="reference internal" href="#nloptpraxis">nloptPRAXIS</a></li>
-<li><a class="reference internal" href="#nloptvar1">nloptVar1</a></li>
-<li><a class="reference internal" href="#nloptvar2">nloptVar2</a></li>
-<li><a class="reference internal" href="#nlopttnewton">nloptTNewton</a></li>
-<li><a class="reference internal" href="#nlopttnewtonrestart">nloptTNewtonRestart</a></li>
-<li><a class="reference internal" href="#nlopttnewtonprecond">nloptTNewtonPrecond</a></li>
-<li><a class="reference internal" href="#nlopttnewtonprecondrestart">nloptTNewtonPrecondRestart</a></li>
-<li><a class="reference internal" href="#nloptcrs2">nloptCRS2</a></li>
-<li><a class="reference internal" href="#nloptmma">nloptMMA</a></li>
-<li><a class="reference internal" href="#nloptcobyla">nloptCOBYLA</a></li>
-<li><a class="reference internal" href="#nloptnewuoa">nloptNEWUOA</a></li>
-<li><a class="reference internal" href="#nloptnewuoabound">nloptNEWUOABound</a></li>
-<li><a class="reference internal" href="#nloptneldermead">nloptNelderMead</a></li>
-<li><a class="reference internal" href="#nloptsbplx">nloptSbplx</a></li>
-<li><a class="reference internal" href="#nloptbobyqa">nloptBOBYQA</a></li>
-<li><a class="reference internal" href="#nloptisres">nloptISRES</a></li>
-<li><a class="reference internal" href="#nloptslsqp">nloptSLSQP</a></li>
-<li><a class="reference internal" href="#nloptmlsl">nloptMLSL</a></li>
-<li><a class="reference internal" href="#nloptmlsllds">nloptMLSLLDS</a></li>
-<li><a class="reference internal" href="#nloptauglag">nloptAUGLAG</a></li>
-<li><a class="reference internal" href="#nloptauglageq">nloptAUGLAGEQ</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ffrandom">ffrandom</a><ul>
-<li><a class="reference internal" href="#srandomdev">srandomdev</a></li>
-<li><a class="reference internal" href="#srandom">srandom</a></li>
-<li><a class="reference internal" href="#random">random</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#freefemqa">FreeFemQA</a><ul>
-<li><a class="reference internal" href="#meshgenqa">MeshGenQA</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#freeyams">freeyams</a><ul>
-<li><a class="reference internal" href="#id14">freeyams</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gmsh">gmsh</a><ul>
-<li><a class="reference internal" href="#gmshload">gmshload</a></li>
-<li><a class="reference internal" href="#gmshload3">gmshload3</a></li>
-<li><a class="reference internal" href="#savegmsh">savegmsh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gsl">gsl</a><ul>
-<li><a class="reference internal" href="#gslpolysolvequadratic">gslpolysolvequadratic</a></li>
-<li><a class="reference internal" href="#gslpolysolvecubic">gslpolysolvecubic</a></li>
-<li><a class="reference internal" href="#gslpolycomplexsolve">gslpolycomplexsolve</a></li>
-<li><a class="reference internal" href="#gslrnguniform">gslrnguniform</a></li>
-<li><a class="reference internal" href="#gslrnguniformpos">gslrnguniformpos</a></li>
-<li><a class="reference internal" href="#gslname">gslname</a></li>
-<li><a class="reference internal" href="#gslrngget">gslrngget</a></li>
-<li><a class="reference internal" href="#gslrngmin">gslrngmin</a></li>
-<li><a class="reference internal" href="#gslrngmax">gslrngmax</a></li>
-<li><a class="reference internal" href="#gslrngset">gslrngset</a></li>
-<li><a class="reference internal" href="#gslrngtype">gslrngtype</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ilut">ilut</a><ul>
-<li><a class="reference internal" href="#applyilutprecond">applyIlutPrecond</a></li>
-<li><a class="reference internal" href="#makeilutprecond">makeIlutPrecond</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#iohdf5">iohdf5</a><ul>
-<li><a class="reference internal" href="#savehdf5sol">savehdf5sol</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#iovtk">iovtk</a><ul>
-<li><a class="reference internal" href="#savevtk">savevtk</a></li>
-<li><a class="reference internal" href="#vtkload">vtkload</a></li>
-<li><a class="reference internal" href="#vtkload3">vtkload3</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#isoline">isoline</a><ul>
-<li><a class="reference internal" href="#id15">isoline</a></li>
-<li><a class="reference internal" href="#curve">Curve</a></li>
-<li><a class="reference internal" href="#area">Area</a></li>
-<li><a class="reference internal" href="#findallocalmin">findallocalmin</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#lapack">lapack</a><ul>
-<li><a class="reference internal" href="#inv">inv</a></li>
-<li><a class="reference internal" href="#id16">dgeev</a></li>
-<li><a class="reference internal" href="#id17">zgeev</a></li>
-<li><a class="reference internal" href="#id18">geev</a></li>
-<li><a class="reference internal" href="#id19">dggev</a></li>
-<li><a class="reference internal" href="#id20">zggev</a></li>
-<li><a class="reference internal" href="#id21">dsygvd</a></li>
-<li><a class="reference internal" href="#id22">dgesdd</a></li>
-<li><a class="reference internal" href="#id23">zhegv</a></li>
-<li><a class="reference internal" href="#id24">dsyev</a></li>
-<li><a class="reference internal" href="#id25">zheev</a></li>
-<li><a class="reference internal" href="#dgelsy">dgelsy</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#lgbmo">lgbmo</a><ul>
-<li><a class="reference internal" href="#bmo">bmo</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mat-dervieux">mat_dervieux</a><ul>
-<li><a class="reference internal" href="#matupwind1">MatUpWind1</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mat-psi">mat_psi</a><ul>
-<li><a class="reference internal" href="#matupwind0">MatUpWind0</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#medit">medit</a><ul>
-<li><a class="reference internal" href="#id26">medit</a></li>
-<li><a class="reference internal" href="#savesol">savesol</a></li>
-<li><a class="reference internal" href="#readsol">readsol</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#metis">metis</a><ul>
-<li><a class="reference internal" href="#metisnodal">metisnodal</a></li>
-<li><a class="reference internal" href="#metisdual">metisdual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#metrickuate">MetricKuate</a><ul>
-<li><a class="reference internal" href="#id27">MetricKuate</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#metricpk">MetricPk</a><ul>
-<li><a class="reference internal" href="#id28">MetricPk</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mmg3d">mmg3d</a><ul>
-<li><a class="reference internal" href="#id29">mmg3d</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mmg3d-v4-0">mmg3d-v4.0</a><ul>
-<li><a class="reference internal" href="#id30">mmg3d</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#msh3">msh3</a><ul>
-<li><a class="reference internal" href="#change">change</a></li>
-<li><a class="reference internal" href="#movemesh23">movemesh23</a></li>
-<li><a class="reference internal" href="#movemesh2d3dsurf">movemesh2D3Dsurf</a></li>
-<li><a class="reference internal" href="#movemesh3">movemesh3</a></li>
-<li><a class="reference internal" href="#movemesh">movemesh</a></li>
-<li><a class="reference internal" href="#movemesh3d">movemesh3D</a></li>
-<li><a class="reference internal" href="#deplacement">deplacement</a></li>
-<li><a class="reference internal" href="#checkbemesh">checkbemesh</a></li>
-<li><a class="reference internal" href="#id31">buildlayers</a></li>
-<li><a class="reference internal" href="#bcube">bcube</a></li>
-<li><a class="reference internal" href="#cube">cube</a></li>
-<li><a class="reference internal" href="#trunc">trunc</a></li>
-<li><a class="reference internal" href="#gluemesh">gluemesh</a></li>
-<li><a class="reference internal" href="#extract">extract</a></li>
-<li><a class="reference internal" href="#showborder">showborder</a></li>
-<li><a class="reference internal" href="#getborder">getborder</a></li>
-<li><a class="reference internal" href="#addlayers">AddLayers</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mshmet">mshmet</a><ul>
-<li><a class="reference internal" href="#id32">mshmet</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mumps">MUMPS</a><ul>
-<li><a class="reference internal" href="#defaulttomumpsseq">defaulttoMUMPSseq</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mumps-seq">MUMPS_seq</a><ul>
-<li><a class="reference internal" href="#id33">defaulttoMUMPSseq</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#netgen">netgen</a><ul>
-<li><a class="reference internal" href="#netg">netg</a></li>
-<li><a class="reference internal" href="#netgstl">netgstl</a></li>
-<li><a class="reference internal" href="#netgload">netgload</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#newsolver">NewSolver</a><ul>
-<li><a class="reference internal" href="#defaulttoumfpack">defaulttoUMFPACK</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pardiso">PARDISO</a><ul>
-<li><a class="reference internal" href="#defaulttopardiso">defaulttoPARDISO</a></li>
-<li><a class="reference internal" href="#ompsetnumthreads">ompsetnumthreads</a></li>
-<li><a class="reference internal" href="#ompgetnumthreads">ompgetnumthreads</a></li>
-<li><a class="reference internal" href="#ompgetmaxthreads">ompgetmaxthreads</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pcm2rnm">pcm2rnm</a><ul>
-<li><a class="reference internal" href="#readpcm">readpcm</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pipe">pipe</a><ul>
-<li><a class="reference internal" href="#flush">flush</a></li>
-<li><a class="reference internal" href="#sleep">sleep</a></li>
-<li><a class="reference internal" href="#usleep">usleep</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qf11to25">qf11to25</a><ul>
-<li><a class="reference internal" href="#qf1d">QF1d</a></li>
-<li><a class="reference internal" href="#qf2d">QF2d</a></li>
-<li><a class="reference internal" href="#qf3d">QF3d</a></li>
-<li><a class="reference internal" href="#tripleqf">tripleQF</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#scotch">scotch</a><ul>
-<li><a class="reference internal" href="#id34">scotch</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#shell">shell</a><ul>
-<li><a class="reference internal" href="#readdir">readdir</a></li>
-<li><a class="reference internal" href="#unlink">unlink</a></li>
-<li><a class="reference internal" href="#rmdir">rmdir</a></li>
-<li><a class="reference internal" href="#cddir">cddir</a></li>
-<li><a class="reference internal" href="#chdir">chdir</a></li>
-<li><a class="reference internal" href="#basename">basename</a></li>
-<li><a class="reference internal" href="#dirname">dirname</a></li>
-<li><a class="reference internal" href="#mkdir">mkdir</a></li>
-<li><a class="reference internal" href="#chmod">chmod</a></li>
-<li><a class="reference internal" href="#cpfile">cpfile</a></li>
-<li><a class="reference internal" href="#stat">stat</a></li>
-<li><a class="reference internal" href="#isdir">isdir</a></li>
-<li><a class="reference internal" href="#getenv">getenv</a></li>
-<li><a class="reference internal" href="#setenv">setenv</a></li>
-<li><a class="reference internal" href="#unsetenv">unsetenv</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#splitedges">splitedges</a><ul>
-<li><a class="reference internal" href="#splitedgemesh">SplitedgeMesh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#splitmesh12">splitmesh12</a><ul>
-<li><a class="reference internal" href="#id35">splitmesh12</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#splitmesh3">splitmesh3</a><ul>
-<li><a class="reference internal" href="#id36">splitmesh3</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#splitmesh4">splitmesh4</a><ul>
-<li><a class="reference internal" href="#splimesh4">splimesh4</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#splitmesh6">splitmesh6</a><ul>
-<li><a class="reference internal" href="#id37">splitmesh6</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#superlu">SuperLu</a><ul>
-<li><a class="reference internal" href="#defaulttosuperlu">defaulttoSuperLu</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#symmetrizecsr">symmetrizeCSR</a><ul>
-<li><a class="reference internal" href="#id38">symmetrizeCSR</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tetgen">tetgen</a><ul>
-<li><a class="reference internal" href="#tetgconvexhull">tetgconvexhull</a></li>
-<li><a class="reference internal" href="#tetgtransfo">tetgtransfo</a></li>
-<li><a class="reference internal" href="#tetg">tetg</a></li>
-<li><a class="reference internal" href="#tetgreconstruction">tetgreconstruction</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#umfpack64">UMFPACK64</a><ul>
-<li><a class="reference internal" href="#defaulttoumfpack64">defaulttoUMFPACK64</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#vtk-writer-3d">VTK_writer_3d</a><ul>
-<li><a class="reference internal" href="#vtkaddmesh">Vtkaddmesh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#vtk-writer">VTK_writer</a><ul>
-<li><a class="reference internal" href="#id39">Vtkaddmesh</a></li>
-<li><a class="reference internal" href="#vtkaddscalar">Vtkaddscalar</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+    <span class="separator"></span>
+    <a href="https://github.com/FreeFem">
+        <img alt="Github" title="Github" src="../_static/img/GitHub_Logo_White.png" />
+    </a>
 </div>
-            </div>
-        </div>
+		</footer>
+		
 
-      <div class="clearer"></div>
-    </div><div class="pagenation">
-     <a id="button-prev" href="functions.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
-         <i class="pagenation-arrow-L material-icons">arrow_back</i>
-         <div class="pagenation-text">
-            <span class="pagenation-direction">Previous</span>
-            <div>Functions</div>
-         </div>
-     </a>
-     <a id="button-next" href="../tutorial/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
-        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
-        <div class="pagenation-text">
-            <span class="pagenation-direction">Next</span>
-            <div>Tutorials</div>
-        </div>
-     </a>
-  </div>
-        <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer__left-section">
-      <div class="mdl-logo">FreeFem++</div>
-      <div>
-        
-        <p class="caption"><span class="caption-text">Table of contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Language references</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
-</ul>
-
-      </div>
-    </div>
-
-    <div class="mdl-mini-footer__right-section">
-        <div>&copy; Copyright 2018, FreeFem++.</div>
-      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
-    </div>
-</footer>
-        </main>
-    </div>
-  </body>
+		<script src="../_static/js/toc.js"></script>
+	</body>
 </html>

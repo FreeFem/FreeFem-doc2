@@ -1,0 +1,111 @@
+let navData = [
+    {
+        "title": "Introduction",
+        "path": "introduction",
+        "file": "introduction",
+        "children": {
+            "introduction": "Introduction",
+            "download": "Download",
+            "installation": "Installation",
+            "contributing": "How to contribute?",
+            "citation": "Citation",
+            "authors": "Authors"
+        }
+    },
+    {
+        "title": "Documentation",
+        "path": "documentation",
+        "file": "documentation",
+        "children": {
+            "documentation": "Documentation",
+            "notations": "Some notations",
+            "meshGeneration": "Mesh generation",
+            "finiteElement": "Finite element",
+            "visualization": "Visualization",
+            "algorithmsOptimization": "Algorithms & Optimization",
+            "parallelization": "Parallelization",
+            "ffddm/index": {
+                    "title": "ffddm",
+                    "children": {
+                        "introddm": "Introduction to DDM",
+                        "documentation": "ffddm documentation",
+                        "parameters": "ffddm parameters",
+                        "examples": "Examples"
+                    }
+                },
+            "plugins": "Plugins",
+            "developers": "Developers"
+        }
+    },
+    {
+        "title": "Language references",
+        "path": "reference",
+        "file": "reference",
+        "children": {
+            "reference": "Language reference",
+            "types": "Types",
+            "globalVariables": "Global variables",
+            "quadratureFormulae": "Quadrature formulae",
+            "operators": "Operators",
+            "loops": "Loops",
+            "IO": "I/O",
+            "functions": "Functions",
+            "externalLibraries": "External libraries"
+        }
+    },
+    {
+        "title": "Examples",
+        "path": "example",
+        "file": "index"
+    },
+    {
+        "title": "Tutorials",
+        "path": "tutorial",
+        "file": "tutorial",
+        "children": {
+            "tutorial": "Getting started",
+            "poisson": "Poisson's equation",
+            "equationsClassification": "Classification of the equation",
+            "membrane": "Membrane",
+            "heatExchanger": "Heat exchanger",
+            "acoustics": "Acoustics",
+            "thermalConduction": "Thermal conduction",
+            "fanBlade": "Irrotational fan blade flow and thermal effects",
+            "rotatingHill": "Pure convection, the rotating hill",
+            "elasticity": "The system of elasticity",
+            "stokes": "The system of Stokes for fluids",
+            "navierStokesProjection": "A projection Algorithm for the Navier-Stokes equations",
+            "navierStokesNewton": "Newton method for the steady Navier-Stokes equations",
+            "aLargeFluidProblem": "A large fluid problem",
+            "complexNumbers": "An example with complex numbers",
+            "optimalControl": "Optimal control",
+            "flowWithShocks": "A flow with shocks",
+            "heatEquationOptimization": "Time dependent schema optimization for heat equations",
+            "timeDependentStokes": "A transient Stokes solver in matrix form",
+            "wifiPropagation": "Wifi Propagation",
+            "matlabOctavePlot": "Matlab / Octave Plots"
+        }
+    },
+    {
+        "title": "Models",
+        "path": "model",
+        "file": "model",
+        "children": {
+            "model": "Mathematical models",
+            "staticProblems": "Static Problems",
+            "elasticity": "Elasticity",
+            "nonLinearStaticProblems": "Non-linear static problems",
+            "eigenValueProblems": "Eigenvalue problems",
+            "evolutionProblems": "Evolution problems",
+            "navierStokesEquations": "Navier-Stokes equations",
+            "variationalInequality": "Variational inequality",
+            "domainDecomposition": "Domain decomposition",
+            "fluidStructureCoupledProblem": "Fluid-Structure coupled problem",
+            "transmissionProblem": "Transmission problem",
+            "freeBoundaryProblem": "Free boundary problem",
+            "nonLinearElasticity": "Non-linear elasticity",
+            "compressibleNeoHookeanMaterials": "Compressible neo-Hookean materials",
+            "whisperingGalleryModes": "Whispering gallery modes"
+        }
+    }
+]

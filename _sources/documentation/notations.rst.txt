@@ -8,7 +8,7 @@
 Notations
 =========
 
-Here mathematical expressions and corresponding ``FreeFem++`` commands are explained.
+Here mathematical expressions and corresponding **FreeFem++** commands are explained.
 
 Generalities
 ------------
@@ -19,8 +19,8 @@ Generalities
 -  [i.e.] that is
 -  [PDE] partial differential equation (with boundary conditions)
 -  [:math:`\emptyset`] the empty set
--  [:math:`\mathbb{N}`] the set of integers (:math:`a\in \mathbb{N}\Leftrightarrow` :freefem:`int a`), :freefem:`int` means :cpp:`long int` inside ``FreeFem++``
--  [:math:`\mathbb{R}`] the set of real numbers (:math:`a\in \mathbb{R}\Leftrightarrow` :freefem:`real a`), :cpp:`double` inside ``FreeFem++``
+-  [:math:`\mathbb{N}`] the set of integers (:math:`a\in \mathbb{N}\Leftrightarrow` :freefem:`int a`), :freefem:`int` means :cpp:`long int` inside **FreeFem++**
+-  [:math:`\mathbb{R}`] the set of real numbers (:math:`a\in \mathbb{R}\Leftrightarrow` :freefem:`real a`), :cpp:`double` inside **FreeFem++**
 -  [:math:`\mathbb{C}`] the set of complex numbers (:math:`a\in \mathbb{C}\Leftrightarrow` :freefem:`complex a`), :cpp:`complex<double>`
 -  [:math:`\mathbb{R}^d`] :math:`d`-dimensional Euclidean space
 
@@ -109,5 +109,5 @@ Finite Element Spaces
 -  [:math:`H^1_0(\Omega)`] the set :math:`\left\{w\in H^1(\Omega)\left|\; u=0\quad \textrm{on }\Gamma\right.\right\}`
 
    [:math:`L^2(\Omega)^2`] denotes :math:`L^2(\Omega)\times L^2(\Omega)`, and also :math:`H^1(\Omega)^2=H^1(\Omega)\times H^1(\Omega)`
--  [:math:`V_h`] denotes the finite element space created by :freefem:`fespace Vh(Th, *)` in ``FreeFem++`` (see :ref:`Finite Elements <finiteElement>` for ``*``)
+-  [:math:`V_h`] denotes the finite element space created by :freefem:`fespace Vh(Th, *)` in **FreeFem++** (see :ref:`Finite Elements <finiteElement>` for ``*``)
 -  [:math:`\Pi_h f`] the projection of the function :math:`f` into :math:`V_h` (:freefem:`func f=x^2*y^3; Vh v = f;}` means :math:`v = Pi_h (f) * [\{v\}]` for FE-function :math:`v` in :math:`V_h` means the column vector :math:`(v_1,\cdots,v_M)^T` if :math:`v=v_1\phi_1+\cdots+v_M\phi_M`, which is shown by :freefem:`fespace Vh(Th, P2); Vh v; cout << v[] << endl;`

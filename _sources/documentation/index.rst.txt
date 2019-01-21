@@ -13,3 +13,10 @@ Documentation
   parallelization
   plugins
   developers
+  ffddm/index
+
+.. only:: html
+
+  .. raw:: html
+
+      <script>goto('documentation.html')</script>
