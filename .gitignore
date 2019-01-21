@@ -1,1 +1,3 @@
 build
+tools/node_modules
+tools/lunr_index.js

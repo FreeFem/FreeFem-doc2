@@ -181,7 +181,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 
 -  3D surf plot:
 
-.. code:: matlab
+.. code-block:: matlab
 
    ffpdeplot(p,b,t,'XYData',u,'ZStyle','continuous','Mesh','off');
    lighting gouraud;

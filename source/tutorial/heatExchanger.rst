@@ -5,13 +5,10 @@
 Heat Exchanger
 ==============
 
-**Summary:** *Here we shall learn more about geometry input and triangulation files, as well as read and write operations.*
+**Summary:**
+*Here we shall learn more about geometry input and triangulation files, as well as read and write operations.*
 
-**The problem** Let :math:`\{C_{i}\}_{1,2}`, be 2 thermal conductors within an enclosure :math:`C_0`.
-
-.. todo::
-
-   Add image
+**The problem** Let :math:`\{C_{i}\}_{1,2}`, be 2 thermal conductors within an enclosure :math:`C_0` (see :numref:`figHeatMesh`).
 
 The first one is held at a constant temperature :math:`{u} _{1}` the other one has a given thermal conductivity :math:`\kappa_2` 5 times larger than the one of :math:`C_0`.
 
@@ -95,7 +92,7 @@ Note the following:
    This is why ``C1`` is viewed as a hole by :freefem:`buildmesh`.
 -  ``C1`` and ``C2`` are built by joining pieces of straight lines.
    To group them in the same logical unit to input the boundary conditions in a readable way we assigned a label on the boundaries.
-   As said earlier, borders have an internal number corresponding to their order in the program (check it by adding a `:freefem:`cout << C22;` above).
+   As said earlier, borders have an internal number corresponding to their order in the program (check it by adding a :freefem:`cout << C22;` above).
    This is essential to understand how a mesh can be output to a file and re-read (see below).
 -  As usual the mesh density is controlled by the number of vertices assigned to each boundary.
    It is not possible to change the (uniform) distribution of vertices but a piece of boundary can always be cut in two or more parts, for instance ``C12`` could be replaced by ``C121+C122``:
@@ -108,19 +105,17 @@ Note the following:
    ...
    buildmesh(.../*+ C12(20) */ + C121(12) + C122(8) + ...);
 
-.. rst-class:: inline2
+.. figure:: images/heat_exchangerTh.png
+    :figclass: inline2
+    :name: figHeatMesh
 
-   .. figure:: images/heat_exchangerTh.png
-      :name: figHeatMesh
+    Heat exchanger mesh
 
-      Heat exchanger mesh
+.. figure:: images/heat_exchanger.png
+    :figclass: inline2
+    :name: figHeatSolution
 
-.. rst-class:: inline2
-
-   .. figure:: images/heat_exchanger.png
-      :name: figHeatSolution
-
-      Heat exchanger solution
+    Heat exchanger solution
 
 .. tip:: **Exercise :**
 

@@ -6,6 +6,8 @@ Domain decomposition
 
 We present three classic examples of domain decomposition technique: first, Schwarz algorithm with overlapping, second Schwarz algorithm without overlapping (also call Shur complement), and last we show to use the conjugate gradient to solve the boundary problem of the Shur complement.
 
+.. _domainDecompositionSchwarzOverlapping:
+
 Schwarz overlapping
 -------------------
 
@@ -17,10 +19,12 @@ To solve:
 the Schwarz algorithm runs like this:
 
 .. math::
-   -\Delta u^{n+1}_1&=&f\;\mbox{in}\;\Omega_1\quad
-   u^{n+1}_1|_{\Gamma_1}=u^n_2\\
-   -\Delta u^{n+1}_2&=&f\;\mbox{in}\;\Omega_2\quad
-   u^{n+1}_2|_{\Gamma_2}=u^n_1
+    \begin{array}{rcl}
+        -\Delta u^{n+1}_1&=&f\;\mbox{in}\;\Omega_1\quad
+        u^{n+1}_1|_{\Gamma_1}=u^n_2\\
+        -\Delta u^{n+1}_2&=&f\;\mbox{in}\;\Omega_2\quad
+        u^{n+1}_2|_{\Gamma_2}=u^n_1
+    \end{array}
 
 where :math:`\Gamma_i` is the boundary of :math:`\Omega_i` and on the condition that :math:`\Omega_1\cap\Omega_2\neq\emptyset` and that :math:`u_i` are zero at iteration 1.
 
@@ -33,76 +37,78 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
 
 .. tip:: Schwarz overlapping
 
-   .. code-block:: freefem
+    .. code-block:: freefem
 
-      // Parameters
-      int inside =2; //inside boundary
-      int outside = 1; //outside boundary
-      int n = 4;
+        // Parameters
+        int inside =2; //inside boundary
+        int outside = 1; //outside boundary
+        int n = 4;
 
-      // Mesh
-      border a(t=1, 2){x=t; y=0; label=outside;}
-      border b(t=0, 1){x=2; y=t; label=outside;}
-      border c(t=2, 0){x=t; y=1; label=outside;}
-      border d(t=1, 0){x=1-t; y=t; label=inside;}
-      border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
-      border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
-      mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
-      mesh TH = buildmesh(e(5*n) + e1(25*n));
-      plot(th, TH, wait=true); //to see the 2 meshes
+        // Mesh
+        border a(t=1, 2){x=t; y=0; label=outside;}
+        border b(t=0, 1){x=2; y=t; label=outside;}
+        border c(t=2, 0){x=t; y=1; label=outside;}
+        border d(t=1, 0){x=1-t; y=t; label=inside;}
+        border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
+        border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
+        mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
+        mesh TH = buildmesh(e(5*n) + e1(25*n));
+        plot(th, TH, wait=true); //to see the 2 meshes
 
-      // Fespace
-      fespace vh(th, P1);
-      vh u=0, v;
+        // Fespace
+        fespace vh(th, P1);
+        vh u=0, v;
 
-      fespace VH(TH, P1);
-      VH U, V;
+        fespace VH(TH, P1);
+        VH U, V;
 
-      // Problem
-      int i = 0;
-      problem PB (U, V, init=i, solver=Cholesky)
-          = int2d(TH)(
-                dx(U)*dx(V)
-              + dy(U)*dy(V)
-          )
-          + int2d(TH)(
-              - V
-          )
-          + on(inside, U=u)
-          + on(outside, U=0)
-          ;
+        // Problem
+        int i = 0;
+        problem PB (U, V, init=i, solver=Cholesky)
+            = int2d(TH)(
+                  dx(U)*dx(V)
+                + dy(U)*dy(V)
+            )
+            + int2d(TH)(
+                - V
+            )
+            + on(inside, U=u)
+            + on(outside, U=0)
+            ;
 
-      problem pb (u, v, init=i, solver=Cholesky)
-          = int2d(th)(
-                dx(u)*dx(v)
-              + dy(u)*dy(v)
-          )
-          + int2d(th)(
-              - v
-          )
-          + on(inside, u=U)
-          + on(outside, u=0)
-          ;
+        problem pb (u, v, init=i, solver=Cholesky)
+            = int2d(th)(
+                  dx(u)*dx(v)
+                + dy(u)*dy(v)
+            )
+            + int2d(th)(
+                - v
+            )
+            + on(inside, u=U)
+            + on(outside, u=0)
+            ;
 
-      // Calculation loop
-      for (i = 0 ; i < 10; i++){
-          // Solve
-          PB;
-          pb;
+        // Calculation loop
+        for (i = 0 ; i < 10; i++){
+            // Solve
+            PB;
+            pb;
 
-          // Plot
-          plot(U, u, wait=true);
-      }
+            // Plot
+            plot(U, u, wait=true);
+        }
 
-   .. figure:: images/DomainDecomposition_Schwarz2.png
-      :name: figDomainIter0
+    .. figure:: images/DomainDecomposition_Schwarz2.png
+        :figclass: inline2
+        :name: figDomainIter0
 
-      Isovalues of the solution at iteration 0
+        Isovalues of the solution at iteration 0
 
-   .. figure:: images/DomainDecomposition_Schwarz3.png
-      :name: figDomainIter9
+    .. figure:: images/DomainDecomposition_Schwarz3.png
+        :figclass: inline2
+        :name: figDomainIter9
 
-      Isovalues of the solution at iteration 0
+        Isovalues of the solution at iteration 0
 
 Schwarz non overlapping Scheme
 ------------------------------
@@ -137,80 +143,82 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
 
 .. tip:: Schwarz non-overlapping
 
-   .. code-block:: freefem
+    .. code-block:: freefem
 
-      // Parameters
-      int inside = 2; int outside = 1; int n = 4;
+        // Parameters
+        int inside = 2; int outside = 1; int n = 4;
 
-      // Mesh
-      border a(t=1, 2){x=t; y=0; label=outside;};
-      border b(t=0, 1){x=2; y=t; label=outside;};
-      border c(t=2, 0){x=t; y=1; label=outside;};
-      border d(t=1, 0){x=1-t; y=t; label=inside;};
-      border e(t=0, 1){x=1-t; y=t; label=inside;};
-      border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;};
-      mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
-      mesh TH = buildmesh(e(5*n) + e1(25*n));
-      plot(th, TH, wait=true);
+        // Mesh
+        border a(t=1, 2){x=t; y=0; label=outside;};
+        border b(t=0, 1){x=2; y=t; label=outside;};
+        border c(t=2, 0){x=t; y=1; label=outside;};
+        border d(t=1, 0){x=1-t; y=t; label=inside;};
+        border e(t=0, 1){x=1-t; y=t; label=inside;};
+        border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;};
+        mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
+        mesh TH = buildmesh(e(5*n) + e1(25*n));
+        plot(th, TH, wait=true);
 
-      // Fespace
-      fespace vh(th, P1);
-      vh u=0, v;
-      vh lambda=0;
+        // Fespace
+        fespace vh(th, P1);
+        vh u=0, v;
+        vh lambda=0;
 
-      fespace VH(TH, P1);
-      VH U, V;
+        fespace VH(TH, P1);
+        VH U, V;
 
-      // Problem
-      int i = 0;
-      problem PB (U, V, init=i, solver=Cholesky)
-          = int2d(TH)(
-                dx(U)*dx(V)
-              + dy(U)*dy(V)
-          )
-          + int2d(TH)(
-              - V
-          )
-          + int1d(TH, inside)(
-                lambda*V
-          )
-          + on(outside, U= 0 )
-          ;
+        // Problem
+        int i = 0;
+        problem PB (U, V, init=i, solver=Cholesky)
+            = int2d(TH)(
+                  dx(U)*dx(V)
+                + dy(U)*dy(V)
+            )
+            + int2d(TH)(
+                - V
+            )
+            + int1d(TH, inside)(
+                  lambda*V
+            )
+            + on(outside, U= 0 )
+            ;
 
-      problem pb (u, v, init=i, solver=Cholesky)
-          = int2d(th)(
-                dx(u)*dx(v)
-              + dy(u)*dy(v)
-          )
-          + int2d(th)(
-              - v
-          )
-          + int1d(th, inside)(
-              - lambda*v
-          )
-          + on(outside, u=0)
-          ;
+        problem pb (u, v, init=i, solver=Cholesky)
+            = int2d(th)(
+                  dx(u)*dx(v)
+                + dy(u)*dy(v)
+            )
+            + int2d(th)(
+                - v
+            )
+            + int1d(th, inside)(
+                - lambda*v
+            )
+            + on(outside, u=0)
+            ;
 
-      for (i = 0; i < 10; i++){
-          // Solve
-          PB;
-          pb;
-          lambda = lambda - (u-U)/2;
+        for (i = 0; i < 10; i++){
+            // Solve
+            PB;
+            pb;
+            lambda = lambda - (u-U)/2;
 
-          // Plot
-          plot(U,u,wait=true);
-      }
+            // Plot
+            plot(U,u,wait=true);
+        }
 
-      // Plot
-      plot(U, u);
+        // Plot
+        plot(U, u);
 
-   .. figure:: images/DomainDecomposition_Schwarz5.png
+    .. figure:: images/DomainDecomposition_Schwarz5.png
+        :figclass: inline2
 
-      Isovalues of the solution at iteration 0 without overlapping
+        Isovalues of the solution at iteration 0 without overlapping
 
-   .. figure:: images/DomainDecomposition_Schwarz6.png
+    .. figure:: images/DomainDecomposition_Schwarz6.png
+        :figclass: inline2
 
-      Isovalues of the solution at iteration 9 without overlapping
+        Isovalues of the solution at iteration 9 without overlapping
 
 Schwarz conjuguate gradient
 ---------------------------

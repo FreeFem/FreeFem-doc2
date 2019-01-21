@@ -1,7 +1,8 @@
 Acoustics
 =========
 
-**Summary :** *Here we go to grip with ill posed problems and eigenvalue problems*
+**Summary :**
+*Here we go to grip with ill posed problems and eigenvalue problems*
 
 Pressure variations in air at rest are governed by the wave equation:
 
@@ -11,12 +12,14 @@ Pressure variations in air at rest are governed by the wave equation:
 When the solution wave is monochromatic (and that depends on the boundary and initial conditions), :math:`u` is of the form :math:`u(x,t)=Re(v(x) e^{ik t})` where :math:`v` is a solution of Helmholtz’s equation:
 
 .. math::
-   k^{2}v + c^{2}\Delta v &= 0 &\hbox{ in } \Omega\\
-   \frac{\partial v}{\partial n}|_\Gamma &= g
+    \begin{array}{rcl}
+        k^{2}v + c^{2}\Delta v &= 0 &\hbox{ in } \Omega\\
+        \frac{\partial v}{\partial n}|_\Gamma &= g &
+    \end{array}
 
 where :math:`g` is the source.
 
-Note the “+” sign in front of the Laplace operator and that :math:`k > 0` is real.
+Note the “+" sign in front of the Laplace operator and that :math:`k > 0` is real.
 This sign may make the problem ill posed for some values of :math:`\frac c k`, a phenomenon called "resonance".
 
 At resonance there are non-zero solutions even when :math:`g=0`.
@@ -102,15 +105,13 @@ To find all the :math:`u_e` one can do the following :
    v = eV[0];
    plot(v, wait=true, ps="eigen.eps");
 
-.. rst-class:: inline2
+.. figure:: images/acoustics_0.png
+    :figclass: inline2
+    :name: figAcoustics
 
-   .. figure:: images/acoustics_0.png
-      :name: figAcoustics
+    Amplitude of an acoustic signal coming from the left vertical wall.
 
-      Amplitude of an acoustic signal coming from the left vertical wall.
+.. figure:: images/acoustics.png
+    :figclass: inline2
 
-.. rst-class:: inline2
-
-   .. figure:: images/acoustics.png
-
-      First eigen state (:math:`\lambda=(k/c)^2=19.4256`) close to :math:`20` of eigenvalue problem: :math:`-\Delta \varphi = \lambda\varphi` and :math:`\frac{\partial \varphi}{\partial n} = 0` on :math:`\Gamma`}
+    First eigen state (:math:`\lambda=(k/c)^2=19.4256`) close to :math:`20` of eigenvalue problem: :math:`-\Delta \varphi = \lambda\varphi` and :math:`\frac{\partial \varphi}{\partial n} = 0` on :math:`\Gamma`}

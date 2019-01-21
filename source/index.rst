@@ -15,3 +15,10 @@ Welcome to FreeFem++ documentation
   tutorial/index
   example/index
   model/index
+  reference
+
+.. only:: html
+
+    .. raw:: html
+
+        <script>goto('introduction/introduction.html')</script>

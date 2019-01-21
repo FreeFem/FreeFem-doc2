@@ -1,8 +1,8 @@
 Citation
 ========
 
-If you use FreeFem++, please cite the following reference in your work:
------------------------------------------------------------------------
+If you use **FreeFem++**, please cite the following reference in your work:
+---------------------------------------------------------------------------
 
 APA
 ~~~

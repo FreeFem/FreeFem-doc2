@@ -1,7 +1,8 @@
 Classification of partial differential equations
 ================================================
 
-**Summary :** *It is usually not easy to determine the type of a system.*
+**Summary :**
+*It is usually not easy to determine the type of a system.*
 *Yet the approximations and algorithms suited to the problem depend on its type:*
 
 -  *Finite Elements compatible (LBB conditions) for elliptic systems*

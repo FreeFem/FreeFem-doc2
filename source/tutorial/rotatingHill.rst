@@ -5,8 +5,6 @@ Pure Convection : The Rotating Hill
 ===================================
 
 **Summary:**
-------------
-
 *Here we will present two methods for upwinding for the simplest convection problem.
 We will learn about Characteristics-Galerkin and Discontinuous-Galerkin Finite Element Methods.*
 
@@ -18,8 +16,10 @@ Let :math:`\Omega` be the unit disk centered at :math:`(0,0)`; consider the rota
 Pure convection by :math:`\mathbf{u}` is
 
 .. math::
-   \partial_t c + \mathbf{u}.\nabla c &= 0 &\hbox{ in } \Omega\times(0,T)\\
-   c (t=0) &= c ^0 &\hbox{ in } \Omega.
+    \begin{array}{rcl}
+        \partial_t c + \mathbf{u}.\nabla c &= 0 &\hbox{ in } \Omega\times(0,T)\\
+        c (t=0) &= c ^0 &\hbox{ in } \Omega.
+    \end{array}
 
 The exact solution :math:`c(x_t,t)` at time :math:`t` en point :math:`x_t` is given by:
 
@@ -38,8 +38,8 @@ The ODE are reversible and we want the solution at point :math:`x` at time :math
 
 The game consists in solving the equation until :math:`T=2\pi`, that is for a full revolution and to compare the final solution with the initial one; they should be equal.
 
-**Solution by a Characteristics-Galerkin Method**
--------------------------------------------------
+Solution by a Characteristics-Galerkin Method
+---------------------------------------------
 
 In FreeFem++ there is an operator called :freefem:`convect([u1,u2], dt, c)` which compute :math:`c\circ X` with :math:`X` is the convect field defined by :math:`X(x)= x_{dt}` and where :math:`x_\tau` is particule path in the steady state velocity field :math:`\mathbf{u}=[u1,u2]` starting at point :math:`x` at time :math:`\tau=0`, so :math:`x_\tau` is solution of the following ODE:
 
@@ -75,11 +75,11 @@ When :math:`\mathbf{u}` is piecewise constant; this is possible because :math:`x
 
 The method is very powerful but has two limitations:
 
--  a/ it is not conservative
--  b/ it may diverge in rare cases when :math:`|\mathbf{u}|` is too small due to quadrature error.
+-  it is not conservative
+-  it may diverge in rare cases when :math:`|\mathbf{u}|` is too small due to quadrature error.
 
-**Solution by Discontinuous-Galerkin FEM**
-------------------------------------------
+Solution by Discontinuous-Galerkin FEM
+--------------------------------------
 
 Discontinuous Galerkin methods take advantage of the discontinuities of :math:`c` at the edges to build upwinding.
 There are may formulations possible.
@@ -147,19 +147,17 @@ Results of both methods are shown on :numref:`figRotatingCG` nad :numref:`figRot
 Notice also the macro where the parameter :math:`\mathbf{u}` is not used (but the syntax needs one) and which ends with a :freefem:`//`; it simply replaces the name :freefem:`n` by :freefem:`(N.x*v1+N.y*v2)`.
 As easily guessed :freefem:`N.x,N.y` is the normal to the edge.
 
-.. rst-class:: inline2
+.. figure:: images/convectCG.png
+    :figclass: inline2
+    :name: figRotatingCG
 
-   .. figure:: images/convectCG.png
-      :name: figRotatingCG
+    The rotating hill after one revolution with Characteristics-Galerkin
 
-      The rotating hill after one revolution with Characteristics-Galerkin
+.. figure:: images/convectDG.png
+    :figclass: inline2
+    :name: figRotatingDG
 
-.. rst-class:: inline2
-
-   .. figure:: images/convectDG.png
-      :name: figRotatingDG
-
-      The rotating hill after one revolution with Discontinuous :math:`P_1` Galerkin
+    The rotating hill after one revolution with Discontinuous :math:`P_1` Galerkin
 
 Now if you think that DG is too slow try this:
 
@@ -259,7 +257,7 @@ It can be programmed as :
        plot(v, wait=0);
    }
 
-the “mass lumping” parameter forces a quadrature formula with Gauss points at the vertices so as to make the mass matrix diagonal; the linear system solved by a conjugate gradient method for instance will then converge in one or two iterations.
+the “mass lumping" parameter forces a quadrature formula with Gauss points at the vertices so as to make the mass matrix diagonal; the linear system solved by a conjugate gradient method for instance will then converge in one or two iterations.
 
 The right hand side ``rhs`` is computed by an external C++ function ``MatUpWind0(...)`` which is programmed as :
 
@@ -299,5 +297,3 @@ The right hand side ``rhs`` is computed by an external C++ function ``MatUpWind0
    }
 
 It must be inserted into a larger .cpp file, shown in Appendix A, which is the load module linked to FreeFem++.
-
-.. [ERN2006] ERN, A. et GUERMOND, J. L. Discontinuous Galerkin methods for Friedrichs’ symmetric systems. I. General theory. SIAM J. Numer. Anal.

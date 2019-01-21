@@ -4,7 +4,8 @@
 Irrotational Fan Blade Flow and Thermal effects
 ===============================================
 
-**Summary :** *Here we will learn how to deal with a multi-physics system of PDEs on a complex geometry, with multiple meshes within one problem.
+**Summary :**
+*Here we will learn how to deal with a multi-physics system of PDEs on a complex geometry, with multiple meshes within one problem.
 We also learn how to manipulate the region indicator and see how smooth is the projection operator from one mesh to another.*
 
 **Incompressible flow**
@@ -14,7 +15,7 @@ Without viscosity and vorticity incompressible flows have a velocity given by:
 .. math::
    u=\left(\begin{matrix}{\partial \psi \over \partial x_{2} }\\ -{\partial \psi
    \over \partial x_{1}} \end{matrix}\right), \quad
-   \hbox{ where $\psi$ is solution of }\quad \Delta \psi =0
+   \mbox{ where }\psi\mbox{ is solution of }\quad \Delta \psi =0
 
 This equation expresses both incompressibility (:math:`\nabla\cdot u=0`) and absence of vortex (:math:`\nabla\times u =0`).
 
@@ -73,26 +74,21 @@ An equation for the upper surface of a NACA0012 (this is a classical wing profil
 
    plot(psi, wait=1);
 
-A zoom of the streamlines are shown on `figure 1 <#Fig1>`__.
+A zoom of the streamlines are shown on :numref:`figFanPotential`.
 
-.. rst-class:: inline2
+.. figure:: images/potential.png
+    :figclass: inline2
+    :name: figFanPotential
 
-   .. figure:: images/potential.png
-      :name: figFanPotential
+    Zoom around the NACA0012 airfoil showing the streamlines (curve :math:`\psi=` constant).
+    To obtain such a plot use the interactive graphic command: "+" and p.
 
-      Zoom around the NACA0012 airfoil showing the streamlines (curve :math:`\psi=` constant).
-      To obtain such a plot use the interactive graphic command: "+" and p.
+.. figure:: images/potential_heat.png
+    :figclass: inline2
+    :name: figFanTemperature
 
-.. rst-class:: inline2
-
-   .. figure:: images/potential_heat.png
-      :name: figFanTemperature
-
-      Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).
-      Note that an incidence angle has been added here (see Chapter 9).
-
-.. todo::
-   There is no chapter 9
+    Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).
+    Note that an incidence angle has been added here.
 
 Heat Convection around the airfoil
 ----------------------------------

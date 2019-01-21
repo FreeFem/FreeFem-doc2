@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# import sphinx_bootstrap_theme
-# import guzzle_sphinx_theme
-
 # -- Project information -----------------------------------------------------
 
 project = 'FreeFem++'
@@ -21,10 +18,8 @@ release = '3.61.2'
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
-    'sphinx_markdown_tables',
     'sphinxcontrib.inlinesyntaxhighlight'
 ]
 
@@ -52,39 +47,20 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-highlight_language = 'freefem'
-highlight_options = {'linenos':1, 'linenosthreshold':5}
+# highlight_language = 'freefem'
+# highlight_options = {'linenos':1, 'linenosthreshold':5}
 
 # -- Options for HTML output -------------------------------------------------
 
 html_favicon = 'images/favicon.png'
-# html_logo = 'images/Logo.png'
+html_logo = 'images/Logo.png'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-html_theme = 'sphinx_materialdesign_theme'
 
-# html_theme = 'material_design'
+html_theme = 'freefemtheme'
+html_theme_path = ['.']
 
-# html_theme = 'bootstrap'
-# html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
-
-# html_theme_path = guzzle_sphinx_theme.html_theme_path()
-# html_theme = 'guzzle_sphinx_theme'
-#
-# extensions.append("guzzle_sphinx_theme")
-#
-# html_theme_options = {
-#     # Set the name of the project to appear in the sidebar
-#     "project_nav_name": "FreeFem++",
-# }
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -104,8 +80,6 @@ html_static_path = ['_static']
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
-html_baseurl = 'doc.freefem.org/dev'
-
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'FreeFem++doc'
 
@@ -123,7 +97,80 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble': """
+\\def\\R{{\\mathbb{R}}}
+\\def\\P{{\\mathbb{P}}}
+\\def\\p{{\\partial}}
+\\def\\n{{\\nabla}}
+\\def\\boldx{{\\mathbf{x}}}
+\\def\\boldxi{{\\boldsymbol{\\xi}}}
+\\def\\arccosh{{\\text{arccosh}}}
+\\def\\arcsinh{{\\text{arcsinh}}}
+\\def\\arctanh{{\\text{arctanh}}}
+\\def\\vecttwo#1#2{\\left|\\begin{smallmatrix} #1 \\\\ #2 \\end{smallmatrix}\\right.}
+\\def\\vectthree#1#2#3{\\left|\\begin{smallmatrix} #1 \\\\ #2 \\\\ #3\\end{smallmatrix}\\right.}
+\\def\\bR{{\\bf R}}
+\\def\\bP{{\\bf P}}
+\\def\\bZ{{\\bf Z}}
+\\def\\bC{{\\bf C}}
+\\def\\VS{\\bR^2}
+\\def\\SVS{\\underline V}
+\\def\\SO{{\\bf SO}}
+\\def\\Sym{{\\bf Sym}}
+\\def\\qi{{\\bf i}}
+\\def\\qj{{\\bf j}}
+\\def\\qk{{\\bf k}}
+\\def\\ec{\\hat{\\bf e}}
+\\def\\xc{\\hat{\\bf x}}
+\\def\\bdr{\\partial}
+\\def\\PD{\\partial_}
+\\def\\strain{\\underline \\epsilon}
+\\def\\stress{\\underline \\sigma}
+\\def\\strainrate{\\underline \\epsilon^.}
+\\def\\stressrate{\\underline \\sigma^.}
+\\def\\stiff{\\; \\underline{\\underline C}\\;}
+\\def\\comply{\\underline{\\underline \\kappa}\\;}
+\\def\\Id{{\\bf I}}
+\\def\\Div{\\nabla \\cdot}
+\\def\\Grad{\\mathbf{\\nabla}}
+\\def\\rot{\\nabla \\times}
+\\def\\lap{\\triangle}
+\\def\\tr{{\\bf tr}\\;}
+\\def\\udH{\\underline H}
+\\def\\refX{\\mathbf X}
+\\def\\Jac{\\overline{J}}
+\\def\\spatx{\\mathbf x}
+\\def\\ani{\\overline a}
+\\def\\mat{\\left[\\begin{array}}
+\\def\\tam{\\end{array}\\right]}
+\\def\\arr{\\left.\\begin{array}}
+\\def\\rra{\\end{array}\\right\\}}
+\\def\\arl{\\left\\{\\begin{array}}
+\\def\\lra{\\end{array}\\right.}
+\\def\\ar{\\begin{array}}
+\\def\\ra{\\end{array}}
+\\def\\const{\\mbox{ const.}}
+\\def\\eps{\\; \\epsilon}
+\\def\\sig{\\; \\sigma}
+\\def\\th{\\theta}
+\\def\\sgn{\\mbox{sgn}}
+\\def\\qed{\\; Q.E.D.\\\\}
+\\def\\ranqe{\\end{eqnarray}}
+\\def\\ol{\\overline}
+\\def\\ul{\\underline}
+\\def\\bB{{\\bf B}}
+\\def\\bC{{\\bf C}}
+\\def\\bD{{\\bf D}}
+\\def\\bE{{\\bf E}}
+\\def\\bF{{\\bf F}}
+\\def\\bK{{\\bf K}}
+\\def\\bP{{\\bf P}}
+\\def\\bS{{\\bf S}}
+\\def\\bT{{\\bf T}}
+\\def\\bsig{{\\bf \\sigma}}
+\\def\\T{{\mathbb{T}}}
+\\def\\d{{text{d}}}
+    """,
 
     # Latex figure (float) alignment
     #
@@ -187,6 +234,3 @@ numfig = True
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
-
-def setup(app):
-    app.add_stylesheet('extra.css')

@@ -28,7 +28,7 @@ So, to code the method with the matrices :math:`A=(A_{ij})`, :math:`M=(M_{ij})`,
        \quad b"= \frac{1}{\varepsilon} \; b_{cl} ,
        \quad b^n_i = \left\{
            \begin{array}{cl}
-               b"_i & \mbox{if }\ i \in \Gamma_{24} \\
+               b''_i & \mbox{if }\ i \in \Gamma_{24} \\
                b'_i & \mbox{else }
            \end{array}\right.
        \label{eq tgv}
@@ -36,25 +36,27 @@ So, to code the method with the matrices :math:`A=(A_{ij})`, :math:`M=(M_{ij})`,
 Where with :math:`\frac{1}{\varepsilon} = \mathtt{tgv} = 10^{30}`:
 
 .. math::
-   A_{ij} &=&
-      \left\{\begin{array}{cl}
-      \frac{1}{\varepsilon} & \mbox{if } i \in \Gamma_{24}, \mbox{and}\quad j=i\\
-      \displaystyle{\int_{\Omega} w_j w_i / dt + k (\nabla w_j. \nabla w_i ) + \int_{\Gamma_{13}} \alpha w_j w_i} & \mbox{else}
-      \end{array}\right.\\
-   M_{ij} &=&
-      \left\{\begin{array}{cl}
-      \frac{1}{\varepsilon} & \mbox{if } i \in \Gamma_{24}, \mbox{and}\quad j=i \\
-      \displaystyle n{\int_{\Omega} w_j w_i / dt} & \mbox{else}
-      \end{array}\right. \\
-   b_{0,i} &=& n{\int_{\Gamma_{13}} \alpha u_{ue} w_i } \\
-   b_{cl} &=& u^{0} \quad \mbox{the initial data}
+    \begin{array}{rcl}
+        A_{ij} &=&
+          \left\{\begin{array}{cl}
+          \frac{1}{\varepsilon} & \mbox{if } i \in \Gamma_{24}, \mbox{and}\quad j=i\\
+          \displaystyle{\int_{\Omega} w_j w_i / dt + k (\nabla w_j. \nabla w_i ) + \int_{\Gamma_{13}} \alpha w_j w_i} & \mbox{else}
+          \end{array}\right.\\
+        M_{ij} &=&
+          \left\{\begin{array}{cl}
+          \frac{1}{\varepsilon} & \mbox{if } i \in \Gamma_{24}, \mbox{and}\quad j=i \\
+          \displaystyle n{\int_{\Omega} w_j w_i / dt} & \mbox{else}
+          \end{array}\right. \\
+        b_{0,i} &=& n{\int_{\Gamma_{13}} \alpha u_{ue} w_i } \\
+        b_{cl} &=& u^{0} \quad \mbox{the initial data}
+    \end{array}
 
 The Fast version script:
 
 .. code-block:: freefem
 
     ...
-   Vh u0=fu0, u=u0;
+    Vh u0=fu0, u=u0;
 
 Create three variational formulation, and build the matrices :math:`A`,\ :math:`M`.
 

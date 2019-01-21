@@ -86,6 +86,8 @@ False boolean value.
 
    bool b = false;
 
+.. _globalVariablesGMRES:
+
 GMRES
 -----
 
@@ -255,7 +257,7 @@ This is an integer value.
 version
 -------
 
-FreeFem++ version.
+**FreeFem++** version.
 
 .. code-block:: freefem
 

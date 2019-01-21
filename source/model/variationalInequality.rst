@@ -37,11 +37,11 @@ where :math:`((u-g)^+ = max(0,u-g)`.
 This saddle point problem is equivalent to find :math:`u, \lambda` such that:
 
 .. math::
-   \left\{
-      \begin{array}{cc}
-      \displaystyle \int_\Omega \nabla u . \nabla v + \lambda v^+ \,d\omega= \int_\Omega f u , &\forall v \in H^1_0(\Omega) \cr
-      \displaystyle \int_\Omega \mu (u-g)^+ = 0 , & \forall \mu \in L^2(\Omega) , \mu \geq 0, \lambda \geq 0,
-   \end{array}\right.
+    \left\{
+    \begin{array}{cc}
+        \displaystyle \int_\Omega \nabla u . \nabla v + \lambda v^+ \,d\omega= \int_\Omega f u , &\forall v \in H^1_0(\Omega) \cr
+        \displaystyle \int_\Omega \mu (u-g)^+ = 0 , & \forall \mu \in L^2(\Omega) , \mu \geq 0, \lambda \geq 0,
+    \end{array}\right.
 
 An algorithm to solve the previous problem is:
 
@@ -70,7 +70,7 @@ Now how to do that in FreeFem++? The full example is:
 
    .. code-block:: freefem
 
-      load “medit”
+      load "medit"
 
       // Parameters
       real eps = 1e-5;
@@ -163,8 +163,3 @@ Now how to do that in FreeFem++? The full example is:
       medit("uh", Th, uh);
 
    .. note:: As you can see on this example, some vector, or matrix operator are not implemented so a way is to skip the expression and we use operator :freefem:`+=`,  :freefem:`-=` to merge the result.
-
-References
-----------
-
-.. [ITO2003] ITO, Kazufumi et KUNISCH, Karl. Semi–smooth Newton methods for variational inequalities of the first kind. ESAIM: Mathematical Modelling and Numerical Analysis, 2003, vol. 37, no 1, p. 41-62.

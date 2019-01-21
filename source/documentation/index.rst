@@ -13,3 +13,9 @@ Documentation
   parallelization
   plugins
   developers
+
+.. only:: html
+
+  .. raw:: html
+
+      <script>goto('documentation.html')</script>

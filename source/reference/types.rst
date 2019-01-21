@@ -17,7 +17,7 @@ int
 
 Integer value (equivalent to :cpp:`long` in ``C++``).
 
-.. code:: freefem
+.. code-block:: freefem
 
    int i = 0;
 
@@ -26,7 +26,7 @@ bool
 
 Boolean value.
 
-.. code:: freefem
+.. code-block:: freefem
 
    bool b = true;
 
@@ -39,7 +39,7 @@ real
 
 Real value (equivalent to :cpp:`double` in ``C++``).
 
-.. code:: freefem
+.. code-block:: freefem
 
    real r = 0.;
 
@@ -48,7 +48,7 @@ complex
 
 Complex value (equivalent to two :cpp:`double` or :cpp:`complex<double>` in ``C++``).
 
-.. code:: freefem
+.. code-block:: freefem
 
    complex c = 0. + 1i;
 
@@ -80,7 +80,7 @@ string
 
 String value.
 
-.. code:: freefem
+.. code-block:: freefem
 
    string s = "this is a string";
 
@@ -88,7 +88,7 @@ String value.
 
 Other types can be concatenate to a string, like:
 
-.. code:: freefem
+.. code-block:: freefem
 
    int i = 1;
    real r = 1.;
@@ -96,13 +96,13 @@ Other types can be concatenate to a string, like:
 
 To append a string in a string at position 4:
 
-.. code:: freefem
+.. code-block:: freefem
 
    s(4:3) = "+++";
 
 To copy a substring in an other string:
 
-.. code:: freefem
+.. code-block:: freefem
 
    string s2 = s1(5:10);
 
@@ -116,7 +116,7 @@ border
 
 Border type.
 
-.. code:: freefem
+.. code-block:: freefem
 
    border b(t=0., 1.){x=cos(2.*pi*t); y=sin(2.*pi*t);}
 
@@ -138,7 +138,7 @@ Define the 2D geometrical border in parametric coordinates.
 
       border b(t=0., 1.){real tt=2.*pi*t; x=cos(tt); y=sin(tt);}
 
-... note:: From vector
+.. note:: From vector
 
    A border can be defined from two vectors using :freefem`P.x` and :freefem:`P.y`:
 
@@ -400,6 +400,8 @@ The construction of :freefem:`fh = f` is explained in :ref:`Finite Element <fini
 
 .. warning:: The :freefem:`plot` command only works for real or complex FE-functions, not for elementary functions.
 
+.. _typeProblemDesign:
+
 Problem design
 --------------
 
@@ -478,7 +480,7 @@ In order to solve the problem, just call:
 
 .. note:: "*Très grande valeur*"
 
-   The “*Très grand valeur*” :freefem:`tgv` (or *Terrible giant value*) used to implement the Dirichlet conditions can be modified in the problem definition:
+   The “*Très grand valeur*" :freefem:`tgv` (or *Terrible giant value*) used to implement the Dirichlet conditions can be modified in the problem definition:
 
    .. code-block:: freefem
 
@@ -505,7 +507,7 @@ In order to solve the problem, just call:
 
       problem Laplacian(u, uh, solver=LU, tolpivotsym=1e-1, strategy=0) = ...
 
-   Refer to the [UMFPACK website](http://faculty.cse.tamu.edu/davis/research.html) for more informations.
+   Refer to the `UMFPACK website <http://faculty.cse.tamu.edu/davis/research.html>`__ for more informations.
 
 .. note:: :freefem:`dimKrylov`
 
@@ -558,7 +560,7 @@ There are :freefem:`int,real, complex` array with, in the third case, two operat
 .. note:: Quantiles are points taken at regular intervals from the cumulative distribution function of a random variable.
    Here the array values are random.
 
-   This statistical function :freefem`a.quantile(q)` computes :math:`v` from an array :math:`a` of size :math:`n` for a given number :math:`q\in ]0,1[` such that:
+   This statistical function :freefem:`a.quantile(q)` computes :math:`v` from an array :math:`a` of size :math:`n` for a given number :math:`q\in ]0,1[` such that:
 
    .. math::
       \#\{ i / a[i] < v \} \sim q*n
@@ -791,7 +793,7 @@ Matrices are designed using templates, so they can be real or complex:
 
    See :ref:`problem <typeProblem>`.
 
-   The default solver is [`:::freefem GMRES`](../GlobalVariables/#gmres).
+   The default solver is :ref:`GMRES <globalVariablesGMRES>`.
 
    .. code-block:: freefem
 
@@ -837,7 +839,7 @@ Matrices are designed using templates, so they can be real or complex:
 
    See :ref:`problem <typeProblem>`.
 
-!!!note :freefem:`dimKrylov`
+.. note:: :freefem:`dimKrylov`
 
    See :ref:`problem <typeProblem>`.
 
@@ -853,7 +855,7 @@ Matrices are designed using templates, so they can be real or complex:
 
    Vector of real parameters for the solver, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
 
-. note::  :freefem:`sparams`
+.. note::  :freefem:`sparams`
 
    String parameters for the solver, see `Parallel sparse solvers </documentation/Parallelization/#ParallelSparseSolvers>`__
 

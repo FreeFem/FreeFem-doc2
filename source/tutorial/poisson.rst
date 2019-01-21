@@ -1,26 +1,30 @@
 .. role:: freefem(code)
   :language: freefem
 
+.. _tutorialPoisson:
+
 Solving Poisson's equation
 ==========================
 
 For a given function :math:`f(x,y)`, find a function :math:`u(x,y)` satisfying :
 
 .. math::
-   -\Delta u(x,y) &= f(x,y) & \mbox{ for all }(x,y)\mbox{ in }\Omega\\
-   u(x,y) &= 0 & \mbox{ for all }(x,y)\mbox{ on }\partial\Omega
-   :label: eqn:Poisson
+    \begin{array}{rcl}
+        -\Delta u(x,y) &= f(x,y) & \mbox{ for all }(x,y)\mbox{ in }\Omega\\
+        u(x,y) &= 0 & \mbox{ for all }(x,y)\mbox{ on }\partial\Omega
+    \end{array}
+    :label: eqn:Poisson
 
 Here :math:`\partial\Omega` is the boundary of the bounded open set :math:`\Omega\subset\mathbb{R}^2` and :math:`\Delta u = \frac{\partial^2 u}{\partial x^2 } + \frac{\partial^2 u}{\partial y^2}`.
 
 We will compute :math:`u` with :math:`f(x,y)=xy` and :math:`\Omega` the unit disk. The boundary :math:`C=\partial\Omega` is defined as:
 
 .. math::
-   C=\{(x,y)|\; x=\cos(t),\, y=\sin(t),\, 0\le t\le 2\pi\}
+    C=\{(x,y)|\; x=\cos(t),\, y=\sin(t),\, 0\le t\le 2\pi\}
 
-.. note:: In FreeFem++, the domain :math:`\Omega` is assumed to be described by the left side of its boundary.
+.. note:: In **FreeFem++**, the domain :math:`\Omega` is assumed to be described by the left side of its boundary.
 
-The following is the Freefem++ program which computes :math:`u`:
+The following is the **FreeFem++** program which computes :math:`u`:
 
 .. code-block:: freefem
 
@@ -57,27 +61,25 @@ The following is the Freefem++ program which computes :math:`u`:
    // Display the total computational time
    cout << "CPU time = " << (clock()-cpu) << endl;
 
-As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using Freefem++ :freefem:`plot` command (see line 29 above).
+As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using **FreeFem++** :freefem:`plot` command (see line 29 above).
 
-.. rst-class:: inline2
+.. figure:: images/firstTh.png
+    :figclass: inline2
+    :name: figPoissonMesh
 
-   .. figure:: images/firstTh.png
-      :name: figPoissonMesh
+    Mesh Th by :freefem:`buildmesh(C(50))`
 
-      Mesh Th by :freefem:`buildmesh(C(50))`
+.. figure:: images/firstU.png
+    :figclass: inline2
+    :name: figPoissonU
 
-.. rst-class:: inline2
-
-   .. figure:: images/firstU.png
-      :name: figPoissonU
-
-      Isovalue by :freefem:`plot(u)`
+    Isovalue by :freefem:`plot(u)`
 
 .. note:: The qualifier :freefem:`solver=LU` (line 18) is not required and by default a multi-frontal :freefem:`LU` is used.
 
    The lines containing :freefem:`clock` are equally not required.
 
-.. tip:: Note how close to the mathematics FreeFem++ language is.
+.. tip:: Note how close to the mathematics **FreeFem++** language is.
 
    Lines 19 to 24 correspond to the mathematical variational equation:
 
@@ -93,7 +95,7 @@ As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by
 
 .. tip:: Change :freefem:`P1` into :freefem:`P2` and run the program.
 
-This first example shows how FreeFem++ executes with no effort all the usual steps required by the finite element method (FEM).
+This first example shows how **FreeFem++** executes with no effort all the usual steps required by the finite element method (FEM).
 Let’s go through them one by one.
 
 **On the line 2**:
@@ -109,7 +111,7 @@ Hence the circle could also have been described as two half circle with the same
    border Gamma1(t=0, pi){x=cos(t); y=sin(t); label=C};
    border Gamma2(t=pi, 2.*pi){x=cos(t); y=sin(t); label=C};
 
-Boundaries can be referred to either by name (``Gamma1`` for example) or by label (``C`` here) or even by its internal number here 1 for the first half circle and 2 for the second (more examples are in :math:`\ref{Meshing Examples}`).
+Boundaries can be referred to either by name (``Gamma1`` for example) or by label (``C`` here) or even by its internal number here 1 for the first half circle and 2 for the second (more examples are in :ref:`Meshing Examples <exampleMeshGeneration>`).
 
 **On the line 5**
 
@@ -134,11 +136,11 @@ then the inside of the ellipse would be triangulated as well as the outside.
 
    Mesh adaptation can be performed also against a given function `f` by calling :freefem:`adaptmesh(Th,f)`.
 
-Now the name :math:`\mathcal{T}_h` (:freefem:`Th` in FreeFem++) refers to the family :math:`\{T_k\}_{k=1,\cdots,n_t}` of triangles shown in :numref:`figPoissonMesh`.
+Now the name :math:`\mathcal{T}_h` (:freefem:`Th` in **FreeFem++**) refers to the family :math:`\{T_k\}_{k=1,\cdots,n_t}` of triangles shown in :numref:`figPoissonMesh`.
 
 Traditionally :math:`h` refers to the mesh size, :math:`n_t` to the number of triangles in :math:`\mathcal{T}_h` and :math:`n_v` to the number of vertices, but it is seldom that we will have to use them explicitly.
 
-If :math:`\Omega` is not a polygonal domain, a “skin” remains between the exact domain :math:`\Omega` and its approximation :math:`\Omega_h=\cup_{k=1}^{n_t}T_k`.
+If :math:`\Omega` is not a polygonal domain, a “skin" remains between the exact domain :math:`\Omega` and its approximation :math:`\Omega_h=\cup_{k=1}^{n_t}T_k`.
 However, we notice that all corners of :math:`\Gamma_h = \partial\Omega_h` are on :math:`\Gamma`.
 
 **On line 8:**
@@ -148,19 +150,17 @@ A finite element space is, usually, a space of polynomial functions on elements,
 As it is a linear vector space of finite dimension, basis can be found.
 The canonical basis is made of functions, called the *hat function* :math:`\phi_k` which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on :numref:`figPoissonHat`.
 
-.. rst-class:: inline2
+.. figure:: images/meshTh_2.png
+    :figclass: inline2
+    :name: figPoissonMesh2
 
-   .. figure:: images/meshTh_2.png
-      :name: figPoissonMesh2
+    :freefem:`mesh Th`
 
-      :freefem:`mesh Th`
+.. figure:: images/hat_functions.png
+    :figclass: inline2
+    :name: figPoissonHat
 
-.. rst-class:: inline2
-
-   .. figure:: images/hat_functions.png
-      :name: figPoissonHat
-
-      Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)
+    Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)
 
 .. note:: The easiest way to define :math:`\phi_k` is by making use of the *barycentric coordinates* :math:`\lambda_i(x,y),~i=1,2,3` of a point :math:`q=(x,y)\in T`, defined by :math:`\sum_i\lambda_i=1,~~~\sum_i\lambda_i\vec q^i=\vec q` where :math:`q^i,~i=1,2,3` are the 3 vertices of :math:`T`.
    Then it is easy to see that the restriction of :math:`\phi_k` on :math:`T` is precisely :math:`\lambda_k`.
@@ -196,13 +196,18 @@ This *variational formulation* is derived by multiplying :eq:`eqn:Poisson` by :m
 Then, by Green’s formula, the problem is converted into finding :math:`u` such that
 
 .. math::
-   &&a(u,v) - \ell(f,v) = 0
-   \qquad \forall v \hbox{ satisfying $v=0$ on }\partial\Omega.\\
-   &&\hbox{with }a(u,v)=\int_{\Omega}\nabla u\cdot \nabla v \,\text{d} x\text{d} y ,
-   \quad \ell(f,v)=\int_{\Omega}fv\, \text{d} x\text{d} y
-   :label: eqn:weakform
+    a(u,v) - \ell(f,v) = 0 \quad \forall v \mbox{ satisfying }v=0\mbox{ on }\partial\Omega.
 
-In FreeFem++ the **Poisson** problem can be declared only as in:
+with:
+
+.. math::
+    \begin{array}{rcl}
+        a(u,v) &=& \int_{\Omega}\nabla u\cdot \nabla v \,\text{d} x\text{d} y\\
+        \ell(f,v) &=& \int_{\Omega}fv\, \text{d} x\text{d} y
+    \end{array}
+    :label: eqn:weakform
+
+In **FreeFem++** the **Poisson** problem can be declared only as in:
 
 .. code-block:: freefem
 
@@ -228,7 +233,7 @@ and :eq:`eqn:weakform` is written with :freefem:`dx(u)` :math:`=\partial u/\part
 :math:`\displaystyle{\int_{\Omega}fv\, \text{d} x\text{d} y \longrightarrow}`
 :freefem:`int2d(Th)( f*v )` (Notice here, :math:`u` is unused)
 
-.. warning:: In FreeFem++ **bilinear terms and linear terms should not be under the same integral** indeed to construct the linear systems FreeFem++ finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here ``u``) and test functions (here ``v``) are present.
+.. warning:: In **FreeFem++** **bilinear terms and linear terms should not be under the same integral** indeed to construct the linear systems **FreeFem++** finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here ``u``) and test functions (here ``v``) are present.
 
 **Solution and visualization**
 
@@ -240,11 +245,11 @@ Line 29, the visualization is done as illustrated in :numref:`figPoissonU`.
 
 **(see** :ref:`Plot <plot>` **for zoom, postscript and other commands).**
 
-Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using FreeFem++, but it helps to guess what is allowed in the language.
+Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using **FreeFem++**, but it helps to guess what is allowed in the language.
 
 **Access to matrices and vectors**
 
-Internally FreeFem++ will solve a linear system of the type
+Internally **FreeFem++** will solve a linear system of the type
 
 .. math::
    \sum_{j=0}^{M-1} A_{ij}u_j - F_i=0 ,\quad i=0,\cdots,M-1;\qquad

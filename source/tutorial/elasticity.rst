@@ -50,18 +50,20 @@ So the variational form can be written as :
 
 .. tip:: Consider an elastic plate with the undeformed rectangle shape :math:`[0,20]\times [-1,1]`.
 
-   The body force is the gravity force :math:`\mathbf{f}` and the boundary force :math:`\mathbf{g}` is zero on lower, upper and right sides.
-   The left vertical side of the beam is fixed.
-   The boundary conditions are:
+    The body force is the gravity force :math:`\mathbf{f}` and the boundary force :math:`\mathbf{g}` is zero on lower, upper and right sides.
+    The left vertical side of the beam is fixed.
+    The boundary conditions are:
 
-   .. math::
-      \sigma . {\bf n} &=& \mathbf{g} = 0 ~~\hbox{on}~~\Gamma_1, \Gamma_4, \Gamma_3, \\
-      {\bf u} &=& \mathbf{0} ~~\hbox{on}~~\Gamma_2
+    .. math::
+        \begin{array}{rcll}
+            \sigma . {\bf n} &= \mathbf{g} &= 0 & \hbox{ on }\Gamma_1, \Gamma_4, \Gamma_3, \\
+            {\bf u} &= \mathbf{0} && \hbox{ on }\Gamma_2
+        \end{array}
 
 Here :math:`{\bf u}=(u,v)` has two components.
 
 The above two equations are strongly coupled by their mixed derivatives, and thus any iterative solution on each of the components is risky.
-One should rather use FreeFem++’s system approach and write:
+One should rather use **FreeFem++**’s system approach and write:
 
 .. code-block:: freefem
 
@@ -82,7 +84,7 @@ One should rather use FreeFem++’s system approach and write:
    // Macro
    real sqrt2=sqrt(2.);
    macro epsilon(u1,u2) [dx(u1),dy(u2),(dy(u1)+dx(u2))/sqrt2] //
-   // The sqrt2 is because we want: epsilon(u1,u2)'* epsilon(v1,v2) $== \epsilon(\bm{u}): \epsilon(\bm{v})$
+   // The sqrt2 is because we want: epsilon(u1,u2)'* epsilon(v1,v2) = epsilon(u): epsilon(v)
    macro div(u,v) ( dx(u)+dy(v) ) //
 
    // Problem

@@ -4,19 +4,21 @@
 Optimal Control
 ===============
 
-Thanks to the function :freefem:`BFGS` it is possible to solve complex nonlinear optimization problem within FreeFem++.
+Thanks to the function :freefem:`BFGS` it is possible to solve complex nonlinear optimization problem within **FreeFem++**.
 For example consider the following inverse problem
 
 .. math::
-   \min_{b, c, d\in R}J &=& \int_E(u-u_d)^2\\
-   -\nabla(\kappa(b, c, d)\cdot\nabla u) &=& 0\\
-   u|_\Gamma &=& u_\Gamma
+    \begin{array}{rcl}
+        \min_{b, c, d\in R}J &=& \int_E(u-u_d)^2\\
+        -\nabla(\kappa(b, c, d)\cdot\nabla u) &=& 0\\
+        u|_\Gamma &=& u_\Gamma
+    \end{array}
 
 where the desired state :math:`u_d`, the boundary data :math:`u_\Gamma` and the observation set :math:`E\subset\Omega` are all given.
 Furthermore let us assume that:
 
 .. math::
-   \kappa(x)=1+bI_B(x)+cI_C(x)+dI_D(x)~~~\forall x\in\Omega
+   \kappa(x)=1+bI_B(x)+cI_C(x)+dI_D(x)\quad\forall x\in\Omega
 
 where :math:`B,C,D` are separated subsets of :math:`\Omega`.
 
@@ -24,9 +26,11 @@ To solve this problem by the quasi-Newton BFGS method we need the derivatives of
 We self explanatory notations, if :math:`\delta b,\delta c,\delta d` are variations of :math:`b,c,d` we have:
 
 .. math::
-   \delta J &\approx& 2\int_E(u-u_d)\delta u\\
-   -\nabla(\kappa\cdot\nabla\delta u) &\approx& \nabla(\delta\kappa\cdot\nabla u)\\
-   \delta u|_\Gamma &=& 0
+    \begin{array}{rcl}
+        \delta J &\approx& 2\int_E(u-u_d)\delta u\\
+        -\nabla(\kappa\cdot\nabla\delta u) &\approx& \nabla(\delta\kappa\cdot\nabla u)\\
+        \delta u|_\Gamma &=& 0
+    \end{array}
 
 Obviously :math:`J'_b` is equal to :math:`\delta J` when :math:`\delta b=1,\delta c=0,\delta d=0`, and so on for :math:`J'_c` and :math:`J'_d`.
 
@@ -119,40 +123,44 @@ The program found :math:`b=2.00125,c=3.00109,d=4.00551`.
 
 :numref:`figOptimalU` and :numref:`figOptimalJ` show :math:`u` at convergence and the successive function evaluations of :math:`J`.
 
-.. rst-class:: inline2
+.. figure:: images/u-bfgs.png
+    :figclass: inline2
+    :name: figOptimalU
 
-   .. figure:: images/u-bfgs.png
-      :name: figOptimalU
+    Level line of :math:`u`.
 
-      Level line of :math:`u`.
+.. figure:: images/OptimalControl_J.png
+    :figclass: inline2
+    :name: figOptimalJ
 
-.. rst-class:: inline2
-
-   .. figure:: images/OptimalControl_J.png
-      :name: figOptimalJ
-
-      Successive evaluations of :math:`J` by BFGS (5 values above 500 have been removed for readability)
+    Successive evaluations of :math:`J` by BFGS (5 values above 500 have been removed for readability)
 
 Note that an *adjoint state* could have been used.
 Define :math:`p` by:
 
 .. math::
-   -\nabla\cdot(\kappa\nabla p) &=& 2I_E(u-u_d)\\
-   p|_\Gamma &=& 0
+    \begin{array}{rcl}
+        -\nabla\cdot(\kappa\nabla p) &=& 2I_E(u-u_d)\\
+        p|_\Gamma &=& 0
+    \end{array}
 
 Consequently:
 
 .. math::
-   \delta J = -\int_{\Omega}(\nabla\cdot(\kappa\nabla p))\delta u\nonumber\\
-   = \int_\Omega(\kappa\nabla p\cdot\nabla\delta u)
-   =-\int_\Omega(\delta\kappa\nabla p\cdot\nabla u)
+    \begin{array}{rcl}
+        \delta J &=& -\int_{\Omega}(\nabla\cdot(\kappa\nabla p))\delta u\nonumber\\
+        &=& \int_\Omega(\kappa\nabla p\cdot\nabla\delta u)\\
+        &=&-\int_\Omega(\delta\kappa\nabla p\cdot\nabla u)
+    \end{array}
 
 Then the derivatives are found by setting :math:`\delta b=1, \delta c=\delta d=0` and so on:
 
 .. math::
-   J'_b=-\int_B \nabla p\cdot\nabla u\\
-   J'_c=-\int_C \nabla p\cdot\nabla u\\
-   J'_d=-\int_D \nabla p\cdot\nabla u
+    \begin{array}{rcl}
+        J'_b&=&-\int_B \nabla p\cdot\nabla u\\
+        J'_c&=&-\int_C \nabla p\cdot\nabla u\\
+        J'_d&=&-\int_D \nabla p\cdot\nabla u
+    \end{array}
 
 .. note:: As BFGS stores an :math:`M\times M` matrix where :math:`M` is the number of unknowns, it is dangerously expensive to use this method when the unknown :math:`x` is a Finite Element Function.
-   One should use another optimizer such as the NonLinear Conjugate Gradient :freefem:`NLCG` (also a key word of FreeFem++).
+   One should use another optimizer such as the NonLinear Conjugate Gradient :freefem:`NLCG` (also a key word of **FreeFem++**).

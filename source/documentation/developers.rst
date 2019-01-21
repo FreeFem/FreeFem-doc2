@@ -1,11 +1,19 @@
 .. role:: freefem(code)
    :language: freefem
 
+.. role:: cpp(code)
+  :language: cpp
+
+.. math::
+    \def\vecttwo#1#2{\left|\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right.}
+
 Developers
 ==========
 
 File formats
 ------------
+
+.. _meshFileDataStructure:
 
 Mesh file data structure
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,7 +363,7 @@ A real scalar functions :math:`f1`, a vector fields :math:`\mathbf{\Phi} = [\Phi
 
 .. code-block:: freefem
 
-   savesol("f1PhiST3dTh3.sol", Th3, :math:`f1`, [Phi(1), Phi(2), Phi(3)], VV3, order=1);
+   savesol("f1PhiST3dTh3.sol", Th3, f1, [Phi(1), Phi(2), Phi(3)], VV3, order=1);
 
 where :math:`VV3 = [ST_{xx}^{3d}, ST_{yx}^{3d}, ST_{yy}^{3d}, ST_{zx}^{3d}, ST_{zy}^{3d}, ST_{zz}^{3d}]`.
 
@@ -376,6 +384,8 @@ The parameters of this keyword are :
    1 is the solution is given at the vertices of elements.
 
 In the file, solutions are stored in this order : scalar solutions, vector solutions and finally symmetric tensor solutions.
+
+.. _developersAddingFiniteElement:
 
 Adding a new finite element
 ---------------------------
@@ -427,9 +437,10 @@ In the formula :eq:`eq-interpo`, the list :math:`p_{k},\, j_{k},\, i_{k}` depend
    Let denote the vertices numbers by :math:`i_{a},i_{b},i_{c}`, and define the three edge vectors :math:`\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}` by :math:`sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})`, :math:`sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})`, :math:`sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})`.
 
    The three basis functions are:
-   \begin{equation}
-   \boldsymbol{\omega}^{K}_{0}= \frac{sgn(i_{b}-i_{c})}{2|T|}(x-a),\quad \boldsymbol{\omega}^{K}_{1}= \frac{sgn(i_{c}-i_{a})}{2|T|}(x-b),\quad \boldsymbol{\omega}^{K}_{2}= \frac{sgn(i_{a}-i_{b})}{2|T|}(x-c),
-   \end{equation}
+
+   .. math::
+       \boldsymbol{\omega}^{K}_{0}= \frac{sgn(i_{b}-i_{c})}{2|T|}(x-a),\quad \boldsymbol{\omega}^{K}_{1}= \frac{sgn(i_{c}-i_{a})}{2|T|}(x-b),\quad \boldsymbol{\omega}^{K}_{2}= \frac{sgn(i_{a}-i_{b})}{2|T|}(x-c),
+
    where :math:`|T|` is the area of the triangle :math:`T`.
 
    So we have :math:`N=2`, :math:`\mathtt{kPi}=6; \mathtt{npPi}=3;` and:
@@ -514,15 +525,10 @@ This array is:
        0, 0
    }; //for each component j=0, N-1 it give the sub FE associated
 
-where the support is a number :math:`0,1,2` for vertex support,
-:math:`3,4,5` for edge support, and finally :math:`6` for element
-support.
+where the support is a number :math:`0,1,2` for vertex support, :math:`3,4,5` for edge support, and finally :math:`6` for element support.
 
 The function to defined the function
-:math:`\boldsymbol{\omega}^{K}_{i}`, this function return the value of
-all the basics function or this derivatives in array ``val``, computed
-at point ``Phat`` on the reference triangle corresponding to point
-``R2 P=K(Phat);`` on the current triangle ``K``.
+:math:`\boldsymbol{\omega}^{K}_{i}`, this function return the value of all the basics function or this derivatives in array ``val``, computed at point ``Phat`` on the reference triangle corresponding to point ``R2 P=K(Phat);`` on the current triangle ``K``.
 
 The index :math:`i,j,k` of the array :math:`val(i,j,k)` correspond to:
 
@@ -532,26 +538,23 @@ The index :math:`i,j,k` of the array :math:`val(i,j,k)` correspond to:
 -  :math:`k` is the type of computed value
    :math:`f(P),dx(f)(P), dy(f)(P), ...\ i \in [0,\mathtt{last\_operatortype}[`.
 
-   !!!note For optimization, this value is computed only if ``whatd[k]``
-   is true, and the numbering is defined with
+   .. note:: For optimization, this value is computed only if ``whatd[k]`` is true, and the numbering is defined with
 
-   ::
+       .. code-block:: cpp
 
-       ```cpp
-       enum operatortype {
-           op_id = 0,
-           op_dx = 1, op_dy = 2,
-           op_dxx = 3,op_dyy = 4,
-           op_dyx = 5,op_dxy = 5,
-           op_dz = 6,
-           op_dzz = 7,
-           op_dzx = 8, op_dxz = 8,
-           op_dzy = 9, op_dyz = 9
-       };
-       const int last_operatortype = 10;
-       ```
+           enum operatortype {
+               op_id = 0,
+               op_dx = 1, op_dy = 2,
+               op_dxx = 3,op_dyy = 4,
+               op_dyx = 5,op_dxy = 5,
+               op_dz = 6,
+               op_dzz = 7,
+               op_dzx = 8, op_dxz = 8,
+               op_dzy = 9, op_dyz = 9
+           };
+           const int last_operatortype = 10;
 
-   The shape function :
+The shape function:
 
 .. code-block:: cpp
 
@@ -602,10 +605,6 @@ The index :math:`i,j,k` of the array :math:`val(i,j,k)` correspond to:
                assert(op_dy);
    }
 
-.. raw:: html
-
-   <!--- ** --->
-
 The function to defined the coefficient :math:`\alpha_{k}`:
 
 .. code-block:: cpp
@@ -622,13 +621,11 @@ The function to defined the coefficient :math:`\alpha_{k}`:
        }
    }
 
-Now , we just need to add a new key work in **``FreeFem++``**.
+Now , we just need to add a new key work in **FreeFem++**.
 
 Two way, with static or dynamic link so at the end of the file, we add:
 
-**With dynamic link** it is very simple (see section `Dynamical
-link <#dynamical-link>`__), just add before the end of
-``:::cpp FEM2d namespace``:
+**With dynamic link** it is very simple (see section :ref:`Dynamical link <developersDynamicalLink>`), just add before the end of :cpp:`FEM2d namespace`:
 
 .. code-block:: cpp
 
@@ -636,10 +633,7 @@ link <#dynamical-link>`__), just add before the end of
        static AddNewFE("RT0Ortho", The_TypeOfFE_RTortho);
    } //FEM2d namespace
 
-Try with ``./load.link`` command in
-```examples++-load/`` <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__
-and see ``BernardiRaugel.cpp`` or ``Morley.cpp`` new finite element
-examples.
+Try with ``./load.link`` command in `examples++-load/ <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__ and see ``BernardiRaugel.cpp`` or ``Morley.cpp`` new finite element examples.
 
 **Otherwise with static link** (for expert only), add
 
@@ -657,8 +651,7 @@ examples.
    //end
    } //FEM2d namespace
 
-To inforce in loading of this new finite element, we have to add the two
-new lines close to the end of files ``src/femlib/FESpace.cpp`` like:
+To inforce in loading of this new finite element, we have to add the two new lines close to the end of files ``src/femlib/FESpace.cpp`` like:
 
 .. code-block:: cpp
 
@@ -673,9 +666,7 @@ new lines close to the end of files ``src/femlib/FESpace.cpp`` like:
 
 and now you have to change the makefile.
 
-First, create a file ``FE_ADD.cpp`` contening all this code, like in
-file ``src/femlib/Element_P2h.cpp``, after modify the ``Makefile.am`` by
-adding the name of your file to the variable ``EXTRA_DIST`` like:
+First, create a file ``FE_ADD.cpp`` contening all this code, like in file ``src/femlib/Element_P2h.cpp``, after modify the ``Makefile.am`` by adding the name of your file to the variable ``EXTRA_DIST`` like:
 
 .. code-block:: cpp
 
@@ -695,7 +686,7 @@ adding the name of your file to the variable ``EXTRA_DIST`` like:
    QuadratureFormular.hpp RefCounter.hpp RNM.hpp RNM_opc.hpp RNM_op.hpp    \
    RNM_tpl.hpp     FE_ADD.cpp
 
-and do in the **``FreeFem++``** root directory
+and do in the **FreeFem++** root directory
 
 .. code-block:: bash
 
@@ -703,57 +694,40 @@ and do in the **``FreeFem++``** root directory
    ./reconfigure
    make
 
-For codewarrior compilation add the file in the project an remove the
-flag in panal PPC linker FreeFm++ Setting Dead-strip Static
-Initializition Code Flag.
+For codewarrior compilation add the file in the project an remove the flag in panal PPC linker FreeFm++ Setting Dead-strip Static Initializition Code Flag.
+
+.. _developersDynamicalLink:
 
 Dynamical link
 --------------
 
-Now, it’s possible to add built-in functionnalites in **``FreeFem++``**
-under the three environnents Linux, Windows and MacOS X 10.3 or newer.
+Now, it’s possible to add built-in functionnalites in **FreeFem++** under the three environnents Linux, Windows and MacOS X 10.3 or newer.
 
-It is agood idea to first try the example ``load.edp`` in directory
-```example++-load`` <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
+It is agood idea to first try the example ``load.edp`` in directory `example++-load <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
 
-You will need to install a ``compiler`` (generally ``g++/gcc`` compiler)
-to compile your function.
+You will need to install a ``compiler`` (generally ``g++/gcc`` compiler) to compile your function.
 
 -  Windows Install the ``cygwin`` environnent or the ``mingw`` one
 -  MacOs Install the developer tools ``Xcode`` on the apple DVD
 -  Linux/Unix Install the correct compiler (``gcc`` for instance)
 
-Now, assume that you are in a shell window (a ``cygwin`` window under
-Windows) in the directory
-```example++-load`` <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
+Now, assume that you are in a shell window (a ``cygwin`` window under Windows) in the directory `example++-load <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
 
-!!!note In the sub directory ``include``, they are all the
-**``FreeFem++``** include file to make the link with **``FreeFem++``**.
+.. note:: In the sub directory ``include``, they are all the **FreeFem++** include file to make the link with **FreeFem++**.
 
-!!!note If you try to load dynamically a file with command
-:freefem:`load "xxx"` \* Under Unix (Linux or MacOs), the file
-``xxx.so`` will be loaded so it must be either in the search directory
-of routine ``dlopen`` (see the environment variable
-``$LD_LIBRARY_PATH.`` or in the current directory, and the suffix
-``".so"`` or the prefix ``"./"`` is automatically added.
+.. note:: If you try to load dynamically a file with command :freefem:`load "xxx"`
+    - Under Unix (Linux or MacOs), the file ``xxx.so`` will be loaded so it must be either in the search directory of routine ``dlopen`` (see the environment variable ``$LD_LIBRARY_PATH.`` or in the current directory, and the suffix ``".so"`` or the prefix ``"./"`` is automatically added.
 
-::
-
-    * Under Windows, the file `xxx.dll` will be loaded so it must be in the `loadLibary` search directory which includes the directory of the application,
+    - Under Windows, the file `xxx.dll` will be loaded so it must be in the `loadLibary` search directory which includes the directory of the application,
 
 **Compilation of your module:**
 
-The script ``ff-c++`` compiles and makes the link with
-**``FreeFem++``**, but be careful, the script has no way to known if you
-try to compile for a pure Windows environment or for a cygwin
-environment so to build the load module under cygwin you must add the
-``-cygwin`` parameter.
+The script ``ff-c++`` compiles and makes the link with **FreeFem++**, but be careful, the script has no way to known if you try to compile for a pure Windows environment or for a cygwin environment so to build the load module under cygwin you must add the ``-cygwin`` parameter.
 
 A first example myfunction.cpp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following defines a new function call ``myfunction`` with no
-parameter, but using the :math:`x,y` current value.
+The following defines a new function call ``myfunction`` with no parameter, but using the :math:`x,y` current value.
 
 .. code-block:: cpp
 
@@ -778,18 +752,10 @@ parameter, but using the :math:`x,y` current value.
        return sin(x)*cos(y);
    }
 
-.. raw:: html
+Now the Problem is to build the link with **FreeFem++**, to do that we need two classes, one to call the function ``myfunction``.
 
-   <!--- ** --->
-
-Now the Problem is to build the link with **``FreeFem++``**, to do that
-we need two classes, one to call the function ``myfunction``.
-
-All **``FreeFem++``** evaluable expression must be a ``C++``
-``struct``/``class`` which derivate from ``E_F0``. By default this
-expression does not depend of the mesh position, but if they derivate
-from ``E_F0mps`` the expression depends of the mesh position, and for
-more details see `HECHT2002 <#HECHT2002>`__.
+All **FreeFem++** evaluable expression must be a ``C++`` ``struct``/``class`` which derivate from ``E_F0``.
+By default this expression does not depend of the mesh position, but if they derivate from ``E_F0mps`` the expression depends of the mesh position, and for more details see [HECHT2002]_.
 
 .. code-block:: cpp
 
@@ -820,14 +786,14 @@ more details see `HECHT2002 <#HECHT2002>`__.
            OneOperator0s(func ff) : OneOperator(map_type[typeid(R).name()]),f(ff){}
    };
 
-.. raw:: html
+To finish we must add this new function in **FreeFem++** table, to do that include :
 
-   <!--- ** --->
+.. code-block:: cpp
 
-To finish we must add this new function in **``FreeFem++``** table, to
-do that include :
-
-``cpp void init(){     Global.Add("myfunction", "(", new OneOperator0s<double>(myfunction)); } LOADFUNC(init);``\ cpp
+    void init(){
+        Global.Add("myfunction", "(", new OneOperator0s<double>(myfunction));
+    }
+    LOADFUNC(init);
 
 It will be called automatically at load module time.
 
@@ -839,8 +805,7 @@ To compile and link, use the ``ff-c++`` script :
    g++ -c -g -Iinclude myfunction.cpp
    g++ -bundle -undefined dynamic_lookup -g myfunction.o -o ./myfunction.dylib
 
-To try the simple example under Linux or MacOS, do
-``FreeFem++-nw load.edp``
+To try the simple example under Linux or MacOS, do ``FreeFem++-nw load.edp``
 
 The output must be:
 
@@ -874,67 +839,43 @@ The output must be:
     CodeAlloc : nb ptr  2715,  size :371104 mpirank: 0
    Ok: Normal End
 
-Under Windows, launch **``FreeFem++``** with the mouse (or ctrl O) on
-the example.
+Under Windows, launch **FreeFem++** with the mouse (or ctrl O) on the example.
 
 Example: Discrete Fast Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This will add FFT to **``FreeFem++``**, taken from
-`FFTW <http://www.fftw.org/>`__. To download and install under
-``download/include`` just go in ``download/fftw`` and try ``make``.
+This will add FFT to **FreeFem++**, taken from `FFTW <http://www.fftw.org/>`__. To download and install under ``download/include`` just go in ``download/fftw`` and try ``make``.
 
-The 1D dfft (fast discret fourier transform) for a simple array
-:math:`f` of size :math:`n` is defined by the following formula
+The 1D dfft (fast discret fourier transform) for a simple array :math:`f` of size :math:`n` is defined by the following formula:
 
 .. math::
-
-
    \mathtt{dfft}(f,\varepsilon)_{k} = \sum_{j=0}^{n-1} f_i e^{\varepsilon 2\pi i kj/n}
 
-The 2D DFFT for an array of size :math:`N=n\times m` is
+The 2D DFFT for an array of size :math:`N=n\times m` is:
 
 .. math::
-
-
    \mathtt{dfft}(f,m,\varepsilon)_{k+nl} = \sum_{j'=0}^{m-1} \sum_{j=0}^{n-1} f_{i+nj} e^{\varepsilon 2\pi i (kj/n+lj'/m) }
 
-!!!note The value :math:`n` is given by :math:`size(f)/m`, and the
-numbering is row-major order.
+.. note:: The value :math:`n` is given by :math:`size(f)/m`, and the numbering is row-major order.
 
-So the classical discrete DFFT is
-:math:`\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}` and the reverse dFFT
-:math:`f=\mathtt{dfft}(\hat{f},1)/\sqrt{n}`
+So the classical discrete DFFT is :math:`\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}` and the reverse dFFT :math:`f=\mathtt{dfft}(\hat{f},1)/\sqrt{n}`
 
-!!!note The 2D Laplace operator is
+.. note:: The 2D Laplace operator is
 
-.. math::
+    .. math::
+           f(x,y) = 1/\sqrt{N} \sum_{j'=0}^{m-1} \sum_{j=0}^{n-1} \hat{f}_{i+nj} e^{\varepsilon 2\pi i (x j+ yj') }
 
+    and we have
 
-       f(x,y) = 1/\sqrt{N} \sum_{j'=0}^{m-1} \sum_{j=0}^{n-1} \hat{f}_{i+nj} e^{\varepsilon 2\pi i (x j+ yj') }
+    .. math::
+           f_{k+nl} = f(k/n,l/m)
 
+    So
 
-and we have
+    .. math::
+           \widehat{\Delta f_{kl}} = -( (2\pi)^2 ( (\tilde{k})^2+(\tilde{l})^2)) \widehat{ f_{kl}} \\
 
-.. math::
-
-
-       f_{k+nl} = f(k/n,l/m)
-
-
-So
-
-.. math::
-
-
-       \widehat{\Delta f_{kl}} = -( (2\pi)^2 ( (\tilde{k})^2+(\tilde{l})^2)) \widehat{ f_{kl}} \\
-
-
-where :math:`\tilde{k} = k` if :math:`k \leq n/2` else
-:math:`\tilde{k} = k-n` and :math:`\tilde{l} = l` if :math:`l \leq m/2`
-else :math:`\tilde{l} = l-m`.
-
-::
+    where :math:`\tilde{k} = k` if :math:`k \leq n/2` else :math:`\tilde{k} = k-n` and :math:`\tilde{l} = l` if :math:`l \leq m/2` else :math:`\tilde{l} = l-m`.
 
    And to have a real function we need all modes to be symmetric around zero, so :math:`n` and :math:`m` must be odd.
 
@@ -947,7 +888,7 @@ else :math:`\tilde{l} = l-m`.
    g++ -c -Iinclude -I../download/install/include dfft.cpp
    g++ -bundle -undefined dynamic_lookup dfft.o -o ./dfft.dylib ../download/install/lib/libfftw3.a
 
-To test, try `FFT example </examples/#fft>`__.
+To test, try :ref:`FFT example <exampleFFT>`.
 
 Load Module for Dervieux P0-P1 Finite Volume Method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -961,44 +902,27 @@ See
 More on Adding a new finite element
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First read the `Adding a new finite element
-section <#adding-a-new-finite-element>`__, we add two new finite
-elements examples in the directory
-```examples++-load`` <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
+First read the :ref:`Adding a new finite element section <developersAddingFiniteElement>`, we add two new finite elements examples in the directory `examples++-load <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
 
 The Bernardi-Raugel Element
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Bernardi-Raugel finite element is meant to solve the Navier Stokes
-equations in :math:`u,p` formulation; the velocity space
-:math:`P^{br}_K` is minimal to prove the inf-sup condition with
-piecewise constant pressure by triangle.
+The Bernardi-Raugel finite element is meant to solve the Navier Stokes equations in :math:`u,p` formulation; the velocity space :math:`P^{br}_K` is minimal to prove the inf-sup condition with piecewise constant pressure by triangle.
 
 The finite element space :math:`V_h` is
 
 .. math::
-
-
    V_h= \{u\in H^1(\Omega)^2 ; \quad \forall K \in T_h, u_{|K} \in P^{br}_K \}
 
 where
 
 .. math::
-
-
    P^{br}_K = span \{ \lambda^K_i e_k \}_{i=1,2,3, k= 1,2} \cup \{ \lambda^K_i\lambda^K_{i+1} n^K_{i+2}\}_{i=1,2,3}
 
-with notation :math:`4=1, 5=2` and where :math:`\lambda^K_i` are the
-barycentric coordinates of the triangle :math:`K`, :math:`(e_k)_{k=1,2}`
-the canonical basis of :math:`\mathbb{R}^2` and :math:`n^K_k` the outer normal
-of triangle :math:`K` opposite to vertex :math:`k`.
-
-.. raw:: html
-
-   <!--- __ --->
+with notation :math:`4=1, 5=2` and where :math:`\lambda^K_i` are the barycentric coordinates of the triangle :math:`K`, :math:`(e_k)_{k=1,2}` the canonical basis of :math:`\mathbb{R}^2` and :math:`n^K_k` the outer normal of triangle :math:`K` opposite to vertex :math:`k`.
 
 See
-```BernardiRaugel.cpp`` <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/BernardiRaugel.cpp>`__.
+`BernardiRaugel.cpp <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/BernardiRaugel.cpp>`__.
 
 A way to check the finite element
 
@@ -1047,8 +971,7 @@ A way to check the finite element
        assert( abs(dy(a2)(x1, y1) - DD(a2, 0, h) ) < 1e-5);
    }
 
-A real example using this finite element, just a small modification of
-the Navier-Stokes P2-P1 example, just the begenning is change to
+A real example using this finite element, just a small modification of the Navier-Stokes P2-P1 example, just the begenning is change to
 
 .. code-block:: freefem
 
@@ -1061,14 +984,13 @@ the Navier-Stokes P2-P1 example, just the begenning is change to
    Vh2 [u1, u2], [up1, up2];
    Vh2 [v1, v2];
 
-And the plot instruction is also changed because the pressure is
-constant, and we cannot plot isovalues of peacewise constant functions.
+And the plot instruction is also changed because the pressure is constant, and we cannot plot isovalues of peacewise constant functions.
 
 The Morley Element
 ^^^^^^^^^^^^^^^^^^
 
 See the example
-```bilapMorley.edp`` <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/bilapMorley.edp>`__.
+`bilapMorley.edp <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/bilapMorley.edp>`__.
 
 .. raw:: html
 
@@ -1095,7 +1017,7 @@ See the example
    ```
 
 
-   A small template driver to unified the `:::cpp double` and `:::cpp complex` version.
+   A small template driver to unified the :cpp:`double` and :cpp:`complex` version.
 
    ```cpp
    @template <class R> @struct SuperLUDriver
@@ -1145,7 +1067,7 @@ See the example
 
    The two `BuildSolverSuperLU` functions, to change the default sparse solver variable
 
-   `:::cpp DefSparseSolver<@double>::solver`
+   :cpp:`DefSparseSolver<@double>::solver`
 
    ```cpp
    MatriceMorse<double>::VirtualSolver *
@@ -1165,7 +1087,7 @@ See the example
    }
    ```
 
-   The link to __`FreeFem++`__
+   The link to `FreeFem++`
 
    ```cpp
    @class Init { @public:
@@ -1212,7 +1134,7 @@ See the example
    }
    ```
 
-   To add new function/name `:::freefem defaultsolver,defaulttoSuperLU` in __`FreeFem++`__, and set the default solver to the new solver, just do:
+   To add new function/name :freefem:`defaultsolver,defaulttoSuperLU` in `FreeFem++`, and set the default solver to the new solver, just do:
 
    ```cpp
    void init()
@@ -1249,7 +1171,7 @@ See the example
    make
    ```
 
-    * In directoy include do to have a correct version of `SuperLu` header due to mistake in case of inclusion of `:::cpp double` and `:::cpp complex` version in the same file.
+    * In directoy include do to have a correct version of `SuperLu` header due to mistake in case of inclusion of :cpp:`double` and :cpp:`complex` version in the same file.
        ```bash
        tar xvfz ../SuperLU_3.0-include-ff.tar.gz
        ```
@@ -1310,10 +1232,3 @@ See the example
    FreeFem++ SuperLu.edp
    ```
    --->
-
-References
-----------
-
-[HECHT2002] HECHT, Frédéric. C++ Tools to construct our user-level
-language. ESAIM: Mathematical Modelling and Numerical Analysis, 2002,
-vol. 36, no 5, p. 809-836.

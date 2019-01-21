@@ -4,8 +4,10 @@ The System of Stokes for Fluids
 In the case of a flow invariant with respect to the third coordinate (two-dimensional flow), flows at low Reynolds number (for instance micro-organisms) satisfy,
 
 .. math::
-   -\Delta \mathbf{u} + \nabla p &= 0\\
-   \nabla\cdot \mathbf{u} &= 0
+    \begin{array}{rcl}
+        -\Delta \mathbf{u} + \nabla p &=& 0\\
+        \nabla\cdot \mathbf{u} &=& 0
+    \end{array}
 
 where :math:`\mathbf{u}=(u_1,u_2)` is the fluid velocity and :math:`p` its pressure.
 

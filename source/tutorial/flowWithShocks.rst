@@ -1,24 +1,28 @@
 A Flow with Shocks
 ==================
 
-Compressible Euler equations should be discretized with Finite Volumes or FEM with flux up-winding scheme but these are not implemented in FreeFem++.
-Nevertheless acceptable results can be obtained with the method of characteristics provided that the mean values :math:`\bar f=\frac12(f^++f^-)` are used at shocks in the scheme, and finally mesh adaptation.
+Compressible Euler equations should be discretized with Finite Volumes or FEM with flux up-winding scheme but these are not implemented in **FreeFem++**.
+Nevertheless acceptable results can be obtained with the method of characteristics provided that the mean values :math:`\displaystyle \bar f=\frac12\left(f^++f^-\right)` are used at shocks in the scheme, and finally mesh adaptation.
 
 .. math::
-   \partial_t\rho+\bar u\nabla\rho + \bar\rho\nabla\cdot u &=& 0\nonumber\\
-   \bar\rho( \partial_t u+\frac{\overline{\rho u}}{\bar\rho}\nabla u +\nabla p &=& 0\nonumber\\
-   \partial_t p + \bar u\nabla p +(\gamma-1)\bar p\nabla\cdot u &=& 0\\
-   :label: euler
+    \begin{array}{rcl}
+        \partial_t\rho+\bar u\nabla\rho + \bar\rho\nabla\cdot u &=& 0\nonumber\\
+        \bar\rho( \partial_t u+\frac{\overline{\rho u}}{\bar\rho}\nabla u +\nabla p &=& 0\nonumber\\
+        \partial_t p + \bar u\nabla p +(\gamma-1)\bar p\nabla\cdot u &=& 0\\
+    \end{array}
+    :label: euler
 
 One possibility is to couple :math:`u,p` and then update :math:`\rho`, i.e.:
 
 .. math::
-   \frac 1{(\gamma-1)\delta t\bar p^m} (p^{m+1}-p^m \circ X^m) + \nabla\cdot u^{m+1} &=& 0\nonumber\\
-   \frac{\bar\rho^m}{\delta t}(u^{m+1}-u^m \circ {\tilde X}^m ) +\nabla p^{m+1} &=& 0\nonumber\\
-   \rho^{m+1} = \rho^m \circ X^m + \frac{\bar\rho^m}{(\gamma-1)\bar p^m}(p^{m+1}-p^m &\circ& X^m)
-   :label: eulalgo
+    \begin{array}{rcl}
+        \frac 1{(\gamma-1)\delta t\bar p^m} (p^{m+1}-p^m \circ X^m) + \nabla\cdot u^{m+1} &=& 0\nonumber\\
+        \frac{\bar\rho^m}{\delta t}(u^{m+1}-u^m \circ {\tilde X}^m ) +\nabla p^{m+1} &=& 0\nonumber\\
+        \rho^{m+1} = \rho^m \circ X^m + \frac{\bar\rho^m}{(\gamma-1)\bar p^m}(p^{m+1} &-& p^m \circ X^m)
+    \end{array}
+    :label: eulalgo
 
-A numerical result is given on :numref:`figFlowMach` and the FreeFem++ script is
+A numerical result is given on :numref:`figFlowMach` and the **FreeFem++** script is
 
 .. code-block:: freefem
 

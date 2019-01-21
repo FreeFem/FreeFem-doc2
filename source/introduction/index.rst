@@ -10,3 +10,9 @@ Introduction
    contributing
    citation
    authors
+
+.. only:: html
+
+   .. raw:: html
+
+       <script>goto('introduction.html')</script>

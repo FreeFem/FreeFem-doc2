@@ -4,13 +4,14 @@
 Getting started
 ===============
 
-The FreeFem++ language is :ref:`typed <referenceTypes>`, polymorphic and reentrant with :ref:`macro generation <typeMacroDesign>`.
+The **FreeFem++** language is :ref:`typed <referenceTypes>`, polymorphic and reentrant with :ref:`macro generation <typeMacroDesign>`.
 
 Every variable must be typed and declared in a statement. Each statement is separated from the next by a semicolon ``;``.
 
-The FreeFem++ language is a C++ idiom with something that is more akin to LaTeX.
+The **FreeFem++** language is a C++ idiom with something that is more akin to LaTeX.
 
-For the specialist, one key guideline is that FreeFem++ rarely generates an internal finite element array, this was adopted for speed and consequently FreeFem++ could be hard to beat in terms of execution speed, except for the time lost in the interpretation of the language (which can be reduced by a systematic usage of :freefem:`varf` and :freefem:`matrix` instead of :freefem:`problem`).
+
+For the specialist, one key guideline is that **FreeFem++** rarely generates an internal finite element array, this was adopted for speed and consequently **FreeFem++** could be hard to beat in terms of execution speed, except for the time lost in the interpretation of the language (which can be reduced by a systematic usage of :freefem:`varf` and :freefem:`matrix` instead of :freefem:`problem`).
 
 The Development Cycle: Edit–Run/Visualize–Revise
 ------------------------------------------------
@@ -22,9 +23,9 @@ If you are a beginner in the finite element method, you may also have to read a 
 
 **The development cycle includes the following steps:**
 
-**Modeling:** From strong forms of PDE to weak forms, one must know the variational formulation to use FreeFem++; one should also have an eye on the reusability of the variational formulation so as to keep the same internal matrices; a typical example is the time dependent heat equation with an implicit time scheme: the internal matrix can be factorized only once and FreeFem++ can be taught to do so.
+**Modeling:** From strong forms of PDE to weak forms, one must know the variational formulation to use **FreeFem++**; one should also have an eye on the reusability of the variational formulation so as to keep the same internal matrices; a typical example is the time dependent heat equation with an implicit time scheme: the internal matrix can be factorized only once and **FreeFem++** can be taught to do so.
 
-**Programming:** Write the code in FreeFem++ language using a text editor such as the one provided in your integrated environment.
+**Programming:** Write the code in **FreeFem++** language using a text editor such as the one provided in your integrated environment.
 
 **Run:** Run the code (here written in file ``mycode.edp``).
 That can also be done in terminal mode by :
@@ -33,7 +34,7 @@ That can also be done in terminal mode by :
 
    FreeFem++ mycode.edp
 
-**Visualization:** Use the keyword :freefem:`plot` directly in ``mycode.edp`` to display functions while FreeFem++ is running.
+**Visualization:** Use the keyword :freefem:`plot` directly in ``mycode.edp`` to display functions while **FreeFem++** is running.
 Use the plot-parameter :freefem:`wait=1` to stop the program at each plot.
 
 **Debugging:** A global variable ``debug`` (for example) can help as in :freefem:`wait=true` to :freefem:`wait=false`.
@@ -76,7 +77,7 @@ For example, if you forget parenthesis as in:
    mesh Th = square(10,10;
    plot(Th);
 
-then you will get the following message from FreeFem++:
+then you will get the following message from **FreeFem++**:
 
 .. code-block:: bash
 

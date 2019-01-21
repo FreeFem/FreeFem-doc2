@@ -1,9 +1,13 @@
+.. role:: freefem(code)
+    :language: freefem
+
 .. _thermalConduction:
 
 Thermal Conduction
 ==================
 
-**Summary :** *Here we shall learn how to deal with a time dependent parabolic problem.
+**Summary :**
+*Here we shall learn how to deal with a time dependent parabolic problem.
 We shall also show how to treat an axisymmetric problem and show also how to deal with a nonlinear problem*
 
 **How air cools a plate**
@@ -14,9 +18,11 @@ In the plane perpendicular to the plate at :math:`z=Lz/2`, the temperature varie
 We must solve the temperature equation in :math:`\Omega` in a time interval (0,T).
 
 .. math::
-   \partial_t u -\nabla\cdot(\kappa\nabla u)&=0 &\hbox{ in } \Omega\times(0,T)\\
-   u(x,y,0)&=u_0+x u_1&\\
-   \kappa\frac{\partial u}{\partial n} +\alpha(u-u_e)&=0&\hbox{ on } \Gamma\times(0,T)
+    \begin{array}{rcl}
+        \partial_t u -\nabla\cdot(\kappa\nabla u) &= 0 & \hbox{ in } \Omega\times(0,T)\\
+        u(x,y,0) &= u_0+x u_1 &\\
+        \kappa\frac{\partial u}{\partial n} +\alpha(u-u_e) &= 0 & \hbox{ on } \Gamma\times(0,T)
+    \end{array}
 
 Here the diffusion :math:`\kappa` will take two values, one below the middle horizontal line and ten times less above, so as to simulate a thermostat.
 
@@ -87,19 +93,17 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
 
 Results are shown on :numref:`figThermalT` and :numref:`figThermalCurve`.
 
-.. rst-class:: inline2
+.. figure:: images/thermic.png
+    :figclass: inline2
+    :name: figThermalT
 
-   .. figure:: images/thermic.png
-      :name: figThermalT
+    Temperature at :math:`t=4.9`.
 
-      Temperature at :math:`t=4.9`.
+.. figure:: images/thermicvst.png
+    :figclass: inline2
+    :name: figThermalCurve
 
-.. rst-class:: inline2
-
-   .. figure:: images/thermicvst.png
-      :name: figThermalCurve
-
-      Decay of temperature versus time at :math:`x=3, y=0.5`
+    Decay of temperature versus time at :math:`x=3, y=0.5`
 
 Axisymmetry: 3D Rod with circular section
 -----------------------------------------
@@ -114,14 +118,16 @@ In cylindrical coordinates, the Laplace operator becomes (:math:`r` is the dista
     + \partial ^2_{z z}.
 
 Symmetry implies that we loose the dependence with respect to :math:`\theta`; so the domain :math:`\Omega` is again a rectangle :math:`]0,R[\times]0,|[` .
-We take the convention of numbering of the edges as in ``:::freefem square()`` (1 for the bottom horizontal …); the problem is now:
+We take the convention of numbering of the edges as in :freefem:`square()` (1 for the bottom horizontal …); the problem is now:
 
 .. math::
-   r\partial_t u-\partial _r(r\partial _r u) - \partial _z(r\partial _z u) &= 0 &\hbox{ in } \Omega\\
-   u(t=0) &= u_0 + \frac z{L_z} (u_1-u)&\\
-   u|_{\Gamma_4} &= u_0&\\
-   u|_{\Gamma_2} &= u_1&\\
-   \alpha(u-u_e) + {\partial u\over \partial n} |_{\Gamma_1\cup\Gamma_3} &= 0&
+    \begin{array}{rcl}
+        r\partial_t u-\partial _r(r\partial _r u) - \partial _z(r\partial _z u) &= 0 &\hbox{ in } \Omega\\
+        u(t=0) &= u_0 + \frac z{L_z} (u_1-u)&\\
+        u|_{\Gamma_4} &= u_0&\\
+        u|_{\Gamma_2} &= u_1&\\
+        \alpha(u-u_e) + {\partial u\over \partial n} |_{\Gamma_1\cup\Gamma_3} &= 0&
+    \end{array}
 
 Note that the PDE has been multiplied by :math:`r`.
 
