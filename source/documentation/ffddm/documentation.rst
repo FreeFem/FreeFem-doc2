@@ -50,7 +50,7 @@ Overlapping mesh decomposition
 .. code-block:: freefem
 
    ffddmbuildDmesh(pr,Th,comm)
-   
+
 decomposes the mesh **Th** into overlapping submeshes.
 The mesh will be distributed over the mpi ranks of communicator **comm**.
 This will create and expose variables whose names will be prefixed by **pr**, see below (# is the concatenation operator).
@@ -324,12 +324,12 @@ The local matrices depend on the choice of :ref:`ffddmprecond <ffddmParametersGl
 -  ``string pr#prec`` equal to :ref:`ffddmprecond <ffddmParametersGlobal>`.
    Sets the type of one level preconditioner :math:`M^{-1}_1` to be used: “asm” (*Additive Schwarz*), “ras” (*Restricted Additive Schwarz*), “oras” (*Optimized Restricted Additive Schwarz*), “soras” (*Symmetric Optimized Restricted Additive Schwarz*) or “none” (no preconditioner).
 -  ``matrix<pr#prfe#K>[int] pr#aR`` array (size ``prfe#prmesh#npart``) of local matrices used for the one level preconditioner.
-   Each mpi rank of the spatial domain decomposition performs the :math:`LU` (or :math:`LDL^T`) factorization of the local matrix corresponding to its subdomain using the direct solver *MUMPS*. 
-   
+   Each mpi rank of the spatial domain decomposition performs the :math:`LU` (or :math:`LDL^T`) factorization of the local matrix corresponding to its subdomain using the direct solver *MUMPS*.
+
    -  If **VarfPrec** is not a previously defined macro (just put *null* for example), the matrices ``pr#aR`` are set to be equal to the so-called local ‘Dirichlet’ matrices ``pr#aRd`` (see :ref:`ffddmsetupOperator <ffddmDocumentationDefineProblemToSolve>`).
       This is for the classical ASM preconditioner :math:`M^{-1}_1 = M^{-1}_{\text{ASM}} = \sum_{i=1}^N R_i^T A_i^{-1} R_i` or classical RAS preconditioner :math:`M^{-1}_1 = M^{-1}_{\text{RAS}} = \sum_{i=1}^N R_i^T D_i A_i^{-1} R_i` (it is assumed that :ref:`ffddmprecond <ffddmParametersGlobal>` is equal to “asm” or “ras”).
    -  If **VarfPrec** is a macro, it is assumed that **VarfPrec** defines an abstract bilinear form (see :ref:`ffddmsetupOperator <ffddmDocumentationDefineProblemToSolve>` for more details on how to define the abstract variational form as a macro).
-      
+
       -  If :ref:`ffddmprecond <ffddmParametersGlobal>` is equal to “asm” or “ras”, the matrices ``pr#aR`` will be assembled as local ‘Dirichlet’ matrices in the same manner as ``pr#aRd``, but using the bilinear form defined by **VarfPrec** instead.
          This defines the ASM preconditioner as :math:`M^{-1}_1 = M^{-1}_{\text{ASM}} = \sum_{i=1}^N R_i^T {(A_i^{\text{Prec}})}^{-1} R_i` and the RAS preconditioner as :math:`M^{-1}_1 = M^{-1}_{\text{RAS}} = \sum_{i=1}^N R_i^T D_i {(A_i^{\text{Prec}})}^{-1} R_i`, where :math:`A_i^{\text{Prec}} = R_i A^{\text{Prec}} R_i^T`.
       -  If :ref:`ffddmprecond <ffddmParametersGlobal>` is equal to “oras” or “soras”, the matrices ``pr#aR`` will correspond to the discretization of the variational form **VarfPrec** in the subdomains :math:`\Omega_i`.
@@ -379,19 +379,19 @@ After a call to either :ref:`ffddmgeneosetup <ffddmDocumentationBuildingGeneoCoa
 -  ``string pr#corr`` initialized with the value of :ref:`ffddmcorrection <ffddmParametersGlobal>`.
    Specifies the type of coarse correction formula to use for the two level preconditioner.
    The possible values are:
-   
+
 .. math::
-            \begin{align*}
-            \nonumber
-            &&\text{"AD"}:&&\textit{Additive}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1\phantom{ (I - A Q)} + Q\\
-            &&\text{"BNN"}:&&\textit{Balancing Neumann-Neumann}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1 (I - A Q) + Q\\
-            &&\text{"ADEF1"}:&&\textit{Adapted Deflation Variant 1}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1 (I - A Q) + Q\\
-            &&\text{"ADEF2"}:&&\textit{Adapted Deflation Variant 2}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1\phantom{ (I - A Q)} + Q\\
-            &&\text{"RBNN1"}:&&\textit{Reduced Balancing Variant 1}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1 (I - A Q)\\
-            &&\text{"RBNN2"}:&&\textit{Reduced Balancing Variant 2}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1\phantom{ (I - A Q)}\\
-            &&\text{"none"}:&&\textit{no coarse correction}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1\phantom{ (I - A Q)}\\
-            \end{align*}
-            
+    \begin{array}{llllll}
+    \nonumber
+        &&\text{"AD"}:&&\textit{Additive}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1\phantom{ (I - A Q)} + Q\\
+        &&\text{"BNN"}:&&\textit{Balancing Neumann-Neumann}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1 (I - A Q) + Q\\
+        &&\text{"ADEF1"}:&&\textit{Adapted Deflation Variant 1}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1 (I - A Q) + Q\\
+        &&\text{"ADEF2"}:&&\textit{Adapted Deflation Variant 2}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1\phantom{ (I - A Q)} + Q\\
+        &&\text{"RBNN1"}:&&\textit{Reduced Balancing Variant 1}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1 (I - A Q)\\
+        &&\text{"RBNN2"}:&&\textit{Reduced Balancing Variant 2}, \quad &M^{-1} = M^{-1}_2 = (I - Q A) M^{-1}_1\phantom{ (I - A Q)}\\
+        &&\text{"none"}:&&\textit{no coarse correction}, \quad &M^{-1} = M^{-1}_2 = \phantom{(I - Q A) }M^{-1}_1\phantom{ (I - A Q)}\\
+    \end{array}
+
 -  Note that *AD*, *ADEF1* and *RBNN2* only require one application of :math:`Q`, while *BNN*, *ADEF2* and *RBNN1* require two.
    The default coarse correction is *ADEF1*, which is cheaper and generally as robust as *BNN* or *ADEF2*.
 -  ``func pr#prfe#K[int] pr#Q(pr#prfe#K[int] &ui)`` The function ``pr#Q`` computes the parallel application of the coarse correction operator :math:`Q`, i.e. the action of :math:`Q = Z E^{-1} Z^T` on the local vector :math:`u_i`.

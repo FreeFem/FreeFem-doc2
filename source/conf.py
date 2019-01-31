@@ -96,6 +96,7 @@ latex_elements = {
     #
     'preamble': """
 \\def\\R{{\\mathbb{R}}}
+\\def\\C{{\\mathbb{C}}}
 \\def\\P{{\\mathbb{P}}}
 \\def\\p{{\\partial}}
 \\def\\n{{\\nabla}}
