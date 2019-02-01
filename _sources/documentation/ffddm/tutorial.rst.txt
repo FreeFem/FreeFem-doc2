@@ -38,7 +38,7 @@ Step 1: Decompose the mesh
 
 See :ref:`documentation <ffddmDocumentationOverlappingMeshDecomposition>`
 
-Build a collection of :math:`N` overlapping sub-meshes :math:`(Th\_{i})\_{i=1}^N` from the global mesh :math:`Th`
+Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` from the global mesh :math:`Th`
 
 .. figure:: figures/domain1.png
     :figclass: inline2
@@ -116,22 +116,22 @@ Distributed vectors and restriction operators
 
 .. figure:: figures/domain2.png
 
-Natural decomposition of the set of d.o.f.'s :math:`{\mathcal N}` of :math:`Vh` into the :math:`N` subsets of d.o.f.'s :math:`({\mathcal N}\_i)\_{i=1}^N` each associated with the local FE space :math:`Vh\_i`
+Natural decomposition of the set of d.o.f.'s :math:`{\mathcal N}` of :math:`Vh` into the :math:`N` subsets of d.o.f.'s :math:`({\mathcal N}_i)_{i=1}^N` each associated with the local FE space :math:`Vh_i`
 
 .. math::
-    {\mathcal N} = \cup\_{i=1}^N {\mathcal N}\_i\,,
+    {\mathcal N} = \cup_{i=1}^N {\mathcal N}_i\,,
 
 but with duplications of the d.o.f.'s in the overlap
 
-**_Definition_** a *distributed vector* is a collection of local vectors :math:`({\mathbf V\_i})\_{1\le i\le N}` so that the values on the duplicated d.o.f.'s are the same:
+**_Definition_** a *distributed vector* is a collection of local vectors :math:`({\mathbf V_i})_{1\le i\le N}` so that the values on the duplicated d.o.f.'s are the same:
 
 .. math::
-    {\mathbf V}\_i = R\_i\,{\mathbf V}, \quad i = 1, ..., N
+    {\mathbf V}_i = R_i\,{\mathbf V}, \quad i = 1, ..., N
 
 where :math:`{\mathbf V}` is the corresponding global vector
-and :math:`R\_i` is the *restriction operator* from :math:`{\mathcal N}` into :math:`{\mathcal N}\_i`
+and :math:`R_i` is the *restriction operator* from :math:`{\mathcal N}` into :math:`{\mathcal N}_i`
 
-**_Remark_** :math:`R\_i^T` is the *extension operator*: extension by :math:`0` from :math:`{\mathcal N}\_i` into :math:`{\mathcal N}`
+**_Remark_** :math:`R_i^T` is the *extension operator*: extension by :math:`0` from :math:`{\mathcal N}_i` into :math:`{\mathcal N}`
 
 
 Partition of unity
@@ -142,12 +142,12 @@ Partition of unity
 Duplicated unknowns coupled via a *partition of unity*:
 
 .. math::
-    I = \sum\_{i = 1}^N R\_i^T D\_i R\_i
+    I = \sum_{i = 1}^N R_i^T D_i R_i
 
-:math:`(D\_i)\_{1\le i \le N}` are square diagonal matrices of size :math:`#{\mathcal N}\_i`
+:math:`(D_i)_{1\le i \le N}` are square diagonal matrices of size :math:`\#{\mathcal N}_i`
 
 .. math::
-    {\mathbf V} = \sum\_{i = 1}^N R\_i^T D\_i R\_i {\mathbf V} = \sum\_{i = 1}^N R\_i^T D\_i {\mathbf V\_i}
+    {\mathbf V} = \sum_{i = 1}^N R_i^T D_i R_i {\mathbf V} = \sum_{i = 1}^N R_i^T D_i {\mathbf V_i}
 
 Data exchange between neighbors
 '''''''''''''''''''''''''''''''
@@ -156,11 +156,11 @@ Data exchange between neighbors
 
     func prfe#update(K[int] vi, bool scale)
 
-synchronizes local vectors :math:`{\mathbf V}\_i` between subdomains :math:`\Rightarrow` exchange the values of :math:`mathbf V}\_i` shared with neighbors in the overlap region
+synchronizes local vectors :math:`{\mathbf V}_i` between subdomains :math:`\Rightarrow` exchange the values of :math:`mathbf{V}_i` shared with neighbors in the overlap region
 
 
 .. math::
-    {\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T D\_j {\mathbf V}\_j \right) = D\_i {\mathbf V}\_i + \sum\_{j\in \mathcal{O}(i)} R\_i\,R\_j^T\,D\_j {\mathbf V}\_j
+    {\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T D_j {\mathbf V}_j \right) = D_i {\mathbf V}_i + \sum_{j\in \mathcal{O}(i)} R_i\,R_j^T\,D_j {\mathbf V}_j
 
 where :math:`\mathcal{O}(i)` is the set of neighbors of subdomain $i$. Exchange operators :math:`R_i\,R_j^T` correspond to neighbor-to-neighbor MPI communications
 
@@ -169,14 +169,14 @@ where :math:`\mathcal{O}(i)` is the set of neighbors of subdomain $i$. Exchange 
     FEupdate(vi, false);
 
 .. math::
-    {\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T {\mathbf V}\_j \right)
+    {\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T {\mathbf V}_j \right)
 
 .. code-block:: freefem
 
     FEupdate(vi, true);
 
 .. math::
-    {\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T D\_j {\mathbf V}\_j  \right)
+    {\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T D_j {\mathbf V}_j  \right)
 
 .. code-block:: freefem
 
@@ -228,16 +228,16 @@ builds the distributed operator associated to your variational form on top of th
         varf varfName(u,v) = int2d(meshName)(grad(u)'* grad(v))
                            + int2d(meshName)(f*v) + on(1, u = 0);  // EOM
 
-:math:`\Rightarrow` assemble local 'Dirichlet' matrices :math:`A\_i = R\_i A R\_i^T`
+:math:`\Rightarrow` assemble local 'Dirichlet' matrices :math:`A_i = R_i A R_i^T`
 
 .. math::
-    A = \sum\_{i=1}^N R\_i^T D\_i A\_i R\_i
+    A = \sum_{i=1}^N R_i^T D_i A_i R_i
 
-.. warning:: only true because :math:`D\_i R\_i A = D\_i A R\_i` due to the fact that :math:`D\_i` vanishes at the interface **!!**
+.. warning:: only true because :math:`D_i R_i A = D_i A R_i` due to the fact that :math:`D_i` vanishes at the interface **!!**
 
-`pr#A` applies :math:`A` to a distributed vector: :math:`{\mathbf U}\_i \leftarrow R\_i \sum\_{j=1}^N R\_j^T D\_j A\_j {\mathbf V}\_j`
+`pr#A` applies :math:`A` to a distributed vector: :math:`{\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j A_j {\mathbf V}_j`
 
-:math:`\Rightarrow` multiply by :math:`A\_i` + `prfe#update`
+:math:`\Rightarrow` multiply by :math:`A_i` + `prfe#update`
 
 .. code-block:: freefem
 
@@ -358,13 +358,13 @@ builds the one level preconditioner for problem **pr**.
 By default it is the *Restricted Additive Schwarz (RAS)* preconditioner:
 
 .. math::
-    M^{-1}\_1 = M^{-1}\_{\text{RAS}} = \sum\_{i=1}^N R\_i^T D\_i A\_i^{-1} R\_i \quad \text{with}\; A\_i = R\_i A R\_i^T
+    M^{-1}_1 = M^{-1}_{\text{RAS}} = \sum_{i=1}^N R_i^T D_i A_i^{-1} R_i \quad \text{with}\; A_i = R_i A R_i^T
 
-**_Setup step_**: compute the :math:`LU` (or :math:`L D L^T`) factorization of local matrices :math:`A\_i`
+**_Setup step_**: compute the :math:`LU` (or :math:`L D L^T`) factorization of local matrices :math:`A_i`
 
-`pr#PREC1` applies :math:`M^{-1}\_1` to a distributed vector: :math:`{\mathbf U}\_i \leftarrow R\_i \sum\_{j=1}^N R\_j^T D\_j A\_j^{-1} {\mathbf V}\_i`
+`pr#PREC1` applies :math:`M^{-1}_1` to a distributed vector: :math:`{\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j A_j^{-1} {\mathbf V}_i`
 
-:math:`\Rightarrow` apply :math:`A\_i^{-1}` (forward/backward substitutions) + `prfe#update`
+:math:`\Rightarrow` apply :math:`A_i^{-1}` (forward/backward substitutions) + `prfe#update`
 
 Step 5: Solve the linear system with preconditioned GMRES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -434,15 +434,15 @@ See :ref:`documentation <ffddmDocumentationTwoLevelPreconditioners>`
 
 :math:`\Rightarrow` enrich the one level preconditioner with a *coarse problem* coupling all subdomains
 
-Main ingredient is a rectangular matrix :math:`\color{red}{Z}` of size :math:`n \times n\_c,\,` where :math:`n\_c \ll n`
+Main ingredient is a rectangular matrix :math:`\color{red}{Z}` of size :math:`n \times n_c,\,` where :math:`n_c \ll n`
 :math:`\color{red}{Z}` is the *coarse space* matrix
 
-The *coarse space operator* :math:`E = \color{red}{Z}^T A \color{red}{Z}` is a square matrix of size :math:`n\_c \times n\_c`
+The *coarse space operator* :math:`E = \color{red}{Z}^T A \color{red}{Z}` is a square matrix of size :math:`n_c \times n_c`
 
 The simplest way to enrich the one level preconditioner is through the *additive coarse correction* formula:
 
 .. math::
-    M^{-1}\_2 = M^{-1}\_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T
+    M^{-1}_2 = M^{-1}_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T
 
 *How to choose $\color{red}{Z}$ ?*
 
@@ -460,12 +460,12 @@ The *GenEO* method builds a robust coarse space for highly heterogeneous or anis
 :math:`\Rightarrow` solve a local generalized eigenvalue problem in each subdomain
 
 .. math::
-    D\_i A\_i D\_i\, V\_{i,k} = \lambda\_{i,k}\, A\_i^{\text{Neu}} \,V\_{i,k}
+    D_i A_i D_i\, V_{i,k} = \lambda_{i,k}\, A_i^{\text{Neu}} \,V_{i,k}
 
-with :math:`A\_i^{\text{Neu}}` the local Neumann matrices built from **Varf** (same **Varf** as :ref:`Step 3 <ffddmTutorialDefineYourProblem>`
+with :math:`A_i^{\text{Neu}}` the local Neumann matrices built from **Varf** (same **Varf** as :ref:`Step 3 <ffddmTutorialDefineYourProblem>`
 
-The GenEO coarse space is :math:`\color{red}{Z} = (R\_i^T D\_i V\_{i,k})^{i=1,...,N}\_{\lambda\_{i,k} \ge \color{blue}{\tau}}`
-The eigenvectors :math:`V\_{i,k}` selected to enter the coarse space correspond to eigenvalues :math:`\lambda_{i,k} \ge \color{blue}{\tau}`, where :math:`\color{blue}{\tau}` is a threshold parameter
+The GenEO coarse space is :math:`\color{red}{Z} = (R_i^T D_i V_{i,k})^{i=1,...,N}_{\lambda_{i,k} \ge \color{blue}{\tau}}`
+The eigenvectors :math:`V_{i,k}` selected to enter the coarse space correspond to eigenvalues :math:`\lambda_{i,k} \ge \color{blue}{\tau}`, where :math:`\color{blue}{\tau}` is a threshold parameter
 
  **Theorem**
  the spectrum of the preconditioned operator lies in the interval :math:`[\displaystyle \frac{1}{1+k_1 \color{blue}{\tau}} , k_0 ]`
@@ -515,7 +515,7 @@ See :ref:`documentation <ffddmDocumentationBuildingCoarseSpaceFromCoarseMesh>`
 
 For **non SPD** problems, an alternative is to build the coarse space by discretizing the PDE on a coarser mesh **Thc**
 
-:math:`Z` will be the *interpolation matrix* from the coarse FE space :math:`{Vh}\_c` to the original FE space :math:`Vh`
+:math:`Z` will be the *interpolation matrix* from the coarse FE space :math:`{Vh}_c` to the original FE space :math:`Vh`
 
 :math:`\Rightarrow E=\color{red}{Z}^{T} A \color{red}{Z}` is the matrix of the problem discretized on the coarse mesh
 

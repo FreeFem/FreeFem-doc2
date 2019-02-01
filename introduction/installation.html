@@ -96,6 +96,11 @@
 <li><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#text-editor">Text-editor</a><ul>
+<li><a class="reference internal" href="#atom">Atom</a></li>
+<li><a class="reference internal" href="#gedit">Gedit</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#compilation">Compilation</a><ul>
 <li><a class="reference internal" href="#branches-os-status">Branches / OS status</a></li>
 <li><a class="reference internal" href="#compilation-on-osx-10-13">Compilation on OSX (&gt;=10.13)</a></li>
@@ -156,6 +161,30 @@ makepkg -si
 <p class="first admonition-title">Note</p>
 <p class="last">Thanks to <a class="reference external" href="https://github.com/stefanhusmann">Stephan Husmann</a></p>
 </div>
+</div>
+</div>
+<div class="section" id="text-editor">
+<h2>Text-editor<a class="headerlink" href="#text-editor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="atom">
+<h3>Atom<a class="headerlink" href="#atom" title="Permalink to this headline">¶</a></h3>
+<p>In order to get the syntax highlighting in <a class="reference external" href="https://atom.io/">Atom</a>, you have to install the <a class="reference external" href="https://atom.io/packages/language-freefem-official">FreeFem++ language support</a>.</p>
+<p>You can do it directly in Atom: Edit -&gt; Preferences -&gt; Install, and search for <code class="docutils literal highlight highlight-default"><span></span><span class="n">language</span><span class="o">-</span><span class="n">freefem</span><span class="o">-</span><span class="n">offical</span></code>.</p>
+<p>To launch scripts directly from Atom, you have to install the <code class="docutils literal highlight highlight-default"><span></span><span class="n">atom</span><span class="o">-</span><span class="n">runner</span></code> package. Once installed, modify the Atom configuration file (Edit -&gt; Config…) to have something like that:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;*&quot;</span>:
+  ...
+
+  runner:
+    extensions:
+      edp: <span class="s2">&quot;FreeFem++&quot;</span>
+    scopes:
+      <span class="s2">&quot;Freefem++&quot;</span>: <span class="s2">&quot;FreeFem++&quot;</span>
+</pre></div>
+</div>
+<p>Reboot Atom, and use Alt+R to run a FreeFem++ script.</p>
+</div>
+<div class="section" id="gedit">
+<h3>Gedit<a class="headerlink" href="#gedit" title="Permalink to this headline">¶</a></h3>
+<p>In order to get the syntax highlighting in Gedit, you have to downlaod the <a class="reference external" href="https://github.com/FreeFem/FreeFem-parser-gedit">Gedit parser</a> and copy it in <code class="docutils literal highlight highlight-default"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">gtksourceview</span><span class="o">-</span><span class="mf">3.0</span><span class="o">/</span><span class="n">language</span><span class="o">-</span><span class="n">specs</span><span class="o">/</span></code>.</p>
 </div>
 </div>
 <div class="section" id="compilation">

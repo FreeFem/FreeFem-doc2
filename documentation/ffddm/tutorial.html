@@ -164,7 +164,7 @@
 <div class="section" id="step-1-decompose-the-mesh">
 <h3>Step 1: Decompose the mesh<a class="headerlink" href="#step-1-decompose-the-mesh" title="Permalink to this headline">¶</a></h3>
 <p>See <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">documentation</span></a></p>
-<p>Build a collection of <span class="math notranslate nohighlight">\(N\)</span> overlapping sub-meshes <span class="math notranslate nohighlight">\((Th\_{i})\_{i=1}^N\)</span> from the global mesh <span class="math notranslate nohighlight">\(Th\)</span></p>
+<p>Build a collection of <span class="math notranslate nohighlight">\(N\)</span> overlapping sub-meshes <span class="math notranslate nohighlight">\((Th_{i})_{i=1}^N\)</span> from the global mesh <span class="math notranslate nohighlight">\(Th\)</span></p>
 <div class="inline2 figure">
 <img alt="../../_images/domain1.png" src="../../_images/domain1.png" />
 </div>
@@ -229,16 +229,16 @@
 <div class="figure">
 <img alt="../../_images/domain2.png" src="../../_images/domain2.png" />
 </div>
-<p>Natural decomposition of the set of d.o.f.’s <span class="math notranslate nohighlight">\({\mathcal N}\)</span> of <span class="math notranslate nohighlight">\(Vh\)</span> into the <span class="math notranslate nohighlight">\(N\)</span> subsets of d.o.f.’s <span class="math notranslate nohighlight">\(({\mathcal N}\_i)\_{i=1}^N\)</span> each associated with the local FE space <span class="math notranslate nohighlight">\(Vh\_i\)</span></p>
+<p>Natural decomposition of the set of d.o.f.’s <span class="math notranslate nohighlight">\({\mathcal N}\)</span> of <span class="math notranslate nohighlight">\(Vh\)</span> into the <span class="math notranslate nohighlight">\(N\)</span> subsets of d.o.f.’s <span class="math notranslate nohighlight">\(({\mathcal N}_i)_{i=1}^N\)</span> each associated with the local FE space <span class="math notranslate nohighlight">\(Vh_i\)</span></p>
 <div class="math notranslate nohighlight">
-\[{\mathcal N} = \cup\_{i=1}^N {\mathcal N}\_i\,,\]</div>
+\[{\mathcal N} = \cup_{i=1}^N {\mathcal N}_i\,,\]</div>
 <p>but with duplications of the d.o.f.’s in the overlap</p>
-<p><strong>_Definition_</strong> a <em>distributed vector</em> is a collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf V\_i})\_{1\le i\le N}\)</span> so that the values on the duplicated d.o.f.’s are the same:</p>
+<p><strong>_Definition_</strong> a <em>distributed vector</em> is a collection of local vectors <span class="math notranslate nohighlight">\(({\mathbf V_i})_{1\le i\le N}\)</span> so that the values on the duplicated d.o.f.’s are the same:</p>
 <div class="math notranslate nohighlight">
-\[{\mathbf V}\_i = R\_i\,{\mathbf V}, \quad i = 1, ..., N\]</div>
+\[{\mathbf V}_i = R_i\,{\mathbf V}, \quad i = 1, ..., N\]</div>
 <p>where <span class="math notranslate nohighlight">\({\mathbf V}\)</span> is the corresponding global vector
-and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restriction operator</em> from <span class="math notranslate nohighlight">\({\mathcal N}\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}\_i\)</span></p>
-<p><strong>_Remark_</strong> <span class="math notranslate nohighlight">\(R\_i^T\)</span> is the <em>extension operator</em>: extension by <span class="math notranslate nohighlight">\(0\)</span> from <span class="math notranslate nohighlight">\({\mathcal N}\_i\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}\)</span></p>
+and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restriction operator</em> from <span class="math notranslate nohighlight">\({\mathcal N}\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span></p>
+<p><strong>_Remark_</strong> <span class="math notranslate nohighlight">\(R_i^T\)</span> is the <em>extension operator</em>: extension by <span class="math notranslate nohighlight">\(0\)</span> from <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}\)</span></p>
 </div>
 <div class="section" id="partition-of-unity">
 <h4>Partition of unity<a class="headerlink" href="#partition-of-unity" title="Permalink to this headline">¶</a></h4>
@@ -247,30 +247,30 @@ and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restri
 </div>
 <p>Duplicated unknowns coupled via a <em>partition of unity</em>:</p>
 <div class="math notranslate nohighlight">
-\[I = \sum\_{i = 1}^N R\_i^T D\_i R\_i\]</div>
-<p><span class="math notranslate nohighlight">\((D\_i)\_{1\le i \le N}\)</span> are square diagonal matrices of size <span class="math notranslate nohighlight">\(#{\mathcal N}\_i\)</span></p>
+\[I = \sum_{i = 1}^N R_i^T D_i R_i\]</div>
+<p><span class="math notranslate nohighlight">\((D_i)_{1\le i \le N}\)</span> are square diagonal matrices of size <span class="math notranslate nohighlight">\(\#{\mathcal N}_i\)</span></p>
 <div class="math notranslate nohighlight">
-\[{\mathbf V} = \sum\_{i = 1}^N R\_i^T D\_i R\_i {\mathbf V} = \sum\_{i = 1}^N R\_i^T D\_i {\mathbf V\_i}\]</div>
+\[{\mathbf V} = \sum_{i = 1}^N R_i^T D_i R_i {\mathbf V} = \sum_{i = 1}^N R_i^T D_i {\mathbf V_i}\]</div>
 </div>
 <div class="section" id="data-exchange-between-neighbors">
 <h4>Data exchange between neighbors<a class="headerlink" href="#data-exchange-between-neighbors" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">func</span> <span class="n">prfe</span><span class="o">#</span><span class="n">update</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">vi</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">scale</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>synchronizes local vectors <span class="math notranslate nohighlight">\({\mathbf V}\_i\)</span> between subdomains <span class="math notranslate nohighlight">\(\Rightarrow\)</span> exchange the values of <span class="math notranslate nohighlight">\(mathbf V}\_i\)</span> shared with neighbors in the overlap region</p>
+<p>synchronizes local vectors <span class="math notranslate nohighlight">\({\mathbf V}_i\)</span> between subdomains <span class="math notranslate nohighlight">\(\Rightarrow\)</span> exchange the values of <span class="math notranslate nohighlight">\(mathbf{V}_i\)</span> shared with neighbors in the overlap region</p>
 <div class="math notranslate nohighlight">
-\[{\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T D\_j {\mathbf V}\_j \right) = D\_i {\mathbf V}\_i + \sum\_{j\in \mathcal{O}(i)} R\_i\,R\_j^T\,D\_j {\mathbf V}\_j\]</div>
+\[{\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T D_j {\mathbf V}_j \right) = D_i {\mathbf V}_i + \sum_{j\in \mathcal{O}(i)} R_i\,R_j^T\,D_j {\mathbf V}_j\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathcal{O}(i)\)</span> is the set of neighbors of subdomain $i$. Exchange operators <span class="math notranslate nohighlight">\(R_i\,R_j^T\)</span> correspond to neighbor-to-neighbor MPI communications</p>
 <div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="n">FEupdate</span><span class="p">(</span><span class="n">vi</span><span class="p">,</span> <span class="kr">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="math notranslate nohighlight">
-\[{\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T {\mathbf V}\_j \right)\]</div>
+\[{\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T {\mathbf V}_j \right)\]</div>
 <div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="n">FEupdate</span><span class="p">(</span><span class="n">vi</span><span class="p">,</span> <span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="math notranslate nohighlight">
-\[{\mathbf V}\_i \leftarrow R\_i \left( \sum\_{j=1}^N R\_j^T D\_j {\mathbf V}\_j  \right)\]</div>
+\[{\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T D_j {\mathbf V}_j  \right)\]</div>
 <div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">macro</span> <span class="n">dimension</span> <span class="mi">2</span><span class="c1">// EOM            // 2D or 3D</span>
 
 <span class="cp">include</span> <span class="s">&quot;ffddm.idp&quot;</span>
@@ -314,15 +314,15 @@ and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restri
                        <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">meshName</span><span class="p">)(</span><span class="n">f</span><span class="o">*</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// EOM</span>
 </pre></div>
 </div>
-<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> assemble local ‘Dirichlet’ matrices <span class="math notranslate nohighlight">\(A\_i = R\_i A R\_i^T\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> assemble local ‘Dirichlet’ matrices <span class="math notranslate nohighlight">\(A_i = R_i A R_i^T\)</span></p>
 <div class="math notranslate nohighlight">
-\[A = \sum\_{i=1}^N R\_i^T D\_i A\_i R\_i\]</div>
+\[A = \sum_{i=1}^N R_i^T D_i A_i R_i\]</div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">only true because <span class="math notranslate nohighlight">\(D\_i R\_i A = D\_i A R\_i\)</span> due to the fact that <span class="math notranslate nohighlight">\(D\_i\)</span> vanishes at the interface <strong>!!</strong></p>
+<p class="last">only true because <span class="math notranslate nohighlight">\(D_i R_i A = D_i A R_i\)</span> due to the fact that <span class="math notranslate nohighlight">\(D_i\)</span> vanishes at the interface <strong>!!</strong></p>
 </div>
-<p><cite>pr#A</cite> applies <span class="math notranslate nohighlight">\(A\)</span> to a distributed vector: <span class="math notranslate nohighlight">\({\mathbf U}\_i \leftarrow R\_i \sum\_{j=1}^N R\_j^T D\_j A\_j {\mathbf V}\_j\)</span></p>
-<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> multiply by <span class="math notranslate nohighlight">\(A\_i\)</span> + <cite>prfe#update</cite></p>
+<p><cite>pr#A</cite> applies <span class="math notranslate nohighlight">\(A\)</span> to a distributed vector: <span class="math notranslate nohighlight">\({\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j A_j {\mathbf V}_j\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> multiply by <span class="math notranslate nohighlight">\(A_i\)</span> + <cite>prfe#update</cite></p>
 <div class="highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="kt">macro</span> <span class="n">dimension</span> <span class="mi">2</span><span class="c1">// EOM            // 2D or 3D</span>
 
 <span class="cp">include</span> <span class="s">&quot;ffddm.idp&quot;</span>
@@ -419,10 +419,10 @@ and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restri
 <p>builds the one level preconditioner for problem <strong>pr</strong>.</p>
 <p>By default it is the <em>Restricted Additive Schwarz (RAS)</em> preconditioner:</p>
 <div class="math notranslate nohighlight">
-\[M^{-1}\_1 = M^{-1}\_{\text{RAS}} = \sum\_{i=1}^N R\_i^T D\_i A\_i^{-1} R\_i \quad \text{with}\; A\_i = R\_i A R\_i^T\]</div>
-<p><strong>_Setup step_</strong>: compute the <span class="math notranslate nohighlight">\(LU\)</span> (or <span class="math notranslate nohighlight">\(L D L^T\)</span>) factorization of local matrices <span class="math notranslate nohighlight">\(A\_i\)</span></p>
-<p><cite>pr#PREC1</cite> applies <span class="math notranslate nohighlight">\(M^{-1}\_1\)</span> to a distributed vector: <span class="math notranslate nohighlight">\({\mathbf U}\_i \leftarrow R\_i \sum\_{j=1}^N R\_j^T D\_j A\_j^{-1} {\mathbf V}\_i\)</span></p>
-<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> apply <span class="math notranslate nohighlight">\(A\_i^{-1}\)</span> (forward/backward substitutions) + <cite>prfe#update</cite></p>
+\[M^{-1}_1 = M^{-1}_{\text{RAS}} = \sum_{i=1}^N R_i^T D_i A_i^{-1} R_i \quad \text{with}\; A_i = R_i A R_i^T\]</div>
+<p><strong>_Setup step_</strong>: compute the <span class="math notranslate nohighlight">\(LU\)</span> (or <span class="math notranslate nohighlight">\(L D L^T\)</span>) factorization of local matrices <span class="math notranslate nohighlight">\(A_i\)</span></p>
+<p><cite>pr#PREC1</cite> applies <span class="math notranslate nohighlight">\(M^{-1}_1\)</span> to a distributed vector: <span class="math notranslate nohighlight">\({\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j A_j^{-1} {\mathbf V}_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> apply <span class="math notranslate nohighlight">\(A_i^{-1}\)</span> (forward/backward substitutions) + <cite>prfe#update</cite></p>
 </div>
 <div class="section" id="step-5-solve-the-linear-system-with-preconditioned-gmres">
 <h3>Step 5: Solve the linear system with preconditioned GMRES<a class="headerlink" href="#step-5-solve-the-linear-system-with-preconditioned-gmres" title="Permalink to this headline">¶</a></h3>
@@ -481,12 +481,12 @@ and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restri
 <p>See <a class="reference internal" href="documentation.html#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">documentation</span></a></p>
 <p><strong>Goal</strong> improve scalability of the one level method</p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> enrich the one level preconditioner with a <em>coarse problem</em> coupling all subdomains</p>
-<p>Main ingredient is a rectangular matrix <span class="math notranslate nohighlight">\(\color{red}{Z}\)</span> of size <span class="math notranslate nohighlight">\(n \times n\_c,\,\)</span> where <span class="math notranslate nohighlight">\(n\_c \ll n\)</span>
+<p>Main ingredient is a rectangular matrix <span class="math notranslate nohighlight">\(\color{red}{Z}\)</span> of size <span class="math notranslate nohighlight">\(n \times n_c,\,\)</span> where <span class="math notranslate nohighlight">\(n_c \ll n\)</span>
 <span class="math notranslate nohighlight">\(\color{red}{Z}\)</span> is the <em>coarse space</em> matrix</p>
-<p>The <em>coarse space operator</em> <span class="math notranslate nohighlight">\(E = \color{red}{Z}^T A \color{red}{Z}\)</span> is a square matrix of size <span class="math notranslate nohighlight">\(n\_c \times n\_c\)</span></p>
+<p>The <em>coarse space operator</em> <span class="math notranslate nohighlight">\(E = \color{red}{Z}^T A \color{red}{Z}\)</span> is a square matrix of size <span class="math notranslate nohighlight">\(n_c \times n_c\)</span></p>
 <p>The simplest way to enrich the one level preconditioner is through the <em>additive coarse correction</em> formula:</p>
 <div class="math notranslate nohighlight">
-\[M^{-1}\_2 = M^{-1}\_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T\]</div>
+\[M^{-1}_2 = M^{-1}_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T\]</div>
 <p><em>How to choose $color{red}{Z}$ ?</em></p>
 </div>
 <div class="section" id="build-the-geneo-coarse-space">
@@ -498,10 +498,10 @@ and <span class="math notranslate nohighlight">\(R\_i\)</span> is the <em>restri
 <p>The <em>GenEO</em> method builds a robust coarse space for highly heterogeneous or anisotropic <strong>SPD</strong> problems</p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> solve a local generalized eigenvalue problem in each subdomain</p>
 <div class="math notranslate nohighlight">
-\[D\_i A\_i D\_i\, V\_{i,k} = \lambda\_{i,k}\, A\_i^{\text{Neu}} \,V\_{i,k}\]</div>
-<p>with <span class="math notranslate nohighlight">\(A\_i^{\text{Neu}}\)</span> the local Neumann matrices built from <strong>Varf</strong> (same <strong>Varf</strong> as <a class="reference internal" href="#ffddmtutorialdefineyourproblem"><span class="std std-ref">Step 3</span></a></p>
-<p>The GenEO coarse space is <span class="math notranslate nohighlight">\(\color{red}{Z} = (R\_i^T D\_i V\_{i,k})^{i=1,...,N}\_{\lambda\_{i,k} \ge \color{blue}{\tau}}\)</span>
-The eigenvectors <span class="math notranslate nohighlight">\(V\_{i,k}\)</span> selected to enter the coarse space correspond to eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i,k} \ge \color{blue}{\tau}\)</span>, where <span class="math notranslate nohighlight">\(\color{blue}{\tau}\)</span> is a threshold parameter</p>
+\[D_i A_i D_i\, V_{i,k} = \lambda_{i,k}\, A_i^{\text{Neu}} \,V_{i,k}\]</div>
+<p>with <span class="math notranslate nohighlight">\(A_i^{\text{Neu}}\)</span> the local Neumann matrices built from <strong>Varf</strong> (same <strong>Varf</strong> as <a class="reference internal" href="#ffddmtutorialdefineyourproblem"><span class="std std-ref">Step 3</span></a></p>
+<p>The GenEO coarse space is <span class="math notranslate nohighlight">\(\color{red}{Z} = (R_i^T D_i V_{i,k})^{i=1,...,N}_{\lambda_{i,k} \ge \color{blue}{\tau}}\)</span>
+The eigenvectors <span class="math notranslate nohighlight">\(V_{i,k}\)</span> selected to enter the coarse space correspond to eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i,k} \ge \color{blue}{\tau}\)</span>, where <span class="math notranslate nohighlight">\(\color{blue}{\tau}\)</span> is a threshold parameter</p>
 <blockquote>
 <div><strong>Theorem</strong>
 the spectrum of the preconditioned operator lies in the interval <span class="math notranslate nohighlight">\([\displaystyle \frac{1}{1+k_1 \color{blue}{\tau}} , k_0 ]\)</span>
@@ -546,7 +546,7 @@ where <span class="math notranslate nohighlight">\(k_0 - 1\)</span> is the # of 
 </pre></div>
 </div>
 <p>For <strong>non SPD</strong> problems, an alternative is to build the coarse space by discretizing the PDE on a coarser mesh <strong>Thc</strong></p>
-<p><span class="math notranslate nohighlight">\(Z\)</span> will be the <em>interpolation matrix</em> from the coarse FE space <span class="math notranslate nohighlight">\({Vh}\_c\)</span> to the original FE space <span class="math notranslate nohighlight">\(Vh\)</span></p>
+<p><span class="math notranslate nohighlight">\(Z\)</span> will be the <em>interpolation matrix</em> from the coarse FE space <span class="math notranslate nohighlight">\({Vh}_c\)</span> to the original FE space <span class="math notranslate nohighlight">\(Vh\)</span></p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow E=\color{red}{Z}^{T} A \color{red}{Z}\)</span> is the matrix of the problem discretized on the coarse mesh</p>
 <p>The variational problem to be discretized on <strong>Thc</strong> is given by macro <strong>VarfEprec</strong></p>
 <p><strong>VarfEprec</strong> can differ from the original <strong>Varf</strong> of the problem</p>

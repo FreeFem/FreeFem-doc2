@@ -53,6 +53,36 @@ To install it:
 
 .. note:: Thanks to `Stephan Husmann <https://github.com/stefanhusmann>`__
 
+Text-editor
+-----------
+
+Atom
+~~~~
+
+In order to get the syntax highlighting in `Atom <https://atom.io/>`__, you have to install the `FreeFem++ language support <https://atom.io/packages/language-freefem-official>`__.
+
+You can do it directly in Atom: Edit -> Preferences -> Install, and search for ``language-freefem-offical``.
+
+To launch scripts directly from Atom, you have to install the ``atom-runner`` package. Once installed, modify the Atom configuration file (Edit -> Config...) to have something like that:
+
+.. code-block:: bash
+
+  "*":
+    ...
+
+    runner:
+      extensions:
+        edp: "FreeFem++"
+      scopes:
+        "Freefem++": "FreeFem++"
+
+Reboot Atom, and use Alt+R to run a FreeFem++ script.
+
+Gedit
+~~~~~
+
+In order to get the syntax highlighting in Gedit, you have to downlaod the `Gedit parser <https://github.com/FreeFem/FreeFem-parser-gedit>`__ and copy it in ``/usr/share/gtksourceview-3.0/language-specs/``.
+
 Compilation
 -----------
 

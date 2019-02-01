@@ -108,10 +108,8 @@
 <ul class="simple">
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_verbosity</span> <span class="n">N</span></code>, the level of verbosity of <strong>ffddm</strong>, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmverbosity</span></a> (default 3).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">seqddm</span> <span class="n">N</span></code> use <strong>ffddm</strong> in sequential mode, with N the number of subdomains.</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">noGlob</span></code> if present, do not define any global quantity (such as saving the global mesh for plotting or building the global restriction matrices).</dt><dd>Cannot be used in sequential mode or with plotting.</dd>
-</dl>
-</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">noGlob</span></code> if present, do not define any global quantity (such as saving the global mesh for plotting or building the global restriction matrices).
+Cannot be used in sequential mode or with plotting.</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_partitioner</span> <span class="n">N</span></code> specifies how to partition the initial domain, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmpartitioner</span></a> (default 1, <em>metis</em>).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_overlap</span> <span class="n">N</span></code> specifies the width of the overlap region between subdomains, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmoverlap</span></a> (default 1).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_master_p</span> <span class="n">N</span></code>, number of master processes for the coarse problem (for two level preconditioners), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmpCS</span></a> (default 1).</li>
@@ -119,10 +117,8 @@
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddm_split</span> <span class="n">N</span></code>, level of refinement of the local submeshes with respect to the initial global mesh, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmsplit</span></a> (default 1).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_schwarz_method</span> <span class="n">S</span></code>, specifies the type of one level preconditioner <span class="math notranslate nohighlight">\(M^{-1}_1\)</span>: “asm” (<em>Additive Schwarz</em>), “ras” (<em>Restricted Additive Schwarz</em>), “oras” (<em>Optimized Restricted Additive Schwarz</em>), “soras” (<em>Symmetric Optimized Restricted Additive Schwarz</em>) or “none” (no preconditioner), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmprecond</span></a> (default “ras”).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_geneo_nu</span> <span class="n">N</span></code>, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmnu</span></a> (default 20).</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_geneo_threshold</span> <span class="n">R</span></code>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> (default 0.5).</dt><dd>If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.</dd>
-</dl>
-</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_geneo_threshold</span> <span class="n">R</span></code>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> (default 0.5).
+If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="o">-</span><span class="n">ffddm_schwarz_coarse_correction</span> <span class="n">S</span></code>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmcorrection</span></a> (default “ADEF1”).</li>
 </ul>
 </div>
@@ -136,44 +132,28 @@
 <li>N=2: use the automatic graph partitioner <em>scotch</em></li>
 </ul>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmoverlap</span></code> initialized by command-line argument <strong>-ffddm_overlap N</strong>, specifies the number of layers of mesh elements in the overlap region between subdomains N &gt;= 1 (default 1).</dt><dd><strong>Remark</strong> The actual width of the overlap region between subdomains is 2N, since each subdomain is extended by N layers of elements in a symmetric way.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddminterfacelabel</span></code> the label of the new border of the subdomain meshes (the interface between the subdomains) (default 10).</dt><dd>Used for imposing problem-dependent boundary conditions at the interface between subdomains for the preconditioner, for example optimized Robin boundary conditions (see ORAS).</dd>
-</dl>
-</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmoverlap</span></code> initialized by command-line argument <strong>-ffddm_overlap N</strong>, specifies the number of layers of mesh elements in the overlap region between subdomains N &gt;= 1 (default 1).
+<strong>Remark</strong> The actual width of the overlap region between subdomains is 2N, since each subdomain is extended by N layers of elements in a symmetric way.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddminterfacelabel</span></code> the label of the new border of the subdomain meshes (the interface between the subdomains) (default 10).
+Used for imposing problem-dependent boundary conditions at the interface between subdomains for the preconditioner, for example optimized Robin boundary conditions (see ORAS).</li>
 <li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmpCS</span></code> initialized by command-line argument <strong>-ffddm_master_p N</strong>, number of mpi processes used for the assembly and resolution of the coarse problem for two level preconditioners (default 1).</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmexclude</span></code> initialized by command-line argument <strong>-ffddm_master_exclude</strong>, 0 or 1 (default 0).</dt><dd>If true, mpi ranks participating in the assembly and resolution of the coarse problem for two level preconditioners will be excluded from the spatial domain decomposition and will only work on the coarse problem.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmsplit</span></code> initialized by command-line argument <strong>ffddm_split N</strong>, level of refinement of the local submeshes with respect to the initial global mesh (default 1).</dt><dd>This is useful for large problems, where we want to avoid working with a very large global mesh.
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmexclude</span></code> initialized by command-line argument <strong>-ffddm_master_exclude</strong>, 0 or 1 (default 0).
+If true, mpi ranks participating in the assembly and resolution of the coarse problem for two level preconditioners will be excluded from the spatial domain decomposition and will only work on the coarse problem.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmsplit</span></code> initialized by command-line argument <strong>ffddm_split N</strong>, level of refinement of the local submeshes with respect to the initial global mesh (default 1).
+This is useful for large problems, where we want to avoid working with a very large global mesh.
 The idea is to start from a coarser global mesh, and generate finer local meshes in parallel during the mesh decomposition step in order to reach the desired level of refinement for the subdomains.
-For example, calling <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">ffddmbuildDmesh</span></a> with <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmsplit</span></a> = 3 will generate local submeshes where each mesh element of the initial mesh is split into <span class="math notranslate nohighlight">\(3^d\)</span> elements.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmprecond</span></code> initialized by command-line argument <strong>-ffddm_schwarz_method S</strong>, specifies the type of one level preconditioner <span class="math notranslate nohighlight">\(M^{-1}_1\)</span> to build when calling <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a>: “asm” (<em>Additive Schwarz</em>), “ras” (<em>Restricted Additive Schwarz</em>), “oras” (<em>Optimized Restricted Additive Schwarz</em>), “soras” (<em>Symmetric Optimized Restricted Additive Schwarz</em>) or “none” (no preconditioner).</dt><dd>Default is “ras”.
-See <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a> for more details.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmnu</span></code> initialized by command-line argument <strong>-ffddm_geneo_nu N</strong>, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method (default 20).</dt><dd>See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmtau</span></code> initialized by command-line argument <strong>-ffddm_geneo_threshold R</strong>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method (default 0.5).</dt><dd>If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.
-See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmcorrection</span></code> initialized by command-line argument <strong>-ffddm_schwarz_coarse_correction S</strong>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction).</dt><dd>Default is “ADEF1”.
-See the section about <a class="reference internal" href="documentation.html#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">Two level preconditioners</span></a> for more details.</dd>
-</dl>
-</li>
+For example, calling <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">ffddmbuildDmesh</span></a> with <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmsplit</span></a> = 3 will generate local submeshes where each mesh element of the initial mesh is split into <span class="math notranslate nohighlight">\(3^d\)</span> elements.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmprecond</span></code> initialized by command-line argument <strong>-ffddm_schwarz_method S</strong>, specifies the type of one level preconditioner <span class="math notranslate nohighlight">\(M^{-1}_1\)</span> to build when calling <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a>: “asm” (<em>Additive Schwarz</em>), “ras” (<em>Restricted Additive Schwarz</em>), “oras” (<em>Optimized Restricted Additive Schwarz</em>), “soras” (<em>Symmetric Optimized Restricted Additive Schwarz</em>) or “none” (no preconditioner).
+Default is “ras”.
+See <a class="reference internal" href="documentation.html#ffddmdocumentationonelevelpreconditioners"><span class="std std-ref">ffddmsetupPrecond</span></a> for more details.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmnu</span></code> initialized by command-line argument <strong>-ffddm_geneo_nu N</strong>, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method (default 20).
+See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmtau</span></code> initialized by command-line argument <strong>-ffddm_geneo_threshold R</strong>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method (default 0.5).
+If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.
+See <a class="reference internal" href="documentation.html#ffddmdocumentationbuildinggeneocoarsespace"><span class="std std-ref">ffddmgeneosetup</span></a> for more details.</li>
+<li><code class="docutils literal highlight highlight-default"><span></span><span class="n">ffddmcorrection</span></code> initialized by command-line argument <strong>-ffddm_schwarz_coarse_correction S</strong>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction).
+Default is “ADEF1”.
+See the section about <a class="reference internal" href="documentation.html#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">Two level preconditioners</span></a> for more details.</li>
 </ul>
 </div>
 </div>
