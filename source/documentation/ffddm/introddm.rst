@@ -22,7 +22,7 @@ The starting point is a collection of :math:`N` sub-meshes :math:`(Th_i)_{i=1}^N
 
 .. math:: Th:= \cup_{i=1}^N Th_i\,.
 
-This induces a natural decomposition of the global finite element space :math:`Vh` on :math:`Th` into :math:`N` local finite element spaces :math:`(Vh_i)_{i=1}^N` each of them defined on :math:`Th_i`.
+These meshes may be overlapping or not. This decomposition induces a natural decomposition of the global finite element space :math:`Vh` on :math:`Th` into :math:`N` local finite element spaces :math:`(Vh_i)_{i=1}^N` each of them defined on :math:`Th_i`.
 
 **Note** By global, we mean that the corresponding structure can be refered to in the code (most often only) by its local values.
 In computer science term, it corresponds to a distributed data where each piece of data is stored by a MPI process.
@@ -30,24 +30,23 @@ In computer science term, it corresponds to a distributed data where each piece 
 Distributed Linear Algebra
 --------------------------
 
-The domain decomposition induces a natural decomposition of the set of the global degrees of freedom (d.o.f.) :math:`{\mathcal N}` of the finite element space :math:`Vh` into the :math:`N` subsets of d.o.f.’s :math:`({\mathcal N})_{i=1}^N` each associated with the local finite element space :math:`Vh_i`.
+The domain decomposition induces a natural decomposition of the set of the global degrees of freedom (d.o.f.) :math:`{\mathcal N}` of the finite element space :math:`Vh` into the :math:`N` subsets of d.o.f.’s :math:`({\mathcal N}_i)_{i=1}^N` each associated with the local finite element space :math:`Vh_i`.
 We have thus
 
 .. math:: {\mathcal N} = \cup_{i=1}^N {\mathcal N}_i\,,
 
 but with duplications of some of the d.o.f.’s.
 
-Associated with this decomposition of the set of d.o.f.’s :math:`{\mathcal N}`, a *distributed vector* is a collection of local vectors :math:`({\mathbf V_i}_{1\le i\le N})` so that the values on the duplicated d.o.f.’s are the same.
+Associated with this decomposition of the set of d.o.f.’s :math:`{\mathcal N}`, a *distributed vector* is a collection of local vectors :math:`({\mathbf V_i})_{1\le i\le N}` so that the values on the duplicated d.o.f.’s are the same.
 
 .. note:: In mathematical terms, it can be described as follows for a real valued problem.
-    For a real value problem, simply replace :math:`\R` with :math:`\C`.
     Let :math:`R_i` be the restriction operator from :math:`\R^{\#{\mathcal N}}` to :math:`\R^{\#{\mathcal N}_i}`, where :math:`\#{\mathcal N}_i` denotes the number of elements of :math:`{\mathcal N}_i`.
     A collection of local vectors :math:`({\mathbf V}_i)_{1\le i\le N}\in \Pi_{i=1}^N \R^{\#{\mathcal N}_i}` is a distributed vector iff there exists a global vector :math:`{\mathbf V}\in\R^{\#{\mathcal N}}` such that for all subset :math:`1\le i\le N`, we have:
 
     .. math::
         {\mathbf V}_i = R_i\,{\mathbf V}\,.
 
-    We will also say that the collection of local vectors :math:`({\mathbf V}_i)_{1\le i\le N}` is consistent.
+    We will also say that the collection of local vectors :math:`({\mathbf V}_i)_{1\le i\le N}` is consistent. For a complex valued problem, simply replace :math:`\R` with :math:`\C`.
 
 Partition of Unity Matrices (POUM)
 ----------------------------------
@@ -164,15 +163,22 @@ It reads:
 
 where :math:`B_j` are local matrices of size :math:`\#{\mathcal N}_j \times \#{\mathcal N}_j` for :math:`1\le j \le N`.
 This variant is very useful when dealing with wave propagation phenomena such as Helmholtz problems in acoustics or Maxwell system in the frequency domain for electromagnetism.
-Defining :math:`B_j` as the discretization of the physical equation with impedance conditions on the boundary of the subdomain
+Defining :math:`B_j` as the discretization of the physical equation with impedance conditions on the boundary of the subdomain has been proved to be a good choice. 
 
 Two level methods
 ^^^^^^^^^^^^^^^^^
 
-The RAS method is called a one-level method in the sense that sub-domains only interact with their direct neighbors.
-For some problems such as Darcy problems or static elasticiy problems and when the number of subdomains is large, such one-level methods may suffer from a slow convergence.
+The RAS and ORAS methods are called a one-level method in the sense that sub-domains only interact with their direct neighbors. For some problems such as Darcy problems or static elasticity problems and when the number of subdomains is large, such one-level methods may suffer from a slow convergence.
 The fix is to add to the preconditioner an auxiliary coarse problem that couples all subdomains at each iteration and is inexpensive to calculate.
-We consider two ways to build this coarse problem, see below :ref:`Coarse Mesh <ffddmIntroductionCoarseMesh>` and :ref:`GenEO <ffddmIntroductionGeneo>`
+
+In mathematical terms, we first choose  a full rank rectangular matrix  :math:`Z\in\R^{\#{\mathcal N}\times NC}` where :math:`NC \ll \#{\mathcal N}` denotes the dimension of the coarse space spanned by the columns of :math:`Z`. We also pick a coarse matrix :math:`A_C\in \R^{N_C\times N_C}`. A generic one-level method preconditioner :math:`M_1^{-1}` is enriched by a solve on the coarse space. The simplest correction formula is additive:
+
+.. math::
+  M_2^{-1} := Z \,A_C^{-1}\,Z^T + M_1^{-1}
+
+Other correction formulas are given in :ref:`documentation <ffddmDocumentationTwoLevelPreconditioners>`. 
+
+We consider two ways to build :math:`Z` and thus the coarse space and the coarse problem :math:`A_C`, see below :ref:`Coarse Mesh <ffddmIntroductionCoarseMesh>` and :ref:`GenEO <ffddmIntroductionGeneo>`
 
 .. _ffddmIntroductionCoarseMesh:
 
@@ -180,7 +186,8 @@ Coarse Mesh
 '''''''''''
 
 A first possibility is to discretize the problem on a coarse mesh, following the same principle as multi-grid methods.
-For 3-D problems, a coarsening of the mesh size by a factor 2, reduces by a factor :math:`2^3=8` the size of the coarse problem which is then easier to solve by a direct method.
+For 3-D problems, a coarsening of the mesh size by a factor 2, reduces by a factor :math:`2^3=8` the size of the coarse problem which is then easier to solve by a direct method. Then, :math:`Z` is the interpolation matrix from the coarse finite element space to the fine one.  
+
 
 .. _ffddmIntroductionGeneo:
 
