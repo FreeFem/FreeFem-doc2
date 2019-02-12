@@ -112,6 +112,10 @@ td {
 	padding: 10px;
 }
 
+td.code {
+	padding: 0;
+}
+
 .math {
 	overflow: auto;
 }
