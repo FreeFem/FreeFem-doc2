@@ -29,14 +29,16 @@ function searchClean() {
 
 function searchLunr(text) {
    const idx = lunr.Index.load(LUNR_DATA[0])
-   const results = idx.search('*'+text+'*')
+   // const results = idx.search('*'+text+'*')
+   const results = idx.search(text)
 
    const resultsi = []
    results.forEach(function(result) {
       const ref = result['ref']
       const index = Number(ref)+1
       const idxi = lunr.Index.load(LUNR_DATA[index])
-      resultsi[index] = idxi.search('*'+text+'*')
+      // resultsi[index] = idxi.search('*'+text+'*')
+      resultsi[index] = idxi.search(text)
    })
 
    const resultsHTML = parseLunrResults(results, resultsi, text)
