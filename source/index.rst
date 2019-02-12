@@ -7,7 +7,6 @@ Welcome to FreeFem++ documentation
 ==================================
 
 .. toctree::
-  :caption: Table of contents:
 
   introduction/index
   documentation/index
@@ -16,9 +15,3 @@ Welcome to FreeFem++ documentation
   example/index
   model/index
   reference
-
-.. only:: html
-
-    .. raw:: html
-
-        <script>goto('introduction/introduction.html')</script>
