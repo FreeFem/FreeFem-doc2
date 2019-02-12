@@ -53,31 +53,56 @@ p {
 }
 
 img {
-	max-width: 100%;
+	max-width: 90%;
+}
+
+img.align-center {
+	display: block;
+	margin: auto;
+}
+
+div.inline2 {
+   display: inline-flex;
+   text-align: center;
+   width: 49%;
+}
+
+div.inline2 > img {
+   width: 90%;
+}
+
+div.inline3 {
+   display: inline-flex;
+   text-align: center;
+   width: 32%;
+}
+
+div.inline3 > img {
+   width: 90%;
 }
 
 .figure {
+	margin: auto;
 	margin-top: 10px;
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: 20px auto;
+	max-width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
 	border: 1px solid lightgrey;
 	border-radius: 5px;
 	box-shadow: 5px 10px 18px #888888;
 }
 
 .figure img {
-	grid-column: auto;
-	grid-row: 2;
+	order: 2;
+	align-self: center;
 }
 
 .figure .caption {
-	grid-column: auto;
-	grid-row: 1;
+	order: 1;
 	background-color: grey;
 	color: white;
-	min-width: 100%;
-	min-height: 30px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -102,6 +127,14 @@ table:not(.highlighttable) {
 	overflow: auto;
 }
 
+table a {
+	color: #3f51b5;
+}
+
+table a:visited {
+	color: #3f51b5;
+}
+
 th {
 	background-color: rgba(0,0,0,.54);
 	color: #fff;
@@ -109,8 +142,16 @@ th {
 	padding: 10px;
 }
 
-td:not(.code, .linenos) {
+td {
 	padding: 10px;
+}
+
+td.code {
+	padding: 0;
+}
+
+td.linenos {
+	padding: 0;
 }
 
 .math {
