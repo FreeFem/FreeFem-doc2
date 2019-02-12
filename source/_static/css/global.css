@@ -57,6 +57,7 @@ img {
 }
 
 .figure {
+	margin-top: 10px;
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 20px auto;
@@ -112,7 +113,7 @@ td {
 	padding: 10px;
 }
 
-td.code {
+td.code, td.linenos {
 	padding: 0;
 }
 
