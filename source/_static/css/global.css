@@ -38,3 +38,50 @@ i:hover {
 p {
 	line-height: 1.5em;
 }
+
+.linenos {
+	background-color: rgba(0,0,0,.07);
+	color: rgba(0,0,0,.26);
+	border-radius: 5px 0 0 5px;
+}
+
+.code {
+	background-color: hsla(0,0%,92.5%,.5);
+	border-radius: 0 5px 5px 0;
+}
+
+.highlight {
+	background-color: transparent !important;
+}
+
+img {
+	max-width: 100%;
+}
+
+.figure {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 20px auto;
+	border-radius: 5px;
+	border: 1px solid lightgrey;
+}
+
+.figure img {
+	grid-column: auto;
+	grid-row: 2;
+}
+
+.figure .caption {
+	grid-column: auto;
+	grid-row: 1;
+	background-color: grey !important;
+	color: white;
+}
+
+.caption .caption-number {
+	display: none;
+}
+
+.caption .caption-text {
+	justify-content: center;
+}
