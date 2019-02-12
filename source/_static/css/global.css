@@ -62,20 +62,18 @@ img {
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 20px auto;
-	border-radius: 5px;
-	border: 1px solid lightgrey;
 }
 
 .figure img {
 	grid-column: auto;
 	grid-row: 2;
+	border: 1px solid lightgrey;
+	border-radius: 0 0 5px 5px
 }
 
 .figure .caption {
 	grid-column: auto;
 	grid-row: 1;
-	background-color: grey !important;
-	color: white;
 }
 
 .caption .caption-number {
@@ -84,4 +82,9 @@ img {
 
 .caption .caption-text {
 	justify-content: center;
+	background-color: grey;
+	color: white;
+	border-radius: 5px 5px 0 0;
+	min-width: 100%;
+	height: 30px;
 }
