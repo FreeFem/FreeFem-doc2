@@ -32,10 +32,6 @@
 	display: none;
 }
 
-#subnav ul.anchor {
-	display: none;
-}
-
 #subnav a.current {
 	color: #384560;
 }

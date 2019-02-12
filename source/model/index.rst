@@ -2,9 +2,7 @@ Mathematical Models
 ===================
 
 .. toctree::
-   :caption: Table of contents:
 
-   model
    staticProblems
    elasticity
    nonLinearStaticProblems
@@ -20,8 +18,9 @@ Mathematical Models
    compressibleNeoHookeanMaterials
    whisperingGalleryModes
 
-.. only:: html
+*Summary*:
 
-   .. raw:: html
+This chapter goes deeper into a number of problems that **FreeFem++** can solve.
+It is a complement to the :ref:`Tutorial part <tutorial>` which was only an introduction.
 
-       <script>goto('model.html')</script>
+**Users are invited to contribute to make this models database grow.**
