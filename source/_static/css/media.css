@@ -1,6 +1,6 @@
 @media screen and (max-width: 1200px){
 	body {
-		grid-template-columns: auto auto 30% !important;
+		grid-template-columns: 0 70% 30% !important;
 	}
 
 	nav {
@@ -43,6 +43,10 @@
 }
 
 @media screen and (max-width: 600px) {
+	body {
+		grid-template-columns: 0 100% 0 !important;
+	}
+
 	.header-github {
 		display: none;
 	}
