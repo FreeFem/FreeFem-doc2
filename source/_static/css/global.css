@@ -109,7 +109,7 @@ th {
 	padding: 10px;
 }
 
-td {
+td:not(.code, .linenos) {
 	padding: 10px;
 }
 
