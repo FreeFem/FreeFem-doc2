@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "node build_index.js",
-    "deploy": "cp lunr_index.js ../build/html/_static",
+    "deploy": "mkdir -p ../build/html/_static/lunr && cp lunr_index.js ../build/html/_static/lunr/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

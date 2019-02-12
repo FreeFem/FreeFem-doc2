@@ -21,7 +21,10 @@ help:
 html: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-	cd tools && npm i && npm run build && npm run deploy
+	cd tools \
+		&& npm install \
+		&& npm run build \
+		&& npm run deploy
 
 htmlonly: Makefile
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
