@@ -3,13 +3,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'FreeFem++'
-copyright = '2018, FreeFem++'
+copyright = '2019, FreeFem++'
 author = 'Frederic Hecht'
 
 # The short X.Y version
-version = '3.61'
+version = '4.0'
 # The full version, including alpha/beta/rc tags
-release = '3.61.2'
+release = '4.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -47,16 +47,14 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-highlight_language = 'default'
-highlight_options = {'linenos': 1}
+highlight_language = 'freefem'
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'freefemtheme'
-html_theme_path = ['.']
+html_theme = 'default'
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -79,6 +77,8 @@ html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'FreeFem++doc'
+
+html_add_permalinks = ' '
 
 
 # -- Options for LaTeX output ------------------------------------------------

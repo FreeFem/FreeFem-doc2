@@ -1,0 +1,40 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+b {
+	font-weight: bold;
+}
+
+button:focus {
+	outline: none;
+}
+
+i {
+	font-size: 20px;
+	color: lightgrey;
+}
+
+i:hover {
+	color: white;
+}
+
+p {
+	line-height: 1.5em;
+}

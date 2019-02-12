@@ -1,16 +1,19 @@
-<script>
-    let date = new Date()
-    let currentYear = date.getFullYear()
-</script>
-<div class="footer-text">
-    <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
-</div>
-<div class="footer-img">
-    <p>
-        Made with <i class="fas fa-heart"></i> on
-    </p>
-    <span class="separator"></span>
-    <a href="https://github.com/FreeFem">
-        <img alt="Github" title="Github" src="{{ pathto("_static/img/GitHub_Logo_White.png", 1) }}" />
-    </a>
-</div>
+<footer>
+   <script>
+   let date = new Date()
+   let currentYear = date.getFullYear()
+   </script>
+
+   <p class="footer-text">
+      <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
+   </p>
+
+   <div class="footer-img">
+      <p>
+         Made with <i class="fas fa-heart"></i> on
+      </p>
+      <a href="https://github.com/FreeFem">
+         <img alt="Github" title="Github" src="{{ pathto("_static/img/GitHub_Logo_White.png", 1) }}" />
+      </a>
+   </div>
+</footer>

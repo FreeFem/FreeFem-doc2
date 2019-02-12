@@ -1,0 +1,17 @@
+<nav id="nav">
+   <div style="display: none;">
+      {{ toctree(collapse=False, maxdepth=-1) }}
+   </div>
+
+   <div class="nav-links" id="staticNav">
+   </div>
+
+   <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+
+   <div id="sideNav" class="sidenav">
+   </div>
+
+   {% include "search.html" %}
+</nav>
+
+<script async src="{{ pathto('_static/js/nav.js', 1)}}"></script>
