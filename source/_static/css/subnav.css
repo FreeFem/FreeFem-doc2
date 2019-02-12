@@ -9,9 +9,8 @@
 }
 
 #subnav ul {
+	display: none;
 	list-style: none;
-	margin: 0;
-	padding: 10px;
 }
 
 #subnav li.toctree-l1{

@@ -34,12 +34,12 @@ function sortItem(item, level) {
    if (ref.search(/#./) != -1) {
       link.classList.add('anchor')
       link.parentNode.classList.add('anchor')
-      link.parentNode.parentNode.classList.add('anchor')
+      // link.parentNode.parentNode.classList.add('anchor')
    }
    else {
       link.classList.add('link', 'level'+level)
       link.parentNode.classList.add('link', 'level'+level)
-      link.parentNode.parentNode.classList.add('link', 'level'+level)
+      // link.parentNode.parentNode.classList.add('link', 'level'+level)
    }
 
    level++
