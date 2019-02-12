@@ -11,6 +11,7 @@ a:visited {
 ul {
 	margin: 0;
 	padding: 0;
+	padding-left: 10px;
 }
 
 li {
@@ -160,4 +161,57 @@ td.linenos {
 
 span {
 	margin: 0;
+}
+
+.admonition {
+	position: relative;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+	margin: 1.5625em 0;
+	padding: 0 1.2rem;
+	border-left: .4rem solid #448aff;
+	border-radius: .2rem;
+	overflow: auto;
+}
+
+.admonition-title {
+	margin: 0 -1.2rem;
+	padding: .8rem 1.2rem .8rem 4rem;
+	border-bottom: .1rem solid rgba(68,138,255,.1);
+	background-color: rgba(68,138,255,.1);
+	font-weight: 700;
+}
+
+.admonition-title::before {
+	position: absolute;
+	font-family: "Font Awesome 5 Free";
+	left: 1.2rem;
+	color: #448aff;
+	font-size: 2rem;
+	content: "\f304";
+}
+
+.admonition.warning {
+	border-left-color: #ff9100;
+}
+
+.admonition.warning .admonition-title {
+	background-color: rgba(255,145,0,.1);
+}
+
+.admonition.warning .admonition-title::before {
+	content: '\f071';
+	color: #ff9100;
+}
+
+.admonition.tip {
+	border-left-color: #651fff;
+}
+
+.admonition.tip .admonition-title {
+	background-color: rgba(101,31,255,.1);
+}
+
+.admonition.tip .admonition-title::before {
+	content: '\f0c3';
+	color: #651fff;
 }
