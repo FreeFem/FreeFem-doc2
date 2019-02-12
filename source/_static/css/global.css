@@ -113,10 +113,6 @@ td {
 	padding: 10px;
 }
 
-td.code, td.linenos {
-	padding: 0;
-}
-
 .math {
 	overflow: auto;
 }
