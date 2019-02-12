@@ -1,14 +1,12 @@
 <script async src="_static/js/lunr.js"></script>
-<script async src="_static/lunr_index.js"></script>
+<script async src="_static/lunr/lunr_index.js"></script>
 
-<script src="_static/js/search.js"></script>
-
-<div class="search">
-    <input type="search" id="searchInput" placeholder="Search..." oninput="search(this.value);" />
-    <div class="searchResults">
-        <div id="resultCount">
-        </div>
-        <div id="searchResults">
-        </div>
-    </div>
+<div class="search-container">
+   <label for="searchInput"><i class="fas fa-search"></i></label>
+   <input type="search" placeholder="Search ..." id="searchInput">
 </div>
+<div id="searchResults"></div>
+<script src="_static/js/search.js"></script>
+<script>
+   initSearch('./')
+</script>

@@ -1,0 +1,23 @@
+#toc {
+	grid-row: 3;
+	grid-column: 3;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 10px;
+	background-color: #f1f1f1;
+}
+
+#toc > div {
+	position: sticky;
+	top: 70px;
+	padding: 10px;
+	height: 90vh;
+	overflow: auto;
+}
+
+#toc ul {
+	list-style: none;
+	margin: 0;
+	padding: 10px;
+}

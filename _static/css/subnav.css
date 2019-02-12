@@ -1,0 +1,40 @@
+#subnav {
+	grid-row: 3;
+	grid-column: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 10px;
+	background-color: #f1f1f1;
+}
+
+#subnav ul {
+	list-style: none;
+}
+
+#subnav li.toctree-l1{
+	display: none;
+	font-weight: bold;
+}
+
+#subnav li.current {
+	display: list-item;
+}
+
+#subnav li.toctree-l2 {
+	font-weight: normal;
+	padding: 5px 0;
+}
+
+#subnav li.anchor {
+	display: none;
+}
+
+#subnav a.current {
+	color: #384560;
+}
+
+#subnav > div {
+	position: sticky;
+	top: 70px;
+}
