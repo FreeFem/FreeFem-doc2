@@ -71,6 +71,7 @@ The soap film is glued to the ring :math:`\p \Omega =C`, then we have the bounda
 If the force is gravity, for simplify, we assume that :math:`f=-1`.
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     int nn = 50;
@@ -200,6 +201,7 @@ Let :math:`\Omega` be the disk enclosed by :math:`C_0` with the elliptical holes
 Note that :math:`C_0` is described counterclockwise, whereas the elliptical holes are described clockwise, because the boundary must be oriented so that the computational domain is to its left.
 
 .. code-block:: freefem
+    :linenos:
 
     // Mesh
     border C0(t=0, 2*pi){x=5*cos(t); y=5*sin(t);}
@@ -302,6 +304,7 @@ which can be programmed as:
     {(\varphi_1(0.99, 0.01) + \varphi_1(0.99,-0.01) - 2)} .
 
 .. code-block:: freefem
+    :linenos:
 
     // Mesh
     border a(t=0, 2*pi){x=5*cos(t); y=5*sin(t);}
@@ -408,6 +411,7 @@ In general, we cannot get the solution :math:`u` as a elementary functions even 
 Instead of the exact solution, here we use the approximate solution :math:`u_0` in :math:`V_h(\mathcal{T}_h,P_2),\, h\sim 0`.
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     func f = x*y;
@@ -481,6 +485,7 @@ on the square :math:`]0,2\pi[^2` under bi-periodic boundary condition :math:`u(0
 These boundary conditions are achieved from the definition of the periodic finite element space.
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     func f = sin(x+pi/4.)*cos(y+pi/4.); //right hand side
@@ -523,6 +528,7 @@ The following example give such example.
 .. tip:: Periodic boundary conditions - non-parallel boundaries
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         int n = 10;
@@ -582,6 +588,7 @@ An other example with no equal border, just to see if the code works.
 .. tip:: Periodic boundary conditions - non-equal border
 
     .. code-block:: freefem
+        :linenos:
 
         // Macro
         //irregular boundary condition to build border AB
@@ -646,6 +653,7 @@ An other example with no equal border, just to see if the code works.
 .. tip:: Periodic boundry conditions - Poisson cube-balloon
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3" load "tetgen" load "medit"
 
@@ -766,6 +774,7 @@ Instead of polar coordinate system :math:`(r,\theta)`, we use that :math:`r` = :
 Assume that :math:`f=-2\times 30(x^2+y^2)` and :math:`g=u_e=10(x^2+y^2)^{1/4}\sin\left([\tan^{-1}(y/x)]/2\right)+30(x^2y^2)`, where :math:`u_e`\ S is the exact solution.
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     func f = -2*30*(x^2+y^2); //given function
@@ -904,6 +913,7 @@ Here :math:`\mathbb{V}` space is discretize with Raviart-Thomas finite element :
 **Example 9.10** LaplaceRT.edp
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     func gd = 1.;
@@ -955,6 +965,7 @@ We do metric mesh adaption and compute the classical residual error indicator :m
 First, we solve the same problem as in a previous example.
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     real[int] viso(21);
@@ -1001,6 +1012,7 @@ where :math:`h_{T}` is the longest edge of :math:`T`, :math:`{\cal E}_T` is the 
 Of course, we can use a variational form to compute :math:`\eta_{T}^{2}`, with test function constant function in each triangle.
 
 .. code-block:: freefem
+    :linenos:
 
     // Error
     varf indicator2 (uu, chiK)
@@ -1066,6 +1078,7 @@ where :math:`\eta_n(x)` is the level of error at point :math:`x` given by the lo
 First a macro :freefem:`MeshSizecomputation` is defined to get a :math:`P_1` mesh size as the average of edge length.
 
 .. code-block:: freefem
+    :linenos:
 
     // macro the get the current mesh size parameter
     // in:
@@ -1092,6 +1105,7 @@ First a macro :freefem:`MeshSizecomputation` is defined to get a :math:`P_1` mes
 A second macro to re-mesh according to the new mesh size.
 
 .. code-block:: freefem
+    :linenos:
 
     // macro to remesh according the de residual indicator
     // in:
@@ -1128,6 +1142,7 @@ A second macro to re-mesh according to the new mesh size.
     } //
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     real hinit = 0.2; //initial mesh size
