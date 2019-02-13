@@ -50,6 +50,7 @@ This example explains the definition and manipulation of *region*, i.e. sub-dom
 Consider this L-shaped domain with 3 diagonals as internal boundaries, defining 4 sub-domains:
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    border a(t=0, 1){x=t; y=0;};
@@ -82,6 +83,7 @@ This number is defined by :freefem:`buildmesh` which scans while building the me
 So to get the number of a region containing a particular point one does:
 
 .. code-block:: freefem
+   :linenos:
 
    // Characteristic function
    int nupper = reg(0.4, 0.9); //get the region number of point (0.4,0.9)
@@ -101,6 +103,7 @@ This is particularly useful to define discontinuous functions such as might occu
 We this in mind we proceed to solve a Laplace equation with discontinuous coefficients (:math:`\nu` is 1, 6 and 11 below).
 
 .. code-block:: freefem
+   :linenos:
 
    // Problem
    solve lap (u, v)

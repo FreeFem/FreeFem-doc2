@@ -69,6 +69,7 @@ We now compute the fundamental mode frequency for a fused silica sphere.
 The sphere is 36 micrometer in diameter, the refractive index is 1.46, the boundary condition is the magnetic wall (which can actually be omitted as it holds automatically).
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real radius = 36; //approximate radius of the cavity

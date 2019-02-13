@@ -20,6 +20,7 @@ Now, we solve the Euler problem :math:`\nabla J (u) = 0` with Newton-Raphson alg
     u^{n+1} = u^n - ( \nabla^2 J (u^{n}))^{-1}*\nabla J(u^n)
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     real a = 0.001;

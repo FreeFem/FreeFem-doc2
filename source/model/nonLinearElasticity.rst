@@ -48,6 +48,7 @@ and :math:`D^{2}E` is the second differential of :math:`E`.
 So all notations can be define with :ref:`macro <typeMacroDesign>`:
 
 .. code-block:: freefem
+   :linenos:
 
     macro EL(u, v) [dx(u), (dx(v)+dy(u)), dy(v)] //is [epsilon_11, 2epsilon_12, epsilon_22]
 
@@ -101,6 +102,7 @@ And it is easy to make automatic differentiation.
     The deformed domain
 
 .. code-block:: freefem
+   :linenos:
 
    // Macro
    macro EL(u, v) [dx(u), (dx(v)+dy(u)), dy(v)] //is [epsilon_11, 2epsilon_12, epsilon_22]

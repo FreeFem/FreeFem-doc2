@@ -69,6 +69,7 @@ Now how to do that in FreeFem++? The full example is:
 .. tip:: Variational inequality
 
    .. code-block:: freefem
+      :linenos:
 
       load "medit"
 
