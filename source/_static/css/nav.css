@@ -63,6 +63,11 @@
   padding-top: 60px;
 }
 
+.sidenav .nav-items {
+	max-height: 80vh;
+	overflow: auto;
+}
+
 .sidenav .nav-item {
 	display: flex;
 	flex-direction: row;

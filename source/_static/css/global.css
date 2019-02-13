@@ -38,6 +38,7 @@ i:hover {
 }
 
 p {
+	font-family: "Roboto-slab", serif;
 	line-height: 1.6em;
 }
 
@@ -126,6 +127,7 @@ table:not(.highlighttable) {
 	border: none;
 	border-collapse: collapse;
 	overflow: auto;
+	font-family: "Roboto-slab", serif;
 }
 
 table a {
@@ -186,7 +188,7 @@ span {
 	font-family: "Font Awesome 5 Free";
 	left: 1.2rem;
 	color: #448aff;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	content: "\f304";
 }
 
