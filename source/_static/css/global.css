@@ -1,3 +1,4 @@
+/** GLOBAL **/
 a {
 	text-decoration: none;
 	color: black;
@@ -54,16 +55,13 @@ p {
 	font-size: 1.2rem;
 }
 
-header p {
-	font-family: "Roboto", sans-serif;
-	line-height: 1rem;
-	font-size: 1rem;
-}
-
-footer p {
+.fake-title {
+	font-size: 1.5rem;
+	font-weight: bold;
 	font-family: "Roboto", sans-serif;
 }
 
+/** CODE TABLES **/
 .linenos {
 	background-color: rgba(0,0,0,.07);
 	color: rgba(0,0,0,.26);
@@ -87,12 +85,7 @@ table.highlighttable {
 	margin: 0;
 }
 
-/* .highlight {
-	background-color: hsla(0,0%,92.5%,.5) !important;
-	border-radius: 0 5px 5px 0;
-	overflow: auto;
-} */
-
+/** IMAGES **/
 img {
 	max-width: 90%;
 }
@@ -144,6 +137,7 @@ div.inline {
 	background-color: transparent !important;
 }
 
+/** TABLEAUX **/
 table:not(.highlighttable) {
 	min-width: 100%;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
@@ -172,14 +166,6 @@ td {
 	padding: 10px;
 }
 
-/* td.code {
-	padding: 0;
-}
-
-td.linenos {
-	padding: 0;
-} */
-
 .math {
 	overflow: auto;
 }
@@ -188,6 +174,7 @@ span {
 	margin: 0;
 }
 
+/** ADMONITIONS **/
 .admonition {
 	position: relative;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
@@ -241,6 +228,7 @@ span {
 	color: #651fff;
 }
 
+/** SCROLLBAR DESIGN **/
 body::-webkit-scrollbar {
 	width: 10px;
 }
@@ -248,10 +236,6 @@ body::-webkit-scrollbar {
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -262,8 +246,10 @@ body::-webkit-scrollbar {
   background: #0000FF;
 }
 
-.fake-title {
-	font-size: 1.5rem;
-	font-weight: bold;
-	font-family: "Roboto", sans-serif;
+.md-typeset pre {
+	webkit-overflow-scrolling: touch;
+}
+
+.md-typeset .codehilite, .md-typeset .highlight {
+	webkit-overflow-scrolling: touch;
 }

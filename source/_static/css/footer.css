@@ -11,6 +11,10 @@ footer {
 	padding: 0 10px 0 10px;
 }
 
+footer p {
+	font-family: "Roboto", sans-serif;
+}
+
 footer a {
 	color: white;
 }
