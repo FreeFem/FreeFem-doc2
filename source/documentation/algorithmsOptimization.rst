@@ -1,5 +1,5 @@
 .. role:: freefem(code)
-  :language: freefem
+   :language: freefem
 
 Algorithms & Optimization
 =========================
@@ -24,6 +24,7 @@ Given an initial value :math:`\mathbf{x}^{(0)}`, a maximum number :math:`i_{\max
 Put :math:`\mathbf{x}=\mathbf{x}^{(0)}` and write
 
 .. code-block:: freefem
+   :linenos:
 
    NLCG(dJ, x, precon=M, nbiter=imax, eps=epsilon, stop=stopfunc);
 
@@ -39,6 +40,7 @@ The stopping test is
 Writing the minus value in :freefem:`eps=`, i.e.,
 
 .. code-block:: freefem
+   :linenos:
 
    NLCG(dJ, x, precon=M, nbiter=imax, eps=-epsilon);
 
@@ -58,6 +60,7 @@ The parameters of these three functions are:
 -  :freefem:`stop=` :freefem:`stopfunc` add your test function to stop before the :freefem:`eps` criterion. The prototype for the function :freefem:`stopfunc` is
 
    .. code-block:: freefem
+      :linenos:
 
       func bool stopfunc(int iter, real[int] u, real[int] g)
 
@@ -76,6 +79,7 @@ The parameters of these three functions are:
    under the boundary condition :math:`u=0` on :math:`\partial\Omega`.
 
    .. code-block:: freefem
+      :linenos:
 
       fespace Ph(Th, P0);
       Ph alpha; //store df(|nabla u|^2)
@@ -117,6 +121,7 @@ The parameters of these three functions are:
    where :math:`\alpha=f'(|\nabla u|^2)`.
 
    .. code-block:: freefem
+      :linenos:
 
       alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
       varf alap (uh, vh)
@@ -146,6 +151,7 @@ The parameters of these three functions are:
    To solve the problem, we make 10 iterations of the conjugate gradient, recompute the preconditioner and restart the conjugate gradient:
 
    .. code-block:: freefem
+      :linenos:
 
       int conv=0;
       for(int i = 0; i < 20; i++){
@@ -170,18 +176,21 @@ then :math:`J(\mathbf{x})` is minimized by the solution :math:`\mathbf{x}` of :m
 In this case, we can use the function :freefem:`AffineCG`
 
 .. code-block:: freefem
+   :linenos:
 
    AffineCG(A, x, precon=M, nbiter=imax, eps=epsilon, stop=stp);
 
 If :math:`A` is not symmetric, we can use GMRES(Generalized Minimum Residual) algorithm by
 
 .. code-block:: freefem
+   :linenos:
 
    AffineGMRES(A, x, precon=M, nbiter=imax, eps=epsilon);
 
 Also, we can use the non-linear version of GMRES algorithm (the function :math:`J` is just convex)
 
 .. code-block:: freefem
+   :linenos:
 
    AffineGMRES(dJ, x, precon=M, nbiter=imax, eps=epsilon);
 
@@ -201,6 +210,7 @@ Example of usage for BFGS or CMAES
 .. tip:: BFGS
 
    .. code-block:: freefem
+      :linenos:
 
       real[int] b(10), u(10);
 
@@ -235,6 +245,7 @@ It is almost the same a using the CMA evolution strategy except, that since it i
 With the same objective function as above, an example of utilization would be (see :ref:`CMAES Variational inequality <exampleCMAESVariationalInequality>` for a complete example):
 
 .. code-block:: freefem
+   :linenos:
 
    load "ff-cmaes"
    //define J, u, ...
@@ -381,6 +392,7 @@ The more general one is to define the functions using the keyword :freefem:`func
 Any returned matrix must be a sparse one (type :freefem:`matrix`, not a :freefem:`real[int,int]`):
 
 .. code-block:: freefem
+   :linenos:
 
    func real J (real[int] &X) {...} //Fitness Function, returns a scalar
    func real[int] gradJ (real[int] &X) {...} //Gradient is a vector
@@ -393,6 +405,7 @@ Any returned matrix must be a sparse one (type :freefem:`matrix`, not a :freefem
    Here is an example for :freefem:`jacC`:
 
    .. code-block:: freefem
+      :linenos:
 
       matrix jacCBuffer; //just declare, no need to define yet
       func matrix jacC (real[int] &X){
@@ -416,6 +429,7 @@ be the Hessian of the Lagrangian function:
 Your Hessian function should then have the following prototype:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix hessianLBuffer; //Just to keep it in mind
    func matrix hessianL (real[int] &X, real sigma, real[int] &lambda){...}
@@ -423,6 +437,7 @@ Your Hessian function should then have the following prototype:
 If the constraints functions are all affine, or if there are only simple bound constraints, or no constraint at all, the Lagrangian Hessian is equal to the fitness function Hessian, one can then omit the :freefem:`sigma` and :freefem:`lambda` parameters:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix hessianJBuffer;
    func matrix hessianJ (real[int] &X){...} //Hessian prototype when constraints are affine
@@ -430,6 +445,7 @@ If the constraints functions are all affine, or if there are only simple bound c
 When these functions are defined, IPOPT is called this way:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] Xi = ... ; //starting point
    IPOPT(J, gradJ, hessianL, C, jacC, Xi, /*some named parameters*/);
@@ -438,6 +454,7 @@ If the Hessian is omitted, the interface will tell IPOPT to use the (L)BFGS appr
 Simple bound or unconstrained problems do not require the constraints part, so the following expressions are valid:
 
 .. code-block:: freefem
+   :linenos:
 
    IPOPT(J, gradJ, C, jacC, Xi, ... ); //IPOPT with BFGS
    IPOPT(J, gradJ, hessianJ, Xi, ... ); //Newton IPOPT without constraints
@@ -447,6 +464,7 @@ Simple bounds are passed using the :freefem:`lb` and :freefem:`ub` named paramet
 Unboundedness in some directions can be achieved by using the :math:`1e^{19}` and :math:`-1e^{19}` values that IPOPT recognizes as :math:`+\infty` and :math:`-\infty`:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] xlb(n), xub(n), clb(m), cub(m);
    //fill the arrays...
@@ -465,6 +483,7 @@ It also indicates to IPOPT that some objects are constant and that they have to 
 The syntax is:
 
 .. code-block:: freefem
+   :linenos:
 
    // Affine constraints with "standard" fitness function
    matrix A = ... ; //linear part of the constraints
@@ -475,6 +494,7 @@ The syntax is:
 Note that if you define the constraints in this way, they don’t contribute to the Hessian, so the Hessian should only take one :freefem:`real[int]` as an argument.
 
 .. code-block:: freefem
+   :linenos:
 
    // Affine constraints and P2 fitness func
    matrix A = ... ; //bilinear form matrix
@@ -489,6 +509,7 @@ Otherwise, this option can only be set through the option file (see the named pa
 A false case is the one of defining :math:`f` in this manner while using standard functions for the constraints:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix A = ... ; //bilinear form matrix
    real[int] b = ... ; //linear contribution to f
@@ -505,6 +526,7 @@ So, a problem should be defined like that in only two cases:
 Here are some other valid definitions of the problem (cases when :math:`f` is a pure quadratic or linear form, or :math:`C` a pure linear function, etc…):
 
 .. code-block:: freefem
+   :linenos:
 
    // Pure quadratic f - A is a matrix
    IPOPT(A, /*constraints arguments*/, Xi, /*bound and named parameters*/);
@@ -616,6 +638,7 @@ Some short examples using IPOPT
    A very simple example consisting of, given two functions :math:`f` and :math:`g` (defined on :math:`\Omega\subset\mathbb{R}^{2}`), minimizing :math:`J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ `, with :math:`u\leq g` almost everywhere:
 
    .. code-block:: freefem
+      :linenos:
 
       // Solve
       //- Delta u = f
@@ -655,6 +678,7 @@ Some short examples using IPOPT
    The :freefem:`[A,b]` syntax for the fitness function is then used to pass it to IPOPT.
 
    .. code-block:: freefem
+      :linenos:
 
       matrix A = vP(Vh, Vh, solver=CG);
       real[int] b = vP(0, Vh);
@@ -662,6 +686,7 @@ Some short examples using IPOPT
    We use simple bounds to impose the boundary condition :math:`u=0` on :math:`\partial\Omega`, as well as the :math:`u\leq g` condition.
 
    .. code-block:: freefem
+      :linenos:
 
       varf vGamma (u, v) = on(1, 2, 3, 4, u=1);
       real[int] onGamma = vGamma(0, Vh);
@@ -693,6 +718,7 @@ Some short examples using IPOPT
    The problem entails finding (numerically) two functions :math:`(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})`.
 
    .. code-block:: freefem
+      :linenos:
 
       load "ff-Ipopt";
 
@@ -905,6 +931,7 @@ We propose to solve the following problem:
    We start by meshing the domain :math:`[0,2\pi]\times\ [0,\pi]`, then a periodic P1 finite elements space is defined.
 
    .. code-block:: freefem
+      :linenos:
 
       load "msh3";
       load "medit";
@@ -936,6 +963,7 @@ We propose to solve the following problem:
    We create some finite element functions whose underlying arrays will be used to store the values of dual variables associated to all the constraints in order to reinitialize the algorithm with it in the case where we use mesh adaptation. Doing so, the algorithm will almost restart at the accuracy level it reached before mesh adaptation, thus saving many iterations.
 
    .. code-block:: freefem
+      :linenos:
 
       Vh uz = 1., lz = 1.;
       rreal[int] lm = [1];
@@ -943,6 +971,7 @@ We propose to solve the following problem:
    Then, follows the mesh adaptation loop, and a rendering function, :freefem:`Plot3D`, using 3D mesh to display the shape it is passed with :freefem:`medit` (the :freefem:`movemesh23` procedure often crashes when called with ragged shapes).
 
    .. code-block:: freefem
+      :linenos:
 
       for(int kkk = 0; kkk < nadapt; ++kkk){
          int iter=0;
@@ -974,6 +1003,7 @@ We propose to solve the following problem:
    Here are the functions related to the area computation and its shape derivative, according to equations :eq:`msarea` and :eq:`msdarea`:
 
    .. code-block:: freefem
+      :linenos:
 
       // Surface computation
       //Maybe is it possible to use movemesh23 to have the surface function less complicated
@@ -1015,6 +1045,7 @@ We propose to solve the following problem:
    The function returning the hessian of the area for a given shape is a bit blurry, thus we won't show here all of equation :eq:`msd2area` coefficients definition, they can be found in the :freefem:`edp` file.
 
    .. code-block:: freefem
+      :linenos:
 
       matrix hessianA;
       func matrix HessianArea (real[int] &X){
@@ -1069,6 +1100,7 @@ We propose to solve the following problem:
    And the volume related functions:
 
    .. code-block:: freefem
+      :linenos:
 
       // Volume computation
       func real Volume (real[int] &X){
@@ -1101,6 +1133,7 @@ We propose to solve the following problem:
    The lagrangian hessian also has to be wrapped since the Volume is not linear with respect to :math:`\rho`, it has some non-null second order derivatives.
 
    .. code-block:: freefem
+      :linenos:
 
       func real[int] ipVolume (real[int] &X){ real[int] vol = [Volume(X)]; return vol; }
       matrix mdV;
@@ -1116,6 +1149,7 @@ We propose to solve the following problem:
    This gradient is actually dense, there is no reason for some components to be constantly zero:
 
    .. code-block:: freefem
+      :linenos:
 
       int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
       gvi = 0;
@@ -1126,6 +1160,7 @@ We propose to solve the following problem:
    And we choose :math:`\alpha\in [0,1]` to set :math:`\mathcal{V}_{\mathrm{max}}` to :math:`(1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}`:
 
    .. code-block:: freefem
+      :linenos:
 
       func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
       func disc2 = sqrt(1./(RR+(E-RR)*cos(x)*cos(x)*sin2));
@@ -1150,6 +1185,7 @@ We propose to solve the following problem:
    Calling IPOPT:
 
    .. code-block:: freefem
+      :linenos:
 
       int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
          rc[], ub=ub[], lb=lb[], clb=clb, cub=cub, checkindex=1, maxiter=kkk<nadapt-1 ? 40:150,
@@ -1164,6 +1200,7 @@ We propose to solve the following problem:
    The mesh is adaptated with respect to the :math:`X=(\rho, 0, 0)` (in spherical coordinates) vector field, not directly with respect to :math:`\rho`, otherwise the true curvature of the 3D-shape would not be well taken into account.
 
    .. code-block:: freefem
+      :linenos:
 
       if (kkk < nadapt-1){
          Th = adaptmesh(Th, rc*cos(x)*sin(y), rc*sin(x)*sin(y), rc*cos(y),
@@ -1192,6 +1229,7 @@ Most of the gradient based algorithms of NLopt uses a full matrix approximation 
 All the NLopt features are identified that way:
 
 .. code-block:: freefem
+   :linenos:
 
    load "ff-NLopt"
    //define J, u, and maybe grad(J), some constraints etc...
@@ -1291,6 +1329,7 @@ More details can be found in `NLopt documentation <https://nlopt.readthedocs.io/
    Here is the corresponding script to treat this variational inequality problem with one of the NLOpt algorithms.
 
    .. code-block:: freefem
+      :linenos:
 
       //A brief script to demonstrate how to use the freefemm interfaced nlopt routines
       //The problem consist in solving a simple variational inequality using one of the
@@ -1461,6 +1500,7 @@ The parallelization principle is the trivial one of evolving/genetic algorithms:
 Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the :ref:`CMAES MPI variational inequality example <exampleCMAESMPIVariationalInequality>`):
 
 .. code-block:: freefem
+   :linenos:
 
    load "mpi-cmaes"
    ... // Define J, u and all here

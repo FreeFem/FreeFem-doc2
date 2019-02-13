@@ -7,6 +7,7 @@ Minimal example
 ---------------
 
 .. code-block:: freefem
+   :linenos:
 
    macro dimension 3// EOM            // 2D or 3D
 
@@ -48,6 +49,7 @@ Overlapping mesh decomposition
 ------------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmbuildDmesh(pr,Th,comm)
 
@@ -127,6 +129,7 @@ Local finite element spaces
 ---------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmbuildDfespace(pr,prmesh,scalar,def,init,Pk)
 
@@ -143,6 +146,7 @@ Two macros, **def** and **init**, are needed: **def** specifies how to define a 
 For scalar P2 finite elements and complex-valued problems:
 
 .. code-block:: freefem
+   :linenos:
 
    macro def(u) u// EOM
    macro init(u) u// EOM
@@ -151,6 +155,7 @@ For scalar P2 finite elements and complex-valued problems:
 For vectorial [P2,P2,P1] finite elements and real-valued problems:
 
 .. code-block:: freefem
+   :linenos:
 
    macro def(u) [u, u#B, u#C]// EOM
    macro init(u) [u, u, u]// EOM
@@ -238,6 +243,7 @@ The variational form given in this ‘abstract’ format will then be used by *f
 An example is given below:
 
 .. code-block:: freefem
+   :linenos:
 
    macro myVarf(varfName, meshName, VhName)
        varf varfName(u,v) = int3d(meshName)(grad(u)''* grad(v)) + on(1, u = 1.0);
@@ -283,6 +289,7 @@ See for example TODO
 --------------
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmbuildrhs(pr,Varfrhs,rhs)
 
@@ -295,6 +302,7 @@ In the sequential case, the global right-hand side vector :math:`b` is assembled
 An example is given below:
 
 .. code-block:: freefem
+   :linenos:
 
    macro myVarfrhs(varfName, meshName, VhName)
        varf varfName(u,v) = intN(meshName)(v) + on(1, u = 1.0);
@@ -309,6 +317,7 @@ One level preconditioners
 -------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmsetupPrecond(pr,VarfPrec)
 
@@ -417,6 +426,7 @@ Building the GenEO coarse space
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmgeneosetup(pr,Varf)
 
@@ -468,6 +478,7 @@ Building the coarse space from a coarse mesh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    ffddmcoarsemeshsetup(pr,Thc,VarfEprec,VarfAprec)
 
@@ -513,6 +524,7 @@ Solving the linear system
 -------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    func pr#prfe#K[int] pr#fGMRES(pr#prfe#K[int]& x0i, pr#prfe#K[int]& bi, real eps, int itmax, string sp)
 

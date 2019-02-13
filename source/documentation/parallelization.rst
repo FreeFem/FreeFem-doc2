@@ -42,6 +42,7 @@ MPI Constructor
 ~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int[int] proc1 = [1, 2], proc2 = [0, 3];
@@ -68,6 +69,7 @@ MPI Functions
 ~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    mpiComm Comm(mpiCommWorld, 0, 0);
 
@@ -113,6 +115,7 @@ MPI Communicator operator
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int status; //to get the MPI status of send / recv
    real a, b;
@@ -144,6 +147,7 @@ MPI Communicator operator
 where the data type of :freefem:`a` can be of type of :freefem:`int`, :freefem:`real`, :freefem:`complex`, :freefem:`int[int]`, :freefem:`real[int]`, :freefem:`complex[int]`, :freefem:`int[int,int]`, :freefem:`double[int,int]`, :freefem:`complex[int,int]`, :freefem:`mesh`, :freefem:`mesh3`, :freefem:`mesh[int]`, :freefem:`mesh3[int]`, :freefem:`matrix`, :freefem:`matrix<complex>`
 
 .. code-block:: freefem
+   :linenos:
 
    //send asynchronously to the process 10 the data a with request
    processor(10, req) << a ;
@@ -153,6 +157,7 @@ where the data type of :freefem:`a` can be of type of :freefem:`int`, :freefem:`
 If :freefem:`a, b` are arrays or full matrices of :freefem:`int`, :freefem:`real`, or :freefem:`complex`, we can use the following MPI functions:
 
 .. code-block:: freefem
+   :linenos:
 
    mpiAlltoall(a, b, [comm]);
    mpiAllgather(a, b, [comm]);
@@ -169,12 +174,14 @@ Schwarz example in parallel
 This example is a rewritting of example :ref:`Schwarz overlapping <domainDecompositionSchwarzOverlapping>`.
 
 .. code-block:: bash
+   :linenos:
 
    ff-mpirun -np 2 SchwarzParallel.edp
    # OR
    mpirun -np 2 FreeFem++-mpi SchwarzParallel.edp
 
 .. code-block:: freefem
+   :linenos:
 
    if (mpisize != 2){
        cout << " sorry, number of processors !=2 " << endl;
@@ -326,6 +333,7 @@ where :math:`g_i^k` is the value of :math:`g` associated to the degree of freedo
 In **FreeFem++**, it can be written has with :freefem:`U` is the vector corresponding to :math:`{u_h^{\ell}}_{|i}` and the vector :freefem:`U1` is the vector corresponding to :math:`{u_h^{\ell}}_{i}` is the solution of:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] U1(Ui.n);
    real[int] b = onG .* U;
@@ -335,6 +343,7 @@ In **FreeFem++**, it can be written has with :freefem:`U` is the vector correspo
 where :math:`\mathtt{onG}[i] =(i \in \Gamma_i\setminus\Gamma) ? 1 : 0`, and :math:`\mathtt{Bi}` the right of side of the problem, are defined by
 
 .. code-block:: freefem
+   :linenos:
 
    // Fespace
    fespace Whi(Thi, P2);
@@ -366,6 +375,7 @@ Let us introduce two array of matrix, :freefem:`Smj[j]` to defined the vector to
 So the tranfert and update part compute :math:`v_i= \pi_i u_i + \sum_{j\in J_i} \pi_j u_j` and can be write the **FreeFem++** function Update:
 
 .. code-block:: freefem
+   :linenos:
 
    func bool Update (real[int] &ui, real[int] &vi){
        int n = jpart.n;
@@ -383,6 +393,7 @@ So the tranfert and update part compute :math:`v_i= \pi_i u_i + \sum_{j\in J_i} 
 where the buffer are defined by:
 
 .. code-block:: freefem
+   :linenos:
 
    InitU(njpart, Whij, Thij, aThij, Usend) //defined the send buffer
    InitU(njpart, Whij, Thij, aThij, Vrecv) //defined the revc buffer
@@ -390,12 +401,14 @@ where the buffer are defined by:
 with the following macro definition:
 
 .. code-block:: freefem
+   :linenos:
 
    macro InitU(n, Vh, Th, aTh, U) Vh[int] U(n); for (int j = 0; j < n; ++j){Th = aTh[j]; U[j] = 0;}
 
 *First GMRES algorithm:* you can easily accelerate the fixed point algorithm by using a parallel GMRES algorithm after the introduction the following affine :math:`\mathcal{A}_i` operator sub domain :math:`\Omega_i`.
 
 .. code-block:: freefem
+   :linenos:
 
    func real[int] DJ0 (real[int]& U){
        real[int] V(U.n), b = onG .* U;
@@ -409,6 +422,7 @@ with the following macro definition:
 Where the parallel :freefem:`MPIGMRES` or :freefem:`MPICG` algorithm is just a simple way to solve in parallel the following :math:`A_i x_i = b_i, i = 1, .., N_p` by just changing the dot product by reduce the local dot product of all process with the following MPI code:
 
 .. code-block:: cpp
+    :linenos:
 
     template<class R> R ReduceSum1(R s, MPI_Comm *comm){
         R r = 0;
@@ -421,6 +435,7 @@ This is done in :freefem:`MPIGC` dynamics library tool.
 *Second GMRES algorithm:* Use scharwz algorithm as a preconditioner of basic GMRES method to solving the parallel problem.
 
 .. code-block:: freefem
+   :linenos:
 
    func real[int] DJ (real[int]& U){ //the original problem
        ++kiter;
@@ -443,6 +458,7 @@ This is done in :freefem:`MPIGC` dynamics library tool.
 First build a coarse grid on processor 0, and the
 
 .. code-block:: freefem
+   :linenos:
 
    matrix AC, Rci, Pci;
    if (mpiRank(comm) == 0)
@@ -465,6 +481,7 @@ First build a coarse grid on processor 0, and the
 The New preconditionner
 
 .. code-block:: freefem
+   :linenos:
 
    func real[int] PDJC (real[int]& U){
        // Idea: F. Nataf.
@@ -487,6 +504,7 @@ The New preconditionner
 The code of the 4 algorithms:
 
 .. code-block:: freefem
+   :linenos:
 
    real epss = 1e-6;
    int rgmres = 0;
@@ -523,6 +541,7 @@ The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T
     The set :math:`J_i` of neighborhood of the domain :math:`\Omega_i`, and the local version on :math:`V_{hi}` can be defined the array :freefem:`jpart` and :freefem:`njpart` with:
 
     .. code-block:: freefem
+        :linenos:
 
         Vhi pii = piistar;
         Vhi[int] pij(npij); //local partition of 1 = pii + sum_j pij[j]
@@ -546,6 +565,7 @@ The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T
    And thanks to the function :freefem:`trunc` to build this array,
 
     .. code-block:: freefem
+        :linenos:
 
         for(int jp = 0; jp < njpart; ++jp)
             aThij[jp] = trunc(Thi, pij[jp] > 1e-10, label=10);
@@ -555,6 +575,7 @@ The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T
 6. The construction of the send/recv matrices :freefem:`sMj` and `freefem:`rMj`: can done with this code:
 
     .. code-block:: freefem
+        :linenos:
 
         mesh3 Thij = Thi;
         fespace Whij(Thij, Pk);
@@ -571,6 +592,7 @@ The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T
 To buil a not too bad application, all variables come from parameters value with the following code
 
 .. code-block:: freefem
+    :linenos:
 
     include "getARGV.idp"
     verbosity = getARGV("-vv", 0);
@@ -585,6 +607,7 @@ To buil a not too bad application, all variables come from parameters value with
 And small include to make graphic in parallel of distribute solution of vector :math:`u` on mesh :math:`T_h` with the following interface:
 
 .. code-block:: freefem
+    :linenos:
 
     include "MPIplot.idp"
     func bool plotMPIall(mesh &Th, real[int] &u, string cm){
@@ -692,6 +715,7 @@ An example of using different parallel sparse solvers for the same problem is gi
 .. tip:: Test direct solvers
 
     .. code-block:: freefem
+        :linenos:
 
         load "MUMPS_FreeFem"
         //default solver: real-> MUMPS, complex -> MUMPS
@@ -869,6 +893,7 @@ This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We 
     An example of this parameter file is given in :freefem:`ffmumpsfileparam.txt`.
 
     .. code-block:: freefem
+        :linenos:
 
         0 /* SYM :: 0 for non symmetric matrix, 1 for symmetric definite positive matrix and 2 general symmetric matrix*/
         1 /* PAR :: 0 host not working during factorization and solves steps, 1 host working during factorization and solves steps*/
@@ -1011,6 +1036,7 @@ If one parameter is not specified by the user, we take the default value of Supe
 **Reading solver parameters on a file:** The structure of data file for SuperLU_DIST in **FreeFem++** is given in the file ``ffsuperlu_dist_fileparam.txt`` (default value of the **FreeFem++** interface).
 
 .. code-block:: freefem
+    :linenos:
 
     1 /* nprow : integer value */
     1 /* npcol : integer value */
@@ -1066,6 +1092,7 @@ These parameters are defined by :
 The structure of data file for PaStiX parameters in **FreeFem++** is: first line structure parameters of the matrix and in the following line the value of vectors ``iparm`` and ``dparm`` in this order.
 
 .. code-block:: freefem
+    :linenos:
 
     assembled /* matrix input :: assembled, distributed global and distributed */
     iparm[0]
@@ -1145,6 +1172,7 @@ To solve the local problem on :math:`A_i` there are several preconditioners as *
 .. tip:: Default parameters
 
     .. code-block:: freefem
+        :linenos:
 
         load "parms_FreeFem" //Tell FreeFem that you will use pARMS
 
@@ -1205,6 +1233,7 @@ To specify the parameters to apply to the solver, the user can either give an in
     Parameters of solver is specified by user.
 
     .. code-block:: freefem
+        :linenos:
 
         load "parms_FreeFem"
 
@@ -1446,6 +1475,7 @@ For further informations on those preconditionners see the `HIPS documentation <
     We can see in this running example the efficiency of parallelism.
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "hips_FreeFem" //load Hips library
@@ -1672,6 +1702,7 @@ HYPRE implement three Krylov subspace solvers: GMRES, PCG and BiCGStab.
     We can see in this running example the efficiency of parallelism, in particular when AMG are use as preconditioner.
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "hipre_FreeFem" //Load Hipre librairy
@@ -1926,6 +1957,7 @@ This constructor is based on ``MPI_Comm_split`` routine of MPI.
 .. tip:: Split communicator
 
     .. code-block:: freefem
+        :linenos:
 
         mpiComm comm(mpiCommWorld, 0, 0);
         int color = mpiRank(comm)%2;
@@ -1946,6 +1978,7 @@ This constructor is based on ``MPI_Intercomm_create``.
 .. tip:: Merge
 
     .. code-block:: freefem
+        :linenos:
 
         mpiComm comm, cc;
         int color = mpiRank(comm)%2;
@@ -2052,6 +2085,7 @@ We detail here the 3D elasticity problem and the 3D time-dependent heat problem.
     The command line to run the example on four processes with :freefem:`ffglut` visualization is: :freefem:`ff-mpirun -np 4 Elasticity3D.edp -glut ffglut`
 
     .. code-block:: freefem
+        :linenos:
 
         load "hpddm" //load HPDDM plugin
         macro partitioner()metis//metis, scotch, or parmetis
@@ -2228,6 +2262,7 @@ We detail here the 3D elasticity problem and the 3D time-dependent heat problem.
     Options are set in the sequel of the script:
 
     .. code-block:: freefem
+        :linenos:
 
         set(A, sparams="-hpddm_schwarz_method ras -hpddm_schwarz_coarse_correction balanced -hpddm_variant right -hpddm_verbosity 1 -hpddm_geneo_nu 10");
 
@@ -2237,6 +2272,7 @@ We detail here the 3D elasticity problem and the 3D time-dependent heat problem.
     In the last part of the script, the global linear system is solved by the domain decomposition method defined above.
 
     .. code-block:: freefem
+        :linenos:
 
         // Solve
         Wh<real> def(u); //local solution
@@ -2270,6 +2306,7 @@ Time dependent problem
     The distributed matrix vector product with matrix :math:`M` is made through the call to the function :freefem:`dmv` using the partition of unity associated to matrix :math:`A`.
 
     .. code-block:: freefem
+        :linenos:
 
         load "hpddm" //load HPDDM plugin
         macro partitioner()metis//metis, scotch, or parmetis
