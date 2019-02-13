@@ -70,11 +70,28 @@ footer p {
 	border-radius: 5px 0 0 5px;
 }
 
+.linenos pre {
+	padding: 0 5px;
+	margin: 0;
+}
+
+table.highlighttable {
+	background-color: #eeeeee !important;
+	overflow: auto;
+	border-radius: 5px;
+}
+
 .highlight {
+	background-color: #eeeeee !important;
+	padding: 0 5px;
+	margin: 0;
+}
+
+/* .highlight {
 	background-color: hsla(0,0%,92.5%,.5) !important;
 	border-radius: 0 5px 5px 0;
 	overflow: auto;
-}
+} */
 
 img {
 	max-width: 90%;
@@ -155,13 +172,13 @@ td {
 	padding: 10px;
 }
 
-td.code {
+/* td.code {
 	padding: 0;
 }
 
 td.linenos {
 	padding: 0;
-}
+} */
 
 .math {
 	overflow: auto;
@@ -228,23 +245,19 @@ body::-webkit-scrollbar {
 	width: 10px;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #0000FF;
 }
