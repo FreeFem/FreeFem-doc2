@@ -38,4 +38,6 @@
 #subnav > div {
 	position: sticky;
 	top: 70px;
+	height: 90vh;
+	overflow: auto;
 }
