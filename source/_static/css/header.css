@@ -78,3 +78,11 @@ header a:visited {
 	font-size: 0.9em;
 	display: none;
 }
+
+svg #Calque_1 polygon {
+	fill: white !important;
+}
+
+svg #Calque_1 rect {
+	fill: white !important;
+}
