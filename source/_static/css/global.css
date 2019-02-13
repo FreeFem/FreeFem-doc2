@@ -8,6 +8,10 @@ a:visited {
 	color: black;
 }
 
+strong {
+	font-weight: bold;
+}
+
 ul {
 	margin: 0;
 	padding: 0;
@@ -19,6 +23,10 @@ li {
 	padding: 0;
 	line-height: 1.6em;
 }
+
+#documentation li {
+	font-family: "Roboto-slab", serif;
+	line-height: 2em;}
 
 b {
 	font-weight: bold;
@@ -39,7 +47,7 @@ i:hover {
 
 p {
 	font-family: "Roboto-slab", serif;
-	line-height: 1.6em;
+	line-height: 2em;
 }
 
 .linenos {
@@ -217,3 +225,36 @@ span {
 	content: '\f0c3';
 	color: #651fff;
 }
+
+ /* .code::-webkit-scrollbar, .highlight .code::-webkit-scrollbar, #toc div::-webkit-scrollbar, #subnav div::-webkit-scrollbar {
+    width: .4rem;
+    height: .4rem;
+}
+
+.code::-webkit-scrollbar-thumb, .highlight .code::-webkit-scrollbar-thumb, #toc div::-webkit-scrollbar-thumb, #subnav div::-webkit-scrollbar-thumb {
+  background: #888;
+	border-radius: 5px;
+}
+
+.code::-webkit-scrollbar-thumb:hover, .highlight .code::-webkit-scrollbar-thumb:hover, #toc div::-webkit-scrollbar-thumb:hover, #subnav div::-webkit-scrollbar-thumb:hover {
+  background: #0000FF;
+} */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0000FF;
