@@ -50,10 +50,15 @@
 @media screen and (max-width: 600px) {
 	body {
 		grid-template-columns: 0 100% 0 !important;
+		grid-template-rows: 60px 60px auto 100px !important;
 	}
 
 	header .header-github {
 		display: none;
+	}
+
+	nav {
+		grid-template-columns: 50px auto auto;
 	}
 
 	nav .nav-links {
@@ -82,10 +87,6 @@
 
 	#toc {
 		display: none;
-	}
-
-	body {
-		grid-template-rows: 60px 60px auto 100px !important;
 	}
 
 	footer {
