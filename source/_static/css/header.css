@@ -5,7 +5,7 @@ header {
 	grid-template-rows: auto;
 	grid-template-columns: 60px auto auto;
 	align-items: center;
-	background-color: #384560;
+	background-color: #000000;
 	color: white;
 	padding: 0 10px;
 }
@@ -24,8 +24,9 @@ header a:visited {
 	justify-self: center;
 }
 
-.header-logo img {
+.header-logo svg {
 	width: 40px;
+	height: 40px;
 }
 
 .header-title {
