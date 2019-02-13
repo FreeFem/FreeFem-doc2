@@ -13,7 +13,7 @@
 	position: sticky;
 	top: 70px;
 	padding: 10px;
-	height: 90vh;
+	max-height: 90vh;
 	overflow: auto;
 }
 
