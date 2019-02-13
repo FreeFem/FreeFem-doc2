@@ -154,31 +154,31 @@ Beautiful isn’t it ? This is the first position for the hotspot, but there are
 You can see the other positions here :
 
 .. figure:: images/wifi-propagation/point2.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 2
+   Point 2
 
 .. figure:: images/wifi-propagation/point3.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 3
+   Point 3
 
 .. figure:: images/wifi-propagation/point4.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 4
+   Point 4
 
 .. figure:: images/wifi-propagation/point5.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 5
+   Point 5
 
 .. figure:: images/wifi-propagation/point6.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 6
+   Point 6
 
 .. figure:: images/wifi-propagation/point7.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 7
+   Point 7

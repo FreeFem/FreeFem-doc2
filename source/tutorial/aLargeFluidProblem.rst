@@ -252,61 +252,61 @@ In variational form and with appropriated boundary conditions the problem is :
    cout << "Total Time = " << clock()-T0 << endl;
 
 .. figure:: images/ALargeFluidProblem_T_100.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Temperature at time step 100
+   Temperature at time step 100
 
 .. figure:: images/ALargeFluidProblem_U_100.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Velocity at time step 100
+   Velocity at time step 100
 
 .. figure:: images/ALargeFluidProblem_T_200.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Temperature at time step 200
+   Temperature at time step 200
 
 .. figure:: images/ALargeFluidProblem_U_200.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Velocity at time step 200
+   Velocity at time step 200
 
 .. figure:: images/ALargeFluidProblem_T_300.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Temperature at time step 300
+   Temperature at time step 300
 
 .. figure:: images/ALargeFluidProblem_U_300.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Velocity at time step 300
+   Velocity at time step 300
 
 .. figure:: images/ALargeFluidProblem_T_400.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Temperature at time step 400
+   Temperature at time step 400
 
 .. figure:: images/ALargeFluidProblem_U_400.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Velocity at time step 400
+   Velocity at time step 400
 
 .. figure:: images/ALargeFluidProblem_T_500.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Temperature at time step 500
+   Temperature at time step 500
 
 .. figure:: images/ALargeFluidProblem_U_500.png
-    :figclass: inline2
-    :width: 50%
+   :figclass: inline2
+   :width: 50%
 
-    Velocity at time step 500
+   Velocity at time step 500

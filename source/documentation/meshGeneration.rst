@@ -1,10 +1,11 @@
 .. role:: freefem(code)
-  :language: freefem
+   :language: freefem
 
-.. _meshGeneration:
 
 .. math::
-    \def\R{{\mathbb{R}}}
+   \def\R{{\mathbb{R}}}
+
+.. _meshGeneration:
 
 Mesh Generation
 ===============

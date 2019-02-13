@@ -1,10 +1,10 @@
 .. role:: freefem(code)
-  :language: freefem
-
-.. _tutorialMembrane:
+   :language: freefem
 
 .. math::
-    \def\T{{\mathbb{T}}}
+   \def\T{{\mathbb{T}}}
+
+.. _tutorialMembrane:
 
 Membrane
 ========

@@ -27,6 +27,7 @@ Welcome to FreeFem++ documentation
 
    .. image:: ./_static/img/Logo.png
       :align: center
+      :width: 50%
       :alt: FreeFem++
 
    .. _FreeFem++: https://freefem.org
