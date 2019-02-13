@@ -1,13 +1,5 @@
-What is ffddm ?
+ffddm
 ===============
-
-.. toctree::
-
-  introddm
-  documentation
-  parameters
-  tutorial
-  examples
 
 In the acronym ``ffddm``, ``ff`` stands for FreeFem++ and ``ddm`` for domain decomposition methods.
 The idea behind ffddm is to simplify the use of parallel solvers in FreeFem++: distributed direct methods and domain decomposition methods.
@@ -86,3 +78,11 @@ Explanations are given in:
 +------------------------------------------------------------------+-------------------------------------------+
 | Complete Documentation of ffddm                                  | :ref:`Documentation <ffddmDocumentation>` |
 +------------------------------------------------------------------+-------------------------------------------+
+
+.. toctree::
+
+  introddm
+  documentation
+  parameters
+  tutorial
+  examples

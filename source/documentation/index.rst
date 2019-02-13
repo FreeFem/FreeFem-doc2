@@ -1,18 +1,6 @@
 Documentation
 =============
 
-.. toctree::
-
-   notations
-   meshGeneration
-   finiteElement
-   visualization
-   algorithmsOptimization
-   parallelization
-   plugins
-   developers
-   ffddm/index
-
 The fruit of a long maturing process, **freefem**, in its last avatar, **FreeFem++** , is a high level integrated development environment (IDE) for numerically solving partial differential equations (PDE) in dimension 2 and 3.
 It is the ideal tool for teaching the finite element method but it is also perfect for research to quickly test new ideas or multi-physics and complex applications.
 
@@ -79,3 +67,15 @@ The language syntax of **FreeFem++** is the result of a new design which makes u
 The outcome is a versatile software in which any new finite elements can be included in a few hours; but a recompilation is then necessary.
 Therefore the library of finite elements available in **FreeFem++** will grow with the version number and with the number of users who program more new elements.
 So far we have discontinuous :math:`P_0` elements,linear :math:`P_1` and quadratic :math:`P_2` Lagrangian elements, discontinuous :math:`P_1` and Raviart-Thomas elements and a few others like bubble elements.
+
+.. toctree::
+
+   notations
+   meshGeneration
+   finiteElement
+   visualization
+   algorithmsOptimization
+   parallelization
+   plugins
+   developers
+   ffddm/index
