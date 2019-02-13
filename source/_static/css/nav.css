@@ -150,10 +150,6 @@ nav .nav-btn {
 /** SIDENAV **/
 nav .sidenav {
 	width: 0;
-}
-
-nav .sidenav .nav-item {
-	display: flex;
 	height: 100%;
 	position: fixed;
 	z-index: 1;
