@@ -11,8 +11,9 @@ Everything is there in **FreeFem++** to prepare research quality reports with on
 
 This manual is meant for students at a Masters level, for researchers at any level, and for engineers (including financial engineering) with some understanding of variational methods for partial differential equations.
 
-Introduction
-------------
+.. rst-class:: fake-title
+
+   Introduction
 
 A partial differential equation is a relation between a function of several variables and its (partial) derivatives.
 Many problems in physics, engineering, mathematics and even banking are modeled by one or several partial differential equations.
@@ -46,8 +47,9 @@ The characteristics of **FreeFem++** are:
 -  Many examples and tutorials: elliptic, parabolic and hyperbolic problems, Navier-Stokes flows, elasticity, fluid structure interactions, Schwarz’s domain decomposition method, eigenvalue problem, residual error indicator, …
 -  A parallel version using MPI
 
-History
--------
+.. rst-class:: fake-title
+
+   History
 
 The project has evolved from MacFem, PCfem, written in Pascal.
 The first C version lead to ``freefem 3.4``; it offered mesh adaptivity on a single mesh only.

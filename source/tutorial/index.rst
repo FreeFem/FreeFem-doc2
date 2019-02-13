@@ -15,15 +15,16 @@ The **FreeFem++** language is a C++ idiom with something that is more akin to La
 
 For the specialist, one key guideline is that **FreeFem++** rarely generates an internal finite element array, this was adopted for speed and consequently **FreeFem++** could be hard to beat in terms of execution speed, except for the time lost in the interpretation of the language (which can be reduced by a systematic usage of :freefem:`varf` and :freefem:`matrix` instead of :freefem:`problem`).
 
-The Development Cycle: Edit–Run/Visualize–Revise
-------------------------------------------------
+.. rst-class:: fake-title
+
+   The Development Cycle: Edit–Run/Visualize–Revise
 
 Many examples and tutorials are given there after and in the :ref:`examples section <examples>`.
 It is better to study them and learn by example.
 
 If you are a beginner in the finite element method, you may also have to read a book on variational formulations.
 
-**The development cycle includes the following steps:**
+The development cycle includes the following steps:
 
 **Modeling:** From strong forms of PDE to weak forms, one must know the variational formulation to use **FreeFem++**; one should also have an eye on the reusability of the variational formulation so as to keep the same internal matrices; a typical example is the time dependent heat equation with an implicit time scheme: the internal matrix can be factorized only once and **FreeFem++** can be taught to do so.
 
@@ -65,8 +66,9 @@ Use the plot-parameter :freefem:`wait=1` to stop the program at each plot.
 Changing debug to false will make the plots flow continuously.
 Watching the flow of graphs on the screen (while drinking coffee) can then become a pleasant experience.
 
-Error management
-~~~~~~~~~~~~~~~~
+.. rst-class:: fake-title
+
+   Error management
 
 Error messages are displayed in the console window.
 They are not always very explicit because of the template structure of the C++ code (we did our best!).

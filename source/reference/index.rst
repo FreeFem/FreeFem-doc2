@@ -4,11 +4,6 @@
 Language references
 ===================
 
-Welcome to the **FreeFem++** language reference documentation.
-
-Introduction
-------------
-
 In essence **FreeFem++** is a compiler: its language is typed, polymorphic, with exception and reentrant.
 Every variable must be declared of a certain type, in a declarative statement; each statement are separated from the next by a semicolon ``;``.
 
