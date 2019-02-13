@@ -14,6 +14,7 @@ for
 For loop.
 
 .. code-block:: freefem
+   :linenos:
 
    for (int i = 0; i < N; ++i){
        ...
@@ -27,6 +28,7 @@ if
 If condition.
 
 .. code-block:: freefem
+   :linenos:
 
    if (condition){
        ...
@@ -46,6 +48,7 @@ while
 While loop.
 
 .. code-block:: freefem
+   :linenos:
 
    while (condition){
        ...
@@ -57,6 +60,7 @@ continue
 Continue a loop.
 
 .. code-block:: freefem
+   :linenos:
 
    for (int i = 0; i < N; ++i){
        ...
@@ -70,6 +74,7 @@ break
 Break a loop.
 
 .. code-block:: freefem
+   :linenos:
 
    while (condition1){
        ...
@@ -85,6 +90,7 @@ try
 Try a part of code.
 
 .. code-block:: freefem
+   :linenos:
 
    try{
        ...
@@ -106,6 +112,7 @@ Implicit loop
 Array with one index:
 
 .. code-block:: freefem
+   :linenos:
 
    for [i, ai : a]
 
@@ -114,6 +121,7 @@ If :freefem:`real[int] a(10)`, then ``i=0:9`` and ``ai`` is a reference to ``a[i
 Array with two indices or matrix:
 
 .. code-block:: freefem
+   :linenos:
 
    for [i, j, aij : a]
 

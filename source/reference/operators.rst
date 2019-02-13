@@ -8,6 +8,7 @@ Addition operator +
 -------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 1. + 2.;
 
@@ -17,6 +18,7 @@ Substraction operator -
 -----------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 1. - 2.;
 
@@ -26,6 +28,7 @@ Multiplication operator *
 -------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] b;
    matrix A
@@ -37,6 +40,7 @@ Term by term multiplication .*
 ------------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    matrix A = B .* C;
 
@@ -44,6 +48,7 @@ Division operator /
 -------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 1. / 2.;
 
@@ -53,6 +58,7 @@ Term by term division ./
 ------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    matrix A = B ./ C;
 
@@ -60,6 +66,7 @@ Remainder from the division %
 -----------------------------
 
 .. code-block:: freefem
+   :linenos:
 
    int a = 1 % 2;
 
@@ -69,6 +76,7 @@ Power operator ^
 ----------------
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 2.^2;
 
@@ -78,6 +86,7 @@ Inverse of a matrix ^-1
 -----------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] Res = A^-1 * b;
 
@@ -87,6 +96,7 @@ Transpose operator '
 --------------------
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] a = b';
 
@@ -110,6 +120,7 @@ C++ arithmetical if expression ? :
 .. tip:: Example with :freefem:`int`
 
    .. code-block:: freefem
+      :linenos:
 
       int a = 12; int b = 5;
 
@@ -136,6 +147,7 @@ C++ arithmetical if expression ? :
 .. tip:: Example with :freefem:`real`
 
    .. code-block:: freefem
+      :linenos:
 
       real a = qsrt(2.); real b = pi;
 

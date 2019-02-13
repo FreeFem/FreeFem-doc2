@@ -18,6 +18,7 @@ int
 Integer value (equivalent to :cpp:`long` in ``C++``).
 
 .. code-block:: freefem
+   :linenos:
 
    int i = 0;
 
@@ -27,6 +28,7 @@ bool
 Boolean value.
 
 .. code-block:: freefem
+   :linenos:
 
    bool b = true;
 
@@ -40,6 +42,7 @@ real
 Real value (equivalent to :cpp:`double` in ``C++``).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = 0.;
 
@@ -49,6 +52,7 @@ complex
 Complex value (equivalent to two :cpp:`double` or :cpp:`complex<double>` in ``C++``).
 
 .. code-block:: freefem
+   :linenos:
 
    complex c = 0. + 1i;
 
@@ -57,6 +61,7 @@ The imaginary number :math:`i` is defined as ``1i``
 .. tip:: Example
 
    .. code-block:: freefem
+      :linenos:
 
       complex a = 1i, b = 2 + 3i;
       cout << "a + b = " << a + b << endl;
@@ -81,6 +86,7 @@ string
 String value.
 
 .. code-block:: freefem
+   :linenos:
 
    string s = "this is a string";
 
@@ -89,6 +95,7 @@ String value.
 Other types can be concatenate to a string, like:
 
 .. code-block:: freefem
+   :linenos:
 
    int i = 1;
    real r = 1.;
@@ -97,12 +104,14 @@ Other types can be concatenate to a string, like:
 To append a string in a string at position 4:
 
 .. code-block:: freefem
+   :linenos:
 
    s(4:3) = "+++";
 
 To copy a substring in an other string:
 
 .. code-block:: freefem
+   :linenos:
 
    string s2 = s1(5:10);
 
@@ -117,6 +126,7 @@ border
 Border type.
 
 .. code-block:: freefem
+   :linenos:
 
    border b(t=0., 1.){x=cos(2.*pi*t); y=sin(2.*pi*t);}
 
@@ -127,6 +137,7 @@ Define the 2D geometrical border in parametric coordinates.
    A label can be defined with the border:
 
    .. code-block:: freefem
+      :linenos:
 
       border b(t=0., 1.){x=cos(2.*pi*t); y=sin(2.*pi*t); label=1;}
 
@@ -135,6 +146,7 @@ Define the 2D geometrical border in parametric coordinates.
    An inner variable can be defined inside a border:
 
    .. code-block:: freefem
+      :linenos:
 
       border b(t=0., 1.){real tt=2.*pi*t; x=cos(tt); y=sin(tt);}
 
@@ -143,6 +155,7 @@ Define the 2D geometrical border in parametric coordinates.
    A border can be defined from two vectors using :freefem`P.x` and :freefem:`P.y`:
 
    .. code-block:: freefem
+      :linenos:
 
       border b(t=0, vectorX.n-1){x=vectorX[t]; P.x=vectorY[t];}
 
@@ -152,6 +165,7 @@ mesh
 2D Mesh type (see :ref:`Mesh Generation <meshGeneration>`).
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th;
 
@@ -161,6 +175,7 @@ mesh3
 3D mesh type (see :ref:`Mesh Generation <meshGeneration>`).
 
 .. code-block:: freefem
+   :linenos:
 
    mesh3 Th;
 
@@ -173,6 +188,7 @@ fespace
 Finite element space type (see :ref:`Finite Element <finiteElement>`).
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Uh(Th, P1);
    fespace UPh(Th, [P2, P2, P1]);
@@ -255,6 +271,7 @@ Using *Element_QF*:
 A finite element function is defined as follow:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Uh(Th, P1);
    Uh u;
@@ -273,6 +290,7 @@ macro
 Macro type.
 
 .. code-block:: freefem
+   :linenos:
 
    macro vU() [Ux, Uy] //
    macro grad(u) [dx(u), dy(u)] //
@@ -286,6 +304,7 @@ Macro ends with :freefem:`//`.
    If `Ux` and `Uy` are defined as finite element function, you can define:
 
    .. code-block:: freefem
+      :linenos:
 
       macro Grad(U) [grad(U#x), grad(U#y)] // End of macro
 
@@ -299,6 +318,7 @@ NewMacro / EndMacro
 Set and end a macro
 
 .. code-block:: freefem
+   :linenos:
 
    NewMacro grad(u) [dx(u), dy(u)] EndMacro
 
@@ -308,6 +328,7 @@ IFMACRO
 Check if a macro exists and check its value.
 
 .. code-block:: freefem
+   :linenos:
 
    IFMACRO(AA) //check if macro AA exists
    ...
@@ -331,6 +352,7 @@ Function type.
 Function without parameters (:math:`x`, :math:`y` and :math:`z` are implicitly considered):
 
 .. code-block:: freefem
+   :linenos:
 
    func f = x^2 + y^2;
 
@@ -339,6 +361,7 @@ Function without parameters (:math:`x`, :math:`y` and :math:`z` are implicitly c
 Function with parameters:
 
 .. code-block:: freefem
+   :linenos:
 
    func real f (real var){
        return x^2 + y^2 + var^2;
@@ -388,6 +411,7 @@ Hence FE-functions are not defined only by their formula but also by the mesh an
 If the value of a FE-function is requested at a point which is not a degree of freedom, an interpolation is used, leading to an interpolation error, while by contrast, an elementary function can be evaluated at any point exactly.
 
 .. code-block:: freefem
+   :linenos:
 
    func f = x^2*(1+y)^3 + y^2;
    mesh Th = square(20, 20, [-2+4*x, -2+4*y]); // ]-2, 2[^2
@@ -413,6 +437,7 @@ problem
 Problem type.
 
 .. code-block:: freefem
+   :linenos:
 
    problem Laplacian (u, uh) = ...
 
@@ -421,6 +446,7 @@ Problem type.
 In order to solve the problem, just call:
 
 .. code-block:: freefem
+   :linenos:
 
    Laplacian;
 
@@ -429,6 +455,7 @@ In order to solve the problem, just call:
    A solver can be specified in the problem definition:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, solver=CG) = ...
 
@@ -441,6 +468,7 @@ In order to solve the problem, just call:
    A criterion :math:`\varepsilon` can be defined for iterative methods, like CG for example:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, solver=CG, eps=1.e-6) = ...
 
@@ -461,6 +489,7 @@ In order to solve the problem, just call:
    If :freefem:`init` is set to :freefem:`false` or :freefem:`0`, the matrix is reconstructed et each problem calls (or after a mesh modification), else the previously constructed matrix is used.
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, init=1) = ...
 
@@ -469,12 +498,14 @@ In order to solve the problem, just call:
    A preconditioner can be specified in the problem definition:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, precon=P) = ...
 
    The preconditioning function must have a prototype like:
 
    .. code-block:: freefem
+      :linenos:
 
       func real[int] P(real[int] &xx);
 
@@ -483,6 +514,7 @@ In order to solve the problem, just call:
    The “*Très grand valeur*" :freefem:`tgv` (or *Terrible giant value*) used to implement the Dirichlet conditions can be modified in the problem definition:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, tgv=1e30) = ...
 
@@ -493,6 +525,7 @@ In order to solve the problem, just call:
    The tolerance of the pivot in :freefem:`UMFPACK`, :freefem:`LU`, :freefem:`Crout`, :freefem:`Cholesky` factorization can be modified in the problem definition:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, solver=LU, tolpivot=1e-20) = ...
 
@@ -504,6 +537,7 @@ In order to solve the problem, just call:
    * strategy
 
    .. code-block:: freefem
+      :linenos:
 
       problem Laplacian(u, uh, solver=LU, tolpivotsym=1e-1, strategy=0) = ...
 
@@ -534,6 +568,7 @@ varf
 Variational form type.
 
 .. code-block:: freefem
+   :linenos:
 
    varf vLaplacian (u, uh) = ...
 
@@ -570,6 +605,7 @@ There are :freefem:`int,real, complex` array with, in the third case, two operat
 For example, to declare, fill and display an array of :freefem:`real` of size ``n``:
 
 .. code-block:: freefem
+   :linenos:
 
    int n = 5;
    real[int] Ai(n);
@@ -592,6 +628,7 @@ Array index
 Array index can be int or string:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] Ai = [1, 1, 0, 0];
    real[string] As = [1, 1, 0, 0];
@@ -602,6 +639,7 @@ Array size
 The size of an array is obtained using the keyword ``n``:
 
 .. code-block:: freefem
+   :linenos:
 
    int ArraySize = Ai.n;
 
@@ -611,6 +649,7 @@ Array sort
 To sort an array:
 
 .. code-block:: freefem
+   :linenos:
 
    Ai.sort;
 
@@ -620,12 +659,14 @@ Double array
 A double array (matrix) can be defined using two indexes:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int, int] Aii = [[1, 1], [0, 0]];
 
 The two sizes are obtained using the keywords ``n`` and ``m``:
 
 .. code-block:: freefem
+   :linenos:
 
    int ArraySize1 = Aii.n;
    int ArraySize2 = Aii.m;
@@ -633,6 +674,7 @@ The two sizes are obtained using the keywords ``n`` and ``m``:
 The minimum and maximum values of an array (simple or double) can be obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    real ArrayMin = Aii.min;
    real ArrayMax = Aii.max;
@@ -640,6 +682,7 @@ The minimum and maximum values of an array (simple or double) can be obtained us
 Th minimum and maximum position of an array can be obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    int mini = Aii.imin;
    int minj = Aii.jmin;
@@ -650,6 +693,7 @@ Th minimum and maximum position of an array can be obtained using:
 .. tip:: An array can be obtained from a finite element function using:
 
    .. code-block:: freefem
+      :linenos:
 
       real[int] aU = U[];
 
@@ -663,6 +707,7 @@ It is also possible to make an array of FE functions, with the same syntax, and 
 The syntax for space or vector finite function is
 
 .. code-block:: freefem
+   :linenos:
 
    int n = 100; //size of the array.
    Vh[int] wh(n); //real scalar case
@@ -681,6 +726,7 @@ The syntax for space or vector finite function is
    In the following example, Poisson’s equation is solved for 3 different given functions :math:`f=1,\, \sin(\pi x)\cos(\pi y),\, |x-1||y-1|`, whose solutions are stored in an array of FE function.
 
    .. code-block:: freefem
+      :linenos:
 
       // Mesh
       mesh Th = square(20, 20, [2*x, 2*y]);
@@ -691,15 +737,15 @@ The syntax for space or vector finite function is
 
       // Problem
       problem Poisson (u, v)
-          = int2d(Th)(
-                dx(u)*dx(v)
-              + dy(u)*dy(v)
-          )
-          + int2d(Th)(
-              - f*v
-          )
-          + on(1, 2, 3, 4, u=0)
-          ;
+         = int2d(Th)(
+              dx(u)*dx(v)
+            + dy(u)*dy(v)
+         )
+         + int2d(Th)(
+            - f*v
+         )
+         + on(1, 2, 3, 4, u=0)
+         ;
 
       Vh[int] uu(3); //an array of FE function
       // Solve problem 1
@@ -717,7 +763,7 @@ The syntax for space or vector finite function is
 
       // Plot
       for (int i = 0; i < 3; i++)
-          plot(uu[i], wait=true);
+         plot(uu[i], wait=true);
 
    See :ref:`FE array example <exampleFEArray>`.
 
@@ -725,6 +771,7 @@ Map arrays
 ~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    real[string] map; //a dynamic array
 
@@ -746,6 +793,7 @@ Defines a sparse matrix.
 Matrices can be defined like vectors:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix A = [[1, 2, 3],
                [4, 5, 6],
@@ -754,12 +802,14 @@ Matrices can be defined like vectors:
 or using a variational form type (see :ref:`Finite Element <variationalFormSparseMatrixPDE>`):
 
 .. code-block:: freefem
+   :linenos:
 
    matrix Laplacian = vLaplacian(Uh, Uh);
 
 or from block of matrices:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix A1, ..., An;
    matrix A = [[A1, ...], ..., [..., An]];
@@ -767,6 +817,7 @@ or from block of matrices:
 or using sparse matrix set:
 
 .. code-block:: freefem
+   :linenos:
 
    A = [I, J, C];
 
@@ -785,6 +836,7 @@ or using sparse matrix set:
 Matrices are designed using templates, so they can be real or complex:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix<real> A = ...
    matrix<complex> Ai = ...
@@ -796,12 +848,14 @@ Matrices are designed using templates, so they can be real or complex:
    The default solver is :ref:`GMRES <globalVariablesGMRES>`.
 
    .. code-block:: freefem
+      :linenos:
 
       matrix A = vLaplacian(Uh, Uh, solver=sparsesolver);
 
    or
 
    .. code-block:: freefem
+      :linenos:
 
       set(A , solver=sparsesolver);
 
@@ -810,12 +864,14 @@ Matrices are designed using templates, so they can be real or complex:
    If :freefem:`true`, the factorization is done for :freefem:`LU`, :freefem:`Cholesky` or :freefem:`Crout`.
 
    .. code-block:: freefem
+      :linenos:
 
       matrix A = vLaplacian(Uh, Uh, solver=LU, factorize=1);
 
    or
 
    .. code-block:: freefem
+      :linenos:
 
       set(A , solver=LU, factorize=1);
 
@@ -867,6 +923,7 @@ Matrix size
 The size of a matrix is obtain using:
 
 .. code-block:: freefem
+   :linenos:
 
    int NRows = A.n;
    int NColumns = A.m;
@@ -877,6 +934,7 @@ Matrix resize
 To resize a matrix, use:
 
 .. code-block:: freefem
+   :linenos:
 
    A.resize(n, m);
 
@@ -888,6 +946,7 @@ Matrix diagonal
 The diagonal of the matrix is obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] Aii = A.diag;
 
@@ -895,6 +954,7 @@ Matrix renumbering
 ~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int[int] I(15, J(15);
    matrix B = A;
@@ -907,6 +967,7 @@ Complex matrix
 Use ``.im`` and ``.re`` to get the imaginary and real part of a complex matrix, respectively:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix<complex> C = ...
    matrix R = C.re;
@@ -918,12 +979,14 @@ Dot product / Outer product
 The dot product of two matrices is realized using:
 
 .. code-block:: freefem
+   :linenos:
 
    real d = A' * B;
 
 The outer product of two matrices is realized using:
 
 .. code-block:: freefem
+   :linenos:
 
    matrix C = A * B'
 
