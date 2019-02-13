@@ -3,35 +3,38 @@
 		grid-template-columns: 0 70% 30% !important;
 	}
 
-
-
 	nav {
-		grid-template-columns: 30px auto 350px;
+		grid-template-columns: 50px auto 350px;
+	}
+
+	nav #searchInput:focus {
+		width: 70%;
 	}
 
 	nav #searchResults {
 		width: 70%;
 	}
 
-	#staticNav div:not(.current) {
+	nav #staticNav div:not(.current) {
 		display: none;
-	}
-
-	#staticNav div.current {
-		padding: 0 0 0 50px;
 	}
 
 	nav .nav-btn {
 		display: block !important;
-		position: static;
+		justify-self: center;
+
+		background-color: #00007F;
+		color: lightgrey;
+		border: none;
+		padding: 10px;
+		margin: 0;
+		font-size: 20px;
+		cursor: pointer;
 	}
 
-	/* nav input[type=search] {
-		width: 30%;
-	} */
-
-	nav input[type=search]:focus {
-		width: 70%;
+	nav .nav-btn:hover {
+		background-color: #00007F;
+		color: white;
 	}
 
 	#subnav {
@@ -59,18 +62,17 @@
 
 	nav #searchResults {
 		min-width: 100%;
-		top:45px !important;
+		top: 45px !important;
 		right: 0;
 	}
 
-	/* nav input[type=search] {
-		width:50%;
-	} */
+	nav #searchInput {
+		width: 100%;
+	}
 
-	nav input[type=search]:focus {
+	nav #searchInput:focus {
 		width: 100%;
 		right: 0;
-		transition: 0.5s !important;
 	}
 
 	.content {

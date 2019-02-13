@@ -137,24 +137,14 @@ nav #searchResults a:hover {
 	color: black;
 }
 
+/** RESPONSIVE **/
+
 /** NAVIGATION BUTTON **/
 nav .nav-btn {
 	grid-row: 1;
 	grid-column: 1;
-	justify-self: start;
-	display: none;
-	background-color: #00007F;
-	color: lightgrey;
-	border: none;
-	padding: 12px 0;
-	margin: auto 20px;
-	font-size: 20px;
-	cursor: pointer;
-}
 
-#nav .nav-btn:hover {
-	background-color: #00007F;
-	color: white;
+	display: none;
 }
 
 /** SIDENAV **/
