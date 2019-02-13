@@ -1,33 +1,10 @@
+.. role:: freefem(code)
+   :language: freefem
+
 .. _tutorial:
 
 Tutorials
 =========
-
-.. toctree::
-
-   poisson
-   equationsClassification
-   membrane
-   heatExchanger
-   acoustics
-   thermalConduction
-   fanBlade
-   rotatingHill
-   elasticity
-   stokes
-   navierStokesProjection
-   navierStokesNewton
-   aLargeFluidProblem
-   complexNumbers
-   optimalControl
-   flowWithShocks
-   heatEquationOptimization
-   timeDependentStokes
-   wifiPropagation
-   matlabOctavePlot
-
-.. role:: freefem(code)
-  :language: freefem
 
 The **FreeFem++** language is :ref:`typed <referenceTypes>`, polymorphic and reentrant with :ref:`macro generation <typeMacroDesign>`.
 
@@ -151,3 +128,26 @@ For example:
 
    real aaa =1;
    // real aaa;
+
+.. toctree::
+
+   poisson
+   equationsClassification
+   membrane
+   heatExchanger
+   acoustics
+   thermalConduction
+   fanBlade
+   rotatingHill
+   elasticity
+   stokes
+   navierStokesProjection
+   navierStokesNewton
+   aLargeFluidProblem
+   complexNumbers
+   optimalControl
+   flowWithShocks
+   heatEquationOptimization
+   timeDependentStokes
+   wifiPropagation
+   matlabOctavePlot

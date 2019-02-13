@@ -1,14 +1,6 @@
 Introduction
 ============
 
-.. toctree::
-
-   download
-   installation
-   contributing
-   citation
-   authors
-
 **FreeFem++** is a partial differential equation solver for non-linear multi-physics systems in 2D and 3D.
 
 Problems involving partial differential equations from several branches of physics, such as fluid-structure interactions, require interpolations of data on several meshes and their manipulation within one program.
@@ -21,3 +13,11 @@ Problems involving partial differential equations from several branches of physi
    :alt: FreeFem++
 
 .. _FreeFem++: https://freefem.org
+
+.. toctree::
+
+   download
+   installation
+   contributing
+   citation
+   authors

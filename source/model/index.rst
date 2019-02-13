@@ -1,6 +1,13 @@
 Mathematical Models
 ===================
 
+*Summary*:
+
+This chapter goes deeper into a number of problems that **FreeFem++** can solve.
+It is a complement to the :ref:`Tutorial part <tutorial>` which was only an introduction.
+
+**Users are invited to contribute to make this models database grow.**
+
 .. toctree::
 
    staticProblems
@@ -17,10 +24,3 @@ Mathematical Models
    nonLinearElasticity
    compressibleNeoHookeanMaterials
    whisperingGalleryModes
-
-*Summary*:
-
-This chapter goes deeper into a number of problems that **FreeFem++** can solve.
-It is a complement to the :ref:`Tutorial part <tutorial>` which was only an introduction.
-
-**Users are invited to contribute to make this models database grow.**

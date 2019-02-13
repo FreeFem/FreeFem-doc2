@@ -4,17 +4,6 @@
 Language references
 ===================
 
-.. toctree::
-
-   types
-   globalVariables
-   quadratureFormulae
-   operators
-   loops
-   IO
-   functions
-   externalLibraries
-
 Welcome to the **FreeFem++** language reference documentation.
 
 Introduction
@@ -58,3 +47,14 @@ The life of a variable is the current block ``{...}``, except the :freefem:`fesp
 The type declarations are mandatory in **FreeFem++**; in the end this feature is an asset because it is easy to make bugs in a language with many implicit types.
 
 The variable name is just an alphanumeric string, the underscore character ``_`` is not allowed, because it will be used as an operator in the future.
+
+.. toctree::
+
+   types
+   globalVariables
+   quadratureFormulae
+   operators
+   loops
+   IO
+   functions
+   externalLibraries

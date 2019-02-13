@@ -8,22 +8,25 @@ Welcome to FreeFem++ documentation
 
 .. toctree::
 
-  introduction/index
-  documentation/index
-  reference/index
-  tutorial/index
-  example/index
-  model/index
+   introduction/index
+   documentation/index
+   reference/index
+   tutorial/index
+   example/index
+   model/index
+   reference
 
-**FreeFem++** is a partial differential equation solver for non-linear multi-physics systems in 2D and 3D.
+.. only:: html
 
-Problems involving partial differential equations from several branches of physics, such as fluid-structure interactions, require interpolations of data on several meshes and their manipulation within one program.
-**FreeFem++** includes a fast interpolation algorithm and a language for the manipulation of data on multiple meshes.
+   **FreeFem++** is a partial differential equation solver for non-linear multi-physics systems in 2D and 3D.
 
-**FreeFem++** is written in C++ and its language is a C++ idiom.
+   Problems involving partial differential equations from several branches of physics, such as fluid-structure interactions, require interpolations of data on several meshes and their manipulation within one program.
+   **FreeFem++** includes a fast interpolation algorithm and a language for the manipulation of data on multiple meshes.
 
-.. image:: ./_static/img/Logo.png
-   :align: center
-   :alt: FreeFem++
+   **FreeFem++** is written in C++ and its language is a C++ idiom.
 
-.. _FreeFem++: https://freefem.org
+   .. image:: ./_static/img/Logo.png
+      :align: center
+      :alt: FreeFem++
+
+   .. _FreeFem++: https://freefem.org
