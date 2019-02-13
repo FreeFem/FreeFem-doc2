@@ -144,13 +144,15 @@ To change the color table and to choose the value of iso line you can do:
     plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
 
 .. figure:: images/Visualization_HSV_Space.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figVisuHSV
 
     HSV color cylinder
 
 .. figure:: images/Visualization_HSV.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figVisuIsoColorTable
 
     Isovalue with an other color table

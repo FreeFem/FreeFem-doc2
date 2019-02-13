@@ -148,13 +148,15 @@ Notice also the macro where the parameter :math:`\mathbf{u}` is not used (but th
 As easily guessed :freefem:`N.x,N.y` is the normal to the edge.
 
 .. figure:: images/convectCG.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figRotatingCG
 
     The rotating hill after one revolution with Characteristics-Galerkin
 
 .. figure:: images/convectDG.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figRotatingDG
 
     The rotating hill after one revolution with Discontinuous :math:`P_1` Galerkin

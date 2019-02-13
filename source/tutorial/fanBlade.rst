@@ -77,14 +77,16 @@ An equation for the upper surface of a NACA0012 (this is a classical wing profil
 A zoom of the streamlines are shown on :numref:`figFanPotential`.
 
 .. figure:: images/potential.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figFanPotential
 
     Zoom around the NACA0012 airfoil showing the streamlines (curve :math:`\psi=` constant).
     To obtain such a plot use the interactive graphic command: "+" and p.
 
 .. figure:: images/potential_heat.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figFanTemperature
 
     Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).

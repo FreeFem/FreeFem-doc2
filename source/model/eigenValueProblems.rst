@@ -185,11 +185,13 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
         lambda[19] = 34.0492, err= 2.41751e-10
 
     .. figure:: images/EigenValueProblems1.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Isovalue of 11th eigenvector :math:`u_{4,3}-u_{3,4}`
 
     .. figure:: images/EigenValueProblems2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Isovalue of 12th eigenvector :math:`u_{4,3}+u_{3,4}`

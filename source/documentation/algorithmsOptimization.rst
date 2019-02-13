@@ -771,13 +771,15 @@ Some short examples using IPOPT
       }
 
    .. figure:: images/VarIneqFill.jpg
-      :figclass: inline2
+      :figclass: inline
+      :figwidth: 49%
       :name: figAlgoVarineqFill
 
       Numerical Approximation of the Variational Inequality
 
    .. figure:: images/VarIneqIso.jpg
-      :figclass: inline2
+      :figclass: inline
+      :figwidth: 49%
       :name: figAlgoVarineqIso
 
       Numerical Approximation of the Variational Inequality

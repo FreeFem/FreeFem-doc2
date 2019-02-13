@@ -99,13 +99,15 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
         }
 
     .. figure:: images/DomainDecomposition_Schwarz2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: figDomainIter0
 
         Isovalues of the solution at iteration 0
 
     .. figure:: images/DomainDecomposition_Schwarz3.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: figDomainIter9
 
         Isovalues of the solution at iteration 0
@@ -211,12 +213,14 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
         plot(U, u);
 
     .. figure:: images/DomainDecomposition_Schwarz5.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Isovalues of the solution at iteration 0 without overlapping
 
     .. figure:: images/DomainDecomposition_Schwarz6.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Isovalues of the solution at iteration 9 without overlapping
 

@@ -94,13 +94,15 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
 Results are shown on :numref:`figThermalT` and :numref:`figThermalCurve`.
 
 .. figure:: images/thermic.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figThermalT
 
     Temperature at :math:`t=4.9`.
 
 .. figure:: images/thermicvst.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figThermalCurve
 
     Decay of temperature versus time at :math:`x=3, y=0.5`

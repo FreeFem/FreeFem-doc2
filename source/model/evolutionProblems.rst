@@ -429,12 +429,14 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
     .. note:: The scheme :freefem:`convect` is unconditionally stable, then the bell become lower and lower (the maximum of :math:`u^{37}` is :math:`0.406` as shown in :numref:`figEvolutionConvect`.
 
     .. figure:: images/EvolutionProblem_Convect.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         :math:`u^0=e^{-10((x-0.3)^2 +(y-0.3)^2)}`
 
     .. figure:: images/EvolutionProblem_Convect2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: figEvolutionConvect
 
         The bell at :math:`t=6.29`
@@ -526,13 +528,15 @@ To have an unconditionally stable scheme, the first order terms are treated by t
     Results are shown on :numref:`figEvolutionBlackSholes1` and :numref:`figEvolutionBlackSholes2`.
 
     .. figure:: images/EvolutionProblems_BlackSholes.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: figEvolutionBlackSholes1
 
         The adapted triangulation
 
     .. figure:: images/EvolutionProblems_BlackSholes2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: figEvolutionBlackSholes2
 
         The level line of the European basquet put option

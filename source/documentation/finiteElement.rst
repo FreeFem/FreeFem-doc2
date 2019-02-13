@@ -529,13 +529,15 @@ then:
 See :numref:`finiteElementProjP1` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1)`.
 
 .. figure:: images/FiniteElement_P0P1P2P1nc.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementP0P1P2P1nc
 
     Test mesh :freefem:`Th` for projection
 
 .. figure:: images/FiniteElement_projP0.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP0
 
     Projection to :freefem:`Vh(Th, P0)`
@@ -576,13 +578,15 @@ then:
 See :ref:`finiteElementProjP2` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P2)`.
 
 .. figure:: images/FiniteElement_projP1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1
 
     Projection to :freefem:`Vh(Th, P1)`
 
 .. figure:: images/FiniteElement_projP2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP2
 
     Projection to :freefem:`Vh(Th, P2)`
@@ -642,13 +646,15 @@ The basis functions :math:`\phi_k` have the following properties.
 See :numref:`finiteElementProjP1nc` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1nc)`.
 
 .. figure:: images/FiniteElement_projP1nc.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1nc
 
     Projection to :freefem:`Vh(Th, P1nc)`
 
 .. figure:: images/FiniteElement_projP1b.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1b
 
     Projection to :freefem:`Vh(Th, P1b)`
@@ -772,13 +778,15 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
     vh([x-1/2, y]) = x^2 + y^2; //interpolate vh = ((x-1/2)^2 + y^2)
 
 .. figure:: images/FiniteElement_onoldmesh.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementOnOldMesh
 
     :freefem:`vh` Iso on mesh :math:`2\times 2`
 
 .. figure:: images/FiniteElement_onnewmesh.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementOnNewMesh
 
     :freefem:`vh` Iso on  mesh :math:`5\times 5`
@@ -912,13 +920,15 @@ Two problems need to be solved:
         plot(vs, vg, wait=true);
 
     .. figure:: images/FiniteElement_UsUg.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: finiteElementUsUg
 
         Extension of a continuous FE-function
 
     .. figure:: images/FiniteElement_VsVg.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: finiteElementVsVg
 
         Extension of discontinuous FE-function

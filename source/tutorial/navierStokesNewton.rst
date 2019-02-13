@@ -168,11 +168,13 @@ So the Newton algorithm become:
     :math:`\nu` is gradually increased to the desired value.
 
 .. figure:: images/NSNewtonTh.jpg
-    :figclass: inline2
+   :figclass: inline
+   :figwidth: 49%
 
-    Mesh
+   Mesh
 
 .. figure:: images/NSNewtonUP.jpg
-    :figclass: inline2
+   :figclass: inline
+   :figwidth: 49%
 
-    Velocity and pressure at Reynolds 200
+   Velocity and pressure at Reynolds 200

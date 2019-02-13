@@ -108,13 +108,15 @@ Boundaries are defined piecewise by parametrized curves. The pieces can only int
 Borders and mesh are respectively shown in :numref:`figMultipleBorder` and :numref:`figGeneratedMesh`.
 
 .. figure:: images/MeshGeneration_Border1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMultipleBorder
 
     Multiple border ends intersect
 
 .. figure:: images/MeshGeneration_Border2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figGeneratedMesh
 
     Generated mesh
@@ -160,13 +162,15 @@ The following example shows how to change the orientation. The example generates
 .. note:: Notice that the orientation is changed by :freefem:`b(-30)` in the 5th line. In the 7th line, :freefem:`ps="fileName"` is used to generate a postscript file with identification shown on the figure.
 
 .. figure:: images/MeshGeneration_Border4.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMesWithouthHole
 
     Mesh without hole
 
 .. figure:: images/MeshGeneration_Border5.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMeshWithHole
 
     Mesh with hole
@@ -689,13 +693,15 @@ The coordinates of the points and the value of the table function are defined se
    ...............
 
 .. figure:: images/MeshGeneration_Triangulate1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figDelaunayMesh
 
     Delaunay mesh of the convex hull of point set in file xy
 
 .. figure:: images/MeshGeneration_Triangulate2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figIsovalue
 
     Isolvalue of table function
@@ -778,13 +784,15 @@ It is also possible to build an empty mesh of a pseudo subregion with :freefem:`
    }
 
 .. figure:: images/MeshGeneration_EmptyMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figEmptyMesh1
 
     The empty mesh with boundary
 
 .. figure:: images/MeshGeneration_EmptyMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figEmptyMesh2
 
     An empty mesh defined from a pseudo region numbering of triangle
@@ -855,13 +863,15 @@ for a big number :math:`k>1`.
 
 
 .. figure:: images/MeshGeneration_MoveMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figLShape
 
     L-shape
 
 .. figure:: images/MeshGeneration_MoveMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMovedLShape
 
     Moved L-shape
@@ -994,13 +1004,15 @@ Mesh adaptation is a very powerful tool when the solution of a problem varies lo
 Here we solve the :ref:`Poisson’s problem <tutorialPoisson>`, when :math:`f=1` and :math:`\Omega` is a L-shape domain.
 
 .. figure:: images/MeshGeneration_AdaptMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: adaptMesh2
 
     L-shape domain and its boundary name
 
 .. figure:: images/MeshGeneration_AdaptMesh3.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: adaptMesh3
 
     Final solution after 4-times adaptation
@@ -1233,13 +1245,15 @@ The following example construct all "trunced" meshes to the support of the basic
    }
 
 .. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: trunc1
 
     Mesh of support the function P1 number 0, split in :math:`5{\times}5`
 
 .. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: trunc6
 
     Mesh of support the function P1 number 6, split in :math:`5{\times}5`
@@ -1261,13 +1275,15 @@ Another way to split mesh triangles is to use :freefem:`splitmesh`, for example:
    plot(Th, wait=true, ps="SplittedMesh.eps");
 
 .. figure:: images/MeshGeneration_SplitMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: splitMesh1
 
     Initial mesh
 
 .. figure:: images/MeshGeneration_SplitMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: splitMesh2
 
     All left mesh triangle is split conformaly in :freefem:`int(1+5*(square(x-0.5)+y*y)^2` triangles
@@ -2528,13 +2544,15 @@ The test of the two functions and the call to :freefem:`TetGen` mesh generator:
    medit("Cube with ball", Th);
 
 .. figure:: images/MeshGeneration_CubeSphere1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: meshGenerationCubeSphere1
 
     The surface mesh of the hex with internal sphere
 
 .. figure:: images/MeshGeneration_CubeSphere2.png
-    :figclass: inline3
+    :figclass: inline
+    :figwidth: 49%
     :name: meshGenerationCubeSphere2
 
     The tetrahedral mesh of the cube with internal ball
@@ -3279,13 +3297,15 @@ Secondly, we use this idea to build meshes from an image, we use the plugins :fr
 
 
     .. figure:: images/MeshGeneration_Isoline1.jpg
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: meshGenerationIsoline1
 
         The image of the Leman lake meshes
 
     .. figure:: images/MeshGeneration_Isoline2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: meshGenerationIsoline2
 
         The mesh of the lake

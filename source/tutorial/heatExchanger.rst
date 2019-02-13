@@ -106,13 +106,15 @@ Note the following:
    buildmesh(.../*+ C12(20) */ + C121(12) + C122(8) + ...);
 
 .. figure:: images/heat_exchangerTh.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figHeatMesh
 
     Heat exchanger mesh
 
 .. figure:: images/heat_exchanger.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figHeatSolution
 
     Heat exchanger solution

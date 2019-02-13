@@ -130,13 +130,15 @@ The keyword :freefem:`plot` will display both :math:`\T_h` and :math:`\varphi` (
 Results are on :numref:`figMembraneMesh` and :numref:`figMembraneLevelLines`.
 
 .. figure:: images/membraneTh.png
-    :figclass: inline2
+    :figclass: inline
+ 	 :figwidth: 49%
     :name: figMembraneMesh
 
     Mesh of the ellipse
 
 .. figure:: images/membrane.png
-    :figclass: inline2
+    :figclass: inline
+ 	 :figwidth: 49%
     :name: figMembraneLevelLines
 
     Level lines of the membrane deformation

@@ -129,13 +129,15 @@ If the force is gravity, for simplify, we assume that :math:`f=-1`.
     cout << "error H10 = " << sqrt( int2d(disk)((dx(u)-x/2)^2) + int2d(disk)((dy(u)-y/2)^2) )<< endl;
 
 .. figure:: images/StaticProblems_SoapFilmSol.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsSoapFilmSol
 
     Isovalue of :math:`u`
 
 .. figure:: images/StaticProblems_SoapFilm3D.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsSoapFilm3D
 
     A side view of :math:`u`
@@ -227,13 +229,15 @@ Note that :math:`C_0` is described counterclockwise, whereas the elliptical hole
     plot(uh);
 
 .. figure:: images/StaticProblems_ElectrostaticsMesh.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsElectrostaticsMesh
 
     Disk with two elliptical holes
 
 .. figure:: images/StaticProblems_Electrostatics.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsElectrostatics
 
     Equipotential lines where :math:`C_1` is located in right hand side
@@ -359,13 +363,15 @@ which can be programmed as:
     plot(Zcp, nbiso=40);
 
 .. figure:: images/StaticProblems_Aerodynamics1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsAerodynamics1
 
     Isovalue of :math:`cp = -(\p_x\psi)^2 - (\p_y\psi)^2`
 
 .. figure:: images/StaticProblems_Aerodynamics2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsAerodynamics2
 
     Zooming of :math:`cp`
@@ -713,13 +719,15 @@ An other example with no equal border, just to see if the code works.
         medit("uh", Th, uh);
 
     .. figure:: images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: exampleStaticProblemsPeriodicBoundaryConditionsPoisson1
 
         View of the surface isovalue of periodic solution :math:`uh`
 
     .. figure:: images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: exampleStaticProblemsPeriodicBoundaryConditionsPoisson2
 
         View a the cut of the solution :math:`uh` with ffmedit
@@ -1029,13 +1037,15 @@ Of course, we can use a variational form to compute :math:`\eta_{T}^{2}`, with t
 If the method is correct, we expect to look the graphics by an almost constant function :math:`\eta` on your computer as in :numref:`exampleStaticProblemsMetricAdaptation` and :numref:`exampleStaticProblemsMetricAdaptation2`.
 
 .. figure:: images/StaticProblems_MetricAdaptation.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsMetricAdaptation
 
     Density of the error indicator with isotropic :math:`P_{2}` metric
 
 .. figure:: images/StaticProblems_MetricAdaptation2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsMetricAdaptation2
 
     Density of the error indicator with isotropic :math:`P_{2}` metric
@@ -1179,13 +1189,15 @@ A second macro to re-mesh according to the new mesh size.
     }
 
 .. figure:: images/StaticProblems_AdaptationResidualError.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsAdaptationResidualError
 
     The error indicator with isotropic :math:`P_{1}`
 
 .. figure:: images/StaticProblems_AdaptationResidualError2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: exampleStaticProblemsAdaptationResidualError2
 
     The mesh and isovalue of the solution

@@ -41,10 +41,12 @@ See :ref:`documentation <ffddmDocumentationOverlappingMeshDecomposition>`
 Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` from the global mesh :math:`Th`
 
 .. figure:: figures/domain1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
 .. figure:: figures/domain2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
 .. code-block:: freefem
 
@@ -600,10 +602,12 @@ Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 f = 10 GHz
 
 .. figure:: figures/10GHz_borders_new_v2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
 .. figure:: figures/10GHz_new.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
 f = 16 GHz
 

@@ -64,13 +64,15 @@ The following is the **FreeFem++** program which computes :math:`u`:
 As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using **FreeFem++** :freefem:`plot` command (see line 29 above).
 
 .. figure:: images/firstTh.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figPoissonMesh
 
     Mesh Th by :freefem:`buildmesh(C(50))`
 
 .. figure:: images/firstU.png
-    :figclass: inline2
+    :figclass: inline
+	 :figwidth: 49%
     :name: figPoissonU
 
     Isovalue by :freefem:`plot(u)`
@@ -151,13 +153,15 @@ As it is a linear vector space of finite dimension, basis can be found.
 The canonical basis is made of functions, called the *hat function* :math:`\phi_k` which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on :numref:`figPoissonHat`.
 
 .. figure:: images/meshTh_2.png
-    :figclass: inline2
+    :figclass: inline
+	:figwidth: 49%
     :name: figPoissonMesh2
 
     :freefem:`mesh Th`
 
 .. figure:: images/hat_functions.png
-    :figclass: inline2
+    :figclass: inline
+	:figwidth: 49%
     :name: figPoissonHat
 
     Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)

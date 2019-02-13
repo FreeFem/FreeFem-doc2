@@ -410,22 +410,26 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
         }
 
     .. figure:: images/Elasticity_Fracture1.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Crack open displacement (COD) on the first mesh
 
     .. figure:: images/Elasticity_Fracture2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Principal stress difference on the first mesh
 
     .. figure:: images/Elasticity_Fracture3.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         COD on the last adaptive mesh
 
     .. figure:: images/Elasticity_Fracture4.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Principal stress difference on the last adaptive mesh
 
@@ -517,21 +521,25 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
         }
 
     .. figure:: images/Elasticity_FractureSliding1.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         COD on the first mesh
 
     .. figure:: images/Elasticity_FractureSliding2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Principal stress difference in the first mesh
 
     .. figure:: images/Elasticity_FractureSliding3.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         COD on the last adaptive mesh
 
     .. figure:: images/Elasticity_FractureSliding4.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
 
         Principal stress difference on the last adaptive mesh

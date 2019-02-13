@@ -70,13 +70,15 @@ Poisson's Equation
    }
 
 .. figure:: images/poisson_associated_mesh.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figExamplePoisson
 
     Adapted mesh
 
 .. figure:: images/poisson_adapted_mesh.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figExamplePoissonAdapt
 
     Solution on adapted mesh
@@ -235,12 +237,14 @@ Stokes Equation on a cube
 
 
 .. figure:: images/Stokes3d.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Solution
 
 .. figure:: images/Stokes3d-Th.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Associated mesh
 
@@ -391,12 +395,14 @@ Mesh adaptation
    }
 
 .. figure:: images/MeshAdaptation1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Initial mesh
 
 .. figure:: images/MeshAdaptation2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Adapted mesh
 
@@ -482,12 +488,14 @@ Uniform mesh adaptation
    plot(Th, wait=true);
 
 .. figure:: images/UniformMeshAdaptation1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Initial mesh
 
 .. figure:: images/UniformMeshAdaptation2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Adapted mesh
 
@@ -686,12 +694,14 @@ Empty mesh
    }
 
 .. figure:: images/EmptyMesh1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Empty square
 
 .. figure:: images/EmptyMesh2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Empty diamond
 
@@ -840,12 +850,14 @@ Build layer mesh
    medit("sphere 2 regions", Th3sph);
 
 .. figure:: images/BuildLayerMesh1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Box with a hole
 
 .. figure:: images/BuildLayerMesh2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Sphere
 
@@ -893,12 +905,14 @@ Sphere
    plot(Th3);
 
 .. figure:: images/Sphere1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Initial mesh
 
 .. figure:: images/Sphere2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Sphere
 
@@ -1159,12 +1173,14 @@ Medit
    exec("rm u.bb u.faces u.points");
 
 .. figure:: images/Medit1.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     2D plot
 
 .. figure:: images/Medit2.jpg
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Plot with elevation
 
@@ -1413,12 +1429,14 @@ Algorithms
    assert(nerr==0);
 
 .. figure:: images/Algorithms1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     Result ``u``
 
 .. figure:: images/Algorithms2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     :freefem:`df(dx(u)*dx(u) + dy(u)*dy(u))`
 
