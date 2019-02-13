@@ -26,6 +26,7 @@ At resonance there are non-zero solutions even when :math:`g=0`.
 So the following program may or may not work:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real kc2 = 1.;
@@ -69,6 +70,7 @@ Results are on :numref:`figAcoustics`. But when :math:`kc2` is an eigenvalue of 
 To find all the :math:`u_e` one can do the following :
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real sigma = 20; //value of the shift

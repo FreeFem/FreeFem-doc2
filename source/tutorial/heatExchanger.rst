@@ -37,6 +37,7 @@ The variational formulation for this problem is in the subspace :math:`H^1_0(\Om
 Let us assume that :math:`C_0` is a circle of radius 5 centered at the origin, :math:`C_i` are rectangles, :math:`C_1` being at the constant temperature :math:`u_1=60^\circ C`.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int C1=99;
@@ -98,6 +99,7 @@ Note the following:
    It is not possible to change the (uniform) distribution of vertices but a piece of boundary can always be cut in two or more parts, for instance ``C12`` could be replaced by ``C121+C122``:
 
 .. code-block:: freefem
+   :linenos:
 
    // border C12(t=0.,1.){x=2.; y=3.-6.*t; label=C1;}
    border C121(t=0.,0.7){x=2.; y=3.-6.*t; label=C1;}
@@ -128,6 +130,7 @@ Note the following:
 **Writing and reading triangulation files** Suppose that at the end of the previous program we added the line
 
 .. code-block:: freefem
+   :linenos:
 
    savemesh(Th, "condensor.msh");
 
@@ -135,6 +138,7 @@ and then later on we write a similar program but we wish to read the mesh from t
 Then this is how the condenser should be computed:
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    mesh Sh = readmesh("condensor.msh");

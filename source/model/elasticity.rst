@@ -121,6 +121,7 @@ where :math:`V` is the linear closed subspace of :math:`H^1(\Omega)^2`.
    On the two vertical sides of the beam are fixed.
 
    .. code-block:: freefem
+      :linenos:
 
       // Parameters
       real E = 21.5;
@@ -172,6 +173,7 @@ where :math:`V` is the linear closed subspace of :math:`H^1(\Omega)^2`.
    The body force is the gravity force :math:`\mathbf{f}` and the boundary force :math:`\mathbf{g}` is zero on all face except one the one vertical left face where the beam is fixed.
 
    .. code-block:: freefem
+      :linenos:
 
       include "cube.idp"
 
@@ -314,6 +316,7 @@ In this example, we use three technique:
 -  After obtaining the displacement vector :math:`\mathbf{u}=(u,v)`, we shall watch the deformation of the crack near :math:`\gamma` as follows,
 
    .. code-block:: freefem
+      :linenos:
 
       mesh Plate = movemesh(Zoom, [x+u, y+v]);
       plot(Plate);
@@ -333,6 +336,7 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 .. tip:: Crack Opening, :math:`K_2(\gamma)=0`
 
     .. code-block:: freefem
+        :linenos:
 
         //Parameters
         real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;
@@ -444,6 +448,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 .. tip:: Crack Sliding, :math:`K_2(\gamma)=0`
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         real d = 0.0001; int n = 5; real cb = 1, ca = 1, tip = 0.0;

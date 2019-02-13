@@ -47,6 +47,7 @@ For Navier Stokes, :math:`F` and :math:`DF` are:
 So the Newton algorithm become:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real R = 5.;

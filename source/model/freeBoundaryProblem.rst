@@ -4,6 +4,7 @@ Free boundary problems
 The domain :math:`\Omega` is defined with:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real L = 10; //length
@@ -87,6 +88,7 @@ Finally the new domain :math:`\Omega^{n+1} = \mathcal{F}(\Omega^n)`
    The **FreeFem++** implementation is:
 
    .. code-block:: freefem
+      :linenos:
 
       // Parameters
       real L = 10; //length

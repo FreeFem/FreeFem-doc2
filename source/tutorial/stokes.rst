@@ -19,6 +19,7 @@ The pressure and the velocity must be discretized in compatible fintie element s
    \sup_{p\in P_h}\frac{(\mathbf{u},\nabla p)}{|p|}\geq \beta|\mathbf{u}|~~~\forall \mathbf{u}\in U_h
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int nn = 30;

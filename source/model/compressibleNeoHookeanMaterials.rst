@@ -280,6 +280,7 @@ while the weak BVP formulation acquires the form:
    \mbox{for all test functions} \mathbf{w}
 
 .. code-block:: freefem
+   :linenos:
 
    // Macro
    //Macros for the gradient of a vector field (u1, u2)

@@ -27,6 +27,7 @@ We will compute :math:`u` with :math:`f(x,y)=xy` and :math:`\Omega` the unit dis
 The following is the **FreeFem++** program which computes :math:`u`:
 
 .. code-block:: freefem
+   :linenos:
 
    // Define mesh boundary
    border C(t=0, 2*pi){x=cos(t); y=sin(t);}
@@ -109,6 +110,7 @@ The keyword :freefem:`label` can be added to define a group of boundaries for la
 Hence the circle could also have been described as two half circle with the same label:
 
 .. code-block:: freefem
+   :linenos:
 
    border Gamma1(t=0, pi){x=cos(t); y=sin(t); label=C};
    border Gamma2(t=pi, 2.*pi){x=cos(t); y=sin(t); label=C};
@@ -122,12 +124,14 @@ The triangulation :math:`\mathcal{T}_h` of :math:`\Omega` is automatically gener
 The domain is assumed to be on the left side of the boundary which is implicitly oriented by the parametrization. So an elliptic hole can be added by typing:
 
 .. code-block:: freefem
+   :linenos:
 
    border C(t=2.*pi, 0){x=0.1+0.3*cos(t); y=0.5*sin(t);};
 
 If by mistake one had written:
 
 .. code-block:: freefem
+   :linenos:
 
    border C(t=0, 2.*pi){x=0.1+0.3*cos(t); y=0.5*sin(t);};
 
@@ -214,18 +218,21 @@ with:
 In **FreeFem++** the **Poisson** problem can be declared only as in:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh u,v; problem Poisson(u,v) = ...
 
 and solved later as in:
 
 .. code-block:: freefem
+   :linenos:
 
    Poisson; //the problem is solved here
 
 or declared and solved at the same time as in:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh u,v; solve Poisson(u,v) = ...
 
@@ -269,6 +276,7 @@ The matrix :math:`A=(A_{ij})` is called *stiffness matrix*.
 If the user wants to access :math:`A` directly he can do so by using (see section :ref:`Variational form, Sparse matrix, PDE data vector <variationalFormSparseMatrixPDE>` for details).
 
 .. code-block:: freefem
+   :linenos:
 
    varf a(u,v)
        = int2d(Th)(
@@ -282,6 +290,7 @@ If the user wants to access :math:`A` directly he can do so by using (see sectio
 The vector :math:`F` in :eq:`eqn:Equation` can also be constructed manually:
 
 .. code-block:: freefem
+   :linenos:
 
    varf l(unused,v)
        = int2d(Th)(
@@ -295,6 +304,7 @@ The vector :math:`F` in :eq:`eqn:Equation` can also be constructed manually:
 The problem can then be solved by:
 
 .. code-block:: freefem
+   :linenos:
 
    u[] = A^-1*F[]; //u[] is the vector associated to the function u
 
@@ -311,6 +321,7 @@ The problem can then be solved by:
 The linear system :eq:`eqn:Equation` is solved by :freefem:`UMFPACK` unless another option is mentioned specifically as in:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh u, v;
    problem Poisson(u, v, solver=CG) = int2d(...

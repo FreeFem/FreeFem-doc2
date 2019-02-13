@@ -49,6 +49,7 @@ In FreeFem++ there is an operator called :freefem:`convect([u1,u2], dt, c)` whic
 When :math:`\mathbf{u}` is piecewise constant; this is possible because :math:`x_\tau` is then a polygonal curve which can be computed exactly and the solution exists always when :math:`\mathbf{u}` is divergence free; convect returns :math:`c(x_{df})=C\circ X`.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real dt = 0.17;
@@ -94,6 +95,7 @@ where :math:`E` is the set of inner edges and :math:`E_\Gamma^-` is the set of b
 Finally :math:`[c]` is the jump of :math:`c` across an edge with the convention that :math:`c^+` refers to the value on the right of the oriented edge.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real al=0.5;
@@ -164,6 +166,7 @@ As easily guessed :freefem:`N.x,N.y` is the normal to the edge.
 Now if you think that DG is too slow try this:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real al=0.5;
@@ -226,6 +229,7 @@ Then upwinding is done by taking left or right values at the median:
 It can be programmed as :
 
 .. code-block:: freefem
+   :linenos:
 
    load "mat_dervieux"; //External module in C++ must be loaded
 
@@ -264,6 +268,7 @@ the “mass lumping" parameter forces a quadrature formula with Gauss points at 
 The right hand side ``rhs`` is computed by an external C++ function ``MatUpWind0(...)`` which is programmed as :
 
 .. code-block:: cpp
+   :linenos:
 
    // Computes matrix a on a triangle for the Dervieux FVM
    int fvmP1P0(double q[3][2], // the 3 vertices of a triangle T

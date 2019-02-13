@@ -77,6 +77,7 @@ Using the identity just above, we can calculate the finite element approximation
         \end{array}
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         real dt = 0.1;
@@ -206,6 +207,7 @@ if the following are satisfied:
 .. tip:: Example
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         real tau = 0.1; real
@@ -395,6 +397,7 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 .. tip:: Convect
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         real dt = 0.17;
@@ -476,6 +479,7 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 .. tip:: Black-Scholes
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         int m = 30; int L = 80; int LL = 80; int j = 100; real sigx = 0.3; real sigy = 0.3; real rho = 0.3; real r = 0.05; real K = 40; real dt = 0.01;

@@ -252,6 +252,7 @@ and the corresponding algebraic problem:
     The mesh is constructed by:
 
     .. code-block:: freefem
+        :linenos:
 
         mesh Th = square(8, 8);
 
@@ -270,6 +271,7 @@ and the corresponding algebraic problem:
     The FE spaces and functions are constructed by:
 
     .. code-block:: freefem
+        :linenos:
 
         fespace Xh(Th, P2); //definition of the velocity component space
         fespace Mh(Th, P1); //definition of the pressure space
@@ -281,6 +283,7 @@ and the corresponding algebraic problem:
     The test function for the velocity is :math:`(v1,v2)` and :math:`q` for the pressure, so the variational form :eq:`eqn::vfStokes` in freefem language is:
 
     .. code-block:: freefem
+        :linenos:
 
         solve Stokes (u1, u2, p, v1, v2, q, solver=Crout)
             = int2d(Th)(
@@ -306,6 +309,7 @@ and the corresponding algebraic problem:
         -\Delta\psi=\nabla\times u
 
     .. code-block:: freefem
+        :linenos:
 
         Xh psi, phi;
 
@@ -338,6 +342,7 @@ and the corresponding algebraic problem:
     The term :math:`u^n\circ X^n(x)\approx u^n(x-u^n(x)\tau )` will be computed by the operator :freefem:`convect`, so we obtain:
 
     .. code-block:: freefem
+        :linenos:
 
         int i=0;
         real alpha=1/dt;
@@ -408,6 +413,7 @@ So :math:`X_{h}` is the velocity space, and :math:`M_{h}` is the pressure space.
 .. tip:: Stokes Uzawa
 
     .. code-block:: freefem
+        :linenos:
 
         // Mesh
         mesh Th = square(10, 10);
@@ -483,6 +489,7 @@ To implement this, we do:
 .. tip:: NS Uzawa Cahouet Chabart
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         verbosity = 0;

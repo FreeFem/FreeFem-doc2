@@ -54,6 +54,7 @@ Where with :math:`\frac{1}{\varepsilon} = \mathtt{tgv} = 10^{30}`:
 The Fast version script:
 
 .. code-block:: freefem
+    :linenos:
 
     ...
     Vh u0=fu0, u=u0;
@@ -61,6 +62,7 @@ The Fast version script:
 Create three variational formulation, and build the matrices :math:`A`,\ :math:`M`.
 
 .. code-block:: freefem
+   :linenos:
 
    varf vthermic (u, v)
        = int2d(Th)(
@@ -92,6 +94,7 @@ Create three variational formulation, and build the matrices :math:`A`,\ :math:`
 Now, to build the right hand size; we need 4 vectors.
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] b0 = vthermic0(0,Vh); //constant part of RHS
    real[int] bcn = vthermic(0,Vh); //tgv on Dirichlet part

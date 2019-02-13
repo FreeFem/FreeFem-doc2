@@ -38,6 +38,7 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
 .. tip:: Schwarz overlapping
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         int inside =2; //inside boundary
@@ -146,6 +147,7 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
 .. tip:: Schwarz non-overlapping
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         int inside = 2; int outside = 1; int n = 4;
@@ -246,6 +248,7 @@ The problem on the border is solved by a conjugate gradient method.
    First, we construct the two domains:
 
    .. code-block:: freefem
+      :linenos:
 
       // Parameters
       int inside = 2; int outside = 1; int n = 4;
@@ -263,6 +266,7 @@ The problem on the border is solved by a conjugate gradient method.
    Now, define the finite element spaces:
 
    .. code-block:: freefem
+      :linenos:
 
       // Fespace
       fespace Vh1(Th1, P1);
@@ -276,12 +280,14 @@ The problem on the border is solved by a conjugate gradient method.
    .. note:: It is impossible to define a function just on a part of boundary, so the :math:`\lambda` function must be defined on the all domain :math:`\Omega_1` such as:
 
       .. code-block:: freefem
+       :linenos:
 
        Vh1 lambda;
 
    The two Poisson's problems:
 
    .. code-block:: freefem
+      :linenos:
 
       problem Pb1 (u1, v1, init=i, solver=Cholesky)
           = int2d(Th1)(
@@ -314,6 +320,7 @@ The problem on the border is solved by a conjugate gradient method.
    And, we define a border matrix, because the :math:`\lambda` function is none zero inside the domain :math:`\Omega_1`:
 
    .. code-block:: freefem
+      :linenos:
 
       varf b(u2, v2, solver=CG) = int1d(Th1, inside)(u2*v2);
       matrix B = b(Vh1, Vh1, solver=CG);
@@ -324,6 +331,7 @@ The problem on the border is solved by a conjugate gradient method.
       \lambda \longrightarrow \int_{\Gamma_i }(u_1-u_2) v_{1}
 
    .. code-block:: freefem
+      :linenos:
 
       // Boundary problem function
       func real[int] BoundaryProblem (real[int] &l){
@@ -339,6 +347,7 @@ The problem on the border is solved by a conjugate gradient method.
    .. note:: The difference between the two notations :freefem:`v1` and :freefem:`v1[]` is: :freefem:`v1` is the finite element function and :freefem:`v1[]` is the vector in the canonical basis of the finite element function :freefem:`v1`.
 
    .. code-block:: freefem
+      :linenos:
 
       // Solve
       real cpu=clock();

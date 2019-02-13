@@ -24,7 +24,8 @@ where :math:`I_B` is :math:`1` in the object and :math:`0` elsewhere.
 In the program below :math:`\beta = 1/(1-i/2)` in the air and :math:`2/(1-i/2)` in the object (:math:`i=\sqrt{-1}`):
 
 .. code-block:: freefem
-
+   :linenos:
+   
    // Parameters
    int nn = 2;
    real a = 20.;

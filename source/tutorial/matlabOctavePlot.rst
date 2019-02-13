@@ -39,6 +39,7 @@ and the electrostatic field is calculated by
    \mathbf{E} = -\nabla u
 
 .. code-block:: freefem
+   :linenos:
 
    int CA=3, CK=4, CB=5;
    real w2=1.0, h=0.4, d2=0.5;
@@ -91,6 +92,7 @@ FE-space functions must be written to text files by for-loops.
 The following code section writes the mesh, the potential :math:`u` and the 2D vector field :math:`\mathbf{E}` of the stripline capacitor example into three different files:
 
 .. code-block:: freefem
+   :linenos:
 
    //Stores the Mesh
    savemesh(Th,"capacitor.msh");
@@ -121,18 +123,21 @@ A mesh file as previously written with the :freefem:`savemesh(Th,"filename.msh")
 A mesh file is loaded to the Matlab / Octave workspace with the following command:
 
 .. code-block:: matlab
+   :linenos:
 
    [p,b,t,nv,nbe,nt,labels] = ffreadmesh('filename.msh');
 
 The three data sections mentioned are stored in the variables ``p``, ``b`` and ``t``. On the other hand the simulation data can be loaded into the Matlab / Octave workspace with the function:
 
 .. code-block:: matlab
+   :linenos:
 
    u = ffreaddata('filename.txt');
 
 Therefore to load the complete simulation result from the capacitor example the following statement sequence must be executed:
 
 .. code-block:: matlab
+   :linenos:
 
    %Where to find the ffmatlib commands
    addpath('ffmatlib');
@@ -150,6 +155,7 @@ Therefore to load the complete simulation result from the capacitor example the 
 The basic syntax is:
 
 .. code-block:: matlab
+   :linenos:
 
    [handles,varargout] = ffpdeplot(p,b,t,varargin)
 
@@ -159,6 +165,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 -  Plot of the boundary and the mesh:
 
 .. code-block:: matlab
+   :linenos:
 
    ffpdeplot(p,b,t,'Mesh','on','Boundary','on');
 
@@ -170,6 +177,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 -  Patch plot (2D map or density plot) including mesh and boundary:
 
 .. code-block:: matlab
+   :linenos:
 
    ffpdeplot(p,b,t,'XYData',u,'Mesh','on','Boundary','on', ...
              'XLim',[-2 2],'YLim',[-2 2]);
@@ -182,6 +190,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 -  3D surf plot:
 
 .. code-block:: matlab
+   :linenos:
 
    ffpdeplot(p,b,t,'XYData',u,'ZStyle','continuous','Mesh','off');
    lighting gouraud;
@@ -196,6 +205,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 -  Contour (isovalue) and quiver (vector field) plot:
 
 .. code-block:: matlab
+   :linenos:
 
    ffpdeplot(p,b,t,'XYData',u,'XYStyle','off','Mesh','off','Boundary','on', ...
              'Contour','on','CStyle','monochrome','CColor','b', ...

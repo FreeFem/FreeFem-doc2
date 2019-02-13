@@ -37,6 +37,7 @@ Obviously :math:`J'_b` is equal to :math:`\delta J` when :math:`\delta b=1,\delt
 All this is implemented in the following program:
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    border aa(t=0, 2*pi){x=5*cos(t); y=5*sin(t);};

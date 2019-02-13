@@ -46,6 +46,7 @@ An equation for the upper surface of a NACA0012 (this is a classical wing profil
    y = 0.17735\sqrt{x}-0.075597x- 0.212836x^2+0.17363x^3-0.06254x^4.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real S = 99;
@@ -107,6 +108,7 @@ Furthermore there is convection of heat by the flow, hence the term :math:`u\cdo
 Consider the following, to be plugged at the end of the previous program:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real S = 99;

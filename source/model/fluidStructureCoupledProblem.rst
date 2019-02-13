@@ -51,6 +51,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    The bending displacement of the beam is given by :math:`(uu, vv)` whose solution is given as follows.
 
    .. code-block:: freefem
+      :linenos:
 
       // Parameters
       int bottombeam = 2; //label of bottombeam
@@ -96,6 +97,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    Then Stokes equation for fluids at low speed are solved in the box below the beam, but the beam has deformed the box (see border h):
 
    .. code-block:: freefem
+      :linenos:
 
       // Mesh (fluid)
       border e(t=0, 10){x=t; y=-10; label= 1;}
@@ -108,6 +110,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    We use the Uzawa conjugate gradient to solve the Stokes problem like in :ref:`Navier-Stokes equations <navierStokesUzawaConjugateGradients>`.
 
    .. code-block:: freefem
+      :linenos:
 
       // Fespace (fluid)
       fespace Xh(sh, P2);
@@ -156,6 +159,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    do a loop on the two problems
 
    .. code-block:: freefem
+      :linenos:
 
       // Coupling loop
       for(int step = 0; step < 10; ++step){
@@ -166,6 +170,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    Now the beam will feel the stress constraint from the fluid:
 
    .. code-block:: freefem
+       :linenos:
 
        // Forces
        Vh sigma11, sigma22, sigma12;
@@ -178,6 +183,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    which comes as a boundary condition to the PDE of the beam:
 
    .. code-block:: freefem
+       :linenos:
 
        // Solve (solid)
        solve Elasticity2 ([uu, vv], [w, s], init=step)
@@ -205,6 +211,7 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    Finally we deform the beam:
 
    .. code-block:: freefem
+       :linenos:
 
        // Movemesh
        th1 = movemesh(th, [x+0.2*uu, y+0.2*vv]);

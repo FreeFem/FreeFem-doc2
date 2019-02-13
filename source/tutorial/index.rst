@@ -34,6 +34,7 @@ The development cycle includes the following steps:
 That can also be done in terminal mode by :
 
 .. code-block:: bash
+   :linenos:
 
    FreeFem++ mycode.edp
 
@@ -43,6 +44,7 @@ Use the plot-parameter :freefem:`wait=1` to stop the program at each plot.
 **Debugging:** A global variable ``debug`` (for example) can help as in :freefem:`wait=true` to :freefem:`wait=false`.
 
 .. code-block:: freefem
+   :linenos:
 
    bool debug = true;
 
@@ -76,6 +78,7 @@ Nevertheless they are displayed at the right place.
 For example, if you forget parenthesis as in:
 
 .. code-block:: freefem
+   :linenos:
 
    bool debug = true;
    mesh Th = square(10,10;
@@ -84,6 +87,7 @@ For example, if you forget parenthesis as in:
 then you will get the following message from **FreeFem++**:
 
 .. code-block:: bash
+   :linenos:
 
        2 : mesh Th = square(10,10;
     Error line number 2, in file bb.edp, before  token ;
@@ -98,6 +102,7 @@ then you will get the following message from **FreeFem++**:
 If you use the same symbol twice as in:
 
 .. code-block:: freefem
+   :linenos:
 
    real aaa = 1;
    real aaa;
@@ -105,6 +110,7 @@ If you use the same symbol twice as in:
 then you will get the message:
 
 .. code-block:: bash
+       :linenos:
 
        2 : real aaa; The identifier aaa exists
              the existing type is <Pd>
@@ -115,6 +121,7 @@ If you find that the program isn’t doing what you want you may also use :freef
 The following example works:
 
 .. code-block:: freefem
+   :linenos:
 
    ...
    fespace Vh(Th, P1);
@@ -127,6 +134,7 @@ Another trick is to *comment in and out* by using :freefem:`//` as in C++.
 For example:
 
 .. code-block:: freefem
+   :linenos:
 
    real aaa =1;
    // real aaa;

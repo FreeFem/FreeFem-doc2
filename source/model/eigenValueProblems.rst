@@ -8,6 +8,7 @@ This section depends on your installation of FreeFem++; you need to have compile
 This tool is available in FreeFem++ if the word eigenvalue appears in line ``Load:``, like:
 
 .. code-block:: bash
+   :linenos:
 
    -- FreeFem++ v*.** (date *** *** ** **:**:** CET ****)
     file : ***.edp
@@ -23,6 +24,7 @@ The matrix :math:`OP` is defined with :math:`A - \sigma B`.
 The return value is the number of converged eigenvalues (can be greater than the number of requested eigenvalues nev=)
 
 .. code-block:: freefem
+   :linenos:
 
    int k = EigenValue(OP, B, nev=Nev, sigma=Sigma);
 
@@ -31,12 +33,14 @@ where the matrix :math:`OP= A - \sigma B` with a solver and boundary condition, 
 There is also a functional interface:
 
 .. code-block:: freefem
+   :linenos:
 
    int k = EigenValue(n, FOP1, FB, nev=Nev, sigma=Sigma);
 
 where :math:`n` is the size of the problem, and the operators are now defined through functions, defining respectively the matrix product of :math:`OP^{-1}` and :math:`B`, as in
 
 .. code-block:: freefem
+   :linenos:
 
    int n = OP1.n;
    func real[int] FOP1(real[int] & u){ real[int] Au = OP^-1*u; return Au; }
@@ -47,6 +51,7 @@ If you want finer control over the method employed in ``ARPACK``, you can specif
 -  :freefem:`mode=1`: Regular mode for solving :math:`A u = \lambda u`
 
    .. code-block:: freefem
+      :linenos:
 
       int k = EigenValue(n, A=FOP, mode=1, nev=Nev);
 
@@ -54,6 +59,7 @@ If you want finer control over the method employed in ``ARPACK``, you can specif
 -  :freefem:`mode=2`: Regular inverse mode for solving :math:`A u = \lambda B u`
 
    .. code-block:: freefem
+      :linenos:
 
       int k = EigenValue(n, A=FOP, B=FB, B1=FB1, mode=2, nev=Nev);
 
@@ -61,6 +67,7 @@ If you want finer control over the method employed in ``ARPACK``, you can specif
 -  :freefem:`mode=3`: Shift-invert mode for solving :math:`A u = \lambda B u`
 
    .. code-block:: freefem
+      :linenos:
 
       int k = EigenValue(n, A1=FOP1, B=FB, mode=3, sigma=Sigma, nev=Nev);
 
@@ -107,6 +114,7 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
     We use the generalized inverse shift mode of the `arpack++` library, to find 20 eigenvalues and eigenvectors close to the shift value :math:`\sigma=20`.
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         verbosity=0;
@@ -162,6 +170,7 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
     The output of this example is:
 
     .. code-block:: bash
+        :linenos:
 
         lambda[0] = 5.0002, err= -1.46519e-11
         lambda[1] = 8.00074, err= -4.05158e-11
