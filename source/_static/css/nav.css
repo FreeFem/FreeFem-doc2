@@ -1,7 +1,7 @@
 #nav {
 	grid-row: 2;
 	grid-column: 1 / 4;
-	background-color: #000000;
+	background-color: #00007F;
 	color: white;
 	padding: 0 10px;
 
@@ -22,7 +22,7 @@
 	grid-column: 1;
 	justify-self: start;
 	display: none;
-	background-color: #000000;
+	background-color: #00007F;
 	color: lightgrey;
 	border: none;
 	padding: 12px 0;
@@ -32,7 +32,7 @@
 }
 
 #nav .nav-btn:hover {
-	background-color: #000000;
+	background-color: #00007F;
 	color: white;
 }
 
@@ -113,8 +113,8 @@ nav .search-container {
 
 .search-container label {
 	border-radius: 5px 0 0 5px;
-	background-color: #0000FF;
-	color: white;
+	background-color: #FFFFFF;
+	color: grey;
 }
 
 nav input[type=search] {
@@ -124,8 +124,8 @@ nav input[type=search] {
 	border: none;
 	transition: 0.5s;
 	border-radius: 0 5px 5px 0;
-	background-color: #0000FF;
-	color: white;
+	background-color: #FFFFFF;
+	color: grey;
 }
 
 nav label {

@@ -5,7 +5,7 @@ header {
 	grid-template-rows: auto;
 	grid-template-columns: 60px auto auto;
 	align-items: center;
-	background-color: #000000;
+	background-color: #00007F;
 	color: white;
 	padding: 0 10px;
 }
