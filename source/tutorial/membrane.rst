@@ -131,14 +131,14 @@ Results are on :numref:`figMembraneMesh` and :numref:`figMembraneLevelLines`.
 
 .. figure:: images/membraneTh.png
     :figclass: inline
- 	 :figwidth: 49%
+    :figwidth: 49%
     :name: figMembraneMesh
 
     Mesh of the ellipse
 
 .. figure:: images/membrane.png
     :figclass: inline
- 	 :figwidth: 49%
+    :figwidth: 49%
     :name: figMembraneLevelLines
 
     Level lines of the membrane deformation

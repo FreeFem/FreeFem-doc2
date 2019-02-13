@@ -125,14 +125,14 @@ The program found :math:`b=2.00125,c=3.00109,d=4.00551`.
 
 .. figure:: images/u-bfgs.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figOptimalU
 
     Level line of :math:`u`.
 
 .. figure:: images/OptimalControl_J.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figOptimalJ
 
     Successive evaluations of :math:`J` by BFGS (5 values above 500 have been removed for readability)
