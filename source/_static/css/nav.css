@@ -151,29 +151,43 @@ nav .nav-btn {
 nav .sidenav {
 	width: 0;
 	height: 100%;
-	position: fixed;
 	z-index: 1;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background-color: #111;
 	overflow-x: hidden;
 	transition: 0.5s;
-	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+}
+
+nav .sidenav .closebtn {
+	padding: 1rem;
+	align-self: flex-end;
+}
+
+nav .sidenav .previousNav {
+	padding: 1rem;
+	align-self: stretch;
+}
+
+nav .sidenav .sidenav-title {
+	padding: 1rem;
+	font-weight: bold;
 }
 
 nav .sidenav .nav-items {
-	max-height: 80vh;
+	max-height: 70vh;
 	overflow: auto;
 }
 
 nav .sidenav .nav-item {
 	display: flex;
 	flex-direction: row;
-	align-items: baseline;
+	align-items: center;
 	justify-content: space-between;
-}
 
-nav .sidenav .nav-item {
 	padding: 20px 20px;
 	color: lightgrey;
 	transition: 0.3s;
@@ -181,22 +195,4 @@ nav .sidenav .nav-item {
 
 nav .sidenav .nav-item:hover {
 	color: white;
-}
-
-nav .sidenav .sidenav-title {
-	padding: 20px;
-	font-weight: bold;
-}
-
-nav .sidenav .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-}
-
-nav .sidenav .sidenav-next {
-	z-index: 10;
-	padding: 10px;
 }
