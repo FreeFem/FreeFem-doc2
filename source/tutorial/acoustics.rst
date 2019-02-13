@@ -107,13 +107,13 @@ To find all the :math:`u_e` one can do the following :
 
 .. figure:: images/acoustics_0.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figAcoustics
 
     Amplitude of an acoustic signal coming from the left vertical wall.
 
 .. figure:: images/acoustics.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
 
     First eigen state (:math:`\lambda=(k/c)^2=19.4256`) close to :math:`20` of eigenvalue problem: :math:`-\Delta \varphi = \lambda\varphi` and :math:`\frac{\partial \varphi}{\partial n} = 0` on :math:`\Gamma`}

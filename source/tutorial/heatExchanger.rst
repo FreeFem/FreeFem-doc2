@@ -107,14 +107,14 @@ Note the following:
 
 .. figure:: images/heat_exchangerTh.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figHeatMesh
 
     Heat exchanger mesh
 
 .. figure:: images/heat_exchanger.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figHeatSolution
 
     Heat exchanger solution

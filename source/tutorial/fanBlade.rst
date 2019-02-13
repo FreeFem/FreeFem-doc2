@@ -78,7 +78,7 @@ A zoom of the streamlines are shown on :numref:`figFanPotential`.
 
 .. figure:: images/potential.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figFanPotential
 
     Zoom around the NACA0012 airfoil showing the streamlines (curve :math:`\psi=` constant).
@@ -86,7 +86,7 @@ A zoom of the streamlines are shown on :numref:`figFanPotential`.
 
 .. figure:: images/potential_heat.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figFanTemperature
 
     Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).

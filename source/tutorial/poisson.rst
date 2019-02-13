@@ -65,14 +65,14 @@ As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by
 
 .. figure:: images/firstTh.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figPoissonMesh
 
     Mesh Th by :freefem:`buildmesh(C(50))`
 
 .. figure:: images/firstU.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figPoissonU
 
     Isovalue by :freefem:`plot(u)`
@@ -154,14 +154,14 @@ The canonical basis is made of functions, called the *hat function* :math:`\phi_
 
 .. figure:: images/meshTh_2.png
     :figclass: inline
-	:figwidth: 49%
+    :figwidth: 49%
     :name: figPoissonMesh2
 
     :freefem:`mesh Th`
 
 .. figure:: images/hat_functions.png
     :figclass: inline
-	:figwidth: 49%
+    :figwidth: 49%
     :name: figPoissonHat
 
     Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)

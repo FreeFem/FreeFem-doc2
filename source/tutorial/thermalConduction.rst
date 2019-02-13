@@ -95,14 +95,14 @@ Results are shown on :numref:`figThermalT` and :numref:`figThermalCurve`.
 
 .. figure:: images/thermic.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figThermalT
 
     Temperature at :math:`t=4.9`.
 
 .. figure:: images/thermicvst.png
     :figclass: inline
-	 :figwidth: 49%
+    :figwidth: 49%
     :name: figThermalCurve
 
     Decay of temperature versus time at :math:`x=3, y=0.5`
