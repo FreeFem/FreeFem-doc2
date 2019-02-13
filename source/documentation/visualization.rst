@@ -67,6 +67,7 @@ The keyboard shortcuts are:
 For example:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] xx(10), yy(10);
 
@@ -112,6 +113,7 @@ For example:
 To change the color table and to choose the value of iso line you can do:
 
 .. code-block:: freefem
+   :linenos:
 
    // from: \url{http://en.wikipedia.org/wiki/HSV_color_space}
    // The HSV (Hue, Saturation, Value) model defines a color space
@@ -172,6 +174,7 @@ However, this works only if `gnuplot <http://www.gnuplot.info>`__ is installed, 
 Add to the previous example:
 
 .. code-block:: freefem
+   :linenos:
 
    {// file for gnuplot
       ofstream gnu("plot.gp");
@@ -209,6 +212,7 @@ The :freefem:`medit` command parameters are listed in the :ref:`Reference part <
 With version 3.2 or later
 
 .. code-block:: freefem
+   :linenos:
 
    load "medit"
 
@@ -222,6 +226,7 @@ With version 3.2 or later
 Before:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = square(10, 10, [2*x-1, 2*y-1]);
 
@@ -251,6 +256,7 @@ Link with Paraview
 One can also export mesh or results in the ``.vtk`` format in order to post-process data using `Paraview <https://www.paraview.org/>`__.
 
 .. code-block:: freefem
+   :linenos:
 
    load "iovtk"
 
@@ -280,6 +286,7 @@ Link with Matlab© and Octave
 In order to create plots from FreeFem++ simulations in `Octave <https://www.gnu.org/software/octave/>`__ and `Matlab <https://www.mathworks.com/>`__ the FEM mesh and the FE function must be exported to text files:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = square(10, 10, [2*x-1, 2*y-1]);
 
@@ -295,6 +302,7 @@ In order to create plots from FreeFem++ simulations in `Octave <https://www.gnu.
 Within Matlab or Octave the files can be processed with the `ffmatlib library <https://github.com/samplemaker/freefem_matlab_octave_plot>`__:
 
 .. code-block:: matlab
+   :linenos:
 
    addpath('path to ffmatlib');
    [p,b,t]=ffreadmesh('export_mesh.msh');

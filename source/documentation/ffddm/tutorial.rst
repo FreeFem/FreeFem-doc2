@@ -49,6 +49,7 @@ Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` 
     :figwidth: 49%
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmbuildDmesh( prmesh , ThGlobal , comm )
 
@@ -59,6 +60,7 @@ Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` 
 `prmesh#Thi` is the local mesh of the subdomain for each mpi process
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
 
@@ -74,6 +76,7 @@ Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` 
 Copy and paste this to a file 'test.edp' and run it:
 
 .. code-block:: bash
+    :linenos:
 
     ff-mpirun -np 2 test.edp -glut ffglut
 
@@ -83,6 +86,7 @@ Step 2: Define your finite element
 See :ref:`documentation <ffddmDocumentationLocalFiniteElementSpaces>`
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmbuildDfespace( prfe , prmesh , scalar , def , init , Pk )
 
@@ -97,6 +101,7 @@ builds the local finite element spaces and associated distributed operators on t
 Example for P2 *complex*:
 
 .. code-block:: freefem
+    :linenos:
 
     macro def(u)  u // EOM
     macro init(u) u // EOM
@@ -106,6 +111,7 @@ Example for P2 *complex*:
 Example for [P2,P2,P1] *real*:
 
 .. code-block:: freefem
+    :linenos:
 
     macro def(u)  [u, u#B, u#C] // EOM
     macro init(u) [u, u, u]     // EOM
@@ -155,6 +161,7 @@ Data exchange between neighbors
 '''''''''''''''''''''''''''''''
 
 .. code-block:: freefem
+    :linenos:
 
     func prfe#update(K[int] vi, bool scale)
 
@@ -167,6 +174,7 @@ synchronizes local vectors :math:`{\mathbf V}_i` between subdomains :math:`\Righ
 where :math:`\mathcal{O}(i)` is the set of neighbors of subdomain $i$. Exchange operators :math:`R_i\,R_j^T` correspond to neighbor-to-neighbor MPI communications
 
 .. code-block:: freefem
+    :linenos:
 
     FEupdate(vi, false);
 
@@ -174,6 +182,7 @@ where :math:`\mathcal{O}(i)` is the set of neighbors of subdomain $i$. Exchange 
     {\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T {\mathbf V}_j \right)
 
 .. code-block:: freefem
+    :linenos:
 
     FEupdate(vi, true);
 
@@ -181,6 +190,7 @@ where :math:`\mathcal{O}(i)` is the set of neighbors of subdomain $i$. Exchange 
     {\mathbf V}_i \leftarrow R_i \left( \sum_{j=1}^N R_j^T D_j {\mathbf V}_j  \right)
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
 
@@ -217,6 +227,7 @@ Step 3: Define your problem
 See :ref:`documentation <ffddmDocumentationDefineProblemToSolve>`
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmsetupOperator( pr , prfe , Varf )
 
@@ -225,6 +236,7 @@ builds the distributed operator associated to your variational form on top of th
 **Varf** is a macro defining your abstract variational form
 
 .. code-block:: freefem
+    :linenos:
 
     macro Varf(varfName, meshName, VhName)
         varf varfName(u,v) = int2d(meshName)(grad(u)'* grad(v))
@@ -242,6 +254,7 @@ builds the distributed operator associated to your variational form on top of th
 :math:`\Rightarrow` multiply by :math:`A_i` + `prfe#update`
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
 
@@ -279,10 +292,12 @@ Step 1: Decompose the mesh
 See :ref:`documentation <ffddmDocumentationOverlappingMeshDecomposition>`
 
 .. code-block:: freefem
+    :linenos:
 
     mesh Th = square(100,100);
 
 .. code-block:: freefem
+    :linenos:
 
     mesh Th = square(100,100);
     ffddmbuildDmesh(M, Th, mpiCommWorld)
@@ -292,10 +307,12 @@ Step 2: Define your finite element
 See :ref:`documentation<ffddmDocumentationLocalFiniteElementSpaces>`
 
 .. code-block:: freefem
+    :linenos:
 
     fespace Vh(Th, P1);
 
 .. code-block:: freefem
+    :linenos:
 
     macro def(u)  u // EOM
     macro init(u) u // EOM
@@ -306,11 +323,13 @@ Step 3: Define your problem
 See :ref:`documentation <ffddmDocumentationDefineProblemToSolve>`
 
 .. code-block:: freefem
+    :linenos:
 
     varf Pb(u, v) = ...
     matrix A = Pb(Vh, Vh);
 
 .. code-block:: freefem
+    :linenos:
 
     macro Varf(varfName, meshName, VhName)
         varf varfName(u,v) = ... // EOM
@@ -322,10 +341,12 @@ Solve the linear system
 See :ref:`documentation <ffddmDocumentationDefineProblemToSolve>`
 
 .. code-block:: freefem
+    :linenos:
 
     u[] = A^-1 * b[];
 
 .. code-block:: freefem
+    :linenos:
 
     ui[] = PBdirectsolve(bi[]);
 
@@ -335,12 +356,14 @@ Solve the linear system with the parallel direct solver *MUMPS*
 See :ref:`documentation <ffddmDocumentationDefineProblemToSolve>`
 
 .. code-block:: freefem
+    :linenos:
 
     func K[int] pr#directsolve(K[int]& bi)
 
 We have :math:`A` and :math:`b` in distributed form, we can solve the linear system :math:`A u = b` using the parallel direct solver *MUMPS*
 
 .. code-block:: freefem
+    :linenos:
 
     // Solve the problem using the direct parallel solver MUMPS
     ui[] = PBdirectsolve(bi[]);
@@ -352,6 +375,7 @@ Step 4: Define the one level DD preconditioner
 See :ref:`documentation <ffddmDocumentationOneLevelPreconditioners>`
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmsetupPrecond( pr , VarfPrec )
 
@@ -374,6 +398,7 @@ Step 5: Solve the linear system with preconditioned GMRES
 See :ref:`documentation <ffddmDocumentationSolvingLinearSystem>`
 
 .. code-block:: freefem
+    :linenos:
 
     func K[int] pr#fGMRES(K[int]& x0i, K[int]& bi, real eps, int itmax, string sp)
 
@@ -396,6 +421,7 @@ solve :math:`A M^{-1} y = b`
 :math:`\Rightarrow x = M^{-1} y`
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
     include "ffddm.idp"
@@ -454,6 +480,7 @@ Build the GenEO coarse space
 See :ref:`documentation <ffddmDocumentationBuildingGeneoCoarseSpace>`
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmgeneosetup( pr , Varf )
 
@@ -475,6 +502,7 @@ The eigenvectors :math:`V_{i,k}` selected to enter the coarse space correspond t
  :math:`\Rightarrow` :math:`k_0` and :math:`k_1` do not depend on :math:`N` nor on the PDE
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
     include "ffddm.idp"
@@ -512,6 +540,7 @@ Build the coarse space from a coarse mesh
 See :ref:`documentation <ffddmDocumentationBuildingCoarseSpaceFromCoarseMesh>`
 
 .. code-block:: freefem
+    :linenos:
 
     ffddmcoarsemeshsetup( pr , Thc , VarfEprec , VarfAprec )
 
@@ -530,6 +559,7 @@ The variational problem to be discretized on **Thc** is given by macro **VarfEpr
 Similarly, **VarfAprec** specifies the global operator involved in multiplicative coarse correction formulas. It defaults to :math:`A` if **VarfAprec** is not defined
 
 .. code-block:: freefem
+    :linenos:
 
     macro dimension 2// EOM            // 2D or 3D
     include "ffddm.idp"
@@ -580,6 +610,7 @@ To switch to **HPDDM**, simply define the macro `pr#withhpddm` before using `ffd
 with command-line arguments or directly to the underlying **HPDDM** operator:
 
 .. code-block:: freefem
+    :linenos:
 
     macro PBwithhpddm()1 // EOM
     ffddmsetupOperator( PB , FE , Varf )

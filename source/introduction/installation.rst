@@ -46,6 +46,7 @@ An up-to-date package of **FreeFem++** for Arch is available on the `Archlinux u
 To install it:
 
 .. code-block:: bash
+   :linenos:
 
    git clone https://aur.archlinux.org/freefem++-git.git
    cd freefem++-git
@@ -66,15 +67,16 @@ You can do it directly in Atom: Edit -> Preferences -> Install, and search for `
 To launch scripts directly from Atom, you have to install the ``atom-runner`` package. Once installed, modify the Atom configuration file (Edit -> Config...) to have something like that:
 
 .. code-block:: bash
+   :linenos:
 
-  "*":
-    ...
+   "*":
+      ...
 
-    runner:
-      extensions:
-        edp: "FreeFem++"
-      scopes:
-        "Freefem++": "FreeFem++"
+      runner:
+         extensions:
+            edp: "FreeFem++"
+         scopes:
+            "Freefem++": "FreeFem++"
 
 Reboot Atom, and use Alt+R to run a FreeFem++ script.
 
@@ -111,6 +113,7 @@ Remark: Blocks of code are shell commands in terminal.
 2. Install gcc from `http://hpc.sourceforge.net <http://hpc.sourceforge.net/>`__
 
    .. code-block:: bash
+      :linenos:
 
       curl -O http://prdownloads.sourceforge.net/hpc/gfortran-7.1-bin.tar.gz?download
       sudo tar zxvf gfortran-7.1-bin.tar.gz -C /
@@ -118,6 +121,7 @@ Remark: Blocks of code are shell commands in terminal.
 3. Install autoconf and automake from `macport <https://www.macports.org>`__ or with `Homebrew <https://brew.sh>`__
 
    .. code-block:: bash
+      :linenos:
 
       sudo port install autoconf
       sudo port install automake
@@ -127,6 +131,7 @@ Remark: Blocks of code are shell commands in terminal.
 5. Install the `openmpi <https://www.open-mpi.org/software/ompi/v4.0/>`__ source code
 
    .. code-block:: bash
+      :linenos:
 
       ./configure CC=/usr/local/bin/gcc CXX=/usr/local/bin/g++ F77=/usr/local/bin/gfortran FC=/usr/local/bin/gfortran
       make
@@ -135,6 +140,7 @@ Remark: Blocks of code are shell commands in terminal.
 6. Install `gsl <https://www.gnu.org/software/gsl>`__
 
    .. code-block:: bash
+      :linenos:
 
       curl -O https://fr.mirror.babylon.network/gnu/gsl/gsl-2.4.tar.gz
       tar zxvf gsl-2.4.tar.gz
@@ -148,12 +154,14 @@ Remark: Blocks of code are shell commands in terminal.
 8. Download the **FreeFem++** source from the repository
 
    .. code-block:: bash
+      :linenos:
 
       git clone https://github.com/FreeFem/FreeFem-sources.git
 
 9) Compile **FreeFem++**. Don’t forget to update the MacOS SDK version with your own in the command below:
 
    .. code-block:: bash
+      :linenos:
 
       cd FreeFem-sources
       ./configure '-with-suffix=macos-10.13' '-without-fltk' '--enable-download' '--enable-optim' 'MPIRUN=/usr/local/bin/mpirun' '--enable-m64' '--without-x' 'CC=clang -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk' 'CFLAGS=-mmacosx-version-min=10.13' 'CXXFLAGS=-mmacosx-version-min=10.13 -std=c++11' 'CXX=clang++ -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk' 'F77=/usr/local/bin/gfortran' 'FC=/usr/local/bin/gfortran' 'MPICXX=/usr/local/bin/mpic++' 'MPICC=/usr/local/bin/mpicc' 'MPIFC=/usr/local/bin/mpif90' 'MPIF77=/usr/local/bin/mpif90' '--enable-maintainer-mode'
@@ -166,6 +174,7 @@ Compilation on Ubuntu
 1. Install the following dependencies
 
    .. code-block:: bash
+      :linenos:
 
       sudo apt-get update && sudo apt-get upgrade
       sudo apt-get install cpp freeglut3-dev g++ gcc gfortran \
@@ -183,12 +192,14 @@ Compilation on Ubuntu
 2. Download **FreeFem++** source from the repository
 
    .. code-block:: bash
+      :linenos:
 
       git clone https://github.com/FreeFem/FreeFem-sources.git
 
 3. Autoconf
 
    .. code-block:: bash
+      :linenos:
 
       cd FreeFem-sources
       autoreconf -i
@@ -198,6 +209,7 @@ Compilation on Ubuntu
 4. Configure
 
    .. code-block:: bash
+      :linenos:
 
       ./configure --enable-download --enable-optim --disable-pastix
 
@@ -206,6 +218,7 @@ Compilation on Ubuntu
 5. Download the packages
 
    .. code-block:: bash
+      :linenos:
 
       ./download/getall -a
 
@@ -214,6 +227,7 @@ Compilation on Ubuntu
 6. Download and compile petsc & slepc
 
    .. code-block:: bash
+      :linenos:
 
       cd download/ff-petsc
       make petsc-slepc SUDO=sudo
@@ -222,12 +236,14 @@ Compilation on Ubuntu
 7. Reconfigure with petsc and slepc
 
    .. code-block:: bash
+      :linenos:
 
       ./reconfigure
 
 8. Build
 
    .. code-block:: bash
+      :linenos:
 
       make
 
@@ -238,6 +254,7 @@ Compilation on Ubuntu
 9. Install
 
    .. code-block:: bash
+      :linenos:
 
       sudo make install
 
@@ -251,6 +268,7 @@ Compilation on Arch Linux
 1. Install the following dependencies:
 
    .. code-block:: bash
+      :linenos:
 
       pacman -Syu
       pacman -S git openmpi gcc-fortran wget python
@@ -262,12 +280,14 @@ Compilation on Arch Linux
 2. Download the **FreeFem++** source from the repository
 
    .. code-block:: bash
+      :linenos:
 
       git clone https://github.com/FreeFem/FreeFem-sources.git
 
 3. Autoconf
 
    .. code-block:: bash
+      :linenos:
 
       cd FreeFem-sources
       autoreconf -i
@@ -275,6 +295,7 @@ Compilation on Arch Linux
 4. Configure
 
    .. code-block:: bash
+      :linenos:
 
       ./configure --enable-download --enable-optim --disable-pastix
 
@@ -283,6 +304,7 @@ Compilation on Arch Linux
 5. Download the packages
 
    .. code-block:: bash
+      :linenos:
 
       ./download/getall -a
 
@@ -291,6 +313,7 @@ Compilation on Arch Linux
 6. Download and compile petsc & slepc
 
    .. code-block:: bash
+      :linenos:
 
       cd download/ff-petsc
       make petsc-slepc SUDO=sudo
@@ -299,12 +322,14 @@ Compilation on Arch Linux
 7. Reconfigure with petsc and slepc
 
    .. code-block:: bash
+      :linenos:
 
       ./reconfigure
 
 8. Build
 
    .. code-block:: bash
+      :linenos:
 
       make
 
@@ -315,6 +340,7 @@ Compilation on Arch Linux
 9. Install
 
    .. code-block:: bash
+      :linenos:
 
       sudo make install
 
@@ -337,6 +363,7 @@ Compilation on Windows
    -  for 64bits system:
 
    .. code-block:: bash
+      :linenos:
 
       pacman -Syu
       pacman -S autoconf automake-wrapper bash bash-completion \
@@ -351,6 +378,7 @@ Compilation on Windows
    -  for 32bits system:
 
    .. code-block:: bash
+      :linenos:
 
       pacman -Syu
       pacman -S autoconf automake-wrapper bash bash-completion \
@@ -365,15 +393,16 @@ Compilation on Windows
 5. Open ``MingW64 terminal`` (or ``MingW32``) to compile **FreeFem++**
 
    .. code-block:: bash
+      :linenos:
 
-    git clone https://github.com/FreeFem/FreeFem-sources
-    cd FreeFem-sources
-    autoreconf -i
-    ./configure --enable-download --disable-pastix --disable-hips
-    ./download/getall -a
-    make -j4
-    make check
-    make install
+      git clone https://github.com/FreeFem/FreeFem-sources
+      cd FreeFem-sources
+      autoreconf -i
+      ./configure --enable-download --disable-pastix --disable-hips
+      ./download/getall -a
+      make -j4
+      make check
+      make install
 
    The **FreeFem++** executable (and some other like ``ffmedit``, …)
    are in ``C:\msys64\mingw64\bin`` (or ``C:\msys32\mingw32\bin``).
@@ -390,6 +419,7 @@ Environment variables and init file
 The syntax of the file is:
 
 .. code-block:: bash
+   :linenos:
 
    verbosity = 5
    loadpath += "/Library/FreeFem++/lib"
@@ -406,20 +436,23 @@ The possible paths for this file are
 -  under Unix and MacOs
 
 .. code-block:: bash
+   :linenos:
 
-  /etc/freefem++.pref
-  $(HOME)/.freefem++.pref
-  freefem++.pref
+   /etc/freefem++.pref
+   $(HOME)/.freefem++.pref
+   freefem++.pref
 
 -  under windows
 
 .. code-block:: bash
+   :linenos:
 
    freefem++.pref
 
 We can also use shell environment variables to change verbosity and the search rule before the init files.
 
 .. code-block:: bash
+   :linenos:
 
    export FF_VERBOSITY=50
    export FF_INCLUDEPATH="dir;;dir2"
@@ -429,10 +462,11 @@ We can also use shell environment variables to change verbosity and the search r
 
 .. note:: To show the list of init of **FreeFem++** , do
 
-  .. code-block:: bash
+   .. code-block:: bash
+      :linenos:
 
-    export FF_VERBOSITY=100;
-    ./FreeFem++-nw
+      export FF_VERBOSITY=100;
+      ./FreeFem++-nw
 
 .. |Build Status01| image:: https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-UbuntuAll
    :target: https://ci.inria.fr/freefem/job/FreeFem-source-develop-UbuntuAll/

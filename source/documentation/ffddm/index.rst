@@ -32,6 +32,7 @@ Minimal Example
 ~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+  :linenos:
 
   macro dimension 2// EOM            // 2D or 3D
   include "ffddm.idp"

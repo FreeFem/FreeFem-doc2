@@ -23,6 +23,7 @@ The interface with ``gsl`` spline is available in **FreeFem++**, the seven kind 
 A brief wing example given all the syntax:
 
 .. code-block:: freefem
+   :linenos:
 
    load "gsl"
 
@@ -64,6 +65,7 @@ Plugin to linux ``random`` functions.
 The range of the random generator is from :math:`0` to :math:`(2^{31})-1`.
 
 .. code-block:: freefem
+   :linenos:
 
    load "ffrandom"
 
@@ -145,6 +147,7 @@ The full example:
 The ``FFMaster.c`` file:
 
 .. code-block:: c
+   :linenos:
 
    #include "libff-mmap-semaphore.h"
    #include <unistd.h>
@@ -208,6 +211,7 @@ The ``FFMaster.c`` file:
 The ``FFSlave.edp`` file:
 
 .. code-block:: freefem
+   :linenos:
 
    load "ff-mmap-semaphore"
 
@@ -270,6 +274,7 @@ The ``FFSlave.edp`` file:
 To test this example of coupling ``C`` program and **FreeFem++** script:
 
 .. code-block:: bash
+   :linenos:
 
    cc -c libff-mmap-semaphore.c
    cc FFMaster.c -o FFMaster libff-mmap-semaphore.o -g -pthread
@@ -279,6 +284,7 @@ To test this example of coupling ``C`` program and **FreeFem++** script:
 The output:
 
 .. code-block:: bash
+   :linenos:
 
    len 1024 size 0
    len 1024 size 1024
