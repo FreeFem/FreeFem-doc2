@@ -1,23 +1,139 @@
-#nav {
+nav {
 	grid-row: 2;
 	grid-column: 1 / 4;
 	background-color: #00007F;
 	color: white;
-	padding: 0 10px;
-
 	position: sticky;
 	top: 0;
 
 	display: grid;
 	grid-template-rows: auto;
-	grid-template-columns: 0 auto 350px;
+	grid-template-columns: 0 auto auto;
 	align-items: center;
 
 	z-index: 1;
 }
 
+/** STATIC NAVIGATION **/
+nav #staticNav {
+	grid-row: 1;
+	grid-column: 2;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow: auto;
+}
+
+nav #staticNav .nav-item {
+	padding: 10px;
+	margin: 0 5px;
+	cursor: pointer;
+	white-space: nowrap;
+	cursor: pointer;
+	-webkit-transition: all .6s ease-in;
+	-moz-transition: all .6s ease-in;
+	-o-transition: all .6s ease-in;
+	transition: all .6s ease-in;
+}
+
+nav #staticNav .nav-item:hover {
+	background-color: #0000FF;
+	border-radius: 5px;
+}
+
+/** SEARCH BAR **/
+nav .search-container {
+	grid-row: 1;
+	grid-column: 3;
+	justify-self: end;
+	padding: 0 10px;
+
+	display: flex;
+	flex-direction: row;
+}
+
+nav .search-container label {
+	padding: 10px 0 10px 10px;
+	border-radius: 5px 0 0 5px;
+	background-color: #FFFFFF;
+}
+
+nav .search-container label i {
+	color: grey;
+}
+
+nav .search-container label i:hover {
+	color: #0000FF;
+}
+
+nav #searchInput {
+	margin: 0;
+	padding: 10px;
+	font-size: 1.1em;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	background-color: #FFFFFF;
+	color: grey;
+}
+
+nav #searchInput:focus {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	outline: none;
+	border-radius: 0;
+}
+
+nav #searchResults {
+	background-color: #f1f1f1;
+	color: grey;
+	position: absolute;
+	top: 100%;
+	right: 10px;
+	width: 50%;
+	max-height: 300px;
+	z-index: 1;
+	overflow: auto;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 5px 10px 18px #888888;
+}
+
+nav #searchResults .search-result {
+	padding: 20px;
+}
+
+nav #searchResults .search-result-main-title {
+	font-size: 1.1em;
+	color: grey;
+	font-weight: bold;
+}
+
+nav #searchResults .search-result-sub {
+	padding: 5px;
+}
+
+nav #searchResults .search-result-title {
+	font-weight: bold;
+	color: gray;
+}
+
+nav #searchResults .search-result-preview {
+	color: black;
+	font-weight: normal;
+}
+
+nav #searchResults a:hover {
+	color: black;
+}
+
+nav #searchResults i {
+	padding-right: 10px;
+}
+
 /** NAVIGATION BUTTON **/
-#nav .nav-btn {
+nav .nav-btn {
 	grid-row: 1;
 	grid-column: 1;
 	justify-self: start;
@@ -34,19 +150,6 @@
 #nav .nav-btn:hover {
 	background-color: #00007F;
 	color: white;
-}
-
-/** STATIC NAVIGATION **/
-#staticNav {
-	grid-row: 1;
-	grid-column: 2;
-	display: flex;
-	flex-direction: row;
-}
-
-#staticNav .nav-item {
-	padding: 20px;
-	cursor: pointer;
 }
 
 /** SIDENAV **/
@@ -101,95 +204,4 @@
 .sidenav .sidenav-next {
 	z-index: 10;
 	padding: 10px;
-}
-
-/** SEARCH BAR **/
-nav .search-container {
-	grid-row: 1;
-	grid-column: 3;
-	justify-self: end;
-	display: flex;
-}
-
-.search-container label {
-	border-radius: 5px 0 0 5px;
-	background-color: #FFFFFF;
-	color: grey;
-}
-
-nav input[type=search] {
-	margin: 0;
-	padding: 6px;
-	font-size: 17px;
-	border: none;
-	transition: 0.5s;
-	border-radius: 0 5px 5px 0;
-	background-color: #FFFFFF;
-	color: grey;
-}
-
-nav label {
-	margin: 0;
-	padding: 6px;
-	font-size: 17px;
-	background-color: white;
-	color: grey;
-}
-
-nav input[type=search]:focus {
-	position: absolute;
-	top: 0;
-	right: 10px;
-	width: 50%;
-	height: 100%;
-	outline: none;
-	border-radius: 5px 5px 0 0;
-	background-color: white;
-	color: grey;
-}
-
-nav #searchResults {
-	background-color: #f1f1f1;
-	color: grey;
-	position: absolute;
-	top: 100%;
-	right: 10px;
-	width: 50%;
-	max-height: 300px;
-	z-index: 1;
-	overflow: auto;
-	border-radius: 0 0 5px 5px;
-	box-shadow: 5px 10px 18px #888888;
-}
-
-#searchResults .search-result {
-	padding: 20px;
-}
-
-#searchResults .search-result-main-title {
-	font-size: 1.1em;
-	color: grey;
-	font-weight: bold;
-}
-
-#searchResults .search-result-sub {
-	padding: 5px;
-}
-
-#searchResults .search-result-title {
-	font-weight: bold;
-	color: gray;
-}
-
-#searchResults .search-result-preview {
-	color: black;
-	font-weight: normal;
-}
-
-#searchResults a:hover {
-	color: black;
-}
-
-#searchResults i {
-	padding-right: 10px;
 }
