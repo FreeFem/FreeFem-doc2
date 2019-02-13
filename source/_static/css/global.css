@@ -85,24 +85,8 @@ img.align-center {
 	margin: auto;
 }
 
-div.inline2 {
+div.inline {
    display: inline-flex;
-   text-align: center;
-   width: 49%;
-}
-
-div.inline2 > img {
-   width: 90%;
-}
-
-div.inline3 {
-   display: inline-flex;
-   text-align: center;
-   width: 32%;
-}
-
-div.inline3 > img {
-   width: 90%;
 }
 
 .figure {
