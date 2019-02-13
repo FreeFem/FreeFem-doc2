@@ -60,6 +60,10 @@ nav .search-container label {
 
 nav .search-container label i {
 	color: grey;
+	-webkit-transition: color .6s ease-in;
+	-moz-transition: color .6s ease-in;
+	-o-transition: color .6s ease-in;
+	transition: color .6s ease-in;
 }
 
 nav .search-container label i:hover {
@@ -91,9 +95,9 @@ nav #searchResults {
 	color: grey;
 	position: absolute;
 	top: 100%;
-	right: 10px;
+	right: 0;
 	width: 50%;
-	max-height: 300px;
+	max-height: 50vh;
 	z-index: 1;
 	overflow: auto;
 	border-radius: 0 0 5px 5px;
@@ -108,6 +112,11 @@ nav #searchResults .search-result-main-title {
 	font-size: 1.1em;
 	color: grey;
 	font-weight: bold;
+}
+
+nav #searchResults .search-result-main-title i {
+	color: #0000FF;
+	padding-right: 10px;
 }
 
 nav #searchResults .search-result-sub {
@@ -126,10 +135,6 @@ nav #searchResults .search-result-preview {
 
 nav #searchResults a:hover {
 	color: black;
-}
-
-nav #searchResults i {
-	padding-right: 10px;
 }
 
 /** NAVIGATION BUTTON **/
