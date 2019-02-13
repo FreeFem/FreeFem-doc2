@@ -7,7 +7,6 @@ header {
 	align-items: center;
 	background-color: #00007F;
 	color: white;
-	padding: 0 10px;
 }
 
 header p {
@@ -35,6 +34,14 @@ header a:visited {
 	height: 40px;
 }
 
+.header-log svg #Calque_1 polygon {
+	fill: white !important;
+}
+
+.header-log svg #Calque_1 rect {
+	fill: white !important;
+}
+
 .header-title {
 	grid-row: 1;
 	grid-column: 2;
@@ -51,6 +58,8 @@ header a:visited {
 	grid-row: 1;
 	grid-column: 3;
 	justify-self: right;
+	padding: 0 10px;
+
 	display: grid;
 	grid-template-rows: auto auto;
 	grid-template-columns: auto auto;
@@ -83,12 +92,4 @@ header a:visited {
 	margin: 0;
 	font-size: 0.9em;
 	display: none;
-}
-
-svg #Calque_1 polygon {
-	fill: white !important;
-}
-
-svg #Calque_1 rect {
-	fill: white !important;
 }
