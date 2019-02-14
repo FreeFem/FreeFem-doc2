@@ -96,7 +96,7 @@ Distributed Matrix and Vector resulting from a variational formulation
 
 The discretization of a variational formulation on the global mesh :math:`Th` yields a global matrix :math:`A` and a global right hand side :math:`\mathbf{RHS}`.
 Thanks to the sparsity of finite element matrices for partial differential equations and thanks to the overlap between subdomains, the knowledge of the local matrix :math:`R_i A R_i^T` on each subdomain :math:`1\le i\le N` is sufficient to perform the matrix-vector product :math:`A\times \mathbf{U}` for any global vector :math:`\mathbf{U}`.
-Once the problem has been set up by a call to ``ffddmsetupOperator(myprefix,myFEprefix,myVarf)``, the matrix-vector product is performed by calling the function ``pr#A(Ui)`` where ``pr`` is a user defined prefix that refers to the problem at hand which itself implicitly refers to the triplet (domain decomposition, finite element, variational formulation).
+Once the problem has been set up by a call to ``ffddmsetupOperator(myprefix, myFEprefix, myVarf)``, the matrix-vector product is performed by calling the function ``pr#A(Ui)`` where ``pr`` is a user defined prefix that refers to the problem at hand which itself implicitly refers to the triplet (domain decomposition, finite element, variational formulation).
 See more on problem defintion in this :ref:`documentation <ffddmDocumentationDefineProblemToSolve>` and more on distributed linear algebra in chapter 8 of `"An Introduction to Domain Decomposition Methods: algorithms, theory and parallel implementation" SIAM 2015 <http://bookstore.siam.org/ot144/>`__.
 
 Distributed Linear Solvers
@@ -163,7 +163,7 @@ It reads:
 
 where :math:`B_j` are local matrices of size :math:`\#{\mathcal N}_j \times \#{\mathcal N}_j` for :math:`1\le j \le N`.
 This variant is very useful when dealing with wave propagation phenomena such as Helmholtz problems in acoustics or Maxwell system in the frequency domain for electromagnetism.
-Defining :math:`B_j` as the discretization of the physical equation with impedance conditions on the boundary of the subdomain has been proved to be a good choice. 
+Defining :math:`B_j` as the discretization of the physical equation with impedance conditions on the boundary of the subdomain has been proved to be a good choice.
 
 Two level methods
 ^^^^^^^^^^^^^^^^^
@@ -176,7 +176,7 @@ In mathematical terms, we first choose  a full rank rectangular matrix  :math:`Z
 .. math::
   M_2^{-1} := Z \,A_C^{-1}\,Z^T + M_1^{-1}
 
-Other correction formulas are given in :ref:`documentation <ffddmDocumentationTwoLevelPreconditioners>`. 
+Other correction formulas are given in :ref:`documentation <ffddmDocumentationTwoLevelPreconditioners>`.
 
 We consider two ways to build :math:`Z` and thus the coarse space and the coarse problem :math:`A_C`, see below :ref:`Coarse Mesh <ffddmIntroductionCoarseMesh>` and :ref:`GenEO <ffddmIntroductionGeneo>`
 
@@ -186,7 +186,7 @@ Coarse Mesh
 '''''''''''
 
 A first possibility is to discretize the problem on a coarse mesh, following the same principle as multi-grid methods.
-For 3-D problems, a coarsening of the mesh size by a factor 2, reduces by a factor :math:`2^3=8` the size of the coarse problem which is then easier to solve by a direct method. Then, :math:`Z` is the interpolation matrix from the coarse finite element space to the fine one.  
+For 3-D problems, a coarsening of the mesh size by a factor 2, reduces by a factor :math:`2^3=8` the size of the coarse problem which is then easier to solve by a direct method. Then, :math:`Z` is the interpolation matrix from the coarse finite element space to the fine one.
 
 
 .. _ffddmIntroductionGeneo:
