@@ -1,4 +1,8 @@
 /** GLOBAL **/
+:root {
+	font-size: 17px;
+}
+
 a {
 	text-decoration: none;
 	color: black;
@@ -25,24 +29,9 @@ li {
 	line-height: 1.6em;
 }
 
-#documentation li {
+.content li {
 	font-family: "Roboto-slab", serif;
-	line-height: 1.5rem;
-	font-size: 1.2rem;
-	margin-left: 20px;
-}
-
-#generalities li {
-	font-family: "Roboto-slab", serif;
-	line-height: 1.5rem;
-	font-size: 1.2rem;
-	margin-left: 20px;
-}
-
-#adaptmesh li {
-	font-family: "Roboto-slab", serif;
-	line-height: 1.5rem;
-	font-size: 1.2rem;
+	line-height: 1.2rem;
 	margin-left: 20px;
 }
 
@@ -65,12 +54,11 @@ i:hover {
 
 p {
 	font-family: "Roboto-slab", serif;
-	line-height: 1.5rem;
-	font-size: 1.2rem;
+	line-height: 1.2rem;
 }
 
 .fake-title {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	font-family: "Roboto", sans-serif;
 }
@@ -115,8 +103,8 @@ table.highlighttable pre {
 	display: block;
 	margin: 0;
 	overflow: auto;
-	line-height: 1.5rem;
-	font-size: 1.2rem;
+	line-height: 1.2rem;
+	font-size: 0.8rem;
 	padding: 10px 0;
 }
 
@@ -184,6 +172,7 @@ div.inline {
 	align-items: center;
 	padding: 0;
 	margin: 0;
+	border-radius: 5px 5px 0 0;
 }
 
 .caption .caption-number {
@@ -202,6 +191,7 @@ table:not(.highlighttable) {
 	border-collapse: collapse;
 	overflow: auto;
 	font-family: "Roboto-slab", serif;
+	border-radius: 5px;
 }
 
 table a {
@@ -217,6 +207,7 @@ th {
 	color: #fff;
 	border: none;
 	padding: 10px;
+	border-radius: 5px 5px 0 0;
 }
 
 td:not(.code) {
@@ -229,6 +220,10 @@ td:not(.linenos) {
 
 .math {
 	overflow: auto;
+}
+
+.mjx-chtml {
+	white-space: pre-wrap;
 }
 
 span {
@@ -264,7 +259,7 @@ table.authors {
 	font-family: "Font Awesome 5 Free";
 	left: 1.2rem;
 	color: #448aff;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	content: "\f304";
 }
 
