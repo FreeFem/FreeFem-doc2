@@ -7,7 +7,7 @@ jobs:
 
       working_directory: ~/FreeFem-doc2
 
-      branch:
+      branches:
          only:
             - master
 
