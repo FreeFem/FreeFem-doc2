@@ -1,18 +1,6 @@
 Documentation
 =============
 
-.. toctree::
-
-   notations
-   meshGeneration
-   finiteElement
-   visualization
-   algorithmsOptimization
-   parallelization
-   plugins
-   developers
-   ffddm/index
-
 The fruit of a long maturing process, **freefem**, in its last avatar, **FreeFem++** , is a high level integrated development environment (IDE) for numerically solving partial differential equations (PDE) in dimension 2 and 3.
 It is the ideal tool for teaching the finite element method but it is also perfect for research to quickly test new ideas or multi-physics and complex applications.
 
@@ -23,8 +11,9 @@ Everything is there in **FreeFem++** to prepare research quality reports with on
 
 This manual is meant for students at a Masters level, for researchers at any level, and for engineers (including financial engineering) with some understanding of variational methods for partial differential equations.
 
-Introduction
-------------
+.. rst-class:: fake-title
+
+   Introduction
 
 A partial differential equation is a relation between a function of several variables and its (partial) derivatives.
 Many problems in physics, engineering, mathematics and even banking are modeled by one or several partial differential equations.
@@ -58,8 +47,9 @@ The characteristics of **FreeFem++** are:
 -  Many examples and tutorials: elliptic, parabolic and hyperbolic problems, Navier-Stokes flows, elasticity, fluid structure interactions, Schwarz’s domain decomposition method, eigenvalue problem, residual error indicator, …
 -  A parallel version using MPI
 
-History
--------
+.. rst-class:: fake-title
+
+   History
 
 The project has evolved from MacFem, PCfem, written in Pascal.
 The first C version lead to ``freefem 3.4``; it offered mesh adaptivity on a single mesh only.
@@ -79,3 +69,15 @@ The language syntax of **FreeFem++** is the result of a new design which makes u
 The outcome is a versatile software in which any new finite elements can be included in a few hours; but a recompilation is then necessary.
 Therefore the library of finite elements available in **FreeFem++** will grow with the version number and with the number of users who program more new elements.
 So far we have discontinuous :math:`P_0` elements,linear :math:`P_1` and quadratic :math:`P_2` Lagrangian elements, discontinuous :math:`P_1` and Raviart-Thomas elements and a few others like bubble elements.
+
+.. toctree::
+
+   notations
+   meshGeneration
+   finiteElement
+   visualization
+   algorithmsOptimization
+   parallelization
+   plugins
+   developers
+   ffddm/index

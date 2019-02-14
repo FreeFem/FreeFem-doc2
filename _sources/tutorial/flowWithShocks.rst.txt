@@ -25,6 +25,7 @@ One possibility is to couple :math:`u,p` and then update :math:`\rho`, i.e.:
 A numerical result is given on :numref:`figFlowMach` and the **FreeFem++** script is
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    verbosity = 1;

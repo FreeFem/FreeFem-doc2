@@ -18,6 +18,7 @@ abs
 Return the absolute value.
 
 .. code-block:: freefem
+   :linenos:
 
    real a = abs(b);
 
@@ -35,6 +36,7 @@ acos
 :math:`\arccos` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = acos(x);
 
@@ -57,6 +59,7 @@ acosh
 .. :math:`\DeclareMathOperator\arccosh{arccosh}` :math:`\arccosh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = acosh(x);
 
@@ -86,6 +89,7 @@ adaptmesh
 Mesh adaptation function.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Thnew = adaptmesh(Th, [fx, fy], hmin=HMin, hmax=HMax, err=Err, errg=ErrG, nbvx=NbVx, nbsmooth=NbSmooth, nbjacoby=NbJacoby, ratio=Ratio, omega=Omega, iso=Iso, abserror=AbsError, cutoff=CutOff, verbosity=Verbosity, inquire=Inquire, splitpbedge=SplitPbEdge, maxsubdiv=MaxSubdiv, rescaling=Rescaling, keepbackvertices=KeepBackVertices, IsMetric=isMetric, power=Power, thetamax=ThetaMax, splitin2=SplitIn2, metric=Metric, nomeshgeneration=NoMeshGeneration, periodic=Periodic);
 
@@ -129,6 +133,7 @@ adj
 Adjacent triangle of the triangle :math:`k` by the edge :math:`e`
 
 .. code-block:: freefem
+   :linenos:
 
    int T = Th[k].adj(e);
 
@@ -150,6 +155,7 @@ Affine conjugate gradient solver
 Used to solve a problem like :math:`Ax=b`
 
 .. code-block:: freefem
+   :linenos:
 
    int Conv = AffineCG(A, x, precon=Precon, nbiter=NbIter, eps=Eps, veps=VEps, stop=Stop);
 
@@ -190,6 +196,7 @@ arg
 Return the argument of a complex number.
 
 .. code-block:: freefem
+   :linenos:
 
    real a = arg(c);
 
@@ -207,6 +214,7 @@ asin
 :math:`\arcsin` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = asin(x);
 
@@ -229,6 +237,7 @@ asinh
 .. :math:`\DeclareMathOperator\arcsinh{arcsinh}` :math:`\arcsinh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = asinh(x);
 
@@ -256,6 +265,7 @@ assert
 Verify if a condition is true (same as C), if not the program stops.
 
 .. code-block:: freefem
+   :linenos:
 
    assert(x==0)
 
@@ -273,6 +283,7 @@ atan
 :math:`\arctan` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = atan(x);
 
@@ -295,6 +306,7 @@ atan2
 :math:`\displaystyle{\arctan\left(\frac{y}{x}\right)}` function, returning the correct sign for :math:`\theta`.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = atan2(y, x)
 
@@ -312,6 +324,7 @@ atanh
 .. :math:`\DeclareMathOperator\arctanh{arctanh}` :math:`\arctanh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real theta = atanh(x);
 
@@ -334,6 +347,7 @@ atoi
 Convert a string to an interger.
 
 .. code-block:: freefem
+   :linenos:
 
    int a = atoi(s);
 
@@ -351,6 +365,7 @@ atof
 Convert a string to a real.
 
 .. code-block:: freefem
+   :linenos:
 
    real a = atof(s);
 
@@ -375,6 +390,7 @@ buildmesh
 Build a 2D mesh using border elements.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = buildmesh(b1(nn) + b2(nn) + b3(nn) + b4(nn), [nbvx=Nbvx], [fixedborder=FixedBorder]);
 
@@ -402,6 +418,7 @@ ceil
 Round fractions up of :math:`x`.
 
 .. code-block:: freefem
+   :linenos:
 
    int c = ceil(x);
 
@@ -419,6 +436,7 @@ change
 Change a property of a mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    int[int] L = [0, 1];
    Thnew = change(Th, label=L);
@@ -443,6 +461,7 @@ chi
 Characteristic function of a mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    int IsInMesh = chi(Th)(x, y);
 
@@ -463,6 +482,7 @@ checkmovemesh
 Check a :ref:`movemesh <functionMovemesh>` without mesh generation.
 
 .. code-block:: freefem
+   :linenos:
 
    real minT = checkmovemesh(Th, [Dx, Dy]);
 
@@ -480,6 +500,7 @@ clock
 Get the clock in second.
 
 .. code-block:: freefem
+   :linenos:
 
    real t = clock();
 
@@ -502,6 +523,7 @@ conj
 Caculate the conjuguate of a complex number.
 
 .. code-block:: freefem
+   :linenos:
 
    complex C1 = 1 + 1i;
    complex C2 = conj(C1);
@@ -520,6 +542,7 @@ convect
 Characteristics Galerkin method.
 
 .. code-block:: freefem
+   :linenos:
 
    real cgm = convect([Ux, Uy], dt, c);
    real cgm = convect([Ux, Uy, Uz], dt, c);
@@ -552,6 +575,7 @@ copysign
 C++ :cpp:`copysign` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real s = copysign(a, b);
 
@@ -561,6 +585,7 @@ cos
 :math:`\cos` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = cos(theta);
 
@@ -583,6 +608,7 @@ cosh
 :math:`\cosh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = cosh(theta);
 
@@ -605,6 +631,7 @@ diffnp
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    diffnp(a, b) = (a<0)&(0<b) ? (b-a) : 0;
 
@@ -614,6 +641,7 @@ diffpos
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    diffpos(a, b) = max(b-a, 0);
 
@@ -623,6 +651,7 @@ dist
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    dist(a, b) = sqrt(a^2 + b^2);
    dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
@@ -633,6 +662,7 @@ dumptable
 Show all types, operators and functions in **FreeFem++**.
 
 .. code-block:: freefem
+   :linenos:
 
    dumptable(out);
 
@@ -650,6 +680,7 @@ dx
 :math:`x` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh up = dx(u);
 
@@ -672,6 +703,7 @@ dxx
 :math:`x` double derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dxx(u);
 
@@ -694,6 +726,7 @@ dxy
 :math:`xy` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dxy(u);
 
@@ -716,6 +749,7 @@ dxz
 :math:`xz` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dxz(u);
 
@@ -738,6 +772,7 @@ dy
 :math:`y` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh up = dy(u);
 
@@ -760,6 +795,7 @@ dyx
 :math:`yx` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dyx(u);
 
@@ -782,6 +818,7 @@ dyy
 :math:`y` double derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dyy(u);
 
@@ -804,6 +841,7 @@ dyz
 :math:`yz` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dyz(u);
 
@@ -826,6 +864,7 @@ dz
 :math:`z` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh up = dz(u);
 
@@ -848,6 +887,7 @@ dzx
 :math:`zx` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dzx(u);
 
@@ -870,6 +910,7 @@ dzy
 :math:`zy` derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dzy(u);
 
@@ -892,6 +933,7 @@ dzz
 :math:`z` double derivative.
 
 .. code-block:: freefem
+   :linenos:
 
    Uh upp = dzz(u);
 
@@ -919,6 +961,7 @@ The function :freefem:`EigenValue` can be used for either matrices or functions 
 The use of the matrix version is shown below.
 
 .. code-block:: freefem
+   :linenos:
 
    int k = EigenValue(A,B,nev= , sigma= );
 
@@ -945,6 +988,7 @@ Build an empty mesh.
 Useful to handle Lagrange multipliers in mixed and Mortar methods.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh eTh = emptymesh(Th, ssd);
 
@@ -970,6 +1014,7 @@ The error function:
    erf(x) = \frac{2}{\sqrt{pi}}\int_{0}^{x}{\exp(-t^2)dt}
 
 .. code-block:: freefem
+   :linenos:
 
    real err = erf(x);
 
@@ -992,6 +1037,7 @@ Complementary of the :ref:`error function <functionErf>`:
    erfc(x) = 1-erf(x)
 
 .. code-block:: freefem
+   :linenos:
 
    real errc = erfc(x);
 
@@ -1009,6 +1055,7 @@ exec
 Execute an external command.
 
 .. code-block:: freefem
+   :linenos:
 
    int v = exec(command);
 
@@ -1026,6 +1073,7 @@ exit
 Exit function, equivalent to :freefem:`return`.
 
 .. code-block:: freefem
+   :linenos:
 
    exit(N);
 
@@ -1043,6 +1091,7 @@ exp
 Exponential function.
 
 .. code-block:: freefem
+   :linenos:
 
    real a = exp(b);
 
@@ -1060,6 +1109,7 @@ fdim
 Positive difference (``cmath`` function).
 
 .. code-block:: freefem
+   :linenos:
 
    real fd = fdim(a, b);
 
@@ -1079,6 +1129,7 @@ floor
 Floor function.
 
 .. code-block:: freefem
+   :linenos:
 
    real a = floor(b);
 
@@ -1098,6 +1149,7 @@ fmax
 Maximum (``cmath`` function).
 
 .. code-block:: freefem
+   :linenos:
 
    real Max = fmax(a, b);
 
@@ -1116,6 +1168,7 @@ fmin
 Minimum (``cmath`` function).
 
 .. code-block:: freefem
+   :linenos:
 
    real Min = fmin(a, b);
 
@@ -1134,6 +1187,7 @@ fmod
 Remainder of :math:`a/b` (``cmath`` function).
 
 .. code-block:: freefem
+   :linenos:
 
    real Mod = fmod(a, b);
 
@@ -1161,6 +1215,7 @@ imag
 Imaginary part of a complex number.
 
 .. code-block:: freefem
+   :linenos:
 
    complex c = 1. + 1i;
    real Im = imag(c);
@@ -1171,6 +1226,7 @@ int1d
 1D integral.
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
        ...
@@ -1205,6 +1261,7 @@ int2d
 2D integral.
 
 .. code-block:: freefem
+   :linenos:
 
    int2d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
        ...
@@ -1213,6 +1270,7 @@ int2d
 Or
 
 .. code-block:: freefem
+   :linenos:
 
    int2d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
        ...
@@ -1244,6 +1302,7 @@ int3d
 3D integral.
 
 .. code-block:: freefem
+   :linenos:
 
    int3d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
        ...
@@ -1280,6 +1339,7 @@ intalledges
 Integral on all edges.
 
 .. code-block:: freefem
+   :linenos:
 
    intalledges(Th, [Region])(
        ...
@@ -1311,6 +1371,7 @@ interpolate
 Interpolation operator from a finite element space to another.
 
 .. code-block:: freefem
+   :linenos:
 
    matrix I = interpolate(Wh, Vh, [inside=Inside], [t=T], [op=Op], [U2Vc=U2VC]);
 
@@ -1333,6 +1394,7 @@ invdiff
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    invdif(a, b) = (-abs(a-b) > 10^(-30)) ? 1(/b-a) : 0
    invdif(a, b, e) = (-abs(a-b) > e) ? 1(/b-a) : 0
@@ -1343,6 +1405,7 @@ invdiffnp
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    invdiffnp(a, b) = (a<0)&(0<b) ? 1/(b-a) : 0
 
@@ -1352,6 +1415,7 @@ invdiffpos
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    invdiffpos(a, b) = (a<b) ? 1./(b-a) : 0
 
@@ -1361,6 +1425,7 @@ isInf
 The C++ :cpp:`isInf` function.
 
 .. code-block:: freefem
+   :linenos:
 
    int i = isInf(a);
 
@@ -1370,6 +1435,7 @@ isNaN
 The C++ :cpp:`isNan` function.
 
 .. code-block:: freefem
+   :linenos:
 
    int i = isNaN(a);
 
@@ -1379,6 +1445,7 @@ j0
 Bessel function of first kind, order 0.
 
 .. code-block:: freefem
+   :linenos:
 
    real b = j0(x);
 
@@ -1396,6 +1463,7 @@ j1
 Bessel function of first kind, order 1.
 
 .. code-block:: freefem
+   :linenos:
 
    real b = j1(x);
 
@@ -1413,6 +1481,7 @@ jn
 Bessel function of first kind, order n.
 
 .. code-block:: freefem
+   :linenos:
 
    real b = jn(n, x);
 
@@ -1436,6 +1505,7 @@ jump
 Jump function across an edge.
 
 .. code-block:: freefem
+   :linenos:
 
    intalledges(
        ... jump(c) ...
@@ -1469,6 +1539,7 @@ lgamma
 Natural logarithm of the absolute value of the :math:`\Gamma` function of :math:`x`.
 
 .. code-block:: freefem
+   :linenos:
 
    real lg = lgamma(x);
 
@@ -1486,6 +1557,7 @@ log
 Natural logarithm.
 
 .. code-block:: freefem
+   :linenos:
 
    real l = log(x);
 
@@ -1511,6 +1583,7 @@ log10
 Common logarithm.
 
 .. code-block:: freefem
+   :linenos:
 
    real l = log10(x);
 
@@ -1528,6 +1601,7 @@ lrint
 Integer value nearest to :math:`x`.
 
 .. code-block:: freefem
+   :linenos:
 
    int l = lrint(a);
 
@@ -1545,6 +1619,7 @@ lround
 Round a value, and return an integer value.
 
 .. code-block:: freefem
+   :linenos:
 
    int l = lround(a);
 
@@ -1562,6 +1637,7 @@ max
 Maximum value of two values.
 
 .. code-block:: freefem
+   :linenos:
 
    real m = max(a, b);
    real m = max(a, b, c);
@@ -1582,6 +1658,7 @@ min
 Minimum value of two values.
 
 .. code-block:: freefem
+   :linenos:
 
    real m = min(a, b);
    real m = min(a, b, c);
@@ -1604,6 +1681,7 @@ movemesh
 Move a mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh MovedTh = movemesh(Th, [Dx, Dy]);
    mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [facemerge=FaceMerge], [ptmerge=PtMerge], [orientation=Orientation]);
@@ -1642,6 +1720,7 @@ NaN
 C++ :cpp:`nan` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real n = NaN([String]);
 
@@ -1662,6 +1741,7 @@ on
 Dirichlet condition function.
 
 .. code-block:: freefem
+   :linenos:
 
    problem (u, v)
        ...
@@ -1691,6 +1771,7 @@ plot
 Plot meshes and results.
 
 .. code-block:: freefem
+   :linenos:
 
    plot([Th], [u], [[Ux, Uy, Uz]], [wait=Wait], [ps=PS], [coef=Coef], [fill=Fill], cmm=[Cmm], [value=Value], [aspectratio=AspectRatio], [bb=Bb], [nbiso=NbIso], [nbarrow=NbArrow], [viso=VIso], [varrow=VArrow], [bw=Bw], [grey=Grey], [hsv=Hsv], [boundary=Boundary], [dim=Dim], [prev=Prev], [WindowIndex=WI]);
 
@@ -1734,6 +1815,7 @@ polar
 Polar coordinates.
 
 .. code-block:: freefem
+   :linenos:
 
    complex p = polar(a, b);
 
@@ -1752,6 +1834,7 @@ pow
 Power function.
 
 .. code-block:: freefem
+   :linenos:
 
    real p = pow(a, b);
 
@@ -1772,12 +1855,14 @@ projection
 Arithmetic useful function.
 
 .. code-block:: freefem
+   :linenos:
 
    real p = projection(a, b, x);
 
 Projection is equivalent to:
 
 .. code-block:: freefem
+   :linenos:
 
    projection(a, b, x) = min(max(a, x), b)*(a < b) + min(max(b, x), a)*(1-(a < b));
 
@@ -1799,6 +1884,7 @@ randinit
 Initialize the state vector by using a seed.
 
 .. code-block:: freefem
+   :linenos:
 
    randinit(seed);
 
@@ -1818,6 +1904,7 @@ randint31
 Generate :cpp:`unsigned int` (31 bits) random number.
 
 .. code-block:: freefem
+   :linenos:
 
    int r = randint31();
 
@@ -1837,6 +1924,7 @@ randint32
 Generate :cpp:`unsigned int` (32 bits) random number.
 
 .. code-block:: freefem
+   :linenos:
 
    int r = randint32();
 
@@ -1856,6 +1944,7 @@ randreal1
 Generate uniform :freefem:`real` in :math:`[0, 1]` (32 bits).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = randreal1();
 
@@ -1875,6 +1964,7 @@ randreal2
 Generate uniform :freefem:`real` in :math:`[0, 1)` (32 bits).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = randreal2();
 
@@ -1894,6 +1984,7 @@ randreal3
 Generate uniform :freefem:`real` in :math:`(0, 1)` (32 bits).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = randreal3();
 
@@ -1913,6 +2004,7 @@ randres53
 Generate uniform :freefem:`real` in :math:`[0, 1)` (53 bits).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = randres53();
 
@@ -1930,6 +2022,7 @@ readmesh
 Read a 2D mesh file at different formats (see :ref:`Mesh Generation <meshDataStructureReadWrite>`).
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = readmesh(MeshFileName);
 
@@ -1947,6 +2040,7 @@ readmesh3
 Read a 3D mesh file at different formats (see :ref:`Mesh Generation <meshReadWrite3D>`).
 
 .. code-block:: freefem
+   :linenos:
 
    mesh3 Th = readmesh3(MeshFileName);
 
@@ -1964,6 +2058,7 @@ real
 Return the real part of a complex number.
 
 .. code-block:: freefem
+   :linenos:
 
    real r = real(c);
 
@@ -1981,6 +2076,7 @@ rint
 Integer value nearest to :math:`x` (real value).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = rint(a);
 
@@ -1998,6 +2094,7 @@ round
 Round a value (real value).
 
 .. code-block:: freefem
+   :linenos:
 
    real r = round(a);
 
@@ -2015,6 +2112,7 @@ savemesh
 Save a 2D or 3D mesh in different formats (see :ref:`Mesh Generation 2D <meshDataStructureReadWrite>` and :ref:`Mesh Generation 3D <meshReadWrite3D>`).
 
 .. code-block:: freefem
+   :linenos:
 
    savemesh(Th, MeshFileName);
 
@@ -2040,6 +2138,7 @@ sign
 Sign of a value.
 
 .. code-block:: freefem
+   :linenos:
 
    int s = sign(a);
 
@@ -2057,6 +2156,7 @@ signbit
 C++ :cpp:`signbit` function
 
 .. code-block:: freefem
+   :linenos:
 
    int s = signbit(a);
 
@@ -2066,6 +2166,7 @@ sin
 :math:`\sin` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = sin(theta);
 
@@ -2088,6 +2189,7 @@ sinh
 :math:`\sinh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = sinh(theta);
 
@@ -2115,6 +2217,7 @@ sort
 Sort two array in parallel
 
 .. code-block:: freefem
+   :linenos:
 
    sort(A, B);
 
@@ -2135,6 +2238,7 @@ splitmesh
 Split mesh triangles according to a function.
 
 .. code-block:: freefem
+   :linenos:
 
    Th = splitmesh(Th0, f);
 
@@ -2153,6 +2257,7 @@ sqrt
 Square root
 
 .. code-block:: freefem
+   :linenos:
 
    real s = sqrt(a);
 
@@ -2172,6 +2277,7 @@ square
 1. Square of a number.
 
 .. code-block:: freefem
+   :linenos:
 
    real S = square(a);
 
@@ -2186,6 +2292,7 @@ Output:
 2. Build a structured square mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = square(nnX, nnY, [[L*x, H*y]], [flags=Flags]);
 
@@ -2209,6 +2316,7 @@ swap
 Swap values.
 
 .. code-block:: freefem
+   :linenos:
 
    swap(a, b);
 
@@ -2227,6 +2335,7 @@ system
 Execute a system command.
 
 .. code-block:: freefem
+   :linenos:
 
    int Res = system(Command);
 
@@ -2241,6 +2350,7 @@ Output:
 .. note:: On Windows, the full path of the command is needed. For example, to execute ``ls.exe``:
 
    .. code-block:: freefem
+      :linenos:
 
       int Res = exec("C:\\cygwin\\bin\\ls.exe");
 
@@ -2250,6 +2360,7 @@ tan
 :math:`\tan` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = tan(theta);
 
@@ -2272,6 +2383,7 @@ tanh
 :math:`\tanh` function.
 
 .. code-block:: freefem
+   :linenos:
 
    real x = tanh(theta);
 
@@ -2294,6 +2406,7 @@ tgamma
 Calculate the :math:`\Gamma` function of :math:`x`.
 
 .. code-block:: freefem
+   :linenos:
 
    real tg = tgamma(x);
 
@@ -2311,6 +2424,7 @@ trunc
 Split triangle of a mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = trunc(Th0, R, [split=Split], [label=Label]);
 
@@ -2335,6 +2449,7 @@ y0
 Bessel function of second kind, order 0.
 
 .. code-block:: freefem
+   :linenos:
 
    real B = y0(x);
 
@@ -2352,6 +2467,7 @@ y1
 Bessel function of second kind, order 1.
 
 .. code-block:: freefem
+   :linenos:
 
    real B = y1(x);
 
@@ -2369,6 +2485,7 @@ yn
 Bessel function of second kind, order n.
 
 .. code-block:: freefem
+   :linenos:
 
    real B = yn(n, x);
 

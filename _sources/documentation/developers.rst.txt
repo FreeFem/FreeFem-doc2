@@ -23,6 +23,7 @@ The mesh data structure, output of a mesh generation algorithm, refers to the ge
 In this case, the fields are
 
 .. code-block:: cpp
+   :linenos:
 
    MeshVersionFormatted 0
 
@@ -76,6 +77,7 @@ In this case, the fields are
 When the current mesh refers to a previous mesh, we have in addition
 
 .. code-block:: cpp
+   :linenos:
 
    MeshSupportOfVertices
    [File name of mesh support](char*)
@@ -118,6 +120,7 @@ bb file type to Store Solutions
 The file is formatted such that:
 
 .. code-block:: cpp
+   :linenos:
 
    2 [Number of solutions](int) [Number of vertices](int) 2
 
@@ -135,6 +138,7 @@ BB file type to store solutions
 The file is formatted such that:
 
 .. code-block:: cpp
+   :linenos:
 
    2 [Number of solutions](int) [Type 1](int) ... [Type ns](int) [Number of vertices](int) 2
 
@@ -157,7 +161,7 @@ The file is formatted such that:
    -  4: the solution is a :math:`2\times 2` matrix (4 values per vertex)
 
 -  ``nbv`` means the number of vertices
--  ``U_i_j_k`` is the value of the component ``i``\ of the solution
+-  ``U_i_j_k`` is the value of the component ``i`` of the solution
    ``k`` at vertex ``j`` on the associated mesh
 
 Metric file
@@ -168,6 +172,7 @@ A metric file can be of two types, isotropic or anisotropic.
 The isotropic file is such that
 
 .. code-block:: cpp
+   :linenos:
 
    [Number of vertices](int) 1
    h_0(double)
@@ -182,6 +187,7 @@ The metric is :math:`\mathcal{M}_i = h_i^{-2}I` where :math:`I` is the identity 
 The anisotropic file is such that
 
 .. code-block:: cpp
+   :linenos:
 
    [Number of vertices](int) 3
    a11_0(double) a21_0(double) a22_0(double)
@@ -208,6 +214,7 @@ The mesh is only composed of triangles and can be defined with the help of the f
 In ``Fortran`` the ``am_fmt`` files are read as follows:
 
 .. code-block:: fortran
+   :linenos:
 
    open (1, file='xxx.am_fmt', form='formatted', status='old')
    read (1, *) nbv, nbt
@@ -222,6 +229,7 @@ In ``Fortran`` the ``am_fmt`` files are read as follows:
 In ``Fortran`` the ``am`` files are read as follows:
 
 .. code-block:: fortran
+   :linenos:
 
    open (1, file='xxx.am', form='unformatted', status='old')
    read (1, *) nbv, nbt
@@ -236,6 +244,7 @@ In ``Fortran`` the ``am`` files are read as follows:
 In ``Fortran`` the ``amdba`` files are read as follows:
 
 .. code-block:: fortran
+   :linenos:
 
    open (1, file='xxx.amdba', form='formatted', status='old')
    read (1, *) nbv, nbt
@@ -254,6 +263,7 @@ First, we add the notions of boundary edges
 In ``Fortran`` the ``msh`` files are read as follows:
 
 .. code-block:: fortran
+   :linenos:
 
    open (1, file='xxx.msh', form='formatted', status='old')
    read (1, *) nbv, nbt, nbbe
@@ -267,6 +277,7 @@ In ``Fortran`` the ``msh`` files are read as follows:
 In ``Fortran`` the ``ftq`` files are read as follows:
 
 .. code-block:: fortran
+   :linenos:
 
    open(1,file='xxx.ftq',form='formatted',status='old')
    read (1,*) nbv,nbe,nbt,nbq
@@ -327,6 +338,7 @@ stored in the extension :freefem:`.sol` are respectively :math:`ST_{xx}^{3d}, ST
 An example of field with the keyword :freefem:`SolAtTetrahedra`:
 
 .. code-block:: cpp
+   :linenos:
 
    SolAtTetrahedra
    [Number of tetrahedra](int)
@@ -362,6 +374,7 @@ The format :freefem:`.solb` is the same as format :freefem:`.sol` but in binary 
 A real scalar functions :math:`f1`, a vector fields :math:`\mathbf{\Phi} = [\Phi1, \Phi2, \Phi3]` and a symmetric tensor :math:`ST^{3d}` :eq:`savesol.def.symtensor` at the vertices of the three dimensional mesh :freefem:`Th3` is stored in the file :freefem:`f1PhiTh3.sol` using :
 
 .. code-block:: freefem
+   :linenos:
 
    savesol("f1PhiST3dTh3.sol", Th3, f1, [Phi(1), Phi(2), Phi(3)], VV3, order=1);
 
@@ -370,6 +383,7 @@ where :math:`VV3 = [ST_{xx}^{3d}, ST_{yx}^{3d}, ST_{yy}^{3d}, ST_{zx}^{3d}, ST_{
 For a two dimensional mesh :freefem:`Th`, A real scalar functions :math:`f2`, a vector fields :math:`\mathbf{\Psi} = [\Psi1, \Psi2]` and a symmetric tensor :math:`ST^{2d}` :eq:`savesol.def.symtensor` at triangles is stored in the file :freefem:`f2PsiST2dTh3.solb` using :
 
 .. code-block:: freefem
+   :linenos:
 
    savesol("f2PsiST2dTh3.solb", Th, f2, [Psi(1), Psi(2)], VV2, order=0);
 
@@ -462,6 +476,7 @@ Add file ``FE_ADD.cpp`` in directory ``FreeFem-sources/src/femlib`` for
 example first to initialize :
 
 .. code-block:: cpp
+   :linenos:
 
    #include "error.hpp"
    #include "rgraph.hpp"
@@ -476,6 +491,7 @@ example first to initialize :
 Then add a class which derive for ``public TypeOfFE`` like:
 
 .. code-block:: cpp
+   :linenos:
 
    class TypeOfFE_RTortho : public TypeOfFE { public:
        static int Data[]; //some numbers
@@ -514,6 +530,7 @@ size ``NbDoF`` and one array of size ``N``.
 This array is:
 
 .. code-block:: cpp
+   :linenos:
 
    int TypeOfFE_RTortho::Data[] = {
        //for each df 0, 1, 3:
@@ -540,23 +557,25 @@ The index :math:`i,j,k` of the array :math:`val(i,j,k)` correspond to:
 
    .. note:: For optimization, this value is computed only if ``whatd[k]`` is true, and the numbering is defined with
 
-       .. code-block:: cpp
+      .. code-block:: cpp
+         :linenos:
 
-           enum operatortype {
-               op_id = 0,
-               op_dx = 1, op_dy = 2,
-               op_dxx = 3,op_dyy = 4,
-               op_dyx = 5,op_dxy = 5,
-               op_dz = 6,
-               op_dzz = 7,
-               op_dzx = 8, op_dxz = 8,
-               op_dzy = 9, op_dyz = 9
-           };
-           const int last_operatortype = 10;
+         enum operatortype {
+         op_id = 0,
+         op_dx = 1, op_dy = 2,
+         op_dxx = 3,op_dyy = 4,
+         op_dyx = 5,op_dxy = 5,
+         op_dz = 6,
+         op_dzz = 7,
+         op_dzx = 8, op_dxz = 8,
+         op_dzy = 9, op_dyz = 9
+         };
+         const int last_operatortype = 10;
 
 The shape function:
 
 .. code-block:: cpp
+   :linenos:
 
    void TypeOfFE_RTortho::FB(const bool *whatd, const Mesh &Th, const Triangle & K,
        const R2 &PHat,RNMK_ &val) const
@@ -608,6 +627,7 @@ The shape function:
 The function to defined the coefficient :math:`\alpha_{k}`:
 
 .. code-block:: cpp
+   :linenos:
 
    void TypeOfFE_RT::Pi_h_alpha(const baseFElement &K, KN_<double> &v) const
    {
@@ -628,9 +648,10 @@ Two way, with static or dynamic link so at the end of the file, we add:
 **With dynamic link** it is very simple (see section :ref:`Dynamical link <developersDynamicalLink>`), just add before the end of :cpp:`FEM2d namespace`:
 
 .. code-block:: cpp
+   :linenos:
 
-       static TypeOfFE_RTortho The_TypeOfFE_RTortho;
-       static AddNewFE("RT0Ortho", The_TypeOfFE_RTortho);
+      static TypeOfFE_RTortho The_TypeOfFE_RTortho;
+      static AddNewFE("RT0Ortho", The_TypeOfFE_RTortho);
    } //FEM2d namespace
 
 Try with ``./load.link`` command in `examples++-load/ <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__ and see ``BernardiRaugel.cpp`` or ``Morley.cpp`` new finite element examples.
@@ -638,6 +659,7 @@ Try with ``./load.link`` command in `examples++-load/ <https://github.com/FreeFe
 **Otherwise with static link** (for expert only), add
 
 .. code-block:: cpp
+   :linenos:
 
    //let the 2 globals variables
    static TypeOfFE_RTortho The_TypeOfFE_RTortho;
@@ -654,6 +676,7 @@ Try with ``./load.link`` command in `examples++-load/ <https://github.com/FreeFe
 To inforce in loading of this new finite element, we have to add the two new lines close to the end of files ``src/femlib/FESpace.cpp`` like:
 
 .. code-block:: cpp
+   :linenos:
 
    //correct problem of static library link with new make file
    void init_static_FE()
@@ -669,6 +692,7 @@ and now you have to change the makefile.
 First, create a file ``FE_ADD.cpp`` contening all this code, like in file ``src/femlib/Element_P2h.cpp``, after modify the ``Makefile.am`` by adding the name of your file to the variable ``EXTRA_DIST`` like:
 
 .. code-block:: cpp
+   :linenos:
 
    # Makefile using Automake + Autoconf
    # ----------------------------------
@@ -689,6 +713,7 @@ First, create a file ``FE_ADD.cpp`` contening all this code, like in file ``src/
 and do in the **FreeFem++** root directory
 
 .. code-block:: bash
+   :linenos:
 
    autoreconf
    ./reconfigure
@@ -716,7 +741,7 @@ Now, assume that you are in a shell window (a ``cygwin`` window under Windows) i
 .. note:: In the sub directory ``include``, they are all the **FreeFem++** include file to make the link with **FreeFem++**.
 
 .. note:: If you try to load dynamically a file with command :freefem:`load "xxx"`
-    - Under Unix (Linux or MacOs), the file ``xxx.so`` will be loaded so it must be either in the search directory of routine ``dlopen`` (see the environment variable ``$LD_LIBRARY_PATH.`` or in the current directory, and the suffix ``".so"`` or the prefix ``"./"`` is automatically added.
+    - Under Unix (Linux or MacOs), the file ``xxx.so`` will be loaded so it must be either in the search directory of routine ``dlopen`` (see the environment variable `$LD_LIBRARY_PATH`) or in the current directory, and the suffix ``".so"`` or the prefix ``"./"`` is automatically added.
 
     - Under Windows, the file `xxx.dll` will be loaded so it must be in the `loadLibary` search directory which includes the directory of the application,
 
@@ -730,6 +755,7 @@ A first example myfunction.cpp
 The following defines a new function call ``myfunction`` with no parameter, but using the :math:`x,y` current value.
 
 .. code-block:: cpp
+   :linenos:
 
    #include <iostream>
    #include <cfloat>
@@ -758,6 +784,7 @@ All **FreeFem++** evaluable expression must be a ``C++`` ``struct``/``class`` wh
 By default this expression does not depend of the mesh position, but if they derivate from ``E_F0mps`` the expression depends of the mesh position, and for more details see [HECHT2002]_.
 
 .. code-block:: cpp
+   :linenos:
 
    //A class build the link with FreeFem++
    //generaly this class are already in AFunction.hpp
@@ -789,6 +816,7 @@ By default this expression does not depend of the mesh position, but if they der
 To finish we must add this new function in **FreeFem++** table, to do that include :
 
 .. code-block:: cpp
+   :linenos:
 
     void init(){
         Global.Add("myfunction", "(", new OneOperator0s<double>(myfunction));
@@ -800,6 +828,7 @@ It will be called automatically at load module time.
 To compile and link, use the ``ff-c++`` script :
 
 .. code-block:: cpp
+   :linenos:
 
    ff-c++ myfunction.cpp
    g++ -c -g -Iinclude myfunction.cpp
@@ -809,7 +838,8 @@ To try the simple example under Linux or MacOS, do ``FreeFem++-nw load.edp``
 
 The output must be:
 
-.. code-block:: cpp
+.. code-block:: bash
+   :linenos:
 
    -- FreeFem++ v  *.****** (date *** ** *** ****, **:**:** (UTC+0*00))
     Load: lg_fem lg_mesh lg_mesh3 eigenvalue
@@ -882,6 +912,7 @@ So the classical discrete DFFT is :math:`\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}` a
 **Compile to build a new library**
 
 .. code-block:: bash
+   :linenos:
 
    ff-c++ dfft.cpp ../download/install/lib/libfftw3.a -I../download/install/include
    export MACOSX_DEPLOYMENT_TARGET=10.3
@@ -894,10 +925,10 @@ Load Module for Dervieux P0-P1 Finite Volume Method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The associed edp file is
-```examples++-load/convect_dervieux.edp`` <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/convect_dervieux.edp>`__.
+`examples++-load/convect_dervieux.edp <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/convect_dervieux.edp>`__.
 
 See
-```mat_dervieux.cpp`` <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/mat_dervieux.cpp>`__.
+`mat_dervieux.cpp <https://github.com/FreeFem/FreeFem-sources/blob/master/examples%2B%2B-load/mat_dervieux.cpp>`__.
 
 More on Adding a new finite element
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -927,6 +958,7 @@ See
 A way to check the finite element
 
 .. code-block:: freefem
+   :linenos:
 
    load "BernardiRaugel"
 
@@ -974,6 +1006,7 @@ A way to check the finite element
 A real example using this finite element, just a small modification of the Navier-Stokes P2-P1 example, just the begenning is change to
 
 .. code-block:: freefem
+   :linenos:
 
    load "BernardiRaugel"
 

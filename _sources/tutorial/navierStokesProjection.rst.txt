@@ -61,6 +61,7 @@ This can only be done if the triangulation is sufficiently fine, or well adapted
    Here we put :math:`p=0` and :math:`\nu \partial_n u = 0`.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    verbosity = 0;

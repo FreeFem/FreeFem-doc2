@@ -26,6 +26,7 @@ At resonance there are non-zero solutions even when :math:`g=0`.
 So the following program may or may not work:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real kc2 = 1.;
@@ -69,6 +70,7 @@ Results are on :numref:`figAcoustics`. But when :math:`kc2` is an eigenvalue of 
 To find all the :math:`u_e` one can do the following :
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real sigma = 20; //value of the shift
@@ -106,12 +108,14 @@ To find all the :math:`u_e` one can do the following :
    plot(v, wait=true, ps="eigen.eps");
 
 .. figure:: images/acoustics_0.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figAcoustics
 
     Amplitude of an acoustic signal coming from the left vertical wall.
 
 .. figure:: images/acoustics.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
 
     First eigen state (:math:`\lambda=(k/c)^2=19.4256`) close to :math:`20` of eigenvalue problem: :math:`-\Delta \varphi = \lambda\varphi` and :math:`\frac{\partial \varphi}{\partial n} = 0` on :math:`\Gamma`}

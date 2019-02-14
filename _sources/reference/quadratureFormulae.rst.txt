@@ -35,12 +35,14 @@ qf1pE
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf1pE)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qforder=2)( ... )
 
@@ -53,12 +55,14 @@ qf2pE
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf2pE)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qforder=3)( ... )
 
@@ -74,12 +78,14 @@ qf3pE
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf3pE)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qforder=6)( ... )
 
@@ -98,12 +104,14 @@ qf4pE
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf4pE)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qforder=8)( ... )
 
@@ -121,12 +129,14 @@ qf5pE
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf5pE)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qforder=10)( ... )
 
@@ -145,6 +155,7 @@ qf1pElump
 ~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int1d(Th, qfe=qf1pElump)( ... )
 
@@ -167,12 +178,14 @@ qf1pT
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf1pT)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qforder=2)( ... )
 
@@ -182,12 +195,14 @@ qf2pT
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf2pT)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qforder=3)( ... )
 
@@ -197,12 +212,14 @@ qf5pT
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf5pT)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qforder=6)( ... )
 
@@ -212,6 +229,7 @@ qf1pTlump
 ~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf1pTlump)( ... )
 
@@ -221,6 +239,7 @@ qf2pT4P1
 ~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf2pT4P1)( ... )
 
@@ -230,12 +249,14 @@ qf7pT
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf7pT)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qforder=8)( ... )
 
@@ -245,12 +266,14 @@ qf9pT
 ~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qfe=qf9pT)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int2d(Th, qforder=10)( ... )
 
@@ -265,12 +288,14 @@ qfV1
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qfe=qfV1)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qforder=2)( ... )
 
@@ -280,12 +305,14 @@ qfV2
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qfe=qfV2)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qforder=3)( ... )
 
@@ -295,12 +322,14 @@ qfV5
 ~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qfe=qfV5)( ... )
 
 or
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qforder=6)( ... )
 
@@ -310,6 +339,7 @@ qfV1lump
 ~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
     int3d(Th, qfe=qfV1lump)( ... )
 

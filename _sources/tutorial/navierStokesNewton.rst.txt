@@ -47,6 +47,7 @@ For Navier Stokes, :math:`F` and :math:`DF` are:
 So the Newton algorithm become:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real R = 5.;
@@ -168,11 +169,13 @@ So the Newton algorithm become:
     :math:`\nu` is gradually increased to the desired value.
 
 .. figure:: images/NSNewtonTh.jpg
-    :figclass: inline2
+   :figclass: inline
+   :figwidth: 49%
 
-    Mesh
+   Mesh
 
 .. figure:: images/NSNewtonUP.jpg
-    :figclass: inline2
+   :figclass: inline
+   :figwidth: 49%
 
-    Velocity and pressure at Reynolds 200
+   Velocity and pressure at Reynolds 200

@@ -5,14 +5,15 @@
 	justify-content: center;
 	align-items: flex-start;
 	padding: 10px;
-	background-color: #f1f1f1;
+	background-color: #f8f8f8;
+	box-shadow: inset -1px 0 10px 0px #888;
 }
 
 #toc > div {
 	position: sticky;
 	top: 70px;
 	padding: 10px;
-	height: 90vh;
+	max-height: 90vh;
 	overflow: auto;
 }
 

@@ -31,12 +31,14 @@ In **FreeFem++**, the finite element space:
 is easily created by:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace IDspace(IDmesh,<IDFE>);
 
 or with :math:`\ell` pairs of periodic boundary conditions in 2D:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace IDspace(IDmesh,<IDFE>,
        periodic=[[la1, sa1], [lb1, sb1],
@@ -46,6 +48,7 @@ or with :math:`\ell` pairs of periodic boundary conditions in 2D:
 and in 3D:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace IDspace(IDmesh,<IDFE>,
        periodic=[[la1, sa1, ta1], [lb1, sb1, tb1],
@@ -184,6 +187,7 @@ As of today, the known types of finite elements are:
     See our example for solving the BiLaplacien problem:
 
     .. code-block:: freefem
+        :linenos:
 
         load "Morley"
 
@@ -366,6 +370,7 @@ With the 2D finite element spaces
 when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10` of the unit square :math:`]0,1[^2`, we only write in **FreeFem++**:
 
 .. code-block:: freefem
+    :linenos:
 
     mesh Th = square(10, 10);
     fespace Xh(Th, P1); //scalar FE
@@ -379,6 +384,7 @@ where :freefem:`Xh, Mh, Rh` expresses finite element spaces (called FE spaces) :
 To use FE-functions :math:`u_{h},v_{h} \in X_{h}`, :math:`p_{h},q_{h} \in M_{h}` and :math:`U_{h},V_{h} \in R_{h}`, we write:
 
 .. code-block:: freefem
+    :linenos:
 
     Xh uh, vh;
     Xph uph, vph;
@@ -414,6 +420,7 @@ With the 3D finite element spaces
 when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10\times 10` of the unit cubic :math:`]0,1[^2`, we write in **FreeFem++**:
 
 .. code-block:: freefem
+    :linenos:
 
     mesh3 Th = buildlayers(square(10, 10),10, zbound=[0,1]);
     //label: 0 up, 1 down, 2 front, 3 left, 4 back, 5 right
@@ -430,6 +437,7 @@ where :freefem:`Xh, Mh, Rh` expresses finite element spaces (called FE spaces) :
 To define and use FE-functions :math:`u_{h},v_{h} \in X_{h}`, :math:`p_{h},q_{h} \in M_{h}` and :math:`U_{h},V_{h} \in R_{h}`, we write:
 
 .. code-block:: freefem
+    :linenos:
 
     Xh uh, vh;
     Xph uph, vph;
@@ -454,6 +462,7 @@ The functions :math:`U_{h}, V_{h}` have three components, so we have:
     To change the mesh numbering you can use the :freefem:`change` function like:
 
     .. code-block:: freefem
+        :linenos:
 
         {
             int[int] old2new(0:Th.nv-1); //array set on 0, 1, .., nv-1
@@ -486,6 +495,7 @@ For each triangle (d=2) or tetrahedron (d=3) :math:`T_k`, the basis function :ma
 If we write:
 
 .. code-block:: freefem
+    :linenos:
 
     Vh(Th, P0);
     Vh fh = f(x,y);
@@ -518,6 +528,7 @@ The basis function :math:`\phi_{k_1}(x,y)` with the vertex :math:`q^{k_1}` in :n
 If we write:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh(Th, P1);
    Vh fh = g(x.y);
@@ -529,13 +540,15 @@ then:
 See :numref:`finiteElementProjP1` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1)`.
 
 .. figure:: images/FiniteElement_P0P1P2P1nc.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementP0P1P2P1nc
 
     Test mesh :freefem:`Th` for projection
 
 .. figure:: images/FiniteElement_projP0.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP0
 
     Projection to :freefem:`Vh(Th, P0)`
@@ -565,6 +578,7 @@ and for the mid-point :math:`q^{k_2}`:
 If we write:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh(Th, P2);
    Vh fh = f(x.y);
@@ -576,13 +590,15 @@ then:
 See :ref:`finiteElementProjP2` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P2)`.
 
 .. figure:: images/FiniteElement_projP1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1
 
     Projection to :freefem:`Vh(Th, P1)`
 
 .. figure:: images/FiniteElement_projP2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP2
 
     Projection to :freefem:`Vh(Th, P2)`
@@ -598,6 +614,7 @@ Refer to [THOMASSET2012]_ for details; briefly, we now consider non-continuous a
 If we write:
 
 .. code-block:: freefem
+    :linenos:
 
     Vh(Th, P1nc);
     Vh fh = f(x.y);
@@ -642,13 +659,15 @@ The basis functions :math:`\phi_k` have the following properties.
 See :numref:`finiteElementProjP1nc` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1nc)`.
 
 .. figure:: images/FiniteElement_projP1nc.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1nc
 
     Projection to :freefem:`Vh(Th, P1nc)`
 
 .. figure:: images/FiniteElement_projP1b.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementProjP1b
 
     Projection to :freefem:`Vh(Th, P1b)`
@@ -669,6 +688,7 @@ The bubble function has the feature: 1. :math:`\beta_k(x,y)=0\quad \textrm{if }(
 If we write:
 
 .. code-block:: freefem
+    :linenos:
 
     Vh(Th, P1b);
     Vh fh = f(x.y);
@@ -686,6 +706,7 @@ Functions from :math:`\R^{2}` to :math:`\R^{N}` with :math:`N=1` are called scal
 When :math:`N=2`
 
 .. code-block:: freefem
+    :linenos:
 
     fespace Vh(Th, [P0, P1]) ;
 
@@ -719,6 +740,7 @@ where :math:`|T_k|` is the area of the triangle :math:`T_k`.
 If we write:
 
 .. code-block:: freefem
+   :linenos:
 
    Vh(Th, RT0);
    Vh [f1h, f2h] = [f1(x, y), f2(x, y)];
@@ -742,6 +764,7 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
     Normal vectors of each edge
 
 .. code-block:: freefem
+    :linenos:
 
     // Mesh
     mesh Th = square(2, 2);
@@ -772,13 +795,15 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
     vh([x-1/2, y]) = x^2 + y^2; //interpolate vh = ((x-1/2)^2 + y^2)
 
 .. figure:: images/FiniteElement_onoldmesh.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementOnOldMesh
 
     :freefem:`vh` Iso on mesh :math:`2\times 2`
 
 .. figure:: images/FiniteElement_onnewmesh.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: finiteElementOnNewMesh
 
     :freefem:`vh` Iso on  mesh :math:`5\times 5`
@@ -786,6 +811,7 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
 To get the value at a point :math:`x=1,y=2` of the FE function :freefem:`uh`, or :freefem:`[Uxh, Uyh]`, one writes:
 
 .. code-block:: freefem
+    :linenos:
 
     real value;
     value = uh(2,4); //get value = uh(2, 4)
@@ -799,6 +825,7 @@ To get the value at a point :math:`x=1,y=2` of the FE function :freefem:`uh`, or
 To get the value of the array associated to the FE function :freefem:`uh`, one writes
 
 .. code-block:: freefem
+    :linenos:
 
     real value = uh[][0]; //get the value of degree of freedom 0
     real maxdf = uh[].max; //maximum value of degree of freedom
@@ -878,6 +905,7 @@ Two problems need to be solved:
 .. note:: Sometimes, in rare cases, the interpolation process misses some points, we can change the search algorithm through a global variable :freefem:`searchMethod`
 
     .. code-block:: freefem
+        :linenos:
 
         searchMethod = 0; // default value for fast search algorithm
         searchMethod = 1; // safe search algorithm, uses brute force in case of missing point
@@ -891,6 +919,7 @@ Two problems need to be solved:
    Try the following example :
 
     .. code-block:: freefem
+        :linenos:
 
         // Mesh
         mesh Ths = square(10, 10);
@@ -912,13 +941,15 @@ Two problems need to be solved:
         plot(vs, vg, wait=true);
 
     .. figure:: images/FiniteElement_UsUg.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: finiteElementUsUg
 
         Extension of a continuous FE-function
 
     .. figure:: images/FiniteElement_VsVg.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: finiteElementVsVg
 
         Extension of discontinuous FE-function
@@ -929,6 +960,7 @@ Keywords: Problem and Solve
 For **FreeFem++**, a problem must be given in variational form, so we need a bilinear form :math:`a(u,v)`, a linear form :math:`\ell(f,v)`, and possibly a boundary condition form must be added.
 
 .. code-block:: freefem
+    :linenos:
 
     problem P (u, v)
         = a(u,v) - l(f,v)
@@ -1016,6 +1048,7 @@ Except in the case of Neumann conditions everywhere, the problem :eq:`eqn::v-poi
 In **FreeFem++**, the bidimensional problem :eq:`eqn::v-poisson` becomes:
 
 .. code-block:: freefem
+    :linenos:
 
     problem Pw (u, v)
         = int2d(Th)( //int_{Omega} kappa nabla v . nabla u
@@ -1038,6 +1071,7 @@ where :freefem:`Th` is a mesh of the bi-dimensional domain :math:`\Omega`, and :
 And the three dimensional problem :eq:`eqn::v-poisson` becomes
 
 .. code-block:: freefem
+    :linenos:
 
     macro Grad(u) [dx(u), dy(u), dz(u) ]//
     problem Pw (u, v)
@@ -1106,6 +1140,7 @@ The parameters are:
     The prototype for the function :freefem:`P` must be:
 
     .. code-block:: freefem
+        :linenos:
 
         func real[int] P(real[int] & xx);
 
@@ -1468,6 +1503,7 @@ It is possible to add an own quadrature formulae with using plugin :freefem:`qf1
 The quadrature formulae in :math:`D` dimension is a bidimentional array of size :math:`N_q\times (D+1)` such that the :math:`D+1` value of on row :math:`i=0,...,N_p-1` are :math:`w^i,\hat{x}^i_1,...,\hat{x}^i_D` where :math:`w^i` is the weight of the quadrature point, and :math:`1-\sum_{k=1}^D \hat{x}^i_k ,\hat{x}^i_1,...,\hat{x}^i_D` is the barycentric coordinate the quadrature point.
 
 .. code-block:: freefem
+    :linenos:
 
     load "qf11to25"
 
@@ -1522,6 +1558,7 @@ The quadrature formulae in :math:`D` dimension is a bidimentional array of size 
 The output is
 
 .. code-block:: bash
+    :linenos:
 
     1.67 == 1.67
     0.335 == 0.335
@@ -1569,6 +1606,7 @@ Where with :math:`\frac{1}{\varepsilon} = \mathtt{tgv} = 10^{30}`:
     \end{array}
 
 .. code-block:: freefem
+    :linenos:
 
     // Parameters
     func fu0 = 10 + 90*x/6;
@@ -1588,6 +1626,7 @@ Where with :math:`\frac{1}{\varepsilon} = \mathtt{tgv} = 10^{30}`:
 Create three variational formulation, and build the matrices :math:`A`,\ :math:`M`.
 
 .. code-block:: freefem
+    :linenos:
 
     // Problem
     varf vthermic (u, v)
@@ -1621,6 +1660,7 @@ Create three variational formulation, and build the matrices :math:`A`,\ :math:`
 Now, to build the right hand size we need 4 vectors.
 
 .. code-block:: freefem
+    :linenos:
 
     real[int] b0 = vthermic0(0, Vh); //constant part of the RHS
     real[int] bcn = vthermic(0, Vh); //tgv on Dirichlet boundary node ( !=0 )
@@ -1634,6 +1674,7 @@ Now, to build the right hand size we need 4 vectors.
 And the new version of the algorithm is now:
 
 .. code-block:: freefem
+    :linenos:
 
     // Time loop
     ofstream ff("thermic.dat");
@@ -1664,6 +1705,7 @@ And the new version of the algorithm is now:
 .. note:: The functions appearing in the variational form are formal and local to the :freefem:`varf` definition, the only important thing is the order in the parameter list, like in:
 
     .. code-block:: freefem
+        :linenos:
 
         varf vb1([u1, u2], q) = int2d(Th)((dy(u1) + dy(u2))*q) + int2d(Th)(1*q);
         varf vb2([v1, v2], p) = int2d(Th)((dy(v1) + dy(v2))*p) + int2d(Th)(1*p);
@@ -1671,6 +1713,7 @@ And the new version of the algorithm is now:
 To build matrix :math:`A` from the bilinear part the variational form :math:`a` of type :freefem:`varf` simply write:
 
 .. code-block:: freefem
+    :linenos:
 
     A = a(Vh, Wh , []...]);
     // where
@@ -1706,6 +1749,7 @@ Possible named parameters in :freefem:`, [...]` are
    The prototype for the function :freefem:`P` must be:
 
    .. code-block:: freefem
+      :linenos:
 
       func real[int] P(real[int] & xx) ;
 
@@ -1722,6 +1766,7 @@ Possible named parameters in :freefem:`, [...]` are
 To build the dual vector :freefem:`b` (of type :freefem:`real[int]`) from the linear part of the variational form :freefem:`a` do simply:
 
 .. code-block:: freefem
+    :linenos:
 
     real b(Vh.ndof);
     b = a(0, Vh);
@@ -1729,6 +1774,7 @@ To build the dual vector :freefem:`b` (of type :freefem:`real[int]`) from the li
 A first example to compute the area of each triangle :math:`K` of mesh :math:`Th`, just do:
 
 .. code-block:: freefem
+    :linenos:
 
     fespace Nh(Th, P0); //the space function constant / triangle
     Nh areaK;
@@ -1745,6 +1791,7 @@ Now, we can use this to compute error indicators like in example :ref:`Adaptatio
 First to compute a continuous approximation to the function :math:`h` "density mesh size" of the mesh :math:`Th`.
 
 .. code-block:: freefem
+    :linenos:
 
     fespace Vh(Th, P1);
     Vh h ;
@@ -1765,6 +1812,7 @@ To compute error indicator for Poisson equation:
 where :math:`h_K` is size of the longest edge (:freefem:`hTriangle`), :math:`h_e` is the size of the current edge (:freefem:`lenEdge`), :math:`n` the normal.
 
 .. code-block:: freefem
+    :linenos:
 
     fespace Nh(Th, P0); // the space function constant / triangle
     Nh etak;
@@ -1782,6 +1830,7 @@ where :math:`h_K` is size of the longest edge (:freefem:`hTriangle`), :math:`h_e
 We add automatic expression optimization by default, if this optimization creates problems, it can be removed with the keyword :freefem:`optimize` as in the following example:
 
 .. code-block:: freefem
+    :linenos:
 
     varf a (u1, u2)
         = int2d(Th, optimize=0)(
@@ -1797,6 +1846,7 @@ or you can also do optimization and remove the check by setting :freefem:`optimi
 Remark, it is all possible to build interpolation matrix, like in the following example:
 
 .. code-block:: freefem
+    :linenos:
 
     mesh TH = square(3, 4);
     mesh th = square(2, 3);
@@ -1812,6 +1862,7 @@ Remark, it is all possible to build interpolation matrix, like in the following 
 and after some operations on sparse matrices are available for example:
 
 .. code-block:: freefem
+    :linenos:
 
     int N = 10;
     real [int, int] A(N, N); //a full matrix
@@ -1851,6 +1902,7 @@ The named parameters of function :freefem:`interpolate` are:
 -  :freefem:`U2Vc=` set the which is the component of :math:`W_h` come in :math:`V_h` in interpolate process in a int array so the size of the array is number of component of :math:`W_h`, if the put :math:`-1` then component is set to :math:`0`, like in the following example: (by default the component number is unchanged).
 
     .. code-block:: freefem
+        :linenos:
 
         fespace V4h(Th4, [P1, P1, P1, P1]);
         fespace V3h(Th, [P1, P1, P1]);
@@ -1865,6 +1917,7 @@ The named parameters of function :freefem:`interpolate` are:
 .. tip:: Matrix interpolation
 
     .. code-block:: freefem
+        :linenos:
 
         // Mesh
         mesh Th = square(4, 4);
@@ -1914,6 +1967,7 @@ The named parameters of function :freefem:`interpolate` are:
     where :math:`w_i` is the basic finite element function, :math:`c` the component number, :math:`dop` the type of diff operator like in op def.
 
     .. code-block:: freefem
+        :linenos:
 
         real[int] xx = [.3, .4], yy = [.1, .4];
         int c = 0, dop = 0;
@@ -1949,6 +2003,7 @@ The named parameters of function :freefem:`interpolate` are:
     It is done as follows (with :math:`\Gamma=\partial\Omega`):
 
     .. code-block:: freefem
+        :linenos:
 
         // Parameters
         int n = 30;
@@ -2075,6 +2130,7 @@ See the following example:
 .. tip:: Finite element connectivity
 
     .. code-block:: freefem
+        :linenos:
 
         // Mesh
         mesh Th = square(5, 5);
@@ -2094,6 +2150,7 @@ See the following example:
     The output is:
 
     .. code-block:: bash
+        :linenos:
 
         Number of degree of freedom = 121
         Number of degree of freedom / ELEMENT = 6

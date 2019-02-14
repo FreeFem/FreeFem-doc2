@@ -35,6 +35,7 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
    \int_\Omega(\frac{u^n-u^{n-1}}{\delta t} w + \kappa\nabla u^n\nabla w) +\int_\Gamma\alpha(u^n-u_ue)w=0
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    func u0 = 10. + 90.*x/6.;
@@ -87,6 +88,7 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
    Should a one dimensional plot be required, the same procedure can be used. For instance to print :math:`x\mapsto \frac{\partial u}{\partial y}(x,0.9)` one would do:
 
    .. code-block:: freefem
+      :linenos:
 
       for(int i = 0; i < 20; i++)
          cout << dy(u)(6.0*i/20.0,0.9) << endl;
@@ -94,13 +96,15 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
 Results are shown on :numref:`figThermalT` and :numref:`figThermalCurve`.
 
 .. figure:: images/thermic.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figThermalT
 
     Temperature at :math:`t=4.9`.
 
 .. figure:: images/thermicvst.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figThermalCurve
 
     Decay of temperature versus time at :math:`x=3, y=0.5`
@@ -134,6 +138,7 @@ Note that the PDE has been multiplied by :math:`r`.
 After discretization in time with an implicit scheme, with time steps ``dt``, in the FreeFem++ syntax :math:`r` becomes :math:`x` and :math:`z` becomes :math:`y` and the problem is:
 
 .. code-block:: freefem
+   :linenos:
 
    problem thermaxi(u, v)
        = int2d(Th)(
@@ -174,6 +179,7 @@ because we have the identity :math:`a^4 - b^4 = (a-b)(a+b)(a^2+b^2)`.
 The iterative process will work with :math:`v=u-u_e`.
 
 .. code-block:: freefem
+   :linenos:
 
    ...
    // Parameters

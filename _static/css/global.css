@@ -1,3 +1,4 @@
+/** GLOBAL **/
 a {
 	text-decoration: none;
 	color: black;
@@ -6,6 +7,10 @@ a {
 a:visited {
 	text-decoration: none;
 	color: black;
+}
+
+strong {
+	font-weight: bold;
 }
 
 ul {
@@ -18,6 +23,27 @@ li {
 	margin: 0;
 	padding: 0;
 	line-height: 1.6em;
+}
+
+#documentation li {
+	font-family: "Roboto-slab", serif;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	margin-left: 20px;
+}
+
+#generalities li {
+	font-family: "Roboto-slab", serif;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	margin-left: 20px;
+}
+
+#adaptmesh li {
+	font-family: "Roboto-slab", serif;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	margin-left: 20px;
 }
 
 b {
@@ -38,21 +64,69 @@ i:hover {
 }
 
 p {
-	line-height: 1.6em;
+	font-family: "Roboto-slab", serif;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
 }
 
+.fake-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: "Roboto", sans-serif;
+}
+
+/** CODE TABLES **/
 .linenos {
 	background-color: rgba(0,0,0,.07);
 	color: rgba(0,0,0,.26);
 	border-radius: 5px 0 0 5px;
+	padding: 0 10px !important;
+}
+
+.linenos pre {
+	padding: 0 5px;
+	margin: 0;
+}
+
+table.highlighttable {
+	display: block;
+	background-color: #eeeeee !important;
+	border-radius: 5px;
+	margin: 20px 0;
+	overflow: hidden;
+	position: relative;
+}
+
+table.highlighttable tbody {
+	display: block;
+}
+
+table.highlighttable tr {
+	display: flex;
+}
+
+table.highlighttable .code {
+	flex: 1;
+	overflow: hidden;
+	padding: 0 10px;
+}
+
+table.highlighttable pre {
+	display: block;
+	margin: 0;
+	overflow: auto;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	padding: 10px 0;
 }
 
 .highlight {
-	background-color: hsla(0,0%,92.5%,.5) !important;
-	border-radius: 0 5px 5px 0;
-	overflow: auto;
+	background-color: #eeeeee !important;
+	padding: 0 5px;
+	margin: 0;
 }
 
+/** IMAGES **/
 img {
 	max-width: 90%;
 }
@@ -62,24 +136,8 @@ img.align-center {
 	margin: auto;
 }
 
-div.inline2 {
+div.inline {
    display: inline-flex;
-   text-align: center;
-   width: 49%;
-}
-
-div.inline2 > img {
-   width: 90%;
-}
-
-div.inline3 {
-   display: inline-flex;
-   text-align: center;
-   width: 32%;
-}
-
-div.inline3 > img {
-   width: 90%;
 }
 
 .figure {
@@ -120,12 +178,14 @@ div.inline3 > img {
 	background-color: transparent !important;
 }
 
+/** TABLEAUX **/
 table:not(.highlighttable) {
 	min-width: 100%;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
 	border: none;
 	border-collapse: collapse;
 	overflow: auto;
+	font-family: "Roboto-slab", serif;
 }
 
 table a {
@@ -143,16 +203,12 @@ th {
 	padding: 10px;
 }
 
-td {
+td:not(.code) {
 	padding: 10px;
 }
 
-td.code {
-	padding: 0;
-}
-
-td.linenos {
-	padding: 0;
+td:not(.linenos) {
+	padding: 10px;
 }
 
 .math {
@@ -163,6 +219,12 @@ span {
 	margin: 0;
 }
 
+table.authors {
+	margin: 20px 0;
+	border-radius: 5px;
+}
+
+/** ADMONITIONS **/
 .admonition {
 	position: relative;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
@@ -186,7 +248,7 @@ span {
 	font-family: "Font Awesome 5 Free";
 	left: 1.2rem;
 	color: #448aff;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	content: "\f304";
 }
 
@@ -212,6 +274,48 @@ span {
 }
 
 .admonition.tip .admonition-title::before {
-	content: '';
+	content: '\f0c3';
 	color: #651fff;
+}
+
+/** SCROLLBAR DESIGN **/
+body::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0000FF;
+}
+
+.md-typeset pre {
+	webkit-overflow-scrolling: touch;
+}
+
+.md-typeset .codehilite, .md-typeset .highlight {
+	webkit-overflow-scrolling: touch;
+}
+
+.copy-button {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	border: none;
+	background: none;
+}
+
+.copy-button i {
+	color: rgba(0.75, 0.75, 0.75, 0.1);
+}
+
+.copy-button:hover i {
+	color: rgba(0.75, 0.75, 0.75, 1);
 }

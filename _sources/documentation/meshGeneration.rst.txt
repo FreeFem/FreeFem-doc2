@@ -1,10 +1,11 @@
 .. role:: freefem(code)
-  :language: freefem
+   :language: freefem
 
-.. _meshGeneration:
 
 .. math::
-    \def\R{{\mathbb{R}}}
+   \def\R{{\mathbb{R}}}
+
+.. _meshGeneration:
 
 Mesh Generation
 ===============
@@ -21,6 +22,7 @@ The command :freefem:`square` triangulates the unit square.
 The following generates a :math:`4 \times 5` grid in the unit square :math:`[0,1]^2`. The labels of the boundaries are shown in :numref:`figBoundaryLabels`.
 
 .. code-block:: freefem
+  :linenos:
 
   mesh Th = square(4, 5);
 
@@ -32,6 +34,7 @@ The following generates a :math:`4 \times 5` grid in the unit square :math:`[0,
 To construct a :math:`n\times m` grid in the rectangle :math:`[x_0,x_1]\times [y_0,y_1]`, proceed as follows:
 
 .. code-block:: freefem
+  :linenos:
 
   real x0 = 1.2;
   real x1 = 1.8;
@@ -50,6 +53,7 @@ To construct a :math:`n\times m` grid in the rectangle :math:`[x_0,x_1]\times [y
   4. same as in case 2, except two corners where the triangles are the same as case 0 to avoid having 3 vertices on the boundary
 
   .. code-block:: freefem
+    :linenos:
 
     mesh Th = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y], flags=icase);
 
@@ -62,12 +66,13 @@ To construct a :math:`n\times m` grid in the rectangle :math:`[x_0,x_1]\times [y
   To see all of these flags at work, check :ref:`Square mesh example <exampleMeshSquare>`:
 
   .. code-block:: freefem
+      :linenos:
 
-    for (int i = 0; i < 5; ++i){
-      int[int] labs = [11, 12, 13, 14];
-      mesh Th = square(3, 3, flags=i, label=labs, region=10);
-      plot(Th, wait=1, cmm="square flags = "+i );
-    }
+      for (int i = 0; i < 5; ++i){
+         int[int] labs = [11, 12, 13, 14];
+         mesh Th = square(3, 3, flags=i, label=labs, region=10);
+         plot(Th, wait=1, cmm="square flags = "+i );
+      }
 
 .. _meshBorder:
 
@@ -77,6 +82,7 @@ Border
 Boundaries are defined piecewise by parametrized curves. The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints. This can be used to structure the mesh if an area touches a border and create new regions by dividing larger ones:
 
 .. code-block:: freefem
+  :linenos:
 
   int upper = 1;
   int others = 2;
@@ -107,13 +113,15 @@ Boundaries are defined piecewise by parametrized curves. The pieces can only int
 Borders and mesh are respectively shown in :numref:`figMultipleBorder` and :numref:`figGeneratedMesh`.
 
 .. figure:: images/MeshGeneration_Border1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMultipleBorder
 
     Multiple border ends intersect
 
 .. figure:: images/MeshGeneration_Border2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figGeneratedMesh
 
     Generated mesh
@@ -134,6 +142,7 @@ To check the orientation plot :math:`t\mapsto (\varphi_x(t),\varphi_y(t)),\, t_0
 The general expression to define a triangulation with :freefem:`buildmesh` is
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Mesh_Name = buildmesh(Gamma1(m1)+...+GammaJ(mj), OptionalParameter);
 
@@ -147,6 +156,7 @@ The orientation of boundaries can be changed by changing the sign of :math:`m_j`
 The following example shows how to change the orientation. The example generates the unit disk with a small circular hole, and assigns "1" to the unit disk ("2" to the circle inside). The boundary label **must be non-zero**, but it can also be omitted.
 
 .. code-block:: freefem
+   :linenos:
 
    border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
    border b(t=0, 2*pi){x=0.3+0.3*cos(t); y=0.3*sin(t); label=2;}
@@ -159,13 +169,15 @@ The following example shows how to change the orientation. The example generates
 .. note:: Notice that the orientation is changed by :freefem:`b(-30)` in the 5th line. In the 7th line, :freefem:`ps="fileName"` is used to generate a postscript file with identification shown on the figure.
 
 .. figure:: images/MeshGeneration_Border4.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMesWithouthHole
 
     Mesh without hole
 
 .. figure:: images/MeshGeneration_Border5.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMeshWithHole
 
     Mesh with hole
@@ -173,6 +185,7 @@ The following example shows how to change the orientation. The example generates
 .. note:: Borders are evaluated only at the time :freefem:`plot` or :freefem:`buildmesh` is called so the global variables are defined at this time. In this case, since :math:`r` is changed between the two border calls, the following code will not work because the first border will be computed with r=0.3:
 
   .. code-block:: freefem
+    :linenos:
 
     real r=1;
     border a(t=0, 2*pi){x=r*cos(t); y=r*sin(t); label=1;}
@@ -189,6 +202,7 @@ Sometimes it can be useful to make an array of the border, but unfortunately it 
 A first very small example:
 
 .. code-block:: freefem
+   :linenos:
 
    border a(t=0, 2*pi; i){x=(i+1)*cos(t); y=(i+1)*sin(t); label=1;}
    int[int] nn = [10, 20, 30];
@@ -197,6 +211,7 @@ A first very small example:
 And a more complex example to define a square with small circles:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] xx = [0, 1, 1, 0],
              yy = [0, 0, 1, 1];
@@ -235,6 +250,7 @@ Data Structures and Read/Write Statements for a Mesh
 Users who want to read a triangulation made elsewhere should see the structure of the file generated below:
 
 .. code-block:: freefem
+   :linenos:
 
    border C(t=0, 2*pi){x=cos(t); y=sin(t);}
    mesh Th = buildmesh(C(10));
@@ -321,6 +337,7 @@ A mesh file can be read into **FreeFem++** except that the names of the borders 
 So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword :freefem:`label`. Here are some examples:
 
 .. code-block:: freefem
+  :linenos:
 
   border floor(t=0, 1){x=t; y=0; label=1;}
   border right(t=0, 1){x=1; y=t; label=5;}
@@ -336,6 +353,7 @@ So these borders have to be referenced by the number which corresponds to their 
   mesh th2 = readmesh("toto.msh"); //read the mesh
 
 .. code-block:: freefem
+  :linenos:
 
   // Parameters
   int n = 10;
@@ -410,6 +428,7 @@ Mesh Connectivity and data
 The following example explains methods to obtain mesh information.
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    mesh Th = square(2, 2);
@@ -550,6 +569,7 @@ The following example explains methods to obtain mesh information.
 The output is:
 
 .. code-block:: bash
+   :linenos:
 
    // Get data of the mesh
    Number of triangle = 8
@@ -678,6 +698,7 @@ It can be useful to build a mesh from a table function.
 The coordinates of the points and the value of the table function are defined separately with rows of the form: :freefem:`x y f(x,y)` in a file such as:
 
 .. code-block:: freefem
+   :linenos:
 
    0.51387 0.175741 0.636237
    0.308652 0.534534 0.746765
@@ -688,13 +709,15 @@ The coordinates of the points and the value of the table function are defined se
    ...............
 
 .. figure:: images/MeshGeneration_Triangulate1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figDelaunayMesh
 
     Delaunay mesh of the convex hull of point set in file xy
 
 .. figure:: images/MeshGeneration_Triangulate2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figIsovalue
 
     Isolvalue of table function
@@ -706,6 +729,7 @@ The following example shows how to make a mesh from the file ``xyf`` with the fo
 The command :freefem:`triangulate` only uses the 1st and 2nd columns.
 
 .. code-block:: freefem
+   :linenos:
 
    // Build the Delaunay mesh of the convex hull
    mesh Thxy=triangulate("xyf"); //points are defined by the first 2 columns of file `xyf`
@@ -732,6 +756,7 @@ The command :freefem:`triangulate` only uses the 1st and 2nd columns.
 One new way to build a mesh is to have two arrays: one for the :math:`x` values and the other for the :math:`y` values.
 
 .. code-block:: freefem
+   :linenos:
 
    //set two arrays for the x's and y's
    Vhxy xx=x, yy=y;
@@ -747,6 +772,7 @@ It can be useful to handle Lagrange multipliers in mixed and mortar methods.
 So the function :freefem:`emptymesh` removes all the internal points of a mesh except points on internal boundaries.
 
 .. code-block:: freefem
+   :linenos:
 
    {
        border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
@@ -758,6 +784,7 @@ So the function :freefem:`emptymesh` removes all the internal points of a mesh e
 It is also possible to build an empty mesh of a pseudo subregion with :freefem:`emptymesh(Th, ssd)` using the set of edges from the mesh :freefem:`Th`; an edge :math:`e` is in this set when, with the two adjacent triangles :math:`e =t1\cap t2` and :math:`ssd[T1] \neq ssd[T2]` where :math:`ssd` refers to the pseudo region numbering of triangles, they are stored in the :freefem:`int[int]` array of size "the number of triangles".
 
 .. code-block:: freefem
+   :linenos:
 
    {
        mesh Th = square(10, 10);
@@ -777,13 +804,15 @@ It is also possible to build an empty mesh of a pseudo subregion with :freefem:`
    }
 
 .. figure:: images/MeshGeneration_EmptyMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figEmptyMesh1
 
     The empty mesh with boundary
 
 .. figure:: images/MeshGeneration_EmptyMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figEmptyMesh2
 
     An empty mesh defined from a pseudo region numbering of triangle
@@ -803,6 +832,7 @@ It is also useful to handle free boundary problems or optimal shape problems.
 If :math:`\Omega` is triangulated as :math:`T_h(\Omega)`, and :math:`\mathbf{\Phi}` is a displacement vector then :math:`\mathbf{\Phi}(T_h)` is obtained by:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = movemesh(Th,[Phi1, Phi2]);
 
@@ -820,6 +850,7 @@ For example:
 for a big number :math:`k>1`.
 
 .. code-block:: freefem
+   :linenos:
 
    verbosity = 4;
 
@@ -854,13 +885,15 @@ for a big number :math:`k>1`.
 
 
 .. figure:: images/MeshGeneration_MoveMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figLShape
 
     L-shape
 
 .. figure:: images/MeshGeneration_MoveMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: figMovedLShape
 
     Moved L-shape
@@ -873,6 +906,7 @@ for a big number :math:`k>1`.
 Now, we give an example of moving a mesh with a Lagrangian function :math:`u` defined on the moving mesh.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    int nn = 10;
@@ -927,6 +961,7 @@ The sequence :math:`\{\mathcal{T}_h\}_{h\rightarrow 0}` of
 We put :math:`h(\mathcal{T}_h)=\max\{\textrm{diam}(T_k)|\; T_k\in \mathcal{T}_h\}`, which is obtained by
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th = ......;
    fespace Ph(Th, P0);
@@ -945,6 +980,7 @@ The function:
 sharply varies in value and the initial mesh given by one of the commands in the :ref:`Mesh Generation part <meshGeneration>` cannot reflect its sharp variations.
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real eps = 0.0001;
@@ -977,6 +1013,7 @@ sharply varies in value and the initial mesh given by one of the commands in the
 The command:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh ATh = adaptmesh(Th, f);
 
@@ -993,13 +1030,15 @@ Mesh adaptation is a very powerful tool when the solution of a problem varies lo
 Here we solve the :ref:`Poisson’s problem <tutorialPoisson>`, when :math:`f=1` and :math:`\Omega` is a L-shape domain.
 
 .. figure:: images/MeshGeneration_AdaptMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: adaptMesh2
 
     L-shape domain and its boundary name
 
 .. figure:: images/MeshGeneration_AdaptMesh3.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: adaptMesh3
 
     Final solution after 4-times adaptation
@@ -1007,6 +1046,7 @@ Here we solve the :ref:`Poisson’s problem <tutorialPoisson>`, when :math:`f=1`
 .. tip:: The solution has the singularity :math:`r^{3/2},\, r=|x-\gamma|` at the point :math:`\gamma` of the intersection of two lines :math:`bc` and :math:`bd` (see :numref:`adaptMesh2`).
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real error = 0.1;
@@ -1060,10 +1100,11 @@ It has a number of default parameters which can be modified.
 If :freefem:`f1,f2` are functions and :freefem:`thold, Thnew` are meshes:
 
 .. code-block:: freefem
+   :linenos:
 
-       Thnew = adaptmesh(Thold, f1 ... );
-       Thnew = adaptmesh(Thold, f1,f2 ... ]);
-       Thnew = adaptmesh(Thold, [f1,f2] ... );
+      Thnew = adaptmesh(Thold, f1 ... );
+      Thnew = adaptmesh(Thold, f1,f2 ... ]);
+      Thnew = adaptmesh(Thold, [f1,f2] ... );
 
 The additional parameters of :freefem:`adaptmesh` are:
 
@@ -1165,6 +1206,7 @@ We can use the command :freefem:`adaptmesh` to build a uniform mesh with a const
 To build a mesh with a constant mesh size equal to :math:`\frac{1}{30}` try:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th=square(2, 2); //the initial mesh
    plot(Th, wait=true, ps="square-0.eps");
@@ -1207,12 +1249,14 @@ Operator :freefem:`trunc` has two parameters:
 To create the mesh :freefem:`Th3` where all triangles of a mesh :freefem:`Th` are split in :math:`3{\times}3`, just write:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh Th3 = trunc(Th, 1, split=3);
 
 The following example construct all "trunced" meshes to the support of the basic function of the space :freefem:`Vh` (cf. :freefem:`abs(u)>0`), split all the triangles in :math:`5{\times} 5`, and put a label number to :math:`2` on a new boundary.
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    mesh Th = square(3, 3);
@@ -1232,13 +1276,15 @@ The following example construct all "trunced" meshes to the support of the basic
    }
 
 .. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: trunc1
 
     Mesh of support the function P1 number 0, split in :math:`5{\times}5`
 
 .. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: trunc6
 
     Mesh of support the function P1 number 6, split in :math:`5{\times}5`
@@ -1249,6 +1295,7 @@ Splitmesh
 Another way to split mesh triangles is to use :freefem:`splitmesh`, for example:
 
 .. code-block:: freefem
+   :linenos:
 
    // Mesh
    border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
@@ -1260,13 +1307,15 @@ Another way to split mesh triangles is to use :freefem:`splitmesh`, for example:
    plot(Th, wait=true, ps="SplittedMesh.eps");
 
 .. figure:: images/MeshGeneration_SplitMesh1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: splitMesh1
 
     Initial mesh
 
 .. figure:: images/MeshGeneration_SplitMesh2.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: splitMesh2
 
     All left mesh triangle is split conformaly in :freefem:`int(1+5*(square(x-0.5)+y*y)^2` triangles
@@ -1279,6 +1328,7 @@ Meshing Examples
 .. tip:: Two rectangles touching by a side
 
     .. code-block:: freefem
+        :linenos:
 
         border a(t=0, 1){x=t; y=0;};
         border b(t=0, 1){x=1; y=t;};
@@ -1301,6 +1351,7 @@ Meshing Examples
 .. tip:: NACA0012 Airfoil
 
     .. code-block:: freefem
+        :linenos:
 
         border upper(t=0, 1){x=t; y=0.17735*sqrt(t) - 0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4);}
         border lower(t=1, 0){x = t; y=-(0.17735*sqrt(t) -0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4));}
@@ -1316,6 +1367,7 @@ Meshing Examples
 .. tip:: Cardioid
 
     .. code-block:: freefem
+        :linenos:
 
         real b = 1, a = b;
         border C(t=0, 2*pi){x=(a+b)*cos(t)-b*cos((a+b)*t/b); y=(a+b)*sin(t)-b*sin((a+b)*t/b);}
@@ -1330,6 +1382,7 @@ Meshing Examples
 .. tip:: Cassini Egg
 
     .. code-block:: freefem
+        :linenos:
 
         border C(t=0, 2*pi) {x=(2*cos(2*t)+3)*cos(t); y=(2*cos(2*t)+3)*sin(t);}
         mesh Th = buildmesh(C(50));
@@ -1343,6 +1396,7 @@ Meshing Examples
 .. tip:: By cubic Bezier curve
 
     .. code-block:: freefem
+        :linenos:
 
         // A cubic Bezier curve connecting two points with two control points
         func real bzi(real p0, real p1, real q1, real q2, real t){
@@ -1381,6 +1435,7 @@ Meshing Examples
 .. tip:: Section of Engine
 
     .. code-block:: freefem
+        :linenos:
 
         real a = 6., b = 1., c = 0.5;
 
@@ -1403,6 +1458,7 @@ Meshing Examples
 .. tip:: Domain with U-shape channel
 
     .. code-block:: freefem
+        :linenos:
 
         real d = 0.1; //width of U-shape
         border L1(t=0, 1-d){x=-1; y=-d-t;}
@@ -1425,6 +1481,7 @@ Meshing Examples
 .. tip:: Domain with V-shape cut
 
     .. code-block:: freefem
+        :linenos:
 
         real dAg = 0.02; //angle of V-shape
         border C(t=dAg, 2*pi-dAg){x=cos(t); y=sin(t);};
@@ -1448,6 +1505,7 @@ Meshing Examples
 .. tip:: Smiling face
 
     .. code-block:: freefem
+        :linenos:
 
         real d=0.1; int m = 5; real a = 1.5, b = 2, c = 0.7, e = 0.01;
 
@@ -1476,6 +1534,7 @@ Meshing Examples
 . tip:: 3 points bending
 
     .. code-block:: freefem
+        :linenos:
 
         // Square for Three-Point Bend Specimens fixed on Fix1, Fix2
         // It will be loaded on Load.
@@ -1524,6 +1583,7 @@ For example, we have :
 An example of using this function is given here:
 
 .. code-block:: freefem
+   :linenos:
 
    verbosity=3;
 
@@ -1578,6 +1638,7 @@ A new function :freefem:`cube` like the function :freefem:`square` in 2d is the 
 The following code generates a :math:`3\times 4 \times 5` grid in the unit cube :math:`[0, 1]^3`.
 
 .. code-block:: freefem
+   :linenos:
 
    mesh3 Th = cube(3, 4, 5);
 
@@ -1595,6 +1656,7 @@ and the region number is :math:`0`.
 A full example of this function to build a mesh of cube :math:`]-1,1[^3` with face label given by :math:`(ix + 4*(iy+1) + 16*(iz+1))` where :math:`(ix, iy, iz)` are the coordinates of the barycenter of the current face, is given below.
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
 
@@ -1631,6 +1693,7 @@ A full example of this function to build a mesh of cube :math:`]-1,1[^3` with fa
 The output of this script is:
 
 .. code-block:: freefem
+   :linenos:
 
    Enter: BuildCube: 3
      kind = 3 n tet Cube = 6 / n slip 6 19
@@ -1690,6 +1753,7 @@ Each triangle :math:`be_j, j=1,\cdots,n_{tri}` has three vertices :math:`q^{j_1}
 **extension file .mesh** The data structure for a three dimensional mesh is composed of the data structure presented in :ref:`Mesh Format section <meshFileDataStructure>` and a data structure for the tetrahedra. The tetrahedra of a three dimensional mesh are referred using the following field:
 
 .. code-block:: bash
+   :linenos:
 
    Tetrahedra
    NbTetrahedra
@@ -1807,6 +1871,7 @@ This corresponds to moving the domain by a displacement vector of this form :mat
 The result of moving a two dimensional mesh Th2 by this three dimensional displacement is obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh3 Th3 = movemesh23(Th2, transfo=[Phi(1), Phi(2), Phi(3)]);
 
@@ -1832,6 +1897,7 @@ We can do a "gluing" of surface meshes using the process given in :ref:`Change s
 An example to obtain a three dimensional mesh using the command line :freefem:`tetg` and :freefem:`movemesh23` is given below.
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "tetgen"
@@ -1905,6 +1971,7 @@ The command :freefem:`movemesh3` is described in the following section.
 This keyword corresponds to a composition of command line :freefem:`tetg` and :freefem:`movemesh23`.
 
 .. code-block:: freefem
+   :linenos:
 
    tetgtransfo(Th2, transfo=[Phi(1), Phi(2), Phi(3)]), ...) = tetg(Th3surf, ...),
 
@@ -1979,6 +2046,7 @@ This parameter and :freefem:`nbofregions` can’t be used with the parameter :fr
 **Example refinesphere.edp**
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "TetGen"
@@ -2047,6 +2115,7 @@ Meshes in three dimensions can be translated, rotated, and deformed using the co
 If :math:`\Omega` is tetrahedrized as :math:`T_{h}(\Omega)`, and :math:`\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))` is a displacement vector then :math:`\Phi(T_{h})` is obtained by:
 
 .. code-block:: freefem
+   :linenos:
 
    mesh3 Th = movemesh(Th, [Phi1, Phi2, Phi3], ...);
 
@@ -2178,6 +2247,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
 .. tip:: Cube
 
     .. code-block:: freefem
+        :linenos:
 
         //Cube.idp
         load "medit"
@@ -2205,6 +2275,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
 .. tip:: Unit cube
 
     .. code-block:: freefem
+        :linenos:
 
         include "Cube.idp"
 
@@ -2224,6 +2295,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
     An axisymtric mesh on a triangle with degenerateness
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "medit"
@@ -2267,6 +2339,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
 .. tip:: Buildlayer mesh
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "TetGen"
@@ -2340,6 +2413,7 @@ Meshing examples
 .. tip:: Lake
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "medit"
@@ -2369,6 +2443,7 @@ Meshing examples
 .. tip:: Hole region
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "TetGen"
@@ -2438,6 +2513,7 @@ Build a 3d mesh of a cube with a balloon
 First the ``MeshSurface.idp`` file to build boundary mesh of a Hexaedra and of a Sphere:
 
 .. code-block:: freefem
+   :linenos:
 
    func mesh3 SurfaceHex (int[int] &N, real[int, int] &B, int[int, int] &L, int orientation){
        real x0 = B(0, 0), x1 = B(0, 1);
@@ -2501,6 +2577,7 @@ First the ``MeshSurface.idp`` file to build boundary mesh of a Hexaedra and of a
 The test of the two functions and the call to :freefem:`TetGen` mesh generator:
 
 .. code-block:: freefem
+   :linenos:
 
    load "msh3"
    load "TetGen"
@@ -2527,13 +2604,15 @@ The test of the two functions and the call to :freefem:`TetGen` mesh generator:
    medit("Cube with ball", Th);
 
 .. figure:: images/MeshGeneration_CubeSphere1.png
-    :figclass: inline2
+    :figclass: inline
+    :figwidth: 49%
     :name: meshGenerationCubeSphere1
 
     The surface mesh of the hex with internal sphere
 
 .. figure:: images/MeshGeneration_CubeSphere2.png
-    :figclass: inline3
+    :figclass: inline
+    :figwidth: 49%
     :name: meshGenerationCubeSphere2
 
     The tetrahedral mesh of the cube with internal ball
@@ -2548,6 +2627,7 @@ Naturally to use this command ``medit`` must be installed.
 A vizualisation with :freefem:`medit` of scalar solutions :math:`f1` and :math:`f2` continuous, piecewise linear and known at the vertices of the mesh Th is obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    medit("sol1 sol2", Th, f1, f2, order=1);
 
@@ -2575,12 +2655,14 @@ Hence, we can vizualize in the same window the different domains in a domain dec
 A vizualisation with medit of scalar solutions :math:`h1` and :math:`h2` at vertices of the mesh Th1 and Th2 respectively are obtained using:
 
 .. code-block:: freefem
+   :linenos:
 
    medit("sol2domain", Th1, h1, Th2, h2, order=1);
 
 .. tip:: Medit
 
     .. code-block:: freefem
+        :linenos:
 
         load "medit"
 
@@ -2662,6 +2744,7 @@ This software accepts more than one solution.
 For example, the metric :math:`M` computed with :freefem:`mshmet` for the solution :math:`u` defined on the mesh :math:`Th` is obtained by writing:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Vh(Th, P1);
    Vh u; //a scalar fespace function
@@ -2722,6 +2805,7 @@ where :math:`H(V_{i})` is the vector of size 6 defined by :math:`[m11,m21,m22,m3
 .. tip:: mshmet
 
     .. code-block:: freefem
+        :linenos:
 
         load "mshmet"
         load "medit"
@@ -2799,6 +2883,7 @@ Otherwise, the metric is given in the argument.
 For example, the adapted mesh of ``Thinit`` defined by the metric :math:`u` defined as :freefem:`fespace` function is obtained by writing:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Vh(Thinit, P1);
    Vh u;
@@ -2894,6 +2979,7 @@ The symmetric tensor argument for :freefem:`freeyams` keyword is defined as this
 .. tip:: freeyams
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "medit"
@@ -2988,6 +3074,7 @@ The parameters of :freefem:`mmg3d` are :
 .. tip:: mmg3d
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "medit"
@@ -3016,6 +3103,7 @@ The parameters of :freefem:`mmg3d` are :
 .. tip:: Falling spheres
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "TetGen"
@@ -3086,6 +3174,7 @@ A first 3d isotrope mesh adaptation process
 .. tip:: Adaptation 3D
 
     .. code-block:: freefem
+        :linenos:
 
         load "msh3"
         load "TetGen"
@@ -3148,6 +3237,7 @@ The idea is to get the discretization of an isoline of fluid meshes, this tool c
 First, we give an example of the isovalue meshes :math:`0.2` of analytical function :math:`\sqrt{(x-1/2)^2 +(y-1/2)^2}`, on unit square.
 
 .. code-block:: freefem
+    :linenos:
 
     load "isoline"
 
@@ -3189,26 +3279,28 @@ The sense of the isoline is such that the upper part is at the left size of the 
 So here : the minimum is a point :math:`0.5,05` so the curve 1 turn in the clockwise sense, the order of each component are sort such that the number of point by component is decreasing.
 
 .. code-block:: freefem
+   :linenos:
 
-            cout << "Number of the line component = " << nbc << endl;
-            cout << "Number of points = " << xy.m << endl;
-            cout << "be = " << be << endl;
+         cout << "Number of the line component = " << nbc << endl;
+         cout << "Number of points = " << xy.m << endl;
+         cout << "be = " << be << endl;
 
-            // shows the lines component
-            for (int c = 0; c < nbc; ++c){
+         // shows the lines component
+         for (int c = 0; c < nbc; ++c){
             int i0 = be[2*c], i1 = be[2*c+1]-1;
             cout << "Curve " << c << endl;
             for(int i = i0; i <= i1; ++i)
-            cout << "x= " << xy(0,i) << " y= " << xy(1,i) << " s= " << xy(2, i) << endl;
+               cout << "x= " << xy(0,i) << " y= " << xy(1,i) << " s= " << xy(2, i) << endl;
             plot([xy(0, i0:i1), xy(1, i0:i1)], wait=true, viso=viso, cmm=" curve "+c);
-        }
-    }
+      }
+   }
 
    cout << "length of last curve = " << xy(2, xy.m-1) << endl;
 
 We also have a new function to easily parametrize a discrete curve defined by the couple :math:`be, xy`.
 
 .. code-block:: freefem
+   :linenos:
 
    border Curve0(t=0, 1){
        int c=0; //component 0
@@ -3233,6 +3325,7 @@ Secondly, we use this idea to build meshes from an image, we use the plugins :fr
 .. tip:: Leman lake
 
     .. code-block:: freefem
+        :linenos:
 
         load "ppm2rnm"
         load "isoline"
@@ -3278,13 +3371,15 @@ Secondly, we use this idea to build meshes from an image, we use the plugins :fr
 
 
     .. figure:: images/MeshGeneration_Isoline1.jpg
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: meshGenerationIsoline1
 
         The image of the Leman lake meshes
 
     .. figure:: images/MeshGeneration_Isoline2.png
-        :figclass: inline2
+        :figclass: inline
+        :figwidth: 49%
         :name: meshGenerationIsoline2
 
         The mesh of the lake

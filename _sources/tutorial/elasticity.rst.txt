@@ -66,6 +66,7 @@ The above two equations are strongly coupled by their mixed derivatives, and thu
 One should rather use **FreeFem++**’s system approach and write:
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real E = 21e5;
@@ -120,6 +121,7 @@ One should rather use **FreeFem++**’s system approach and write:
 The output is:
 
 .. code-block:: bash
+   :linenos:
 
    -- square mesh : nb vertices  =121 ,  nb triangles = 200 ,  nb boundary edges 40
    -- Solve :           min -0.00174137  max 0.00174105

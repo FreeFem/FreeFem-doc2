@@ -7,6 +7,7 @@ Tutorial to write a transient Stokes solver in matrix form
 Consider the following script to solve a time dependent Stokes problem in a cavity
 
 .. code-block:: freefem
+   :linenos:
 
    // Parameters
    real nu = 0.1;
@@ -57,6 +58,7 @@ Every iteration is in fact of the form :math:`A[u,v,p] = B[uold,vold,pold] + b` 
 :math:`A,B,b` are constructed by:
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Xh(Th, [P2, P2, P1]);
    varf aa ([u, v, p], [uu, vv, pp])
@@ -95,6 +97,7 @@ Note also that b has a tgv on the Dirichlet nodes, by construction, and so does 
 The loop will then be:
 
 .. code-block:: freefem
+   :linenos:
 
    real[int] sol(Xh.ndof), aux(Xh.ndof);
    for (m = 0; m < M; m++){
@@ -106,6 +109,7 @@ There is yet a difficulty with the initialization of :freefem:`sol` and with the
 For this we need a temporary vector in :math:`X_h` and here is a solution:
 
 .. code-block:: freefem
+   :linenos:
 
    Xh [w1, w2, wp] = [uold, vold, pp];
    sol = w1[]; //cause also the copy of w2 and wp

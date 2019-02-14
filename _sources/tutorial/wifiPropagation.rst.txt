@@ -48,6 +48,7 @@ The domain
 In order to create the domain of experimentation, we need to create :freefem:`border` objects, like this :
 
 .. code-block:: freefem
+   :linenos:
 
    real a = 40, b = 40, c = 0.5;
    border a00(t=0, 1) {x=a*t; y=0; label=1;}
@@ -75,6 +76,7 @@ Let’s create a mesh
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: freefem
+   :linenos:
 
    int n=13;
    mesh Sh = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
@@ -92,6 +94,7 @@ So we are creating a :freefem:`mesh`, and plotting it :
 There is currently no wifi hotspot, and as we want to resolve the equation for a multiple number of position next to the left wall, let’s do a :freefem:`for` loop:
 
 .. code-block:: freefem
+   :linenos:
 
    int bx;
    for (bx = 1; bx <= 7; bx++){
@@ -107,6 +110,7 @@ The border ``C`` is our hotspot and as you can see a simple circle.
 Let’s resolve this equation !
 
 .. code-block:: freefem
+   :linenos:
 
    fespace Vh(Th, P1);
    func real wall() {
@@ -154,31 +158,31 @@ Beautiful isn’t it ? This is the first position for the hotspot, but there are
 You can see the other positions here :
 
 .. figure:: images/wifi-propagation/point2.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 2
+   Point 2
 
 .. figure:: images/wifi-propagation/point3.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 3
+   Point 3
 
 .. figure:: images/wifi-propagation/point4.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 4
+   Point 4
 
 .. figure:: images/wifi-propagation/point5.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 5
+   Point 5
 
 .. figure:: images/wifi-propagation/point6.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 6
+   Point 6
 
 .. figure:: images/wifi-propagation/point7.png
-    :figclass: inline3
+   :figclass: inline3
 
-    Point 7
+   Point 7
