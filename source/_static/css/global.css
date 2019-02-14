@@ -180,10 +180,6 @@ div.inline {
 	font-weight: normal;
 }
 
-.caption .caption-number {
-	display: none;
-}
-
 .caption .caption-text {
 	background-color: transparent !important;
 	text-align: center;
@@ -214,10 +210,6 @@ table:not(.highlighttable) caption {
 table:not(.highlighttable) caption code {
 	color: black;
 	font-weight: normal;
-}
-
-caption .caption-number {
-	display: none;
 }
 
 table a {
