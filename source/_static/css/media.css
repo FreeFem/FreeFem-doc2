@@ -112,4 +112,13 @@
 	position: relative;
 	bottom: 2px;
 	}
+
+	table:not(.highlighttable) {
+		max-width: 100%;
+		display: inline-block;
+	}
+
+	.admonition blockquote {
+		margin: 0;
+	}
 }

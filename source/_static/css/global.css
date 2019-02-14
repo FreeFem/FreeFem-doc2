@@ -211,8 +211,6 @@ table:not(.highlighttable) {
 	overflow: auto;
 	font-family: "Roboto-slab", serif;
 	border-radius: 5px;
-	max-width: 100%;
-  display: inline-block;
 }
 
 table:not(.highlighttable) caption {
