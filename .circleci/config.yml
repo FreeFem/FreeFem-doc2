@@ -8,5 +8,6 @@ jobs:
       steps:
          - run: sudo apt install python3-pip texlive npm
          - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight
+         - run: pwd
          - run: make html
          - run: make latex
