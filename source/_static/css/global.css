@@ -279,7 +279,8 @@ table.authors {
 	padding: 0 1.2rem;
 	border-left: .4rem solid #448aff;
 	border-radius: .2rem;
-	overflow: auto;
+	overflow: hidden;
+	overflow-wrap: break-word;
 }
 
 .admonition-title {
