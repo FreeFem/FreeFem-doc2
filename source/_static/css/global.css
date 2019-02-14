@@ -13,6 +13,18 @@ a:visited {
 	color: black;
 }
 
+div:target::before {
+	margin-top: -3.5rem;
+  padding-top: 3.5rem;
+}
+
+div::before {
+	 display: block;
+	 margin-top: -.9rem;
+	 padding-top: .9rem;
+	 content: "";
+}
+
 strong {
 	font-weight: bold;
 }
