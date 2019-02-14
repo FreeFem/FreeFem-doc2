@@ -13,6 +13,18 @@ a:visited {
 	color: black;
 }
 
+div:target::before {
+	margin-top: -3.5rem;
+  padding-top: 3.5rem;
+}
+
+div::before {
+	 display: block;
+	 margin-top: -.9rem;
+	 padding-top: .9rem;
+	 content: "";
+}
+
 strong {
 	font-weight: bold;
 }
@@ -110,8 +122,9 @@ table.highlighttable pre {
 
 .highlight {
 	background-color: #eeeeee !important;
-	padding: 0 5px;
+	padding: 5px;
 	margin: 0;
+	border-radius: 5px;
 }
 
 .copy-button {
@@ -244,6 +257,7 @@ td:not(.linenos) {
 
 .math {
 	overflow: auto;
+	height: 0;
 }
 
 .mjx-chtml {
