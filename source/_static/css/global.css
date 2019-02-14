@@ -80,6 +80,7 @@ p {
 	background-color: rgba(0,0,0,.07);
 	color: rgba(0,0,0,.26);
 	border-radius: 5px 0 0 5px;
+	padding: 0 10px !important;
 }
 
 .linenos pre {
@@ -93,6 +94,7 @@ table.highlighttable {
 	border-radius: 5px;
 	margin: 20px 0;
 	overflow: hidden;
+	position: relative;
 }
 
 table.highlighttable tbody {
@@ -106,12 +108,16 @@ table.highlighttable tr {
 table.highlighttable .code {
 	flex: 1;
 	overflow: hidden;
+	padding: 0 10px;
 }
 
 table.highlighttable pre {
 	display: block;
 	margin: 0;
 	overflow: auto;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	padding: 10px 0;
 }
 
 .highlight {
@@ -197,7 +203,11 @@ th {
 	padding: 10px;
 }
 
-td {
+td:not(.code) {
+	padding: 10px;
+}
+
+td:not(.linenos) {
 	padding: 10px;
 }
 
@@ -292,4 +302,20 @@ body::-webkit-scrollbar {
 
 .md-typeset .codehilite, .md-typeset .highlight {
 	webkit-overflow-scrolling: touch;
+}
+
+.copy-button {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	border: none;
+	background: none;
+}
+
+.copy-button i {
+	color: rgba(0.75, 0.75, 0.75, 0.1);
+}
+
+.copy-button:hover i {
+	color: rgba(0.75, 0.75, 0.75, 1);
 }
