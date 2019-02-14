@@ -13,6 +13,7 @@ jobs:
 
       steps:
          - checkout
+         - run: sudo find / -name "pygments"
          - run: git clone https://github.com/FreeFem/FreeFem-parser-pygments.git FreeFem-parser-pygments
             && sudo cp FreeFem-parser-pygments/freefem.py /usr/lib/python2.7/site-packages/pygments/lexers
             && cd /usr/lib/python2.7/site-packages/pygments/lexers
