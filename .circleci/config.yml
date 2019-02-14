@@ -5,7 +5,9 @@ jobs:
       machine:
          image: circleci/classic
 
+      working_directory: ~/FreeFem-doc2
+
       steps:
          - run: sudo apt install python3-pip texlive npm
          - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight
-         - run: sphinx-build -M html "source" "build"
+         - run: make html
