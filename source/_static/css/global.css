@@ -183,6 +183,10 @@ div.inline {
 	background-color: transparent !important;
 }
 
+.caption-text {
+	padding: 1em;
+}
+
 /** TABLEAUX **/
 table:not(.highlighttable) {
 	min-width: 100%;
