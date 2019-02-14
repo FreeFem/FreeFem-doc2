@@ -198,6 +198,11 @@ table:not(.highlighttable) {
 	border-radius: 5px;
 }
 
+table:not(.highlighttable) caption {
+	background-color: rgba(0,0,0,.54);
+	padding: 10px 0;
+}
+
 table a {
 	color: #3f51b5;
 }
@@ -211,7 +216,6 @@ th {
 	color: #fff;
 	border: none;
 	padding: 10px;
-	border-radius: 5px 5px 0 0;
 }
 
 td:not(.code) {
