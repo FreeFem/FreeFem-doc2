@@ -7,7 +7,12 @@ jobs:
 
       working_directory: ~/FreeFem-doc2
 
+      branch:
+         only:
+            - master
+
       steps:
+         - checkout
          - run: sudo apt install python3-pip texlive npm
          - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight
          - run: make html
