@@ -253,6 +253,7 @@ td:not(.linenos) {
 
 .math {
 	overflow: auto;
+	height: 0;
 }
 
 .mjx-chtml {
