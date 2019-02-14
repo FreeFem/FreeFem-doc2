@@ -88,10 +88,30 @@ p {
 }
 
 table.highlighttable {
+	display: block;
 	background-color: #eeeeee !important;
-	overflow: auto;
 	border-radius: 5px;
 	margin: 20px 0;
+	overflow: hidden;
+}
+
+table.highlighttable tbody {
+	display: block;
+}
+
+table.highlighttable tr {
+	display: flex;
+}
+
+table.highlighttable .code {
+	flex: 1;
+	overflow: hidden;
+}
+
+table.highlighttable pre {
+	display: block;
+	margin: 0;
+	overflow: auto;
 }
 
 .highlight {
