@@ -21,6 +21,7 @@ const toctree = nav.children[0].children[0]
 
 const tree = []
 let currentLevel = 0
+let currentItem = undefined
 let currentParent = undefined
 toctree2tree(toctree, 0, undefined)
 
@@ -44,6 +45,7 @@ function toctree2tree(toctree, level, parent) {
       if (item.classList.contains('current')) {
          object.className += ' current'
          if (level > currentLevel) {
+            currentItem = object
             currentLevel = level
             currentParent = parent
          }
@@ -83,9 +85,15 @@ tree.forEach(function(item) {
 })
 
 // Append current level to sideNav
-showSideNav(currentParent, currentLevel)
+showSideNav(currentItem, currentLevel+1)
 
 function showSideNav(parent, level) {
+
+   if (parent && (parent.children.length === 0)) {
+      showSideNav(parent.parent, level-1)
+      return;
+   }
+
    const sideNav = document.getElementById('sideNav')
 
    sideNav.innerHTML = ''
