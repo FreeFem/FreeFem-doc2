@@ -51,6 +51,7 @@ body {
 .content .headerlink::before {
 	font-family: "Font Awesome 5 Free";
 	content: "\00a0\f0c1";
+	font-weight: bold;
 }
 
 .content .headerlink:visited {

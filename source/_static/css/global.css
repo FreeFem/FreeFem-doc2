@@ -212,6 +212,10 @@ table:not(.highlighttable) caption code {
 	font-weight: normal;
 }
 
+.caption-number {
+	text-align: center;
+}
+
 table a {
 	color: #3f51b5;
 }
