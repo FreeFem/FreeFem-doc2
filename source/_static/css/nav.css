@@ -73,7 +73,7 @@ nav .search-container label i:hover {
 nav #searchInput {
 	margin: 0;
 	padding: 10px;
-	font-size: 1.1em;
+	font-size: 1rem;
 	border: none;
 	border-radius: 0 5px 5px 0;
 	background-color: #FFFFFF;
@@ -109,7 +109,7 @@ nav #searchResults .search-result {
 }
 
 nav #searchResults .search-result-main-title {
-	font-size: 1.1em;
+	font-size: 1rem;
 	color: grey;
 	font-weight: bold;
 }
@@ -175,6 +175,7 @@ nav .sidenav .previousNav {
 nav .sidenav .sidenav-title {
 	padding: 1rem;
 	font-weight: bold;
+	cursor: default;
 }
 
 nav .sidenav .nav-items {
@@ -191,6 +192,7 @@ nav .sidenav .nav-item {
 	padding: 20px 20px;
 	color: lightgrey;
 	transition: 0.3s;
+	cursor: pointer;
 }
 
 nav .sidenav .nav-item:hover {
