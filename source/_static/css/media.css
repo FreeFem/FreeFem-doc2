@@ -90,19 +90,26 @@
 	}
 
 	footer {
-		grid-row: 4;
-		grid-column: 1 / 4;
 		grid-template-rows: auto auto;
 		grid-template-columns: auto;
 	}
 
 	.footer-text {
 		grid-row: 1;
-		grid-column: 1;
+		grid-column: auto;
+		justify-self: center;
 	}
 
 	.footer-img {
 		grid-row: 2;
-		grid-column: 1;
+		grid-column: auto;
+		justify-self: center;
+	}
+
+	.footer-img a {
+	display: inline-flex;
+	justify-content: flex-end;
+	position: relative;
+	bottom: 2px;
 	}
 }
