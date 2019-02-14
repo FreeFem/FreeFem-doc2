@@ -198,6 +198,8 @@ table:not(.highlighttable) {
 	overflow: auto;
 	font-family: "Roboto-slab", serif;
 	border-radius: 5px;
+	max-width: 100%;
+  display: inline-block;
 }
 
 table:not(.highlighttable) caption {
@@ -207,13 +209,14 @@ table:not(.highlighttable) caption {
 	font-weight: bold;
 }
 
-table:not(.highlighttable) caption code {
+table:not(.highlighttable) caption code, .code {
 	color: black;
 	font-weight: normal;
 }
 
 .caption-number {
 	text-align: center;
+	padding-left: 5px;
 }
 
 table a {
