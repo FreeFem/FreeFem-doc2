@@ -227,7 +227,7 @@ td:not(.linenos) {
 }
 
 .mjx-chtml {
-	white-space: pre-wrap;
+	white-space: pre-wrap !important;
 }
 
 span {
