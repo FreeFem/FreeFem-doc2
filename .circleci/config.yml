@@ -1,0 +1,12 @@
+version: 2.1
+
+jobs:
+   build:
+      machine:
+         image: circleci/classic
+
+      steps:
+         - run: sudo apt install python3-pip texlive npm
+         - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight
+         - run: make html
+         - run: make latex
