@@ -126,6 +126,22 @@ table.highlighttable pre {
 	margin: 0;
 }
 
+.copy-button {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	border: none;
+	background: none;
+}
+
+.copy-button i {
+	color: rgba(0.75, 0.75, 0.75, 0.1);
+}
+
+.copy-button:hover i {
+	color: rgba(0.75, 0.75, 0.75, 1);
+}
+
 /** IMAGES **/
 img {
 	max-width: 90%;
@@ -302,20 +318,4 @@ body::-webkit-scrollbar {
 
 .md-typeset .codehilite, .md-typeset .highlight {
 	webkit-overflow-scrolling: touch;
-}
-
-.copy-button {
-	position: absolute;
-	top: 5px;
-	right: 0;
-	border: none;
-	background: none;
-}
-
-.copy-button i {
-	color: rgba(0.75, 0.75, 0.75, 0.1);
-}
-
-.copy-button:hover i {
-	color: rgba(0.75, 0.75, 0.75, 1);
 }
