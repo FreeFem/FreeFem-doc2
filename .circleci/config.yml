@@ -13,14 +13,17 @@ jobs:
 
       steps:
          - checkout
-         - run: git clone https://github.com/FreeFem/FreeFem-parser-pygments.git FreeFem-parser-pygments
-            && sudo cp FreeFem-parser-pygments/freefem.py /opt/google-cloud-sdk/lib/third_party/pygments/lexers
-            && cd /opt/google-cloud-sdk/lib/third_party/pygments/lexers
-            && sudo python _mapping.py
          - run: sudo apt install python3-pip texlive npm
-         - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight
+         - run: sudo pip install Sphinx sphinxcontrib-inlinesyntaxhighlight pygments
+         - run: sudo find / -name "pygments"
          - run: make html
          - run: make latex
             && cd build/latex
             && pdflatex FreeFem++.tex
             && pdflatex FreeFem++.tex
+
+
+# - run: git clone https://github.com/FreeFem/FreeFem-parser-pygments.git FreeFem-parser-pygments
+#    && sudo cp FreeFem-parser-pygments/freefem.py /opt/google-cloud-sdk/lib/third_party/pygments/lexers
+#    && cd /opt/google-cloud-sdk/lib/third_party/pygments/lexers
+#    && sudo python _mapping.py
