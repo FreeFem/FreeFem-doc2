@@ -252,11 +252,14 @@ td:not(.linenos) {
 }
 
 .math {
-	overflow: auto;
+	overflow-x: auto;
 }
 
 .mjx-chtml {
-	white-space: pre-wrap !important;
+	/* margin: 0 !important; */
+}
+
+.mjx-row {
 }
 
 span {
