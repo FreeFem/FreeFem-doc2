@@ -37,6 +37,11 @@
 		color: white;
 	}
 
+	#sideNav p {
+		margin: 0;
+		font-family: "Roboto", sans-serif;
+	}
+
 	#subnav {
 		display: none;
 	}
