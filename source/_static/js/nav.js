@@ -85,15 +85,19 @@ tree.forEach(function(item) {
 })
 
 // Append current level to sideNav
-showSideNav(currentItem, currentLevel+1)
+console.log(currentParent)
+console.log(currentItem)
+console.log(currentLevel)
+// if (!currentItem)
+//    showSideNav(currentParent, currentLevel)
+// if (currentItem && currentItem.children && currentItem.children.length === 0)
+//    showSideNav(currentParent, currentLevel)
+// else
+//    showSideNav(currentItem, currentLevel+1)
+
+showSideNav(currentParent, currentLevel)
 
 function showSideNav(parent, level) {
-
-   if (parent && (parent.children.length === 0)) {
-      showSideNav(parent.parent, level-1)
-      return;
-   }
-
    const sideNav = document.getElementById('sideNav')
 
    sideNav.innerHTML = ''
