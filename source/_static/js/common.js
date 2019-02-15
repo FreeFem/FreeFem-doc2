@@ -1,3 +1,4 @@
+// Close search on click
 window.onclick = function(e) {
    if (!e.target.matches('#searchResults')) {
       const searchResults = document.getElementById('searchResults')
@@ -5,6 +6,7 @@ window.onclick = function(e) {
    }
 }
 
+// Copy/paste button in code
 function copy(event) {
    const table = event.target.parentNode.parentNode
    const codeContainer = table.children[0].children[0].children[1].children[0].children[0]
@@ -38,3 +40,31 @@ function addCopyPaste() {
 setTimeout(function() {
    addCopyPaste()
 }, 500);
+
+// Up button
+window.onscroll = function() { scrollFunc() }
+
+function scrollFunc() {
+   console.log('scrollFunc')
+   if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+      document.getElementById('upButton').style.display = 'block'
+   else
+      document.getElementById('upButton').style.display = 'none'
+}
+
+function scrollTop() {
+   document.body.scrollTop = 0;
+   document.documentElement.scrollTop = 0;
+}
+
+function addUpButton() {
+   const div = document.createElement('div')
+   div.id = 'upButton'
+   div.className = 'up-button'
+   div.innerHTML = '<i class="fas fa-angle-double-up"></i>'
+   div.onclick = function() { scrollTop() }
+
+   document.body.appendChild(div)
+}
+
+addUpButton()

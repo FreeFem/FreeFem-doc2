@@ -69,3 +69,21 @@ body {
 .content a:visited {
 	color: #3f51b5;
 }
+
+.up-button {
+	padding: 10px;
+	display: none;
+	position: fixed;
+	top: 60px;
+	right: 20%;
+	z-index: 99;
+	cursor: pointer;
+}
+
+.up-button:hover {
+	background-color: blue;
+}
+
+.up-button i:hover {
+	color: white;
+}
