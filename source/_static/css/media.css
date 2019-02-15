@@ -116,6 +116,10 @@
 		white-space: normal;
 	}
 
+	table.authors {
+		text-align: left;
+	}
+
 	blockquote {
 		margin: 0;
 	}
