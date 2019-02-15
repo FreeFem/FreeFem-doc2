@@ -45,7 +45,6 @@ setTimeout(function() {
 window.onscroll = function() { scrollFunc() }
 
 function scrollFunc() {
-   console.log('scrollFunc')
    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
       document.getElementById('upButton').style.display = 'block'
    else

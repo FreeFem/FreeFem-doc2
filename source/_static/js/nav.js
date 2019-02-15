@@ -126,7 +126,7 @@ function showSideNav(parent, level) {
    if ((item.level === level) && (item.parent === parent)) {
          const div = document.createElement('div')
          div.className = item.className
-         div.onclick = function() { window.location.href=item.href }
+         div.onclick = function() { window.location.href=item.href; closeNav() }
 
          const p = document.createElement('p')
          p.innerHTML = item.innerHTML
