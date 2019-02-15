@@ -8,7 +8,7 @@
 	}
 
 	nav {
-		grid-template-columns: 50px auto 350px;
+		grid-template-columns: 2.77rem auto 32.77rem;
 	}
 
 	nav #searchInput:focus {
@@ -30,9 +30,9 @@
 		background-color: #00007F;
 		color: lightgrey;
 		border: none;
-		padding: 10px;
+		padding: .55rem;
 		margin: 0;
-		font-size: 20px;
+		font-size: 1.11rem;
 		cursor: pointer;
 	}
 
@@ -59,7 +59,7 @@
 @media screen and (max-width: 600px) {
 	body {
 		grid-template-columns: 0 100% 0 !important;
-		grid-template-rows: 60px 60px auto 100px !important;
+		grid-template-rows: 3.33rem 3.33rem auto 5.55rem !important;
 	}
 
 	.up-button {
@@ -71,7 +71,7 @@
 	}
 
 	nav {
-		grid-template-columns: 50px auto auto;
+		grid-template-columns: 2.77rem auto auto;
 	}
 
 	nav .nav-links {
@@ -80,7 +80,7 @@
 
 	nav #searchResults {
 		min-width: 100%;
-		top: 45px !important;
+		top: 2.5rem !important;
 		right: 0;
 	}
 
@@ -95,7 +95,7 @@
 
 	.content {
 		grid-column: 1 / 4 !important;
-		padding: 10px 3px !important;
+		padding: .55rem .16rem !important;
 	}
 
 	/** CONTENT **/

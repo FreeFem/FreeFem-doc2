@@ -12,6 +12,7 @@ nav {
 	align-items: center;
 
 	z-index: 1;
+	font-size: 1rem;
 }
 
 /** STATIC NAVIGATION **/
@@ -25,8 +26,8 @@ nav #staticNav {
 }
 
 nav #staticNav .nav-item {
-	padding: 10px;
-	margin: 0 5px;
+	padding: .55rem;
+	margin: 0 .27rem;
 	cursor: pointer;
 	white-space: nowrap;
 	cursor: pointer;
@@ -38,7 +39,7 @@ nav #staticNav .nav-item {
 
 nav #staticNav .nav-item:hover {
 	background-color: #0000FF;
-	border-radius: 5px;
+	border-radius: .27rem;
 }
 
 /** SEARCH BAR **/
@@ -46,15 +47,15 @@ nav .search-container {
 	grid-row: 1;
 	grid-column: 3;
 	justify-self: end;
-	padding: 0 10px;
+	padding: 0 .55rem;
 
 	display: flex;
 	flex-direction: row;
 }
 
 nav .search-container label {
-	padding: 10px 0 10px 10px;
-	border-radius: 5px 0 0 5px;
+	padding: .55rem 0 .55rem .55rem;
+	border-radius: .27rem 0 0 .27rem;
 	background-color: #FFFFFF;
 }
 
@@ -72,10 +73,10 @@ nav .search-container label i:hover {
 
 nav #searchInput {
 	margin: 0;
-	padding: 10px;
+	padding: .55rem;
 	font-size: 1rem;
 	border: none;
-	border-radius: 0 5px 5px 0;
+	border-radius: 0 .27rem .27rem 0;
 	background-color: #FFFFFF;
 	color: grey;
 }
@@ -100,12 +101,12 @@ nav #searchResults {
 	max-height: 50vh;
 	z-index: 1;
 	overflow: auto;
-	border-radius: 0 0 5px 5px;
-	box-shadow: 5px 10px 18px #888888;
+	border-radius: 0 0 .27rem .27rem;
+	box-shadow: .27rem .55rem 1rem #888888;
 }
 
 nav #searchResults .search-result {
-	padding: 20px;
+	padding: 1.11rem;
 }
 
 nav #searchResults .search-result-main-title {
@@ -116,11 +117,11 @@ nav #searchResults .search-result-main-title {
 
 nav #searchResults .search-result-main-title i {
 	color: #0000FF;
-	padding-right: 10px;
+	padding-right: .55rem;
 }
 
 nav #searchResults .search-result-sub {
-	padding: 5px;
+	padding: .27rem;
 }
 
 nav #searchResults .search-result-title {
@@ -189,7 +190,7 @@ nav .sidenav .nav-item {
 	align-items: center;
 	justify-content: space-between;
 
-	padding: 20px 20px;
+	padding: 1.11rem 1.11rem;
 	color: lightgrey;
 	transition: 0.3s;
 	cursor: pointer;

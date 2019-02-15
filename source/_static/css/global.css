@@ -1,8 +1,4 @@
 /** GLOBAL **/
-:root {
-	font-size: 17px;
-}
-
 a {
 	text-decoration: none;
 	color: black;
@@ -32,19 +28,13 @@ strong {
 ul {
 	margin: 0;
 	padding: 0;
-	padding-left: 10px;
+	padding-left: .55rem;
 }
 
 li {
 	margin: 0;
 	padding: 0;
 	line-height: 1.6em;
-}
-
-.content li {
-	font-family: "Roboto-slab", serif;
-	line-height: 1.2rem;
-	margin-left: 20px;
 }
 
 b {
@@ -56,7 +46,7 @@ button:focus {
 }
 
 i {
-	font-size: 20px;
+	font-size: 1.11rem;
 	color: lightgrey;
 }
 
@@ -79,20 +69,20 @@ p {
 .linenos {
 	background-color: rgba(0,0,0,.07);
 	color: rgba(0,0,0,.26);
-	border-radius: 5px 0 0 5px;
-	padding: 0 10px !important;
+	border-radius: .27rem 0 0 .27rem;
+	padding: 0 .55rem !important;
 }
 
 .linenos pre {
-	padding: 0 5px;
+	padding: 0 .27rem;
 	margin: 0;
 }
 
 table.highlighttable {
 	display: block;
 	background-color: #eeeeee !important;
-	border-radius: 5px;
-	margin: 20px 0;
+	border-radius: .27rem;
+	margin: 1.11rem 0;
 	overflow: hidden;
 	position: relative;
 }
@@ -108,7 +98,7 @@ table.highlighttable tr {
 table.highlighttable .code {
 	flex: 1;
 	overflow: hidden;
-	padding: 0 10px;
+	padding: 0 .55rem;
 }
 
 table.highlighttable pre {
@@ -117,7 +107,7 @@ table.highlighttable pre {
 	overflow: auto;
 	line-height: 1.2rem;
 	font-size: 0.8rem;
-	padding: 10px 0;
+	padding: .55rem 0;
 }
 
 .highlight {
@@ -127,7 +117,7 @@ table.highlighttable pre {
 
 .copy-button {
 	position: absolute;
-	top: 5px;
+	top: .27rem;
 	right: 0;
 	border: none;
 	background: none;
@@ -139,6 +129,11 @@ table.highlighttable pre {
 
 .copy-button:hover i {
 	color: rgba(0.75, 0.75, 0.75, 1);
+}
+
+/** CODE LINES **/
+code, .code {
+	font-size: .9rem;
 }
 
 /** IMAGES **/
@@ -153,15 +148,15 @@ div.inline {
 
 .figure {
 	margin: auto;
-	margin-top: 10px;
+	margin-top: .55rem;
 	max-width: 90%;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: center;
-	border-radius: 5px;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
-	margin-bottom: 20px;
+	border-radius: .27rem;
+	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
+	margin-bottom: 1.11rem;
 }
 
 .figure img {
@@ -180,7 +175,7 @@ div.inline {
 	align-items: center;
 	padding: 0;
 	margin: 0;
-	border-radius: 5px 5px 0 0;
+	border-radius: .27rem .27rem 0 0;
 }
 
 .figure .caption .code {
@@ -200,20 +195,20 @@ div.inline {
 /** TABLEAUX **/
 table:not(.highlighttable) {
 	min-width: 100%;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
 	border: none;
 	border-collapse: collapse;
 	overflow: auto;
 	font-family: "Roboto-slab", serif;
-	border-radius: 5px;
+	border-radius: .27rem;
 }
 
 table:not(.highlighttable) caption {
 	background-color: rgba(0,0,0,.54);
-	padding: 10px 0;
+	padding: .55rem 0;
 	color: white;
 	font-weight: bold;
-	border-radius: 5px 5px 0 0;
+	border-radius: .27rem .27rem 0 0;
 }
 
 table:not(.highlighttable) caption code, .code, .docutils code {
@@ -223,7 +218,7 @@ table:not(.highlighttable) caption code, .code, .docutils code {
 
 .caption-number {
 	text-align: center;
-	padding-left: 5px;
+	padding-left: .27rem;
 }
 
 table a {
@@ -235,23 +230,23 @@ table a:visited {
 }
 
 table.docutils {
-	margin: 20px 0;
-	border-radius: 5px;
+	margin: 1.11rem 0;
+	border-radius: .27rem;
 }
 
 th {
 	background-color: rgba(0,0,0,.54);
 	color: #fff;
 	border: none;
-	padding: 10px;
+	padding: .55rem;
 }
 
 td:not(.code) {
-	padding: 10px;
+	padding: .55rem;
 }
 
 td:not(.linenos) {
-	padding: 10px;
+	padding: .55rem;
 }
 
 .math {
@@ -266,7 +261,7 @@ span {
 /** ADMONITIONS **/
 .admonition {
 	position: relative;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
 	margin: 1.5625em 0;
 	padding: 0 1.2rem;
 	border-left: .4rem solid #448aff;
@@ -320,12 +315,12 @@ span {
 
 /** SCROLLBAR DESIGN **/
 body::-webkit-scrollbar {
-	width: 10px;
+	width: .55rem;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: .27rem;
+  height: .27rem;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -4,9 +4,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	padding: 10px;
+	padding: .55rem;
 	background-color: #f8f8f8;
-	box-shadow: inset 1px 0 10px 0px #888;
+	box-shadow: inset .05rem 0 .55rem 0 #888;
+	font-size: .9rem;
 }
 
 #subnav ul {
@@ -24,7 +25,7 @@
 
 #subnav li.toctree-l2 {
 	font-weight: normal;
-	padding: 5px 0;
+	padding: .27rem 0;
 }
 
 #subnav li.anchor {
@@ -37,8 +38,8 @@
 
 #subnav > div {
 	position: sticky;
-	top: 70px;
+	top: 3.88rem;
 	max-height: 90vh;
-	padding: 10px;
+	padding: .55rem;
 	overflow: auto;
 }
