@@ -142,10 +142,6 @@ table.highlighttable pre {
 }
 
 /** IMAGES **/
-img {
-	max-width: 90%;
-}
-
 img.align-center {
 	display: block;
 	margin: auto;
@@ -255,11 +251,6 @@ td:not(.linenos) {
 .math {
 	overflow-x: auto;
 }
-
-.mjx-chtml {
-	/* margin: 0 !important; */
-}
-
 
 span {
 	margin: 0;
