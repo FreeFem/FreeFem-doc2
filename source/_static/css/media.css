@@ -106,19 +106,12 @@
 		justify-self: center;
 	}
 
-	/* .footer-img a {
-		display: inline-flex;
-		justify-content: flex-end;
-		position: relative;
-		bottom: 2px;
-	} */
-
 	table:not(.highlighttable) {
 		max-width: 100%;
 		display: inline-block;
 	}
 
-	.admonition blockquote {
+	blockquote {
 		margin: 0;
 	}
 }
