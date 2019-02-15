@@ -271,7 +271,7 @@ The boundary consists of 10 lines :math:`L_i,\, i=1,\cdots,10` whose end points 
 .. figure:: images/MeshGeneration_Data.png
   :name: figBuildMesh
 
-  Mesh by :freefem`buildmesh(C(10))`
+  Mesh by :freefem:`buildmesh(C(10))`
 
 In the :numref:`figBuildMesh`, we have the following.
 
