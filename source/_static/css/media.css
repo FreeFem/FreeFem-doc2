@@ -66,7 +66,7 @@
 		right: 0 !important;
 	}
 
-	.mjx-chtml {
+	.mjx-mrow {
 		white-space: pre-line !important;
 	}
 
@@ -110,10 +110,6 @@
 
 	table {
 		white-space: nowrap;
-	}
-
-	table .mjx-chtml {
-		white-space: normal;
 	}
 
 	table.authors {
