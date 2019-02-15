@@ -88,14 +88,12 @@ tree.forEach(function(item) {
 console.log(currentParent)
 console.log(currentItem)
 console.log(currentLevel)
-// if (!currentItem)
-//    showSideNav(currentParent, currentLevel)
-// if (currentItem && currentItem.children && currentItem.children.length === 0)
-//    showSideNav(currentParent, currentLevel)
-// else
-//    showSideNav(currentItem, currentLevel+1)
-
-showSideNav(currentParent, currentLevel)
+if (!currentItem)
+   showSideNav(currentParent, currentLevel)
+else if (currentItem && currentItem.children && currentItem.children.length === 0)
+   showSideNav(currentParent, currentLevel)
+else
+   showSideNav(currentItem, currentLevel+1)
 
 function showSideNav(parent, level) {
    const sideNav = document.getElementById('sideNav')
