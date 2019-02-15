@@ -58,6 +58,10 @@
 		grid-template-rows: 60px 60px auto 100px !important;
 	}
 
+	.mjx-chtml {
+		white-space: pre-line !important;
+	}
+
 	header .header-github {
 		display: none;
 	}
