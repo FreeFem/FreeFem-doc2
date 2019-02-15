@@ -147,5 +147,10 @@
 
 	p {
 		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	li {
+		margin: 0;
 	}
 }

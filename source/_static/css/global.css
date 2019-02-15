@@ -115,6 +115,11 @@ table.highlighttable pre {
 	margin: 0;
 }
 
+.literal.highlight {
+	border-radius: 5px;
+	padding: 2px;
+}
+
 .copy-button {
 	position: absolute;
 	top: .27rem;
