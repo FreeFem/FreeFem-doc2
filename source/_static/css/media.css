@@ -144,4 +144,8 @@
 	.literal.highlight {
 		word-wrap: break-word;
 	}
+
+	p {
+		overflow-x: auto;
+	}
 }
