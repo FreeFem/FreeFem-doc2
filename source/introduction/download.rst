@@ -1,6 +1,6 @@
 .. _download:
 
-Download **FreeFem++**
+Download FreeFem++
 ======================
 
 Latest binary packages
