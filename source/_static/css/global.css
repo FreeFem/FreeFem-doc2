@@ -13,12 +13,12 @@ a:visited {
 	color: black;
 }
 
-div:target::before {
+div[id]:target::before {
 	margin-top: -3.5rem;
   padding-top: 3.5rem;
 }
 
-div::before {
+div[id]::before {
 	 display: block;
 	 margin-top: -.9rem;
 	 padding-top: .9rem;
@@ -259,8 +259,6 @@ td:not(.linenos) {
 	/* margin: 0 !important; */
 }
 
-.mjx-row {
-}
 
 span {
 	margin: 0;
