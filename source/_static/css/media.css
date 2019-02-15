@@ -102,6 +102,24 @@
 		padding: 10px 3px !important;
 	}
 
+	/** CONTENT **/
+	table:not(.highlighttable) {
+		max-width: 100%;
+		display: inline-block;
+	}
+
+	table {
+		white-space: nowrap;
+	}
+
+	table .mjx-chtml {
+		white-space: normal;
+	}
+
+	blockquote {
+		margin: 0;
+	}
+
 	#toc {
 		display: none;
 	}
@@ -123,12 +141,4 @@
 		justify-self: center;
 	}
 
-	table:not(.highlighttable) {
-		max-width: 100%;
-		display: inline-block;
-	}
-
-	blockquote {
-		margin: 0;
-	}
 }
