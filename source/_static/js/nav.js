@@ -85,9 +85,6 @@ tree.forEach(function(item) {
 })
 
 // Append current level to sideNav
-console.log(currentParent)
-console.log(currentItem)
-console.log(currentLevel)
 if (!currentItem)
    showSideNav(currentParent, currentLevel)
 else if (currentItem && currentItem.children && currentItem.children.length === 0)
@@ -130,7 +127,11 @@ function showSideNav(parent, level) {
          const div = document.createElement('div')
          div.className = item.className
          div.onclick = function() { window.location.href=item.href }
-         div.innerHTML = item.innerHTML
+
+         const p = document.createElement('p')
+         p.innerHTML = item.innerHTML
+
+         div.appendChild(p)
 
          if (item.children.length > 0) {
             const next = document.createElement('a')
