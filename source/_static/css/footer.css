@@ -45,11 +45,19 @@ footer a:visited {
 }
 
 .footer-img p {
+	grid-row: 1;
+	grid-column: 1;
 	margin: 0;
 	padding: 0;
 }
 
+.footer-img a {
+	grid-row: 1;
+	grid-column: 2;
+}
+
 .footer-img img {
+	margin-top: 2px;
 	max-height: 2em;
 }
 

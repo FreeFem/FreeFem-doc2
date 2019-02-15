@@ -122,9 +122,7 @@ table.highlighttable pre {
 
 .highlight {
 	background-color: #eeeeee !important;
-	padding: 5px;
 	margin: 0;
-	border-radius: 5px;
 }
 
 .copy-button {
@@ -255,7 +253,6 @@ td:not(.linenos) {
 
 .math {
 	overflow: auto;
-	height: 0;
 }
 
 .mjx-chtml {
