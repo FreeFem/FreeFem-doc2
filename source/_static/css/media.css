@@ -3,6 +3,10 @@
 		grid-template-columns: 0 70% 30% !important;
 	}
 
+	.up-button {
+		right: 30% !important;
+	}
+
 	nav {
 		grid-template-columns: 50px auto 350px;
 	}
@@ -56,6 +60,10 @@
 	body {
 		grid-template-columns: 0 100% 0 !important;
 		grid-template-rows: 60px 60px auto 100px !important;
+	}
+
+	.up-button {
+		right: 0 !important;
 	}
 
 	.mjx-chtml {
