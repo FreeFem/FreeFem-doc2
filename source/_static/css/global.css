@@ -167,6 +167,7 @@ div.inline {
 .figure img {
 	order: 2;
 	align-self: center;
+	max-width: 90%;
 }
 
 .figure .caption {
