@@ -283,31 +283,31 @@ One can also export mesh or results in the ``.vtk`` format in order to post-proc
 Link with Matlab© and Octave
 ----------------------------
 
-In order to create plots from FreeFem++ simulations in `Octave <https://www.gnu.org/software/octave/>`__ and `Matlab <https://www.mathworks.com/>`__ the FEM mesh and the FE function must be exported to text files:
+In order to create a plot from a FreeFem++ simulation in `Octave <https://www.gnu.org/software/octave/>`__ and `Matlab <https://www.mathworks.com/>`__ the mesh, the finite element space connectivity and the simulation data must be written to files:
 
 .. code-block:: freefem
    :linenos:
 
-   mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+   include "ffmatlib.idp"
 
+   mesh Th = square(10, 10, [2*x-1, 2*y-1]);
    fespace Vh(Th, P1);
    Vh u=2-x*x-y*y;
 
    savemesh(Th,"export_mesh.msh");
+   ffSaveVh(Th,Vh,"export_vh.txt");
+   ffSaveData(u,"export_data.txt");
 
-   ofstream file("export_data.txt");
-   for (int j=0; j<u[].n; j++)
-      file << u[][j] << endl;
-
-Within Matlab or Octave the files can be processed with the `ffmatlib library <https://github.com/samplemaker/freefem_matlab_octave_plot>`__:
+Within Matlab or Octave the files can be plot with the `ffmatlib library <https://github.com/samplemaker/freefem_matlab_octave_plot>`__:
 
 .. code-block:: matlab
    :linenos:
 
    addpath('path to ffmatlib');
    [p,b,t]=ffreadmesh('export_mesh.msh');
+   vh=ffreaddata('export_vh.txt');
    u=ffreaddata('export_data.txt');
-   ffpdeplot(p,b,t,'XYData',u,'ZStyle','continuous','Mesh','on');
+   ffpdeplot(p,b,t,'VhSeq',vh,'XYData',u,'ZStyle','continuous','Mesh','on');
    grid;
 
 .. figure:: images/Visualization_Matlab_Octave.png

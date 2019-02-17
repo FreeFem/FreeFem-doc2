@@ -9,31 +9,27 @@
 Plotting in Matlab and Octave
 =============================
 
-This chapter is about plotting FreeFem++ simulation results with `Matlab© <https://www.mathworks.com/>`__ and `Octave <https://www.gnu.org/software/octave/>`__.
-
 Overview
 --------
 
-In order to create a plot of FreeFem++ simulation results in Matlab / Octave two steps are necessary:
+In order to create a plot of a FreeFem++ simulation in `Matlab© <https://www.mathworks.com/>`__ or `Octave <https://www.gnu.org/software/octave/>`__ two steps are necessary:
 
--  The mesh and the FE-space functions must be exported to text files
--  The text files have to be imported into Matlab / Octave and plotted with the `ffmatlib commands <https://github.com/samplemaker/freefem_matlab_octave_plot>`__
+-  The mesh, the finite element space connectivity and the simulation data must be exported into files
+-  The files must be imported into the Matlab / Octave workspace. Then the data can be visualized with the `ffmatlib <https://github.com/samplemaker/freefem_matlab_octave_plot>`__ library
 
-Both steps are explained in more detail below using the example of a stripline capacitor.
+The steps are explained in more detail below using the example of a stripline capacitor.
 
-.. note:: To be able to call ``ffmatlib`` commands the path name of the ``ffmatlib`` must be added to the search path with the command :matlab:`addpath('Path to ffmatlib')`.
+.. note:: Finite element variables must be in P1 or P2. The simulation data can be 2D or 3D.
 
 2D Problem
 ----------
 
-To create some example simulation data consider the problem of a stripline capacitor which is also shown in :numref:`figMatlabBoundaryPlot`.
-On the two boundaries (the electrodes) :math:`C_{A}`, :math:`C_{K}` a dirichlet condition and on the enclosure :math:`C_{B}` a Neumann condition is set.
-The electrostatic potential :math:`u` between the two electrodes is given by the Laplace equation:
+Consider a stripline capacitor problem which is also shown in :numref:`figMatlabBoundaryPlot`. On the two boundaries (the electrodes) :math:`C_{A}`, :math:`C_{K}` a Dirichlet condition and on the enclosure :math:`C_{B}` a Neumann condition is set. The electrostatic potential :math:`u` between the two electrodes is given by the Laplace equation
 
 .. math::
    \Delta u(x,y) = 0
 
-and the electrostatic field is calculated by
+and the electrostatic field :math:`\mathbf{E}` is calculated by
 
 .. math::
    \mathbf{E} = -\nabla u
@@ -87,72 +83,51 @@ and the electrostatic field is calculated by
 Exporting Data
 --------------
 
-To export a FEM mesh FreeFem++ offers the :ref:`savemesh() <meshDataStructureReadWrite>` command.
-FE-space functions must be written to text files by for-loops.
-The following code section writes the mesh, the potential :math:`u` and the 2D vector field :math:`\mathbf{E}` of the stripline capacitor example into three different files:
+The mesh is stored with the FreeFem++ command :ref:`savemesh() <meshDataStructureReadWrite>`, while the connectivity of the finite element space and the simulation data are stored with the macro commands ``ffSaveVh()`` and ``ffSaveData()``. These two commands are located in the ``ffmatlib.idp`` file which is included in the ``ffmatlib``. Therefore, to export the stripline capacitor data the following statement sequence must be added to the FreeFem++ code:
 
 .. code-block:: freefem
    :linenos:
 
-   //Stores the Mesh
+   include "ffmatlib.idp"
+
+   //Save mesh
    savemesh(Th,"capacitor.msh");
-
-   //Stores the potential u
-   {
-   ofstream file("capacitor_potential.txt");
-   for (int j=0; j<u[].n; j++)
-      file << u[][j] << endl;
-   }
-
-   //Stores the 2D vector field
-   {
-   ofstream file("capacitor_field.txt");
-   for (int j=0; j<Ex[].n; j++)
-      file << Ex[][j] << " " << Ey[][j] << endl;
-   }
+   //Save finite element space connectivity
+   ffSaveVh(Th,Vh,"capacitor_vh.txt");
+   //Save some scalar data
+   ffSaveData(u,"capacitor_potential.txt");
+   //Save a 2D vector field
+   ffSaveData2(Ex,Ey,"capacitor_field.txt");
 
 Importing Data
 --------------
 
-A mesh file as previously written with the :freefem:`savemesh(Th,"filename.msh")` command consists of :ref:`three main sections <meshDataStructureReadWrite>`:
+The mesh file can be loaded into the Matlab / Octave workspace using the ``ffreadmesh()`` command. A mesh file consists of :ref:`three main sections <meshDataStructureReadWrite>`:
 
-1. The mesh points as nodal coordinates
-2. A list of boundary edges including boundary labels
-3. List of triangles defining the mesh in terms of connectivity
+1. The mesh points as nodal coordinates  
+2. A list of boundary edges including boundary labels  
+3. List of triangles defining the mesh in terms of connectivity  
 
-A mesh file is loaded to the Matlab / Octave workspace with the following command:
-
-.. code-block:: matlab
-   :linenos:
-
-   [p,b,t,nv,nbe,nt,labels] = ffreadmesh('filename.msh');
-
-The three data sections mentioned are stored in the variables ``p``, ``b`` and ``t``. On the other hand the simulation data can be loaded into the Matlab / Octave workspace with the function:
+The three data sections mentioned are returned in the variables ``p``, ``b`` and ``t``. The finite element space connectivity and the simulation data can be loaded using the ``ffreaddata()`` command. Therefore, to load the example data the following statement sequence must be executed in Matlab / Octave:
 
 .. code-block:: matlab
    :linenos:
 
-   u = ffreaddata('filename.txt');
-
-Therefore to load the complete simulation result from the capacitor example the following statement sequence must be executed:
-
-.. code-block:: matlab
-   :linenos:
-
-   %Where to find the ffmatlib commands
-   addpath('ffmatlib');
-   %Loads the mesh
+   %Add ffmatlib to the search path
+   addpath('add here the link to the ffmatlib');
+   %Load the mesh
    [p,b,t,nv,nbe,nt,labels]=ffreadmesh('capacitor.msh');
-   %Loads scalar data
-   [u]=ffreaddata('capacitor_potential.txt');
-   %Loads vector field data
+   %Load the finite element space connectivity
+   vh=ffreaddata('capacitor_vh.txt');
+   %Load scalar data
+   u=ffreaddata('capacitor_potential.txt');
+   %Load 2D vector field data
    [Ex,Ey]=ffreaddata('capacitor_field.txt');
 
 2D Plot Examples
 ----------------
 
-``ffpdeplot()`` is a plot solution for creating patch, contour, quiver, border, and mesh plots of 2D geometries.
-The basic syntax is:
+``ffpdeplot()`` is a plot solution for creating patch, contour, quiver, mesh, border, and region plots of 2D geometries. The basic syntax is:
 
 .. code-block:: matlab
    :linenos:
@@ -160,7 +135,7 @@ The basic syntax is:
    [handles,varargout] = ffpdeplot(p,b,t,varargin)
 
 ``varargin`` specifies parameter name / value pairs to control the plot behaviour.
-A table showing all options can be found in the `ffmatlib documentation <https://github.com/samplemaker/freefem_matlab_octave_plot>`__.
+A table showing all options can be found in the `ffmatlib <https://github.com/samplemaker/freefem_matlab_octave_plot>`__ documentation. A small selection of possible plot commands is given as follows:
 
 -  Plot of the boundary and the mesh:
 
@@ -179,7 +154,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 .. code-block:: matlab
    :linenos:
 
-   ffpdeplot(p,b,t,'XYData',u,'Mesh','on','Boundary','on', ...
+   ffpdeplot(p,b,t,'VhSeq',vh,'XYData',u,'Mesh','on','Boundary','on', ...
              'XLim',[-2 2],'YLim',[-2 2]);
 
 .. figure:: images/capacitor_patch_500x400.png
@@ -192,7 +167,8 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 .. code-block:: matlab
    :linenos:
 
-   ffpdeplot(p,b,t,'XYData',u,'ZStyle','continuous','Mesh','off');
+   ffpdeplot(p,b,t,'VhSeq',vh,'XYData',u,'ZStyle','continuous', ...
+             'Mesh','off');
    lighting gouraud;
    view([-47,24]);
    camlight('headlight');
@@ -207,10 +183,10 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 .. code-block:: matlab
    :linenos:
 
-   ffpdeplot(p,b,t,'XYData',u,'XYStyle','off','Mesh','off','Boundary','on', ...
-             'Contour','on','CStyle','monochrome','CColor','b', ...
-             'CGridParam',[150, 150],'FlowData',[Ex,Ey],'FGridParam',[24, 24], ...
-             'ColorBar','off','XLim',[-2 2],'YLim',[-2 2]);
+   ffpdeplot(p,b,t,'VhSeq',vh,'XYData',u,'Mesh','off','Boundary','on', ...
+             'XLim',[-2 2],'YLim',[-2 2],'Contour','on','CColor','b', ...
+             'XYStyle','off', 'CGridParam',[150, 150],'ColorBar','off', ...
+             'FlowData',[Ex,Ey],'FGridParam',[24, 24]);
 
 .. figure:: images/capacitor_contour_quiver_500x400.png
    :name: figMatlabContour
@@ -226,10 +202,7 @@ A table showing all options can be found in the `ffmatlib documentation <https:/
 3D Plot Examples
 ----------------
 
-A 3D plot command ``ffpdeplot3D()`` is under development.
-Note: The interface is not yet frozen and can still change.
-
-The following example shows a slicing feature on a three-dimensional parallel plate capacitor.
+3D problems are handled by the ``ffpdeplot3D()`` command, which works similarly to the ``ffpdeplot()`` command. In particular in three-dimensions cross sections of the solution can be created. The following example shows a cross-sectional problem of a three-dimensional parallel plate capacitor.
 
 .. figure:: images/capacitor3d_slice_500x400.png
    :name: figMatlabSlice
