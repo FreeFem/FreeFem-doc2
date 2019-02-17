@@ -236,7 +236,7 @@ The matrices correspond to the discretization of the bilinear form given by the 
 These matrices are then used to implement the action of the global operator :math:`A` on a local vector (the parallel matrix-vector product with :math:`A`), see ``pr#A`` below.
 
 At this point, we already have the necessary data to be able to solve the problem with a parallel direct solver (*MUMPS*), which is the purpose of the function ``pr#directsolve`` (see below).
-See :ref:`ffddmbuildrhs <ffddmDocumentationDefineProblemToSolve>` for building the right-hand side.
+See :ref:`ffddmbuildrhs <ffddmDocumentationBuildRhs>` for building the right-hand side.
 
 The macro **Varf** is required to have three parameters: the name of the variational form, the mesh, and the finite element space.
 The variational form given in this ‘abstract’ format will then be used by *ffddm* to assemble the discrete operators by setting the appropriate mesh and finite element space as parameters.
@@ -270,7 +270,7 @@ See for example TODO
    In the sequential case, the global matrix ``pr#Aglobal`` is used instead.
 -  ``func prfe#K[int] pr#directsolve(prfe#K[int]& rhsi)`` The function ``pr#directsolve`` allows to solve the linear system :math:`A x = b` in parallel using the parallel direct solver *MUMPS*.
    The matrix is given to *MUMPS* in distributed form through the local matrices ``pr#aRd``.
-   The input *rhsi* is given as a distributed vector (*rhsi* is the restriction of the global right-hand side :math:`b` to the subdomain of this mpi rank, see :ref:`ffddmbuildrhs <ffddmDocumentationDefineProblemToSolve>`) and the returned vector is local as well.
+   The input *rhsi* is given as a distributed vector (*rhsi* is the restriction of the global right-hand side :math:`b` to the subdomain of this mpi rank, see :ref:`ffddmbuildrhs <ffddmDocumentationBuildRhs>`) and the returned vector is local as well.
 
 .. raw:: html
 
@@ -287,6 +287,8 @@ See for example TODO
    -->
 
 --------------
+
+.. _ffddmDocumentationBuildRhs:
 
 .. code-block:: freefem
    :linenos:
@@ -530,7 +532,7 @@ Solving the linear system
 
 solves the linear system for problem **pr** using the flexible GMRES algorithm with preconditioner :math:`M^{-1}` (corresponding to ``pr#PREC``).
 Returns the local vector corresponding to the restriction of the solution to ``pr#prfe#Vhi``.
-**x0i** and **bi** are local distributed vectors corresponding respectively to the initial guess and the right-hand side (see :ref:`ffddmbuildrhs <ffddmDocumentationDefineProblemToSolve>`).
+**x0i** and **bi** are local distributed vectors corresponding respectively to the initial guess and the right-hand side (see :ref:`ffddmbuildrhs <ffddmDocumentationBuildRhs>`).
 **eps** is the stopping criterion in terms of the relative decrease in residual norm.
 If **eps** :math:`< 0`, the residual norm itself is used instead.
 **itmax** sets the maximum number of iterations.
@@ -540,3 +542,23 @@ If **eps** :math:`< 0`, the residual norm itself is used instead.
 
 Using *HPDDM* within *ffddm*
 ----------------------------
+
+**ffddm** allows you to use **HPDDM** to solve your problem, effectively replacing the **ffddm** implementation of all parallel linear algebra computations.
+**ffddm** can then be viewed as a finite element interface for **HPDDM**.
+
+You can use **HPDDM** features unavailable in **ffddm** such as advanced Krylov subspace methods implementing block and recycling techniques.
+
+To switch to **HPDDM**, simply define the macro ``pr#withhpddm`` before using :ref:`ffddmsetupOperator <ffddmDocumentationDefineProblemToSolve>`. You can then pass **HPDDM** options
+with command-line arguments or directly to the underlying **HPDDM** operator ``pr#hpddmOP``:
+
+.. code-block:: freefem
+
+  macro PBwithhpddm()1 // EOM
+  ffddmsetupOperator( PB , FE , Varf )
+  set(PBhpddmOP,sparams="-hpddm_krylov_method gcrodr");
+
+You can also choose to replace only the Krylov solver, by defining the macro ``pr#withhpddmkrylov`` before using :ref:`ffddmsetupOperator <ffddmDocumentationDefineProblemToSolve>`.
+Doing so, a call to ``pr#fGMRES`` will call the **HPDDM** Krylov solver, with **ffddm** providing the operator and preconditioner through ``pr#A`` and ``pr#PREC``.
+
+An example can be found in **Helmholtz-2d-HPDDM-BGMRES.edp**, see the :ref:`Examples <ffddmExamples>` section.
+
