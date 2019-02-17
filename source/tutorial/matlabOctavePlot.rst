@@ -104,9 +104,9 @@ Importing Data
 
 The mesh file can be loaded into the Matlab / Octave workspace using the ``ffreadmesh()`` command. A mesh file consists of :ref:`three main sections <meshDataStructureReadWrite>`:
 
-1. The mesh points as nodal coordinates  
-2. A list of boundary edges including boundary labels  
-3. List of triangles defining the mesh in terms of connectivity  
+1. The mesh points as nodal coordinates
+2. A list of boundary edges including boundary labels
+3. List of triangles defining the mesh in terms of connectivity
 
 The three data sections mentioned are returned in the variables ``p``, ``b`` and ``t``. The finite element space connectivity and the simulation data can be loaded using the ``ffreaddata()`` command. Therefore, to load the example data the following statement sequence must be executed in Matlab / Octave:
 
@@ -207,7 +207,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 .. figure:: images/capacitor3d_slice_500x400.png
    :name: figMatlabSlice
 
-   Slice on a 3D Parall Plate Capacitor
+   Slice on a 3D Parallel Plate Capacitor
 
 **Download run through example:**
 
