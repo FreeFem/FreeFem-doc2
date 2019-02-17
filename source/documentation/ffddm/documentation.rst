@@ -552,6 +552,7 @@ To switch to **HPDDM**, simply define the macro ``pr#withhpddm`` before using :r
 with command-line arguments or directly to the underlying **HPDDM** operator ``pr#hpddmOP``:
 
 .. code-block:: freefem
+  :linenos:
 
   macro PBwithhpddm()1 // EOM
   ffddmsetupOperator( PB , FE , Varf )
@@ -561,4 +562,3 @@ You can also choose to replace only the Krylov solver, by defining the macro ``p
 Doing so, a call to ``pr#fGMRES`` will call the **HPDDM** Krylov solver, with **ffddm** providing the operator and preconditioner through ``pr#A`` and ``pr#PREC``.
 
 An example can be found in **Helmholtz-2d-HPDDM-BGMRES.edp**, see the :ref:`Examples <ffddmExamples>` section.
-
