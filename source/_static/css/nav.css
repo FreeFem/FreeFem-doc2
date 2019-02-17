@@ -31,10 +31,10 @@ nav #staticNav .nav-item {
 	cursor: pointer;
 	white-space: nowrap;
 	cursor: pointer;
-	-webkit-transition: all .6s ease-in;
-	-moz-transition: all .6s ease-in;
-	-o-transition: all .6s ease-in;
-	transition: all .6s ease-in;
+	-webkit-transition: all .2s ease-in;
+	-moz-transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 }
 
 nav #staticNav .nav-item:hover {

@@ -1,12 +1,12 @@
 /** GLOBAL **/
 a {
 	text-decoration: none;
-	color: black;
+	color: rgba(0,0,0,.87);
 }
 
 a:visited {
 	text-decoration: none;
-	color: black;
+	color: rgba(0,0,0,.87);
 }
 
 div[id]:target::before {
@@ -55,8 +55,7 @@ i:hover {
 }
 
 p {
-	font-family: "Roboto-slab", serif;
-	line-height: 1.2rem;
+	line-height: 1.625rem;
 }
 
 .fake-title {
