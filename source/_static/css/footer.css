@@ -57,8 +57,8 @@ footer a:visited {
 }
 
 .footer-img img {
-	margin-top: .11rem;
-	max-height: 2em;
+  margin-top: .115rem;
+  max-height: 1.51em;
 }
 
 .footer-img span.separator {

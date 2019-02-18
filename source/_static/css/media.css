@@ -94,6 +94,7 @@
 
 	.content {
 		grid-column: 1 / 4 !important;
+		margin-bottom: 0;
 	}
 
 	/** CONTENT **/

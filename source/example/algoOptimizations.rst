@@ -1,3 +1,6 @@
+.. role:: freefem(code)
+   :language: freefem
+
 .. _exampleAlgorithmsOptimization:
 
 Algorithms & Optimizations
@@ -219,17 +222,24 @@ Algorithms
 
    assert(nerr==0);
 
-.. figure:: images/Algorithms1.png
-    :figclass: inline
-    :figwidth: 49%
+.. subfigstart::
 
-    Result ``u``
+.. figure:: images/Algorithms1.png
+   :alt: Algorithms1
+   :width: 90%
+
+   Result ``u``
 
 .. figure:: images/Algorithms2.png
-    :figclass: inline
-    :figwidth: 49%
+   :alt: Algorithms2
+   :width: 90%
 
-    :freefem:`df(dx(u)*dx(u) + dy(u)*dy(u))`
+   :freefem:`df(dx(u)*dx(u) + dy(u)*dy(u))`
+
+.. subfigend::
+   :width: 0.49
+   :alt: Algorithms
+   :label: Algorithms
 
 .. _exampleCMAESVariationalInequality:
 

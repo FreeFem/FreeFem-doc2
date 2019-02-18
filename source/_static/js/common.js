@@ -84,8 +84,7 @@ function updateBlur() {
 
    let last = 0
    for (let i = 0; i < Math.min(els_.length, anchors_.length); i++) {
-      if ((anchors_[i].offsetTop) <= offset) {
-         console.log(anchors_[i])
+      if ((anchors_[i].offsetTop-70) <= offset) {
          els_[i].classList.add('blur')
          last = i
       } else {
