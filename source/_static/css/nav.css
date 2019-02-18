@@ -168,20 +168,20 @@ nav .sidenav .closebtn {
 	padding: 1rem;
 	align-self: stretch;
 	text-align: right;
-	background-color: #EDEDF2;
+	background-color: #E0E0E5;
 }
 
 nav .sidenav .previousNav {
 	padding: 1rem;
 	align-self: stretch;
-	background-color: #EDEDF2;
+	background-color: #E0E0E5;
 }
 
 nav .sidenav .sidenav-title {
 	padding: 1rem;
 	font-weight: bold;
 	cursor: default;
-	background-color: #EDEDF2;
+	background-color: #E0E0E5;
 }
 
 nav .sidenav .nav-items {
