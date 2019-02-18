@@ -93,25 +93,9 @@ else
    showSideNav(currentItem, currentLevel+1)
 
 function showSideNav(parent, level) {
-   const sideNav = document.getElementById('sideNav')
+   const dsideNav = document.getElementById('dynamicSideNav')
 
-   sideNav.innerHTML = ''
-
-   const sideNavClose = document.createElement('a')
-   sideNavClose.href = "#"
-   sideNavClose.className = 'closebtn'
-   sideNavClose.onclick = function() { closeNav() }
-   sideNavClose.innerHTML = '<i class="fas fa-times"></i>'
-   sideNav.appendChild(sideNavClose)
-
-   const sideNavHeader = document.createElement('div')
-   const sideNavHeaderImg = document.createElement('div')
-   sideNavHeaderImg.innerHTML = ''
-   const sideNavHeaderTitle = document.createElement('h1')
-   sideNavHeaderTitle.innerHTML = 'FreeFem++ documentation'
-   sideNavHeader.appendChild(sideNavHeaderImg)
-   sideNavHeader.appendChild(sideNavHeaderTitle)
-   sideNav.appendChild(sideNavHeader)
+   dsideNav.innerHTML = ''
 
    const sideNavPrevious = document.createElement('a')
    sideNavPrevious.href = "#"
@@ -120,12 +104,12 @@ function showSideNav(parent, level) {
 
    if (parent) { // Show current title & show previous nav button
       sideNavPrevious.onclick = function() { previousNav(parent, level) }
-      sideNav.appendChild(sideNavPrevious)
+      dsideNav.appendChild(sideNavPrevious)
 
       const sideNavTitle = document.createElement('div')
       sideNavTitle.className = 'sidenav-title'
       sideNavTitle.innerHTML = parent.innerHTML
-      sideNav.appendChild(sideNavTitle)
+      dsideNav.appendChild(sideNavTitle)
    }
 
    const globalDiv = document.createElement('div')
@@ -159,5 +143,5 @@ function showSideNav(parent, level) {
          globalDiv.appendChild(div)
       }
    })
-   sideNav.appendChild(globalDiv)
+   dsideNav.appendChild(globalDiv)
 }
