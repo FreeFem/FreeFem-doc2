@@ -63,7 +63,7 @@ So the following program may or may not work:
    // Plot
    plot(u, wait=1, ps="Sound.eps");
 
-Results are on :numref:`figAcoustics`. But when :math:`kc2` is an eigenvalue of the problem, then the solution is not unique:
+Results are on :numref:`figAcoustics1`. But when :math:`kc2` is an eigenvalue of the problem, then the solution is not unique:
 
 -  if :math:`u_e \neq 0` is an eigen state, then for any given solution :math:`u+u_e` is **another** solution.
 
@@ -109,7 +109,7 @@ To find all the :math:`u_e` one can do the following :
 
 .. subfigstart::
 
-.. _figAcoustics:
+.. _figAcoustics1:
 
 .. figure:: images/acoustics_0.png
    :alt: Amplitude of an acoustic signal coming from the left vertical wall
@@ -128,6 +128,6 @@ To find all the :math:`u_e` one can do the following :
    First eigen state (:math:`\lambda=(k/c)^2=19.4256`) close to :math:`20` of eigenvalue problem: :math:`-\Delta \varphi = \lambda\varphi` and :math:`\frac{\partial \varphi}{\partial n} = 0` on :math:`\Gamma`}
 
 .. subfigend::
-   :width: 0.30
-   :alt: Example Model Resolutions
-   :label: fig-cc-teddy
+   :width: 0.49
+   :alt: Acoustics
+   :label: figAcoustics0
