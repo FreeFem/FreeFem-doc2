@@ -104,6 +104,15 @@ function showSideNav(parent, level) {
    sideNavClose.innerHTML = '<i class="fas fa-times"></i>'
    sideNav.appendChild(sideNavClose)
 
+   const sideNavHeader = document.createElement('div')
+   const sideNavHeaderImg = document.createElement('div')
+   sideNavHeaderImg.innerHTML = ''
+   const sideNavHeaderTitle = document.createElement('h1')
+   sideNavHeaderTitle.innerHTML = 'FreeFem++ documentation'
+   sideNavHeader.appendChild(sideNavHeaderImg)
+   sideNavHeader.appendChild(sideNavHeaderTitle)
+   sideNav.appendChild(sideNavHeader)
+
    const sideNavPrevious = document.createElement('a')
    sideNavPrevious.href = "#"
    sideNavPrevious.className = 'previousNav'
