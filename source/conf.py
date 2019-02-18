@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import sys, os
+sys.path.append(os.path.abspath('sphinx-extensions'))
 
 # -- Project information -----------------------------------------------------
 
@@ -20,7 +22,8 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.inlinesyntaxhighlight'
+    'sphinxcontrib.inlinesyntaxhighlight',
+    'subfig'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -95,6 +98,8 @@ latex_elements = {
     # Additional stuff for the LaTeX preamble.
     #
     'preamble': """
+\\usepackage[margin=8pt]{subcaption}
+\\captionsetup{labelfont=bf}
 \\def\\R{{\\mathbb{R}}}
 \\def\\C{{\\mathbb{C}}}
 \\def\\P{{\\mathbb{P}}}
