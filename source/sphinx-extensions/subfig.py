@@ -23,9 +23,12 @@ def visit_subfig_tex(self, node):
     self.body = []
 
 def depart_subfig_tex(self, node):
+    print(self.body)
     figoutput = ''.join(self.body)
+    figoutput = figoutput.replace('\n\\begin{figure}', '\\begin{figure}')
     figoutput = figoutput.replace('[htbp]', '[t]{%s\\linewidth}' % node['width'])
     figoutput = figoutput.replace('figure', 'subfigure')
+    figoutput = figoutput.replace('\\end{figure}\n', '\\end{figure}')
     self.body = self.__body
     self.body.append(figoutput)
 
