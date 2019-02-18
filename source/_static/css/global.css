@@ -64,7 +64,7 @@ p {
 
 /** CODE TABLES **/
 .linenos {
-	background-color: rgba(0,0,0,.07);
+	background-color: #E0E0E5;
 	color: rgba(0,0,0,.26);
 	border-radius: .125rem 0 0 .125rem;
 	padding: 0 .75rem !important;
@@ -77,7 +77,7 @@ p {
 
 table.highlighttable {
 	display: block;
-	background-color: #EDEDF2 !important;
+	background-color: #EFEFEF !important;
 	border-radius: .125rem;
 	margin: 1.11rem 0;
 	overflow: hidden;
@@ -108,7 +108,7 @@ table.highlighttable pre {
 }
 
 .highlight {
-	background-color: #EDEDF2 !important;
+	background-color: #EFEFEF !important;
 	margin: 0;
 }
 
