@@ -173,7 +173,7 @@ nav .sidenav .closebtn {
 
 nav .sidenav .previousNav {
 	padding: 1rem;
-	align-self: stretch;
+	display: block;
 	background-color: #E0E0E5;
 }
 
@@ -208,4 +208,22 @@ nav .sidenav .nav-item:hover {
 
 nav .sidenav i {
 	color: black;
+}
+
+#sideNav svg {
+	background-color: #E0E0E5;
+	width: 2.22rem;
+	height: 2.22rem;
+	margin: .5rem;
+}
+
+.sideNavHeader {
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #E0E0E5;
+}
+
+.sideNavHeader h1 {
+	color: #0000FF;
 }
