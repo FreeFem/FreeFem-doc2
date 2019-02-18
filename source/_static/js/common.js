@@ -73,6 +73,7 @@ addUpButton()
 
 // Highlight nav links
 function updateBlur() {
+   const toc = document.getElementById('toc')
    const els_ =  document.querySelectorAll('#toc li')
    const anchors_ = document.querySelectorAll('.headerlink')
 
@@ -81,13 +82,18 @@ function updateBlur() {
    if (anchors_.length === 0)
       return
 
-   for (let i = 0; i < anchors_.length; i++) {
-      if (anchors_[i].offsetTop <= offset) {
+   let last = 0
+   for (let i = 0; i < Math.min(els_.length, anchors_.length); i++) {
+      if ((anchors_[i].offsetTop - 50) <= offset) {
          els_[i].classList.add('blur')
+         last = i
       } else {
          els_[i].classList.remove('blur')
       }
    }
+
+   const div = toc.children[0]
+   div.scrollTo(0, els_[last].offsetTop-div.offsetHeight/2)
 }
 
 updateBlur()
