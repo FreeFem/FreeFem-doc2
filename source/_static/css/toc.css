@@ -31,3 +31,10 @@
 #toc a:hover {
   color: #0000FF;
 }
+
+#toc li.blur > a {
+	color: blue;
+}
+ /* #toc ul li ul li .blur a {
+	 color:red;
+ } */
