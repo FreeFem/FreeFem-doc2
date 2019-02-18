@@ -69,6 +69,20 @@ function addUpButton() {
    document.body.appendChild(div)
 }
 
+let scrollPos = 0;
+function updateUpButton() {
+
+
+  if ((document.body.getBoundingClientRect()).top > scrollPos) {
+    document.getElementById('upButton').classList.add('up');
+    document.getElementById('upButton').classList.remove('down');
+  } else {
+    document.getElementById('upButton').classList.add('down');
+    document.getElementById('upButton').classList.remove('up');
+  }
+   scrollPos = (document.body.getBoundingClientRect()).top;
+}
+
 addUpButton()
 
 // Highlight nav links
@@ -100,4 +114,7 @@ function updateBlur() {
 
 updateBlur()
 
-document.addEventListener('scroll', function() { updateBlur() })
+document.addEventListener('scroll', function() {
+  updateBlur()
+  updateUpButton()
+})
