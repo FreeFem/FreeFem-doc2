@@ -30,6 +30,7 @@ body {
 	font-feature-settings: "kern","liga";
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1rem;
+	text-align: justify;
 	color: rgba(0,0,0,.87);
 	font-weight: lighter;
 
@@ -95,8 +96,8 @@ body {
 
 .content li {
 	font-family: "Roboto", sans-serif;
-	line-height: 1.2rem;
-	margin-left: 1.11rem;
+	margin: .5rem 0 .5rem 1.11rem;
+	line-height: 1.625rem;
 }
 
 .up-button {
