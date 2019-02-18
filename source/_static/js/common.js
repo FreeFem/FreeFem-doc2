@@ -75,7 +75,7 @@ addUpButton()
 function updateBlur() {
    const toc = document.getElementById('toc')
    const els_ =  document.querySelectorAll('#toc li')
-   const anchors_ = document.querySelectorAll('.headerlink')
+   const anchors_ = document.querySelectorAll('.section')
 
    const offset = window.pageYOffset
 
@@ -84,7 +84,8 @@ function updateBlur() {
 
    let last = 0
    for (let i = 0; i < Math.min(els_.length, anchors_.length); i++) {
-      if ((anchors_[i].offsetTop - 50) <= offset) {
+      if ((anchors_[i].offsetTop) <= offset) {
+         console.log(anchors_[i])
          els_[i].classList.add('blur')
          last = i
       } else {
@@ -92,8 +93,10 @@ function updateBlur() {
       }
    }
 
-   const div = toc.children[0]
-   div.scrollTo(0, els_[last].offsetTop-div.offsetHeight/2)
+   {  // scroll toc to current element
+      const div = toc.children[0]
+      div.scrollTo(0, els_[last].offsetTop-div.offsetHeight/2)
+   }
 }
 
 updateBlur()
