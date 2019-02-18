@@ -57,11 +57,11 @@ nav .search-container {
 nav .search-container label {
 	padding: .55rem 0 .55rem .55rem;
 	border-radius: .125rem 0 0 .125rem;
-	background-color: #FFFFFF;
+	background-color: white;
 }
 
 nav .search-container label i {
-	color: grey;
+	color: gray;
 	-webkit-transition: color .6s ease-in;
 	-moz-transition: color .6s ease-in;
 	-o-transition: color .6s ease-in;
@@ -78,8 +78,7 @@ nav #searchInput {
 	font-size: 1rem;
 	border: none;
 	border-radius: 0 .125rem .125rem 0;
-	background-color: #FFFFFF;
-	color: grey;
+	background-color: white;
 }
 
 nav #searchInput:focus {
@@ -157,27 +156,32 @@ nav .sidenav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #111;
+	background-color: white;
 	overflow-x: hidden;
 	transition: 0.5s;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 5px 10px 18px #888888;
 }
 
 nav .sidenav .closebtn {
 	padding: 1rem;
-	align-self: flex-end;
+	align-self: stretch;
+	text-align: right;
+	background-color: #EDEDF2;
 }
 
 nav .sidenav .previousNav {
 	padding: 1rem;
 	align-self: stretch;
+	background-color: #EDEDF2;
 }
 
 nav .sidenav .sidenav-title {
 	padding: 1rem;
 	font-weight: bold;
 	cursor: default;
+	background-color: #EDEDF2;
 }
 
 nav .sidenav .nav-items {
@@ -192,11 +196,16 @@ nav .sidenav .nav-item {
 	justify-content: space-between;
 
 	padding: 1.11rem 1.11rem;
-	color: lightgrey;
+	color: black;
 	transition: 0.3s;
 	cursor: pointer;
+	border-bottom: 1px solid lightgray;
 }
 
 nav .sidenav .nav-item:hover {
-	color: white;
+	color: #00007F;
+}
+
+nav .sidenav i {
+	color: black;
 }

@@ -27,8 +27,8 @@
 		display: block !important;
 		justify-self: center;
 
-		background-color: #00007F;
-		color: lightgrey;
+		background-color: transparent;
+		color: #00007F;
 		border: none;
 		padding: .55rem;
 		margin: 0;
@@ -36,13 +36,12 @@
 		cursor: pointer;
 	}
 
-	nav .nav-btn:hover {
-		background-color: #00007F;
-		color: white;
+	nav .nav-btn i:hover {
+		color: black !important;
 	}
 
 	#sideNav p {
-		margin: 0;
+		margin: 0 .55rem 0 0;
 		font-family: "Roboto", sans-serif;
 	}
 
@@ -101,7 +100,7 @@
 
 	table.highlighttable {
 		border-radius: 0;
-		margin: 0 -1rem;
+		margin: 1rem -1rem;
 	}
 
 	table:not(.highlighttable) {
