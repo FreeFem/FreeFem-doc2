@@ -81,13 +81,17 @@ function updateBlur() {
    if (anchors_.length === 0)
       return
 
-   for (let i = 0; i < Math.max(els_.length, anchors_.length); i++) {
+   let last = 0
+   for (let i = 0; i < Math.min(els_.length, anchors_.length); i++) {
       if (anchors_[i].offsetTop <= offset) {
          els_[i].classList.add('blur')
+         last = i
       } else {
          els_[i].classList.remove('blur')
       }
    }
 }
+
+updateBlur()
 
 document.addEventListener('scroll', function() { updateBlur() })
