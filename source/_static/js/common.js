@@ -70,3 +70,26 @@ function addUpButton() {
 }
 
 addUpButton()
+
+// Highlight nav links
+function updateBlur() {
+   const els_ =  document.querySelectorAll('#toc li')
+   const anchors_ = document.querySelectorAll('.headerlink')
+
+   const offset = window.pageYOffset
+
+   if (anchors_.length === 0)
+      return
+
+   for (let i = 0; i < anchors_.length; i++) {
+      if (anchors_[i].offsetTop <= offset) {
+         els_[i].classList.add('blur')
+      } else {
+         els_[i].classList.remove('blur')
+      }
+   }
+}
+
+updateBlur()
+
+document.addEventListener('scroll', function() { updateBlur() })

@@ -46,6 +46,7 @@ body {
 	grid-row: 3;
 	grid-column: 2;
 	margin: 0 1rem;
+	margin-bottom: 65vh;
 }
 
 .content .headerlink {
