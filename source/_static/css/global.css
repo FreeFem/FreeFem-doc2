@@ -254,7 +254,7 @@ table:not(.highlighttable) {
 	border: none;
 	border-collapse: collapse;
 	overflow: auto;
-	font-family: "Roboto-slab", serif;
+	font-family: "Roboto", sans-serif;
 	border-radius: .27rem;
 }
 
