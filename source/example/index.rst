@@ -1,6 +1,3 @@
-.. role:: freefem(code)
-    :language: freefem
-
 .. _examples:
 
 Examples

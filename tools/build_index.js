@@ -72,6 +72,13 @@ function readHtml(root, file, fileId) {
    return data
 }
 
+function parseAnchor(text) {
+   text = text.toLowerCase()
+   text = text.replace(' ', '-')
+   text = text.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'-')
+   return text
+}
+
 function readSingleHtml(root, file) {
    const filename = path.join(root, file)
    const txt = fs.readFileSync(filename).toString()
@@ -116,7 +123,7 @@ function readSingleHtml(root, file) {
 
       data.push({
          'id': i,
-         'link': file + '#' + title.toLowerCase(),
+         'link': file + '#' + parseAnchor(title),
          't': title,
          'b': body
       })
@@ -184,26 +191,4 @@ function main() {
    })
 }
 
-// function mainSingle() {
-//    files = findHtml(HTML_FOLDER)
-//    console.log('Building single index for these files:')
-//    for (let i = 0; i < files.length; i++) {
-//       console.log('    ' + files[i])
-//       const doc = readSingleHtml(HTML_FOLDER, files[i])
-//
-//       const idx = buildIndex(doc)
-//       const previews = buildPreviews(doc)
-//
-//       const js = 'const LUNR_DATA_'+i+' = ' + JSON.stringify(idx) + ';\n' +
-//          'const PREVIEW_LOOKUP_'+i+' = ' + JSON.stringify(previews) + ';'
-//       fs.writeFile(OUTPUT_INDEX+'_'+i+'.js', js, function(err) {
-//          if(err) {
-//             return console.log(err)
-//          }
-//          console.log('Index saved as ' + OUTPUT_INDEX+'_'+i+'.js')
-//       })
-//    }
-// }
-
 main()
-// mainSingle()
