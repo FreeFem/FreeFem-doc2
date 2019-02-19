@@ -131,10 +131,17 @@ body {
 .figure.compound {
 	display: flex !important;
 	flex-direction: row;
-	justify-content: space-between !important;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+.figure.compound > .caption {
+	display: none !important;
 }
 
 .subfigure {
+	width: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
