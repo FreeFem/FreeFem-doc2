@@ -208,7 +208,6 @@ div.inline {
 	align-items: stretch;
 	justify-content: center;
 	border-radius: .27rem;
-	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
 	margin-bottom: 1.11rem;
 }
 

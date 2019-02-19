@@ -149,4 +149,9 @@ body {
 
 .subfigure .caption {
 	flex: 1;
+	order: 1;
+}
+
+.subfigure a {
+	order: 2;
 }
