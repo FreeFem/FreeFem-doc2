@@ -25,7 +25,7 @@ In the program below :math:`\beta = 1/(1-i/2)` in the air and :math:`2/(1-i/2)` 
 
 .. code-block:: freefem
    :linenos:
-   
+
    // Parameters
    int nn = 2;
    real a = 20.;
@@ -100,20 +100,35 @@ In the program below :math:`\beta = 1/(1-i/2)` in the air and :math:`2/(1-i/2)` 
 
 Results are shown on :numref:`figComplexReal`, :numref:`figComplexImaginary` and :numref:`figComplexTemperature`.
 
-.. figure:: images/real_microwave.png
-    :figclass: inline3
-    :name: figComplexReal
+.. subfigstart::
 
-    Real part
+.. _figComplexReal:
+
+.. figure:: images/real_microwave.png
+   :alt: RealMicroWave
+   :width: 90%
+
+   Real part
+
+.. _figComplexImaginary:
 
 .. figure:: images/imaginary_microwave.png
-    :figclass: inline3
-    :name: figComplexImaginary
+   :alt: ImaginaryMicrowave
+   :width: 90%
 
-    Imaginary part
+   Imaginary part
+
+.. _figComplexTemperature:
 
 .. figure:: images/temperature_microwave.png
-    :figclass: inline3
-    :name: figComplexTemperature
+   :alt: TemperatureMicrowave
+   :width: 90%
 
-    Temperature
+   Temperature
+
+.. subfigend::
+   :width: 0.49
+   :alt: Microwave
+   :label: Microwave
+
+   Microwave

@@ -1,5 +1,5 @@
 function openNav() {
-   document.getElementById("sideNav").style.width = "250px";
+   document.getElementById("sideNav").style.width = "300px";
 }
 
 function closeNav() {
@@ -21,6 +21,7 @@ const toctree = nav.children[0].children[0]
 
 const tree = []
 let currentLevel = 0
+let currentItem = undefined
 let currentParent = undefined
 toctree2tree(toctree, 0, undefined)
 
@@ -44,6 +45,7 @@ function toctree2tree(toctree, level, parent) {
       if (item.classList.contains('current')) {
          object.className += ' current'
          if (level > currentLevel) {
+            currentItem = object
             currentLevel = level
             currentParent = parent
          }
@@ -83,19 +85,17 @@ tree.forEach(function(item) {
 })
 
 // Append current level to sideNav
-showSideNav(currentParent, currentLevel)
+if (!currentItem)
+   showSideNav(currentParent, currentLevel)
+else if (currentItem && currentItem.children && currentItem.children.length === 0)
+   showSideNav(currentParent, currentLevel)
+else
+   showSideNav(currentItem, currentLevel+1)
 
 function showSideNav(parent, level) {
-   const sideNav = document.getElementById('sideNav')
+   const dsideNav = document.getElementById('dynamicSideNav')
 
-   sideNav.innerHTML = ''
-
-   const sideNavClose = document.createElement('a')
-   sideNavClose.href = "#"
-   sideNavClose.className = 'closebtn'
-   sideNavClose.onclick = function() { closeNav() }
-   sideNavClose.innerHTML = '<i class="fas fa-times"></i>'
-   sideNav.appendChild(sideNavClose)
+   dsideNav.innerHTML = ''
 
    const sideNavPrevious = document.createElement('a')
    sideNavPrevious.href = "#"
@@ -104,12 +104,12 @@ function showSideNav(parent, level) {
 
    if (parent) { // Show current title & show previous nav button
       sideNavPrevious.onclick = function() { previousNav(parent, level) }
-      sideNav.appendChild(sideNavPrevious)
+      dsideNav.appendChild(sideNavPrevious)
 
       const sideNavTitle = document.createElement('div')
       sideNavTitle.className = 'sidenav-title'
       sideNavTitle.innerHTML = parent.innerHTML
-      sideNav.appendChild(sideNavTitle)
+      dsideNav.appendChild(sideNavTitle)
    }
 
    const globalDiv = document.createElement('div')
@@ -119,8 +119,12 @@ function showSideNav(parent, level) {
    if ((item.level === level) && (item.parent === parent)) {
          const div = document.createElement('div')
          div.className = item.className
-         div.onclick = function() { window.location.href=item.href }
-         div.innerHTML = item.innerHTML
+         div.onclick = function() { window.location.href=item.href; closeNav() }
+
+         const p = document.createElement('p')
+         p.innerHTML = item.innerHTML
+
+         div.appendChild(p)
 
          if (item.children.length > 0) {
             const next = document.createElement('a')
@@ -139,5 +143,5 @@ function showSideNav(parent, level) {
          globalDiv.appendChild(div)
       }
    })
-   sideNav.appendChild(globalDiv)
+   dsideNav.appendChild(globalDiv)
 }

@@ -134,12 +134,27 @@ Solution of Lamé's equations for elasticity for a 2D beam deflected by its own 
 Result are shown with a amplification factor equal to 100.
 The size of the arrow is automatically bound, but the color gives the real length.
 
+.. subfigstart::
+
+.. _figElasticityVector:
+
 .. figure:: images/lame_vector.png
-   :name: figElasticityVector
+   :alt: LameVector
+   :width: 90%
 
    Vector
 
+.. _figElasticityDeformation:
+
 .. figure:: images/lame_deformation.png
-   :name: figElasticityDeformation
+   :alt: LameDeformation
+   :width: 90%
 
    Deformation
+
+.. subfigend::
+   :width: 0.49
+   :alt: Elasticity
+   :label: Elasticity
+
+   Elasticity

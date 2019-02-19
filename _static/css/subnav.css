@@ -4,13 +4,17 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	padding: 10px;
-	background-color: #f8f8f8;
-	box-shadow: inset 1px 0 10px 0px #888;
+	padding: .55rem;
+	background-color: #EFEFEF;
+	font-size: 0.9rem;
 }
 
 #subnav ul {
 	list-style: none;
+}
+
+#subnav li {
+	line-height: 1.875em;
 }
 
 #subnav li.toctree-l1{
@@ -24,7 +28,6 @@
 
 #subnav li.toctree-l2 {
 	font-weight: normal;
-	padding: 5px 0;
 }
 
 #subnav li.anchor {
@@ -35,10 +38,15 @@
 	color: #00007F;
 }
 
+#subnav a:hover {
+  color: #0000FF;
+}
+
 #subnav > div {
 	position: sticky;
-	top: 70px;
+	top: 3.88rem;
 	max-height: 90vh;
-	padding: 10px;
+	padding: .55rem;
 	overflow: auto;
+	width: 100%;
 }

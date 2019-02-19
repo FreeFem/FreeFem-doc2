@@ -64,19 +64,30 @@ The following is the **FreeFem++** program which computes :math:`u`:
 
 As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using **FreeFem++** :freefem:`plot` command (see line 29 above).
 
-.. figure:: images/firstTh.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figPoissonMesh
+.. subfigstart::
 
-    Mesh Th by :freefem:`buildmesh(C(50))`
+.. _figPoissonMesh:
+
+.. figure:: images/firstTh.png
+   :alt: firstTh
+   :width: 90%
+
+   Mesh Th by :freefem:`buildmesh(C(50))`
+
+.. _figPoissonU:
 
 .. figure:: images/firstU.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figPoissonU
+   :alt: firstU
+   :width: 90%
 
-    Isovalue by :freefem:`plot(u)`
+   Isovalue by :freefem:`plot(u)`
+
+.. subfigend::
+   :width: 0.49
+   :alt: Poisson
+   :label: Poisson
+
+   Poisson's equation
 
 .. note:: The qualifier :freefem:`solver=LU` (line 18) is not required and by default a multi-frontal :freefem:`LU` is used.
 
@@ -156,19 +167,30 @@ A finite element space is, usually, a space of polynomial functions on elements,
 As it is a linear vector space of finite dimension, basis can be found.
 The canonical basis is made of functions, called the *hat function* :math:`\phi_k` which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on :numref:`figPoissonHat`.
 
-.. figure:: images/meshTh_2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figPoissonMesh2
+.. subfigstart::
 
-    :freefem:`mesh Th`
+.. _figPoissonMesh2:
+
+.. figure:: images/meshTh_2.png
+   :alt: meshTh2
+   :width: 90%
+
+   :freefem:`mesh Th`
+
+.. _figPoissonHat:
 
 .. figure:: images/hat_functions.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figPoissonHat
+   :alt: HatFunctions
+   :width: 90%
 
-    Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)
+   Graph of :math:`\phi_1` (left) and :math:`\phi_6` (right)
+
+.. subfigend::
+   :width: 0.49
+   :alt: HatFunctions
+   :label: HatFunctions
+
+   Hat functions
 
 .. note:: The easiest way to define :math:`\phi_k` is by making use of the *barycentric coordinates* :math:`\lambda_i(x,y),~i=1,2,3` of a point :math:`q=(x,y)\in T`, defined by :math:`\sum_i\lambda_i=1,~~~\sum_i\lambda_i\vec q^i=\vec q` where :math:`q^i,~i=1,2,3` are the 3 vertices of :math:`T`.
    Then it is easy to see that the restriction of :math:`\phi_k` on :math:`T` is precisely :math:`\lambda_k`.

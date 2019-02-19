@@ -124,19 +124,30 @@ The program found :math:`b=2.00125,c=3.00109,d=4.00551`.
 
 :numref:`figOptimalU` and :numref:`figOptimalJ` show :math:`u` at convergence and the successive function evaluations of :math:`J`.
 
-.. figure:: images/u-bfgs.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figOptimalU
+.. subfigstart::
 
-    Level line of :math:`u`.
+.. _figOptimalU:
+
+.. figure:: images/u-bfgs.png
+   :alt: BFGSU
+   :width: 90%
+
+   Level line of :math:`u`.
+
+.. _figOptimalJ:
 
 .. figure:: images/OptimalControl_J.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figOptimalJ
+   :alt: OptimalControlJ
+   :width: 90%
 
-    Successive evaluations of :math:`J` by BFGS (5 values above 500 have been removed for readability)
+   Successive evaluations of :math:`J` by BFGS (5 values above 500 have been removed for readability)
+
+.. subfigend::
+   :width: 0.49
+   :alt: OptimalControl
+   :label: OptimalControl
+
+   Optimal control
 
 Note that an *adjoint state* could have been used.
 Define :math:`p` by:

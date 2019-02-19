@@ -14,7 +14,7 @@ Command-line arguments
 -  ``-ffddm_overlap N`` specifies the width of the overlap region between subdomains, see :ref:`ffddmoverlap <ffddmParametersGlobal>` (default 1).
 -  ``-ffddm_master_p N``, number of master processes for the coarse problem (for two level preconditioners), see :ref:`ffddmpCS <ffddmParametersGlobal>` (default 1).
 -  ``-ffddm_master_exclude 0|1`` exclude master processes from the domain decomposition, see :ref:`ffddmexclude <ffddmParametersGlobal>` (default 0).
--  ``ffddm_split N``, level of refinement of the local submeshes with respect to the initial global mesh, see :ref:`ffddmsplit <ffddmParametersGlobal>` (default 1).
+-  ``-ffddm_split N``, level of refinement of the local submeshes with respect to the initial global mesh, see :ref:`ffddmsplit <ffddmParametersGlobal>` (default 1).
 -  ``-ffddm_schwarz_method S``, specifies the type of one level preconditioner :math:`M^{-1}_1`: “asm” (*Additive Schwarz*), “ras” (*Restricted Additive Schwarz*), “oras” (*Optimized Restricted Additive Schwarz*), “soras” (*Symmetric Optimized Restricted Additive Schwarz*) or “none” (no preconditioner), see :ref:`ffddmprecond <ffddmParametersGlobal>` (default “ras”).
 -  ``-ffddm_geneo_nu N``, number of local eigenvectors to compute in each subdomain when solving the local generalized eigenvalue problem for the GenEO method, see :ref:`ffddmnu <ffddmParametersGlobal>` (default 20).
 -  ``-ffddm_geneo_threshold R``, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method, see :ref:`ffddmtau <ffddmParametersGlobal>` (default 0.5).

@@ -168,14 +168,25 @@ So the Newton algorithm become:
 
     :math:`\nu` is gradually increased to the desired value.
 
+.. subfigstart::
+
 .. figure:: images/NSNewtonTh.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: NSNewtonTh
+   :width: 90%
 
    Mesh
 
 .. figure:: images/NSNewtonUP.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: NSNewtonUP
+   :width: 90%
+
+   Velocity and pressure
+
+.. subfigend::
+   :width: 0.49
+   :alt: NSNewton
+   :label: NSNewton
+
+   Naver-Stokes newton
 
    Velocity and pressure at Reynolds 200

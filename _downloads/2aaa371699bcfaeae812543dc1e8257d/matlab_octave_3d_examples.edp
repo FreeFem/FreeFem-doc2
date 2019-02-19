@@ -1,12 +1,7 @@
-/* Electrostatic Parallel Plate Capacitor Problem
- *
- *  Solves the Laplace Equation on a parallel plate capacitor (dirichlet) boundary.
- *  FE-Mesh and space functions are written to text files in order to be plot with
- *  Matlab / Octave.
- */
-
 load "msh3"
 load "medit"
+
+include "ffmatlib.idp"
 
 int C20=98,C21=99; //2D mesh
 int CK=30,CA=31;   //anode+cathode
@@ -135,23 +130,8 @@ problem Laplace(u,v,solver=CG) =
 Laplace;
 
 savemesh(Thn3d,"capacitor3d.mesh");
-
-{
-ofstream file("capacitor3d_potential.txt");
-for (int j=0; j<Vh.ndof; j++)
-   file << u[][j] << endl;
-}
-
-Vh Ex, Ey, Ez;
-Ex=-dx(u);
-Ey=-dy(u);
-Ez=-dz(u);
-
-{
-ofstream file("capacitor3d_field.txt");
-for (int j=0; j<Vh.ndof; j++)
-   file << Ex[][j] << " " << Ey[][j] << " " << Ez[][j] << endl;
-}
+ffSaveVh(Thn3d,Vh,"capacitor3d_vh.txt");
+ffSaveData(u,"capacitor3d_potential.txt");
 
 medit("U",Thn3d,u);
 

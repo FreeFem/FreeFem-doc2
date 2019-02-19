@@ -4,21 +4,38 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	padding: 10px;
-	background-color: #f8f8f8;
-	box-shadow: inset -1px 0 10px 0px #888;
+	padding: .55rem;
+	background-color: #EFEFEF;
+	font-size: .9rem;
 }
 
 #toc > div {
 	position: sticky;
-	top: 70px;
-	padding: 10px;
+	top: 3.88rem;
+	padding: .55rem;
 	max-height: 90vh;
 	overflow: auto;
+	width: 100%;
 }
 
 #toc ul {
 	list-style: none;
 	margin: 0;
-	padding: 10px;
+	padding: .55rem;
+}
+
+#toc li {
+	line-height: 1.875em;
+}
+
+#toc a:hover {
+  color: #0000FF;
+}
+
+#toc li.blur > a {
+	color: #00007F;
+}
+
+#toc li.blur > a:hover {
+  color: #0000FF;
 }

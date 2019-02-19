@@ -25,11 +25,9 @@ It makes it also a very good tool for learning and prototyping domain decomposit
 HPDDM is an efficient implementation of various domain decomposition methods and a variety of Krylov subspace algorithms, with advanced block and recycling methods for solving sequences of linear systems with multiple right-hand sides: GMRES and Block GMRES, CG, Block CG, and Breakdown-Free Block CG, GCRO-DR and Block GCRO-DR.
 For more details on how to use HPDDM within ``ffddm``, see :ref:`the ffddm documentation <ffddmDocumentationHPDDMffddm>`.
 
-Getting Started
----------------
+.. rst-class:: fake-title
 
-Minimal Example
-~~~~~~~~~~~~~~~
+   Getting Started
 
 .. code-block:: freefem
   :linenos:

@@ -1,3 +1,5 @@
+include "ffmatlib.idp"
+
 int CA=3, CK=4, CB=5;
 real w2=1.0, h=0.4, d2=0.5;
 
@@ -18,7 +20,7 @@ mesh Th = buildmesh(enclosure(3*n)+
              bottomA(-w2*n)+topA(-w2*n)+rightA(-h*n)+leftA(-h*n)+
              bottomK(-w2*n)+topK(-w2*n)+rightK(-h*n)+leftK(-h*n));
 
-fespace Vh(Th,P1);
+fespace Vh(Th,P2);
 
 Vh u,v;
 real u0=2.0;
@@ -39,22 +41,14 @@ Vh Ex, Ey;
 Ex = -dx(u);
 Ey = -dy(u);
 
-//Stores the Mesh
+//Save mesh
 savemesh(Th,"capacitor.msh");
-
-//Stores the potential u
-{
-ofstream file("capacitor_potential.txt");
-for (int j=0; j<u[].n; j++)
-   file << u[][j] << endl;
-}
-
-//Stores the 2D vector field
-{
-ofstream file("capacitor_field.txt");
-for (int j=0; j<Ex[].n; j++)
-   file << Ex[][j] << " " << Ey[][j] << endl;
-}
+//Save finite element space connectivity
+ffSaveVh(Th,Vh,"capacitor_vh.txt");
+//Save some scalar data
+ffSaveData(u,"capacitor_potential.txt");
+//Save a 2D vector field
+ffSaveData2(Ex,Ey,"capacitor_field.txt");
 
 plot(u,[Ex,Ey],wait=true);
 

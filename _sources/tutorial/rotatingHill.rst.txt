@@ -149,19 +149,30 @@ Results of both methods are shown on :numref:`figRotatingCG` nad :numref:`figRot
 Notice also the macro where the parameter :math:`\mathbf{u}` is not used (but the syntax needs one) and which ends with a :freefem:`//`; it simply replaces the name :freefem:`n` by :freefem:`(N.x*v1+N.y*v2)`.
 As easily guessed :freefem:`N.x,N.y` is the normal to the edge.
 
-.. figure:: images/convectCG.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figRotatingCG
+.. subfigstart::
 
-    The rotating hill after one revolution with Characteristics-Galerkin
+.. _figRotatingCG:
+
+.. figure:: images/convectCG.png
+   :alt: convectCG
+   :width: 90%
+
+   The rotating hill after one revolution with Characteristics-Galerkin
+
+.. _figRotatingDG:
 
 .. figure:: images/convectDG.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figRotatingDG
+   :alt: convectDG
+   :width: 90%
 
-    The rotating hill after one revolution with Discontinuous :math:`P_1` Galerkin
+   The rotating hill after one revolution with Discontinuous :math:`P_1` Galerkin
+
+.. subfigend::
+   :width: 0.49
+   :alt: RotatingHill
+   :label: RotatingHill
+
+   Rotating hill
 
 Now if you think that DG is too slow try this:
 
