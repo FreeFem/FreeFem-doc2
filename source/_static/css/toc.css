@@ -33,8 +33,9 @@
 }
 
 #toc li.blur > a {
-	color: blue;
+	color: #00007F;
 }
- /* #toc ul li ul li .blur a {
-	 color:red;
- } */
+
+#toc li.blur > a:hover {
+  color: #0000FF;
+}
