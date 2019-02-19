@@ -61,6 +61,10 @@
 		grid-template-rows: 4rem 3.33rem auto 5.55rem !important;
 	}
 
+	#content {
+		margin-bottom: 10vh !important;
+	}
+
 	.up-button {
 		right: 0 !important;
 	}
