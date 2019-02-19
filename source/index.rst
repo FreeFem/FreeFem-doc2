@@ -23,8 +23,6 @@ Welcome to FreeFem++ documentation
    **FreeFem++** is written in C++ and its language is a C++ idiom.
 
    .. image:: ./_static/img/Logo.png
-      :align: center
-      :width: 50%
       :alt: FreeFem++
 
    .. _FreeFem++: https://freefem.org

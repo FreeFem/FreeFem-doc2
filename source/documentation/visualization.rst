@@ -92,23 +92,38 @@ For example:
    }
    plot([xx, yy], ps="likegnu.eps", wait=true);
 
-.. figure:: images/Visualization_Plot.png
-    :figclass: inline3
-    :name: figVisuMesh
+.. subfigstart::
 
-    Mesh, isovalue and vector
+.. _figVisuMesh:
+
+.. figure:: images/Visualization_Plot.png
+   :alt: Visualization_Plot
+   :width: 90%
+
+   Mesh, isovalue and vector
+
+.. _figVisuGrey:
 
 .. figure:: images/Visualization_Plot_Grey.png
-    :figclass: inline3
-    :name: figVisuGrey
+   :alt: Visualization_Plot_Grey
+   :width: 90%
 
-    Enlargement in grey of isovalue and vector
+   Enlargement in grey of isovalue and vector
+
+.. _figVisuCut:
 
 .. figure:: images/Visualization_Plot_Gnuplot.png
-    :figclass: inline3
-    :name: figVisuCut
+   :alt: Visualization_Plot_Gnuplot
+   :width: 90%
 
-    Plots a cut of :freefem:`uh`. Note that a refinement of the same can be obtained in combination with gnuplot
+   Plots a cut of :freefem:`uh`. Note that a refinement of the same can be obtained in combination with gnuplot
+
+.. subfigend::
+   :width: 0.49
+   :alt: Plot
+   :label: Plot
+
+   Plot
 
 To change the color table and to choose the value of iso line you can do:
 
@@ -145,19 +160,30 @@ To change the color table and to choose the value of iso line you can do:
 
     plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
 
-.. figure:: images/Visualization_HSV_Space.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figVisuHSV
+.. subfigstart::
 
-    HSV color cylinder
+.. _figVisuHSV:
+
+.. figure:: images/Visualization_HSV_Space.png
+   :alt: Visualization_HSV_Space
+   :width: 90%
+
+   HSV color cylinder
+
+.. _figVisuIsoColorTable:
 
 .. figure:: images/Visualization_HSV.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figVisuIsoColorTable
+   :alt: Visualization_HSV
+   :width: 90%
 
-    Isovalue with an other color table
+   Isovalue with an other color table
+
+.. subfigend::
+   :width: 0.49
+   :alt: HSV
+   :label: HSV
+
+   HSV
 
 .. note:: See :ref:`HSV example <exampleHSV>` for the complete script.
 
@@ -188,6 +214,7 @@ Add to the previous example:
 
 .. figure:: images/Visualization_Gnuplot.png
    :name: figVisuGnuplot
+   :width: 50%
 
    Plots a cut of uh with gnuplot
 
@@ -206,6 +233,7 @@ The :freefem:`medit` command parameters are listed in the :ref:`Reference part <
 
 .. figure:: images/Visualization_Medit.png
    :name: figVisuMedit
+   :width: 50%
 
    :freefem:medit` plot
 
@@ -271,6 +299,7 @@ One can also export mesh or results in the ``.vtk`` format in order to post-proc
 
 .. figure:: images/Visualization_Paraview.png
    :name: figVisuParaview
+   :width: 50%
 
    Paraview plot
 
@@ -312,6 +341,7 @@ Within Matlab or Octave the files can be plot with the `ffmatlib library <https:
 
 .. figure:: images/Visualization_Matlab_Octave.png
    :name: figVisuMatlab
+   :width: 50%
 
    Matlab / Octave plot
 

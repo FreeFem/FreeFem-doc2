@@ -100,7 +100,6 @@ latex_elements = {
     'preamble': """
 \\usepackage[margin=8pt]{subcaption}
 \\captionsetup{labelfont=bf}
-\\setcounter{tocdepth}{2}
 \\def\\R{{\\mathbb{R}}}
 \\def\\C{{\\mathbb{C}}}
 \\def\\P{{\\mathbb{P}}}
