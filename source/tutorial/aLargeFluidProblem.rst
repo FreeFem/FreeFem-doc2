@@ -39,7 +39,7 @@ In variational form and with appropriated boundary conditions the problem is :
 
 .. code-block:: freefem
    :linenos:
-   
+
    load "iovtk"
 
    verbosity=0;
@@ -252,62 +252,71 @@ In variational form and with appropriated boundary conditions the problem is :
    }
    cout << "Total Time = " << clock()-T0 << endl;
 
+.. subfigstart::
+
 .. figure:: images/ALargeFluidProblem_T_100.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_T_100
+   :width: 90%
 
    Temperature at time step 100
 
 .. figure:: images/ALargeFluidProblem_U_100.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_U_100
+   :width: 90%
 
    Velocity at time step 100
 
 .. figure:: images/ALargeFluidProblem_T_200.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_T_200
+   :width: 90%
 
    Temperature at time step 200
 
 .. figure:: images/ALargeFluidProblem_U_200.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_U_200
+   :width: 90%
 
    Velocity at time step 200
 
 .. figure:: images/ALargeFluidProblem_T_300.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_T_300
+   :width: 90%
 
    Temperature at time step 300
 
 .. figure:: images/ALargeFluidProblem_U_300.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_U_300
+   :width: 90%
 
    Velocity at time step 300
 
 .. figure:: images/ALargeFluidProblem_T_400.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_T_400
+   :width: 90%
 
    Temperature at time step 400
 
 .. figure:: images/ALargeFluidProblem_U_400.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_U_400
+   :width: 90%
 
    Velocity at time step 400
 
 .. figure:: images/ALargeFluidProblem_T_500.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_T_500
+   :width: 90%
 
    Temperature at time step 500
 
 .. figure:: images/ALargeFluidProblem_U_500.png
-   :figclass: inline
-   :figwidth: 49%
+   :alt: ALargeFluidProblem_U_500
+   :width: 90%
 
    Velocity at time step 500
+
+.. subfigend::
+   :width: 0.49
+   :alt: ALargeFluidProblem
+   :label: ALargeFluidProblem
+
+   A large fluid problem

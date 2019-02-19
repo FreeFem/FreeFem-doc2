@@ -157,32 +157,47 @@ Finally, I plotted the :math:`\log` of the module of the solution ``v`` to see t
 Beautiful isn’t it ? This is the first position for the hotspot, but there are 6 others, and the electrical field is evolving depending on the position.
 You can see the other positions here :
 
+.. subfigstart::
+
 .. figure:: images/wifi-propagation/point2.png
-   :figclass: inline3
+   :alt: Point2
+   :width: 90%
 
    Point 2
 
 .. figure:: images/wifi-propagation/point3.png
-   :figclass: inline3
+   :alt: Point3
+   :width: 90%
 
    Point 3
 
 .. figure:: images/wifi-propagation/point4.png
-   :figclass: inline3
+   :alt: Point4
+   :width: 90%
 
    Point 4
 
 .. figure:: images/wifi-propagation/point5.png
-   :figclass: inline3
+   :alt: Point5
+   :width: 90%
 
    Point 5
 
 .. figure:: images/wifi-propagation/point6.png
-   :figclass: inline3
+   :alt: Point6
+   :width: 90%
 
    Point 6
 
 .. figure:: images/wifi-propagation/point7.png
-   :figclass: inline3
+   :alt: Point7
+   :width: 90%
 
    Point 7
+
+.. subfigend::
+   :width: 0.32
+   :alt: WifiPropagation
+   :label: WifiPropagation
+
+   Wifi propagation

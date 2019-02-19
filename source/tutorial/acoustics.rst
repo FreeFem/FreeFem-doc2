@@ -131,3 +131,5 @@ To find all the :math:`u_e` one can do the following :
    :width: 0.49
    :alt: Acoustics
    :label: figAcoustics0
+
+   Acoustics
