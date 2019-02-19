@@ -125,6 +125,15 @@
 		padding-left: 0;
 	}
 
+	.figure.compound {
+		flex-direction: column !important;
+		align-content: space-evenly !important;
+	}
+
+	.subfigure {
+		min-width: 100% !important;
+	}
+
 	#toc {
 		display: none;
 	}

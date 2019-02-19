@@ -127,3 +127,19 @@ body {
 	transition: all .2s ease-in;
 	visibility: hidden;
 }
+
+.figure.compound {
+	display: flex !important;
+	flex-direction: row;
+	justify-content: space-between !important;
+}
+
+.subfigure {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+}
+
+.subfigure .caption {
+	flex: 1;
+}
