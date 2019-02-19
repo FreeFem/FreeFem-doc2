@@ -59,17 +59,24 @@ Mesh adaptation
       plot(Th, fh, wait=true);
    }
 
+.. subfigstart::
+
 .. figure:: images/MeshAdaptation1.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: MeshAdaptation1
+   :width: 90%
 
    Initial mesh
 
 .. figure:: images/MeshAdaptation2.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: MeshAdaptation2
+   :width: 90%
 
    Adapted mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: MeshAdaptation
+   :label: MeshAdaptation
 
 .. _exampleMeshAdaptationForThePoissonProblem:
 
@@ -119,20 +126,30 @@ Mesh adaptation for the Poisson's problem
    // Plot
    plot(u);
 
+.. subfigstart::
+
 .. figure:: images/MeshAdaptationPoisson1.jpg
-   :figclass: inline3
+   :alt: MeshAdaptationPoisson1
+   :width: 90%
 
    Initial mesh
 
 .. figure:: images/MeshAdaptationPoisson2.jpg
-   :figclass: inline3
+   :alt: MeshAdaptationPoisson2
+   :width: 90%
 
    Adapted mesh
 
 .. figure:: images/MeshAdaptationPoissonU.jpg
-   :figclass: inline3
+   :alt: MeshAdaptationPoissonU
+   :width: 90%
 
    Solution on adapted mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: MeshAdaptationPoisson
+   :label: MeshAdaptationPoisson
 
 .. _exampleUniformMeshAdaptation:
 
