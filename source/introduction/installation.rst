@@ -1,5 +1,11 @@
 .. role:: freefem(code)
-  :language: freefem
+   :language: freefem
+
+.. role:: text(code)
+   :language: text
+
+.. role:: bash(code)
+   :language: bash
 
 Installation guide
 ==================
@@ -29,14 +35,14 @@ By now you should have two new icons on your desktop:
 
 where ``(VERSION)`` is the version of the files (for example 3.59).
 
-By default, the installed files are in ``C:\Programs Files\FreeFem++``. In this directory, you have all the ``.dll`` files and other applications: ``FreeFem++-nw.exe``, ``ffglut.exe``, … The syntax for the command-line tools are the same as those of ``FreeFem.exe``.
+By default, the installed files are in :text:`C:\\Programs Files\\FreeFem++`. In this directory, you have all the ``.dll`` files and other applications: ``FreeFem++-nw.exe``, ``ffglut.exe``, … The syntax for the command-line tools are the same as those of ``FreeFem.exe``.
 
 MacOS X binary installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the ``FreeFem+.app`` application in the ``/Applications`` directory.
 
-If you want terminal access to **FreeFem++** just copy the file ``FreeFem++`` in a directory of your ``$PATH`` shell environment variable.
+If you want terminal access to **FreeFem++** just copy the file ``FreeFem++`` in a directory of your :bash:`$PATH` shell environment variable.
 
 Arch AUR package
 ~~~~~~~~~~~~~~~~
@@ -405,7 +411,7 @@ Compilation on Windows
       make install
 
    The **FreeFem++** executable (and some other like ``ffmedit``, …)
-   are in ``C:\msys64\mingw64\bin`` (or ``C:\msys32\mingw32\bin``).
+   are in :text:`C:\\msys64\\mingw64\\bin` (or :text:`C:\\msys32\\mingw32\\bin`).
 
 Environment variables and init file
 -----------------------------------

@@ -28,7 +28,7 @@ Global parameters
 
 -  ``ffddmverbosity`` initialized by command-line argument **-ffddm_verbosity N**, specifies the level of verbosity of **ffddm** (default 3).
 -  ``ffddmpartitioner`` initialized by command-line argument **-ffddm_partitioner N**, specifies how to partition the initial domain:
-   
+
    -  N=0: user-defined partition through the definition of a macro, see :ref:`ffddmbuildDmesh <ffddmDocumentationOverlappingMeshDecomposition>`
    -  N=1: use the automatic graph partitioner *metis* (default)
    -  N=2: use the automatic graph partitioner *scotch*

@@ -95,19 +95,30 @@ The variational formulation is in :math:`L^2(0,T;H^1(\Omega))`; in loose terms a
 
 Results are shown on :numref:`figThermalT` and :numref:`figThermalCurve`.
 
-.. figure:: images/thermic.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figThermalT
+.. subfigstart::
 
-    Temperature at :math:`t=4.9`.
+.. _figThermalT:
+
+.. figure:: images/thermic.png
+   :alt: Thermic
+   :width: 90%
+
+   Temperature at :math:`t=4.9`.
+
+.. _figThermalCurve:
 
 .. figure:: images/thermicvst.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figThermalCurve
+   :alt: ThermicVST
+   :width: 90%
 
-    Decay of temperature versus time at :math:`x=3, y=0.5`
+   Decay of temperature versus time at :math:`x=3, y=0.5`
+
+.. subfigend::
+   :width: 0.49
+   :alt: ThermalConduction
+   :label: ThermalConduction
+
+   Thermal conduction
 
 Axisymmetry: 3D Rod with circular section
 -----------------------------------------

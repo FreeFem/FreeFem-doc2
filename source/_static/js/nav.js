@@ -75,7 +75,7 @@ nav.removeChild(nav.children[0])
 // Append level0 to staticNav
 const staticNav = document.getElementById('staticNav')
 tree.forEach(function(item) {
-   if (item.level === 0) {
+   if (item.level === 0 && item.innerHTML !== 'References') {
       const div = document.createElement('div')
       div.className = item.className
       div.onclick = function() { window.location.href=item.href }

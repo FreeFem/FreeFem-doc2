@@ -1,3 +1,8 @@
+.. only:: html
+
+   References
+   ==========
+
 .. [PIRONNEAU1998] PIRONNEAU, Olivier and LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.
 
 .. [WÄCHTER2006] WÄCHTER, Andreas and BIEGLER, Lorenz T. On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 2006, vol. 106, no 1, p. 25-57.

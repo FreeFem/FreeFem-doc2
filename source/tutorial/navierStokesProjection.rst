@@ -190,17 +190,35 @@ This can only be done if the triangulation is sufficiently fine, or well adapted
 
 Rannacher’s projection algorithm: result on an adapted mesh, :numref:`figNavierProjectionMesh`, showing the pressure, :numref:`figNavierProjectionP`, and the horizontal velocity :numref:`figNavierProjectionU` for a Reynolds number of 400 where mesh adaptation is done after 50 iterations on the first mesh.
 
+.. subfigstart::
+
+.. _figNavierProjectionMesh:
+
 .. figure:: images/navier_stokes_projection_Th.png
-   :name: figNavierProjectionMesh
+   :alt: NavierStokesProjectionTh
+   :width: 90%
 
    Adapted mesh
 
+.. _figNavierProjectionP:
+
 .. figure:: images/navier_stokes_projection_P.png
-   :name: figNavierProjectionP
+   :alt: NavierStokesProjectionP
+   :width: 90%
 
    Pressure
 
+.. _figNavierProjectionU:
+
 .. figure:: images/navier_stokes_projection_U.png
-   :name: figNavierProjectionU
+   :alt: NavierStokesProjectionU
+   :width: 90%
 
    Velocity
+
+.. subfigend::
+   :width: 0.9
+   :alt: NavierStokesProjection
+   :label: NavierStokesProjection
+
+   Navier-Stokes projection
