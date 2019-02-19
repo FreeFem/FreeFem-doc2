@@ -42,20 +42,32 @@ Plot
    // Calls the gnuplot command, waits 5 seconds and generates a postscript plot (UNIX ONLY)
    exec("echo 'plot \"plot.gp\" w l \n pause 5 \n set term postscript \n set output \"gnuplot.eps\" \n replot \n quit' | gnuplot");
 
-.. figure:: images/Plot1.jpg
-    :figclass: inline3
+.. subfigstart::
 
-    First plot
+.. figure:: images/Plot1.jpg
+   :alt: Plot1
+   :width: 90%
+
+   First plot
 
 .. figure:: images/Plot2.jpg
-    :figclass: inline3
+   :alt: Plot2
+   :width: 90%
 
-    Second plot
+   Second plot
 
 .. figure:: images/Plot3.png
-    :figclass: inline3
+   :alt: Plot3
+   :width: 90%
 
-    Gnuplot
+   Gnuplot
+
+.. subfigend::
+   :width: 0.49
+   :alt: Plot
+   :label: Plot
+
+   Plot
 
 .. _exampleHSV:
 
@@ -130,17 +142,26 @@ Medit
    // Cleans files on unix-like OS
    exec("rm u.bb u.faces u.points");
 
-.. figure:: images/Medit1.jpg
-    :figclass: inline
-    :figwidth: 49%
+.. subfigstart::
 
-    2D plot
+.. figure:: images/Medit1.jpg
+   :alt: Medit1
+   :width: 90%
+
+   2D plot
 
 .. figure:: images/Medit2.jpg
-    :figclass: inline
-    :figwidth: 49%
+   :alt: Medit2
+   :width: 90%
 
-    Plot with elevation
+   Plot with elevation
+
+.. subfigend::
+   :width: 0.49
+   :alt: Medit
+   :label: Medit
+
+   Medit
 
 .. _exampleParaview:
 

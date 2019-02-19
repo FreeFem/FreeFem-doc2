@@ -241,6 +241,8 @@ Algorithms
    :alt: Algorithms
    :label: Algorithms
 
+   Algorithms
+
 .. _exampleCMAESVariationalInequality:
 
 CMAES variational inequality

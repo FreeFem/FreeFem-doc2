@@ -64,19 +64,30 @@ Poisson's Equation
       error = error * coef;
    }
 
-.. figure:: images/poisson_associated_mesh.jpg
-    :figclass: inline
-    :figwidth: 49%
-    :name: figExamplePoisson
+.. subfigstart::
 
-    Adapted mesh
+.. _figExamplePoisson:
+
+.. figure:: images/poisson_associated_mesh.jpg
+   :alt: PoissonAssociatedMesh
+   :width: 90%
+
+   Adapted mesh
+
+.. _figExamplePoissonAdapt:
 
 .. figure:: images/poisson_adapted_mesh.jpg
-    :figclass: inline
-    :figwidth: 49%
-    :name: figExamplePoissonAdapt
+   :alt: PoissonAdaptedMesh
+   :width: 90%
 
-    Solution on adapted mesh
+   Solution on adapted mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: Poisson
+   :label: Poisson
+
+   Poisson
 
 .. _examplePoissonEquation3D:
 
@@ -230,18 +241,26 @@ Stokes Equation on a cube
        plot([ux, uz], p2, cmm="cut y = "+yy, wait= 1);
    }
 
+.. subfigstart::
 
 .. figure:: images/Stokes3d.jpg
-    :figclass: inline
-    :figwidth: 49%
+   :alt: Stokes3d
+   :width: 90%
 
-    Solution
+   Solution
 
 .. figure:: images/Stokes3d-Th.jpg
-    :figclass: inline
-    :figwidth: 49%
+   :alt: Stokes3d-Th
+   :width: 90%
 
-    Associated mesh
+   Associated mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: Stokes3d
+   :label: Stokes3d
+
+   Stokes
 
 .. _exampleCavity:
 

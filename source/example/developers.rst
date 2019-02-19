@@ -978,20 +978,32 @@ FE array
    for (int i = 0; i < 3; i++)
        plot(uu[i], wait=true);
 
-.. figure:: images/FEArray1.png
-    :figclass: inline3
+.. subfigstart::
 
-    First result
+.. figure:: images/FEArray1.png
+   :alt: FEArray1
+   :width: 95%
+
+   First result
 
 .. figure:: images/FEArray2.png
-    :figclass: inline3
+   :alt: FEArray2
+   :width: 95%
 
-    Second result
+   Second result
 
 .. figure:: images/FEArray3.png
-    :figclass: inline3
+   :alt: FEArray3
+   :width: 95%
 
-    Third result
+   Third result
+
+.. subfigend::
+   :width: 0.49
+   :alt: FEArray
+   :label: FEArray
+
+   Finite element array
 
 .. _exampleLoop:
 

@@ -78,6 +78,8 @@ Mesh adaptation
    :alt: MeshAdaptation
    :label: MeshAdaptation
 
+   Mesh adaptation
+
 .. _exampleMeshAdaptationForThePoissonProblem:
 
 Mesh adaptation for the Poisson's problem
@@ -151,6 +153,8 @@ Mesh adaptation for the Poisson's problem
    :alt: MeshAdaptationPoisson
    :label: MeshAdaptationPoisson
 
+   Mesh adaptation (Poisson)
+
 .. _exampleUniformMeshAdaptation:
 
 Uniform mesh adaptation
@@ -169,17 +173,26 @@ Uniform mesh adaptation
    Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); // adaptation bound `maxsubdiv=`
    plot(Th, wait=true);
 
+.. subfigstart::
+
 .. figure:: images/UniformMeshAdaptation1.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: UniformMeshAdaptation1
+   :width: 90%
 
    Initial mesh
 
 .. figure:: images/UniformMeshAdaptation2.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: UniformMeshAdaptation2
+   :width: 90%
 
    Adapted mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: UniformMeshAdaptation
+   :label: UniformMeshAdaptation
+
+   Uniform mesh adaptation
 
 .. _exampleBorders:
 
@@ -236,20 +249,32 @@ Borders
       // circles have the same radius = $0.3$
    }
 
+.. subfigstart::
+
 .. figure:: images/Borders1.jpg
-   :figclass: inline3
+   :alt: Borders1
+   :width: 90%
 
    Mesh with two regions
 
 .. figure:: images/Borders2.jpg
-   :figclass: inline3
+   :alt: Borders2
+   :width: 90%
 
    Mesh without a hole
 
 .. figure:: images/Borders3.jpg
-   :figclass: inline3
+   :alt: Borders3
+   :width: 90%
 
    Mesh with a hole
+
+.. subfigend::
+   :width: 0.49
+   :alt: Borders
+   :label: Borders
+
+   Borders
 
 .. _exampleChange:
 
@@ -375,17 +400,26 @@ Empty mesh
       plot(Th);
    }
 
+.. subfigstart::
+
 .. figure:: images/EmptyMesh1.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: EmptyMesh1
+   :width: 90%
 
    Empty square
 
 .. figure:: images/EmptyMesh2.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: EmptyMesh2
+   :width: 90%
 
    Empty diamond
+
+.. subfigend::
+   :width: 0.49
+   :alt: EmptyMesh
+   :label: EmptyMesh
+
+   Empty mesh
 
 .. _example3Points:
 
@@ -531,17 +565,26 @@ Build layer mesh
       switch=test, nbofregions=1, regionlist=domain);
    medit("sphere 2 regions", Th3sph);
 
+.. subfigstart::
+
 .. figure:: images/BuildLayerMesh1.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: BuildLayerMesh1
+   :width: 90%
 
    Box with a hole
 
 .. figure:: images/BuildLayerMesh2.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: BuildLayerMesh2
+   :width: 90%
 
    Sphere
+
+.. subfigend::
+   :width: 0.49
+   :alt: BuildLayerMesh
+   :label: BuildLayerMesh
+
+   Build layer mesh
 
 .. _exampleSphere:
 
@@ -586,14 +629,23 @@ Sphere
    mesh3 Th3 = movemesh23(Th, transfo=[f1, f2, f3]);
    plot(Th3);
 
+.. subfigstart::
+
 .. figure:: images/Sphere1.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: Sphere1
+   :width: 90%
 
    Initial mesh
 
 .. figure:: images/Sphere2.jpg
-   :figclass: inline
-   :figwidth: 49%
+   :alt: Sphere2
+   :width: 90%
+
+   Sphere
+
+.. subfigend::
+   :width: 0.49
+   :alt: Sphere
+   :label: Sphere
 
    Sphere
