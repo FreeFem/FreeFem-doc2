@@ -58,7 +58,7 @@
 @media screen and (max-width: 600px) {
 	body {
 		grid-template-columns: 0 100% 0 !important;
-		grid-template-rows: 3.33rem 3.33rem auto 5.55rem !important;
+		grid-template-rows: 4rem 3.33rem auto 5.55rem !important;
 	}
 
 	.up-button {
@@ -119,6 +119,10 @@
 
 	blockquote {
 		margin: 0;
+	}
+
+	.content ol {
+		padding-left: 0;
 	}
 
 	#toc {
