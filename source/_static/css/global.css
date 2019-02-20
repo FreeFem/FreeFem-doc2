@@ -212,7 +212,10 @@ div.inline {
 }
 
 .figure img {
-	width: unset !important;
+		order: 2;
+		align-self: center;
+		max-width: 90%;
+		margin: .75rem 1rem;
 }
 
 .figure .caption {
