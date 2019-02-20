@@ -1318,7 +1318,7 @@ The following table sums up the main characteristics of each algorithm, providin
 More details can be found in `NLopt documentation <https://nlopt.readthedocs.io/en/latest/>`__.
 
 .. figure:: images/nlopttab.png
-   :height: 25cm
+   :height: 22cm
 
 .. tip:: Variational inequality
 

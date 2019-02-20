@@ -845,7 +845,7 @@ It is also possible to build an empty mesh of a pseudo subregion with :freefem:`
 
 .. figure:: images/MeshGeneration_EmptyMesh1.png
    :alt: MeshGeneration_EmptyMesh1
-   :width: 49%
+   :width: 90%
 
    The empty mesh with boundary
 
@@ -1484,6 +1484,7 @@ Meshing Examples
 
     .. figure:: images/MeshGeneration_Example_Cardioid1.png
         :name: cardioid1
+        :width: 50%
 
         Domain with Cardioid curve boundary
 
@@ -1669,7 +1670,7 @@ Meshing Examples
         plot(Th, ps="ThreePoint.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_ThreePoints.png
-        :width: 50%
+        :width: 75%
         :name: threePoints
 
         Domain for three-point bending test
