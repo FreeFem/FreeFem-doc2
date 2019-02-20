@@ -155,3 +155,9 @@ body {
 .subfigure a {
 	order: 2;
 }
+
+#welcome-to-freefem-documentation img {
+	  display: block;
+    margin: 1rem auto;
+    width: 40%;
+}

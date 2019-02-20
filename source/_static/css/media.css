@@ -138,6 +138,10 @@
 		min-width: 100% !important;
 	}
 
+	#welcome-to-freefem-documentation img {
+	    width: 60% !important;
+	}
+
 	#toc {
 		display: none;
 	}
