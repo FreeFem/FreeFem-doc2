@@ -208,6 +208,7 @@ Elementary function
    plot(Th);
 
 .. figure:: images/ElementaryFunction.png
+   :width: 50%
 
    Mesh
 
@@ -654,6 +655,7 @@ Block matrix
    plot(u1, u2);
 
 .. figure:: images/BlockMatrix.png
+   :width: 70%
 
    Result
 

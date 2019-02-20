@@ -372,6 +372,7 @@ CMAES variational inequality
    }
 
 .. figure:: images/CMAESVariationalInequality.png
+   :width: 70%
 
    Results
 
@@ -621,6 +622,7 @@ IPOPT minimal surface & volume
    }
 
 .. figure:: images/IPOPTMinimalSurfaceVolume.png
+   :width: 50%
 
    Mesh
 
@@ -757,5 +759,6 @@ Command:
    }
 
 .. figure:: images/CMAESMPIVariationalInequality.png
+   :width: 70%
 
    Result

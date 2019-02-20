@@ -476,6 +476,7 @@ To launch this script, use for example:
    }
 
 .. figure:: images/MPIGMRES2D.png
+   :width: 50%
 
    Results
 

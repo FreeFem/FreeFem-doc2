@@ -108,6 +108,7 @@ HSV
     plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
 
 .. figure:: images/HSV.jpg
+   :width: 50%
 
    Result
 
@@ -183,5 +184,6 @@ Paraview
    savevtk("u.vtu", Th, u, dataname=DataName, order=Order);
 
 .. figure:: images/Paraview.jpg
+   :width: 50%
 
    Result
