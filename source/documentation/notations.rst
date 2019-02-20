@@ -68,7 +68,7 @@ Meshes
 
 -  [:math:`\Omega`] usually denotes a domain on which PDE is defined
 -  [:math:`\Gamma`] denotes the boundary of :math:`\Omega`,i.e., :math:`\Gamma=\partial\Omega` (keyword :freefem:`border`, see :ref:`Border <meshBorder>`)
--  [:math:`\mathcal{T}_h`] the triangulation of :math:`\Omega`, i.e., the set of triangles :math:`T_k`, where :math:`h` stands for mesh size (keyword :freefem:`mesh`, :freefem:`buildmesh`, see :ref:`Mesh Generation <meshGeneration>`
+-  [:math:`\mathcal{T}_h`] the triangulation of :math:`\Omega`, i.e., the set of triangles :math:`T_k`, where :math:`h` stands for mesh size (keyword :freefem:`mesh`, :freefem:`buildmesh`, see :ref:`Mesh Generation <meshGeneration>`)
 -  [:math:`n_t`] the number of triangles in :math:`\mathcal{T}_h` (get by :freefem:`Th.nt`)
 -  [:math:`\Omega_h`] denotes the approximated domain :math:`\Omega_h=\cup_{k=1}^{n_t}T_k` of :math:`\Omega`.
    If :math:`\Omega` is polygonal domain, then it will be :math:`\Omega=\Omega_h`
@@ -80,7 +80,7 @@ Meshes
 -  [:math:`h_{min}`] the minimum edge size of :math:`\mathcal{T}_h` (get by :freefem:`Th.hmin`)
 -  [:math:`h_{max}`] the maximum edge size of :math:`\mathcal{T}_h` (get by :freefem:`Th.hmax`)
 -  [[:math:`q^iq^j`]] the segment connecting :math:`q^i` and :math:`q^j`
--  [:math:`q^{k_1},q^{k_2},q^{k_3}`] the vertices of a triangle :math:`T_k` with anti-clock direction (get the coordinate of :math:`q^{k_j}` by (:freefem:`Th[k-1][j-1].x, Th[k-1][j-1].y)`
+-  [:math:`q^{k_1},q^{k_2},q^{k_3}`] the vertices of a triangle :math:`T_k` with anti-clock direction (get the coordinate of :math:`q^{k_j}` by :freefem:`(Th[k-1][j-1].x, Th[k-1][j-1].y)`)
 -  [:math:`I_{\Omega}`] the set :math:`\{i\in \mathbb{N}|\; q^i\not\in \Gamma_h\}`
 
 Finite Element Spaces
@@ -110,4 +110,4 @@ Finite Element Spaces
 
    [:math:`L^2(\Omega)^2`] denotes :math:`L^2(\Omega)\times L^2(\Omega)`, and also :math:`H^1(\Omega)^2=H^1(\Omega)\times H^1(\Omega)`
 -  [:math:`V_h`] denotes the finite element space created by :freefem:`fespace Vh(Th, *)` in **FreeFem++** (see :ref:`Finite Elements <finiteElement>` for ``*``)
--  [:math:`\Pi_h f`] the projection of the function :math:`f` into :math:`V_h` (:freefem:`func f=x^2*y^3; Vh v = f;}` means :math:`v = Pi_h (f) * [\{v\}]` for FE-function :math:`v` in :math:`V_h` means the column vector :math:`(v_1,\cdots,v_M)^T` if :math:`v=v_1\phi_1+\cdots+v_M\phi_M`, which is shown by :freefem:`fespace Vh(Th, P2); Vh v; cout << v[] << endl;`
+-  [:math:`\Pi_h f`] the projection of the function :math:`f` into :math:`V_h` (:freefem:`func f=x^2*y^3; Vh v = f;`) means :math:`v = Pi_h (f) * [\{v\}]` for FE-function :math:`v` in :math:`V_h` means the column vector :math:`(v_1,\cdots,v_M)^T` if :math:`v=v_1\phi_1+\cdots+v_M\phi_M`, which is shown by :freefem:`fespace Vh(Th, P2); Vh v; cout << v[] << endl;`
