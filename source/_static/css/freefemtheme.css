@@ -133,7 +133,7 @@ body {
 	flex-direction: row;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	align-items: flex-end;
+	align-items: stretch;
 }
 
 .figure.compound > .caption {
@@ -147,10 +147,10 @@ body {
 	justify-content: stretch;
 }
 
-.subfigure .caption {
+/* .subfigure .caption {
 	flex: 1;
 	order: 1;
-}
+} */
 
 .subfigure a {
 	order: 2;

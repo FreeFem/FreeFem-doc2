@@ -185,7 +185,7 @@ Finally the new domain :math:`\Omega^{n+1} = \mathcal{F}(\Omega^n)`
 
    .. figure:: images/FreeBoundary_Sol.png
       :width: 90%
-      :name: FreeBoundary_Sol
+      :alt: FreeBoundary_Sol
 
       The final solution on the new domain :math:`\Omega^{72}`
 
@@ -193,7 +193,7 @@ Finally the new domain :math:`\Omega^{n+1} = \mathcal{F}(\Omega^n)`
 
    .. figure:: images/FreeBoundary_Mesh2.png
       :width: 90%
-      :name: FreeBoundary_Mesh2
+      :alt: FreeBoundary_Mesh2
 
       The adapted mesh of the domain :math:`\Omega^{72}`
 

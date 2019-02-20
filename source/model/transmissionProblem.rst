@@ -74,7 +74,7 @@ Consider this L-shaped domain with 3 diagonals as internal boundaries, defining 
 
 .. figure:: images/TransmissionProblem_Region.png
     :width: 50%
-    :name: TransmissionProblem_Region
+    :alt: TransmissionProblem_Region
 
     The function :freefem:`reg`
 
@@ -98,7 +98,7 @@ So to get the number of a region containing a particular point one does:
 
 .. figure:: images/TransmissionProblem_Nu.png
     :width: 50%
-    :name: TransmissionProblem_Nu
+    :alt: TransmissionProblem_Nu
 
     The function :freefem:`nu`
 
@@ -125,6 +125,6 @@ We this in mind we proceed to solve a Laplace equation with discontinuous coeffi
 
 .. figure:: images/TransmissionProblem_U.png
     :width: 50%
-    :name: TransmissionProblem_U
+    :alt: TransmissionProblem_U
 
     The isovalue of the solution :math:`u`

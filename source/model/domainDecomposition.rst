@@ -31,7 +31,7 @@ where :math:`\Gamma_i` is the boundary of :math:`\Omega_i` and on the condition 
 Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we apply the algorithm starting from zero.
 
 .. figure:: images/DomainDecomposition_Schwarz1.png
-   :name: figDomain1
+   :alt: figDomain1
    :width: 50%
 
    The 2 overlapping mesh :freefem:`TH` and :freefem:`th`
@@ -105,7 +105,7 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
    .. _figDomainDecomposition_Schwarz2:
 
    .. figure:: images/DomainDecomposition_Schwarz2.png
-      :name: DomainDecomposition_Schwarz2
+      :alt: DomainDecomposition_Schwarz2
       :width: 90%
 
       Isovalues of the solution at iteration 0
@@ -113,7 +113,7 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
    .. _figDomainDecomposition_Schwarz3:
 
    .. figure:: images/DomainDecomposition_Schwarz3.png
-      :name: DomainDecomposition_Schwarz3
+      :alt: DomainDecomposition_Schwarz3
       :width: 90%
 
       Isovalues of the solution at iteration 0
@@ -136,7 +136,7 @@ To solve:
 the Schwarz algorithm for domain decomposition without overlapping runs like this
 
 .. figure:: images/DomainDecomposition_Schwarz4.png
-   :name: figDomain4
+   :alt: figDomain4
    :width: 50%
 
    The two none overlapping mesh :freefem:`TH` and :freefem:`th`
@@ -233,7 +233,7 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
 
     .. figure:: images/DomainDecomposition_Schwarz5.png
         :width: 90%
-        :name: DomainDecomposition_Schwarz5
+        :alt: DomainDecomposition_Schwarz5
 
         Isovalues of the solution at iteration 0 without overlapping
 
@@ -241,7 +241,7 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
 
     .. figure:: images/DomainDecomposition_Schwarz6.png
         :width: 90%
-        :name: DomainDecomposition_Schwarz6
+        :alt: DomainDecomposition_Schwarz6
 
         Isovalues of the solution at iteration 9 without overlapping
 

@@ -199,7 +199,7 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
 
     .. figure:: images/EigenValueProblems1.png
         :width: 90%
-        :name: EigenValueProblems1
+        :alt: EigenValueProblems1
 
         Isovalue of 11th eigenvector :math:`u_{4,3}-u_{3,4}`
 
@@ -207,7 +207,7 @@ Remark: For complex problems, you need to use the keyword :freefem:`complexEigen
 
     .. figure:: images/EigenValueProblems2.png
         :width: 90%
-        :name: EigenValueProblems2
+        :alt: EigenValueProblems2
 
         Isovalue of 12th eigenvector :math:`u_{4,3}+u_{3,4}`
 

@@ -649,6 +649,6 @@ To implement this, we do:
         Because we start from the previous solution and the end the previous solution is close to the final solution, don't take a relative stop test to the first residual, take an absolute stop test (negative here).
 
     .. figure:: images/NavierStokesEquations.png
-        :name: navierStokesEquations
+        :alt: navierStokesEquations
 
         The vorticity at Reynolds number 100 a time 2s with the Cahouet-Chabart method.

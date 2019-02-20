@@ -437,7 +437,7 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 
     .. figure:: images/EvolutionProblem_Convect.png
         :width: 90%
-        :name: EvolutionProblem_Convect1
+        :alt: EvolutionProblem_Convect
 
         :math:`u^0=e^{-10((x-0.3)^2 +(y-0.3)^2)}`
 
@@ -445,7 +445,7 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 
     .. figure:: images/EvolutionProblem_Convect2.png
         :width: 90%
-        :name: EvolutionProblem_Convect2
+        :alt: EvolutionProblem_Convect2
 
         The bell at :math:`t=6.29`
 
@@ -547,7 +547,7 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 
     .. figure:: images/EvolutionProblems_BlackSholes.png
         :width: 90%
-        :name: EvolutionProblems_BlackSholes1
+        :alt: EvolutionProblems_BlackSholes
 
         The adapted triangulation
 
@@ -555,7 +555,7 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 
     .. figure:: images/EvolutionProblems_BlackSholes2.png
         :width: 90%
-        :name: EvolutionProblems_BlackSholes2
+        :alt: EvolutionProblems_BlackSholes2
 
         The level line of the European basquet put option
 

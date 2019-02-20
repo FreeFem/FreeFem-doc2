@@ -232,7 +232,7 @@ where :math:`V` is the linear closed subspace of :math:`H^1(\Omega)^2`.
 
    .. figure:: images/Elasticity_Beam3D.jpg
       :width: 50%
-      :name: Elasticity_Beam3D
+      :alt: Elasticity_Beam3D
 
       3d Beam deformed and undeformed box
 
@@ -421,7 +421,7 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 
     .. figure:: images/Elasticity_Fracture1.png
         :width: 90%
-        :name: Elasticity_Fracture1
+        :alt: Elasticity_Fracture1
 
         Crack open displacement (COD) on the first mesh
 
@@ -429,7 +429,7 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 
     .. figure:: images/Elasticity_Fracture2.png
         :width: 90%
-        :name: Elasticity_Fracture2
+        :alt: Elasticity_Fracture2
 
         Principal stress difference on the first mesh
 
@@ -437,7 +437,7 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 
     .. figure:: images/Elasticity_Fracture3.png
         :width: 90%
-        :name: Elasticity_Fracture3
+        :alt: Elasticity_Fracture3
 
         COD on the last adaptive mesh
 
@@ -445,7 +445,7 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
 
     .. figure:: images/Elasticity_Fracture4.png
         :width: 90%
-        :name: Elasticity_Fracture4
+        :alt: Elasticity_Fracture4
 
         Principal stress difference on the last adaptive mesh
 
@@ -548,7 +548,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
     .. figure:: images/Elasticity_FractureSliding1.png
         :width: 90%
-        :name: Elasticity_FractureSliding1
+        :alt: Elasticity_FractureSliding1
 
         COD on the first mesh
 
@@ -556,7 +556,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
     .. figure:: images/Elasticity_FractureSliding2.png
         :width: 90%
-        :name: Elasticity_FractureSliding2
+        :alt: Elasticity_FractureSliding2
 
         Principal stress difference in the first mesh
 
@@ -564,7 +564,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
     .. figure:: images/Elasticity_FractureSliding3.png
         :width: 90%
-        :name: Elasticity_FractureSliding3
+        :alt: Elasticity_FractureSliding3
 
         COD on the last adaptive mesh
 
@@ -572,7 +572,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
     .. figure:: images/Elasticity_FractureSliding4.png
         :width: 90%
-        :name: Elasticity_FractureSliding4
+        :alt: Elasticity_FractureSliding4
 
         Principal stress difference on the last adaptive mesh
 
