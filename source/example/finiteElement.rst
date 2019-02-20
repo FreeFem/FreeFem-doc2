@@ -59,6 +59,7 @@ Periodic 3D
    fespace Vh(Th3, P2, periodic=[[1, x, z], [3, x, z], [2, y, z], [4, y, z], [5, x, y], [6, x, y]]);
 
 .. figure:: images/Periodic.jpg
+   :width: 50%
 
    Periodic mesh
 
@@ -119,5 +120,6 @@ Lagrange multipliers
    plot(uh);
 
 .. figure:: images/LagrangeMultipliers.jpg
+   :width: 50%
 
    Result

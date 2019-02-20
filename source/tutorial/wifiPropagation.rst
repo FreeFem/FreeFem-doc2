@@ -153,6 +153,8 @@ A bit of understanding here :
 Finally, I plotted the :math:`\log` of the module of the solution ``v`` to see the signal’s power, and here we are :
 
 .. figure:: images/wifi-propagation/point1.png
+   :alt: Point1
+   :width: 50%
 
    Solution
 

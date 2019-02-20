@@ -323,6 +323,7 @@ Change
    plot(u, wait=1);
 
 .. figure:: images/Change.jpg
+   :width: 50%
 
    Result
 
@@ -367,6 +368,7 @@ Cube
    assert(err==0);
 
 .. figure:: images/Cube.jpg
+   :width: 50%
 
    Cube
 
@@ -449,6 +451,7 @@ Empty mesh
    plot(Th, bw=true);
 
 .. figure:: images/3Points.jpg
+   :width: 50%
 
    3 Points
 
@@ -490,6 +493,7 @@ Bezier
    plot(Th, bw=true);
 
 .. figure:: images/Bezier.jpg
+   :width: 50%
 
    Bezier
 
