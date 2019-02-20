@@ -431,18 +431,28 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 
     .. note:: The scheme :freefem:`convect` is unconditionally stable, then the bell become lower and lower (the maximum of :math:`u^{37}` is :math:`0.406` as shown in :numref:`figEvolutionConvect`.
 
+    .. subfigstart::
+
+    .. _figEvolutionProblem_Convect:
+
     .. figure:: images/EvolutionProblem_Convect.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :name: EvolutionProblem_Convect1
 
         :math:`u^0=e^{-10((x-0.3)^2 +(y-0.3)^2)}`
 
+    .. _figEvolutionProblem_Convect2
+
     .. figure:: images/EvolutionProblem_Convect2.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: figEvolutionConvect
+        :width: 90%
+        :name: EvolutionProblem_Convect2
 
         The bell at :math:`t=6.29`
+
+    .. subfigend::
+       :width: 0.49
+       :alt: EvolutionProblem_Convect
+       :label: EvolutionProblem_Convect
 
 2D Black-Scholes equation for an European Put option
 ----------------------------------------------------
@@ -531,16 +541,25 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 
     Results are shown on :numref:`figEvolutionBlackSholes1` and :numref:`figEvolutionBlackSholes2`.
 
+    .. subfigstart::
+
+    .. _figEvolutionProblems_BlackSholes1:
+
     .. figure:: images/EvolutionProblems_BlackSholes.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: figEvolutionBlackSholes1
+        :width: 90%
+        :name: EvolutionProblems_BlackSholes1
 
         The adapted triangulation
 
+    .. _figEvolutionProblems_BlackSholes2:
+
     .. figure:: images/EvolutionProblems_BlackSholes2.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: figEvolutionBlackSholes2
+        :width: 90%
+        :name: EvolutionProblems_BlackSholes2
 
         The level line of the European basquet put option
+
+    .. subfigend::
+        :width: 0.49
+        :alt: EvolutionProblems_BlackSholes
+        :label: EvolutionProblems_BlackSholes

@@ -809,8 +809,7 @@ Some short examples using IPOPT
    .. _figAlgoVarineqIso:
 
    .. figure:: images/VarIneqIso.jpg
-      :figclass: VarIneqIso
-      :figwidth: 90%
+      :width: 90%
 
       Numerical Approximation of the Variational Inequality
 

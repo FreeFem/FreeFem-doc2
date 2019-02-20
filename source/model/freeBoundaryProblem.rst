@@ -179,10 +179,25 @@ Finally the new domain :math:`\Omega^{n+1} = \mathcal{F}(\Omega^n)`
       plot(Th);
       plot(u, wait=true);
 
+   .. subfigstart::
+
+   .. _figFreeBoundary_Sol:
+
    .. figure:: images/FreeBoundary_Sol.png
+      :width: 90%
+      :name: FreeBoundary_Sol
 
       The final solution on the new domain :math:`\Omega^{72}`
 
+   .. _figFreeBoundary_Mesh2:
+
    .. figure:: images/FreeBoundary_Mesh2.png
+      :width: 90%
+      :name: FreeBoundary_Mesh2
 
       The adapted mesh of the domain :math:`\Omega^{72}`
+
+   .. subfigend::
+      :width: 0.49
+      :alt: FreeBoundary
+      :label: FreeBoundary
