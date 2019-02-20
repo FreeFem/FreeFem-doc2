@@ -73,6 +73,8 @@ Consider this L-shaped domain with 3 diagonals as internal boundaries, defining 
    plot(reg, fill=true, wait=true, value=true);
 
 .. figure:: images/TransmissionProblem_Region.png
+    :width: 50%
+    :name: TransmissionProblem_Region
 
     The function :freefem:`reg`
 
@@ -95,6 +97,8 @@ So to get the number of a region containing a particular point one does:
    plot(nu, fill=true,wait=true);
 
 .. figure:: images/TransmissionProblem_Nu.png
+    :width: 50%
+    :name: TransmissionProblem_Nu
 
     The function :freefem:`nu`
 
@@ -120,5 +124,7 @@ We this in mind we proceed to solve a Laplace equation with discontinuous coeffi
    plot(u);
 
 .. figure:: images/TransmissionProblem_U.png
+    :width: 50%
+    :name: TransmissionProblem_U
 
     The isovalue of the solution :math:`u`
