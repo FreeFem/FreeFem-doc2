@@ -220,16 +220,30 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
    Fluid velocity and pressure, displacement vector of the structure and displaced geometry in the fluid-structure interaction of a soft side and a driven cavity are shown :numref:`figFSI1`, :numref:`figFSI2` and :numref:`figFSI3`
 
    .. figure:: images/FluidStructure1.png
-      :name: figFSI1
+      :name: FluidStructure1
+      :width: 50%
 
       Velocity and pressure
 
+   .. subfigstart::
+
+   .. _figFluidStructure2:
+
    .. figure:: images/FluidStructure2.png
-      :name: figFSI2
+      :name: _figFluidStructure2
+      :width: 90%
 
       Displacement
 
+   .. _figFluidStructure3:
+
    .. figure:: images/FluidStructure3.png
-      :name: figFSI3
+      :name: FluidStructure3
+      :width: 90%
 
       Moved mesh
+
+   .. subfigend::
+      :width: 0.49
+      :alt: FluidStructure
+      :label: FluidStructure

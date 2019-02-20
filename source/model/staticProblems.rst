@@ -30,6 +30,7 @@ We see that the vertical force due to the tension :math:`\mu` acting along the e
 
 .. figure:: images/StaticProblems_SoapFilm.png
     :name: exampleStaticProblemsSoapFilm
+    :width: 75%
 
 Similarly, for the edges AB and DC we have:
 
@@ -130,15 +131,13 @@ If the force is gravity, for simplify, we assume that :math:`f=-1`.
     cout << "error H10 = " << sqrt( int2d(disk)((dx(u)-x/2)^2) + int2d(disk)((dy(u)-y/2)^2) )<< endl;
 
 .. figure:: images/StaticProblems_SoapFilmSol.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 50%
     :name: exampleStaticProblemsSoapFilmSol
 
     Isovalue of :math:`u`
 
 .. figure:: images/StaticProblems_SoapFilm3D.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 100%
     :name: exampleStaticProblemsSoapFilm3D
 
     A side view of :math:`u`
@@ -230,19 +229,28 @@ Note that :math:`C_0` is described counterclockwise, whereas the elliptical hole
     Electro;
     plot(uh);
 
+.. subfigstart::
+
+.. _figDiskWithHoles:
+
 .. figure:: images/StaticProblems_ElectrostaticsMesh.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsElectrostaticsMesh
 
     Disk with two elliptical holes
 
+.. _figDiskWithLines:
+
 .. figure:: images/StaticProblems_Electrostatics.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsElectrostatics
 
     Equipotential lines where :math:`C_1` is located in right hand side
+
+.. subfigend::
+    :width: 0.49
+    :alt: DiskWithHoles
+    :label: DiskWithHoles
 
 Aerodynamics
 ------------
@@ -365,19 +373,28 @@ which can be programmed as:
     ZVh Zcp = cp;
     plot(Zcp, nbiso=40);
 
+.. subfigstart::
+
+.. _figIsovalueOfCp:
+
 .. figure:: images/StaticProblems_Aerodynamics1.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsAerodynamics1
 
     Isovalue of :math:`cp = -(\p_x\psi)^2 - (\p_y\psi)^2`
 
+.. _figZoomingOfCp:
+
 .. figure:: images/StaticProblems_Aerodynamics2.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsAerodynamics2
 
     Zooming of :math:`cp`
+
+.. subfigend::
+    :width: 0.49
+    :alt: IsovalueOfCp
+    :label: IsovalueOfCp
 
 Error estimation
 ----------------
@@ -519,6 +536,7 @@ These boundary conditions are achieved from the definition of the periodic finit
 
 .. figure:: images/StaticProblems_PeriodicBoundaryConditions.png
     :name: exampleStaticProblemsPeriodicBoundaryConditions
+    :width: 50%
 
     The isovalue of solution :math:`u` with periodic boundary condition
 
@@ -580,6 +598,7 @@ The following example give such example.
 
     .. figure:: images/StaticProblems_PeriodicBoundaryConditions2.png
         :name: exampleStaticProblemsPeriodicBoundaryConditions2
+        :width: 50%
 
         The isovalue of solution :math:`u` for :math:`\Delta u = ((y+x)^{2}+1)((y-x)^{2}+1) - k`, in :math:`\Omega` and :math:`\p_{n} u =0` on hole, and with two periodic boundary condition on external border
 
@@ -726,19 +745,29 @@ An other example with no equal border, just to see if the code works.
         plot(uh, wait=true, nbiso=6);
         medit("uh", Th, uh);
 
+    .. subfigstart::
+
+    .. _figCubeBalloon:
+
     .. figure:: images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
         :name: exampleStaticProblemsPeriodicBoundaryConditionsPoisson1
 
         View of the surface isovalue of periodic solution :math:`uh`
 
+    .. figCutSolution:
+
     .. figure:: images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
         :name: exampleStaticProblemsPeriodicBoundaryConditionsPoisson2
 
         View a the cut of the solution :math:`uh` with ffmedit
+
+    .. subfigend::
+        :width: 0.49
+        :alt: CubeBalloon
+        :label: CubeBalloon
+
 
 .. _modelStaticPoissonWithMixedBoundaryCondition:
 
@@ -1048,19 +1077,29 @@ Of course, we can use a variational form to compute :math:`\eta_{T}^{2}`, with t
 
 If the method is correct, we expect to look the graphics by an almost constant function :math:`\eta` on your computer as in :numref:`exampleStaticProblemsMetricAdaptation` and :numref:`exampleStaticProblemsMetricAdaptation2`.
 
+
+.. subfigstart::
+
+.. figDensityError:
+
 .. figure:: images/StaticProblems_MetricAdaptation.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 50%
     :name: exampleStaticProblemsMetricAdaptation
 
     Density of the error indicator with isotropic :math:`P_{2}` metric
 
+.. figDensityError2:
+
 .. figure:: images/StaticProblems_MetricAdaptation2.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 50%
     :name: exampleStaticProblemsMetricAdaptation2
 
     Density of the error indicator with isotropic :math:`P_{2}` metric
+
+.. subfigend::
+   :width: 0.49
+   :alt: DensityError
+   :label: DensityError
 
 .. _modelStaticProblemAdaptationUsingResidualErrorIndicator:
 
@@ -1203,16 +1242,25 @@ A second macro to re-mesh according to the new mesh size.
         plot(Th, wait=true);
     }
 
+.. subfigstart::
+
+.. figErrorIndicator:
+
 .. figure:: images/StaticProblems_AdaptationResidualError.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsAdaptationResidualError
 
     The error indicator with isotropic :math:`P_{1}`
 
+.. figSolutionMeshAndIsovalue:
+
 .. figure:: images/StaticProblems_AdaptationResidualError2.png
-    :figclass: inline
-    :figwidth: 49%
+    :width: 90%
     :name: exampleStaticProblemsAdaptationResidualError2
 
     The mesh and isovalue of the solution
+
+.. subfigend::
+   :width: 0.49
+   :alt: ErrorIndicator
+   :label: ErrorIndicator

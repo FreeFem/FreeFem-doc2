@@ -32,6 +32,7 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
 
 .. figure:: images/DomainDecomposition_Schwarz1.png
    :name: figDomain1
+   :width: 50%
 
    The 2 overlapping mesh :freefem:`TH` and :freefem:`th`
 
@@ -101,18 +102,18 @@ Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we
 
    .. subfigstart::
 
-   .. _figDomainIter0:
+   .. _figDomainDecomposition_Schwarz2:
 
    .. figure:: images/DomainDecomposition_Schwarz2.png
-      :alt: DomainDecomposition_Schwarz2
+      :name: DomainDecomposition_Schwarz2
       :width: 90%
 
       Isovalues of the solution at iteration 0
 
-   .. _figDomainIter9:
+   .. _figDomainDecomposition_Schwarz3:
 
    .. figure:: images/DomainDecomposition_Schwarz3.png
-      :alt: DomainDecomposition_Schwarz3
+      :name: DomainDecomposition_Schwarz3
       :width: 90%
 
       Isovalues of the solution at iteration 0
@@ -136,6 +137,7 @@ the Schwarz algorithm for domain decomposition without overlapping runs like thi
 
 .. figure:: images/DomainDecomposition_Schwarz4.png
    :name: figDomain4
+   :width: 50%
 
    The two none overlapping mesh :freefem:`TH` and :freefem:`th`
 
@@ -225,17 +227,28 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
         // Plot
         plot(U, u);
 
+    .. subfigstart::
+
+    .. _figDomainDecomposition_Schwarz5:
+
     .. figure:: images/DomainDecomposition_Schwarz5.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :name: DomainDecomposition_Schwarz5
 
         Isovalues of the solution at iteration 0 without overlapping
 
+    .. _figDomainDecomposition_Schwarz6:
+
     .. figure:: images/DomainDecomposition_Schwarz6.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :name: DomainDecomposition_Schwarz6
 
         Isovalues of the solution at iteration 9 without overlapping
+
+    .. subfigend::
+        :width: 0.49
+        :alt: DomainDecomposition_Schwarz
+        :label: DomainDecomposition_Schwarz
 
 Schwarz conjuguate gradient
 ---------------------------
