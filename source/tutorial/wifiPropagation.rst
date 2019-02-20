@@ -88,6 +88,8 @@ Let’s create a mesh
 So we are creating a :freefem:`mesh`, and plotting it :
 
 .. figure:: images/wifi-propagation/mesh.png
+   :alt: WifiPropagationMesh
+   :width: 50%
 
    Mesh
 

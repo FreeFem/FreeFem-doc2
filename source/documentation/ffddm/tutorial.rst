@@ -31,7 +31,8 @@ Why Domain Decomposition Methods ?
 
 How can we solve a large sparse linear system :math:`A u = b \in \mathbb{R}^n` ?
 
-.. figure:: figures/Methods_Solves_1.png
+.. image:: figures/Methods_Solves_1.png
+  :width: 100%
 
 Step 1: Decompose the mesh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

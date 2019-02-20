@@ -139,5 +139,6 @@ A numerical result is given on :numref:`figFlowMach` and the **FreeFem++** scrip
 
 .. figure:: images/mach_2r.png
    :name: figFlowMach
+   :width: 75%
 
    Pressure for a Euler flow around a disk at Mach 2 computed by :eq:`eulalgo`
