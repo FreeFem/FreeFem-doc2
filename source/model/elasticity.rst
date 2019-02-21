@@ -232,7 +232,7 @@ where :math:`V` is the linear closed subspace of :math:`H^1(\Omega)^2`.
 
    .. figure:: images/Elasticity_Beam3D.jpg
       :width: 50%
-      :alt: Elasticity_Beam3D
+      :name: Elasticity_Beam3D
 
       3d Beam deformed and undeformed box
 
@@ -544,7 +544,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
     .. subfigstart::
 
-    .. _figCODfirstMesh:
+    .. _figFractureSliding1:
 
     .. figure:: images/Elasticity_FractureSliding1.png
         :width: 90%
@@ -552,7 +552,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
         COD on the first mesh
 
-    .. _figStressFirstMesh
+    .. _figFractureSliding2:
 
     .. figure:: images/Elasticity_FractureSliding2.png
         :width: 90%
@@ -560,7 +560,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
         Principal stress difference in the first mesh
 
-    .. _figCODlastMesh
+    .. _figFractureSliding3:
 
     .. figure:: images/Elasticity_FractureSliding3.png
         :width: 90%
@@ -568,7 +568,7 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
 
         COD on the last adaptive mesh
 
-    .. _figStressLastMesh
+    .. _figFractureSliding4:
 
     .. figure:: images/Elasticity_FractureSliding4.png
         :width: 90%

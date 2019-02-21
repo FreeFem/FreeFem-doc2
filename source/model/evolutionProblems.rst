@@ -433,7 +433,7 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 
     .. subfigstart::
 
-    .. _figEvolutionProblem_Convect:
+    .. _figEvolutionConvect:
 
     .. figure:: images/EvolutionProblem_Convect.png
         :width: 90%
@@ -441,7 +441,7 @@ The program consists in solving the equation until :math:`T = 2\pi`, that is for
 
         :math:`u^0=e^{-10((x-0.3)^2 +(y-0.3)^2)}`
 
-    .. _figEvolutionProblem_Convect2
+    .. _figEvolutionConvect2:
 
     .. figure:: images/EvolutionProblem_Convect2.png
         :width: 90%
@@ -543,7 +543,7 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 
     .. subfigstart::
 
-    .. _figEvolutionProblems_BlackSholes1:
+    .. _figEvolutionBlackSholes1:
 
     .. figure:: images/EvolutionProblems_BlackSholes.png
         :width: 90%
@@ -551,7 +551,7 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 
         The adapted triangulation
 
-    .. _figEvolutionProblems_BlackSholes2:
+    .. _figEvolutionBlackSholes2:
 
     .. figure:: images/EvolutionProblems_BlackSholes2.png
         :width: 90%
