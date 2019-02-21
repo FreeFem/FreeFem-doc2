@@ -26,21 +26,24 @@ nav #staticNav {
 }
 
 nav #staticNav .nav-item {
-	padding: .55rem;
-	margin: 0 .27rem;
+	padding: .2rem;
+	margin: auto;
 	cursor: pointer;
 	white-space: nowrap;
 	cursor: pointer;
-	-webkit-transition: all .2s ease-in;
-	-moz-transition: all .2s ease-in;
-	-o-transition: all .2s ease-in;
-	transition: all .2s ease-in;
+	height: 18px;
+	color: #00007F;
+	font-family: Roboto;
+	font-size: 15px;
+	line-height: 18px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 nav #staticNav .nav-item:hover {
-	background-color: #0000FF;
-	border-radius: .27rem;
+	background-color: #00007F;
 	color: #EDEDF2;
+	font-weight: bold;
 }
 
 /** SEARCH BAR **/

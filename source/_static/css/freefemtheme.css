@@ -85,6 +85,13 @@ body {
 
 #content h1 {
 	justify-content: center;
+	font-family: 'Roboto-black', sans-serif;
+	font-size: 1.875rem;
+}
+
+#content h2 {
+    font-family: 'Roboto-black', sans-serif;
+		font-size: 1.25rem;
 }
 
 #content a {
