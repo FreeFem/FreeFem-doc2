@@ -126,6 +126,7 @@ Distributed vectors and restriction operators
 '''''''''''''''''''''''''''''''''''''''''''''
 
 .. image:: figures/domain2.png
+   :align: center
    :width: 50%
 
 Natural decomposition of the set of d.o.f.'s :math:`{\mathcal N}` of :math:`Vh` into the :math:`N` subsets of d.o.f.'s :math:`({\mathcal N}_i)_{i=1}^N` each associated with the local FE space :math:`Vh_i`
@@ -143,14 +144,15 @@ but with duplications of the d.o.f.'s in the overlap
 where :math:`{\mathbf V}` is the corresponding global vector
 and :math:`R_i` is the *restriction operator* from :math:`{\mathcal N}` into :math:`{\mathcal N}_i`
 
-**_Remark_** :math:`R_i^T` is the *extension operator*: extension by :math:`0` from :math:`{\mathcal N}_i` into :math:`{\mathcal N}`
+**Remark** :math:`R_i^T` is the *extension operator*: extension by :math:`0` from :math:`{\mathcal N}_i` into :math:`{\mathcal N}`
 
 
 Partition of unity
 ''''''''''''''''''
 
 .. image:: figures/domain3.png
-   :width: 50%
+   :align: center
+   :width: 75%
 
 Duplicated unknowns coupled via a *partition of unity*:
 
@@ -631,7 +633,7 @@ Some results: Heterogeneous 3D elasticity with GenEO
 Heterogeneous 3D linear elasticity equation discretized with P2 FE solved on 4096 MPI processes :math:`n\approx` 262 million
 
 .. image:: figures/comparisonAMG.png
-   :width: 100%
+   :width: 75%
 
 Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 --------------------------------------------------------------------------------
@@ -643,7 +645,7 @@ f = 10 GHz
 +----------------+------------+
 
 .. |10GhzBorders| image:: figures/10GHz_borders_new_v2.png
-   :width: 100%
+   :width: 75%
 
 .. |10GhzNew| image:: figures/10GHz_new.png
    :width: 100%
@@ -651,6 +653,7 @@ f = 10 GHz
 f = 16 GHz
 
 .. image:: figures/16GHz_new.png
+   :align: center
    :width: 50%
 
 Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
@@ -668,7 +671,8 @@ Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 :math:`\Rightarrow` inexact coarse solve: GMRES + one level ORAS preconditioner
 
 .. image:: figures/table.png
-   :width: 100%
+   :align: center
+   :width: 75%
 
 speedup of 1.81 from 1536 to 3072 cores at 10GHz
 
