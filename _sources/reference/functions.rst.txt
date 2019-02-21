@@ -50,6 +50,7 @@ Output:
 
 .. figure:: images/arccos.png
    :alt: arccos function
+   :width: 50%
 
    arccos function
 
@@ -78,6 +79,7 @@ Output:
 
 .. figure:: images/arccosh.png
    :alt: arccosh function
+   :width: 50%
 
    arccosh function
 
@@ -228,6 +230,7 @@ Output:
 
 .. figure:: images/arcsin.png
    :alt: arcsin function
+   :width: 50%
 
    arcsin function
 
@@ -256,6 +259,7 @@ Output:
 
 .. figure:: images/arcsinh.png
    :alt: arcsinh function
+   :width: 50%
 
    arcsinh function
 
@@ -297,6 +301,7 @@ Output:
 
 .. figure:: images/arctan.png
    :alt: arctan function
+   :width: 50%
 
    arctan function
 
@@ -338,6 +343,7 @@ Output:
 
 .. figure:: images/arctanh.png
    :alt: arctanh function
+   :width: 50%
 
    arctanh function
 
@@ -599,6 +605,7 @@ Output:
 
 .. figure:: images/cos.png
    :alt: cos function
+   :width: 50%
 
    cos function
 
@@ -2180,6 +2187,7 @@ Output:
 
 .. figure:: images/sin.png
    :alt: sin function
+   :width: 50%
 
    sin function
 
@@ -2208,6 +2216,7 @@ Output:
 
 .. figure:: images/sinh.png
    :alt: sinh function
+   :width: 50%
 
    sinh function
 
@@ -2374,6 +2383,7 @@ Output:
 
 .. figure:: images/tan.png
    :alt: tan function
+   :width: 50%
 
    tan function
 
@@ -2397,6 +2407,7 @@ Output:
 
 .. figure:: images/tanh.png
    :alt: tanh function
+   :width: 50%
 
    tanh function
 

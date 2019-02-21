@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1746,6 +1747,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -2267,7 +2269,7 @@ There are 9 degrees of freedom:</p>
 <div class="section" id="p1-element">
 <h3>P1-element<a class="headerlink" href="#p1-element" title="Permalink to this headline"> </a></h3>
 <div class="figure" id="finiteelementp1p2">
-<img alt="../_images/FiniteElement_P1P2.png" src="../_images/FiniteElement_P1P2.png" />
+<a class="reference internal image-reference" href="../_images/FiniteElement_P1P2.png"><img alt="../_images/FiniteElement_P1P2.png" src="../_images/FiniteElement_P1P2.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text"><span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> degrees of freedom on triangle <span class="math notranslate nohighlight">\(T_k\)</span></span></p>
 </div>
 <p>For each vertex <span class="math notranslate nohighlight">\(q^i\)</span>, the basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code> is given by:</p>
@@ -2288,17 +2290,19 @@ There are 9 degrees of freedom:</p>
 <p>then:</p>
 <p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">fh</span> <span class="o">=</span></code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{n_v}f(q^i)\phi_i(x,y)\)</span></p>
 <p>See <a class="reference internal" href="#finiteelementprojp1"><span class="std std-numref">Fig. 45</span></a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code>.</p>
-<div class="inline figure" id="finiteelementp0p1p2p1nc" style="width: 49%">
-<img alt="../_images/FiniteElement_P0P1P2P1nc.png" src="../_images/FiniteElement_P0P1P2P1nc.png" />
+<div class="figure compound align-center" id="FiniteElement">
+<div style="width: 49%" class="subfigure" id="id8">
+<span id="finiteelementp0p1p2p1nc"></span><a class="reference internal image-reference" href="../_images/FiniteElement_P0P1P2P1nc.png"><img alt="FiniteElement_P0P1P2P1nc" src="../_images/FiniteElement_P0P1P2P1nc.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Test mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> for projection</span></p>
 </div>
-<div class="inline figure" id="finiteelementprojp0" style="width: 49%">
-<img alt="../_images/FiniteElement_projP0.png" src="../_images/FiniteElement_projP0.png" />
+<div style="width: 49%" class="subfigure" id="id9">
+<span id="finiteelementprojp0"></span><a class="reference internal image-reference" href="../_images/FiniteElement_projP0.png"><img alt="FiniteElement_projP0" src="../_images/FiniteElement_projP0.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Projection to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">)</span></code></span></p>
 </div>
-</div>
+<p class="caption"><span class="caption-text">Finite element <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code></span></p>
+</div></div>
 <div class="section" id="p2-element">
-<h3>P2-element<a class="headerlink" href="#p2-element" title="Permalink to this headline"> </a></h3>
+<span id="FiniteElement"></span><h3>P2-element<a class="headerlink" href="#p2-element" title="Permalink to this headline"> </a></h3>
 <p>For each vertex or mid-point <span class="math notranslate nohighlight">\(q^i\)</span>.
 The basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">)</span></code> is given by:</p>
 <div class="math notranslate nohighlight">
@@ -2321,18 +2325,20 @@ The basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> 
 <p>then:</p>
 <p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">fh</span> <span class="o">=</span></code> <span class="math notranslate nohighlight">\(\displaystyle f_h(x,y)=\sum_{i=1}^{M}f(q^i)\phi_i(x,y)\quad (\textrm{summation over all vertex or mid-point})\)</span></p>
 <p>See <a class="reference internal" href="#finiteelementprojp2"><span class="std std-ref">Projection to Vh(Th, P2)</span></a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">)</span></code>.</p>
-<div class="inline figure" id="finiteelementprojp1" style="width: 49%">
-<img alt="../_images/FiniteElement_projP1.png" src="../_images/FiniteElement_projP1.png" />
+<div class="figure compound align-center" id="FiniteElement">
+<div style="width: 49%" class="subfigure" id="id10">
+<span id="finiteelementprojp1"></span><a class="reference internal image-reference" href="../_images/FiniteElement_projP1.png"><img alt="FiniteElement_projP1" src="../_images/FiniteElement_projP1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Projection to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code></span></p>
 </div>
-<div class="inline figure" id="finiteelementprojp2" style="width: 49%">
-<img alt="../_images/FiniteElement_projP2.png" src="../_images/FiniteElement_projP2.png" />
+<div style="width: 49%" class="subfigure" id="id11">
+<span id="finiteelementprojp2"></span><a class="reference internal image-reference" href="../_images/FiniteElement_projP2.png"><img alt="FiniteElement_projP2" src="../_images/FiniteElement_projP2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Projection to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">)</span></code></span></p>
 </div>
-</div>
+<p class="caption"><span class="caption-text">Finite elements <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span><span class="p">,</span> <span class="nc">P2</span></code></span></p>
+</div></div>
 </div>
 <div class="section" id="p1-nonconforming-element">
-<h2>P1 Nonconforming Element<a class="headerlink" href="#p1-nonconforming-element" title="Permalink to this headline"> </a></h2>
+<span id="FiniteElement"></span><h2>P1 Nonconforming Element<a class="headerlink" href="#p1-nonconforming-element" title="Permalink to this headline"> </a></h2>
 <p>Refer to <a class="reference internal" href="../reference.html#thomasset2012" id="id3">[THOMASSET2012]</a> for details; briefly, we now consider non-continuous approximations so we will lose the property:</p>
 <div class="math notranslate nohighlight">
 \[w_h\in V_h\subset H^1(\Omega)\]</div>
@@ -2375,17 +2381,19 @@ In <a class="reference internal" href="../reference.html#thomasset2012" id="id4"
 </li>
 </ol>
 <p>See <a class="reference internal" href="#finiteelementprojp1nc"><span class="std std-numref">Fig. 47</span></a> for the projection of <span class="math notranslate nohighlight">\(f(x,y)=\sin(\pi x)\cos(\pi y)\)</span> into <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1nc</span><span class="p">)</span></code>.</p>
-<div class="inline figure" id="finiteelementprojp1nc" style="width: 49%">
-<img alt="../_images/FiniteElement_projP1nc.png" src="../_images/FiniteElement_projP1nc.png" />
+<div class="figure compound align-center" id="FiniteElement">
+<div style="width: 49%" class="subfigure" id="id12">
+<span id="finiteelementprojp1nc"></span><a class="reference internal image-reference" href="../_images/FiniteElement_projP1nc.png"><img alt="FiniteElement_projP1nc" src="../_images/FiniteElement_projP1nc.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Projection to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1nc</span><span class="p">)</span></code></span></p>
 </div>
-<div class="inline figure" id="finiteelementprojp1b" style="width: 49%">
-<img alt="../_images/FiniteElement_projP1b.png" src="../_images/FiniteElement_projP1b.png" />
+<div style="width: 49%" class="subfigure" id="id13">
+<span id="finiteelementprojp1b"></span><a class="reference internal image-reference" href="../_images/FiniteElement_projP1b.png"><img alt="FiniteElement_projP1b" src="../_images/FiniteElement_projP1b.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Projection to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1b</span><span class="p">)</span></code></span></p>
 </div>
-</div>
+<p class="caption"><span class="caption-text">Finite elements <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1nc</span><span class="p">,</span> <span class="nc">P1b</span></code></span></p>
+</div></div>
 <div class="section" id="other-fe-space">
-<h2>Other FE-space<a class="headerlink" href="#other-fe-space" title="Permalink to this headline"> </a></h2>
+<span id="FiniteElement"></span><h2>Other FE-space<a class="headerlink" href="#other-fe-space" title="Permalink to this headline"> </a></h2>
 <p>For each triangle <span class="math notranslate nohighlight">\(T_k\in \mathcal{T}_h\)</span>, let <span class="math notranslate nohighlight">\(\lambda_{k_1}(x,y),\, \lambda_{k_2}(x,y),\, \lambda_{k_3}(x,y)\)</span> be the area cordinate of the triangle (see <a class="reference internal" href="#finiteelementp1p2"><span class="std std-numref">Fig. 42</span></a>), and put:</p>
 <div class="math notranslate nohighlight">
 \[\beta_k(x,y)=27\lambda_{k_1}(x,y)\lambda_{k_2}(x,y)\lambda_{k_3}(x,y)\]</div>
@@ -2443,7 +2451,7 @@ If we write:</p>
 \frac{\mathbf{b}+\mathbf{a}}{2} \right\}\]</div>
 <p>and <span class="math notranslate nohighlight">\(i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}\)</span> with the order of <span class="math notranslate nohighlight">\(l\)</span>.</p>
 <div class="figure" id="finiteelementrt0">
-<img alt="../_images/FiniteElement_RT0.png" src="../_images/FiniteElement_RT0.png" />
+<a class="reference internal image-reference" href="../_images/FiniteElement_RT0.png"><img alt="../_images/FiniteElement_RT0.png" src="../_images/FiniteElement_RT0.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Normal vectors of each edge</span></p>
 </div>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -2501,15 +2509,16 @@ If we write:</p>
 <span class="n">vh</span><span class="p">([</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="kr">y</span><span class="p">])</span> <span class="o">=</span> <span class="kr">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="c1">//interpolate vh = ((x-1/2)^2 + y^2)</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="finiteelementonoldmesh" style="width: 49%">
-<img alt="../_images/FiniteElement_onoldmesh.png" src="../_images/FiniteElement_onoldmesh.png" />
+<div class="figure compound align-center" id="FiniteElement">
+<div style="width: 49%" class="subfigure" id="id14">
+<span id="finiteelementonoldmesh"></span><a class="reference internal image-reference" href="../_images/FiniteElement_onoldmesh.png"><img alt="FiniteElement_onoldmesh" src="../_images/FiniteElement_onoldmesh.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">vh</span></code> Iso on mesh <span class="math notranslate nohighlight">\(2\times 2\)</span></span></p>
 </div>
-<div class="inline figure" id="finiteelementonnewmesh" style="width: 49%">
-<img alt="../_images/FiniteElement_onnewmesh.png" src="../_images/FiniteElement_onnewmesh.png" />
+<div style="width: 49%" class="subfigure" id="id15">
+<span id="finiteelementonnewmesh"></span><a class="reference internal image-reference" href="../_images/FiniteElement_onnewmesh.png"><img alt="FiniteElement_onnewmesh" src="../_images/FiniteElement_onnewmesh.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">vh</span></code> Iso on  mesh <span class="math notranslate nohighlight">\(5\times 5\)</span></span></p>
 </div>
-<p>To get the value at a point <span class="math notranslate nohighlight">\(x=1,y=2\)</span> of the FE function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">uh</span></code>, or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[</span><span class="n">Uxh</span><span class="p">,</span> <span class="n">Uyh</span><span class="p">]</span></code>, one writes:</p>
+</div><p id="FiniteElement">To get the value at a point <span class="math notranslate nohighlight">\(x=1,y=2\)</span> of the FE function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">uh</span></code>, or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[</span><span class="n">Uxh</span><span class="p">,</span> <span class="n">Uyh</span><span class="p">]</span></code>, one writes:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2589,7 +2598,7 @@ The problem is to find <span class="math notranslate nohighlight">\(g\in V({\cal
 </li>
 </ol>
 <div class="figure" id="finiteelementfastinterpolate">
-<img alt="../_images/FiniteElement_fastInterpolate.png" src="../_images/FiniteElement_fastInterpolate.png" />
+<a class="reference internal image-reference" href="../_images/FiniteElement_fastInterpolate.png"><img alt="../_images/FiniteElement_fastInterpolate.png" src="../_images/FiniteElement_fastInterpolate.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">To interpolate a function at <span class="math notranslate nohighlight">\(q^0\)</span>, the knowledge of the triangle which contains <span class="math notranslate nohighlight">\(q^0\)</span> is needed. The algorithm may start at <span class="math notranslate nohighlight">\(q^1\in T_k^0\)</span> and stall on the boundary (thick line) because the line <span class="math notranslate nohighlight">\(q^0q^1\)</span> is not inside <span class="math notranslate nohighlight">\(\Omega\)</span>.
 But if the holes are triangulated too (doted line) then the problem does not arise.</span></p>
 </div>
@@ -2666,19 +2675,21 @@ But if the holes are triangulated too (doted line) then the problem does not ari
 <span class="nf">plot</span><span class="p">(</span><span class="n">vs</span><span class="p">,</span> <span class="n">vg</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="finiteelementusug" style="width: 49%">
-<img alt="../_images/FiniteElement_UsUg.png" src="../_images/FiniteElement_UsUg.png" />
+<div class="figure compound align-center" id="Extension">
+<div style="width: 49%" class="subfigure" id="id16">
+<span id="finiteelementusug"></span><a class="reference internal image-reference" href="../_images/FiniteElement_UsUg.png"><img alt="FiniteElement_UsUg" src="../_images/FiniteElement_UsUg.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Extension of a continuous FE-function</span></p>
 </div>
-<div class="inline figure" id="finiteelementvsvg" style="width: 49%">
-<img alt="../_images/FiniteElement_VsVg.png" src="../_images/FiniteElement_VsVg.png" />
+<div style="width: 49%" class="subfigure" id="id17">
+<span id="finiteelementvsvg"></span><a class="reference internal image-reference" href="../_images/FiniteElement_VsVg.png"><img alt="FiniteElement_VsVg" src="../_images/FiniteElement_VsVg.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Extension of discontinuous FE-function</span></p>
 </div>
-</div></blockquote>
+<p class="caption"><span class="caption-text">Extension of FE-function</span></p>
+</div></div></blockquote>
 </div>
 </div>
 <div class="section" id="keywords-problem-and-solve">
-<h2>Keywords: Problem and Solve<a class="headerlink" href="#keywords-problem-and-solve" title="Permalink to this headline"> </a></h2>
+<span id="Extension"></span><h2>Keywords: Problem and Solve<a class="headerlink" href="#keywords-problem-and-solve" title="Permalink to this headline"> </a></h2>
 <p>For <strong>FreeFem++</strong>, a problem must be given in variational form, so we need a bilinear form <span class="math notranslate nohighlight">\(a(u,v)\)</span>, a linear form <span class="math notranslate nohighlight">\(\ell(f,v)\)</span>, and possibly a boundary condition form must be added.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

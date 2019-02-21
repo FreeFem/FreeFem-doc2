@@ -127,3 +127,37 @@ body {
 	transition: all .2s ease-in;
 	visibility: hidden;
 }
+
+.figure.compound {
+	display: flex !important;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+.figure.compound > .caption {
+	display: none !important;
+}
+
+.subfigure {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+}
+
+/* .subfigure .caption {
+	flex: 1;
+	order: 1;
+} */
+
+.subfigure a {
+	order: 2;
+}
+
+#welcome-to-freefem-documentation img {
+	  display: block;
+    margin: 1rem auto;
+    width: 40%;
+}

@@ -146,6 +146,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 .. figure:: images/capacitor_boundary_mesh_500x400.png
    :name: figMatlabBoundaryPlot
+   :width: 50%
 
    Boundary and Mesh
 
@@ -159,6 +160,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 .. figure:: images/capacitor_patch_500x400.png
    :name: figMatlabPatchPlot
+   :width: 50%
 
    Patch Plot with Mesh
 
@@ -175,6 +177,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 .. figure:: images/capacitor_surf_500x400.png
    :name: figMatlabSurf
+   :width: 50%
 
    3D Surf Plot
 
@@ -190,6 +193,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 .. figure:: images/capacitor_contour_quiver_500x400.png
    :name: figMatlabContour
+   :width: 50%
 
    Contour and Quiver Plot
 
@@ -206,6 +210,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 .. figure:: images/capacitor3d_slice_500x400.png
    :name: figMatlabSlice
+   :width: 50%
 
    Slice on a 3D Parallel Plate Capacitor
 

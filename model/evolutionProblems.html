@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1740,6 +1741,7 @@
 <li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -2230,20 +2232,21 @@ The program consists in solving the equation until <span class="math notranslate
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The scheme <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">convect</span></code> is unconditionally stable, then the bell become lower and lower (the maximum of <span class="math notranslate nohighlight">\(u^{37}\)</span> is <span class="math notranslate nohighlight">\(0.406\)</span> as shown in <a class="reference internal" href="#figevolutionconvect"><span class="std std-numref">Fig. 205</span></a>.</p>
+<p class="last">The scheme <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">convect</span></code> is unconditionally stable, then the bell become lower and lower (the maximum of <span class="math notranslate nohighlight">\(u^{37}\)</span> is <span class="math notranslate nohighlight">\(0.406\)</span> as shown in <a class="reference internal" href="#figevolutionconvect"><span class="std std-numref">Fig. 204</span></a>.</p>
 </div>
-<div class="inline figure" id="id6" style="width: 49%">
-<img alt="../_images/EvolutionProblem_Convect.png" src="../_images/EvolutionProblem_Convect.png" />
+<div class="last figure compound align-center" id="EvolutionProblem_Convect">
+<div style="width: 49%" class="subfigure" id="id6">
+<span id="figevolutionconvect"></span><a class="reference internal image-reference" href="../_images/EvolutionProblem_Convect.png"><img alt="EvolutionProblem_Convect" src="../_images/EvolutionProblem_Convect.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 204 </span><span class="caption-text"><span class="math notranslate nohighlight">\(u^0=e^{-10((x-0.3)^2 +(y-0.3)^2)}\)</span></span></p>
 </div>
-<div class="inline last figure" id="figevolutionconvect" style="width: 49%">
-<img alt="../_images/EvolutionProblem_Convect2.png" src="../_images/EvolutionProblem_Convect2.png" />
+<div style="width: 49%" class="subfigure" id="id7">
+<span id="figevolutionconvect2"></span><a class="reference internal image-reference" href="../_images/EvolutionProblem_Convect2.png"><img alt="EvolutionProblem_Convect2" src="../_images/EvolutionProblem_Convect2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 205 </span><span class="caption-text">The bell at <span class="math notranslate nohighlight">\(t=6.29\)</span></span></p>
 </div>
-</div>
+</div></div>
 </div>
 <div class="section" id="d-black-scholes-equation-for-an-european-put-option">
-<h2>2D Black-Scholes equation for an European Put option<a class="headerlink" href="#d-black-scholes-equation-for-an-european-put-option" title="Permalink to this headline"> </a></h2>
+<span id="EvolutionProblem_Convect"></span><h2>2D Black-Scholes equation for an European Put option<a class="headerlink" href="#d-black-scholes-equation-for-an-european-put-option" title="Permalink to this headline"> </a></h2>
 <p>In mathematical finance, an option on two assets is modeled by a Black-Scholes equations in two space variables, (see for example <a class="reference internal" href="../reference.html#wilmott1995" id="id4">[WILMOTT1995]</a> or <a class="reference internal" href="../reference.html#achdou2005" id="id5">[ACHDOU2005]</a>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
@@ -2364,15 +2367,16 @@ To have an unconditionally stable scheme, the first order terms are treated by t
 </pre></div>
 </td></tr></table></div>
 <p>Results are shown on <a class="reference internal" href="#figevolutionblacksholes1"><span class="std std-numref">Fig. 206</span></a> and <a class="reference internal" href="#figevolutionblacksholes2"><span class="std std-numref">Fig. 207</span></a>.</p>
-<div class="inline figure" id="figevolutionblacksholes1" style="width: 49%">
-<img alt="../_images/EvolutionProblems_BlackSholes.png" src="../_images/EvolutionProblems_BlackSholes.png" />
+<div class="last figure compound align-center" id="EvolutionProblems_BlackSholes">
+<div style="width: 49%" class="subfigure" id="id8">
+<span id="figevolutionblacksholes1"></span><a class="reference internal image-reference" href="../_images/EvolutionProblems_BlackSholes.png"><img alt="EvolutionProblems_BlackSholes" src="../_images/EvolutionProblems_BlackSholes.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 206 </span><span class="caption-text">The adapted triangulation</span></p>
 </div>
-<div class="inline last figure" id="figevolutionblacksholes2" style="width: 49%">
-<img alt="../_images/EvolutionProblems_BlackSholes2.png" src="../_images/EvolutionProblems_BlackSholes2.png" />
+<div style="width: 49%" class="subfigure" id="id9">
+<span id="figevolutionblacksholes2"></span><a class="reference internal image-reference" href="../_images/EvolutionProblems_BlackSholes2.png"><img alt="EvolutionProblems_BlackSholes2" src="../_images/EvolutionProblems_BlackSholes2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 207 </span><span class="caption-text">The level line of the European basquet put option</span></p>
 </div>
-</div>
+<span class="target" id="EvolutionProblems_BlackSholes"></span></div></div>
 </div>
 </div>
 

@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1737,6 +1738,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -1780,19 +1782,22 @@
 <div class="section" id="why-domain-decomposition-methods">
 <h2>Why Domain Decomposition Methods ?<a class="headerlink" href="#why-domain-decomposition-methods" title="Permalink to this headline"> </a></h2>
 <p>How can we solve a large sparse linear system <span class="math notranslate nohighlight">\(A u = b \in \mathbb{R}^n\)</span> ?</p>
-<div class="figure">
-<img alt="../../_images/Methods_Solves_1.png" src="../../_images/Methods_Solves_1.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/Methods_Solves_1.png"><img alt="../../_images/Methods_Solves_1.png" src="../../_images/Methods_Solves_1.png" style="width: 100%;" /></a>
 <div class="section" id="step-1-decompose-the-mesh">
 <h3>Step 1: Decompose the mesh<a class="headerlink" href="#step-1-decompose-the-mesh" title="Permalink to this headline"> </a></h3>
 <p>See <a class="reference internal" href="documentation.html#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">documentation</span></a></p>
 <p>Build a collection of <span class="math notranslate nohighlight">\(N\)</span> overlapping sub-meshes <span class="math notranslate nohighlight">\((Th_{i})_{i=1}^N\)</span> from the global mesh <span class="math notranslate nohighlight">\(Th\)</span></p>
-<div class="inline figure" style="width: 49%">
-<img alt="../../_images/domain1.png" src="../../_images/domain1.png" />
-</div>
-<div class="inline figure" style="width: 49%">
-<img alt="../../_images/domain2.png" src="../../_images/domain2.png" />
-</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../../_images/domain1.png"><img alt="Domain1" src="../../_images/domain1.png" style="width: 100%;" /></a></td>
+<td><a class="reference internal" href="../../_images/domain2.png"><img alt="Domain2" src="../../_images/domain2.png" style="width: 100%;" /></a></td>
+</tr>
+</tbody>
+</table>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ffddmbuildDmesh</span><span class="p">(</span> <span class="n">prmesh</span> <span class="p">,</span> <span class="n">ThGlobal</span> <span class="p">,</span> <span class="n">comm</span> <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -1863,9 +1868,7 @@
 </td></tr></table></div>
 <div class="section" id="distributed-vectors-and-restriction-operators">
 <h4>Distributed vectors and restriction operators<a class="headerlink" href="#distributed-vectors-and-restriction-operators" title="Permalink to this headline"> </a></h4>
-<div class="figure">
-<img alt="../../_images/domain2.png" src="../../_images/domain2.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/domain2.png"><img alt="../../_images/domain2.png" class="align-center" src="../../_images/domain2.png" style="width: 50%;" /></a>
 <p>Natural decomposition of the set of d.o.f.’s <span class="math notranslate nohighlight">\({\mathcal N}\)</span> of <span class="math notranslate nohighlight">\(Vh\)</span> into the <span class="math notranslate nohighlight">\(N\)</span> subsets of d.o.f.’s <span class="math notranslate nohighlight">\(({\mathcal N}_i)_{i=1}^N\)</span> each associated with the local FE space <span class="math notranslate nohighlight">\(Vh_i\)</span></p>
 <div class="math notranslate nohighlight">
 \[{\mathcal N} = \cup_{i=1}^N {\mathcal N}_i\,,\]</div>
@@ -1875,13 +1878,11 @@
 \[{\mathbf V}_i = R_i\,{\mathbf V}, \quad i = 1, ..., N\]</div>
 <p>where <span class="math notranslate nohighlight">\({\mathbf V}\)</span> is the corresponding global vector
 and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restriction operator</em> from <span class="math notranslate nohighlight">\({\mathcal N}\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span></p>
-<p><strong>_Remark_</strong> <span class="math notranslate nohighlight">\(R_i^T\)</span> is the <em>extension operator</em>: extension by <span class="math notranslate nohighlight">\(0\)</span> from <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}\)</span></p>
+<p><strong>Remark</strong> <span class="math notranslate nohighlight">\(R_i^T\)</span> is the <em>extension operator</em>: extension by <span class="math notranslate nohighlight">\(0\)</span> from <span class="math notranslate nohighlight">\({\mathcal N}_i\)</span> into <span class="math notranslate nohighlight">\({\mathcal N}\)</span></p>
 </div>
 <div class="section" id="partition-of-unity">
 <h4>Partition of unity<a class="headerlink" href="#partition-of-unity" title="Permalink to this headline"> </a></h4>
-<div class="figure">
-<img alt="../../_images/domain3.png" src="../../_images/domain3.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/domain3.png"><img alt="../../_images/domain3.png" class="align-center" src="../../_images/domain3.png" style="width: 75%;" /></a>
 <p>Duplicated unknowns coupled via a <em>partition of unity</em>:</p>
 <div class="math notranslate nohighlight">
 \[I = \sum_{i = 1}^N R_i^T D_i R_i\]</div>
@@ -2392,23 +2393,24 @@ with command-line arguments or directly to the underlying <strong>HPDDM</strong>
 <div class="section" id="some-results-heterogeneous-3d-elasticity-with-geneo">
 <h2>Some results: Heterogeneous 3D elasticity with GenEO<a class="headerlink" href="#some-results-heterogeneous-3d-elasticity-with-geneo" title="Permalink to this headline"> </a></h2>
 <p>Heterogeneous 3D linear elasticity equation discretized with P2 FE solved on 4096 MPI processes <span class="math notranslate nohighlight">\(n\approx\)</span> 262 million</p>
-<div class="figure">
-<img alt="../../_images/comparisonAMG.png" src="../../_images/comparisonAMG.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/comparisonAMG.png"><img alt="../../_images/comparisonAMG.png" src="../../_images/comparisonAMG.png" style="width: 75%;" /></a>
 </div>
 <div class="section" id="some-results-2-level-dd-for-maxwell-equations-scattering-from-the-cobra-cavity">
 <h2>Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity<a class="headerlink" href="#some-results-2-level-dd-for-maxwell-equations-scattering-from-the-cobra-cavity" title="Permalink to this headline"> </a></h2>
 <p>f = 10 GHz</p>
-<div class="inline figure" style="width: 49%">
-<img alt="../../_images/10GHz_borders_new_v2.png" src="../../_images/10GHz_borders_new_v2.png" />
-</div>
-<div class="inline figure" style="width: 49%">
-<img alt="../../_images/10GHz_new.png" src="../../_images/10GHz_new.png" />
-</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="57%" />
+<col width="43%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../../_images/10GHz_borders_new_v2.png"><img alt="10GhzBorders" src="../../_images/10GHz_borders_new_v2.png" style="width: 75%;" /></a></td>
+<td><a class="reference internal" href="../../_images/10GHz_new.png"><img alt="10GhzNew" src="../../_images/10GHz_new.png" style="width: 100%;" /></a></td>
+</tr>
+</tbody>
+</table>
 <p>f = 16 GHz</p>
-<div class="figure">
-<img alt="../../_images/16GHz_new.png" src="../../_images/16GHz_new.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/16GHz_new.png"><img alt="../../_images/16GHz_new.png" class="align-center" src="../../_images/16GHz_new.png" style="width: 50%;" /></a>
 </div>
 <div class="section" id="id2">
 <h2>Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity<a class="headerlink" href="#id2" title="Permalink to this headline"> </a></h2>
@@ -2429,9 +2431,7 @@ with command-line arguments or directly to the underlying <strong>HPDDM</strong>
 </ul>
 <p><span class="math notranslate nohighlight">\(\rightarrow\)</span> coarse problem too large for a direct solver
 <span class="math notranslate nohighlight">\(\Rightarrow\)</span> inexact coarse solve: GMRES + one level ORAS preconditioner</p>
-<div class="figure">
-<img alt="../../_images/table.png" src="../../_images/table.png" />
-</div>
+<a class="reference internal image-reference" href="../../_images/table.png"><img alt="../../_images/table.png" class="align-center" src="../../_images/table.png" style="width: 75%;" /></a>
 <p>speedup of 1.81 from 1536 to 3072 cores at 10GHz</p>
 <p>1.51 from 3072 to 6144 cores at 16GHz</p>
 <p>You can find the script <a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell_Cobracavity.edp">here</a></p>

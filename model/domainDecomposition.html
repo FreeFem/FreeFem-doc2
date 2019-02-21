@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1740,6 +1741,7 @@
 <li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -1766,8 +1768,8 @@
 \end{array}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Gamma_i\)</span> is the boundary of <span class="math notranslate nohighlight">\(\Omega_i\)</span> and on the condition that <span class="math notranslate nohighlight">\(\Omega_1\cap\Omega_2\neq\emptyset\)</span> and that <span class="math notranslate nohighlight">\(u_i\)</span> are zero at iteration 1.</p>
 <p>Here we take <span class="math notranslate nohighlight">\(\Omega_1\)</span> to be a quadrangle, <span class="math notranslate nohighlight">\(\Omega_2\)</span> a disk and we apply the algorithm starting from zero.</p>
-<div class="figure" id="figdomain1">
-<img alt="../_images/DomainDecomposition_Schwarz1.png" src="../_images/DomainDecomposition_Schwarz1.png" />
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz1.png"><img alt="figDomain1" src="../_images/DomainDecomposition_Schwarz1.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 209 </span><span class="caption-text">The 2 overlapping mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">TH</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">th</span></code></span></p>
 </div>
 <div class="admonition tip">
@@ -1856,58 +1858,60 @@
 <span class="c1">// Problem</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">problem</span> <span class="nf">PB</span> <span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
-    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
-          <span class="nf">dx</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
-        <span class="o">-</span> <span class="n">V</span>
-    <span class="p">)</span>
-    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
-    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="p">;</span>
+   <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+         <span class="nf">dx</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+       <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+   <span class="p">)</span>
+   <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+       <span class="o">-</span> <span class="n">V</span>
+   <span class="p">)</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+   <span class="p">;</span>
 
 <span class="kt">problem</span> <span class="nf">pb</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
-    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
-          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
-        <span class="o">-</span> <span class="n">v</span>
-    <span class="p">)</span>
-    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">U</span><span class="p">)</span>
-    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="p">;</span>
+   <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+         <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+       <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+   <span class="p">)</span>
+   <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+       <span class="o">-</span> <span class="n">v</span>
+   <span class="p">)</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">U</span><span class="p">)</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+   <span class="p">;</span>
 
 <span class="c1">// Calculation loop</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="c1">// Solve</span>
-    <span class="n">PB</span><span class="p">;</span>
-    <span class="n">pb</span><span class="p">;</span>
+   <span class="c1">// Solve</span>
+   <span class="n">PB</span><span class="p">;</span>
+   <span class="n">pb</span><span class="p">;</span>
 
-    <span class="c1">// Plot</span>
-    <span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+   <span class="c1">// Plot</span>
+   <span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="figdomainiter0" style="width: 49%">
-<img alt="../_images/DomainDecomposition_Schwarz2.png" src="../_images/DomainDecomposition_Schwarz2.png" />
+<div class="last figure compound align-center" id="DomainDecomposition_Schwarz">
+<div style="width: 49%" class="subfigure" id="id2">
+<span id="figdomaindecomposition-schwarz2"></span><a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz2.png"><img alt="DomainDecomposition_Schwarz2" src="../_images/DomainDecomposition_Schwarz2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 210 </span><span class="caption-text">Isovalues of the solution at iteration 0</span></p>
 </div>
-<div class="inline last figure" id="figdomainiter9" style="width: 49%">
-<img alt="../_images/DomainDecomposition_Schwarz3.png" src="../_images/DomainDecomposition_Schwarz3.png" />
+<div style="width: 49%" class="subfigure" id="id3">
+<span id="figdomaindecomposition-schwarz3"></span><a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz3.png"><img alt="DomainDecomposition_Schwarz3" src="../_images/DomainDecomposition_Schwarz3.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 211 </span><span class="caption-text">Isovalues of the solution at iteration 0</span></p>
 </div>
-</div>
+<p class="caption"><span class="caption-text">Schwarz overlapping</span></p>
+</div></div>
 </div>
 <div class="section" id="schwarz-non-overlapping-scheme">
-<h2>Schwarz non overlapping Scheme<a class="headerlink" href="#schwarz-non-overlapping-scheme" title="Permalink to this headline"> </a></h2>
+<span id="DomainDecomposition_Schwarz"></span><h2>Schwarz non overlapping Scheme<a class="headerlink" href="#schwarz-non-overlapping-scheme" title="Permalink to this headline"> </a></h2>
 <p>To solve:</p>
 <div class="math notranslate nohighlight">
 \[-\Delta u =f\;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0\]</div>
 <p>the Schwarz algorithm for domain decomposition without overlapping runs like this</p>
-<div class="figure" id="figdomain4">
-<img alt="../_images/DomainDecomposition_Schwarz4.png" src="../_images/DomainDecomposition_Schwarz4.png" />
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz4.png"><img alt="figDomain4" src="../_images/DomainDecomposition_Schwarz4.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 212 </span><span class="caption-text">The two none overlapping mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">TH</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">th</span></code></span></p>
 </div>
 <p>Let introduce <span class="math notranslate nohighlight">\(\Gamma_i\)</span> is common the boundary of <span class="math notranslate nohighlight">\(\Omega_1\)</span> and <span class="math notranslate nohighlight">\(\Omega_2\)</span> and <span class="math notranslate nohighlight">\(\Gamma_e^i= \partial \Omega_i \setminus \Gamma_i\)</span>.</p>
@@ -2052,18 +2056,19 @@ u_i|_{\Gamma_e^i} = 0\]</div>
 <span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="id1" style="width: 49%">
-<img alt="../_images/DomainDecomposition_Schwarz5.png" src="../_images/DomainDecomposition_Schwarz5.png" />
+<div class="last figure compound align-center" id="DomainDecomposition_Schwarz">
+<div style="width: 49%" class="subfigure" id="id5">
+<span id="figdomaindecomposition-schwarz5"></span><a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz5.png"><img alt="DomainDecomposition_Schwarz5" src="../_images/DomainDecomposition_Schwarz5.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 213 </span><span class="caption-text">Isovalues of the solution at iteration 0 without overlapping</span></p>
 </div>
-<div class="inline last figure" id="id2" style="width: 49%">
-<img alt="../_images/DomainDecomposition_Schwarz6.png" src="../_images/DomainDecomposition_Schwarz6.png" />
+<div style="width: 49%" class="subfigure" id="id6">
+<span id="figdomaindecomposition-schwarz6"></span><a class="reference internal image-reference" href="../_images/DomainDecomposition_Schwarz6.png"><img alt="DomainDecomposition_Schwarz6" src="../_images/DomainDecomposition_Schwarz6.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 214 </span><span class="caption-text">Isovalues of the solution at iteration 9 without overlapping</span></p>
 </div>
-</div>
+</div></div>
 </div>
 <div class="section" id="schwarz-conjuguate-gradient">
-<h2>Schwarz conjuguate gradient<a class="headerlink" href="#schwarz-conjuguate-gradient" title="Permalink to this headline"> </a></h2>
+<span id="DomainDecomposition_Schwarz"></span><h2>Schwarz conjuguate gradient<a class="headerlink" href="#schwarz-conjuguate-gradient" title="Permalink to this headline"> </a></h2>
 <p>To solve <span class="math notranslate nohighlight">\(-\Delta u =f \;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0\)</span> the Schwarz algorithm for domain decomposition without overlapping runs like this</p>
 <p>Let introduce <span class="math notranslate nohighlight">\(\Gamma_i\)</span> is common the boundary of <span class="math notranslate nohighlight">\(\Omega_1\)</span> and <span class="math notranslate nohighlight">\(\Omega_2\)</span> and <span class="math notranslate nohighlight">\(\Gamma_e^i= \partial \Omega_i \setminus \Gamma_i\)</span>.</p>
 <p>The problem find <span class="math notranslate nohighlight">\(\lambda\)</span> such that <span class="math notranslate nohighlight">\((u_1|_{\Gamma_i}=u_2|_{\Gamma_i})\)</span> where <span class="math notranslate nohighlight">\(u_i\)</span> is solution of the following Laplace problem:</p>

@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1737,6 +1738,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -1845,19 +1847,21 @@ For publishing purpose, FreeFem++ can store these plots as postscript files.</li
 <span class="nf">plot</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">],</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;likegnu.eps&quot;</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline3 figure" id="figvisumesh">
-<img alt="../_images/Visualization_Plot.png" src="../_images/Visualization_Plot.png" />
+<div class="figure compound align-center" id="Plot">
+<div style="width: 49%" class="subfigure" id="id3">
+<span id="figvisumesh"></span><a class="reference internal image-reference" href="../_images/Visualization_Plot.png"><img alt="Visualization_Plot" src="../_images/Visualization_Plot.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Mesh, isovalue and vector</span></p>
 </div>
-<div class="inline3 figure" id="figvisugrey">
-<img alt="../_images/Visualization_Plot_Grey.png" src="../_images/Visualization_Plot_Grey.png" />
+<div style="width: 49%" class="subfigure" id="id4">
+<span id="figvisugrey"></span><a class="reference internal image-reference" href="../_images/Visualization_Plot_Grey.png"><img alt="Visualization_Plot_Grey" src="../_images/Visualization_Plot_Grey.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Enlargement in grey of isovalue and vector</span></p>
 </div>
-<div class="inline3 figure" id="figvisucut">
-<img alt="../_images/Visualization_Plot_Gnuplot.png" src="../_images/Visualization_Plot_Gnuplot.png" />
+<div style="width: 49%" class="subfigure" id="id5">
+<span id="figvisucut"></span><a class="reference internal image-reference" href="../_images/Visualization_Plot_Gnuplot.png"><img alt="Visualization_Plot_Gnuplot" src="../_images/Visualization_Plot_Gnuplot.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Plots a cut of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">uh</span></code>. Note that a refinement of the same can be obtained in combination with gnuplot</span></p>
 </div>
-<p>To change the color table and to choose the value of iso line you can do:</p>
+<p class="caption"><span class="caption-text">Plot</span></p>
+</div><p id="Plot">To change the color table and to choose the value of iso line you can do:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1917,15 +1921,17 @@ For publishing purpose, FreeFem++ can store these plots as postscript files.</li
  <span class="nf">plot</span><span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="kp">viso</span><span class="o">=</span><span class="kp">viso</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="kp">viso</span><span class="p">.</span><span class="kr">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">hsv</span><span class="o">=</span><span class="n">colorhsv</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="figvisuhsv" style="width: 49%">
-<img alt="../_images/Visualization_HSV_Space.png" src="../_images/Visualization_HSV_Space.png" />
+<div class="figure compound align-center" id="HSV">
+<div style="width: 49%" class="subfigure" id="id6">
+<span id="figvisuhsv"></span><a class="reference internal image-reference" href="../_images/Visualization_HSV_Space.png"><img alt="Visualization_HSV_Space" src="../_images/Visualization_HSV_Space.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">HSV color cylinder</span></p>
 </div>
-<div class="inline figure" id="figvisuisocolortable" style="width: 49%">
-<img alt="../_images/Visualization_HSV.png" src="../_images/Visualization_HSV.png" />
+<div style="width: 49%" class="subfigure" id="id7">
+<span id="figvisuisocolortable"></span><a class="reference internal image-reference" href="../_images/Visualization_HSV.png"><img alt="Visualization_HSV" src="../_images/Visualization_HSV.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Isovalue with an other color table</span></p>
 </div>
-<div class="admonition note">
+<p class="caption"><span class="caption-text">HSV</span></p>
+</div><div class="admonition note" id="HSV">
 <p class="first admonition-title">Note</p>
 <p class="last">See <a class="reference internal" href="../example/visualization.html#examplehsv"><span class="std std-ref">HSV example</span></a> for the complete script.</p>
 </div>
@@ -1956,7 +1962,7 @@ Here is another technique which has the advantage of being online, i.e.&nbsp;one
 </pre></div>
 </td></tr></table></div>
 <div class="figure" id="figvisugnuplot">
-<img alt="../_images/Visualization_Gnuplot.png" src="../_images/Visualization_Gnuplot.png" />
+<a class="reference internal image-reference" href="../_images/Visualization_Gnuplot.png"><img alt="../_images/Visualization_Gnuplot.png" src="../_images/Visualization_Gnuplot.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Plots a cut of uh with gnuplot</span></p>
 </div>
 <div class="admonition note">
@@ -1970,7 +1976,7 @@ Here is another technique which has the advantage of being online, i.e.&nbsp;one
 <p>Now <code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> software is included in FreeFem++ under <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffmedit</span></code> name.</p>
 <p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> command parameters are listed in the <a class="reference internal" href="../reference/externalLibraries.html#referencemedit"><span class="std std-ref">Reference part</span></a>.</p>
 <div class="figure" id="figvisumedit">
-<img alt="../_images/Visualization_Medit.png" src="../_images/Visualization_Medit.png" />
+<a class="reference internal image-reference" href="../_images/Visualization_Medit.png"><img alt="../_images/Visualization_Medit.png" src="../_images/Visualization_Medit.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">:freefem:medit` plot</span></p>
 </div>
 <p>With version 3.2 or later</p>
@@ -2057,7 +2063,7 @@ Here is another technique which has the advantage of being online, i.e.&nbsp;one
 </pre></div>
 </td></tr></table></div>
 <div class="figure" id="figvisuparaview">
-<img alt="../_images/Visualization_Paraview.png" src="../_images/Visualization_Paraview.png" />
+<a class="reference internal image-reference" href="../_images/Visualization_Paraview.png"><img alt="../_images/Visualization_Paraview.png" src="../_images/Visualization_Paraview.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Paraview plot</span></p>
 </div>
 <div class="admonition warning">
@@ -2106,7 +2112,7 @@ Here is another technique which has the advantage of being online, i.e.&nbsp;one
 </pre></div>
 </td></tr></table></div>
 <div class="figure" id="figvisumatlab">
-<img alt="../_images/Visualization_Matlab_Octave.png" src="../_images/Visualization_Matlab_Octave.png" />
+<a class="reference internal image-reference" href="../_images/Visualization_Matlab_Octave.png"><img alt="../_images/Visualization_Matlab_Octave.png" src="../_images/Visualization_Matlab_Octave.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Matlab / Octave plot</span></p>
 </div>
 <div class="admonition note">

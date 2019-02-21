@@ -31,87 +31,99 @@ where :math:`\Gamma_i` is the boundary of :math:`\Omega_i` and on the condition 
 Here we take :math:`\Omega_1` to be a quadrangle, :math:`\Omega_2` a disk and we apply the algorithm starting from zero.
 
 .. figure:: images/DomainDecomposition_Schwarz1.png
-   :name: figDomain1
+   :alt: figDomain1
+   :width: 50%
 
    The 2 overlapping mesh :freefem:`TH` and :freefem:`th`
 
 .. tip:: Schwarz overlapping
 
-    .. code-block:: freefem
-        :linenos:
+   .. code-block:: freefem
+      :linenos:
 
-        // Parameters
-        int inside =2; //inside boundary
-        int outside = 1; //outside boundary
-        int n = 4;
+      // Parameters
+      int inside =2; //inside boundary
+      int outside = 1; //outside boundary
+      int n = 4;
 
-        // Mesh
-        border a(t=1, 2){x=t; y=0; label=outside;}
-        border b(t=0, 1){x=2; y=t; label=outside;}
-        border c(t=2, 0){x=t; y=1; label=outside;}
-        border d(t=1, 0){x=1-t; y=t; label=inside;}
-        border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
-        border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
-        mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
-        mesh TH = buildmesh(e(5*n) + e1(25*n));
-        plot(th, TH, wait=true); //to see the 2 meshes
+      // Mesh
+      border a(t=1, 2){x=t; y=0; label=outside;}
+      border b(t=0, 1){x=2; y=t; label=outside;}
+      border c(t=2, 0){x=t; y=1; label=outside;}
+      border d(t=1, 0){x=1-t; y=t; label=inside;}
+      border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
+      border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
+      mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
+      mesh TH = buildmesh(e(5*n) + e1(25*n));
+      plot(th, TH, wait=true); //to see the 2 meshes
 
-        // Fespace
-        fespace vh(th, P1);
-        vh u=0, v;
+      // Fespace
+      fespace vh(th, P1);
+      vh u=0, v;
 
-        fespace VH(TH, P1);
-        VH U, V;
+      fespace VH(TH, P1);
+      VH U, V;
 
-        // Problem
-        int i = 0;
-        problem PB (U, V, init=i, solver=Cholesky)
-            = int2d(TH)(
-                  dx(U)*dx(V)
-                + dy(U)*dy(V)
-            )
-            + int2d(TH)(
-                - V
-            )
-            + on(inside, U=u)
-            + on(outside, U=0)
-            ;
+      // Problem
+      int i = 0;
+      problem PB (U, V, init=i, solver=Cholesky)
+         = int2d(TH)(
+               dx(U)*dx(V)
+             + dy(U)*dy(V)
+         )
+         + int2d(TH)(
+             - V
+         )
+         + on(inside, U=u)
+         + on(outside, U=0)
+         ;
 
-        problem pb (u, v, init=i, solver=Cholesky)
-            = int2d(th)(
-                  dx(u)*dx(v)
-                + dy(u)*dy(v)
-            )
-            + int2d(th)(
-                - v
-            )
-            + on(inside, u=U)
-            + on(outside, u=0)
-            ;
+      problem pb (u, v, init=i, solver=Cholesky)
+         = int2d(th)(
+               dx(u)*dx(v)
+             + dy(u)*dy(v)
+         )
+         + int2d(th)(
+             - v
+         )
+         + on(inside, u=U)
+         + on(outside, u=0)
+         ;
 
-        // Calculation loop
-        for (i = 0 ; i < 10; i++){
-            // Solve
-            PB;
-            pb;
+      // Calculation loop
+      for (i = 0 ; i < 10; i++){
+         // Solve
+         PB;
+         pb;
 
-            // Plot
-            plot(U, u, wait=true);
-        }
+         // Plot
+         plot(U, u, wait=true);
+      }
 
-    .. figure:: images/DomainDecomposition_Schwarz2.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: figDomainIter0
+   .. subfigstart::
 
-        Isovalues of the solution at iteration 0
+   .. _figDomainDecomposition_Schwarz2:
 
-    .. figure:: images/DomainDecomposition_Schwarz3.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: figDomainIter9
+   .. figure:: images/DomainDecomposition_Schwarz2.png
+      :alt: DomainDecomposition_Schwarz2
+      :width: 90%
 
-        Isovalues of the solution at iteration 0
+      Isovalues of the solution at iteration 0
+
+   .. _figDomainDecomposition_Schwarz3:
+
+   .. figure:: images/DomainDecomposition_Schwarz3.png
+      :alt: DomainDecomposition_Schwarz3
+      :width: 90%
+
+      Isovalues of the solution at iteration 0
+
+   .. subfigend::
+      :width: 0.49
+      :alt: DomainDecomposition_Schwarz
+      :label: DomainDecomposition_Schwarz
+
+      Schwarz overlapping
 
 Schwarz non overlapping Scheme
 ------------------------------
@@ -124,7 +136,8 @@ To solve:
 the Schwarz algorithm for domain decomposition without overlapping runs like this
 
 .. figure:: images/DomainDecomposition_Schwarz4.png
-   :name: figDomain4
+   :alt: figDomain4
+   :width: 50%
 
    The two none overlapping mesh :freefem:`TH` and :freefem:`th`
 
@@ -214,17 +227,28 @@ where the sign :math:`+` or :math:`-` of :math:`{\pm}` is choose to have converg
         // Plot
         plot(U, u);
 
+    .. subfigstart::
+
+    .. _figDomainDecomposition_Schwarz5:
+
     .. figure:: images/DomainDecomposition_Schwarz5.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: DomainDecomposition_Schwarz5
 
         Isovalues of the solution at iteration 0 without overlapping
 
+    .. _figDomainDecomposition_Schwarz6:
+
     .. figure:: images/DomainDecomposition_Schwarz6.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: DomainDecomposition_Schwarz6
 
         Isovalues of the solution at iteration 9 without overlapping
+
+    .. subfigend::
+        :width: 0.49
+        :alt: DomainDecomposition_Schwarz
+        :label: DomainDecomposition_Schwarz
 
 Schwarz conjuguate gradient
 ---------------------------

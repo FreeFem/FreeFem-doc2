@@ -10,7 +10,7 @@ Problems involving partial differential equations from several branches of physi
 
 .. image:: ../_static/img/Logo.png
    :align: center
-   :width: 50%
+   :width: 65%
    :alt: FreeFem++
 
 .. _FreeFem++: https://freefem.org

@@ -256,61 +256,61 @@ In variational form and with appropriated boundary conditions the problem is :
 
 .. figure:: images/ALargeFluidProblem_T_100.png
    :alt: ALargeFluidProblem_T_100
-   :width: 90%
+   :width: 60%
 
    Temperature at time step 100
 
 .. figure:: images/ALargeFluidProblem_U_100.png
    :alt: ALargeFluidProblem_U_100
-   :width: 90%
+   :width: 60%
 
    Velocity at time step 100
 
 .. figure:: images/ALargeFluidProblem_T_200.png
    :alt: ALargeFluidProblem_T_200
-   :width: 90%
+   :width: 60%
 
    Temperature at time step 200
 
 .. figure:: images/ALargeFluidProblem_U_200.png
    :alt: ALargeFluidProblem_U_200
-   :width: 90%
+   :width: 60%
 
    Velocity at time step 200
 
 .. figure:: images/ALargeFluidProblem_T_300.png
    :alt: ALargeFluidProblem_T_300
-   :width: 90%
+   :width: 60%
 
    Temperature at time step 300
 
 .. figure:: images/ALargeFluidProblem_U_300.png
    :alt: ALargeFluidProblem_U_300
-   :width: 90%
+   :width: 60%
 
    Velocity at time step 300
 
 .. figure:: images/ALargeFluidProblem_T_400.png
    :alt: ALargeFluidProblem_T_400
-   :width: 90%
+   :width: 60%
 
    Temperature at time step 400
 
 .. figure:: images/ALargeFluidProblem_U_400.png
    :alt: ALargeFluidProblem_U_400
-   :width: 90%
+   :width: 60%
 
    Velocity at time step 400
 
 .. figure:: images/ALargeFluidProblem_T_500.png
    :alt: ALargeFluidProblem_T_500
-   :width: 90%
+   :width: 60%
 
    Temperature at time step 500
 
 .. figure:: images/ALargeFluidProblem_U_500.png
    :alt: ALargeFluidProblem_U_500
-   :width: 90%
+   :width: 60%
 
    Velocity at time step 500
 

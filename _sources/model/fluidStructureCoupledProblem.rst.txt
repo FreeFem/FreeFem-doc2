@@ -221,15 +221,29 @@ The data are the gravity force :math:`\mathbf{g}` and the boundary stress :math:
 
    .. figure:: images/FluidStructure1.png
       :name: figFSI1
+      :width: 50%
 
       Velocity and pressure
 
+   .. subfigstart::
+
+   .. _figFSI2:
+
    .. figure:: images/FluidStructure2.png
-      :name: figFSI2
+      :alt: FluidStructure2
+      :width: 90%
 
       Displacement
 
+   .. _figFSI3:
+
    .. figure:: images/FluidStructure3.png
-      :name: figFSI3
+      :alt: FluidStructure3
+      :width: 90%
 
       Moved mesh
+
+   .. subfigend::
+      :width: 0.49
+      :alt: FluidStructure
+      :label: FluidStructure

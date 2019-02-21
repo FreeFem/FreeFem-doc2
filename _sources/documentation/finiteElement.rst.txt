@@ -509,6 +509,7 @@ P1-element
 
 .. figure:: images/FiniteElement_P1P2.png
     :name: finiteElementP1P2
+    :width: 100%
 
     :math:`P_1` and :math:`P_2` degrees of freedom on triangle :math:`T_k`
 
@@ -539,19 +540,30 @@ then:
 
 See :numref:`finiteElementProjP1` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1)`.
 
-.. figure:: images/FiniteElement_P0P1P2P1nc.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementP0P1P2P1nc
+.. subfigstart::
 
-    Test mesh :freefem:`Th` for projection
+.. _finiteElementP0P1P2P1nc:
+
+.. figure:: images/FiniteElement_P0P1P2P1nc.png
+   :alt: FiniteElement_P0P1P2P1nc
+   :width: 90%
+
+   Test mesh :freefem:`Th` for projection
+
+.. _finiteElementProjP0:
 
 .. figure:: images/FiniteElement_projP0.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementProjP0
+   :alt: FiniteElement_projP0
+   :width: 90%
 
-    Projection to :freefem:`Vh(Th, P0)`
+   Projection to :freefem:`Vh(Th, P0)`
+
+.. subfigend::
+   :width: 0.49
+   :alt: FiniteElement
+   :label: FiniteElement
+
+   Finite element :freefem:`P0`
 
 P2-element
 ~~~~~~~~~~
@@ -589,19 +601,30 @@ then:
 
 See :ref:`finiteElementProjP2` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P2)`.
 
-.. figure:: images/FiniteElement_projP1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementProjP1
+.. subfigstart::
 
-    Projection to :freefem:`Vh(Th, P1)`
+.. _finiteElementProjP1:
+
+.. figure:: images/FiniteElement_projP1.png
+   :alt: FiniteElement_projP1
+   :width: 90%
+
+   Projection to :freefem:`Vh(Th, P1)`
+
+.. _finiteElementProjP2:
 
 .. figure:: images/FiniteElement_projP2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementProjP2
+   :alt: FiniteElement_projP2
+   :width: 90%
 
-    Projection to :freefem:`Vh(Th, P2)`
+   Projection to :freefem:`Vh(Th, P2)`
+
+.. subfigend::
+   :width: 0.49
+   :alt: FiniteElement
+   :label: FiniteElement
+
+   Finite elements :freefem:`P1, P2`
 
 P1 Nonconforming Element
 ------------------------
@@ -658,19 +681,30 @@ The basis functions :math:`\phi_k` have the following properties.
 
 See :numref:`finiteElementProjP1nc` for the projection of :math:`f(x,y)=\sin(\pi x)\cos(\pi y)` into :freefem:`Vh(Th, P1nc)`.
 
-.. figure:: images/FiniteElement_projP1nc.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementProjP1nc
+.. subfigstart::
 
-    Projection to :freefem:`Vh(Th, P1nc)`
+.. _finiteElementProjP1nc:
+
+.. figure:: images/FiniteElement_projP1nc.png
+   :alt: FiniteElement_projP1nc
+   :width: 90%
+
+   Projection to :freefem:`Vh(Th, P1nc)`
+
+.. _finiteElementProjP1b:
 
 .. figure:: images/FiniteElement_projP1b.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementProjP1b
+   :alt: FiniteElement_projP1b
+   :width: 90%
 
-    Projection to :freefem:`Vh(Th, P1b)`
+   Projection to :freefem:`Vh(Th, P1b)`
+
+.. subfigend::
+   :width: 0.49
+   :alt: FiniteElement
+   :label: FiniteElement
+
+   Finite elements :freefem:`P1nc, P1b`
 
 Other FE-space
 --------------
@@ -760,6 +794,7 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
 
 .. figure:: images/FiniteElement_RT0.png
     :name: finiteElementRT0
+    :width: 50%
 
     Normal vectors of each edge
 
@@ -794,19 +829,28 @@ and :math:`i_l=\{1,1,2,2,3,3\},\, j_l=\{1,2,1,2,1,2\}` with the order of :math:`
 
     vh([x-1/2, y]) = x^2 + y^2; //interpolate vh = ((x-1/2)^2 + y^2)
 
-.. figure:: images/FiniteElement_onoldmesh.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementOnOldMesh
+.. subfigstart::
 
-    :freefem:`vh` Iso on mesh :math:`2\times 2`
+.. _finiteElementOnOldMesh:
+
+.. figure:: images/FiniteElement_onoldmesh.png
+   :alt: FiniteElement_onoldmesh
+   :width: 90%
+
+   :freefem:`vh` Iso on mesh :math:`2\times 2`
+
+.. _finiteElementOnNewMesh:
 
 .. figure:: images/FiniteElement_onnewmesh.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: finiteElementOnNewMesh
+   :alt: FiniteElement_onnewmesh
+   :width: 90%
 
-    :freefem:`vh` Iso on  mesh :math:`5\times 5`
+   :freefem:`vh` Iso on  mesh :math:`5\times 5`
+
+.. subfigend::
+   :width: 0.49
+   :alt: FiniteElement
+   :label: FiniteElement
 
 To get the value at a point :math:`x=1,y=2` of the FE function :freefem:`uh`, or :freefem:`[Uxh, Uyh]`, one writes:
 
@@ -886,6 +930,7 @@ For each :math:`q^1`, vertex of :math:`{\cal T}_{h}^1` do:
 
 .. figure:: images/FiniteElement_fastInterpolate.png
     :name: FiniteElementFastInterpolate
+    :width: 50%
 
     To interpolate a function at :math:`q^0`, the knowledge of the triangle which contains :math:`q^0` is needed. The algorithm may start at :math:`q^1\in T_k^0` and stall on the boundary (thick line) because the line :math:`q^0q^1` is not inside :math:`\Omega`.
     But if the holes are triangulated too (doted line) then the problem does not arise.
@@ -940,19 +985,30 @@ Two problems need to be solved:
         plot(us, ug, wait=true);
         plot(vs, vg, wait=true);
 
+    .. subfigstart::
+
+    .. _finiteElementUsUg:
+
     .. figure:: images/FiniteElement_UsUg.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: finiteElementUsUg
+        :alt: FiniteElement_UsUg
+        :width: 90%
 
         Extension of a continuous FE-function
 
+    .. _finiteElementVsVg:
+
     .. figure:: images/FiniteElement_VsVg.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: finiteElementVsVg
+        :alt: FiniteElement_VsVg
+        :width: 90%
 
         Extension of discontinuous FE-function
+
+    .. subfigend::
+        :width: 0.49
+        :alt: Extension
+        :label: Extension
+
+        Extension of FE-function
 
 Keywords: Problem and Solve
 ---------------------------

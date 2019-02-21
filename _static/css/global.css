@@ -208,15 +208,14 @@ div.inline {
 	align-items: stretch;
 	justify-content: center;
 	border-radius: .27rem;
-	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
 	margin-bottom: 1.11rem;
 }
 
 .figure img {
-	order: 2;
-	align-self: center;
-	max-width: 90%;
-	margin: .75rem 1rem;
+		order: 2;
+		align-self: center;
+		max-width: 90%;
+		margin: .75rem 1rem;
 }
 
 .figure .caption {
@@ -230,6 +229,12 @@ div.inline {
 	padding: 0;
 	margin: 0;
 	border-radius: .125rem .125rem 0 0;
+}
+
+.figure a {
+	order: 2;
+	display: flex;
+	justify-content: center;
 }
 
 .figure .caption .code {

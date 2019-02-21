@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1739,6 +1740,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -2692,18 +2694,20 @@ We define the space:</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="figalgovarineqfill" style="width: 49%">
-<img alt="../_images/VarIneqFill.jpg" src="../_images/VarIneqFill.jpg" />
+<div class="last figure compound align-center" id="VariationalInequality">
+<div style="width: 49%" class="subfigure" id="id10">
+<span id="figalgovarineqfill"></span><a class="reference internal image-reference" href="../_images/VarIneqFill.jpg"><img alt="VarIneqFill" src="../_images/VarIneqFill.jpg" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
 </div>
-<div class="inline last figure" id="figalgovarineqiso" style="width: 49%">
-<img alt="../_images/VarIneqIso.jpg" src="../_images/VarIneqIso.jpg" />
+<div style="width: 49%" class="subfigure" id="id11">
+<span id="figalgovarineqiso"></span><a class="reference internal image-reference" href="../_images/VarIneqIso.jpg"><img alt="../_images/VarIneqIso.jpg" src="../_images/VarIneqIso.jpg" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
 </div>
-</div>
+<p class="caption"><span class="caption-text">Variational inequality</span></p>
+</div></div>
 </div>
 <div class="section" id="d-constrained-minimum-surface-with-ipopt">
-<h2>3D constrained minimum surface with IPOPT<a class="headerlink" href="#d-constrained-minimum-surface-with-ipopt" title="Permalink to this headline"> </a></h2>
+<span id="VariationalInequality"></span><h2>3D constrained minimum surface with IPOPT<a class="headerlink" href="#d-constrained-minimum-surface-with-ipopt" title="Permalink to this headline"> </a></h2>
 <div class="section" id="area-and-volume-expressions">
 <h3>Area and volume expressions<a class="headerlink" href="#area-and-volume-expressions" title="Permalink to this headline"> </a></h3>
 <p>This example is aimed at numerically solving some constrained minimum surface problems with the IPOPT algorithm.
@@ -3240,7 +3244,7 @@ The mesh is adaptated with respect to the <span class="math notranslate nohighli
 <p>Here are some pictures of the resulting surfaces obtained for decreasing values of <span class="math notranslate nohighlight">\(\alpha\)</span> (and a slightly more complicated object than two orthogonal discs).
 We return to the enclosed object when <span class="math notranslate nohighlight">\(\alpha=0\)</span>:</p>
 <div class="last figure">
-<img alt="../_images/minsurf3D.jpg" src="../_images/minsurf3D.jpg" />
+<a class="reference internal image-reference" href="../_images/minsurf3D.jpg"><img alt="../_images/minsurf3D.jpg" src="../_images/minsurf3D.jpg" style="width: 100%;" /></a>
 </div>
 </div>
 </div>
@@ -3342,7 +3346,7 @@ If used with AUGLAG or MLSL, it will only affect the given subsidiary algorithm.
 <p>The following table sums up the main characteristics of each algorithm, providing the more important information about which features are supported by which algorithm and what are the unavoidable arguments they need.
 More details can be found in <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>.</p>
 <div class="figure">
-<img alt="../_images/nlopttab.png" src="../_images/nlopttab.png" />
+<a class="reference internal image-reference" href="../_images/nlopttab.png"><img alt="../_images/nlopttab.png" src="../_images/nlopttab.png" style="height: 22cm;" /></a>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>

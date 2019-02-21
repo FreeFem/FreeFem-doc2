@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1738,6 +1739,7 @@
 <li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -2033,8 +2035,8 @@ The body force is the gravity force <span class="math notranslate nohighlight">\
 <span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">Thm</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;coef amplification = &quot;</span><span class="o">+</span><span class="kp">coef</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="last figure" id="id4">
-<img alt="../_images/Elasticity_Beam3D.jpg" src="../_images/Elasticity_Beam3D.jpg" />
+<div class="last figure" id="elasticity-beam3d">
+<a class="reference internal image-reference" href="../_images/Elasticity_Beam3D.jpg"><img alt="../_images/Elasticity_Beam3D.jpg" src="../_images/Elasticity_Beam3D.jpg" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 192 </span><span class="caption-text">3d Beam deformed and undeformed box</span></p>
 </div>
 </div>
@@ -2265,24 +2267,25 @@ The undeformed crack <span class="math notranslate nohighlight">\(\Sigma\)</span
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="id5" style="width: 49%">
-<img alt="../_images/Elasticity_Fracture1.png" src="../_images/Elasticity_Fracture1.png" />
+<div class="last figure compound align-center" id="CrackAndPrincipalStress">
+<div style="width: 49%" class="subfigure" id="id4">
+<span id="figcodfirstmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture1.png"><img alt="Elasticity_Fracture1" src="../_images/Elasticity_Fracture1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 193 </span><span class="caption-text">Crack open displacement (COD) on the first mesh</span></p>
 </div>
-<div class="inline figure" id="id6" style="width: 49%">
-<img alt="../_images/Elasticity_Fracture2.png" src="../_images/Elasticity_Fracture2.png" />
+<div style="width: 49%" class="subfigure" id="id5">
+<span id="figstressfirstmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture2.png"><img alt="Elasticity_Fracture2" src="../_images/Elasticity_Fracture2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 194 </span><span class="caption-text">Principal stress difference on the first mesh</span></p>
 </div>
-<div class="inline figure" id="id7" style="width: 49%">
-<img alt="../_images/Elasticity_Fracture3.png" src="../_images/Elasticity_Fracture3.png" />
+<div style="width: 49%" class="subfigure" id="id6">
+<span id="figcodlastmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture3.png"><img alt="Elasticity_Fracture3" src="../_images/Elasticity_Fracture3.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 195 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
 </div>
-<div class="inline last figure" id="id8" style="width: 49%">
-<img alt="../_images/Elasticity_Fracture4.png" src="../_images/Elasticity_Fracture4.png" />
+<div style="width: 49%" class="subfigure" id="id7">
+<span id="figstresslastmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture4.png"><img alt="Elasticity_Fracture4" src="../_images/Elasticity_Fracture4.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 196 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
 </div>
-</div>
-<p>It is difficult to create mode II deformation by the opposed shear force on <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">T</span></code> that is observed in a laboratory.
+</div></div>
+<p id="CrackAndPrincipalStress">It is difficult to create mode II deformation by the opposed shear force on <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">T</span></code> that is observed in a laboratory.
 So we use the body shear force along <span class="math notranslate nohighlight">\(\Sigma\)</span>, that is, the <span class="math notranslate nohighlight">\(x\)</span>-component <span class="math notranslate nohighlight">\(f_1\)</span> of the body force <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[f_1(x,y)=H(y-0.001)*H(0.1-y)-H(-y-0.001)*H(y+0.1)\]</div>
@@ -2439,23 +2442,24 @@ So we use the body shear force along <span class="math notranslate nohighlight">
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="id9" style="width: 49%">
-<img alt="../_images/Elasticity_FractureSliding1.png" src="../_images/Elasticity_FractureSliding1.png" />
+<div class="last figure compound align-center" id="CrackAndPrincipalStress">
+<div style="width: 49%" class="subfigure" id="id8">
+<span id="figfracturesliding1"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding1.png"><img alt="Elasticity_FractureSliding1" src="../_images/Elasticity_FractureSliding1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 197 </span><span class="caption-text">COD on the first mesh</span></p>
 </div>
-<div class="inline figure" id="id10" style="width: 49%">
-<img alt="../_images/Elasticity_FractureSliding2.png" src="../_images/Elasticity_FractureSliding2.png" />
+<div style="width: 49%" class="subfigure" id="id9">
+<span id="figfracturesliding2"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding2.png"><img alt="Elasticity_FractureSliding2" src="../_images/Elasticity_FractureSliding2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 198 </span><span class="caption-text">Principal stress difference in the first mesh</span></p>
 </div>
-<div class="inline figure" id="id11" style="width: 49%">
-<img alt="../_images/Elasticity_FractureSliding3.png" src="../_images/Elasticity_FractureSliding3.png" />
+<div style="width: 49%" class="subfigure" id="id10">
+<span id="figfracturesliding3"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding3.png"><img alt="Elasticity_FractureSliding3" src="../_images/Elasticity_FractureSliding3.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 199 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
 </div>
-<div class="inline last figure" id="id12" style="width: 49%">
-<img alt="../_images/Elasticity_FractureSliding4.png" src="../_images/Elasticity_FractureSliding4.png" />
+<div style="width: 49%" class="subfigure" id="id11">
+<span id="figfracturesliding4"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding4.png"><img alt="Elasticity_FractureSliding4" src="../_images/Elasticity_FractureSliding4.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 200 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
 </div>
-</div>
+<span class="target" id="CrackAndPrincipalStress"></span></div></div>
 </div>
 </div>
 

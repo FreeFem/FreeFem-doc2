@@ -28,6 +28,7 @@ The following generates a :math:`4 \times 5` grid in the unit square :math:`[0,
 
 .. figure:: images/MeshGeneration_Square.png
   :name: figBoundaryLabels
+  :width: 50%
 
   Boundary labels of the mesh by :freefem:`square(10,10)`
 
@@ -112,19 +113,30 @@ Boundaries are defined piecewise by parametrized curves. The pieces can only int
 
 Borders and mesh are respectively shown in :numref:`figMultipleBorder` and :numref:`figGeneratedMesh`.
 
-.. figure:: images/MeshGeneration_Border1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figMultipleBorder
+.. subfigstart::
 
-    Multiple border ends intersect
+.. _figMultipleBorder:
+
+.. figure:: images/MeshGeneration_Border1.png
+   :alt: MeshGeneration_Border1
+   :width: 90%
+
+   Multiple border ends intersect
+
+.. _figGeneratedMesh:
 
 .. figure:: images/MeshGeneration_Border2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figGeneratedMesh
+   :alt: MeshGeneration_Border2
+   :width: 90%
 
-    Generated mesh
+   Generated mesh
+
+.. subfigend::
+   :width: 0.49
+   :alt: MeshGeneration_Border
+   :label: MeshGeneration_Border
+
+   Border
 
 Triangulation keywords assume that the domain is defined as being on the *left* (resp *right*) of its oriented parameterized boundary
 
@@ -136,6 +148,7 @@ To check the orientation plot :math:`t\mapsto (\varphi_x(t),\varphi_y(t)),\, t_0
 
 .. figure:: images/MeshGeneration_Border3.png
   :name: figBorder
+  :width: 100%
 
   Orientation of the boundary defined by :math:`(\phi_x(t),\phi_y(t))`
 
@@ -168,19 +181,30 @@ The following example shows how to change the orientation. The example generates
 
 .. note:: Notice that the orientation is changed by :freefem:`b(-30)` in the 5th line. In the 7th line, :freefem:`ps="fileName"` is used to generate a postscript file with identification shown on the figure.
 
-.. figure:: images/MeshGeneration_Border4.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figMesWithouthHole
+.. subfigstart::
 
-    Mesh without hole
+.. _figMesWithouthHole:
+
+.. figure:: images/MeshGeneration_Border4.png
+   :alt: MeshGeneration_Border4
+   :width: 90%
+
+   Mesh without hole
+
+.. _figMeshWithHole:
 
 .. figure:: images/MeshGeneration_Border5.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figMeshWithHole
+   :alt: MeshGeneration_Border5
+   :width: 90%
 
-    Mesh with hole
+   Mesh with hole
+
+.. subfigend::
+   :width: 0.49
+   :alt: MeshWithHole
+   :label: MeshWithHole
+
+   Mesh with a hole
 
 .. note:: Borders are evaluated only at the time :freefem:`plot` or :freefem:`buildmesh` is called so the global variables are defined at this time. In this case, since :math:`r` is changed between the two border calls, the following code will not work because the first border will be computed with r=0.3:
 
@@ -270,6 +294,7 @@ The boundary consists of 10 lines :math:`L_i,\, i=1,\cdots,10` whose end points 
 
 .. figure:: images/MeshGeneration_Data.png
   :name: figBuildMesh
+  :width: 50%
 
   Mesh by :freefem:`buildmesh(C(10))`
 
@@ -708,19 +733,30 @@ The coordinates of the points and the value of the table function are defined se
    0.0838988 0.389647 0.456045
    ...............
 
-.. figure:: images/MeshGeneration_Triangulate1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figDelaunayMesh
+.. subfigstart::
 
-    Delaunay mesh of the convex hull of point set in file xy
+.. _figDelaunayMesh:
+
+.. figure:: images/MeshGeneration_Triangulate1.png
+   :alt: MeshGeneration_Triangulate1
+   :width: 90%
+
+   Delaunay mesh of the convex hull of point set in file xy
+
+.. _figIsovalue:
 
 .. figure:: images/MeshGeneration_Triangulate2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figIsovalue
+   :alt: MeshGeneration_Triangulate2
+   :width: 90%
 
-    Isolvalue of table function
+   Isolvalue of table function
+
+.. subfigend::
+   :width: 0.49
+   :alt: Triangulate
+   :label: Triangulate
+
+   Triangulate
 
 The third column of each line is left untouched by the :freefem:`triangulate` command.
 But you can use this third value to define a table function with rows of the form: :freefem:`x y f(x,y)`.
@@ -803,19 +839,30 @@ It is also possible to build an empty mesh of a pseudo subregion with :freefem:`
        savemesh(Th, "emptymesh.msh");
    }
 
-.. figure:: images/MeshGeneration_EmptyMesh1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figEmptyMesh1
+.. subfigstart::
 
-    The empty mesh with boundary
+.. _figEmptyMesh1:
+
+.. figure:: images/MeshGeneration_EmptyMesh1.png
+   :alt: MeshGeneration_EmptyMesh1
+   :width: 90%
+
+   The empty mesh with boundary
+
+.. _figEmptyMesh2:
 
 .. figure:: images/MeshGeneration_EmptyMesh2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figEmptyMesh2
+    :alt: MeshGeneration_EmptyMesh2
+    :width: 90%
 
     An empty mesh defined from a pseudo region numbering of triangle
+
+.. subfigend::
+   :width: 0.49
+   :alt: EmptyMesh
+   :label: EmptyMesh
+
+   Empty mesh
 
 Remeshing
 ---------
@@ -883,20 +930,30 @@ for a big number :math:`k>1`.
    Th = movemesh(Th, [x+coef*uu, y+coef*vv]);
    plot(Th, wait=true, fill=true, ps="MovedMesh.eps");
 
+.. subfigstart::
+
+.. _figLShape:
 
 .. figure:: images/MeshGeneration_MoveMesh1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figLShape
+   :alt: MeshGeneration_MoveMesh1
+   :width: 90%
 
-    L-shape
+   L-shape
+
+.. _figMovedLShape:
 
 .. figure:: images/MeshGeneration_MoveMesh2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: figMovedLShape
+   :alt: MeshGeneration_MoveMesh2
+   :width: 90%
 
-    Moved L-shape
+   Moved L-shape
+
+.. subfigend::
+   :width: 0.49
+   :alt: MoveMesh
+   :label: MoveMesh
+
+   Move mesh
 
 .. note:: Consider a function :math:`u` defined on a mesh :freefem:`Th`.
     A statement like :freefem:`Th=movemesh(Th...)` does not change :math:`u` and so the old mesh still exists.
@@ -1005,6 +1062,7 @@ sharply varies in value and the initial mesh given by one of the commands in the
 
 .. figure:: images/MeshGeneration_AdaptMesh1.png
   :name: figMeshAdaptation
+  :width: 100%
 
   3D graphs for the initial mesh and 1st and 2nd mesh adaptations
 
@@ -1029,19 +1087,30 @@ Mesh adaptation is a very powerful tool when the solution of a problem varies lo
 
 Here we solve the :ref:`Poisson’s problem <tutorialPoisson>`, when :math:`f=1` and :math:`\Omega` is a L-shape domain.
 
-.. figure:: images/MeshGeneration_AdaptMesh2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: adaptMesh2
+.. subfigstart::
 
-    L-shape domain and its boundary name
+.. _adaptMesh2:
+
+.. figure:: images/MeshGeneration_AdaptMesh2.png
+   :alt: MeshGeneration_AdaptMesh2
+   :width: 90%
+
+   L-shape domain and its boundary name
+
+.. _adaptMesh3:
 
 .. figure:: images/MeshGeneration_AdaptMesh3.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: adaptMesh3
+   :alt: MeshGeneration_AdaptMesh3
+   :width: 90%
 
-    Final solution after 4-times adaptation
+   Final solution after 4-times adaptation
+
+.. subfigend::
+   :width: 0.49
+   :alt: Adaptmesh
+   :label: AdaptMesh
+
+   Mesh adaptation
 
 .. tip:: The solution has the singularity :math:`r^{3/2},\, r=|x-\gamma|` at the point :math:`\gamma` of the intersection of two lines :math:`bc` and :math:`bd` (see :numref:`adaptMesh2`).
 
@@ -1218,23 +1287,38 @@ To build a mesh with a constant mesh size equal to :math:`\frac{1}{30}` try:
    Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); //Adaptation bound `maxsubdiv=`
    plot(Th, wait=true, ps="square-2.eps");
 
-.. figure:: images/MeshGeneration_AdaptMesh4.png
-    :figclass: inline3
-    :name: adaptMesh4
+.. subfigstart::
 
-    Initial mesh
+.. _adaptMesh4:
+
+.. figure:: images/MeshGeneration_AdaptMesh4.png
+   :alt: MeshGeneration_AdaptMesh4
+   :width: 90%
+
+   Initial mesh
+
+.. _adaptMesh5:
 
 .. figure:: images/MeshGeneration_AdaptMesh5.png
-    :figclass: inline3
-    :name: adaptMesh5
+   :alt: MeshGeneration_AdaptMesh5
+   :width: 90%
 
-    First iteration
+   First iteration
+
+.. _adaptMesh6:
 
 .. figure:: images/MeshGeneration_AdaptMesh6.png
-    :figclass: inline3
-    :name: adaptMesh6
+   :alt: MeshGeneration_AdaptMesh6
+   :width: 90%
 
-    Last iteration
+   Last iteration
+
+.. subfigend::
+   :width: 0.49
+   :alt: AdaptMesh2
+   :label: AdaptMesh2
+
+   Mesh adaptation
 
 Trunc
 -----
@@ -1275,19 +1359,30 @@ The following example construct all "trunced" meshes to the support of the basic
        u[][i] = 0; // reset
    }
 
-.. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: trunc1
+.. subfigstart::
 
-    Mesh of support the function P1 number 0, split in :math:`5{\times}5`
+.. _trunc1:
 
 .. figure:: images/MeshGeneration_Trunc1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: trunc6
+   :alt: MeshGeneration_Trunc1
+   :width: 49%
 
-    Mesh of support the function P1 number 6, split in :math:`5{\times}5`
+   Mesh of support the function P1 number 0, split in :math:`5{\times}5`
+
+.. _trunc6:
+
+.. figure:: images/MeshGeneration_Trunc1.png
+   :alt: MeshGeneration_Trunc1
+   :width: 49%
+
+   Mesh of support the function P1 number 6, split in :math:`5{\times}5`
+
+.. subfigend::
+   :width: 0.49
+   :alt: Trunc
+   :label: Trunc
+
+   Trunc
 
 Splitmesh
 ---------
@@ -1306,19 +1401,30 @@ Another way to split mesh triangles is to use :freefem:`splitmesh`, for example:
    Th = splitmesh(Th, 1 + 5*(square(x-0.5) + y*y));
    plot(Th, wait=true, ps="SplittedMesh.eps");
 
-.. figure:: images/MeshGeneration_SplitMesh1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: splitMesh1
+.. subfigstart::
 
-    Initial mesh
+.. _splitMesh1:
+
+.. figure:: images/MeshGeneration_SplitMesh1.png
+   :alt: MeshGeneration_SplitMesh1
+   :width: 90%
+
+   Initial mesh
+
+.. _splitMesh2:
 
 .. figure:: images/MeshGeneration_SplitMesh2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: splitMesh2
+   :alt: MeshGeneration_SplitMesh2
+   :width: 90%
 
-    All left mesh triangle is split conformaly in :freefem:`int(1+5*(square(x-0.5)+y*y)^2` triangles
+   All left mesh triangle is split conformaly in :freefem:`int(1+5*(square(x-0.5)+y*y)^2` triangles
+
+.. subfigend::
+   :width: 0.49
+   :alt: SplitMesh
+   :label: SplitMesh
+
+   Split mesh
 
 .. _meshExamples:
 
@@ -1344,6 +1450,7 @@ Meshing Examples
         plot(th, TH, ps="TouchSide.esp");
 
     .. figure:: images/MeshGeneration_Example_NACA0012_1.png
+        :width: 50%
         :name: naca00121
 
         Two rectangles touching by a side
@@ -1360,6 +1467,7 @@ Meshing Examples
         plot(Th, ps="NACA0012.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_NACA0012_2.png
+        :width: 50%
         :name: naca00122
 
         NACA0012 Airfoil
@@ -1376,6 +1484,7 @@ Meshing Examples
 
     .. figure:: images/MeshGeneration_Example_Cardioid1.png
         :name: cardioid1
+        :width: 50%
 
         Domain with Cardioid curve boundary
 
@@ -1389,6 +1498,7 @@ Meshing Examples
         plot(Th, ps="Cassini.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_Cardioid2.png
+        :width: 50%
         :name: cardioid2
 
         Domain with Cassini egg curve boundary
@@ -1428,6 +1538,7 @@ Meshing Examples
         plot(Th, ps="Bezier.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_Bezier.png
+        :width: 50%
         :name: bezier
 
         Boundary drawn by Bezier curves
@@ -1451,6 +1562,7 @@ Meshing Examples
         plot(Th, ps="Engine.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_Engine.png
+        :width: 50%
         :name: engine
 
         Section of Engine
@@ -1474,6 +1586,7 @@ Meshing Examples
         plot(Th, ps="U-shape.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_UShape.png
+        :width: 50%
         :name: ushape
 
         Domain with U-shape channel changed by :freefem`d`
@@ -1498,6 +1611,7 @@ Meshing Examples
         plot(Th, ps="V-shape.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_VShape.png
+        :width: 50%
         :name: vshape
 
         Domain with V-shape cut changed by :freefem:`dAg`
@@ -1527,6 +1641,7 @@ Meshing Examples
 
 
     .. figure:: images/MeshGeneration_Example_SmilingFace.png
+        :width: 50%
         :name: smilingFace
 
         Smiling face (Mouth is changeable)
@@ -1555,6 +1670,7 @@ Meshing Examples
         plot(Th, ps="ThreePoint.eps", bw=true);
 
     .. figure:: images/MeshGeneration_Example_ThreePoints.png
+        :width: 75%
         :name: threePoints
 
         Domain for three-point bending test
@@ -1710,6 +1826,7 @@ The output of this script is:
    Nb err = 0
 
 .. figure:: images/MeshGeneration_Cube.jpg
+    :width: 50%
     :name: meshGeneration_cube
 
     The mesh 3d of function :freefem:`cube(4, 5, 6, flags=3)`
@@ -2157,6 +2274,7 @@ The domain :math:`\Omega_{3d}` defined by the layer mesh is equal to :math:`\Ome
 :math:`zmin` and :math:`zmax` are functions of :math:`\Omega_{2d}` in :math:`\R` that defines respectively the lower surface and upper surface of :math:`\Omega_{3d}`.
 
 .. figure:: images/MeshGeneration_LayerMesh.png
+    :width: 100%
     :name: meshGenerationLayerMesh
 
     Example of Layer mesh in three dimensions.
@@ -2286,6 +2404,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
         medit("Th", Th);
 
     .. figure:: images/MeshGeneration_LayerMesh_Example1.png
+        :width: 50%
         :name: meshGenerationLayerMeshExample1
 
         The mesh of a cube made with :freefem:`cube.edp`
@@ -2332,6 +2451,7 @@ An example of this command is given in the :ref:`Build layer mesh example <examp
         medit("cone", Th3T);
 
     .. figure:: images/MeshGeneration_LayerMesh_Example2.png
+        :width: 50%
         :name: meshGenerationLayerMeshExample2
 
         The mesh of a cone made with :freefem:`cone.edp`
@@ -2603,19 +2723,30 @@ The test of the two functions and the call to :freefem:`TetGen` mesh generator:
    mesh3 Th = tetg(ThHS, switch="pqaAAYYQ", nbofregions=2, regionlist=domain);
    medit("Cube with ball", Th);
 
-.. figure:: images/MeshGeneration_CubeSphere1.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: meshGenerationCubeSphere1
+.. subfigstart::
 
-    The surface mesh of the hex with internal sphere
+.. _meshGenerationCubeSphere1:
+
+.. figure:: images/MeshGeneration_CubeSphere1.png
+   :alt: MeshGeneration_CubeSphere1
+   :width: 90%
+
+   The surface mesh of the hex with internal sphere
+
+.. _meshGenerationCubeSphere2:
 
 .. figure:: images/MeshGeneration_CubeSphere2.png
-    :figclass: inline
-    :figwidth: 49%
-    :name: meshGenerationCubeSphere2
+   :alt: MeshGeneration_CubeSphere2
+   :width: 90%
 
-    The tetrahedral mesh of the cube with internal ball
+   The tetrahedral mesh of the cube with internal ball
+
+.. subfigend::
+   :width: 0.49
+   :alt: CubeSphere
+   :label: CubeSphere
+
+   Cube sphere
 
 Medit
 -----
@@ -3369,17 +3500,27 @@ Secondly, we use this idea to build meshes from an image, we use the plugins :fr
         cout << "Th.area = " << Th.area << " Km^2 " << " == " << AreaLac << " Km^2 " << endl;
         plot(Th, wait=true, ps="leman.eps");
 
+    .. subfigstart::
+
+    .. _meshGenerationIsoline1:
 
     .. figure:: images/MeshGeneration_Isoline1.jpg
-        :figclass: inline
-        :figwidth: 49%
-        :name: meshGenerationIsoline1
+        :alt: MeshGeneration_Isoline1
+        :width: 90%
 
         The image of the Leman lake meshes
 
+    .. _meshGenerationIsoline2:
+
     .. figure:: images/MeshGeneration_Isoline2.png
-        :figclass: inline
-        :figwidth: 49%
-        :name: meshGenerationIsoline2
+        :alt: MeshGeneration_Isoline2
+        :width: 90%
 
         The mesh of the lake
+
+    .. subfigend::
+        :width: 0.49
+        :alt: Isoline
+        :label: Isoline
+
+        Isoline

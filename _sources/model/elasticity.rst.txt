@@ -231,6 +231,8 @@ where :math:`V` is the linear closed subspace of :math:`H^1(\Omega)^2`.
       plot(Th, Thm, wait=true, cmm="coef amplification = "+coef);
 
    .. figure:: images/Elasticity_Beam3D.jpg
+      :width: 50%
+      :name: Elasticity_Beam3D
 
       3d Beam deformed and undeformed box
 
@@ -413,29 +415,44 @@ In opening mode, the photoelasticity make symmetric pattern concentrated at :mat
             Problem;
         }
 
+    .. subfigstart::
+
+    .. _figCODfirstMesh:
+
     .. figure:: images/Elasticity_Fracture1.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_Fracture1
 
         Crack open displacement (COD) on the first mesh
 
+    .. _figStressFirstMesh:
+
     .. figure:: images/Elasticity_Fracture2.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_Fracture2
 
         Principal stress difference on the first mesh
 
+    .. _figCODlastMesh:
+
     .. figure:: images/Elasticity_Fracture3.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_Fracture3
 
         COD on the last adaptive mesh
 
+    .. _figStressLastMesh:
+
     .. figure:: images/Elasticity_Fracture4.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_Fracture4
 
         Principal stress difference on the last adaptive mesh
+
+    .. subfigend::
+       :width: 0.49
+       :alt: CrackAndPrincipalStress
+       :label: CrackAndPrincipalStress
 
 It is difficult to create mode II deformation by the opposed shear force on :freefem:`B` and :freefem:`T` that is observed in a laboratory.
 So we use the body shear force along :math:`\Sigma`, that is, the :math:`x`-component :math:`f_1` of the body force :math:`\mathbf{f}` is given by
@@ -525,26 +542,41 @@ where :math:`H(t)=1` if :math:`t>0`; :math:`= 0` if :math:`t<0`.
             Problem;
         }
 
+    .. subfigstart::
+
+    .. _figFractureSliding1:
+
     .. figure:: images/Elasticity_FractureSliding1.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_FractureSliding1
 
         COD on the first mesh
 
+    .. _figFractureSliding2:
+
     .. figure:: images/Elasticity_FractureSliding2.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_FractureSliding2
 
         Principal stress difference in the first mesh
 
+    .. _figFractureSliding3:
+
     .. figure:: images/Elasticity_FractureSliding3.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_FractureSliding3
 
         COD on the last adaptive mesh
 
+    .. _figFractureSliding4:
+
     .. figure:: images/Elasticity_FractureSliding4.png
-        :figclass: inline
-        :figwidth: 49%
+        :width: 90%
+        :alt: Elasticity_FractureSliding4
 
         Principal stress difference on the last adaptive mesh
+
+    .. subfigend::
+       :width: 0.49
+       :alt: CrackAndPrincipalStress
+       :label: CrackAndPrincipalStress

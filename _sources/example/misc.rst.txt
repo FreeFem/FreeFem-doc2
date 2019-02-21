@@ -172,6 +172,7 @@ Poisson's equation 3D
    plot(u2, u2e,wait=true);
 
 .. figure:: images/poisson_3d.jpg
+   :width: 50%
 
    Iso-surfaces of the solution
 

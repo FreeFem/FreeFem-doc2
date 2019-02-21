@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
 
   <!-- css -->
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -1674,6 +1674,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
    </div>
@@ -1746,6 +1747,7 @@
 <li class="toctree-l2"><a class="reference internal" href="whisperingGalleryModes.html">Whispering gallery modes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
   </div>
@@ -1771,7 +1773,7 @@ We see that the vertical force due to the tension <span class="math notranslate 
 <div class="math notranslate nohighlight">
 \[\mu n_x(x+\delta x,y)\delta y\simeq \mu\left(n_x(x,y)+\frac{\p n_x}{\p x}\delta x\right)(x,y)\delta y\]</div>
 <div class="figure" id="examplestaticproblemssoapfilm">
-<img alt="../_images/StaticProblems_SoapFilm.png" src="../_images/StaticProblems_SoapFilm.png" />
+<a class="reference internal image-reference" href="../_images/StaticProblems_SoapFilm.png"><img alt="../_images/StaticProblems_SoapFilm.png" src="../_images/StaticProblems_SoapFilm.png" style="width: 75%;" /></a>
 </div>
 <p>Similarly, for the edges AB and DC we have:</p>
 <div class="math notranslate nohighlight">
@@ -1908,12 +1910,12 @@ We see that the vertical force due to the tension <span class="math notranslate 
 <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;error H10 = &quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">disk</span><span class="p">)((</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">-</span><span class="kr">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">disk</span><span class="p">)((</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">-</span><span class="kr">y</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span><span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="examplestaticproblemssoapfilmsol" style="width: 49%">
-<img alt="../_images/StaticProblems_SoapFilmSol.png" src="../_images/StaticProblems_SoapFilmSol.png" />
+<div class="figure" id="examplestaticproblemssoapfilmsol">
+<a class="reference internal image-reference" href="../_images/StaticProblems_SoapFilmSol.png"><img alt="../_images/StaticProblems_SoapFilmSol.png" src="../_images/StaticProblems_SoapFilmSol.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 178 </span><span class="caption-text">Isovalue of <span class="math notranslate nohighlight">\(u\)</span></span></p>
 </div>
-<div class="inline figure" id="examplestaticproblemssoapfilm3d" style="width: 49%">
-<img alt="../_images/StaticProblems_SoapFilm3D.png" src="../_images/StaticProblems_SoapFilm3D.png" />
+<div class="figure" id="examplestaticproblemssoapfilm3d">
+<a class="reference internal image-reference" href="../_images/StaticProblems_SoapFilm3D.png"><img alt="../_images/StaticProblems_SoapFilm3D.png" src="../_images/StaticProblems_SoapFilm3D.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 179 </span><span class="caption-text">A side view of <span class="math notranslate nohighlight">\(u\)</span></span></p>
 </div>
 <p>In the 37th line, the <span class="math notranslate nohighlight">\(L^2\)</span>-error estimation between the exact solution <span class="math notranslate nohighlight">\(u_e\)</span>,</p>
@@ -2007,17 +2009,18 @@ Note that <span class="math notranslate nohighlight">\(C_0\)</span> is described
 <span class="nf">plot</span><span class="p">(</span><span class="n">uh</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="examplestaticproblemselectrostaticsmesh" style="width: 49%">
-<img alt="../_images/StaticProblems_ElectrostaticsMesh.png" src="../_images/StaticProblems_ElectrostaticsMesh.png" />
+<div class="figure compound align-center" id="DiskWithHoles">
+<div style="width: 49%" class="subfigure" id="examplestaticproblemselectrostaticsmesh">
+<span id="figdiskwithholes"></span><a class="reference internal image-reference" href="../_images/StaticProblems_ElectrostaticsMesh.png"><img alt="../_images/StaticProblems_ElectrostaticsMesh.png" src="../_images/StaticProblems_ElectrostaticsMesh.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 180 </span><span class="caption-text">Disk with two elliptical holes</span></p>
 </div>
-<div class="inline figure" id="examplestaticproblemselectrostatics" style="width: 49%">
-<img alt="../_images/StaticProblems_Electrostatics.png" src="../_images/StaticProblems_Electrostatics.png" />
+<div style="width: 49%" class="subfigure" id="examplestaticproblemselectrostatics">
+<span id="figdiskwithlines"></span><a class="reference internal image-reference" href="../_images/StaticProblems_Electrostatics.png"><img alt="../_images/StaticProblems_Electrostatics.png" src="../_images/StaticProblems_Electrostatics.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 181 </span><span class="caption-text">Equipotential lines where <span class="math notranslate nohighlight">\(C_1\)</span> is located in right hand side</span></p>
 </div>
-</div>
+</div></div>
 <div class="section" id="aerodynamics">
-<h2>Aerodynamics<a class="headerlink" href="#aerodynamics" title="Permalink to this headline"> </a></h2>
+<span id="DiskWithHoles"></span><h2>Aerodynamics<a class="headerlink" href="#aerodynamics" title="Permalink to this headline"> </a></h2>
 <p>Let us consider a wing profile <span class="math notranslate nohighlight">\(S\)</span> in a uniform flow.
 Infinity will be represented by a large circle <span class="math notranslate nohighlight">\(\Gamma_{\infty}\)</span>.
 As previously, we must solve:</p>
@@ -2173,17 +2176,18 @@ Thus the jump of <span class="math notranslate nohighlight">\(\p_n\varphi\)</spa
 <span class="nf">plot</span><span class="p">(</span><span class="n">Zcp</span><span class="p">,</span> <span class="kp">nbiso</span><span class="o">=</span><span class="mi">40</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="examplestaticproblemsaerodynamics1" style="width: 49%">
-<img alt="../_images/StaticProblems_Aerodynamics1.png" src="../_images/StaticProblems_Aerodynamics1.png" />
+<div class="figure compound align-center" id="IsovalueOfCp">
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsaerodynamics1">
+<span id="figisovalueofcp"></span><a class="reference internal image-reference" href="../_images/StaticProblems_Aerodynamics1.png"><img alt="../_images/StaticProblems_Aerodynamics1.png" src="../_images/StaticProblems_Aerodynamics1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 182 </span><span class="caption-text">Isovalue of <span class="math notranslate nohighlight">\(cp = -(\p_x\psi)^2 - (\p_y\psi)^2\)</span></span></p>
 </div>
-<div class="inline figure" id="examplestaticproblemsaerodynamics2" style="width: 49%">
-<img alt="../_images/StaticProblems_Aerodynamics2.png" src="../_images/StaticProblems_Aerodynamics2.png" />
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsaerodynamics2">
+<span id="figzoomingofcp"></span><a class="reference internal image-reference" href="../_images/StaticProblems_Aerodynamics2.png"><img alt="../_images/StaticProblems_Aerodynamics2.png" src="../_images/StaticProblems_Aerodynamics2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 183 </span><span class="caption-text">Zooming of <span class="math notranslate nohighlight">\(cp\)</span></span></p>
 </div>
-</div>
+</div></div>
 <div class="section" id="error-estimation">
-<h2>Error estimation<a class="headerlink" href="#error-estimation" title="Permalink to this headline"> </a></h2>
+<span id="IsovalueOfCp"></span><h2>Error estimation<a class="headerlink" href="#error-estimation" title="Permalink to this headline"> </a></h2>
 <p>There are famous estimation between the numerical result <span class="math notranslate nohighlight">\(u_h\)</span> and the exact solution <span class="math notranslate nohighlight">\(u\)</span> of the <a class="reference internal" href="../tutorial/poisson.html#tutorialpoisson"><span class="std std-ref">Poisson’s problem</span></a>:</p>
 <p>If triangulations <span class="math notranslate nohighlight">\(\{\mathcal{T}_h\}_{h\downarrow 0}\)</span> is regular (see <a class="reference internal" href="../documentation/meshGeneration.html#meshregulartriangulation"><span class="std std-ref">Regular Triangulation</span></a>), then we have the estimates:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-errorestimatation">
@@ -2385,7 +2389,7 @@ Instead of the exact solution, here we use the approximate solution <span class=
 </pre></div>
 </td></tr></table></div>
 <div class="figure" id="examplestaticproblemsperiodicboundaryconditions">
-<img alt="../_images/StaticProblems_PeriodicBoundaryConditions.png" src="../_images/StaticProblems_PeriodicBoundaryConditions.png" />
+<a class="reference internal image-reference" href="../_images/StaticProblems_PeriodicBoundaryConditions.png"><img alt="../_images/StaticProblems_PeriodicBoundaryConditions.png" src="../_images/StaticProblems_PeriodicBoundaryConditions.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 184 </span><span class="caption-text">The isovalue of solution <span class="math notranslate nohighlight">\(u\)</span> with periodic boundary condition</span></p>
 </div>
 <p>The periodic condition does not necessarily require parallel boundaries.
@@ -2489,7 +2493,7 @@ The following example give such example.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="last figure" id="examplestaticproblemsperiodicboundaryconditions2">
-<img alt="../_images/StaticProblems_PeriodicBoundaryConditions2.png" src="../_images/StaticProblems_PeriodicBoundaryConditions2.png" />
+<a class="reference internal image-reference" href="../_images/StaticProblems_PeriodicBoundaryConditions2.png"><img alt="../_images/StaticProblems_PeriodicBoundaryConditions2.png" src="../_images/StaticProblems_PeriodicBoundaryConditions2.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 185 </span><span class="caption-text">The isovalue of solution <span class="math notranslate nohighlight">\(u\)</span> for <span class="math notranslate nohighlight">\(\Delta u = ((y+x)^{2}+1)((y-x)^{2}+1) - k\)</span>, in <span class="math notranslate nohighlight">\(\Omega\)</span> and <span class="math notranslate nohighlight">\(\p_{n} u =0\)</span> on hole, and with two periodic boundary condition on external border</span></p>
 </div>
 </div>
@@ -2761,18 +2765,19 @@ The following example give such example.</p>
 <span class="nf">medit</span><span class="p">(</span><span class="s">&quot;uh&quot;</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">uh</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="examplestaticproblemsperiodicboundaryconditionspoisson1" style="width: 49%">
-<img alt="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png" src="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png" />
+<div class="last figure compound align-center" id="CubeBalloon">
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsperiodicboundaryconditionspoisson1">
+<span id="figcubeballoon"></span><a class="reference internal image-reference" href="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png"><img alt="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png" src="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 186 </span><span class="caption-text">View of the surface isovalue of periodic solution <span class="math notranslate nohighlight">\(uh\)</span></span></p>
 </div>
-<div class="inline last figure" id="examplestaticproblemsperiodicboundaryconditionspoisson2" style="width: 49%">
-<img alt="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png" src="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png" />
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsperiodicboundaryconditionspoisson2">
+<a class="reference internal image-reference" href="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png"><img alt="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png" src="../_images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 187 </span><span class="caption-text">View a the cut of the solution <span class="math notranslate nohighlight">\(uh\)</span> with ffmedit</span></p>
 </div>
-</div>
+</div></div>
 </div>
 <div class="section" id="poisson-problems-with-mixed-boundary-condition">
-<span id="modelstaticpoissonwithmixedboundarycondition"></span><h2>Poisson Problems with mixed boundary condition<a class="headerlink" href="#poisson-problems-with-mixed-boundary-condition" title="Permalink to this headline"> </a></h2>
+<span id="modelstaticpoissonwithmixedboundarycondition"></span><span id="CubeBalloon"></span><h2>Poisson Problems with mixed boundary condition<a class="headerlink" href="#poisson-problems-with-mixed-boundary-condition" title="Permalink to this headline"> </a></h2>
 <p>Here we consider the Poisson equation with mixed boundary conditions:</p>
 <p>For given functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span>, find <span class="math notranslate nohighlight">\(u\)</span> such that:</p>
 <div class="math notranslate nohighlight">
@@ -3198,17 +3203,18 @@ The following example give such example.</p>
 </pre></div>
 </td></tr></table></div>
 <p>If the method is correct, we expect to look the graphics by an almost constant function <span class="math notranslate nohighlight">\(\eta\)</span> on your computer as in <a class="reference internal" href="#examplestaticproblemsmetricadaptation"><span class="std std-numref">Fig. 188</span></a> and <a class="reference internal" href="#examplestaticproblemsmetricadaptation2"><span class="std std-numref">Fig. 189</span></a>.</p>
-<div class="inline figure" id="examplestaticproblemsmetricadaptation" style="width: 49%">
-<img alt="../_images/StaticProblems_MetricAdaptation.png" src="../_images/StaticProblems_MetricAdaptation.png" />
+<div class="figure compound align-center" id="DensityError">
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsmetricadaptation">
+<a class="reference internal image-reference" href="../_images/StaticProblems_MetricAdaptation.png"><img alt="../_images/StaticProblems_MetricAdaptation.png" src="../_images/StaticProblems_MetricAdaptation.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 188 </span><span class="caption-text">Density of the error indicator with isotropic <span class="math notranslate nohighlight">\(P_{2}\)</span> metric</span></p>
 </div>
-<div class="inline figure" id="examplestaticproblemsmetricadaptation2" style="width: 49%">
-<img alt="../_images/StaticProblems_MetricAdaptation2.png" src="../_images/StaticProblems_MetricAdaptation2.png" />
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsmetricadaptation2">
+<a class="reference internal image-reference" href="../_images/StaticProblems_MetricAdaptation2.png"><img alt="../_images/StaticProblems_MetricAdaptation2.png" src="../_images/StaticProblems_MetricAdaptation2.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 189 </span><span class="caption-text">Density of the error indicator with isotropic <span class="math notranslate nohighlight">\(P_{2}\)</span> metric</span></p>
 </div>
-</div>
+</div></div>
 <div class="section" id="adaptation-using-residual-error-indicator">
-<span id="modelstaticproblemadaptationusingresidualerrorindicator"></span><h2>Adaptation using residual error indicator<a class="headerlink" href="#adaptation-using-residual-error-indicator" title="Permalink to this headline"> </a></h2>
+<span id="modelstaticproblemadaptationusingresidualerrorindicator"></span><span id="DensityError"></span><h2>Adaptation using residual error indicator<a class="headerlink" href="#adaptation-using-residual-error-indicator" title="Permalink to this headline"> </a></h2>
 <p>In the previous example we compute the error indicator, now we use it, to adapt the mesh.
 The new mesh size is given by the following formulae:</p>
 <div class="math notranslate nohighlight">
@@ -3443,15 +3449,16 @@ The new mesh size is given by the following formulae:</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="inline figure" id="examplestaticproblemsadaptationresidualerror" style="width: 49%">
-<img alt="../_images/StaticProblems_AdaptationResidualError.png" src="../_images/StaticProblems_AdaptationResidualError.png" />
+<div class="figure compound align-center" id="ErrorIndicator">
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsadaptationresidualerror">
+<a class="reference internal image-reference" href="../_images/StaticProblems_AdaptationResidualError.png"><img alt="../_images/StaticProblems_AdaptationResidualError.png" src="../_images/StaticProblems_AdaptationResidualError.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 190 </span><span class="caption-text">The error indicator with isotropic <span class="math notranslate nohighlight">\(P_{1}\)</span></span></p>
 </div>
-<div class="inline figure" id="examplestaticproblemsadaptationresidualerror2" style="width: 49%">
-<img alt="../_images/StaticProblems_AdaptationResidualError2.png" src="../_images/StaticProblems_AdaptationResidualError2.png" />
+<div style="width: 49%" class="subfigure" id="examplestaticproblemsadaptationresidualerror2">
+<a class="reference internal image-reference" href="../_images/StaticProblems_AdaptationResidualError2.png"><img alt="../_images/StaticProblems_AdaptationResidualError2.png" src="../_images/StaticProblems_AdaptationResidualError2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 191 </span><span class="caption-text">The mesh and isovalue of the solution</span></p>
 </div>
-</div>
+<span class="target" id="ErrorIndicator"></span></div></div>
 </div>
 
 

@@ -1,5 +1,11 @@
 .. role:: freefem(code)
-  :language: freefem
+   :language: freefem
+
+.. role:: text(code)
+   :language: text
+
+.. role:: bash(code)
+   :language: bash
 
 Installation guide
 ==================
@@ -36,7 +42,7 @@ MacOS X binary installation
 
 Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the ``FreeFem+.app`` application in the ``/Applications`` directory.
 
-If you want terminal access to **FreeFem++** just copy the file ``FreeFem++`` in a directory of your ``$PATH`` shell environment variable.
+If you want terminal access to **FreeFem++** just copy the file ``FreeFem++`` in a directory of your :bash:`$PATH` shell environment variable.
 
 Arch AUR package
 ~~~~~~~~~~~~~~~~
