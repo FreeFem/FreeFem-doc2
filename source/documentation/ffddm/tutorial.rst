@@ -41,13 +41,15 @@ See :ref:`documentation <ffddmDocumentationOverlappingMeshDecomposition>`
 
 Build a collection of :math:`N` overlapping sub-meshes :math:`(Th_{i})_{i=1}^N` from the global mesh :math:`Th`
 
-.. figure:: figures/domain1.png
-    :figclass: inline
-    :figwidth: 49%
++-----------+-----------+
+| |Domain1| | |Domain2| |
++-----------+-----------+
 
-.. figure:: figures/domain2.png
-    :figclass: inline
-    :figwidth: 49%
+.. |Domain1| image:: figures/domain1.png
+   :width: 100%
+
+.. |Domain2| image:: figures/domain2.png
+   :width: 100%
 
 .. code-block:: freefem
     :linenos:
@@ -123,7 +125,8 @@ Example for [P2,P2,P1] *real*:
 Distributed vectors and restriction operators
 '''''''''''''''''''''''''''''''''''''''''''''
 
-.. figure:: figures/domain2.png
+.. image:: figures/domain2.png
+   :width: 50%
 
 Natural decomposition of the set of d.o.f.'s :math:`{\mathcal N}` of :math:`Vh` into the :math:`N` subsets of d.o.f.'s :math:`({\mathcal N}_i)_{i=1}^N` each associated with the local FE space :math:`Vh_i`
 
@@ -146,7 +149,8 @@ and :math:`R_i` is the *restriction operator* from :math:`{\mathcal N}` into :ma
 Partition of unity
 ''''''''''''''''''
 
-.. figure:: figures/domain3.png
+.. image:: figures/domain3.png
+   :width: 50%
 
 Duplicated unknowns coupled via a *partition of unity*:
 
@@ -626,24 +630,28 @@ Some results: Heterogeneous 3D elasticity with GenEO
 
 Heterogeneous 3D linear elasticity equation discretized with P2 FE solved on 4096 MPI processes :math:`n\approx` 262 million
 
-.. figure:: figures/comparisonAMG.png
+.. image:: figures/comparisonAMG.png
+   :width: 100%
 
 Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 --------------------------------------------------------------------------------
 
 f = 10 GHz
 
-.. figure:: figures/10GHz_borders_new_v2.png
-    :figclass: inline
-    :figwidth: 49%
++----------------+------------+
+| |10GhzBorders| | |10GhzNew| |
++----------------+------------+
 
-.. figure:: figures/10GHz_new.png
-    :figclass: inline
-    :figwidth: 49%
+.. |10GhzBorders| image:: figures/10GHz_borders_new_v2.png
+   :width: 100%
+
+.. |10GhzNew| image:: figures/10GHz_new.png
+   :width: 100%
 
 f = 16 GHz
 
-.. figure:: figures/16GHz_new.png
+.. image:: figures/16GHz_new.png
+   :width: 50%
 
 Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 --------------------------------------------------------------------------------
@@ -659,7 +667,8 @@ Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity
 :math:`\rightarrow` coarse problem too large for a direct solver
 :math:`\Rightarrow` inexact coarse solve: GMRES + one level ORAS preconditioner
 
-.. figure:: figures/table.png
+.. image:: figures/table.png
+   :width: 100%
 
 speedup of 1.81 from 1536 to 3072 cores at 10GHz
 

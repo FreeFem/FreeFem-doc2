@@ -66,18 +66,6 @@ To try this example, just copy and paste the script above in a file â€˜test.edpâ
 
    ff-mpirun -np 2 test.edp -glut ffglut
 
-Explanations are given in:
-
-+------------------------------------------------------------------+-------------------------------------------+
-| Content                                                          | Link                                      |
-+==================================================================+===========================================+
-| Quick introduction to domain decomposition methods and ``ffddm`` | :ref:`Tutorial <ffddmTutorial>`           |
-+------------------------------------------------------------------+-------------------------------------------+
-| More about Domain Decomposition                                  | :ref:`Introduction <ffddmIntroduction>`   |
-+------------------------------------------------------------------+-------------------------------------------+
-| Complete Documentation of ffddm                                  | :ref:`Documentation <ffddmDocumentation>` |
-+------------------------------------------------------------------+-------------------------------------------+
-
 .. toctree::
 
   introddm
