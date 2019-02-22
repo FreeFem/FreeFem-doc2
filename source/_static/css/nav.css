@@ -216,10 +216,8 @@ nav .sidenav i {
 }
 
 #sideNav svg {
-	background-color: #E0E0E5;
-	width: 2.22rem;
-	height: 2.22rem;
-	margin: 0 .5rem 0 1.11rem;
+	width: 200px;
+	margin: 1.11rem;
 }
 
 .sideNavHeader {

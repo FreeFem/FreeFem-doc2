@@ -7,6 +7,10 @@
 		right: 30% !important;
 	}
 
+	header .header-logo img {
+		margin: .8rem !important;
+	}
+
 	nav {
 		grid-template-columns: 2.77rem auto 32.77rem;
 	}
@@ -30,7 +34,7 @@
 		background-color: transparent;
 		color: #00007F;
 		border: none;
-		padding: .55rem;
+		padding: .8rem;
 		margin: 0;
 		font-size: 1.11rem;
 		cursor: pointer;
