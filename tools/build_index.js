@@ -54,12 +54,12 @@ function readHtml(root, file, fileId) {
             removeTocTree($(this))
       })
    }
-   removeTocTree($('.content'))
+   removeTocTree($('#content'))
 
    let title = $('title').text()
    if (typeof title == 'undefined') title = file
 
-   let body = $('.content').text()
+   let body = $('#content').text()
    if (typeof body == 'undefined') body = ''
 
    const data = [{
@@ -94,7 +94,7 @@ function readSingleHtml(root, file) {
             removeTocTree($(this))
       })
    }
-   removeTocTree($('.content'))
+   removeTocTree($('#content'))
 
    const data = []
 
