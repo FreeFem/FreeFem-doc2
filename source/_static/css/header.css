@@ -26,13 +26,12 @@ header a:visited {
 header .header-logo {
 	grid-row: 1;
 	grid-column: 1;
-	justify-self: center;
+	justify-self: start;
 }
 
-header .header-logo svg {
-	width: 2.22rem;
+header .header-logo img {
 	height: 2.22rem;
-	margin: .5rem;
+	margin: .625rem 2.5rem;
 }
 
 header .header-title {
