@@ -98,7 +98,7 @@ function readSingleHtml(root, file) {
 
    const data = []
 
-   const content = $('.content')
+   const content = $('#content')
    const sections = content.find('.section')
 
    sections.each(function (i, elem) {
