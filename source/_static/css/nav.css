@@ -41,9 +41,7 @@ nav #staticNav .nav-item {
 }
 
 nav #staticNav .nav-item:hover {
-	background-color: #00007F;
-	color: #EDEDF2;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 /** SEARCH BAR **/

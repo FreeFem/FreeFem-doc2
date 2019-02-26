@@ -31,8 +31,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1rem;
 	text-align: justify;
-	color: rgba(0,0,0,.87);
-	font-weight: lighter;
 
 	display: grid;
 	grid-template-rows: 3.33rem 3.33rem auto 3.33rem;
