@@ -66,7 +66,8 @@ function addUpButton() {
    div.innerHTML = '<i class="fas fa-angle-double-up"></i>'
    div.onclick = function() { scrollTop() }
 
-   document.body.appendChild(div)
+	const header = document.getElementsByTagName('header')[0]
+   header.appendChild(div)
 }
 
 let scrollPos = 0;
