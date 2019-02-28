@@ -1,67 +1,25 @@
 footer {
-	grid-row: 4;
-	grid-column: 1 / 4;
-	display: grid;
-	grid-template-rows: auto;
-	grid-template-columns: auto auto;
-
-	align-items: center;
-	background-color: #000000;
-	color: white;
-	padding: 0 .55rem 0 .55rem;
+		grid-row: 4;
+		grid-column: 1 / 4;
+    display: flex;
+    min-height: 4.5rem;
+    font-size: 1.25rem;
+		border-top: 2px solid #EFEFEF;
 }
 
-footer p {
-	font-family: "Roboto", sans-serif;
+footer i {
+    color: #FF699B;
 }
 
-footer a {
-	color: white;
+footer img {
+  height: 2.5rem;
+  width: 2.5rem;
+  align-self: center;
 }
 
-footer a:visited {
-	color: white;
-}
-
-.footer-text {
-	grid-row: 1;
-	grid-column: 1 / 2;
-	justify-self: center;
-}
-
-.footer-text p {
-	margin: 0;
-	padding: 0;
-}
-
-.footer-img {
-	grid-row: 1;
-	grid-column: 2 / 3;
-	justify-self: center;
-	display: grid;
-	grid-template-rows: auto;
-	grid-template-columns: auto auto;
-	align-items: center;
-}
-
-.footer-img p {
-	grid-row: 1;
-	grid-column: 1;
-	margin: 0;
-	padding: 0;
-}
-
-.footer-img a {
-	grid-row: 1;
-	grid-column: 2;
-}
-
-.footer-img img {
-  margin-top: .115rem;
-  max-height: 1.51em;
-}
-
-.footer-img span.separator {
-	padding-left: .27rem;
-	padding-right: .27rem;
+footer p, footer a, footer span {
+    align-self: center;
+    flex: 1 1 0;
+    text-align: center;
+    margin: 20px 0;
 }

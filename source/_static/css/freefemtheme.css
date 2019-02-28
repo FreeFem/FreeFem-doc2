@@ -22,9 +22,10 @@ html {
 
 /** BODY **/
 body {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	width: 100%;
+	max-width: 1440px;
 	min-height: 100%;
 	font-family: 'Roboto', sans-serif;
 	font-feature-settings: "kern","liga";
@@ -33,7 +34,7 @@ body {
 	text-align: justify;
 
 	display: grid;
-	grid-template-rows: 3.33rem 3.33rem auto 3.33rem;
+	grid-template-rows: 75px 0 auto auto;
 	grid-template-columns: 20% 60% 20%;
 	align-items: stretch;
 	justify-items: stretch;
@@ -110,11 +111,11 @@ body {
 	padding: .55rem;
 	display: none;
 	position: fixed;
-	top: 3.33rem;
+	top: 75px;
 	right: 20%;
 	z-index: 99;
 	cursor: pointer;
-	color: white;
+	color: #FFF;
 }
 
 .up {
@@ -151,11 +152,6 @@ body {
 	flex-direction: column;
 	justify-content: stretch;
 }
-
-/* .subfigure .caption {
-	flex: 1;
-	order: 1;
-} */
 
 .subfigure a {
 	order: 2;

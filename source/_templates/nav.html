@@ -6,17 +6,17 @@
    <div class="nav-links" id="staticNav">
    </div>
 
-   <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-   <div id="sideNav" class="sidenav">
-      <div class="sideNavHeader">
-         {% include "../_static/img/Logo.svg" %}
-         <!-- <h1>FreeFem++</h1> -->
-         <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-      </div>
-      <div id="dynamicSideNav">
-      </div>
-   </div>
+       <div id="sideNav" class="sidenav">
+          <div class="sideNavHeader">
+             {% include "../_static/img/Logo.svg" %}
+
+             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          </div>
+          <div id="dynamicSideNav">
+          </div>
+       </div>
 
    {% include "search.html" %}
 </nav>

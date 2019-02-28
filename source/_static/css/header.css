@@ -3,10 +3,15 @@ header {
 	grid-column: 1 / 4;
 	display: grid;
 	grid-template-rows: auto;
-	grid-template-columns: 3.33rem auto auto;
+	grid-template-columns: auto auto auto;
 	align-items: center;
-	background-color: #00007F;
-	color: white;
+	justify-items: stretch;
+	background-color: #FFF;
+	color: #00007F;
+	border-bottom: 2px solid #EFEFEF;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 }
 
 header p {
@@ -16,11 +21,11 @@ header p {
 }
 
 header a {
-	color: white;
+	color: #00007F;
 }
 
 header a:visited {
-	color: white;
+	color: #00007F;
 }
 
 header .header-logo {
@@ -31,56 +36,125 @@ header .header-logo {
 
 header .header-logo img {
 	height: 2.22rem;
-	margin: .625rem 2.5rem;
+	margin: 15px;
 }
 
-header .header-title {
+header .search-container {
 	grid-row: 1;
 	grid-column: 2;
-	justify-self: start;
+	justify-self: center;
+	display: flex;
+	flex-direction: row;
 	transition: 0.5;
 }
 
-header .header-title h2 {
+header .search-container label {
+	padding: .55rem 0 .55rem .55rem;
+	background-color: #0000FF;
+}
+
+header .search-container label i {
+	color: #FFF;
+}
+
+header #searchInput {
 	margin: 0;
-	padding: 0;
+	padding: .55rem;
+	border: none;
+	background-color: #0000FF;
+	color: #FFF;
+	font-size: 1rem;
+}
+
+header #searchInput:focus {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	outline: none;
+	border-radius: 0;
+}
+
+header #searchResults {
+	background-color: #f1f1f1;
+	color: grey;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 50%;
+	max-height: 50vh;
+	z-index: 1;
+	overflow: auto;
+	border-radius: 0 0 .27rem .27rem;
+	box-shadow: .27rem .55rem 1rem #888888;
+}
+
+header #searchResults .search-result {
+	padding: 1.11rem;
+}
+
+header #searchResults .search-result-main-title {
+	font-size: 1rem;
+	color: grey;
+	font-weight: bold;
+}
+
+header #searchResults .search-result-main-title i {
+	color: #0000FF;
+	padding-right: .55rem;
+}
+
+header #searchResults .search-result-sub {
+	padding: .27rem;
+}
+
+header #searchResults .search-result-title {
+	font-weight: bold;
+	color: gray;
+}
+
+header #searchResults .search-result-preview {
+	color: black;
 	font-weight: normal;
+}
+
+header #searchResults a:hover {
+	color: black;
 }
 
 header .header-github {
 	grid-row: 1;
 	grid-column: 3;
 	justify-self: right;
-	padding: 0 .55rem;
+	margin: 0 15px;
 
 	display: grid;
 	grid-template-rows: auto auto;
 	grid-template-columns: auto auto;
-	justify-items: center;
-	align-items: center;
 	grid-gap: .27rem;
 }
 
-header .header-github-img {
-	width: 2.22rem;
+header .header-github i {
 	grid-row: 1 / 3;
-	grid-column: 1;
+	grid-column: 2;
+	font-size: 30px;
 }
 
 header .header-github-title {
 	grid-row: 1;
-	grid-column: 2;
-	justify-self: left;
+	grid-column: 1;
+	justify-self: right;
 	padding: 0;
 	margin: 0;
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 0.9em;
 }
 
 header .header-github-stars {
 	grid-row: 2;
-	grid-column: 2;
-	justify-self: left;
+	grid-column: 1;
+	justify-self: right;
 	padding: 0;
 	margin: 0;
 	font-size: 0.9em;

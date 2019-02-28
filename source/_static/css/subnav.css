@@ -5,12 +5,17 @@
 	justify-content: center;
 	align-items: flex-start;
 	padding: .55rem;
-	background-color: #EFEFEF;
+	background-color: #F7F7F9;
+	border-right: 2px solid #EFEFEF;
 	font-size: 0.9rem;
 }
 
 #subnav ul {
 	list-style: none;
+}
+
+#subnav div > ul > li > a {
+	color: #00007F;
 }
 
 #subnav li {
@@ -19,7 +24,7 @@
 
 #subnav li.toctree-l1{
 	display: none;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 #subnav li.current {
@@ -44,7 +49,7 @@
 
 #subnav > div {
 	position: sticky;
-	top: 3.88rem;
+	top: 85px;
 	max-height: 90vh;
 	padding: .55rem;
 	overflow: auto;

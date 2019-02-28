@@ -1,12 +1,12 @@
 /** GLOBAL **/
 a {
 	text-decoration: none;
-	color: rgba(0,0,0,.87);
+	color: #444;
 }
 
 a:visited {
 	text-decoration: none;
-	color: rgba(0,0,0,.87);
+	color: #444;
 }
 
 div[id]:target::before {
@@ -37,7 +37,8 @@ li {
 }
 
 b {
-	font-weight: bold;
+	font-weight: 700;
+	color: #00007F;
 }
 
 button:focus {
@@ -48,12 +49,13 @@ i {
 	font-size: 1.11rem;
 }
 
-i:hover {
-	color: white;
+h1, h2, h3, h4, h5, h6 {
+	color: #444;
 }
 
 p {
 	line-height: 1.625rem;
+	color: #444;
 }
 
 .fake-title {

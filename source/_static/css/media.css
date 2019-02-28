@@ -1,18 +1,32 @@
 @media screen and (max-width: 1200px){
 	body {
 		grid-template-columns: 0 70% 30% !important;
+		grid-template-rows: 75px 60px auto auto !important;
 	}
 
 	.up-button {
 		right: 30% !important;
+		top: 60px !important;
+	}
+
+	header {
+		position: static !important;
 	}
 
 	header .header-logo img {
 		margin: .8rem !important;
 	}
 
+	header .search-container {
+		display: none !important;
+	}
+
 	nav {
+		display: grid;
+		grid-template-rows: auto;
 		grid-template-columns: 2.77rem auto 32.77rem;
+		align-items: center;
+		font-size: 1rem;
 	}
 
 	nav #searchInput:focus {
@@ -57,17 +71,19 @@
 		grid-column: 1 / 3 !important;
 		justify-self: stretch;
 	}
+
+	#toc > div {
+		top: 70px !important;
+	}
 }
 
+/** FOR MOBILE PHONES **/
 @media screen and (max-width: 600px) {
 	body {
 		grid-template-columns: 0 100% 0 !important;
 		grid-template-rows: 4rem 3.33rem auto 5.55rem !important;
 	}
 
-	#content {
-		margin-bottom: 10vh !important;
-	}
 
 	.up-button {
 		right: 0 !important;
@@ -102,7 +118,28 @@
 
 	#content {
 		grid-column: 1 / 4 !important;
-		margin-bottom: 0;
+		margin-bottom: 10vh !important;
+	}
+
+	#toc {
+		display: none;
+	}
+
+	footer {
+		grid-template-rows: auto auto;
+		grid-template-columns: auto;
+	}
+
+	.footer-text {
+		grid-row: 1;
+		grid-column: auto;
+		justify-self: center;
+	}
+
+	.footer-img {
+		grid-row: 2;
+		grid-column: auto;
+		justify-self: center;
 	}
 
 	/** CONTENT **/
@@ -144,27 +181,6 @@
 
 	#welcome-to-freefem-documentation img {
 	    width: 60% !important;
-	}
-
-	#toc {
-		display: none;
-	}
-
-	footer {
-		grid-template-rows: auto auto;
-		grid-template-columns: auto;
-	}
-
-	.footer-text {
-		grid-row: 1;
-		grid-column: auto;
-		justify-self: center;
-	}
-
-	.footer-img {
-		grid-row: 2;
-		grid-column: auto;
-		justify-self: center;
 	}
 
 	.admonition {

@@ -1,11 +1,12 @@
 <header>
    <a class="header-logo" href="{{ pathto('index.html', 1) }}">
-      <img alt="logo" title="FreeFem++ documentation" src="{{ pathto('_static/img/FreeFem_Documentation_Logo_Blanc.svg', 1) }}" />
+      <img alt="logo" title="FreeFem++ documentation" src="{{ pathto('_static/img/FreeFem_Documentation_Logo_bleu.svg', 1) }}" />
    </a>
 
-   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources">
-      <img class="header-github-img" alt="GitHub" title="FreeFem++ on GitHub" src="{{ pathto('_static/img/GitHub-Mark-120px-plus.png', 1) }}" />
+   {% include "search.html" %}
 
+   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources">
+      <i class="fab fa-github"></i>
       <p class="header-github-title" >
          FreeFem++ on GitHub
       </p>

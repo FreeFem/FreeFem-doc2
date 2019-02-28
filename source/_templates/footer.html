@@ -1,19 +1,8 @@
 <footer>
-   <script>
-   let date = new Date()
-   let currentYear = date.getFullYear()
-   </script>
-
-   <p class="footer-text">
-      <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
-   </p>
-
-   <div class="footer-img">
-      <p>
-         Made with <i class="fas fa-heart"></i> on
-      </p>
-      <a href="https://github.com/FreeFem">
-         <img alt="Github" title="Github" src="{{ pathto("_static/img/GitHub_Logo_White.png", 1) }}" />
-      </a>
-   </div>
+	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+	<img src='{{ pathto("_static/img/Symbole.svg", 1) }}' alt="Logo de FreeFem++"/>
+	<span>
+		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
+		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
+	</span>
 </footer>
