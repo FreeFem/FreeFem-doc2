@@ -6,11 +6,11 @@ Welcome to FreeFem++ documentation
 .. toctree::
 
    introduction/index
+   tutorial/index
    documentation/index
    reference/index
-   tutorial/index
-   example/index
    model/index
+   example/index
    reference
 
 .. only:: html
