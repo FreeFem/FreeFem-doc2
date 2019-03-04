@@ -2,7 +2,7 @@ footer {
 		grid-row: 4;
 		grid-column: 1 / 4;
     display: flex;
-    min-height: 4.5rem;
+    min-height: 3.75rem;
     font-size: 1.25rem;
 		border-top: 2px solid #EFEFEF;
 }
@@ -21,5 +21,6 @@ footer p, footer a, footer span {
     align-self: center;
     flex: 1 1 0;
     text-align: center;
-    margin: 20px 0;
+    margin: 1.125rem 0;
+		line-height: 1.5rem !important;
 }
