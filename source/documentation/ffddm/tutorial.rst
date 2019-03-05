@@ -254,7 +254,7 @@ builds the distributed operator associated to your variational form on top of th
 .. math::
     A = \sum_{i=1}^N R_i^T D_i A_i R_i
 
-.. warning:: only true because :math:`D_i R_i A = D_i A R_i` due to the fact that :math:`D_i` vanishes at the interface **!!**
+.. warning:: only true because :math:`D_i R_i A = D_i A_i R_i` due to the fact that :math:`D_i` vanishes at the interface **!!**
 
 `pr#A` applies :math:`A` to a distributed vector: :math:`{\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j A_j {\mathbf V}_j`
 
