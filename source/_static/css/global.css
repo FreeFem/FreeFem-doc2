@@ -29,6 +29,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	padding-left: .55rem;
+	text-justify: none;
 }
 
 li {
