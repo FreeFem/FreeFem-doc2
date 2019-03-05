@@ -32,9 +32,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1rem;
 	text-align: justify;
-
 	display: grid;
-	grid-template-rows: 75px 0 auto auto;
+	grid-template-rows: auto 0 auto auto;
 	grid-template-columns: 20% 60% 20%;
 	align-items: stretch;
 	justify-items: stretch;
