@@ -15,7 +15,7 @@
 	}
 
 	header .header-logo img {
-		margin: .8rem !important;
+		margin: 0 1.25rem !important;
 	}
 
 	header .search-container {
@@ -82,7 +82,7 @@
 @media screen and (max-width: 600px) {
 	body {
 		grid-template-columns: 0 100% 0 !important;
-		grid-template-rows: 75px 60px auto 5.55rem !important;
+		grid-template-rows: auto 60px auto 5.55rem !important;
 	}
 
 	.up-button {
