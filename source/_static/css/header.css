@@ -46,6 +46,7 @@ header .search-container {
 	justify-self: center;
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 	transition: 0.5;
 }
 
@@ -129,11 +130,10 @@ header .header-github {
 	grid-column: 3;
 	justify-self: right;
 	margin: 0 15px;
-
 	display: grid;
 	grid-template-rows: auto auto;
 	grid-template-columns: auto auto;
-	grid-gap: .27rem;
+	grid-gap: 0 .5rem;
 }
 
 header .header-github i {
@@ -150,6 +150,7 @@ header .header-github-title {
 	margin: 0;
 	font-weight: 700;
 	font-size: 0.9em;
+	color: #00007F;
 }
 
 header .header-github-stars {
@@ -160,4 +161,9 @@ header .header-github-stars {
 	margin: 0;
 	font-size: 0.9em;
 	display: none;
+	color: #00007F;
+}
+
+header .header-github:hover, .header-github-stars:hover, .header-github-title {
+	color: #0000FF;
 }

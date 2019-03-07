@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	padding: .55rem;
+	/* padding: .55rem; */
 	background-color: #F7F7F9;
 	border-right: 2px solid #EFEFEF;
 	font-size: 0.9rem;
@@ -51,7 +51,7 @@
 
 #subnav > div {
 	position: sticky;
-	top: 85px;
+	/* top: 85px; */
 	max-height: 90vh;
 	padding: .55rem;
 	overflow: auto;

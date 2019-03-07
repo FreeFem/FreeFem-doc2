@@ -75,7 +75,7 @@ body {
 }
 
 #content h1 .headerlink:focus, #content h1:hover .headerlink:hover, #content h1:target .headerlink, #content h2 .headerlink:focus, #content h2:hover .headerlink:hover, #content h2:target .headerlink, #content h3 .headerlink:focus, #content h3:hover .headerlink:hover, #content h3:target .headerlink {
-    color: #00007F;
+    color: #0000FF;
 }
 
 #content .headerlink:visited {

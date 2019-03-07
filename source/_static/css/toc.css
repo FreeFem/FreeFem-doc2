@@ -12,7 +12,6 @@
 
 #toc > div {
 	position: sticky;
-	top: 85px;
 	padding: .55rem;
 	max-height: 90vh;
 	overflow: auto;
