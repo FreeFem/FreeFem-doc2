@@ -11,6 +11,7 @@
 	}
 
 	header {
+		grid-template-columns: 50% 0 50%;
 		position: static !important;
 	}
 
@@ -87,6 +88,18 @@
 
 	.up-button {
 		right: 0 !important;
+	}
+
+	header {
+		grid-template-columns: 100% 0 0;
+	}
+
+	header .header-logo {
+		margin: auto;
+	}
+
+	header .header-logo img {
+		margin: auto !important;
 	}
 
 	header .header-github {

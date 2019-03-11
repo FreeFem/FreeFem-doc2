@@ -10,6 +10,10 @@
 	font-size: 0.9rem;
 }
 
+#subnav b {
+	margin: 0.75rem 0;
+}
+
 #subnav ul {
 	list-style: none;
 }
@@ -52,7 +56,7 @@
 #subnav > div {
 	position: sticky;
 	top: 3.75rem;
-	max-height: calc(100vh - 3.75rem - 3.75rem);
+	max-height: calc(100vh - 3.75rem);
 	padding: .55rem;
 	overflow: auto;
 	width: 100%;
