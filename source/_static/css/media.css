@@ -1,7 +1,7 @@
 @media screen and (max-width: 1200px){
 	body {
 		grid-template-columns: 0 70% 30% !important;
-		grid-template-rows: 75px 60px auto auto !important;
+		grid-template-rows: 62px 60px auto auto !important;
 	}
 
 	.up-button {
