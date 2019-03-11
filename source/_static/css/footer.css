@@ -1,10 +1,10 @@
 footer {
-		grid-row: 4;
-		grid-column: 1 / 4;
-    display: flex;
-    min-height: 3.75rem;
-    font-size: 1.25rem;
-		border-top: 2px solid #EFEFEF;
+	grid-row: 4;
+	grid-column: 1 / 4;
+	display: flex;
+	min-height: 3.75rem;
+	font-size: 1.25rem;
+	border-top: 2px solid #EFEFEF;
 }
 
 footer i {
