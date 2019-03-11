@@ -1,89 +1,166 @@
 header {
-	grid-row: 1;
-	grid-column: 1 / 4;
-	display: grid;
-	grid-template-rows: auto;
-	grid-template-columns: 3.33rem auto auto;
-	align-items: center;
-	background-color: #00007F;
-	color: white;
+  grid-row: 1;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-rows: 3.75rem;
+  grid-template-columns: 25% auto 25%;
+  align-items: center;
+  justify-items: stretch;
+  background-color: #FFF;
+  color: #00007F;
+  border-bottom: 2px solid #EFEFEF;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 header p {
-	font-family: "Roboto", sans-serif;
-	line-height: 1rem;
-	font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1rem;
+  font-size: 1rem;
 }
 
 header a {
-	color: white;
+  color: #00007F;
 }
 
 header a:visited {
-	color: white;
+  color: #00007F;
 }
 
 header .header-logo {
-	grid-row: 1;
-	grid-column: 1;
-	justify-self: center;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: start;
 }
 
-header .header-logo svg {
-	width: 2.22rem;
-	height: 2.22rem;
-	margin: .5rem;
+header .header-logo img {
+  height: 2.5rem;
+  margin: 0 3.75rem 0 1rem;
+  vertical-align: middle;
 }
 
-header .header-title {
-	grid-row: 1;
-	grid-column: 2;
-	justify-self: start;
-	transition: 0.5;
+header .search-container {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  transition: 0.5;
+  justify-content: center;
 }
 
-header .header-title h2 {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
+header .search-container label {
+  padding: .55rem 0 .55rem .55rem;
+  background-color: #0000FF;
+}
+
+header .search-container label i {
+  color: #FFF;
+}
+
+header #searchInput {
+  margin: 0;
+  padding: .55rem;
+  border: none;
+  background-color: #0000FF;
+  color: #FFF;
+  font-size: 1rem;
+  width: 230px;
+  transition: width 0.5s;
+}
+
+header #searchInput:focus {
+  width: 100%;
+}
+
+header #searchResults {
+  background-color: #f1f1f1;
+  color: grey;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 0 auto;
+  left: 0;
+  width: 50%;
+  max-height: 50vh;
+  z-index: 1;
+  overflow: auto;
+  border-radius: 0 0 .27rem .27rem;
+  box-shadow: .27rem .55rem 1rem #888888;
+}
+
+header #searchResults .search-result {
+  padding: 1.11rem;
+}
+
+header #searchResults .search-result-main-title {
+  font-size: 1rem;
+  color: grey;
+  font-weight: bold;
+}
+
+header #searchResults .search-result-main-title i {
+  color: #0000FF;
+  padding-right: .55rem;
+}
+
+header #searchResults .search-result-sub {
+  padding: .27rem;
+}
+
+header #searchResults .search-result-title {
+  font-weight: bold;
+  color: gray;
+}
+
+header #searchResults .search-result-preview {
+  color: black;
+  font-weight: normal;
+}
+
+header #searchResults a:hover {
+  color: black;
 }
 
 header .header-github {
-	grid-row: 1;
-	grid-column: 3;
-	justify-self: right;
-	padding: 0 .55rem;
-
-	display: grid;
-	grid-template-rows: auto auto;
-	grid-template-columns: auto auto;
-	justify-items: center;
-	align-items: center;
-	grid-gap: .27rem;
+  grid-row: 1;
+  grid-column: 3;
+  justify-self: right;
+  margin: 0 15px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  grid-gap: 0 .5rem;
 }
 
-header .header-github-img {
-	width: 2.22rem;
-	grid-row: 1 / 3;
-	grid-column: 1;
+header .header-github i {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  font-size: 30px;
 }
 
 header .header-github-title {
-	grid-row: 1;
-	grid-column: 2;
-	justify-self: left;
-	padding: 0;
-	margin: 0;
-	font-weight: bold;
-	font-size: 0.9em;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: right;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.9em;
+  color: #00007F;
 }
 
 header .header-github-stars {
-	grid-row: 2;
-	grid-column: 2;
-	justify-self: left;
-	padding: 0;
-	margin: 0;
-	font-size: 0.9em;
-	display: none;
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: right;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+  display: none;
+  color: #00007F;
+}
+
+header .header-github:hover, .header-github-stars:hover, .header-github-title {
+  color: #0000FF;
 }

@@ -4,14 +4,13 @@
 	<head>
 		  <meta charset="UTF-8">
   <title>Algorithms & Optimization</title>
-  <link rel="icon" href="../_static/img/favicon.png" />
+  <link rel="icon" href="../_static/img/Symbol.png" />
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
   <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900" rel="stylesheet">
 
   <!-- FreeFem++ theme specific -->
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
@@ -27,91 +26,25 @@
 	</head>
 	<body>
 		<header>
-   <a class="header-logo" href="../index.html">
-      <!-- <img alt="logo" title="FreeFem++ documentation" src="../_static/img/Logo.png" /> -->
-      <svg
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:cc="http://creativecommons.org/ns#"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:svg="http://www.w3.org/2000/svg"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-         version="1.1"
-         id="Calque_1"
-         x="0px"
-         y="0px"
-         viewBox="0 0 178.6 178.60001"
-         xml:space="preserve"
-         sodipodi:docname="FreeFem Logo2.svg"
-         inkscape:version="0.92.3 (2405546, 2018-03-11)"
-         width="178.60001"
-         height="178.60001"><metadata
-         id="metadata3771"><rdf:RDF><cc:Work
-             rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-               rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
-         id="defs3769" /><sodipodi:namedview
-         pagecolor="#ffffff"
-         bordercolor="#666666"
-         borderopacity="1"
-         objecttolerance="10"
-         gridtolerance="10"
-         guidetolerance="10"
-         inkscape:pageopacity="0"
-         inkscape:pageshadow="2"
-         inkscape:window-width="1920"
-         inkscape:window-height="1017"
-         id="namedview3767"
-         showgrid="false"
-         inkscape:snap-grids="false"
-         inkscape:zoom="1.4244919"
-         inkscape:cx="382.18457"
-         inkscape:cy="-74.86043"
-         inkscape:window-x="-8"
-         inkscape:window-y="488"
-         inkscape:window-maximized="1"
-         inkscape:current-layer="Calque_1"
-         fit-margin-top="0"
-         fit-margin-left="0"
-         fit-margin-right="0"
-         fit-margin-bottom="0" />
-      <style
-         type="text/css"
-         id="style3743">
-      	.st0{fill:white;}
-      	.st1{fill:white;}
-      </style>
-      <polygon
-         class="st0"
-         points="120.9,384.4 299.5,384.4 299.5,324.9 180.4,324.9 180.4,280.2 120.9,280.2 120.9,324.9 120.9,332.3 "
-         id="polygon3745"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-      <rect
-         id="SVGID_3_"
-         x="74.400002"
-         y="74.400009"
-         class="st0"
-         width="29.799999"
-         height="29.799999"
-         style="fill:white" />
-      <polygon
-         class="st0"
-         points="299.5,265.4 299.5,257.9 299.5,205.8 120.9,205.8 120.9,265.4 239.9,265.4 239.9,310 299.5,310 "
-         id="polygon3748"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-
-      </svg>
+   <a class="header-logo" href="../introduction/index.html">
+      <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
 
-   <a class="header-title" href="../index.html">
-      <h2>FreeFem++ documentation</h2>
-   </a>
+   <script async src="../_static/js/lunr.js"></script>
+<script async src="../_static/lunr/lunr_index.js"></script>
 
-   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources">
-      <img class="header-github-img" alt="GitHub" title="FreeFem++ on GitHub" src="../_static/img/GitHub-Mark-120px-plus.png" />
+<div class="search-container">
+   <label for="searchInput"><i class="fas fa-search"></i></label>
+   <input type="search" placeholder="Search ..." id="searchInput">
+</div>
+<div id="searchResults"></div>
+<script src="../_static/js/search.js"></script>
+<script>
+   initSearch('../')
+</script>
 
+   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
+      <i class="fab fa-github"></i>
       <p class="header-github-title" >
          FreeFem++ on GitHub
       </p>
@@ -176,6 +109,59 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#physics">Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#coding">Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorial/wifiPropagation.html#the-domain">The domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorial/wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#d-problem">2D Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#importing-data">Importing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#id1">3D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
@@ -1489,55 +1475,61 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/thermalConduction.html">Thermal Conduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/wifiPropagation.html">Wifi Propagation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#physics">Physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/wifiPropagation.html#coding">Coding</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/wifiPropagation.html#the-domain">The domain</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#d-problem">2D Problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#importing-data">Importing Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#id1">3D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/matlabOctavePlot.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
 </ul>
 </li>
 </ul>
@@ -1615,65 +1607,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1682,17 +1615,17 @@
    <div class="nav-links" id="staticNav">
    </div>
 
-   <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-   <div id="sideNav" class="sidenav">
-      <div class="sideNavHeader">
-         <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.73 141.73"><defs><style>.cls-1{fill:blue;}</style></defs><title>Symbole</title><polygon class="cls-1" points="47.22 94.52 47.22 59.04 0 59.04 0 94.52 0 100.39 0 141.73 141.73 141.73 141.73 94.52 47.22 94.52"/><rect id="SVGID" class="cls-1" x="59.04" y="59.04" width="23.65" height="23.65"/><polygon class="cls-1" points="0 0 0 47.3 94.44 47.3 94.44 82.69 141.73 82.69 141.73 47.3 141.73 41.34 141.73 0 0 0"/></svg>
-         <h1>FreeFem++</h1>
-         <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-      </div>
-      <div id="dynamicSideNav">
-      </div>
-   </div>
+       <div id="sideNav" class="sidenav">
+          <div class="sideNavHeader">
+             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+
+             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          </div>
+          <div id="dynamicSideNav">
+          </div>
+       </div>
 
    <script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
@@ -1715,6 +1648,7 @@
   <div style="display: none">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="meshGeneration.html">Mesh Generation</a></li>
@@ -1737,9 +1671,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1756,7 +1689,7 @@
 <p>Suppose we want to solve the Euler problem (here <span class="math notranslate nohighlight">\(x\)</span> has nothing to do with the reserved variable for the first coordinate in <strong>FreeFem++</strong>):</p>
 <p>find <span class="math notranslate nohighlight">\(x\in \mathbb{R}^n\)</span> such that</p>
 <div class="math notranslate nohighlight" id="equation-eqndj">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqndj" title="Permalink to this equation"> </a></span>\[\nabla J(x) = \left(\frac{\partial J}{\partial x_i} (\mathbf{x})\right) = 0\]</div>
+<span class="eqno">(24)<a class="headerlink" href="#equation-eqndj" title="Permalink to this equation"> </a></span>\[\nabla J(x) = \left(\frac{\partial J}{\partial x_i} (\mathbf{x})\right) = 0\]</div>
 <p>where <span class="math notranslate nohighlight">\(J\)</span> is a function (to minimize for example) from <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</p>
 <p>If the function is convex we can use the conjugate gradient algorithm to solve the problem, and we just need the function (named <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">dJ</span></code> for example) which computes <span class="math notranslate nohighlight">\(\nabla J\)</span>, so the parameters are the name of that function with prototype <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">dJ</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">xx</span><span class="p">);</span></code> which computes <span class="math notranslate nohighlight">\(\nabla J\)</span>, and a vector <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">x</span></code> of type (of course the number 20 can be changed) <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kr">x</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span></code> to initialize the process and get the result.</p>
 <p>Given an initial value <span class="math notranslate nohighlight">\(\mathbf{x}^{(0)}\)</span>, a maximum number <span class="math notranslate nohighlight">\(i_{\max}\)</span> of iterations, and an error tolerance <span class="math notranslate nohighlight">\(0&lt;\epsilon&lt;1\)</span>:</p>
@@ -2089,36 +2022,36 @@ Each nonlinear inequality is transformed into a pair of simple bound inequalitie
 Thus, for convenience, we will assume that the minimization problem does not contain any nonlinear inequality constraint.
 It means that, given a function <span class="math notranslate nohighlight">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>, we want to find:</p>
 <div class="math notranslate nohighlight" id="equation-minimproblem">
-<span class="eqno">(18)<a class="headerlink" href="#equation-minimproblem" title="Permalink to this equation"> </a></span>\[\begin{split}x_{0} = \underset{x\in V}{\operatorname{argmin}} f(x) \\
+<span class="eqno">(25)<a class="headerlink" href="#equation-minimproblem" title="Permalink to this equation"> </a></span>\[\begin{split}x_{0} = \underset{x\in V}{\operatorname{argmin}} f(x) \\
 \mathrm{with}\ V = \left\lbrace x\in\mathbb{R}^{n}\ \vert\ c(x)= 0 \ \text{and}\ x_{l}\leq x\leq x_{u}\right\rbrace\end{split}\]</div>
 <p>Where <span class="math notranslate nohighlight">\(c:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}\)</span> and <span class="math notranslate nohighlight">\(x_{l},x_{u}\in\mathbb{R}^{n}\)</span> and inequalities hold componentwise.
 The <span class="math notranslate nohighlight">\(f\)</span> function as well as the constraints <span class="math notranslate nohighlight">\(c\)</span> should be twice-continuously differentiable.</p>
-<p>As a barrier method, interior points algorithms try to find a Karush-Kuhn-Tucker point for <a class="reference internal" href="#equation-minimproblem">(18)</a> by solving a sequence of problems, unconstrained with respect to the inequality constraints, of the form:</p>
+<p>As a barrier method, interior points algorithms try to find a Karush-Kuhn-Tucker point for <a class="reference internal" href="#equation-minimproblem">(25)</a> by solving a sequence of problems, unconstrained with respect to the inequality constraints, of the form:</p>
 <div class="math notranslate nohighlight" id="equation-barrier">
-<span class="eqno">(19)<a class="headerlink" href="#equation-barrier" title="Permalink to this equation"> </a></span>\[\mathrm{for\ a\ given\ }\mu &gt; 0,\ \mathrm{find}\ x_{\mu} = \underset{x\in\mathbb{R}^{n}\ \vert\ c(x)=0}{\operatorname{argmin}}\ B(x,\mu)\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-barrier" title="Permalink to this equation"> </a></span>\[\mathrm{for\ a\ given\ }\mu &gt; 0,\ \mathrm{find}\ x_{\mu} = \underset{x\in\mathbb{R}^{n}\ \vert\ c(x)=0}{\operatorname{argmin}}\ B(x,\mu)\]</div>
 <p>Where <span class="math notranslate nohighlight">\(\mu\)</span> is a positive real number and</p>
 <div class="math notranslate nohighlight">
 \[B(x,\mu) = f(x) - \displaystyle{\mu\sum_{i=1}^{n} \ln (x_{u,i}-x_{i})} - \displaystyle{\mu\sum_{i=1}^{m} \ln(x_{i}-x_{l,i})}\]</div>
 <p>The remaining equality constraints are handled with the usual Lagrange multipliers method.
-If the sequence of barrier parameters <span class="math notranslate nohighlight">\(\mu\)</span> converge to 0, intuition suggests that the sequence of minimizers of <a class="reference internal" href="#equation-barrier">(19)</a> converge to a local constrained minimizer of <a class="reference internal" href="#equation-minimproblem">(18)</a>.
-For a given <span class="math notranslate nohighlight">\(\mu\)</span>, <a class="reference internal" href="#equation-barrier">(19)</a> is solved by finding <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\in\mathbb{R}^{n}\times\mathbb{R}^{m}\)</span> such that:</p>
+If the sequence of barrier parameters <span class="math notranslate nohighlight">\(\mu\)</span> converge to 0, intuition suggests that the sequence of minimizers of <a class="reference internal" href="#equation-barrier">(26)</a> converge to a local constrained minimizer of <a class="reference internal" href="#equation-minimproblem">(25)</a>.
+For a given <span class="math notranslate nohighlight">\(\mu\)</span>, <a class="reference internal" href="#equation-barrier">(26)</a> is solved by finding <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\in\mathbb{R}^{n}\times\mathbb{R}^{m}\)</span> such that:</p>
 <div class="math notranslate nohighlight" id="equation-muproblem">
-<span class="eqno">(20)<a class="headerlink" href="#equation-muproblem" title="Permalink to this equation"> </a></span>\[\begin{split}\nabla B(x_{\mu},\mu) + \displaystyle{\sum_{i=1}^{m}\lambda_{\mu,i}\nabla c_{i}(x_{\mu})}= \nabla B(x_{\mu},\mu) + J_{c}(x_{\mu})^{T}\lambda_{\mu}&amp;= 0\\
+<span class="eqno">(27)<a class="headerlink" href="#equation-muproblem" title="Permalink to this equation"> </a></span>\[\begin{split}\nabla B(x_{\mu},\mu) + \displaystyle{\sum_{i=1}^{m}\lambda_{\mu,i}\nabla c_{i}(x_{\mu})}= \nabla B(x_{\mu},\mu) + J_{c}(x_{\mu})^{T}\lambda_{\mu}&amp;= 0\\
 c(x_{\mu}) &amp;= 0\end{split}\]</div>
 <p>The derivations for <span class="math notranslate nohighlight">\(\nabla B\)</span> only holds for the <span class="math notranslate nohighlight">\(x\)</span> variables, so that:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\nabla B(x,\mu) = \nabla f(x) + \left(\begin{matrix}\mu/(x_{u,1}-x_{1}) \\ \vdots \\ \mu/(x_{u,n}-x_{n})\end{matrix}\right) - \left(\begin{matrix}\mu/(x_{1}-x_{l,1}) \\ \vdots \\ \mu/(x_{n}-x_{l,n})\end{matrix}\right)\end{split}\]</div>
 <p>If we respectively call <span class="math notranslate nohighlight">\(z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x_{u,n}-x_{n})\right)\)</span> and <span class="math notranslate nohighlight">\(z_{l}(x,\mu)\)</span> the other vector appearing in the above equation, then the optimum <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\)</span> satisfies:</p>
 <div class="math notranslate nohighlight" id="equation-muproblemlambda">
-<span class="eqno">(21)<a class="headerlink" href="#equation-muproblemlambda" title="Permalink to this equation"> </a></span>\[\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0\]</div>
+<span class="eqno">(28)<a class="headerlink" href="#equation-muproblemlambda" title="Permalink to this equation"> </a></span>\[\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0\]</div>
 <p>In this equation, the <span class="math notranslate nohighlight">\(z_l\)</span> and <span class="math notranslate nohighlight">\(z_u\)</span> vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when <span class="math notranslate nohighlight">\(\mu\rightarrow 0\)</span>, they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see <a class="reference internal" href="../reference.html#forsgren2002" id="id5">[FORSGREN2002]</a>).</p>
-<p>Equation <a class="reference internal" href="#equation-muproblemlambda">(21)</a> is solved by performing a Newton method in order to find a solution of <a class="reference internal" href="#equation-muproblem">(20)</a> for each of the decreasing values of <span class="math notranslate nohighlight">\(\mu\)</span>.
+<p>Equation <a class="reference internal" href="#equation-muproblemlambda">(28)</a> is solved by performing a Newton method in order to find a solution of <a class="reference internal" href="#equation-muproblem">(27)</a> for each of the decreasing values of <span class="math notranslate nohighlight">\(\mu\)</span>.
 Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see <a class="reference internal" href="../reference.html#forsgren2002" id="id6">[FORSGREN2002]</a> for details about them.
-In the most classic IP algorithms, the Newton method is directly applied to <a class="reference internal" href="#equation-muproblem">(20)</a>.
+In the most classic IP algorithms, the Newton method is directly applied to <a class="reference internal" href="#equation-muproblem">(27)</a>.
 This is in most case inefficient due to frequent computation of infeasible points.
-These difficulties are avoided in Primal-Dual interior point methods where <a class="reference internal" href="#equation-muproblem">(20)</a> is transformed into an extended system where <span class="math notranslate nohighlight">\(z_u\)</span> and <span class="math notranslate nohighlight">\(z_l\)</span> are treated as unknowns and the barrier problems are finding <span class="math notranslate nohighlight">\((x,\lambda,z_u,z_l)\in\mathbb{R}^n\times\mathbb{R}^m\times\mathbb{R}^n\times\mathbb{R}^n\)</span> such that:</p>
+These difficulties are avoided in Primal-Dual interior point methods where <a class="reference internal" href="#equation-muproblem">(27)</a> is transformed into an extended system where <span class="math notranslate nohighlight">\(z_u\)</span> and <span class="math notranslate nohighlight">\(z_l\)</span> are treated as unknowns and the barrier problems are finding <span class="math notranslate nohighlight">\((x,\lambda,z_u,z_l)\in\mathbb{R}^n\times\mathbb{R}^m\times\mathbb{R}^n\times\mathbb{R}^n\)</span> such that:</p>
 <div class="math notranslate nohighlight" id="equation-primaldualipbarrierproblem">
-<span class="eqno">(22)<a class="headerlink" href="#equation-primaldualipbarrierproblem" title="Permalink to this equation"> </a></span>\[\begin{split}\left\lbrace
+<span class="eqno">(29)<a class="headerlink" href="#equation-primaldualipbarrierproblem" title="Permalink to this equation"> </a></span>\[\begin{split}\left\lbrace
 \begin{array}{rcl}
    \nabla f(x) + J_{c}(x)^{T}\lambda+ z_{u} - z_{l} &amp; = &amp; 0 \\
    c(x) &amp; = &amp; 0 \\
@@ -2697,11 +2630,11 @@ We define the space:</p>
 <div class="last figure compound align-center" id="VariationalInequality">
 <div style="width: 49%" class="subfigure" id="id10">
 <span id="figalgovarineqfill"></span><a class="reference internal image-reference" href="../_images/VarIneqFill.jpg"><img alt="VarIneqFill" src="../_images/VarIneqFill.jpg" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
+<p class="caption"><span class="caption-number">Fig. 119 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id11">
 <span id="figalgovarineqiso"></span><a class="reference internal image-reference" href="../_images/VarIneqIso.jpg"><img alt="../_images/VarIneqIso.jpg" src="../_images/VarIneqIso.jpg" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
+<p class="caption"><span class="caption-number">Fig. 120 </span><span class="caption-text">Numerical Approximation of the Variational Inequality</span></p>
 </div>
 <p class="caption"><span class="caption-text">Variational inequality</span></p>
 </div></div>
@@ -2731,7 +2664,7 @@ In order to exclude self crossing and opened shapes, the following assumptions u
 \[\rho \geq 0\ \ \mathrm{and}\ \ \forall \phi, \rho(0,\phi) = \rho(2\pi,\phi)\]</div>
 <p>For a given function <span class="math notranslate nohighlight">\(\rho\)</span> the first fundamental form (the metric) of the defined surface has the following matrix representation:</p>
 <div class="math notranslate nohighlight" id="equation-msfff">
-<span class="eqno">(23)<a class="headerlink" href="#equation-msfff" title="Permalink to this equation"> </a></span>\[\begin{split}G =
+<span class="eqno">(30)<a class="headerlink" href="#equation-msfff" title="Permalink to this equation"> </a></span>\[\begin{split}G =
 \left(
 \begin{array}{c c}
     \rho^{2}\sin^{2}(\phi) + (\partial_{\theta}\rho)^{2} &amp;\partial_{\theta}\rho\partial_{\phi}\rho \\
@@ -2741,13 +2674,13 @@ In order to exclude self crossing and opened shapes, the following assumptions u
 <p>This metric is used to express the area of the surface.
 Let <span class="math notranslate nohighlight">\(g=\det(G)\)</span>, then we have:</p>
 <div class="math notranslate nohighlight" id="equation-msarea">
-<span class="eqno">(24)<a class="headerlink" href="#equation-msarea" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{ll}
+<span class="eqno">(31)<a class="headerlink" href="#equation-msarea" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{ll}
     \mathcal{A}(\rho) &amp;= \int{\Omega}{\left\| \partial_{\theta} X \wedge \partial_{\phi} X \right\|} =\int{\Omega}{\sqrt{g}}\\
         &amp;=\int{\Omega}{\sqrt{ \rho^{2}(\partial_{\theta}\rho)^{2} + \rho^{4}\sin^{2}(\phi) + \rho^{2}(\partial_{\phi}\rho)^{2}\sin^{2}(\phi)}d\theta d\phi}
 \end{array}\end{split}\]</div>
 <p>The volume of the space enclosed within the shape is easier to express:</p>
 <div class="math notranslate nohighlight" id="equation-msvolume">
-<span class="eqno">(25)<a class="headerlink" href="#equation-msvolume" title="Permalink to this equation"> </a></span>\[\mathcal{V}(\rho)
+<span class="eqno">(32)<a class="headerlink" href="#equation-msvolume" title="Permalink to this equation"> </a></span>\[\mathcal{V}(\rho)
 = \int{\Omega}{\int_{0}^{\rho(\theta,\phi)} r^{2}\sin(\phi) dr d\theta d\phi}
 = \frac{1}{3}\int{\Omega}{\rho^{3} \sin(\phi) d\theta d\phi}\]</div>
 </div>
@@ -2761,7 +2694,7 @@ Concerning the area, we have the following result:</p>
 <p>Where <span class="math notranslate nohighlight">\(\bar{g}\)</span> is the application mapping the <span class="math notranslate nohighlight">\((\theta,\phi) \mapsto g(\theta,\phi)\)</span> scalar field to <span class="math notranslate nohighlight">\(\rho\)</span>.
 This leads to the following expression, easy to transpose in a freefem script using:</p>
 <div class="math notranslate nohighlight" id="equation-msdarea">
-<span class="eqno">(26)<a class="headerlink" href="#equation-msdarea" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{r c l}
+<span class="eqno">(33)<a class="headerlink" href="#equation-msdarea" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{r c l}
     \forall v\in C^{1}(\Omega)&amp; &amp;\\
     \langle d\mathcal{A}(\rho),v\rangle &amp;=&amp; \int{\Omega}{ \left(2\rho^{3}\sin^{2}(\phi) + \rho(\partial_{\theta}\rho)^{2} + \rho(\partial_{\phi}\rho)^{2}\sin^{2}(\phi) \right) v} \\
     &amp; &amp; +\int{\Omega}{\ \rho^{2}\partial_{\theta}\rho\partial_{\theta} v\ + \ \rho^{2}\partial_{\phi}\rho\sin^{2}(\phi)\partial_{\phi} v }
@@ -2769,7 +2702,7 @@ This leads to the following expression, easy to transpose in a freefem script us
 <p>With a similar approach, one can derive an expression for second order derivatives.
 However, comporting no specific difficulties, the detailed calculus are tedious, the result is that these derivatives can be written using a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> whose coefficients are expressed in term of <span class="math notranslate nohighlight">\(\rho\)</span> and its derivatives with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>, such that:</p>
 <div class="math notranslate nohighlight" id="equation-msd2area">
-<span class="eqno">(27)<a class="headerlink" href="#equation-msd2area" title="Permalink to this equation"> </a></span>\[\begin{split}\forall (w,v)\in C^{1}(\Omega)\ ,\ d^{2}\mathcal{A}(\rho)(w,v) = \int{\Omega}
+<span class="eqno">(34)<a class="headerlink" href="#equation-msd2area" title="Permalink to this equation"> </a></span>\[\begin{split}\forall (w,v)\in C^{1}(\Omega)\ ,\ d^{2}\mathcal{A}(\rho)(w,v) = \int{\Omega}
 {
    \left(\begin{array}{c c c} w &amp; \partial_{\theta} w &amp; \partial_{\phi} w \end{array}\right)
    \mathbf{B}
@@ -2777,7 +2710,7 @@ However, comporting no specific difficulties, the detailed calculus are tedious,
 <p>Deriving the volume function derivatives is again an easier task.
 We immediately get the following expressions:</p>
 <div class="math notranslate nohighlight" id="equation-msdvolume">
-<span class="eqno">(28)<a class="headerlink" href="#equation-msdvolume" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{r c l}
+<span class="eqno">(35)<a class="headerlink" href="#equation-msdvolume" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{r c l}
    \forall v\ ,\ \langle d\mathcal{V}(\rho),v\rangle &amp; = &amp; \int{\Omega}{\rho^{2}\sin(\phi)v\ d\theta d\phi} \\
    \forall w,v\ , d^{2}\mathcal{V}(\rho)(w,v) &amp; = &amp; \int{\Omega}{2\rho\sin(\phi)wv\ d\theta d\phi}
 \end{array}\end{split}\]</div>
@@ -2907,7 +2840,7 @@ We propose to solve the following problem:</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here are the functions related to the area computation and its shape derivative, according to equations <a class="reference internal" href="#equation-msarea">(24)</a> and <a class="reference internal" href="#equation-msdarea">(26)</a>:</p>
+<p>Here are the functions related to the area computation and its shape derivative, according to equations <a class="reference internal" href="#equation-msarea">(31)</a> and <a class="reference internal" href="#equation-msdarea">(33)</a>:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2981,7 +2914,7 @@ We propose to solve the following problem:</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>The function returning the hessian of the area for a given shape is a bit blurry, thus we won’t show here all of equation <a class="reference internal" href="#equation-msd2area">(27)</a> coefficients definition, they can be found in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">edp</span></code> file.</p>
+<p>The function returning the hessian of the area for a given shape is a bit blurry, thus we won’t show here all of equation <a class="reference internal" href="#equation-msd2area">(34)</a> coefficients definition, they can be found in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">edp</span></code> file.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -3305,7 +3238,7 @@ Just pass the tag of the desired local algorithm with a <code class="code freefe
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">IConst</span></code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">EConst</span></code> : Allows to pass the name of a function implementing some inequality (resp. equality) constraints on the search space.
 The function type must be <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code> where the size of the returned array is equal to the number of constraints (of the same type - it means that all of the constraints are computed in one vectorial function).
 In order to mix inequality and equality constraints in a same minimization attempt, two vectorial functions have to be defined and passed.
-See example <a class="reference internal" href="#equation-varineqex">(29)</a> for more details about how these constraints have to be implemented.</li>
+See example <a class="reference internal" href="#equation-varineqex">(36)</a> for more details about how these constraints have to be implemented.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">gradIConst</span></code>/<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">gradEConst</span></code> : Use to provide the inequality (resp. equality) constraints gradient.
 These are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">]</span></code> type functions.
 Assuming we have defined a constraint function (either inequality or equality) with <span class="math notranslate nohighlight">\(p\)</span> constraints, the size of the matrix returned by its associated gradient must be <span class="math notranslate nohighlight">\(p\times n\)</span> (the <span class="math notranslate nohighlight">\(i\)</span>-th line of the matrix is the gradient of the <span class="math notranslate nohighlight">\(i\)</span>-th constraint).
@@ -3357,7 +3290,7 @@ More details can be found in <a class="reference external" href="https://nlopt.r
 \[V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace\]</div>
 <p>as well as the function <span class="math notranslate nohighlight">\(J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-varineqex">
-<span class="eqno">(29)<a class="headerlink" href="#equation-varineqex" title="Permalink to this equation"> </a></span>\[J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-varineqex" title="Permalink to this equation"> </a></span>\[J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}\]</div>
 <p>The problem consists in finding (numerically) two functions <span class="math notranslate nohighlight">\((u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})\)</span>.</p>
 <p>This can be interpreted as finding <span class="math notranslate nohighlight">\(u_{1}, u_{2}\)</span> as close as possible (in a certain sense) to the solutions of the Laplace equation with respectively <span class="math notranslate nohighlight">\(f_{1}, f_{2}\)</span> second members and <span class="math notranslate nohighlight">\(g_{1}, g_{2}\)</span> Dirichlet boundary conditions with the <span class="math notranslate nohighlight">\(u_{1}\leq u_{2}\)</span> almost everywhere constraint.</p>
 <p>Here is the corresponding script to treat this variational inequality problem with one of the NLOpt algorithms.</p>
@@ -3737,23 +3670,12 @@ The user can specify his own MPI communicator with the named parameter <code cla
   </div>
 </div>
    	<footer>
-   <script>
-   let date = new Date()
-   let currentYear = date.getFullYear()
-   </script>
-
-   <p class="footer-text">
-      <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
-   </p>
-
-   <div class="footer-img">
-      <p>
-         Made with <i class="fas fa-heart"></i> on
-      </p>
-      <a href="https://github.com/FreeFem">
-         <img alt="Github" title="Github" src="../_static/img/GitHub_Logo_White.png" />
-      </a>
-   </div>
+	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
+	<span>
+		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
+		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
+	</span>
 </footer>
 		
 

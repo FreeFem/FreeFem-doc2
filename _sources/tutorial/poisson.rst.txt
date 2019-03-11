@@ -3,8 +3,8 @@
 
 .. _tutorialPoisson:
 
-Solving Poisson's equation
-==========================
+Getting started
+===============
 
 For a given function :math:`f(x,y)`, find a function :math:`u(x,y)` satisfying :
 

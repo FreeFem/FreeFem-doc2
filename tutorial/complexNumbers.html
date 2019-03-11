@@ -4,14 +4,13 @@
 	<head>
 		  <meta charset="UTF-8">
   <title>An Example with Complex Numbers</title>
-  <link rel="icon" href="../_static/img/favicon.png" />
+  <link rel="icon" href="../_static/img/Symbol.png" />
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
   <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900" rel="stylesheet">
 
   <!-- FreeFem++ theme specific -->
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
@@ -27,91 +26,25 @@
 	</head>
 	<body>
 		<header>
-   <a class="header-logo" href="../index.html">
-      <!-- <img alt="logo" title="FreeFem++ documentation" src="../_static/img/Logo.png" /> -->
-      <svg
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:cc="http://creativecommons.org/ns#"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:svg="http://www.w3.org/2000/svg"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-         version="1.1"
-         id="Calque_1"
-         x="0px"
-         y="0px"
-         viewBox="0 0 178.6 178.60001"
-         xml:space="preserve"
-         sodipodi:docname="FreeFem Logo2.svg"
-         inkscape:version="0.92.3 (2405546, 2018-03-11)"
-         width="178.60001"
-         height="178.60001"><metadata
-         id="metadata3771"><rdf:RDF><cc:Work
-             rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-               rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
-         id="defs3769" /><sodipodi:namedview
-         pagecolor="#ffffff"
-         bordercolor="#666666"
-         borderopacity="1"
-         objecttolerance="10"
-         gridtolerance="10"
-         guidetolerance="10"
-         inkscape:pageopacity="0"
-         inkscape:pageshadow="2"
-         inkscape:window-width="1920"
-         inkscape:window-height="1017"
-         id="namedview3767"
-         showgrid="false"
-         inkscape:snap-grids="false"
-         inkscape:zoom="1.4244919"
-         inkscape:cx="382.18457"
-         inkscape:cy="-74.86043"
-         inkscape:window-x="-8"
-         inkscape:window-y="488"
-         inkscape:window-maximized="1"
-         inkscape:current-layer="Calque_1"
-         fit-margin-top="0"
-         fit-margin-left="0"
-         fit-margin-right="0"
-         fit-margin-bottom="0" />
-      <style
-         type="text/css"
-         id="style3743">
-      	.st0{fill:white;}
-      	.st1{fill:white;}
-      </style>
-      <polygon
-         class="st0"
-         points="120.9,384.4 299.5,384.4 299.5,324.9 180.4,324.9 180.4,280.2 120.9,280.2 120.9,324.9 120.9,332.3 "
-         id="polygon3745"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-      <rect
-         id="SVGID_3_"
-         x="74.400002"
-         y="74.400009"
-         class="st0"
-         width="29.799999"
-         height="29.799999"
-         style="fill:white" />
-      <polygon
-         class="st0"
-         points="299.5,265.4 299.5,257.9 299.5,205.8 120.9,205.8 120.9,265.4 239.9,265.4 239.9,310 299.5,310 "
-         id="polygon3748"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-
-      </svg>
+   <a class="header-logo" href="../introduction/index.html">
+      <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
 
-   <a class="header-title" href="../index.html">
-      <h2>FreeFem++ documentation</h2>
-   </a>
+   <script async src="../_static/js/lunr.js"></script>
+<script async src="../_static/lunr/lunr_index.js"></script>
 
-   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources">
-      <img class="header-github-img" alt="GitHub" title="FreeFem++ on GitHub" src="../_static/img/GitHub-Mark-120px-plus.png" />
+<div class="search-container">
+   <label for="searchInput"><i class="fas fa-search"></i></label>
+   <input type="search" placeholder="Search ..." id="searchInput">
+</div>
+<div id="searchResults"></div>
+<script src="../_static/js/search.js"></script>
+<script>
+   initSearch('../')
+</script>
 
+   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
+      <i class="fab fa-github"></i>
       <p class="header-github-title" >
          FreeFem++ on GitHub
       </p>
@@ -176,6 +109,59 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#physics">Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#coding">Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#the-domain">The domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-problem">2D Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#importing-data">Importing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#id1">3D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
@@ -1489,55 +1475,61 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#physics">Physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#coding">Coding</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#the-domain">The domain</a></li>
-<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-problem">2D Problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#importing-data">Importing Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#id1">3D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
 </ul>
 </li>
 </ul>
@@ -1615,65 +1607,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1682,17 +1615,17 @@
    <div class="nav-links" id="staticNav">
    </div>
 
-   <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-   <div id="sideNav" class="sidenav">
-      <div class="sideNavHeader">
-         <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.73 141.73"><defs><style>.cls-1{fill:blue;}</style></defs><title>Symbole</title><polygon class="cls-1" points="47.22 94.52 47.22 59.04 0 59.04 0 94.52 0 100.39 0 141.73 141.73 141.73 141.73 94.52 47.22 94.52"/><rect id="SVGID" class="cls-1" x="59.04" y="59.04" width="23.65" height="23.65"/><polygon class="cls-1" points="0 0 0 47.3 94.44 47.3 94.44 82.69 141.73 82.69 141.73 47.3 141.73 41.34 141.73 0 0 0"/></svg>
-         <h1>FreeFem++</h1>
-         <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-      </div>
-      <div id="dynamicSideNav">
-      </div>
-   </div>
+       <div id="sideNav" class="sidenav">
+          <div class="sideNavHeader">
+             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+
+             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          </div>
+          <div id="dynamicSideNav">
+          </div>
+       </div>
 
    <script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
@@ -1715,10 +1648,8 @@
   <div style="display: none">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="poisson.html">Solving Poisson’s equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poisson.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
@@ -1740,8 +1671,10 @@
 <li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1911,19 +1844,19 @@ At equilibrium, one has :</p>
 <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;tempmuonde.ps&quot;</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<p>Results are shown on <a class="reference internal" href="#figcomplexreal"><span class="std std-numref">Fig. 112</span></a>, <a class="reference internal" href="#figcompleximaginary"><span class="std std-numref">Fig. 113</span></a> and <a class="reference internal" href="#figcomplextemperature"><span class="std std-numref">Fig. 114</span></a>.</p>
+<p>Results are shown on <a class="reference internal" href="#figcomplexreal"><span class="std std-numref">Fig. 36</span></a>, <a class="reference internal" href="#figcompleximaginary"><span class="std std-numref">Fig. 37</span></a> and <a class="reference internal" href="#figcomplextemperature"><span class="std std-numref">Fig. 38</span></a>.</p>
 <div class="figure compound align-center" id="Microwave">
 <div style="width: 49%" class="subfigure" id="id1">
 <span id="figcomplexreal"></span><a class="reference internal image-reference" href="../_images/real_microwave.png"><img alt="RealMicroWave" src="../_images/real_microwave.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Real part</span></p>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Real part</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id2">
 <span id="figcompleximaginary"></span><a class="reference internal image-reference" href="../_images/imaginary_microwave.png"><img alt="ImaginaryMicrowave" src="../_images/imaginary_microwave.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">Imaginary part</span></p>
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Imaginary part</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id3">
 <span id="figcomplextemperature"></span><a class="reference internal image-reference" href="../_images/temperature_microwave.png"><img alt="TemperatureMicrowave" src="../_images/temperature_microwave.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Temperature</span></p>
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Temperature</span></p>
 </div>
 <p class="caption"><span class="caption-text">Microwave</span></p>
 <span class="target" id="Microwave"></span></div></div>
@@ -1941,23 +1874,12 @@ At equilibrium, one has :</p>
   </div>
 </div>
    	<footer>
-   <script>
-   let date = new Date()
-   let currentYear = date.getFullYear()
-   </script>
-
-   <p class="footer-text">
-      <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
-   </p>
-
-   <div class="footer-img">
-      <p>
-         Made with <i class="fas fa-heart"></i> on
-      </p>
-      <a href="https://github.com/FreeFem">
-         <img alt="Github" title="Github" src="../_static/img/GitHub_Logo_White.png" />
-      </a>
-   </div>
+	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
+	<span>
+		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
+		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
+	</span>
 </footer>
 		
 

@@ -3,15 +3,14 @@
 <html lang="en">
 	<head>
 		  <meta charset="UTF-8">
-  <title>Solving Poisson’s equation</title>
-  <link rel="icon" href="../_static/img/favicon.png" />
+  <title>Getting started</title>
+  <link rel="icon" href="../_static/img/Symbol.png" />
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
   <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900" rel="stylesheet">
 
   <!-- FreeFem++ theme specific -->
   <link rel="stylesheet" type="text/css" href="../_static/css/freefemtheme.css" />
@@ -27,91 +26,25 @@
 	</head>
 	<body>
 		<header>
-   <a class="header-logo" href="../index.html">
-      <!-- <img alt="logo" title="FreeFem++ documentation" src="../_static/img/Logo.png" /> -->
-      <svg
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:cc="http://creativecommons.org/ns#"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:svg="http://www.w3.org/2000/svg"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-         version="1.1"
-         id="Calque_1"
-         x="0px"
-         y="0px"
-         viewBox="0 0 178.6 178.60001"
-         xml:space="preserve"
-         sodipodi:docname="FreeFem Logo2.svg"
-         inkscape:version="0.92.3 (2405546, 2018-03-11)"
-         width="178.60001"
-         height="178.60001"><metadata
-         id="metadata3771"><rdf:RDF><cc:Work
-             rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-               rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
-         id="defs3769" /><sodipodi:namedview
-         pagecolor="#ffffff"
-         bordercolor="#666666"
-         borderopacity="1"
-         objecttolerance="10"
-         gridtolerance="10"
-         guidetolerance="10"
-         inkscape:pageopacity="0"
-         inkscape:pageshadow="2"
-         inkscape:window-width="1920"
-         inkscape:window-height="1017"
-         id="namedview3767"
-         showgrid="false"
-         inkscape:snap-grids="false"
-         inkscape:zoom="1.4244919"
-         inkscape:cx="382.18457"
-         inkscape:cy="-74.86043"
-         inkscape:window-x="-8"
-         inkscape:window-y="488"
-         inkscape:window-maximized="1"
-         inkscape:current-layer="Calque_1"
-         fit-margin-top="0"
-         fit-margin-left="0"
-         fit-margin-right="0"
-         fit-margin-bottom="0" />
-      <style
-         type="text/css"
-         id="style3743">
-      	.st0{fill:white;}
-      	.st1{fill:white;}
-      </style>
-      <polygon
-         class="st0"
-         points="120.9,384.4 299.5,384.4 299.5,324.9 180.4,324.9 180.4,280.2 120.9,280.2 120.9,324.9 120.9,332.3 "
-         id="polygon3745"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-      <rect
-         id="SVGID_3_"
-         x="74.400002"
-         y="74.400009"
-         class="st0"
-         width="29.799999"
-         height="29.799999"
-         style="fill:white" />
-      <polygon
-         class="st0"
-         points="299.5,265.4 299.5,257.9 299.5,205.8 120.9,205.8 120.9,265.4 239.9,265.4 239.9,310 299.5,310 "
-         id="polygon3748"
-         transform="translate(-120.9,-205.8)"
-         style="fill:white" />
-
-      </svg>
+   <a class="header-logo" href="../introduction/index.html">
+      <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
 
-   <a class="header-title" href="../index.html">
-      <h2>FreeFem++ documentation</h2>
-   </a>
+   <script async src="../_static/js/lunr.js"></script>
+<script async src="../_static/lunr/lunr_index.js"></script>
 
-   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources">
-      <img class="header-github-img" alt="GitHub" title="FreeFem++ on GitHub" src="../_static/img/GitHub-Mark-120px-plus.png" />
+<div class="search-container">
+   <label for="searchInput"><i class="fas fa-search"></i></label>
+   <input type="search" placeholder="Search ..." id="searchInput">
+</div>
+<div id="searchResults"></div>
+<script src="../_static/js/search.js"></script>
+<script>
+   initSearch('../')
+</script>
 
+   <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
+      <i class="fab fa-github"></i>
       <p class="header-github-title" >
          FreeFem++ on GitHub
       </p>
@@ -176,6 +109,59 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#physics">Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#coding">Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#the-domain">The domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-problem">2D Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#importing-data">Importing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#id1">3D Plot Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a><ul>
@@ -1489,55 +1475,61 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Solving Poisson’s equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustics.html">Acoustics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thermalConduction.html">Thermal Conduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#axisymmetry-3d-rod-with-circular-section">Axisymmetry: 3D Rod with circular section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thermalConduction.html#a-nonlinear-problem-radiation">A Nonlinear Problem : Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fanBlade.html">Irrotational Fan Blade Flow and Thermal effects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fanBlade.html#heat-convection-around-the-airfoil">Heat Convection around the airfoil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stokes.html">The System of Stokes for Fluids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesProjection.html">A projection algorithm for the Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="navierStokesNewton.html">Newton Method for the Steady Navier-Stokes equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aLargeFluidProblem.html">A Large Fluid Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="complexNumbers.html">An Example with Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimalControl.html">Optimal Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flowWithShocks.html">A Flow with Shocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heatEquationOptimization.html">Time dependent schema optimization for heat equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeDependentStokes.html">Tutorial to write a transient Stokes solver in matrix form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifiPropagation.html">Wifi Propagation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#physics">Physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wifiPropagation.html#coding">Coding</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#the-domain">The domain</a></li>
-<li class="toctree-l4"><a class="reference internal" href="wifiPropagation.html#lets-create-a-mesh">Let’s create a mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-problem">2D Problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#exporting-data">Exporting Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#importing-data">Importing Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#d-plot-examples">2D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#id1">3D Plot Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matlabOctavePlot.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
 </ul>
 </li>
 </ul>
@@ -1615,65 +1607,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../model/staticProblems.html">Static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#soap-film">Soap Film</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#electrostatics">Electrostatics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#aerodynamics">Aerodynamics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#error-estimation">Error estimation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#periodic-boundary-conditions">Periodic Boundary Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#poisson-with-mixed-finite-element">Poisson with mixed finite element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/staticProblems.html#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/elasticity.html">Elasticity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/elasticity.html#fracture-mechanics">Fracture Mechanics</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearStaticProblems.html">Non-linear static problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/nonLinearStaticProblems.html#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/eigenValueProblems.html">Eigen value problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/evolutionProblems.html">Evolution problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#mathematical-theory-on-time-difference-approximations">Mathematical Theory on Time Difference Approximations.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#convection">Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/evolutionProblems.html#d-black-scholes-equation-for-an-european-put-option">2D Black-Scholes equation for an European Put option</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/navierStokesEquations.html">Navier-Stokes equations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#uzawa-algorithm-and-conjugate-gradients">Uzawa Algorithm and Conjugate Gradients</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/navierStokesEquations.html#nsuzawacahouetchabart-edp">NSUzawaCahouetChabart.edp</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/variationalInequality.html">Variational Inequality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/domainDecomposition.html">Domain decomposition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-overlapping">Schwarz overlapping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/domainDecomposition.html#schwarz-conjuguate-gradient">Schwarz conjuguate gradient</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/fluidStructureCoupledProblem.html">Fluid-structure coupled problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/transmissionProblem.html">Transmission problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/freeBoundaryProblem.html">Free boundary problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/nonLinearElasticity.html">Non-linear elasticity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html">Compressible Neo-Hookean materials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#notation">Notation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#recommended-references">Recommended References</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/compressibleNeoHookeanMaterials.html#an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../model/whisperingGalleryModes.html">Whispering gallery modes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#wave-equation-for-the-wgms">Wave equation for the WGMs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#weak-formulation">Weak formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../model/whisperingGalleryModes.html#a-dielectric-sphere-example-with-freefem">A dielectric sphere example with FreeFem++</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1682,17 +1615,17 @@
    <div class="nav-links" id="staticNav">
    </div>
 
-   <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-   <div id="sideNav" class="sidenav">
-      <div class="sideNavHeader">
-         <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.73 141.73"><defs><style>.cls-1{fill:blue;}</style></defs><title>Symbole</title><polygon class="cls-1" points="47.22 94.52 47.22 59.04 0 59.04 0 94.52 0 100.39 0 141.73 141.73 141.73 141.73 94.52 47.22 94.52"/><rect id="SVGID" class="cls-1" x="59.04" y="59.04" width="23.65" height="23.65"/><polygon class="cls-1" points="0 0 0 47.3 94.44 47.3 94.44 82.69 141.73 82.69 141.73 47.3 141.73 41.34 141.73 0 0 0"/></svg>
-         <h1>FreeFem++</h1>
-         <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-      </div>
-      <div id="dynamicSideNav">
-      </div>
-   </div>
+       <div id="sideNav" class="sidenav">
+          <div class="sideNavHeader">
+             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+
+             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+          </div>
+          <div id="dynamicSideNav">
+          </div>
+       </div>
 
    <script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
@@ -1715,10 +1648,8 @@
   <div style="display: none">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Solving Poisson’s equation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="equationsClassification.html">Classification of partial differential equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="membrane.html">Membrane</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heatExchanger.html">Heat Exchanger</a></li>
@@ -1740,8 +1671,10 @@
 <li class="toctree-l2"><a class="reference internal" href="matlabOctavePlot.html">Plotting in Matlab and Octave</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/index.html">Mathematical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
@@ -1751,11 +1684,11 @@
 		
 		<div id="content">
 			
-   <div class="section" id="solving-poisson-s-equation">
-<span id="tutorialpoisson"></span><h1>Solving Poisson’s equation<a class="headerlink" href="#solving-poisson-s-equation" title="Permalink to this headline"> </a></h1>
+   <div class="section" id="getting-started">
+<span id="tutorialpoisson"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline"> </a></h1>
 <p>For a given function <span class="math notranslate nohighlight">\(f(x,y)\)</span>, find a function <span class="math notranslate nohighlight">\(u(x,y)\)</span> satisfying :</p>
 <div class="math notranslate nohighlight" id="equation-eqn-poisson">
-<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-poisson" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{rcl}
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqn-poisson" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{rcl}
     -\Delta u(x,y) &amp;= f(x,y) &amp; \mbox{ for all }(x,y)\mbox{ in }\Omega\\
     u(x,y) &amp;= 0 &amp; \mbox{ for all }(x,y)\mbox{ on }\partial\Omega
 \end{array}\end{split}\]</div>
@@ -1833,15 +1766,15 @@
 <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;CPU time = &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">clock</span><span class="p">()</span><span class="o">-</span><span class="n">cpu</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<p>As illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 78</span></a>, we can see the isovalue of <span class="math notranslate nohighlight">\(u\)</span> by using <strong>FreeFem++</strong> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span></code> command (see line 29 above).</p>
+<p>As illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 2</span></a>, we can see the isovalue of <span class="math notranslate nohighlight">\(u\)</span> by using <strong>FreeFem++</strong> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span></code> command (see line 29 above).</p>
 <div class="figure compound align-center" id="Poisson">
 <div style="width: 49%" class="subfigure" id="id1">
 <span id="figpoissonmesh"></span><a class="reference internal image-reference" href="../_images/firstTh.png"><img alt="firstTh" src="../_images/firstTh.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Mesh Th by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Mesh Th by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code></span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id2">
 <span id="figpoissonu"></span><a class="reference internal image-reference" href="../_images/firstU.png"><img alt="firstU" src="../_images/firstU.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Isovalue by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Isovalue by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code></span></p>
 </div>
 <p class="caption"><span class="caption-text">Poisson’s equation</span></p>
 </div><div class="admonition note" id="Poisson">
@@ -1880,7 +1813,7 @@ Hence the circle could also have been described as two half circle with the same
 </td></tr></table></div>
 <p>Boundaries can be referred to either by name (<code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Gamma1</span></code> for example) or by label (<code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span></code> here) or even by its internal number here 1 for the first half circle and 2 for the second (more examples are in <a class="reference internal" href="../example/meshGeneration.html#examplemeshgeneration"><span class="std std-ref">Meshing Examples</span></a>).</p>
 <p><strong>On the line 5</strong></p>
-<p>The triangulation <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> of <span class="math notranslate nohighlight">\(\Omega\)</span> is automatically generated by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code> using 50 points on <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span></code> as in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 77</span></a>.</p>
+<p>The triangulation <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> of <span class="math notranslate nohighlight">\(\Omega\)</span> is automatically generated by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code> using 50 points on <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span></code> as in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 1</span></a>.</p>
 <p>The domain is assumed to be on the left side of the boundary which is implicitly oriented by the parametrization. So an elliptic hole can be added by typing:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.3</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
 </pre></div>
@@ -1896,22 +1829,22 @@ Hence the circle could also have been described as two half circle with the same
 Refinement of the mesh are done by increasing the number of points on <span class="math notranslate nohighlight">\(\Gamma\)</span>, for example <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span></code>, because inner vertices are determined by the density of points on the boundary.</p>
 <p class="last">Mesh adaptation can be performed also against a given function <cite>f</cite> by calling <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="n">f</span><span class="p">)</span></code>.</p>
 </div>
-<p>Now the name <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> in <strong>FreeFem++</strong>) refers to the family <span class="math notranslate nohighlight">\(\{T_k\}_{k=1,\cdots,n_t}\)</span> of triangles shown in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 77</span></a>.</p>
+<p>Now the name <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> in <strong>FreeFem++</strong>) refers to the family <span class="math notranslate nohighlight">\(\{T_k\}_{k=1,\cdots,n_t}\)</span> of triangles shown in <a class="reference internal" href="#figpoissonmesh"><span class="std std-numref">Fig. 1</span></a>.</p>
 <p>Traditionally <span class="math notranslate nohighlight">\(h\)</span> refers to the mesh size, <span class="math notranslate nohighlight">\(n_t\)</span> to the number of triangles in <span class="math notranslate nohighlight">\(\mathcal{T}_h\)</span> and <span class="math notranslate nohighlight">\(n_v\)</span> to the number of vertices, but it is seldom that we will have to use them explicitly.</p>
 <p>If <span class="math notranslate nohighlight">\(\Omega\)</span> is not a polygonal domain, a “skin” remains between the exact domain <span class="math notranslate nohighlight">\(\Omega\)</span> and its approximation <span class="math notranslate nohighlight">\(\Omega_h=\cup_{k=1}^{n_t}T_k\)</span>.
 However, we notice that all corners of <span class="math notranslate nohighlight">\(\Gamma_h = \partial\Omega_h\)</span> are on <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
 <p><strong>On line 8:</strong></p>
 <p>A finite element space is, usually, a space of polynomial functions on elements, triangles here only, with certain matching properties at edges, vertices etc. Here <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">fespace</span> <span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code> defines <span class="math notranslate nohighlight">\(V_h\)</span> to be the space of continuous functions which are affine in <span class="math notranslate nohighlight">\(x,y\)</span> on each triangle of <span class="math notranslate nohighlight">\(T_h\)</span>.</p>
 <p>As it is a linear vector space of finite dimension, basis can be found.
-The canonical basis is made of functions, called the <em>hat function</em> <span class="math notranslate nohighlight">\(\phi_k\)</span> which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a class="reference internal" href="#figpoissonhat"><span class="std std-numref">Fig. 80</span></a>.</p>
+The canonical basis is made of functions, called the <em>hat function</em> <span class="math notranslate nohighlight">\(\phi_k\)</span> which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a class="reference internal" href="#figpoissonhat"><span class="std std-numref">Fig. 4</span></a>.</p>
 <div class="figure compound align-center" id="HatFunctions">
 <div style="width: 49%" class="subfigure" id="id3">
 <span id="figpoissonmesh2"></span><a class="reference internal image-reference" href="../_images/meshTh_2.png"><img alt="meshTh2" src="../_images/meshTh_2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span> <span class="n">Th</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span> <span class="n">Th</span></code></span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id4">
 <span id="figpoissonhat"></span><a class="reference internal image-reference" href="../_images/hat_functions.png"><img alt="HatFunctions" src="../_images/hat_functions.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Graph of <span class="math notranslate nohighlight">\(\phi_1\)</span> (left) and <span class="math notranslate nohighlight">\(\phi_6\)</span> (right)</span></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Graph of <span class="math notranslate nohighlight">\(\phi_1\)</span> (left) and <span class="math notranslate nohighlight">\(\phi_6\)</span> (right)</span></p>
 </div>
 <p class="caption"><span class="caption-text">Hat functions</span></p>
 </div><div class="admonition note" id="HatFunctions">
@@ -1921,17 +1854,17 @@ Then it is easy to see that the restriction of <span class="math notranslate noh
 </div>
 <p>Then:</p>
 <div class="math notranslate nohighlight" id="equation-equation3">
-<span class="eqno">(37)<a class="headerlink" href="#equation-equation3" title="Permalink to this equation"> </a></span>\[V_h(\mathcal{T}_h,P_1)=\left\{w(x,y)\left|\; w(x,y)=\sum_{k=1}^{M}w_k\phi_k(x,y),\, w_k\textrm{ are real numbers}\right.\right\}\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-equation3" title="Permalink to this equation"> </a></span>\[V_h(\mathcal{T}_h,P_1)=\left\{w(x,y)\left|\; w(x,y)=\sum_{k=1}^{M}w_k\phi_k(x,y),\, w_k\textrm{ are real numbers}\right.\right\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M\)</span> is the dimension of <span class="math notranslate nohighlight">\(V_h\)</span>, i.e.&nbsp;the number of vertices.
 The <span class="math notranslate nohighlight">\(w_k\)</span> are called the <em>degree of freedom</em> of <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(M\)</span> the number of degree of freedom.</p>
 <p>It is said also that the <em>nodes</em> of this finite element method are the vertices.</p>
 <p><strong>Setting the problem</strong></p>
 <p>On line 9, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span></code> declares that <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are approximated as above, namely:</p>
 <div class="math notranslate nohighlight" id="equation-defu">
-<span class="eqno">(38)<a class="headerlink" href="#equation-defu" title="Permalink to this equation"> </a></span>\[u(x,y)\simeq u_h(x,y)=\sum_{k=0}^{M-1} u_k\phi_k(x,y)\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-defu" title="Permalink to this equation"> </a></span>\[u(x,y)\simeq u_h(x,y)=\sum_{k=0}^{M-1} u_k\phi_k(x,y)\]</div>
 <p>On the line 12, the right hand side <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">f</span></code> is defined analytically using the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span></code>.</p>
-<p>Line 18 to 26 define the bilinear form of equation <a class="reference internal" href="#equation-eqn-poisson">(36)</a> and its Dirichlet boundary conditions.</p>
-<p>This <em>variational formulation</em> is derived by multiplying <a class="reference internal" href="#equation-eqn-poisson">(36)</a> by <span class="math notranslate nohighlight">\(v(x,y)\)</span> and integrating the result over <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
+<p>Line 18 to 26 define the bilinear form of equation <a class="reference internal" href="#equation-eqn-poisson">(1)</a> and its Dirichlet boundary conditions.</p>
+<p>This <em>variational formulation</em> is derived by multiplying <a class="reference internal" href="#equation-eqn-poisson">(1)</a> by <span class="math notranslate nohighlight">\(v(x,y)\)</span> and integrating the result over <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[-\int_{\Omega}v\Delta u \,\text{d} x\text{d} y = \int_{\Omega} vf\, \text{d} x\text{d} y\]</div>
 <p>Then, by Green’s formula, the problem is converted into finding <span class="math notranslate nohighlight">\(u\)</span> such that</p>
@@ -1939,7 +1872,7 @@ The <span class="math notranslate nohighlight">\(w_k\)</span> are called the <em
 \[a(u,v) - \ell(f,v) = 0 \quad \forall v \mbox{ satisfying }v=0\mbox{ on }\partial\Omega.\]</div>
 <p>with:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-weakform">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eqn-weakform" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{rcl}
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-weakform" title="Permalink to this equation"> </a></span>\[\begin{split}\begin{array}{rcl}
     a(u,v) &amp;=&amp; \int_{\Omega}\nabla u\cdot \nabla v \,\text{d} x\text{d} y\\
     \ell(f,v) &amp;=&amp; \int_{\Omega}fv\, \text{d} x\text{d} y
 \end{array}\end{split}\]</div>
@@ -1955,7 +1888,7 @@ The <span class="math notranslate nohighlight">\(w_k\)</span> are called the <em
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span> <span class="kt">solve</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table></div>
-<p>and <a class="reference internal" href="#equation-eqn-weakform">(39)</a> is written with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span class="math notranslate nohighlight">\(=\partial u/\partial x\)</span>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span class="math notranslate nohighlight">\(=\partial u/\partial y\)</span> and:</p>
+<p>and <a class="reference internal" href="#equation-eqn-weakform">(4)</a> is written with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span class="math notranslate nohighlight">\(=\partial u/\partial x\)</span>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span class="math notranslate nohighlight">\(=\partial u/\partial y\)</span> and:</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \text{d} x\text{d} y \longrightarrow}\)</span>
 <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">)</span></code></p>
 <p><span class="math notranslate nohighlight">\(\displaystyle{\int_{\Omega}fv\, \text{d} x\text{d} y \longrightarrow}\)</span>
@@ -1967,15 +1900,15 @@ The <span class="math notranslate nohighlight">\(w_k\)</span> are called the <em
 <p><strong>Solution and visualization</strong></p>
 <p>On line 15, the current time in seconds is stored into the real-valued variable <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">cpu</span></code>.</p>
 <p>Line 18, the problem is solved.</p>
-<p>Line 29, the visualization is done as illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 78</span></a>.</p>
+<p>Line 29, the visualization is done as illustrated in <a class="reference internal" href="#figpoissonu"><span class="std std-numref">Fig. 2</span></a>.</p>
 <p><strong>(see</strong> <a class="reference internal" href="../documentation/visualization.html#plot"><span class="std std-ref">Plot</span></a> <strong>for zoom, postscript and other commands).</strong></p>
 <p>Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using <strong>FreeFem++</strong>, but it helps to guess what is allowed in the language.</p>
 <p><strong>Access to matrices and vectors</strong></p>
 <p>Internally <strong>FreeFem++</strong> will solve a linear system of the type</p>
 <div class="math notranslate nohighlight" id="equation-eqn-equation">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eqn-equation" title="Permalink to this equation"> </a></span>\[\sum_{j=0}^{M-1} A_{ij}u_j - F_i=0 ,\quad i=0,\cdots,M-1;\qquad
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-equation" title="Permalink to this equation"> </a></span>\[\sum_{j=0}^{M-1} A_{ij}u_j - F_i=0 ,\quad i=0,\cdots,M-1;\qquad
 F_i=\int_{\Omega}f\phi_i\, \text{d} x\text{d} y\]</div>
-<p>which is found by using <a class="reference internal" href="#equation-defu">(38)</a> and replacing <span class="math notranslate nohighlight">\(v\)</span> by <span class="math notranslate nohighlight">\(\phi_i\)</span> in <a class="reference internal" href="#equation-eqn-weakform">(39)</a>.
+<p>which is found by using <a class="reference internal" href="#equation-defu">(3)</a> and replacing <span class="math notranslate nohighlight">\(v\)</span> by <span class="math notranslate nohighlight">\(\phi_i\)</span> in <a class="reference internal" href="#equation-eqn-weakform">(4)</a>.
 The Dirichlet conditions are implemented by penalty, namely by setting <span class="math notranslate nohighlight">\(A_{ii}=10^{30}\)</span> and <span class="math notranslate nohighlight">\(F_i=10^{30}*0\)</span> if <span class="math notranslate nohighlight">\(i\)</span> is a boundary degree of freedom.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -2000,7 +1933,7 @@ If the user wants to access <span class="math notranslate nohighlight">\(A\)</sp
 <span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span> <span class="c1">//stiffness matrix</span>
 </pre></div>
 </td></tr></table></div>
-<p>The vector <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#equation-eqn-equation">(40)</a> can also be constructed manually:</p>
+<p>The vector <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#equation-eqn-equation">(5)</a> can also be constructed manually:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2031,13 +1964,13 @@ If the user wants to access <span class="math notranslate nohighlight">\(A\)</sp
 \qquad \mathtt{F}(x,y) = \sum_{i=0}^{M-1} \mathtt{F[][}i\mathtt{]} \phi_i(x,y)\]</div>
 <p class="last">where <span class="math notranslate nohighlight">\(\phi_i, i=0...,,M-1\)</span> are the basis functions of <cite>Vh</cite> like in equation (ref{equation3}), and <span class="math notranslate nohighlight">\(M = \mathtt{Vh.ndof}\)</span> is the number of degree of freedom (i.e. the dimension of the space <cite>Vh</cite>).</p>
 </div>
-<p>The linear system <a class="reference internal" href="#equation-eqn-equation">(40)</a> is solved by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">UMFPACK</span></code> unless another option is mentioned specifically as in:</p>
+<p>The linear system <a class="reference internal" href="#equation-eqn-equation">(5)</a> is solved by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">UMFPACK</span></code> unless another option is mentioned specifically as in:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
 <span class="kt">problem</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(...</span>
 </pre></div>
 </td></tr></table></div>
-<p>meaning that <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Poisson</span></code> is declared only here and when it is called (by simply writing <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Poisson</span><span class="p">;</span></code>) then <a class="reference internal" href="#equation-eqn-equation">(40)</a> will be solved by the Conjugate Gradient method.</p>
+<p>meaning that <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Poisson</span></code> is declared only here and when it is called (by simply writing <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Poisson</span><span class="p">;</span></code>) then <a class="reference internal" href="#equation-eqn-equation">(5)</a> will be solved by the Conjugate Gradient method.</p>
 </div>
 
 
@@ -2047,29 +1980,18 @@ If the user wants to access <span class="math notranslate nohighlight">\(A\)</sp
   <div>
     <b>Table of content</b>
     <ul>
-<li><a class="reference internal" href="#">Solving Poisson’s equation</a></li>
+<li><a class="reference internal" href="#">Getting started</a></li>
 </ul>
 
   </div>
 </div>
    	<footer>
-   <script>
-   let date = new Date()
-   let currentYear = date.getFullYear()
-   </script>
-
-   <p class="footer-text">
-      <a href="https://freefem.org/">FreeFem++</a> 1987-<script>document.write(currentYear)</script>
-   </p>
-
-   <div class="footer-img">
-      <p>
-         Made with <i class="fas fa-heart"></i> on
-      </p>
-      <a href="https://github.com/FreeFem">
-         <img alt="Github" title="Github" src="../_static/img/GitHub_Logo_White.png" />
-      </a>
-   </div>
+	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
+	<span>
+		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
+		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
+	</span>
 </footer>
 		
 

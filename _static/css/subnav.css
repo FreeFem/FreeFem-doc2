@@ -4,8 +4,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	padding: .55rem;
-	background-color: #EFEFEF;
+	/* padding: .55rem; */
+	background-color: #F7F7F9;
+	border-right: 2px solid #EFEFEF;
 	font-size: 0.9rem;
 }
 
@@ -13,13 +14,17 @@
 	list-style: none;
 }
 
+#subnav div > ul > li > a {
+	color: #00007F;
+}
+
 #subnav li {
-	line-height: 1.875em;
+
 }
 
 #subnav li.toctree-l1{
-	display: none;
-	font-weight: bold;
+	font-weight: 700;
+	margin: 0.75rem 0;
 }
 
 #subnav li.current {
@@ -28,6 +33,8 @@
 
 #subnav li.toctree-l2 {
 	font-weight: normal;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 0.75rem 0;
 }
 
 #subnav li.anchor {
@@ -44,7 +51,7 @@
 
 #subnav > div {
 	position: sticky;
-	top: 3.88rem;
+	/* top: 85px; */
 	max-height: 90vh;
 	padding: .55rem;
 	overflow: auto;
