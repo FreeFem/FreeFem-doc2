@@ -3,67 +3,6 @@ Compressible Neo-Hookean materials
 
 Author: *Alex Sadovsky*
 
-.. math::
-   \def\bR{{\bf R}}
-   \def\bP{{\bf P}}
-   \def\bZ{{\bf Z}}
-   \def\bC{{\bf C}}
-   \def\VS{\bR^2}
-   \def\SVS{\underline V}
-   \def\SO{{\bf SO}}
-   \def\Sym{{\bf Sym}}
-   \def\qi{{\bf i}}
-   \def\qj{{\bf j}}
-   \def\qk{{\bf k}}
-   \def\ec{\hat{\bf e}}
-   \def\xc{\hat{\bf x}}
-   \def\bdr{\partial}
-   \def\PD{\partial_}
-   \def\strain{\underline \epsilon}
-   \def\stress{\underline \sigma}
-   \def\strainrate{\underline \epsilon^.}
-   \def\stressrate{\underline \sigma^.}
-   \def\stiff{\; \underline{\underline C}\;}
-   \def\comply{\underline{\underline \kappa}\;}
-   \def\Id{{\bf I}}
-   \def\Div{\nabla \cdot}
-   \def\Grad{\mathbf{\nabla}}
-   \def\rot{\nabla \times}
-   \def\lap{\triangle}
-   \def\tr{{\bf tr}\;}
-   \def\udH{\underline H}
-   \def\refX{\mathbf X}
-   \def\Jac{\overline{J}}
-   \def\spatx{\mathbf x}
-   \def\ani{\overline a}
-   \def\mat{\left[\begin{array}}
-   \def\tam{\end{array}\right]}
-   \def\arr{\left.\begin{array}}
-   \def\rra{\end{array}\right\}}
-   \def\arl{\left\{\begin{array}}
-   \def\lra{\end{array}\right.}
-   \def\ar{\begin{array}}
-   \def\ra{\end{array}}
-   \def\const{\mbox{ const.}}
-   \def\eps{\; \epsilon}
-   \def\sig{\; \sigma}
-   \def\th{\theta}
-   \def\sgn{\mbox{sgn}}
-   \def\qed{\; Q.E.D.\\}
-   \def\ranqe{\end{eqnarray}}
-   \def\ol{\overline}
-   \def\ul{\underline}
-   \def\bB{{\bf B}}
-   \def\bC{{\bf C}}
-   \def\bD{{\bf D}}
-   \def\bE{{\bf E}}
-   \def\bF{{\bf F}}
-   \def\bK{{\bf K}}
-   \def\bP{{\bf P}}
-   \def\bS{{\bf S}}
-   \def\bT{{\bf T}}
-   \def\bsig{{\bf \sigma}}
-
 Notation
 --------
 
@@ -73,7 +12,7 @@ We also introduce the symbols :math:`I_1 := \tr \bC` and :math:`J := \det\bF`.
 Use will be made of the identity:
 
 .. math::
-   {\PD{}J \over \PD{}\bC} = J \bC^{-1}
+   {\p J \over \p \bC} = J \bC^{-1}
 
 The symbol :math:`\Id` denotes the identity tensor.
 The symbol :math:`\Omega_{0}` denotes the reference configuration of the body to be deformed.
@@ -105,7 +44,7 @@ The strain energy density function is given by:
 The corresponding 2nd Piola-Kirchoff stress tensor is given by:
 
 .. math::
-   \bS_{n} := {\PD{} W \over \PD{}\bE} (\bF_{n})
+   \bS_{n} := {\p W \over \p\bE} (\bF_{n})
    =
    \mu (\Id - \bC^{-1})
 
@@ -119,7 +58,7 @@ The Kirchhoff stress, then, is:
 The tangent Kirchhoff stress tensor at :math:`\bF_{n}` acting on :math:`\delta \bF_{n+1}` is, consequently:
 
 .. math::
-   {\PD{} \kappa \over \PD{} \bF} (\bF_{n}) \delta \bF_{n+1}
+   {\p \kappa \over \p \bF} (\bF_{n}) \delta \bF_{n+1}
    =
    \mu
    \left[
@@ -148,7 +87,7 @@ The weak formulation of the boundary value problem is:
    \left\{
    (\Grad \otimes \mathbf{w}) (\bF)^{-1}
    \right\}\\
-   & - & \int_{\PD{} \Omega_0^{t}} P \cdot \hat{N}_0\\
+   & - & \int_{\p \Omega_0^{t}} P \cdot \hat{N}_0\\
    \rra
 
 For brevity, in the rest of this section we assume :math:`P = 0`.
@@ -163,13 +102,13 @@ by solving the weak formulation:
 
 .. math::
    \arr{lll}
-       0 &=& \int_{\Omega_0}\kappa[\bF_{n} + \delta \bF_{n+1}]\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n} + \delta\bF_{n+1})^{-1}\right\}- \int_{\PD{} \Omega_0} P \cdot \hat{N}_0\\
-       &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n} + \delta \bF_{n+1})^{-1}\right\}\\
-       &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n}^{-1} + \bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
+       0 &=& \int_{\Omega_0}\kappa[\bF_{n} + \delta \bF_{n+1}]\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n} + \delta\bF_{n+1})^{-1}\right\}- \int_{\p \Omega_0} P \cdot \hat{N}_0\\
+       &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n} + \delta \bF_{n+1})^{-1}\right\}\\
+       &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n}^{-1} + \bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
        \\
        &=& \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})\bF_{n}^{-1}\right\}\\
        &-& \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
-       &+& \int_{\Omega_0}\left\{{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})
+       &+& \int_{\Omega_0}\left\{{\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})
    \bF_{n}^{-1}
    \right\}
    \\
@@ -194,7 +133,7 @@ Introducing the code-like notation, where a string in :math:`< >`\ ’s is to be
 .. math::
    <TanK>
     :=
-   {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+   {\p \kappa \over \p \bF}[\bF_{n}]
    \delta \bF_{n+1}
 
 will be implemented as the macros :math:`<TanK11>`, :math:`<TanK12>`, …
@@ -238,7 +177,7 @@ respectively.
 In the above notation, the tangent Kirchhoff stress term becomes
 
 .. math::
-   {\PD{} \kappa \over \PD{} \bF} (\bF_{n})
+   {\p \kappa \over \p \bF} (\bF_{n})
    \: \delta \bF_{n+1}
    =
    \mu
@@ -267,7 +206,7 @@ while the weak BVP formulation acquires the form:
    &+&
    \int_{\Omega_0}
    \left\{
-   {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+   {\p \kappa \over \p \bF}[\bF_{n}]
    \delta \bF_{n+1}
    \right\}
    \:

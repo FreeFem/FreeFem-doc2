@@ -1,4 +1,3 @@
-
 .. role:: freefem(code)
   :language: freefem
 

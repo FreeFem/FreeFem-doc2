@@ -1,6 +1,3 @@
-.. math::
-    \def\R{{\mathbb{R}}}
-
 .. _ffddmTutorial:
 
 Tutorial

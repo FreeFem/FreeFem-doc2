@@ -1,15 +1,6 @@
 .. role:: freefem(code)
    :language: freefem
 
-.. math::
-   \def\R{{\mathbb{R}}}
-   \def\P{{\mathbb{P}}}
-   \def\p{{\partial}}
-   \def\d{{\text{d}}}
-   \def\vecttwo#1#2{\left|\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right.}
-   \def\vectthree#1#2#3{\left|\begin{smallmatrix} #1 \\ #2 \\ #3\end{smallmatrix}\right.}
-   \def\n{{\nabla}}
-
 .. _finiteElement:
 
 Finite element

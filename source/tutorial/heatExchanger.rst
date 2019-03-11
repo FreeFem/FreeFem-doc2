@@ -1,7 +1,6 @@
 .. role:: freefem(code)
   :language: freefem
 
-
 Heat Exchanger
 ==============
 

@@ -1,9 +1,6 @@
 .. role:: freefem(code)
    :language: freefem
 
-.. math::
-   \def\T{{\mathbb{T}}}
-
 .. _tutorialMembrane:
 
 Membrane

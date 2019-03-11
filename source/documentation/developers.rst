@@ -4,9 +4,6 @@
 .. role:: cpp(code)
   :language: cpp
 
-.. math::
-    \def\vecttwo#1#2{\left|\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right.}
-
 Developers
 ==========
 
