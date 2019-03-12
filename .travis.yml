@@ -16,7 +16,7 @@ before_install:
     - git clone https://github.com/FreeFem/FreeFem-parser-pygments.git ~/pygments
     - sudo cp ~/pygments/freefem.py /usr/local/lib/python2.7/dist-packages/pygments/lexers/
     - cd /usr/local/lib/python2.7/dist-packages/pygments/lexers/ && sudo python _mapping.py
-    - cd /home/travis/build/FreeFem/FreeFem-doc2
+    - cd /home/travis/build/FreeFem/${GH_REPOSITORY}
 
 script:
     - make html
@@ -28,8 +28,8 @@ script:
 after_success:
     - git config user.name "sgarnotel"
     - git config user.email "simon.garnotel@gmail.com"
-    - git remote add token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
-    - git fetch token && git fetch token gh-pages:gh-pages
+    - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/${GH_REPOSITORY}.git" > /dev/null 2>&1
+    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
     - git checkout gh-pages && git clean -f -d && cp -R ../html/* . && git add --all && git commit -m"update Web" && git push --set-upstream origin gh-pages
-    - git fetch token && git fetch token pdf:pdf
+    - git fetch gh-token && git fetch gh-token pdf:pdf
     - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push --set-upstream origin pdf
