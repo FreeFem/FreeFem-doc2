@@ -4,8 +4,10 @@ git:
 language: python
 
 before_install:
+    - npm i -g npm
     - pip install Sphinx
     - pip install sphinxcontrib-inlinesyntaxhighlight
+    - sudo apt install texlive-latex-base
     - git clone https://github.com/FreeFem/FreeFem-parser-pygments.git ~/pygments
     - sudo cp ~/pygments/freefem.py /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/
     - cd /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/ && sudo python _mapping.py
@@ -14,10 +16,12 @@ before_install:
 script:
     - make html
     - make latex
-    - cd build/latex && pdflatex FreeFem++.tex && pdflatex FreeFem++.tex
+    # - cd build/latex && pdflatex FreeFem++.tex && pdflatex FreeFem++.tex
+    - cp -R build/html ..
+    - cp -R build/latex ..
 
-# after_success:
-#     - git config user.name "Travis CI"
-#     - git config user.email "simon.garnotel@gmail.com"
+after_success:
+    - git config user.name "Travis CI"
+    - git config user.email "simon.garnotel@gmail.com"
 #     - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
 #     -
