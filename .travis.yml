@@ -4,7 +4,8 @@ git:
 language: generic
 
 before_install:
-    - sudo apt install nodejs
+    - sudo apt update && sudo apt upgrade
+    - sudo apt install nodejs npm
     - sudo npm i -g npm
     - sudo pip install --upgrade pip
     - sudo pip install Sphinx
