@@ -26,7 +26,7 @@ script:
     - cp -R build/latex ..
 
 after_success:
-    - git config user.name "Travis CI"
+    - git config user.name "sgarnotel"
     - git config user.email "simon.garnotel@gmail.com"
     - git remote add token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
     - git fetch token && git fetch token gh-pages:gh-pages
