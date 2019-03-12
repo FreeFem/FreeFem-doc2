@@ -13,10 +13,11 @@ before_install:
     - sudo pip install Sphinx
     - sudo pip install sphinxcontrib-inlinesyntaxhighlight
     - sudo apt install texlive-latex-base
-    - git clone https://github.com/FreeFem/FreeFem-parser-pygments.git ~/pygments
-    - sudo cp ~/pygments/freefem.py /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/
-    - cd /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/ && sudo python _mapping.py
-    - cd /home/travis/build/FreeFem/FreeFem-doc2
+    - sudo find / -name "pygments"
+    # - git clone https://github.com/FreeFem/FreeFem-parser-pygments.git ~/pygments
+    # - sudo cp ~/pygments/freefem.py /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/
+    # - cd /home/travis/virtualenv/python2.7.14/lib/python2.7/site-packages/pygments/lexers/ && sudo python _mapping.py
+    # - cd /home/travis/build/FreeFem/FreeFem-doc2
 
 script:
     - make html
@@ -28,6 +29,8 @@ script:
 after_success:
     - git config user.name "Travis CI"
     - git config user.email "simon.garnotel@gmail.com"
-    - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
-    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
+    - git remote add token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
+    - git fetch token && git fetch token gh-pages:gh-pages
     - git checkout gh-pages && git clean -f && cp ../html/ ./ && git commit -m"update Web" && git push
+    - git fetch token && git fetch token pdf:pdf
+    - git checkout pdf && git clean -f && cp ../latex/FreeFem++.pdf ./ && git commit -m"update PDF" && git push
