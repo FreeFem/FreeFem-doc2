@@ -1,7 +1,7 @@
 git:
     submodules: false
 
-language: python
+language: generic
 
 before_install:
     - npm i -g npm
@@ -25,7 +25,7 @@ after_success:
     - git config user.email "simon.garnotel@gmail.com"
     - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
     - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
-    - git branch
+    - git checkout gh-pages && git clean -f && git commit -am"update Web" && git push
     # - cp ../html/ ./ && git commit -am "update Web" && git push
 #     - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
 #     -
