@@ -1,0 +1,14 @@
+git:
+    submodules: false
+
+dist: xenial
+language: python
+
+before_install:
+    - sudo pip install Sphinx
+    - sudo pip install sphinxcontrib-inlinesyntaxhighlight
+    - sudo apt install textlive
+
+script:
+    - make html
+    - make latex
