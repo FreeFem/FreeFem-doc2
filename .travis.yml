@@ -1,12 +1,14 @@
 git:
     submodules: false
 
+notifications:
+    email: false
+
 language: generic
 
 before_install:
     - sudo apt update
     - sudo apt install nodejs npm
-    - sudo npm i -g npm
     - sudo pip install --upgrade pip
     - sudo pip install Sphinx
     - sudo pip install sphinxcontrib-inlinesyntaxhighlight
