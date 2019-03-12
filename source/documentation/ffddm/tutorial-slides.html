@@ -46,7 +46,7 @@
         float: right;
         width: 60%;
       }
-      
+
       .footnote1 {
         text-align: left;
         position:absolute;
@@ -61,9 +61,9 @@
         left: 40em;
         font-size: 0.8em;
       }
-      
+
       .title {font-size: 2.5em;font-weight:bold;}
-      
+
       .red {color:red;}
 
     </style>
@@ -77,12 +77,12 @@ class: center, middle, inverse
 
 # Short tutorial
 
-.footnote1[Pierre-Henri Tournier  
-Frédéric Nataf  
+.footnote1[Pierre-Henri Tournier
+Frédéric Nataf
 Pierre Jolivet]
 
-.footnote2[tournier@ljll.math.upmc.fr  
-nataf@ljll.math.upmc.fr  
+.footnote2[tournier@ljll.math.upmc.fr
+nataf@ljll.math.upmc.fr
 pierre.jolivet@enseeiht.fr]
 
 ---
@@ -91,11 +91,11 @@ class: left, top
 
 ## [What is **ffddm** ?](ffddm/#what-is-ffddm)
 
-- **ffddm** implements a class of parallel solvers in *FreeFem++*:  
+- **ffddm** implements a class of parallel solvers in *FreeFem++*:
 *overlapping Schwarz domain decomposition methods*
 
-- The entire **ffddm** framework is written in the *FreeFem++* language  
-**ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*  
+- The entire **ffddm** framework is written in the *FreeFem++* language
+**ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*
 You can find the **ffddm** scripts and examples [here](https://github.com/FreeFem/FreeFem-sources/tree/v4/examples%2B%2B-ffddm)
 
 - **ffddm** provides a set of high-level macros and functions to
@@ -104,14 +104,14 @@ You can find the **ffddm** scripts and examples [here](https://github.com/FreeFe
   - solve your problem using preconditioned Krylov methods
 
 - **ffddm** implements scalable two level Schwarz methods, with a coarse space correction built
- either from a coarse mesh or a [GenEO](https://link.springer.com/article/10.1007%2Fs00211-013-0576-y#page-1) coarse space  
+ either from a coarse mesh or a [GenEO](https://link.springer.com/article/10.1007%2Fs00211-013-0576-y#page-1) coarse space
  *Ongoing research*: approximate coarse solves and three level methods
- 
-- **ffddm** can also act as a wrapper for the [**HPDDM**](https://github.com/hpddm/hpddm) library  
- **HPDDM** is an efficient C++11 implementation of various domain decomposition methods and Krylov subspace algorithms 
- with advanced block and recycling techniques  
+
+- **ffddm** can also act as a wrapper for the [**HPDDM**](https://github.com/hpddm/hpddm) library
+ **HPDDM** is an efficient C++11 implementation of various domain decomposition methods and Krylov subspace algorithms
+ with advanced block and recycling techniques
  More details on how to use **HPDDM** within **ffddm** [here](documentation/#using-hpddm-within-ffddm)
- 
+
 ---
 
 ## Why Domain Decomposition Methods ?
@@ -220,7 +220,7 @@ $$
 {\mathbf V}\_i = R\_i\,{\mathbf V}, \quad i = 1, ..., N
 $$
 
-where ${\mathbf V}$ is the corresponding global vector  
+where ${\mathbf V}$ is the corresponding global vector
 and $R\_i$ is the *restriction operator* from ${\mathcal N}$ into ${\mathcal N}\_i$
 
 **_Remark_** $R\_i^T$ is the *extension operator*: extension by $0$ from ${\mathcal N}\_i$ into ${\mathcal N}$
@@ -254,7 +254,7 @@ $$ I = \sum\_{i = 1}^N R\_i^T D\_i R\_i $$
 func prfe#update(K[int] vi, bool scale)
 ```
 
-synchronizes local vectors ${\mathbf V}\_i$ between subdomains  
+synchronizes local vectors ${\mathbf V}\_i$ between subdomains
 $\Rightarrow$ exchange the values of ${\mathbf V}\_i$ shared with neighbors in the overlap region
 
 
@@ -320,7 +320,7 @@ ffddmplot(FE,vi,"multiplicity")
 ffddmsetupOperator( pr , prfe , Varf )
 ```
 
-builds the distributed operator associated to your variational form on top of the distributed FE **prfe**  
+builds the distributed operator associated to your variational form on top of the distributed FE **prfe**
 
 **Varf** is a macro defining your abstract variational form
 
@@ -337,7 +337,7 @@ $\Rightarrow$ assemble local 'Dirichlet' matrices $A\_i = R\_i A R\_i^T$
 $$A = \sum\_{i=1}^N R\_i^T D\_i A\_i R\_i$$
 ]
 .pull-right65[
- **Warning** only true because $D\_i R\_i A = D\_i A R\_i$  
+ **Warning** only true because $D\_i R\_i A = D\_i A\_i R\_i$  
  due to the fact that $D\_i$ vanishes at the interface **!!**
 ]
 </div>
@@ -472,7 +472,7 @@ ffddmplot(PB, ui, "u")
 ffddmsetupPrecond( pr , VarfPrec )
 ```
 
-builds the one level preconditioner for problem **pr**.  
+builds the one level preconditioner for problem **pr**.
 
 By default it is the *Restricted Additive Schwarz (RAS)* preconditioner:
 
@@ -480,7 +480,7 @@ $$
 M^{-1}\_1 = M^{-1}\_{\text{RAS}} = \sum\_{i=1}^N R\_i^T D\_i A\_i^{-1} R\_i \quad \text{with}\; A\_i = R\_i A R\_i^T
 $$
 
-**_Setup step_**: compute the $LU$ (or $L D L^T$) factorization of local matrices $A\_i$ 
+**_Setup step_**: compute the $LU$ (or $L D L^T$) factorization of local matrices $A\_i$
 
 `pr#PREC1` applies $M^{-1}\_1$ to a distributed vector: ${\mathbf U}\_i \leftarrow R\_i \sum\_{j=1}^N R\_j^T D\_j A\_j^{-1} {\mathbf V}\_i$
 
@@ -558,7 +558,7 @@ PBwritesummary
 
 $\Rightarrow$ enrich the one level preconditioner with a *coarse problem* coupling all subdomains
 
-Main ingredient is a rectangular matrix $\color{red}{Z}$ of size $n \times n\_c,\,$ where $n\_c \ll n$  
+Main ingredient is a rectangular matrix $\color{red}{Z}$ of size $n \times n\_c,\,$ where $n\_c \ll n$
 $\color{red}{Z}$ is the *coarse space* matrix
 
 The *coarse space operator* $E = \color{red}{Z}^T A \color{red}{Z}$ is a square matrix of size $n\_c \times n\_c$
@@ -587,12 +587,12 @@ $$
 
 with $A\_i^{\text{Neu}}$ the local Neumann matrices built from **Varf** (same **Varf** as [Step 3](tutorial-slides.html#11))
 
-The GenEO coarse space is $\color{red}{Z} = (R\_i^T D\_i V\_{i,k})^{i=1,...,N}\_{\lambda\_{i,k} \ge \color{blue}{\tau}}$  
-The eigenvectors $V\_{i,k}$ selected to enter the coarse space correspond to eigenvalues $\lambda_{i,k} \ge \color{blue}{\tau}$, where $\color{blue}{\tau}$ is a threshold parameter 
- 
- **Theorem**   
- the spectrum of the preconditioned operator lies in the interval $[\displaystyle \frac{1}{1+k_1 \color{blue}{\tau}} , k_0 ]$  
- where $k_0 - 1$ is the \# of neighbors and $k_1$ is the multiplicity of intersections  
+The GenEO coarse space is $\color{red}{Z} = (R\_i^T D\_i V\_{i,k})^{i=1,...,N}\_{\lambda\_{i,k} \ge \color{blue}{\tau}}$
+The eigenvectors $V\_{i,k}$ selected to enter the coarse space correspond to eigenvalues $\lambda_{i,k} \ge \color{blue}{\tau}$, where $\color{blue}{\tau}$ is a threshold parameter
+
+ **Theorem**
+ the spectrum of the preconditioned operator lies in the interval $[\displaystyle \frac{1}{1+k_1 \color{blue}{\tau}} , k_0 ]$
+ where $k_0 - 1$ is the \# of neighbors and $k_1$ is the multiplicity of intersections
  $\Rightarrow$ $k_0$ and $k_1$ do not depend on $N$ nor on the PDE
 
 ---
@@ -643,11 +643,11 @@ For **non SPD** problems, an alternative is to build the coarse space by discret
 
 $\Rightarrow E=\color{red}{Z}^{T} A \color{red}{Z}$ is the matrix of the problem discretized on the coarse mesh
 
-The variational problem to be discretized on **Thc** is given by macro **VarfEprec**  
+The variational problem to be discretized on **Thc** is given by macro **VarfEprec**
 
-**VarfEprec** can differ from the original **Varf** of the problem  
+**VarfEprec** can differ from the original **Varf** of the problem
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Example*: added absorption for wave propagation problems
-  
+
 Similarly, **VarfAprec** specifies the global operator involved in multiplicative coarse correction formulas. It defaults to $A$ if **VarfAprec** is not defined
 
 ---
@@ -692,7 +692,7 @@ ui[] = PBfGMRES(x0i[], bi[], 1.e-6, 200, "right");
 **ffddm** allows you to use **HPDDM** to solve your problem,
 effectively replacing the **ffddm** implementation of all parallel linear algebra computations
 
-$\Rightarrow$ define your problem with **ffddm**, solve it with **HPDDM**  
+$\Rightarrow$ define your problem with **ffddm**, solve it with **HPDDM**
 $\Rightarrow$ **ffddm** acts as a finite element interface for **HPDDM**
 
 - you can use **HPDDM** features unavailable in **ffddm** such as advanced Krylov subspace methods
@@ -716,8 +716,8 @@ Example [here](https://github.com/FreeFem/FreeFem-sources/blob/v4/examples%2B%2B
 
 ## Some results: Heterogeneous 3D elasticity with GenEO
 
-Heterogeneous 3D linear elasticity equation discretized with P2 FE  
-solved on 4096 MPI processes  
+Heterogeneous 3D linear elasticity equation discretized with P2 FE
+solved on 4096 MPI processes
 $n\approx$ 262 million
 
 ![:scale 100%](figures/comparisonAMG.png)
@@ -749,15 +749,15 @@ $n\approx$ 262 million
 - fine mesh: 10 points per wavelength
 - coarse mesh: 3.33 points per wavelength
 - two level ORAS preconditioner with added absorption
-- f = 10 GHz: $n\approx$ 107 million, .red[$n_c \approx$ 4 million]  
+- f = 10 GHz: $n\approx$ 107 million, .red[$n_c \approx$ 4 million]
 f = 16 GHz: $n\approx$ 198 million, .red[$n_c \approx$ 7.4 million]
 
-$\rightarrow$ coarse problem too large for a direct solver  
+$\rightarrow$ coarse problem too large for a direct solver
 $\Rightarrow$ inexact coarse solve: GMRES + one level ORAS preconditioner
 
 ![:scale 100%](figures/table.png)
 
-speedup of 1.81 from 1536 to 3072 cores at 10GHz  
+speedup of 1.81 from 1536 to 3072 cores at 10GHz
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.51 from 3072 to 6144 cores at 16GHz
 
 You can find the script [here](https://github.com/FreeFem/FreeFem-sources/blob/v4/examples%2B%2B-ffddm/Maxwell_Cobracavity.edp)
@@ -784,7 +784,7 @@ You can find the script [here](https://github.com/FreeFem/FreeFem-sources/blob/v
       var url = this;
       return '<img src="' + url + '" style="width: ' + percentage + '" class = "center"/>';
     };
-    
+
 
 
       var slideshow = remark.create({
