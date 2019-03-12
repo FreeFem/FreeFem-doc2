@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../_static/js/mathjax-config.js"></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -29,19 +30,6 @@
    <a class="header-logo" href="../introduction/index.html">
       <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
-
-   <script async src="../_static/js/lunr.js"></script>
-<script async src="../_static/lunr/lunr_index.js"></script>
-
-<div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
-</div>
-<div id="searchResults"></div>
-<script src="../_static/js/search.js"></script>
-<script>
-   initSearch('../')
-</script>
 
    <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
       <i class="fab fa-github"></i>
@@ -57,8 +45,8 @@
 <script async src="../_static/js/github.js"></script>
 		
 		<nav id="nav">
-   <div style="display: none;">
-      <ul class="current">
+	<div style="display: none;">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/download.html#latest-binary-packages">Latest binary packages</a></li>
@@ -1610,43 +1598,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-   </div>
+	</div>
 
-   <div class="nav-links" id="staticNav">
-   </div>
+	<div class="nav-links" id="staticNav">
+	</div>
 
-       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+	<button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-       <div id="sideNav" class="sidenav">
-          <div class="sideNavHeader">
-             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
-
-             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-          </div>
-          <div id="dynamicSideNav">
-          </div>
-       </div>
-
-   <script async src="../_static/js/lunr.js"></script>
+	<div id="sideNav" class="sidenav">
+		<div class="sideNavHeader">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+			<a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+		</div>
+		<div id="dynamicSideNav">
+		</div>
+	</div>
+	<script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
 
 <div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
+	<label for="searchInput"><i class="fas fa-search"></i></label>
+	<input type="search" placeholder="Search ..." id="searchInput">
+	<div id="searchResults"></div>
 </div>
-<div id="searchResults"></div>
+
 <script src="../_static/js/search.js"></script>
 <script>
    initSearch('../')
 </script>
+	
 </nav>
-
 <script async src="../_static/js/nav.js"></script>
 		
 
 		<div id="subnav">
-  <div style="display: none">
-    <ul class="current">
+	<div style="display: none">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
@@ -1672,15 +1659,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-  </div>
+	</div>
 </div>
 <script async src="../_static/js/subnav.js"></script>
 		
 		<div id="content">
 			
-   <div class="math notranslate nohighlight">
-\[\begin{split}\def\vecttwo#1#2{\left|\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right.}\end{split}\]</div>
-<div class="section" id="developers">
+   <div class="section" id="developers">
 <h1>Developers<a class="headerlink" href="#developers" title="Permalink to this headline"> </a></h1>
 <div class="section" id="file-formats">
 <h2>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline"> </a></h2>
@@ -1735,54 +1720,54 @@
 45
 46
 47
-48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MeshVersionFormatted</span> <span class="mi">0</span>
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MeshVersionFormatted</span> <span class="n">0</span>
 
-<span class="n">Dimension</span> <span class="p">[</span><span class="n">DIM</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Dimension</span> <span class="no">[DIM]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">Vertices</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="n">X_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Y_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_1</span><span class="p">(</span><span class="kt">double</span><span class="p">))</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of vertices]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">X_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">Y_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_1</span><span class="p">(</span><span class="n">double</span><span class="p">))</span> <span class="n">Ref_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">X_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Y_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">))</span> <span class="n">Ref_nv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">X_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">Y_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">(</span><span class="n">Z_nv</span><span class="p">(</span><span class="n">double</span><span class="p">))</span> <span class="n">Ref_nv</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">Edges</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">edges</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of edges]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">Vertex1_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_ne</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_ne</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_ne</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_ne</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">Triangles</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">triangles</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of triangles]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">Vertex1_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_nt</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_nt</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_nt</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex3_nt</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_nt</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">Quadrilaterals</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">Quadrilaterals</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="n">Vertex1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex4_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of Quadrilaterals]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">Vertex1_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex3_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex4_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">Vertex1_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex2_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex3_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Vertex4_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Ref_nq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Vertex1_nq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex2_nq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex3_nq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Vertex4_nq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Ref_nq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">Geometry</span>
-<span class="p">[</span><span class="n">File</span> <span class="n">name</span> <span class="n">of</span> <span class="n">geometric</span> <span class="n">support</span><span class="p">](</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span>
+<span class="no">[File name of geometric support]</span><span class="p">(</span><span class="n">char</span><span class="p">*)</span>
 
    <span class="n">VertexOnGeometricVertex</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">geometric</span> <span class="n">vertex</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexGeometry_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="no">[Number of vertex on geometric vertex]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">VertexGeometry_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Vertex_nvg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexGeometry_nvg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_nvg</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">VertexGeometry_nvg</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
    <span class="n">EdgeOnGeometricEdge</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">geometric</span> <span class="n">edge</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-   <span class="n">Edge_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeGeometry_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="no">[Number of geometric edge]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+   <span class="n">Edge_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">EdgeGeometry_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Edge_neg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeGeometry_neg</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Edge_neg</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">EdgeGeometry_neg</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
 <span class="n">CrackedEdges</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">cracked</span> <span class="n">edges</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="n">Edge1_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Edge2_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of cracked edges]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">Edge1_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Edge2_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">Edge1_nce</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Edge2_nce</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="n">Edge1_nce</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">Edge2_nce</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>When the current mesh refers to a previous mesh, we have in addition</p>
@@ -1812,31 +1797,31 @@
 24
 25
 26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MeshSupportOfVertices</span>
-<span class="p">[</span><span class="n">File</span> <span class="n">name</span> <span class="n">of</span> <span class="n">mesh</span> <span class="n">support</span><span class="p">](</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span>
+<span class="no">[File name of mesh support]</span><span class="p">(</span><span class="n">char</span><span class="p">*)</span>
 
    <span class="n">VertexOnSupportVertex</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">vertex</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="no">[Number of vertex on support vertex]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">VertexSupport_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Vertex_nvsv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">VertexSupport_nvsv</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+   <span class="n">Vertex_nvsv</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">VertexSupport_nvsv</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
    <span class="n">VertexOnSupportEdge</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">edge</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="no">[Number of vertex on support edge]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">EdgeSupport_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Vertex_nvse</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">EdgeSupport_nvse</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvse</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="n">Vertex_nvse</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">EdgeSupport_nvse</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_nvse</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 
    <span class="n">VertexOnSupportTriangle</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">triangle</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="no">[Number of vertex on support triangle]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Vertex_nvst</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvst</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvst</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_nvst</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="n">Vertex_nvst</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvst</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_nvst</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">VSupport_nvst</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 
    <span class="n">VertexOnSupportQuadrilaterals</span>
-   <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertex</span> <span class="n">on</span> <span class="n">support</span> <span class="n">quadrilaterals</span><span class="p">]</span>
-   <span class="n">Vertex_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="no">[Number of vertex on support quadrilaterals]</span>
+   <span class="n">Vertex_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">TriangleSupport_1</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">VSupport_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
    <span class="p">...</span>
-   <span class="n">Vertex_nvsq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvsq</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">USupport_nvsq</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">VSupport_nvsq</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+   <span class="n">Vertex_nvsq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">TriangleSupport_nvsq</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">USupport_nvsq</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">VSupport_nvsq</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -1856,11 +1841,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">2</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">2</span> <span class="no">[Number of solutions]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">[Number of vertices]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">2</span>
 
-<span class="n">U_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">U_1_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_ns_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -1882,17 +1867,17 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Type</span> <span class="mi">1</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">...</span> <span class="p">[</span><span class="n">Type</span> <span class="n">ns</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">2</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">2</span> <span class="no">[Number of solutions]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">[Type 1]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="p">...</span> <span class="no">[Type ns]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">[Number of vertices]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">2</span>
 
-<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 
 <span class="p">...</span>
 
-<span class="n">U_1_1_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1_ns</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_1_ns</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">U_1_nbv_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_ns</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_nbv_ns</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">type_k</span><span class="p">)</span><span class="n">_nbv_ns</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -1916,10 +1901,10 @@
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">1</span>
-<span class="n">h_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="no">[Number of vertices]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">1</span>
+<span class="n">h_0</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">h_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">h_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -1931,10 +1916,10 @@
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">vertices</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="mi">3</span>
-<span class="n">a11_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a21_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a22_0</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="no">[Number of vertices]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="n">3</span>
+<span class="n">a11_0</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">a21_0</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">a22_0</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">a11_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a21_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">a22_nv</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">a11_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">a21_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">a22_nv</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -2086,18 +2071,18 @@ ST^{2d}= \left(
 11
 12
 13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">SolAtTetrahedra</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">tetrahedra</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Number</span> <span class="n">of</span> <span class="n">solutions</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">[</span><span class="n">Type</span> <span class="n">of</span> <span class="n">solution</span> <span class="mi">1</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span> <span class="p">...</span> <span class="p">[</span><span class="n">Type</span> <span class="n">of</span> <span class="n">soution</span> <span class="n">nt</span><span class="p">](</span><span class="kt">int</span><span class="p">)</span>
+<span class="no">[Number of tetrahedra]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="no">[Number of solutions]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">[Type of solution 1]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="p">...</span> <span class="no">[Type of soution nt]</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 
-<span class="n">U_1_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">U_1_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_1</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_ns_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_1</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 
 <span class="p">...</span>
 
-<span class="n">U_1_1_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_1_nt</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_nrs_1_nt</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 <span class="p">...</span>
-<span class="n">U_1_ns_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_nt</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<span class="n">U_1_ns_nt</span><span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="p">...</span> <span class="n">U_</span><span class="p">(</span><span class="n">nrs_k</span><span class="p">)</span><span class="n">_ns_nt</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -2207,15 +2192,15 @@ example first to initialize :</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;error.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;rgraph.hpp&quot;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="cp">#include</span> <span class="cpf">&quot;RNM.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;fem.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;FESpace.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;AddNewFE.h&quot;</span><span class="cp"></span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">#include &quot;error.hpp&quot;</span>
+<span class="c">#include &quot;rgraph.hpp&quot;</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="c">#include &quot;RNM.hpp&quot;</span>
+<span class="c">#include &quot;fem.hpp&quot;</span>
+<span class="c">#include &quot;FESpace.hpp&quot;</span>
+<span class="c">#include &quot;AddNewFE.h&quot;</span>
 
-<span class="k">namespace</span> <span class="n">Fem2D</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="n">namespace</span> <span class="n">Fem2D</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 <p>Then add a class which derive for <code class="docutils literal highlight highlight-freefem"><span></span><span class="k">public</span> <span class="n">TypeOfFE</span></code> like:</p>
@@ -2248,36 +2233,36 @@ example first to initialize :</p>
 27
 28
 29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TypeOfFE_RTortho</span> <span class="o">:</span> <span class="k">public</span> <span class="n">TypeOfFE</span> <span class="p">{</span> <span class="k">public</span><span class="o">:</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">Data</span><span class="p">[];</span> <span class="c1">//some numbers</span>
-    <span class="n">TypeOfFE_RTortho</span><span class="p">()</span><span class="o">:</span>
-    <span class="n">TypeOfFE</span><span class="p">(</span>
-        <span class="mi">0</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span>  <span class="c1">//nb degree of freedom on element</span>
-        <span class="mi">2</span><span class="p">,</span>      <span class="c1">//dimension N of vectorial FE (1 if scalar FE)</span>
-        <span class="n">Data</span><span class="p">,</span>   <span class="c1">//the array data</span>
-        <span class="mi">1</span><span class="p">,</span>      <span class="c1">//nb of subdivision for plotting</span>
-        <span class="mi">1</span><span class="p">,</span>      <span class="c1">//nb of sub finite element (generaly 1)</span>
-        <span class="mi">6</span><span class="p">,</span>      <span class="c1">//number kPi of coef to build the interpolator</span>
-        <span class="mi">3</span><span class="p">,</span>      <span class="c1">//number npPi of integration point to build interpolator</span>
-        <span class="mi">0</span>       <span class="c1">//an array to store the coef \alpha_k to build interpolator</span>
-        <span class="c1">//here this array is no constant so we have</span>
-        <span class="c1">//to rebuilt for each element</span>
-    <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">const</span> <span class="n">R2</span> <span class="n">Pt</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">R2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">R2</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">R2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">};</span>
-        <span class="c1">// the set of Point in hat{K}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
-            <span class="n">P_Pi_h</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-                <span class="n">pij_alpha</span><span class="p">[</span><span class="n">kk</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">IPJ</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="c1">//definition of i_k, p_k, j_k in interpolator</span>
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span>class TypeOfFE_RTortho : public TypeOfFE { public:
+    static int Data[]; //some numbers
+    TypeOfFE_RTortho():
+    TypeOfFE(
+        0+3+0,  //nb degree of freedom on element
+        2,      //dimension N of vectorial FE (1 if scalar FE)
+        Data,   //the array data
+        1,      //nb of subdivision for plotting
+        1,      //nb of sub finite element (generaly 1)
+        6,      //number kPi of coef to build the interpolator
+        3,      //number npPi of integration point to build interpolator
+        0       //an array to store the coef \alpha_k to build interpolator
+        //here this array is no constant so we have
+        //to rebuilt for each element
+    )
+    {
+        const R2 Pt[] = {R2(0.5, 0.5), R2(0.0, 0.5), R2(0.5, 0.0) };
+        // the set of Point in hat{K}
+        for (int p = 0, kk = 0; p &lt; 3; p++){
+            P_Pi_h[p] = Pt[p];
+            for (int j = 0; j &lt; 2; j++)
+                pij_alpha[kk++] = IPJ(p, p, j);
+        }
+    } //definition of i_k, p_k, j_k in interpolator
 
-    <span class="kt">void</span> <span class="n">FB</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="o">*</span><span class="n">watdd</span><span class="p">,</span> <span class="k">const</span> <span class="n">Mesh</span> <span class="o">&amp;</span><span class="n">Th</span><span class="p">,</span> <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span>
-        <span class="k">const</span> <span class="n">R2</span> <span class="o">&amp;</span><span class="n">PHat</span><span class="p">,</span> <span class="n">RNMK_</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    void FB(const bool *watdd, const Mesh &amp;Th, const Triangle &amp;K,
+        const R2 &amp;PHat, RNMK_ &amp;val) const;
 
-    <span class="kt">void</span> <span class="nf">Pi_h_alpha</span><span class="p">(</span><span class="k">const</span> <span class="n">baseFElement</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span> <span class="n">KN_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-<span class="p">}</span> <span class="p">;</span>
+    void Pi_h_alpha(const baseFElement &amp;K, KN_&lt;double&gt; &amp;v) const;
+} ;
 </pre></div>
 </td></tr></table></div>
 <p>where the array data is formed with the concatenation of five array of
@@ -2291,15 +2276,15 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">TypeOfFE_RTortho</span><span class="o">::</span><span class="n">Data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">//for each df 0, 1, 3:</span>
-    <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">//the support of the node of the df</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//the number of the df on the node</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">//the node of the df</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//the df come from which FE (generally 0)</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">//which are the df on sub FE</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-<span class="p">};</span> <span class="c1">//for each component j=0, N-1 it give the sub FE associated</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>int TypeOfFE_RTortho::Data[] = {
+    //for each df 0, 1, 3:
+    3, 4, 5, //the support of the node of the df
+    0, 0, 0, //the number of the df on the node
+    0, 1, 2, //the node of the df
+    0, 0, 0, //the df come from which FE (generally 0)
+    0, 1, 2, //which are the df on sub FE
+    0, 0
+}; //for each component j=0, N-1 it give the sub FE associated
 </pre></div>
 </td></tr></table></div>
 <p>where the support is a number <span class="math notranslate nohighlight">\(0,1,2\)</span> for vertex support, <span class="math notranslate nohighlight">\(3,4,5\)</span> for edge support, and finally <span class="math notranslate nohighlight">\(6\)</span> for element support.</p>
@@ -2327,17 +2312,17 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">operatortype</span> <span class="p">{</span>
-<span class="n">op_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span class="n">op_dx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">op_dy</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-<span class="n">op_dxx</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="n">op_dyy</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-<span class="n">op_dyx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">op_dxy</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-<span class="n">op_dz</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
-<span class="n">op_dzz</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-<span class="n">op_dzx</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">op_dxz</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
-<span class="n">op_dzy</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">op_dyz</span> <span class="o">=</span> <span class="mi">9</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">operatortype</span> <span class="p">{</span>
+<span class="n">op_id</span> <span class="p">=</span> <span class="n">0</span><span class="p">,</span>
+<span class="n">op_dx</span> <span class="p">=</span> <span class="n">1</span><span class="p">,</span> <span class="n">op_dy</span> <span class="p">=</span> <span class="n">2</span><span class="p">,</span>
+<span class="n">op_dxx</span> <span class="p">=</span> <span class="n">3</span><span class="p">,</span><span class="n">op_dyy</span> <span class="p">=</span> <span class="n">4</span><span class="p">,</span>
+<span class="n">op_dyx</span> <span class="p">=</span> <span class="n">5</span><span class="p">,</span><span class="n">op_dxy</span> <span class="p">=</span> <span class="n">5</span><span class="p">,</span>
+<span class="n">op_dz</span> <span class="p">=</span> <span class="n">6</span><span class="p">,</span>
+<span class="n">op_dzz</span> <span class="p">=</span> <span class="n">7</span><span class="p">,</span>
+<span class="n">op_dzx</span> <span class="p">=</span> <span class="n">8</span><span class="p">,</span> <span class="n">op_dxz</span> <span class="p">=</span> <span class="n">8</span><span class="p">,</span>
+<span class="n">op_dzy</span> <span class="p">=</span> <span class="n">9</span><span class="p">,</span> <span class="n">op_dyz</span> <span class="p">=</span> <span class="n">9</span>
 <span class="p">};</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">last_operatortype</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">int</span> <span class="n">last_operatortype</span> <span class="p">=</span> <span class="n">10</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -2389,50 +2374,50 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
 43
 44
 45
-46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TypeOfFE_RTortho</span><span class="o">::</span><span class="n">FB</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="o">*</span><span class="n">whatd</span><span class="p">,</span> <span class="k">const</span> <span class="n">Mesh</span> <span class="o">&amp;</span><span class="n">Th</span><span class="p">,</span> <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span> <span class="n">K</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">R2</span> <span class="o">&amp;</span><span class="n">PHat</span><span class="p">,</span><span class="n">RNMK_</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">)</span> <span class="k">const</span>
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">TypeOfFE_RTortho</span><span class="p">::</span><span class="n">FB</span><span class="p">(</span><span class="n">const</span> <span class="n">bool</span> <span class="p">*</span><span class="n">whatd</span><span class="p">,</span> <span class="n">const</span> <span class="n">Mesh</span> <span class="p">&amp;</span><span class="n">Th</span><span class="p">,</span> <span class="n">const</span> <span class="n">Triangle</span> <span class="p">&amp;</span> <span class="n">K</span><span class="p">,</span>
+    <span class="n">const</span> <span class="n">R2</span> <span class="p">&amp;</span><span class="n">PHat</span><span class="p">,</span><span class="n">RNMK_</span> <span class="p">&amp;</span><span class="n">val</span><span class="p">)</span> <span class="n">const</span>
 <span class="p">{</span>
     <span class="n">R2</span> <span class="n">P</span><span class="p">(</span><span class="n">K</span><span class="p">(</span><span class="n">PHat</span><span class="p">));</span>
-    <span class="n">R2</span> <span class="nf">A</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-    <span class="n">R</span> <span class="n">l0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-    <span class="n">R</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">N</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">M</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">R</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="p">.</span><span class="n">area</span><span class="p">);</span>
-    <span class="n">R</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">R</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">R</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">R2</span> <span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">0</span><span class="p">]),</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">1</span><span class="p">]),</span> <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">2</span><span class="p">]);</span>
+    <span class="nb">R </span><span class="n">l0</span> <span class="p">=</span> <span class="n">1</span> <span class="p">-</span> <span class="n">P</span><span class="p">.</span><span class="n">x-P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+    <span class="nb">R </span><span class="n">l1</span> <span class="p">=</span> <span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">l2</span> <span class="p">=</span> <span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">N</span><span class="p">()</span> <span class="p">&gt;=</span> <span class="n">3</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">M</span><span class="p">()</span> <span class="p">==</span> <span class="n">2</span><span class="p">);</span>
+    <span class="n">val</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span>
+    <span class="nb">R </span><span class="n">a</span> <span class="p">=</span> <span class="n">1</span><span class="p">./(</span><span class="n">2</span><span class="p">*</span><span class="n">K</span><span class="p">.</span><span class="n">area</span><span class="p">);</span>
+    <span class="nb">R </span><span class="n">a0</span> <span class="p">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">0</span><span class="p">)</span> <span class="p">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="nb">R </span><span class="n">a1</span> <span class="p">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">1</span><span class="p">)</span> <span class="p">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="nb">R </span><span class="n">a2</span> <span class="p">=</span> <span class="n">K</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">2</span><span class="p">)</span> <span class="p">*</span> <span class="n">a</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_id</span><span class="p">]){</span> <span class="c1">//value of the function</span>
-        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_id</span><span class="p">);</span>
-        <span class="n">RN_</span> <span class="nf">f0</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span> <span class="c1">//value first component</span>
-        <span class="n">RN_</span> <span class="nf">f1</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span> <span class="c1">//value second component</span>
-        <span class="n">f1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span><span class="p">;</span>
-        <span class="n">f0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="no">[op_id]</span><span class="p">){</span> <span class="p">//</span><span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="k">function</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="p">&gt;</span> <span class="n">op_id</span><span class="p">);</span>
+        <span class="n">RN_</span> <span class="n">f0</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span><span class="n">0</span><span class="p">));</span> <span class="p">//</span><span class="n">value</span> <span class="n">first</span> <span class="n">component</span>
+        <span class="n">RN_</span> <span class="n">f1</span><span class="p">(</span><span class="n">val</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span><span class="n">0</span><span class="p">));</span> <span class="p">//</span><span class="n">value</span> <span class="n">second</span> <span class="n">component</span>
+        <span class="n">f1</span><span class="p">[</span><span class="n">0</span><span class="p">]</span> <span class="p">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">A</span><span class="p">.</span><span class="n">x</span><span class="p">)*</span><span class="n">a0</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="n">0</span><span class="p">]</span> <span class="p">=</span> <span class="p">-(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">A</span><span class="p">.</span><span class="n">y</span><span class="p">)*</span><span class="n">a0</span><span class="p">;</span>
 
-        <span class="n">f1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">B</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span>
-        <span class="n">f0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">B</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span>
+        <span class="n">f1</span><span class="p">[</span><span class="n">1</span><span class="p">]</span> <span class="p">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">B</span><span class="p">.</span><span class="n">x</span><span class="p">)*</span><span class="n">a1</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="n">1</span><span class="p">]</span> <span class="p">=</span> <span class="p">-(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">B</span><span class="p">.</span><span class="n">y</span><span class="p">)*</span><span class="n">a1</span><span class="p">;</span>
 
-        <span class="n">f1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">C</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span><span class="p">;</span>
-        <span class="n">f0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">C</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">a2</span><span class="p">;</span>
+        <span class="n">f1</span><span class="p">[</span><span class="n">2</span><span class="p">]</span> <span class="p">=</span> <span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">C</span><span class="p">.</span><span class="n">x</span><span class="p">)*</span><span class="n">a2</span><span class="p">;</span>
+        <span class="n">f0</span><span class="p">[</span><span class="n">2</span><span class="p">]</span> <span class="p">=</span> <span class="p">-(</span><span class="n">P</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">C</span><span class="p">.</span><span class="n">y</span><span class="p">)*</span><span class="n">a2</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dx</span><span class="p">]){</span> <span class="c1">//value of the dx of function</span>
-        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_dx</span><span class="p">);</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a0</span><span class="p">;</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="o">=</span> <span class="n">a2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="no">[op_dx]</span><span class="p">){</span> <span class="p">//</span><span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dx</span> <span class="n">of</span> <span class="k">function</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="p">&gt;</span> <span class="n">op_dx</span><span class="p">);</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="n">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="p">=</span> <span class="n">a0</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="n">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="p">=</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="n">1</span><span class="p">,</span><span class="n">op_dx</span><span class="p">)</span> <span class="p">=</span> <span class="n">a2</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dy</span><span class="p">]){</span>
-        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">op_dy</span><span class="p">);</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a0</span><span class="p">;</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a1</span><span class="p">;</span>
-        <span class="n">val</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">a2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="no">[op_dy]</span><span class="p">){</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">K</span><span class="p">()</span> <span class="p">&gt;</span> <span class="n">op_dy</span><span class="p">);</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="n">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="p">=</span> <span class="n">-a0</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="n">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="p">=</span> <span class="n">-a1</span><span class="p">;</span>
+        <span class="n">val</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="n">0</span><span class="p">,</span><span class="n">op_dy</span><span class="p">)</span> <span class="p">=</span> <span class="n">-a2</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">op_dy</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">last_operatortype</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="p">[</span><span class="n">op_dx</span><span class="p">])</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="n">op_dy</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">last_operatortype</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">whatd</span><span class="no">[op_dx]</span><span class="p">)</span>
             <span class="n">assert</span><span class="p">(</span><span class="n">op_dy</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -2448,27 +2433,27 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TypeOfFE_RT</span><span class="o">::</span><span class="n">Pi_h_alpha</span><span class="p">(</span><span class="k">const</span> <span class="n">baseFElement</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">,</span> <span class="n">KN_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="k">const</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">TypeOfFE_RT</span><span class="p">::</span><span class="n">Pi_h_alpha</span><span class="p">(</span><span class="n">const</span> <span class="n">baseFElement</span> <span class="p">&amp;</span><span class="n">K</span><span class="p">,</span> <span class="n">KN_</span><span class="p">&lt;</span><span class="n">double</span><span class="p">&gt;</span> <span class="p">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="n">const</span>
 <span class="p">{</span>
-    <span class="k">const</span> <span class="n">Triangle</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">(</span><span class="n">K</span><span class="p">.</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">const</span> <span class="n">Triangle</span> <span class="p">&amp;</span><span class="n">T</span><span class="p">(</span><span class="n">K</span><span class="p">.</span><span class="n">T</span><span class="p">);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="n">0</span><span class="p">,</span> <span class="n">k</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
         <span class="n">R2</span> <span class="n">E</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">Edge</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
-        <span class="n">R</span> <span class="n">signe</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
-        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">signe</span><span class="o">*</span><span class="n">E</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">signe</span><span class="o">*</span><span class="n">E</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+        <span class="nb">R </span><span class="n">signe</span> <span class="p">=</span> <span class="n">T</span><span class="p">.</span><span class="n">EdgeOrientation</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="p">++]</span> <span class="p">=</span> <span class="n">signe</span><span class="p">*</span><span class="n">E</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="p">++]</span> <span class="p">=</span> <span class="n">-signe</span><span class="p">*</span><span class="n">E</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 <p>Now , we just need to add a new key work in <strong>FreeFem++</strong>.</p>
 <p>Two way, with static or dynamic link so at the end of the file, we add:</p>
-<p><strong>With dynamic link</strong> it is very simple (see section <a class="reference internal" href="#developersdynamicallink"><span class="std std-ref">Dynamical link</span></a>), just add before the end of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">FEM2d</span> <span class="k">namespace</span></code>:</p>
+<p><strong>With dynamic link</strong> it is very simple (see section <a class="reference internal" href="#developersdynamicallink"><span class="std std-ref">Dynamical link</span></a>), just add before the end of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">FEM2d</span> <span class="n">namespace</span></code>:</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="k">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
-   <span class="k">static</span> <span class="nf">AddNewFE</span><span class="p">(</span><span class="s">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
-<span class="p">}</span> <span class="c1">//FEM2d namespace</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="n">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
+   <span class="n">static</span> <span class="n">AddNewFE</span><span class="p">(</span><span class="s2">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
+<span class="p">}</span> <span class="p">//</span><span class="n">FEM2d</span> <span class="n">namespace</span>
 </pre></div>
 </td></tr></table></div>
 <p>Try with <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="o">/</span><span class="cp">load</span><span class="p">.</span><span class="n">link</span></code> command in <a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load">examples++-load/</a> and see <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">BernardiRaugel</span><span class="p">.</span><span class="n">cpp</span></code> or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Morley</span><span class="p">.</span><span class="n">cpp</span></code> new finite element examples.</p>
@@ -2483,17 +2468,17 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">//let the 2 globals variables</span>
-<span class="k">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
-<span class="c1">//the name in freefem</span>
-<span class="k">static</span> <span class="n">ListOfTFE</span> <span class="nf">typefemRTOrtho</span><span class="p">(</span><span class="s">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">//</span><span class="n">let</span> <span class="n">the</span> <span class="n">2</span> <span class="n">globals</span> <span class="n">variables</span>
+<span class="n">static</span> <span class="n">TypeOfFE_RTortho</span> <span class="n">The_TypeOfFE_RTortho</span><span class="p">;</span>
+<span class="p">//</span><span class="n">the</span> <span class="n">name</span> <span class="k">in</span> <span class="n">freefem</span>
+<span class="n">static</span> <span class="n">ListOfTFE</span> <span class="n">typefemRTOrtho</span><span class="p">(</span><span class="s2">&quot;RT0Ortho&quot;</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">The_TypeOfFE_RTortho</span><span class="p">);</span>
 
-<span class="c1">//link with FreeFem++ do not work with static library .a</span>
-<span class="c1">//so add a extern name to call in init_static_FE</span>
-<span class="c1">//(see end of FESpace.cpp)</span>
-<span class="kt">void</span> <span class="nf">init_FE_ADD</span><span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
-<span class="c1">//end</span>
-<span class="p">}</span> <span class="c1">//FEM2d namespace</span>
+<span class="p">//</span><span class="n">link</span> <span class="n">with</span> <span class="n">FreeFem</span><span class="p">++</span> <span class="k">do</span> <span class="n">not</span> <span class="n">work</span> <span class="n">with</span> <span class="n">static</span> <span class="n">library</span> <span class="p">.</span><span class="n">a</span>
+<span class="p">//</span><span class="n">so</span> <span class="n">add</span> <span class="n">a</span> <span class="n">extern</span> <span class="n">name</span> <span class="n">to</span> <span class="n">call</span> <span class="k">in</span> <span class="n">init_static_FE</span>
+<span class="p">//(</span><span class="n">see</span> <span class="k">end</span> <span class="n">of</span> <span class="n">FESpace</span><span class="p">.</span><span class="n">cpp</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">init_FE_ADD</span><span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
+<span class="p">//</span><span class="k">end</span>
+<span class="p">}</span> <span class="p">//</span><span class="n">FEM2d</span> <span class="n">namespace</span>
 </pre></div>
 </td></tr></table></div>
 <p>To inforce in loading of this new finite element, we have to add the two new lines close to the end of files <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">src</span><span class="o">/</span><span class="n">femlib</span><span class="o">/</span><span class="n">FESpace</span><span class="p">.</span><span class="n">cpp</span></code> like:</p>
@@ -2504,13 +2489,13 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">//correct problem of static library link with new make file</span>
-<span class="kt">void</span> <span class="nf">init_static_FE</span><span class="p">()</span>
-<span class="p">{</span> <span class="c1">//list of other FE file.o</span>
-    <span class="k">extern</span> <span class="kt">void</span> <span class="n">init_FE_P2h</span><span class="p">()</span> <span class="p">;</span>
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">//</span><span class="n">correct</span> <span class="n">problem</span> <span class="n">of</span> <span class="n">static</span> <span class="n">library</span> <span class="n">link</span> <span class="n">with</span> <span class="n">new</span> <span class="n">make</span> <span class="n">file</span>
+<span class="n">void</span> <span class="n">init_static_FE</span><span class="p">()</span>
+<span class="p">{</span> <span class="p">//</span><span class="n">list</span> <span class="n">of</span> <span class="n">other</span> <span class="n">FE</span> <span class="n">file</span><span class="p">.</span><span class="n">o</span>
+    <span class="n">extern</span> <span class="n">void</span> <span class="n">init_FE_P2h</span><span class="p">()</span> <span class="p">;</span>
     <span class="n">init_FE_P2h</span><span class="p">()</span> <span class="p">;</span>
-    <span class="k">extern</span> <span class="kt">void</span> <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="c1">//new line 1</span>
-    <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="c1">//new line 2</span>
+    <span class="n">extern</span> <span class="n">void</span> <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="p">//</span><span class="n">new</span> <span class="n">line</span> <span class="n">1</span>
+    <span class="n">init_FE_ADD</span><span class="p">();</span> <span class="p">//</span><span class="n">new</span> <span class="n">line</span> <span class="n">2</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
@@ -2530,21 +2515,21 @@ size <code class="docutils literal highlight highlight-freefem"><span></span><sp
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp"># Makefile using Automake + Autoconf</span>
-<span class="cp"># ----------------------------------</span>
-<span class="cp"># Id</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c"># Makefile using Automake + Autoconf</span>
+<span class="c"># ----------------------------------</span>
+<span class="c"># Id</span>
 
-<span class="cp"># This is not compiled as a separate library because its</span>
-<span class="cp"># interconnections with other libraries have not been solved.</span>
+<span class="c"># This is not compiled as a separate library because its</span>
+<span class="c"># interconnections with other libraries have not been solved.</span>
 
-<span class="n">EXTRA_DIST</span><span class="o">=</span><span class="n">BamgFreeFem</span><span class="p">.</span><span class="n">cpp</span> <span class="n">BamgFreeFem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CGNL</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CheckPtr</span><span class="p">.</span><span class="n">cpp</span>        \
-<span class="n">ConjuguedGradrientNL</span><span class="p">.</span><span class="n">cpp</span> <span class="n">DOperator</span><span class="p">.</span><span class="n">hpp</span> <span class="n">Drawing</span><span class="p">.</span><span class="n">cpp</span> <span class="n">Element_P2h</span><span class="p">.</span><span class="n">cpp</span>      \
-<span class="n">Element_P3</span><span class="p">.</span><span class="n">cpp</span> <span class="n">Element_RT</span><span class="p">.</span><span class="n">cpp</span> <span class="n">fem3</span><span class="p">.</span><span class="n">hpp</span> <span class="n">fem</span><span class="p">.</span><span class="n">cpp</span> <span class="n">fem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace</span><span class="p">.</span><span class="n">cpp</span>      \
-<span class="n">FESpace</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace</span><span class="o">-</span><span class="n">v0</span><span class="p">.</span><span class="n">cpp</span> <span class="n">FQuadTree</span><span class="p">.</span><span class="n">cpp</span> <span class="n">FQuadTree</span><span class="p">.</span><span class="n">hpp</span> <span class="n">gibbs</span><span class="p">.</span><span class="n">cpp</span>        \
-<span class="n">glutdraw</span><span class="p">.</span><span class="n">cpp</span> <span class="n">gmres</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse_tpl</span><span class="p">.</span><span class="n">hpp</span>          \
-<span class="n">MeshPoint</span><span class="p">.</span><span class="n">hpp</span> <span class="n">mortar</span><span class="p">.</span><span class="n">cpp</span> <span class="n">mshptg</span><span class="p">.</span><span class="n">cpp</span> <span class="n">QuadratureFormular</span><span class="p">.</span><span class="n">cpp</span>              \
-<span class="n">QuadratureFormular</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RefCounter</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_opc</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_op</span><span class="p">.</span><span class="n">hpp</span>    \
-<span class="n">RNM_tpl</span><span class="p">.</span><span class="n">hpp</span>     <span class="n">FE_ADD</span><span class="p">.</span><span class="n">cpp</span>
+<span class="n">EXTRA_DIST</span><span class="p">=</span><span class="n">BamgFreeFem</span><span class="p">.</span><span class="nb">cpp </span><span class="n">BamgFreeFem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CGNL</span><span class="p">.</span><span class="n">hpp</span> <span class="n">CheckPtr</span><span class="p">.</span><span class="nb">cpp </span>       <span class="p">\</span>
+<span class="n">ConjuguedGradrientNL</span><span class="p">.</span><span class="nb">cpp </span><span class="n">DOperator</span><span class="p">.</span><span class="n">hpp</span> <span class="n">Drawing</span><span class="p">.</span><span class="nb">cpp </span><span class="n">Element_P2h</span><span class="p">.</span><span class="nb">cpp </span>     <span class="p">\</span>
+<span class="n">Element_P3</span><span class="p">.</span><span class="nb">cpp </span><span class="n">Element_RT</span><span class="p">.</span><span class="nb">cpp </span><span class="n">fem3</span><span class="p">.</span><span class="n">hpp</span> <span class="n">fem</span><span class="p">.</span><span class="nb">cpp </span><span class="n">fem</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace</span><span class="p">.</span><span class="nb">cpp </span>     <span class="p">\</span>
+<span class="n">FESpace</span><span class="p">.</span><span class="n">hpp</span> <span class="n">FESpace-v0</span><span class="p">.</span><span class="nb">cpp </span><span class="n">FQuadTree</span><span class="p">.</span><span class="nb">cpp </span><span class="n">FQuadTree</span><span class="p">.</span><span class="n">hpp</span> <span class="n">gibbs</span><span class="p">.</span><span class="nb">cpp </span>       <span class="p">\</span>
+<span class="n">glutdraw</span><span class="p">.</span><span class="nb">cpp </span><span class="n">gmres</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse</span><span class="p">.</span><span class="n">hpp</span> <span class="n">MatriceCreuse_tpl</span><span class="p">.</span><span class="n">hpp</span>          <span class="p">\</span>
+<span class="n">MeshPoint</span><span class="p">.</span><span class="n">hpp</span> <span class="n">mortar</span><span class="p">.</span><span class="nb">cpp </span><span class="n">mshptg</span><span class="p">.</span><span class="nb">cpp </span><span class="n">QuadratureFormular</span><span class="p">.</span><span class="nb">cpp </span>             <span class="p">\</span>
+<span class="n">QuadratureFormular</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RefCounter</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_opc</span><span class="p">.</span><span class="n">hpp</span> <span class="n">RNM_op</span><span class="p">.</span><span class="n">hpp</span>    <span class="p">\</span>
+<span class="n">RNM_tpl</span><span class="p">.</span><span class="n">hpp</span>     <span class="n">FE_ADD</span><span class="p">.</span><span class="nb">cpp</span>
 </pre></div>
 </td></tr></table></div>
 <p>and do in the <strong>FreeFem++</strong> root directory</p>
@@ -2605,25 +2590,25 @@ make
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cfloat&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="cp">#include</span> <span class="cpf">&quot;error.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;AFunction.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;rgraph.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;RNM.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;fem.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;FESpace.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;MeshPoint.hpp&quot;</span><span class="cp"></span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">#include &lt;iostream&gt;</span>
+<span class="c">#include &lt;cfloat&gt;</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="c">#include &quot;error.hpp&quot;</span>
+<span class="c">#include &quot;AFunction.hpp&quot;</span>
+<span class="c">#include &quot;rgraph.hpp&quot;</span>
+<span class="c">#include &quot;RNM.hpp&quot;</span>
+<span class="c">#include &quot;fem.hpp&quot;</span>
+<span class="c">#include &quot;FESpace.hpp&quot;</span>
+<span class="c">#include &quot;MeshPoint.hpp&quot;</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">Fem2D</span><span class="p">;</span>
-<span class="kt">double</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">){</span>
-    <span class="c1">//to get FreeFem++ data</span>
-    <span class="n">MeshPoint</span> <span class="o">&amp;</span><span class="n">mp</span> <span class="o">=</span> <span class="o">*</span><span class="n">MeshPointStack</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span> <span class="c1">//the struct to get x, y, normal, value</span>
-    <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="c1">//get the current x value</span>
-    <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="c1">//get the current y value</span>
-    <span class="c1">//cout &lt;&lt; &quot;x = &quot; &lt;&lt; x &lt;&lt; &quot; y=&quot; &lt;&lt; y &lt;&lt; endl;</span>
-    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">Fem2D</span><span class="p">;</span>
+<span class="n">double</span> <span class="n">myfunction</span><span class="p">(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">){</span>
+    <span class="p">//</span><span class="n">to</span> <span class="n">get</span> <span class="n">FreeFem</span><span class="p">++</span> <span class="n">data</span>
+    <span class="n">MeshPoint</span> <span class="p">&amp;</span><span class="nb">mp </span><span class="p">=</span> <span class="p">*</span><span class="n">MeshPointStack</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span> <span class="p">//</span><span class="n">the</span> <span class="n">struct</span> <span class="n">to</span> <span class="n">get</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">value</span>
+    <span class="n">double</span> <span class="n">x</span> <span class="p">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="p">//</span><span class="n">get</span> <span class="n">the</span> <span class="n">current</span> <span class="n">x</span> <span class="n">value</span>
+    <span class="n">double</span> <span class="n">y</span> <span class="p">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">P</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="p">//</span><span class="n">get</span> <span class="n">the</span> <span class="n">current</span> <span class="n">y</span> <span class="n">value</span>
+    <span class="p">//</span><span class="n">cout</span> <span class="p">&lt;&lt;</span> <span class="s2">&quot;x = &quot;</span> <span class="p">&lt;&lt;</span> <span class="n">x</span> <span class="p">&lt;&lt;</span> <span class="s2">&quot; y=&quot;</span> <span class="p">&lt;&lt;</span> <span class="n">y</span> <span class="p">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)*</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
@@ -2655,40 +2640,40 @@ By default this expression does not depend of the mesh position, but if they der
 23
 24
 25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">//A class build the link with FreeFem++</span>
-<span class="c1">//generaly this class are already in AFunction.hpp</span>
-<span class="c1">//but unfortunatly, I have no simple function with no parameter</span>
-<span class="c1">//in FreeFem++ depending of the mesh</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">OneOperator0s</span> <span class="o">:</span> <span class="k">public</span> <span class="n">OneOperator</span> <span class="p">{</span>
-    <span class="c1">//the class to define and evaluate a new function</span>
-    <span class="c1">//It must devive from E_F0 if it is mesh independent</span>
-    <span class="c1">//or from E_F0mps if it is mesh dependent</span>
-    <span class="k">class</span> <span class="nc">E_F0_F</span> <span class="o">:</span><span class="k">public</span> <span class="n">E_F0mps</span> <span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="k">typedef</span> <span class="n">R</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">);</span>
-        <span class="n">func</span> <span class="n">f</span><span class="p">;</span> <span class="c1">//the pointeur to the fnction myfunction</span>
-        <span class="n">E_F0_F</span><span class="p">(</span><span class="n">func</span> <span class="n">ff</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="p">{}</span>
-        <span class="c1">//the operator evaluation in FreeFem++</span>
-        <span class="n">AnyType</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Stack</span> <span class="n">stack</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">SetAny</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">stack</span><span class="p">));}</span>
-    <span class="p">};</span>
-    <span class="k">typedef</span> <span class="nf">R</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="n">Stack</span><span class="p">);</span>
-    <span class="n">func</span> <span class="n">f</span><span class="p">;</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="c1">//the function which build the FreeFem++ byte code</span>
-        <span class="n">E_F0</span> <span class="o">*</span><span class="n">code</span><span class="p">(</span><span class="k">const</span> <span class="n">basicAC_F0</span> <span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">E_F0_F</span><span class="p">(</span><span class="n">f</span><span class="p">);</span> <span class="p">}</span>
-        <span class="c1">//the constructor to say ff is a function without parameter</span>
-        <span class="c1">//and returning a R</span>
-        <span class="n">OneOperator0s</span><span class="p">(</span><span class="n">func</span> <span class="n">ff</span><span class="p">)</span> <span class="o">:</span> <span class="n">OneOperator</span><span class="p">(</span><span class="n">map_type</span><span class="p">[</span><span class="k">typeid</span><span class="p">(</span><span class="n">R</span><span class="p">).</span><span class="n">name</span><span class="p">()]),</span><span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">){}</span>
-<span class="p">};</span>
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span>//A class build the link with FreeFem++
+//generaly this class are already in AFunction.hpp
+//but unfortunatly, I have no simple function with no parameter
+//in FreeFem++ depending of the mesh
+template&lt;class R&gt;
+class OneOperator0s : public OneOperator {
+    //the class to define and evaluate a new function
+    //It must devive from E_F0 if it is mesh independent
+    //or from E_F0mps if it is mesh dependent
+    class E_F0_F :public E_F0mps {
+    public:
+        typedef R (*func)(Stack stack);
+        func f; //the pointeur to the fnction myfunction
+        E_F0_F(func ff) : f(ff) {}
+        //the operator evaluation in FreeFem++
+        AnyType operator()(Stack stack) const {return SetAny&lt;R&gt;(f(stack));}
+    };
+    typedef R (*func)(Stack);
+    func f;
+    public:
+        //the function which build the FreeFem++ byte code
+        E_F0 *code(const basicAC_F0 &amp;) const { return new E_F0_F(f); }
+        //the constructor to say ff is a function without parameter
+        //and returning a R
+        OneOperator0s(func ff) : OneOperator(map_type[typeid(R).name()]),f(ff){}
+};
 </pre></div>
 </td></tr></table></div>
 <p>To finish we must add this new function in <strong>FreeFem++</strong> table, to do that include :</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kt">void</span> <span class="nf">init</span><span class="p">(){</span>
-     <span class="n">Global</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;myfunction&quot;</span><span class="p">,</span> <span class="s">&quot;(&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">OneOperator0s</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">myfunction</span><span class="p">));</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="n">void</span> <span class="n">init</span><span class="p">(){</span>
+     <span class="n">Global</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;myfunction&quot;</span><span class="p">,</span> <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="n">OneOperator0s</span><span class="p">&lt;</span><span class="n">double</span><span class="p">&gt;(</span><span class="n">myfunction</span><span class="p">));</span>
  <span class="p">}</span>
  <span class="n">LOADFUNC</span><span class="p">(</span><span class="n">init</span><span class="p">);</span>
 </pre></div>
@@ -2697,9 +2682,9 @@ By default this expression does not depend of the mesh position, but if they der
 <p>To compile and link, use the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ff</span><span class="o">-</span><span class="n">c</span><span class="o">++</span></code> script :</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ff</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">cpp</span>
-<span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">Iinclude</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">cpp</span>
-<span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">bundle</span> <span class="o">-</span><span class="n">undefined</span> <span class="n">dynamic_lookup</span> <span class="o">-</span><span class="n">g</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">o</span> <span class="o">-</span><span class="n">o</span> <span class="p">.</span><span class="o">/</span><span class="n">myfunction</span><span class="p">.</span><span class="n">dylib</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ff-c</span><span class="p">++</span> <span class="n">myfunction</span><span class="p">.</span><span class="nb">cpp</span>
+<span class="n">g</span><span class="p">++</span> <span class="n">-c</span> <span class="n">-g</span> <span class="n">-Iinclude</span> <span class="n">myfunction</span><span class="p">.</span><span class="nb">cpp</span>
+<span class="n">g</span><span class="p">++</span> <span class="n">-bundle</span> <span class="n">-undefined</span> <span class="n">dynamic_lookup</span> <span class="n">-g</span> <span class="n">myfunction</span><span class="p">.</span><span class="n">o</span> <span class="n">-o</span> <span class="p">./</span><span class="n">myfunction</span><span class="p">.</span><span class="n">dylib</span>
 </pre></div>
 </td></tr></table></div>
 <p>To try the simple example under Linux or MacOS, do <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++-</span><span class="n">nw</span> <span class="cp">load</span><span class="p">.</span><span class="n">edp</span></code></p>
@@ -2944,9 +2929,9 @@ g++ -bundle -undefined dynamic_lookup dfft.o -o ./dfft.dylib ../download/install
 		</div>
 		
 		<div id="toc">
-  <div>
-    <b>Table of content</b>
-    <ul>
+	<div>
+		<b>Table of content</b>
+		<ul>
 <li><a class="reference internal" href="#">Developers</a><ul>
 <li><a class="reference internal" href="#file-formats">File formats</a><ul>
 <li><a class="reference internal" href="#mesh-file-data-structure">Mesh file data structure</a></li>
@@ -2977,15 +2962,17 @@ g++ -bundle -undefined dynamic_lookup dfft.o -o ./dfft.dylib ../download/install
 </li>
 </ul>
 
-  </div>
+	</div>
 </div>
-   	<footer>
-	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+		<footer>
+	<p>
+		Coded with <i class="fas fa-heart"></i> since 1987
+	</p>
 	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
-	<span>
+	<div>
 		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
 		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
-	</span>
+	</div>
 </footer>
 		
 

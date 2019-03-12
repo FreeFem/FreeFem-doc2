@@ -4,11 +4,6 @@
 .. role:: cpp(code)
    :language: cpp
 
-.. math::
-    \def\arccosh{{\text{arccosh}}}
-    \def\arcsinh{{\text{arcsinh}}}
-    \def\arctanh{{\text{arctanh}}}
-
 Functions
 =========
 

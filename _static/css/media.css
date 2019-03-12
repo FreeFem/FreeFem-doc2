@@ -1,7 +1,7 @@
 @media screen and (max-width: 1200px){
 	body {
 		grid-template-columns: 0 70% 30% !important;
-		grid-template-rows: 75px 60px auto auto !important;
+		grid-template-rows: 62px 60px auto auto !important;
 	}
 
 	.up-button {
@@ -11,6 +11,7 @@
 	}
 
 	header {
+		grid-template-columns: 50% 0 50%;
 		position: static !important;
 	}
 
@@ -18,28 +19,44 @@
 		margin: 0 1.25rem !important;
 	}
 
-	header .search-container {
-		display: none !important;
-	}
-
 	nav {
+		grid-row: 2;
+		grid-column: 1 / 4;
 		display: grid;
 		grid-template-rows: auto;
 		grid-template-columns: 2.77rem auto 32.77rem;
 		align-items: center;
 		font-size: 1rem;
+		border-bottom: 2px solid #EFEFEF;
+		background-color: #F7F7F9;
 	}
 
-	nav #searchInput:focus {
-		width: 70%;
+	.search-container {
+		grid-row: 1;
+		grid-column: 3;
+		justify-self: end;
+		justify-content: flex-end;
 	}
 
-	nav #searchResults {
+	#searchInput {
+		margin-right: 0.55rem;
+	}
+
+	#searchResults {
+		right: 0 !important;
 		width: 70%;
+		left: unset;
 	}
 
 	nav #staticNav div:not(.current) {
 		display: none;
+	}
+
+	nav .nav-links {
+		grid-row: 1;
+		grid-column: 2;
+		display: block;
+		justify-self: start;
 	}
 
 	nav .nav-btn {
@@ -89,6 +106,18 @@
 		right: 0 !important;
 	}
 
+	header {
+		grid-template-columns: 100% 0 0;
+	}
+
+	header .header-logo {
+		margin: auto;
+	}
+
+	header .header-logo img {
+		margin: auto !important;
+	}
+
 	header .header-github {
 		display: none;
 	}
@@ -103,8 +132,6 @@
 
 	nav #searchResults {
 		min-width: 100%;
-		top: 2.5rem !important;
-		right: 0;
 	}
 
 	nav #searchInput {
@@ -113,7 +140,6 @@
 
 	nav #searchInput:focus {
 		width: 100%;
-		right: 0;
 	}
 
 	#content {
@@ -126,20 +152,14 @@
 	}
 
 	footer {
-		grid-template-rows: auto auto;
+		display: grid;
+		grid-template-rows: auto auto auto;
 		grid-template-columns: auto;
+		justify-items: center;
 	}
 
-	.footer-text {
-		grid-row: 1;
-		grid-column: auto;
-		justify-self: center;
-	}
-
-	.footer-img {
-		grid-row: 2;
-		grid-column: auto;
-		justify-self: center;
+	footer img {
+		margin-bottom: 0.55rem;
 	}
 
 	/** CONTENT **/

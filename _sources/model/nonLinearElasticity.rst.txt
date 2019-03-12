@@ -4,9 +4,6 @@
 .. role:: cpp(code)
     :language: cpp
 
-.. math::
-    \def\p{{\partial}}
-
 Non-linear elasticity
 =====================
 

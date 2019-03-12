@@ -1,10 +1,6 @@
 .. role:: freefem(code)
   :language: freefem
 
-.. math::
-    \def\p{{\partial}}
-    \def\d{{\text{d}}}
-
 Static problems
 ===============
 

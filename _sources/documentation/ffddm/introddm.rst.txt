@@ -1,7 +1,3 @@
-.. math::
-    \def\R{{\mathbb{R}}}
-    \def\C{{\mathbb{C}}}
-
 .. _ffddmIntroduction:
 
 Domain Decomposition (DD)

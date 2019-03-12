@@ -1,9 +1,6 @@
 .. role:: freefem(code)
   :language: freefem
 
-.. math::
-    \def\p{{\partial}}
-
 Navier-Stokes equations
 =======================
 

@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../_static/js/mathjax-config.js"></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -29,19 +30,6 @@
    <a class="header-logo" href="../introduction/index.html">
       <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
-
-   <script async src="../_static/js/lunr.js"></script>
-<script async src="../_static/lunr/lunr_index.js"></script>
-
-<div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
-</div>
-<div id="searchResults"></div>
-<script src="../_static/js/search.js"></script>
-<script>
-   initSearch('../')
-</script>
 
    <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
       <i class="fab fa-github"></i>
@@ -57,8 +45,8 @@
 <script async src="../_static/js/github.js"></script>
 		
 		<nav id="nav">
-   <div style="display: none;">
-      <ul class="current">
+	<div style="display: none;">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/download.html#latest-binary-packages">Latest binary packages</a></li>
@@ -1610,43 +1598,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-   </div>
+	</div>
 
-   <div class="nav-links" id="staticNav">
-   </div>
+	<div class="nav-links" id="staticNav">
+	</div>
 
-       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+	<button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-       <div id="sideNav" class="sidenav">
-          <div class="sideNavHeader">
-             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
-
-             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-          </div>
-          <div id="dynamicSideNav">
-          </div>
-       </div>
-
-   <script async src="../_static/js/lunr.js"></script>
+	<div id="sideNav" class="sidenav">
+		<div class="sideNavHeader">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+			<a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+		</div>
+		<div id="dynamicSideNav">
+		</div>
+	</div>
+	<script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
 
 <div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
+	<label for="searchInput"><i class="fas fa-search"></i></label>
+	<input type="search" placeholder="Search ..." id="searchInput">
+	<div id="searchResults"></div>
 </div>
-<div id="searchResults"></div>
+
 <script src="../_static/js/search.js"></script>
 <script>
    initSearch('../')
 </script>
+	
 </nav>
-
 <script async src="../_static/js/nav.js"></script>
 		
 
 		<div id="subnav">
-  <div style="display: none">
-    <ul class="current">
+	<div style="display: none">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
@@ -1672,7 +1659,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-  </div>
+	</div>
 </div>
 <script async src="../_static/js/subnav.js"></script>
 		
@@ -1809,39 +1796,39 @@ Two operations can be performed on semaphores: increment the semaphore value by 
 <p><strong>The functions of library</strong></p>
 <p>First the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">semaphore</span></code> interface to make synchronization:</p>
 <ul>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">FF_P_sem</span> <span class="o">*</span><span class="n">ff_Psem</span><span class="p">;</span></code> the pointer to data structure</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">FF_P_sem</span> <span class="p">*</span><span class="n">ff_Psem</span><span class="p">;</span></code> the pointer to data structure</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ff_Psem</span> <span class="nf">ffsem_malloc</span><span class="p">();</span></code> malloc an empty data structure</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ff_Psem</span> <span class="n">ffsem_malloc</span><span class="p">();</span></code> malloc an empty data structure</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffsem_del</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> clean and free the pointer</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffsem_del</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> clean and free the pointer</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffsem_destroy</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> clean, close the data structure</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffsem_destroy</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> clean, close the data structure</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffsem_init0</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> make a correct empty of the data structure</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffsem_init0</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> make a correct empty of the data structure</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffsem_init</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">nmm</span><span class="p">,</span> <span class="kt">int</span> <span class="n">crea</span><span class="p">);</span></code> create or use a new semaphore</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffsem_init</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="p">*</span><span class="n">nmm</span><span class="p">,</span> <span class="n">int</span> <span class="n">crea</span><span class="p">);</span></code> create or use a new semaphore</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffsem_post</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">nlocked</span></code>, the value of the semaphore is incremented, and all threads which are waiting on the semaphore are awakened</p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffsem_post</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">nlocked</span></code>, the value of the semaphore is incremented, and all threads which are waiting on the semaphore are awakened</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffsem_wait</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> the semaphore referenced by <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">sem</span></code> is locked.
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffsem_wait</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">sem</span><span class="p">);</span></code> the semaphore referenced by <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">sem</span></code> is locked.
 When calling <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">sem_wait</span><span class="p">()</span></code>, if the semaphore’s value is zero, the calling thread will block until the lock is acquired or until the call is interrupted by a signal.</p>
 <p>Alternatively, the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">sem_trywait</span><span class="p">()</span></code> function will fail if the semaphore is already locked, rather than blocking on the semaphore</p>
 </li>
-<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffsem_trywait</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">p</span><span class="p">);</span></code></p>
+<li><p class="first"><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffsem_trywait</span><span class="p">(</span><span class="n">ff_Psem</span> <span class="n">p</span><span class="p">);</span></code></p>
 </li>
 </ul>
 <p>Secondly, the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">mmap</span></code> functions:</p>
 <ul class="simple">
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">FF_P_mmap</span> <span class="o">*</span><span class="n">ff_Pmmap</span><span class="p">;</span></code> the pointer to data structure</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ff_Psem</span> <span class="nf">ffmmap_malloc</span><span class="p">();</span></code> malloc an empty data structure</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffmmap_del</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> clean and free the pointer</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffmmap_destroy</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> clean, close the data structure</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffmmap_init0</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> make a correct empty of the data structure</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffmmap_msync</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="kt">long</span> <span class="n">off</span><span class="p">,</span> <span class="kt">long</span> <span class="n">ln</span><span class="p">);</span></code> call writes modified whole pages back to the filesystem and updates the file modification time.
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">FF_P_mmap</span> <span class="p">*</span><span class="n">ff_Pmmap</span><span class="p">;</span></code> the pointer to data structure</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ff_Psem</span> <span class="n">ffmmap_malloc</span><span class="p">();</span></code> malloc an empty data structure</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffmmap_del</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> clean and free the pointer</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffmmap_destroy</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> clean, close the data structure</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffmmap_init0</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">);</span></code> make a correct empty of the data structure</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffmmap_msync</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="n">long</span> <span class="n">off</span><span class="p">,</span> <span class="n">long</span> <span class="n">ln</span><span class="p">);</span></code> call writes modified whole pages back to the filesystem and updates the file modification time.
 Only those pages containing <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">addr</span></code> and <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">len</span><span class="o">-</span><span class="mi">1</span></code> succeeding locations will be examined.</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">void</span> <span class="nf">ffmmap_init</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">nmm</span><span class="p">,</span> <span class="kt">long</span> <span class="n">len</span><span class="p">);</span></code> allocate memory, or map files or devices into memory.</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffmmap_read</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">off</span><span class="p">);</span></code> read <code class="docutils literal highlight highlight-freefem"><span></span><span class="kr">n</span></code> bytes from the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">mmap</span></code> at memory <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">off</span></code> in pointer <code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code>.</li>
-<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span> <span class="nf">ffmmap_write</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">off</span><span class="p">);</span></code> write <code class="docutils literal highlight highlight-freefem"><span></span><span class="kr">n</span></code> bytes to the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">mmap</span></code> at memory <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">off</span></code> in pointer <code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code>.</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">void</span> <span class="n">ffmmap_init</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="p">*</span><span class="n">nmm</span><span class="p">,</span> <span class="n">long</span> <span class="n">len</span><span class="p">);</span></code> allocate memory, or map files or devices into memory.</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffmmap_read</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="n">void</span> <span class="p">*</span><span class="n">t</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">off</span><span class="p">);</span></code> read <code class="docutils literal highlight highlight-freefem"><span></span><span class="kr">n</span></code> bytes from the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">mmap</span></code> at memory <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">off</span></code> in pointer <code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code>.</li>
+<li><code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span> <span class="n">ffmmap_write</span><span class="p">(</span><span class="n">ff_Pmmap</span> <span class="n">p</span><span class="p">,</span> <span class="n">void</span> <span class="p">*</span><span class="n">t</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">off</span><span class="p">);</span></code> write <code class="docutils literal highlight highlight-freefem"><span></span><span class="kr">n</span></code> bytes to the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">mmap</span></code> at memory <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">off</span></code> in pointer <code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code>.</li>
 </ul>
 <p>The <strong>FreeFem++</strong> corresponding functions:</p>
 <ul class="simple">
@@ -2198,9 +2185,9 @@ After <span class="nb">wait</span> .. FF <span class="m">19</span> <span class="
 		</div>
 		
 		<div id="toc">
-  <div>
-    <b>Table of content</b>
-    <ul>
+	<div>
+		<b>Table of content</b>
+		<ul>
 <li><a class="reference internal" href="#">Plugins</a><ul>
 <li><a class="reference internal" href="#gsl">gsl</a></li>
 <li><a class="reference internal" href="#ffrandom">ffrandom</a></li>
@@ -2209,15 +2196,17 @@ After <span class="nb">wait</span> .. FF <span class="m">19</span> <span class="
 </li>
 </ul>
 
-  </div>
+	</div>
 </div>
-   	<footer>
-	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+		<footer>
+	<p>
+		Coded with <i class="fas fa-heart"></i> since 1987
+	</p>
 	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
-	<span>
+	<div>
 		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
 		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
-	</span>
+	</div>
 </footer>
 		
 

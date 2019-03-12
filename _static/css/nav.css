@@ -1,13 +1,26 @@
 nav {
-	grid-row: 2;
-	grid-column: 1 / 4;
-	display: none;
-	background-color: #F7F7F9;
+	grid-row: 1;
+	grid-column: 2 / 3;
+	display: flex;
+	grid-template-rows: 3.75rem;
+	justify-items: center;
+	align-items: center;
+	background-color: transparent;
 	position: sticky;
-	top: 0px;
-	border-bottom: 2px solid #EFEFEF;
-	z-index: 1;
+	top: 0;
+	z-index: 2;
+}
 
+nav .nav-links {
+	display: none;
+}
+
+nav .nav-btn {
+	display: none;
+}
+
+nav .sidenav {
+	display: none;
 }
 
 /** STATIC NAVIGATION **/
@@ -40,7 +53,7 @@ nav #staticNav .nav-item:hover {
 } */
 
 /** SEARCH BAR **/
-nav .search-container {
+/* nav .search-container {
 	grid-row: 1;
 	grid-column: 3;
 	justify-self: end;
@@ -127,14 +140,14 @@ nav #searchResults .search-result-preview {
 
 nav #searchResults a:hover {
 	color: black;
-}
+} */
 
 /** RESPONSIVE **/
 
 /** NAVIGATION BUTTON **/
 nav .nav-btn {
-	grid-row: 1;
-	grid-column: 1;
+	/* grid-row: 1;
+	grid-column: 1; */
 
 	display: none;
 }

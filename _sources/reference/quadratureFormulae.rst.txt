@@ -1,7 +1,3 @@
-.. math::
-    \def\boldx{{\mathbf{x}}}
-    \def\boldxi{{\boldsymbol{\xi}}}
-
 .. _quadratureFormulae:
 
 Quadrature formulae

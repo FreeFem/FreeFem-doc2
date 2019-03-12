@@ -7,9 +7,6 @@
 .. role:: c(code)
     :language: c
 
-.. math::
-    \def\R{{\mathbb{R}}}
-
 Parallelization
 ===============
 

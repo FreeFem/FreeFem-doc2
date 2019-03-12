@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="../_static/css/pygments_custom.css" type="text/css" />
 
   <!-- MathJax -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../_static/js/mathjax-config.js"></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -29,19 +30,6 @@
    <a class="header-logo" href="../introduction/index.html">
       <img alt="logo" title="FreeFem++ documentation" src="../_static/img/FreeFem_Documentation_Logo_bleu.svg" />
    </a>
-
-   <script async src="../_static/js/lunr.js"></script>
-<script async src="../_static/lunr/lunr_index.js"></script>
-
-<div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
-</div>
-<div id="searchResults"></div>
-<script src="../_static/js/search.js"></script>
-<script>
-   initSearch('../')
-</script>
 
    <a class="header-github" href="https://github.com/FreeFem/FreeFem-sources" target="_blank">
       <i class="fab fa-github"></i>
@@ -57,8 +45,8 @@
 <script async src="../_static/js/github.js"></script>
 		
 		<nav id="nav">
-   <div style="display: none;">
-      <ul class="current">
+	<div style="display: none;">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFem++</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/download.html#latest-binary-packages">Latest binary packages</a></li>
@@ -1610,43 +1598,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-   </div>
+	</div>
 
-   <div class="nav-links" id="staticNav">
-   </div>
+	<div class="nav-links" id="staticNav">
+	</div>
 
-       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+	<button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-       <div id="sideNav" class="sidenav">
-          <div class="sideNavHeader">
-             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
-
-             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-          </div>
-          <div id="dynamicSideNav">
-          </div>
-       </div>
-
-   <script async src="../_static/js/lunr.js"></script>
+	<div id="sideNav" class="sidenav">
+		<div class="sideNavHeader">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.98 113.39"><defs><style>.cls-1{fill:blue;}.cls-2{fill:#00007f;}</style></defs><title>Logo</title><polygon class="cls-1" points="37.77 75.61 37.77 47.23 0 47.23 0 75.61 0 80.31 0 113.39 113.39 113.39 113.39 75.61 37.77 75.61"/><rect id="SVGID" class="cls-1" x="47.23" y="47.23" width="18.92" height="18.92"/><polygon class="cls-1" points="0 0 0 37.84 75.55 37.84 75.55 66.15 113.39 66.15 113.39 37.84 113.39 33.08 113.39 0 0 0"/><path class="cls-2" d="M397.36,291H381.81v14.22h-11V267.42h27.75v8.44H381.74v6.67H397.3V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M417.29,292.68H413v12.51H402V267.42h16.7c4.89,0,8.76,1,11.49,3a9.55,9.55,0,0,1,4.13,8.32,12.59,12.59,0,0,1-1.59,6.73,11.85,11.85,0,0,1-5.33,4.38l8.19,15v.44H423.77ZM413,284.24h5.71c3.18,0,4.76-1.4,4.76-4.25s-1.71-4.13-5.08-4.13H413Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M465.8,289.89H450.94v6.86h17.59v8.44H440V267.42h28.76v8.44H450.94v5.59H465.8Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M497.6,289.89H482.75v6.86h17.58v8.44H471.77V267.42h28.75v8.44H482.75v5.59H497.6Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M530.11,291H514.55v14.22h-11V267.42h27.75v8.44H514.49v6.67h15.56V291Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M560.58,289.89H545.73v6.86h17.58v8.44H534.74V267.42H563.5v8.44H545.73v5.59h14.85Z" transform="translate(-230.46 -229.51)"/><path class="cls-2" d="M581.09,267.42,589,291.54l7.87-24.12h14.6v37.77h-11v-5.84l1.08-20.19-9,26h-7l-9-26,1.14,20.19v5.84h-11V267.42Z" transform="translate(-230.46 -229.51)"/></svg>
+			<a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+		</div>
+		<div id="dynamicSideNav">
+		</div>
+	</div>
+	<script async src="../_static/js/lunr.js"></script>
 <script async src="../_static/lunr/lunr_index.js"></script>
 
 <div class="search-container">
-   <label for="searchInput"><i class="fas fa-search"></i></label>
-   <input type="search" placeholder="Search ..." id="searchInput">
+	<label for="searchInput"><i class="fas fa-search"></i></label>
+	<input type="search" placeholder="Search ..." id="searchInput">
+	<div id="searchResults"></div>
 </div>
-<div id="searchResults"></div>
+
 <script src="../_static/js/search.js"></script>
 <script>
    initSearch('../')
 </script>
+	
 </nav>
-
 <script async src="../_static/js/nav.js"></script>
 		
 
 		<div id="subnav">
-  <div style="display: none">
-    <ul class="current">
+	<div style="display: none">
+		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
@@ -1678,7 +1665,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">References</a></li>
 </ul>
 
-  </div>
+	</div>
 </div>
 <script async src="../_static/js/subnav.js"></script>
 		
@@ -1687,73 +1674,13 @@
    <div class="section" id="compressible-neo-hookean-materials">
 <h1>Compressible Neo-Hookean materials<a class="headerlink" href="#compressible-neo-hookean-materials" title="Permalink to this headline"> </a></h1>
 <p>Author: <em>Alex Sadovsky</em></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\def\bR{{\bf R}}
-\def\bP{{\bf P}}
-\def\bZ{{\bf Z}}
-\def\bC{{\bf C}}
-\def\VS{\bR^2}
-\def\SVS{\underline V}
-\def\SO{{\bf SO}}
-\def\Sym{{\bf Sym}}
-\def\qi{{\bf i}}
-\def\qj{{\bf j}}
-\def\qk{{\bf k}}
-\def\ec{\hat{\bf e}}
-\def\xc{\hat{\bf x}}
-\def\bdr{\partial}
-\def\PD{\partial_}
-\def\strain{\underline \epsilon}
-\def\stress{\underline \sigma}
-\def\strainrate{\underline \epsilon^.}
-\def\stressrate{\underline \sigma^.}
-\def\stiff{\; \underline{\underline C}\;}
-\def\comply{\underline{\underline \kappa}\;}
-\def\Id{{\bf I}}
-\def\Div{\nabla \cdot}
-\def\Grad{\mathbf{\nabla}}
-\def\rot{\nabla \times}
-\def\lap{\triangle}
-\def\tr{{\bf tr}\;}
-\def\udH{\underline H}
-\def\refX{\mathbf X}
-\def\Jac{\overline{J}}
-\def\spatx{\mathbf x}
-\def\ani{\overline a}
-\def\mat{\left[\begin{array}}
-\def\tam{\end{array}\right]}
-\def\arr{\left.\begin{array}}
-\def\rra{\end{array}\right\}}
-\def\arl{\left\{\begin{array}}
-\def\lra{\end{array}\right.}
-\def\ar{\begin{array}}
-\def\ra{\end{array}}
-\def\const{\mbox{ const.}}
-\def\eps{\; \epsilon}
-\def\sig{\; \sigma}
-\def\th{\theta}
-\def\sgn{\mbox{sgn}}
-\def\qed{\; Q.E.D.\\}
-\def\ranqe{\end{eqnarray}}
-\def\ol{\overline}
-\def\ul{\underline}
-\def\bB{{\bf B}}
-\def\bC{{\bf C}}
-\def\bD{{\bf D}}
-\def\bE{{\bf E}}
-\def\bF{{\bf F}}
-\def\bK{{\bf K}}
-\def\bP{{\bf P}}
-\def\bS{{\bf S}}
-\def\bT{{\bf T}}
-\def\bsig{{\bf \sigma}}\end{split}\]</div>
 <div class="section" id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline"> </a></h2>
 <p>In what follows, the symbols <span class="math notranslate nohighlight">\(\mathbf{u}, \bF, \bB, \bC, \stress\)</span> denote, respectively, the displacement field, the deformation gradient, the left Cauchy-Green strain tensor <span class="math notranslate nohighlight">\(\bB = \bF \bF^T\)</span>, the right Cauchy-Green strain tensor <span class="math notranslate nohighlight">\(\bC =\bF^T \bF\)</span>, and the Cauchy stress tensor.</p>
 <p>We also introduce the symbols <span class="math notranslate nohighlight">\(I_1 := \tr \bC\)</span> and <span class="math notranslate nohighlight">\(J := \det\bF\)</span>.
 Use will be made of the identity:</p>
 <div class="math notranslate nohighlight">
-\[{\PD{}J \over \PD{}\bC} = J \bC^{-1}\]</div>
+\[{\p J \over \p \bC} = J \bC^{-1}\]</div>
 <p>The symbol <span class="math notranslate nohighlight">\(\Id\)</span> denotes the identity tensor.
 The symbol <span class="math notranslate nohighlight">\(\Omega_{0}\)</span> denotes the reference configuration of the body to be deformed.
 The unit volume in the reference (resp., deformed) configuration is denoted <span class="math notranslate nohighlight">\(dV\)</span> (resp., <span class="math notranslate nohighlight">\(dV_{0}\)</span>); these two are related by:</p>
@@ -1775,7 +1702,7 @@ For an advanced mathematical analysis of the Finite Element Method, see <a class
 <p>(see <a class="reference internal" href="../reference.html#horgan2004" id="id3">[HORGAN2004]</a>, formula (12)).</p>
 <p>The corresponding 2nd Piola-Kirchoff stress tensor is given by:</p>
 <div class="math notranslate nohighlight">
-\[\bS_{n} := {\PD{} W \over \PD{}\bE} (\bF_{n})
+\[\bS_{n} := {\p W \over \p\bE} (\bF_{n})
 =
 \mu (\Id - \bC^{-1})\]</div>
 <p>The Kirchhoff stress, then, is:</p>
@@ -1785,7 +1712,7 @@ For an advanced mathematical analysis of the Finite Element Method, see <a class
 = \mu (\bB - \Id)\]</div>
 <p>The tangent Kirchhoff stress tensor at <span class="math notranslate nohighlight">\(\bF_{n}\)</span> acting on <span class="math notranslate nohighlight">\(\delta \bF_{n+1}\)</span> is, consequently:</p>
 <div class="math notranslate nohighlight">
-\[{\PD{} \kappa \over \PD{} \bF} (\bF_{n}) \delta \bF_{n+1}
+\[{\p \kappa \over \p \bF} (\bF_{n}) \delta \bF_{n+1}
 =
 \mu
 \left[
@@ -1810,7 +1737,7 @@ On the rest of the boundary, we prescribe zero displacement.</p>
 \left\{
 (\Grad \otimes \mathbf{w}) (\bF)^{-1}
 \right\}\\
-&amp; - &amp; \int_{\PD{} \Omega_0^{t}} P \cdot \hat{N}_0\\
+&amp; - &amp; \int_{\p \Omega_0^{t}} P \cdot \hat{N}_0\\
 \rra\end{split}\]</div>
 <p>For brevity, in the rest of this section we assume <span class="math notranslate nohighlight">\(P = 0\)</span>.
 The provided FreeFem++ code, however, does not rely on this assumption and allows for a general value and direction of <span class="math notranslate nohighlight">\(P\)</span>.</p>
@@ -1820,13 +1747,13 @@ The provided FreeFem++ code, however, does not rely on this assumption and allow
 <p>by solving the weak formulation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\arr{lll}
-    0 &amp;=&amp; \int_{\Omega_0}\kappa[\bF_{n} + \delta \bF_{n+1}]\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n} + \delta\bF_{n+1})^{-1}\right\}- \int_{\PD{} \Omega_0} P \cdot \hat{N}_0\\
-    &amp;=&amp; \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n} + \delta \bF_{n+1})^{-1}\right\}\\
-    &amp;=&amp; \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n}^{-1} + \bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
+    0 &amp;=&amp; \int_{\Omega_0}\kappa[\bF_{n} + \delta \bF_{n+1}]\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n} + \delta\bF_{n+1})^{-1}\right\}- \int_{\p \Omega_0} P \cdot \hat{N}_0\\
+    &amp;=&amp; \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n} + \delta \bF_{n+1})^{-1}\right\}\\
+    &amp;=&amp; \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n}^{-1} + \bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
     \\
     &amp;=&amp; \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})\bF_{n}^{-1}\right\}\\
     &amp;-&amp; \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
-    &amp;+&amp; \int_{\Omega_0}\left\{{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})
+    &amp;+&amp; \int_{\Omega_0}\left\{{\p \kappa \over \p \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})
 \bF_{n}^{-1}
 \right\}
 \\
@@ -1849,7 +1776,7 @@ The role of a variational virtual displacement here is played by <span class="ma
 <div class="math notranslate nohighlight">
 \[&lt;TanK&gt;
  :=
-{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+{\p \kappa \over \p \bF}[\bF_{n}]
 \delta \bF_{n+1}\]</div>
 <p>will be implemented as the macros <span class="math notranslate nohighlight">\(&lt;TanK11&gt;\)</span>, <span class="math notranslate nohighlight">\(&lt;TanK12&gt;\)</span>, …</p>
 <p>The individual components of the tensor quantities:</p>
@@ -1881,7 +1808,7 @@ The role of a variational virtual displacement here is played by <span class="ma
 <p>respectively.</p>
 <p>In the above notation, the tangent Kirchhoff stress term becomes</p>
 <div class="math notranslate nohighlight">
-\[{\PD{} \kappa \over \PD{} \bF} (\bF_{n})
+\[{\p \kappa \over \p \bF} (\bF_{n})
 \: \delta \bF_{n+1}
 =
 \mu
@@ -1908,7 +1835,7 @@ The role of a variational virtual displacement here is played by <span class="ma
 &amp;+&amp;
 \int_{\Omega_0}
 \left\{
-{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+{\p \kappa \over \p \bF}[\bF_{n}]
 \delta \bF_{n+1}
 \right\}
 \:
@@ -2667,9 +2594,9 @@ The role of a variational virtual displacement here is played by <span class="ma
 		</div>
 		
 		<div id="toc">
-  <div>
-    <b>Table of content</b>
-    <ul>
+	<div>
+		<b>Table of content</b>
+		<ul>
 <li><a class="reference internal" href="#">Compressible Neo-Hookean materials</a><ul>
 <li><a class="reference internal" href="#notation">Notation</a></li>
 <li><a class="reference internal" href="#recommended-references">Recommended References</a></li>
@@ -2679,15 +2606,17 @@ The role of a variational virtual displacement here is played by <span class="ma
 </li>
 </ul>
 
-  </div>
+	</div>
 </div>
-   	<footer>
-	<p>Coded with <i class="fas fa-heart"></i> since 1987</p>
+		<footer>
+	<p>
+		Coded with <i class="fas fa-heart"></i> since 1987
+	</p>
 	<img src='../_static/img/Symbole.svg' alt="Logo de FreeFem++"/>
-	<span>
+	<div>
 		<a id="lgpl" href="https://www.gnu.org/licenses/lgpl-3.0.txt" target="_blank">LGPL 3.0</a>
 		<a href="http://doc.freefem.org/introduction/citation/" target="_blank">BibTeX</a>
-	</span>
+	</div>
 </footer>
 		
 
