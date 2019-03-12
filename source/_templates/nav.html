@@ -1,24 +1,24 @@
 <nav id="nav">
-   <div style="display: none;">
-      {{ toctree(collapse=False, maxdepth=-1) }}
-   </div>
+	<div style="display: none;">
+		{{ toctree(collapse=False, maxdepth=-1) }}
+	</div>
 
-   <div class="nav-links" id="staticNav">
-   </div>
+	<div class="nav-links" id="staticNav">
+	</div>
 
-       <button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
+	<button class="nav-btn" onclick="openNav()"><i class="fa fa-bars"></i></button>
 
-       <div id="sideNav" class="sidenav">
-          <div class="sideNavHeader">
-             {% include "../_static/img/Logo.svg" %}
+	<div id="sideNav" class="sidenav">
+		<div class="sideNavHeader">
+			{% include "../_static/img/Logo.svg" %}
+			<a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
+		</div>
+		<div id="dynamicSideNav">
+		</div>
+	</div>
 
-             <a class="closebtn" href="#" onclick="closeNav()"><i class="fas fa-times"></i></a>
-          </div>
-          <div id="dynamicSideNav">
-          </div>
-       </div>
-
-   {% include "search.html" %}
+	{%- block search %}
+	{% include "search.html" %}
+	{% endblock %}
 </nav>
-
 <script async src="{{ pathto('_static/js/nav.js', 1)}}"></script>
