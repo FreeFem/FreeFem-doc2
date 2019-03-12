@@ -25,11 +25,19 @@ script:
     - cp -R build/html ..
     - cp -R build/latex ..
 
-after_success:
-    - git config user.name "sgarnotel"
-    - git config user.email "simon.garnotel@gmail.com"
-    - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/${GH_REPOSITORY}.git" > /dev/null 2>&1
-    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
-    - git checkout gh-pages && git clean -f -d && cp -R ../html/* . && git add --all && git commit -m"update Web" && git push --set-upstream origin gh-pages
-    - git fetch gh-token && git fetch gh-token pdf:pdf
-    - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push --set-upstream origin pdf
+# after_success:
+#     - git config user.name "sgarnotel"
+#     - git config user.email "simon.garnotel@gmail.com"
+#     - git remote add gh-token "https://${GH_TOKEN}@github.com/FreeFem/${GH_REPOSITORY}.git" > /dev/null 2>&1
+#     - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
+#     - git checkout gh-pages && git clean -f -d && cp -R ../html/* . && git add --all && git commit -m"update Web" && git push --set-upstream origin gh-pages
+#     - git fetch gh-token && git fetch gh-token pdf:pdf
+#     - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push --set-upstream origin pdf
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: ${GH_TOKEN}
+    local-dir: build/html/
+    target-branch: gh-pages
+    keep-history: true
