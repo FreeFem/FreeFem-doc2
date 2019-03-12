@@ -35,9 +35,15 @@ script:
 #     - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push --set-upstream origin pdf
 
 deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: ${GH_TOKEN}
-    local-dir: build/html/
-    target-branch: gh-pages
-    keep-history: true
+    - provider: pages
+      skip-cleanup: true
+      github-token: ${GH_TOKEN}
+      local-dir: build/html/
+      target-branch: gh-pages
+      keep-history: true
+    - provider: pages
+      skip-cleanup: true
+      github-token: ${GH_TOKEN}
+      local-dir: build/latex/
+      target-branch: pdf
+      keep-history: true
