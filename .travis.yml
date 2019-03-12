@@ -30,6 +30,6 @@ after_success:
     - git config user.email "simon.garnotel@gmail.com"
     - git remote add token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
     - git fetch token && git fetch token gh-pages:gh-pages
-    - git checkout gh-pages && git clean -f -d && cp -R ../html/* . && git add --all && git commit -m"update Web" && git push
+    - git checkout gh-pages && git clean -f -d && cp -R ../html/* . && git add --all && git commit -m"update Web" && git push --set-upstream origin gh-pages
     - git fetch token && git fetch token pdf:pdf
-    - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push
+    - git checkout pdf && git clean -f -d && cp ../latex/FreeFem++.pdf ./ && git add FreeFem++.pdf && git commit -m"update PDF" && git push --set-upstream origin pdf
