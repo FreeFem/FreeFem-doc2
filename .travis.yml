@@ -22,9 +22,9 @@ before_install:
 script:
     - make html
     - make latex
-    - cd build/latex && pdflatex FreeFem++.tex && pdflatex FreeFem++.tex
+    # - cd build/latex && pdflatex -interaction=nonstopmode FreeFem++.tex && pdflatex -interaction=nonstopmode FreeFem++.tex
     - cp -R build/html ..
-    - cp -R build/latex ..
+    # - cp -R build/latex ..
 
 after_success:
     - git config user.name "Travis CI"
@@ -32,5 +32,5 @@ after_success:
     - git remote add token "https://${GH_TOKEN}@github.com/FreeFem/FreeFem-doc2.git"
     - git fetch token && git fetch token gh-pages:gh-pages
     - git checkout gh-pages && git clean -f && cp ../html/ ./ && git commit -m"update Web" && git push
-    - git fetch token && git fetch token pdf:pdf
-    - git checkout pdf && git clean -f && cp ../latex/FreeFem++.pdf ./ && git commit -m"update PDF" && git push
+    # - git fetch token && git fetch token pdf:pdf
+    # - git checkout pdf && git clean -f && cp ../latex/FreeFem++.pdf ./ && git commit -m"update PDF" && git push
