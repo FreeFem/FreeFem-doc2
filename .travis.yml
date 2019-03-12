@@ -1,7 +1,7 @@
 git:
     submodules: false
 
-language: generic
+language: python
 
 before_install:
     - npm i -g npm
