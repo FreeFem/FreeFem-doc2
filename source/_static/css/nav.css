@@ -6,6 +6,8 @@ nav {
 	justify-items: center;
 	align-items: center;
 	background-color: transparent;
+	position: sticky;
+	top: 0;
 	z-index: 2;
 }
 

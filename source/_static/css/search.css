@@ -39,8 +39,7 @@
 	position: absolute;
 	top: 3.75rem;
 	right: 0;
-	margin: 0 auto;
-	left: 0;
+	margin: 0;
 	width: 50vw;
 	max-height: 50vh;
 	z-index: 2;

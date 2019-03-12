@@ -28,6 +28,7 @@
 		align-items: center;
 		font-size: 1rem;
 		border-bottom: 2px solid #EFEFEF;
+		background-color: #F7F7F9;
 	}
 
 	.search-container {
@@ -42,7 +43,9 @@
 	}
 
 	#searchResults {
+		right: 0 !important;
 		width: 70%;
+		left: unset;
 	}
 
 	nav #staticNav div:not(.current) {
@@ -129,8 +132,6 @@
 
 	nav #searchResults {
 		min-width: 100%;
-		top: 2.5rem !important;
-		right: 0;
 	}
 
 	nav #searchInput {
