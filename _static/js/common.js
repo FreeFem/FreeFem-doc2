@@ -8,7 +8,7 @@ window.onclick = function(e) {
 
 // Copy/paste button in code
 function copy(event) {
-   const table = event.target.parentNode.parentNode
+   const table = event.parentNode.parentNode
    const codeContainer = table.querySelector('td.code pre')
    const code = codeContainer.textContent
 
@@ -31,9 +31,9 @@ function addCopyPaste() {
       button.className = 'copy-button'
       button.innerHTML = '<span class="clipboard-message">Copied to clipboard</span><i class="far fa-clone"></i>'
       button.onclick = function(e){
-        e.target.children[0].classList.toggle('clipboard-message--active')
-        copy(e)
-        setTimeout(() => {e.target.children[0].classList.remove("clipboard-message--active")}, 2000)
+        copy(this)
+		this.children[0].classList.toggle('clipboard-message--active')
+        setTimeout(() => {this.children[0].classList.remove("clipboard-message--active")}, 2000)
       }
 
       codeTables[i].appendChild(button)
