@@ -19,7 +19,8 @@ before_install:
     - cd /home/travis/build/FreeFem/${GH_REPOSITORY}
 
 script:
-    - SPHINXOPTS='-n -b linkcheck' make -e html
+    # - SPHINXOPTS='-n -b linkcheck' make -e html
+    - make html
     - make latex
     - cd build/latex && pdflatex -interaction=nonstopmode FreeFem++.tex && pdflatex -interaction=nonstopmode FreeFem++.tex && cd ../..
     - cp -R build/html ..
