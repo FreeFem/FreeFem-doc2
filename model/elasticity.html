@@ -1957,7 +1957,7 @@ The body force is the gravity force <span class="math notranslate nohighlight">\
 </td></tr></table></div>
 <div class="last figure" id="elasticity-beam3d">
 <a class="reference internal image-reference" href="../_images/Elasticity_Beam3D.jpg"><img alt="../_images/Elasticity_Beam3D.jpg" src="../_images/Elasticity_Beam3D.jpg" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 147 </span><span class="caption-text">3d Beam deformed and undeformed box</span></p>
+<p class="caption"><span class="caption-number">Fig. 148 </span><span class="caption-text">3d Beam deformed and undeformed box</span></p>
 </div>
 </div>
 <div class="section" id="fracture-mechanics">
@@ -2010,11 +2010,11 @@ Here <span class="math notranslate nohighlight">\(\Omega\)</span> stands for the
 \[\Omega=\{(x,y):\; -1&lt;x&lt;1, -1&lt;y&lt;1\},\qquad
 \Sigma=\{(x,y):\; -1\le x\le 0, y=0\}\]</div>
 <p>with only one crack tip <span class="math notranslate nohighlight">\(\gamma=(0,0)\)</span>.
-Unfortunately, <strong>FreeFem++</strong> cannot treat crack, so we use the modification of the domain with U-shape channel (see <a class="reference internal" href="../documentation/meshGeneration.html#meshexamples"><span class="std std-ref">U-shape example</span></a>, <a class="reference internal" href="../documentation/meshGeneration.html#ushape"><span class="std std-numref">Fig. 85</span></a>) with <span class="math notranslate nohighlight">\(d=0.0001\)</span>.
+Unfortunately, <strong>FreeFem++</strong> cannot treat crack, so we use the modification of the domain with U-shape channel (see <a class="reference internal" href="../documentation/meshGeneration.html#meshexamples"><span class="std std-ref">U-shape example</span></a>, <a class="reference internal" href="../documentation/meshGeneration.html#ushape"><span class="std std-numref">Fig. 86</span></a>) with <span class="math notranslate nohighlight">\(d=0.0001\)</span>.
 The undeformed crack <span class="math notranslate nohighlight">\(\Sigma\)</span> is approximated by</p>
 <div class="math notranslate nohighlight">
 \[\Sigma_d = \{(x,y):\; -1\le x\le -10*d, -d\le y\le d\} \cup\{(x,y):\; -10*d\le x\le 0, -d+0.1*x\le y\le d-0.1*x\}\]</div>
-<p>and <span class="math notranslate nohighlight">\(\Gamma_D=\)</span><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">R</span></code> in <a class="reference internal" href="../documentation/meshGeneration.html#meshexamples"><span class="std std-ref">U-shape example</span></a>, <a class="reference internal" href="../documentation/meshGeneration.html#ushape"><span class="std std-numref">Fig. 85</span></a>.</p>
+<p>and <span class="math notranslate nohighlight">\(\Gamma_D=\)</span><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">R</span></code> in <a class="reference internal" href="../documentation/meshGeneration.html#meshexamples"><span class="std std-ref">U-shape example</span></a>, <a class="reference internal" href="../documentation/meshGeneration.html#ushape"><span class="std std-numref">Fig. 86</span></a>.</p>
 <p>In this example, we use three technique:</p>
 <ul>
 <li><p class="first">Fast Finite Element Interpolator from the mesh <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Zoom</span></code> for the scale-up of near <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
@@ -2190,19 +2190,19 @@ The undeformed crack <span class="math notranslate nohighlight">\(\Sigma\)</span
 <div class="last figure compound align-center" id="CrackAndPrincipalStress">
 <div style="width: 49%" class="subfigure" id="id4">
 <span id="figcodfirstmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture1.png"><img alt="Elasticity_Fracture1" src="../_images/Elasticity_Fracture1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 148 </span><span class="caption-text">Crack open displacement (COD) on the first mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 149 </span><span class="caption-text">Crack open displacement (COD) on the first mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id5">
 <span id="figstressfirstmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture2.png"><img alt="Elasticity_Fracture2" src="../_images/Elasticity_Fracture2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 149 </span><span class="caption-text">Principal stress difference on the first mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 150 </span><span class="caption-text">Principal stress difference on the first mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id6">
 <span id="figcodlastmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture3.png"><img alt="Elasticity_Fracture3" src="../_images/Elasticity_Fracture3.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 150 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 151 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id7">
 <span id="figstresslastmesh"></span><a class="reference internal image-reference" href="../_images/Elasticity_Fracture4.png"><img alt="Elasticity_Fracture4" src="../_images/Elasticity_Fracture4.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 151 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 152 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
 </div>
 </div></div>
 <p id="CrackAndPrincipalStress">It is difficult to create mode II deformation by the opposed shear force on <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">T</span></code> that is observed in a laboratory.
@@ -2365,19 +2365,19 @@ So we use the body shear force along <span class="math notranslate nohighlight">
 <div class="last figure compound align-center" id="CrackAndPrincipalStress">
 <div style="width: 49%" class="subfigure" id="id8">
 <span id="figfracturesliding1"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding1.png"><img alt="Elasticity_FractureSliding1" src="../_images/Elasticity_FractureSliding1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 152 </span><span class="caption-text">COD on the first mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 153 </span><span class="caption-text">COD on the first mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id9">
 <span id="figfracturesliding2"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding2.png"><img alt="Elasticity_FractureSliding2" src="../_images/Elasticity_FractureSliding2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 153 </span><span class="caption-text">Principal stress difference in the first mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 154 </span><span class="caption-text">Principal stress difference in the first mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id10">
 <span id="figfracturesliding3"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding3.png"><img alt="Elasticity_FractureSliding3" src="../_images/Elasticity_FractureSliding3.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 154 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 155 </span><span class="caption-text">COD on the last adaptive mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id11">
 <span id="figfracturesliding4"></span><a class="reference internal image-reference" href="../_images/Elasticity_FractureSliding4.png"><img alt="Elasticity_FractureSliding4" src="../_images/Elasticity_FractureSliding4.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 155 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 156 </span><span class="caption-text">Principal stress difference on the last adaptive mesh</span></p>
 </div>
 <span class="target" id="CrackAndPrincipalStress"></span></div></div>
 </div>

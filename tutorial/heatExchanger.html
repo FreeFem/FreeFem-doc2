@@ -1675,8 +1675,12 @@
 <h1>Heat Exchanger<a class="headerlink" href="#heat-exchanger" title="Permalink to this headline"> </a></h1>
 <p><strong>Summary:</strong>
 <em>Here we shall learn more about geometry input and triangulation files, as well as read and write operations.</em></p>
-<p><strong>The problem</strong> Let <span class="math notranslate nohighlight">\(\{C_{i}\}_{1,2}\)</span>, be 2 thermal conductors within an enclosure <span class="math notranslate nohighlight">\(C_0\)</span> (see <a class="reference internal" href="#figheatmesh"><span class="std std-numref">Fig. 8</span></a>).</p>
-<p>The first one is held at a constant temperature <span class="math notranslate nohighlight">\({u} _{1}\)</span> the other one has a given thermal conductivity <span class="math notranslate nohighlight">\(\kappa_2\)</span> 5 times larger than the one of <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
+<p><strong>The problem</strong> Let <span class="math notranslate nohighlight">\(\{C_{i}\}_{1,2}\)</span>, be 2 thermal conductors within an enclosure <span class="math notranslate nohighlight">\(C_0\)</span> (see <a class="reference internal" href="#figheatgeo"><span class="std std-numref">Fig. 8</span></a>).</p>
+<div class="figure" id="figheatgeo">
+<a class="reference internal image-reference" href="../_images/heat_exchangerGeo.png"><img alt="HeatExchangerGeo" src="../_images/heat_exchangerGeo.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Heat exchanger geometry</span></p>
+</div>
+<p>The first one is held at a constant temperature <span class="math notranslate nohighlight">\({u} _{1}\)</span> the other one has a given thermal conductivity <span class="math notranslate nohighlight">\(\kappa_2\)</span> 3 times larger than the one of <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
 <p>We assume that the border of enclosure <span class="math notranslate nohighlight">\(C_0\)</span> is held at temperature <span class="math notranslate nohighlight">\(20^\circ C\)</span> and that we have waited long enough for thermal equilibrium.</p>
 <p>In order to know <span class="math notranslate nohighlight">\({u} (x)\)</span> at any point <span class="math notranslate nohighlight">\(x\)</span> of the domain <span class="math notranslate nohighlight">\(\Omega\)</span>, we must solve:</p>
 <div class="math notranslate nohighlight">
@@ -1690,7 +1694,7 @@
 <p>The variational formulation for this problem is in the subspace <span class="math notranslate nohighlight">\(H^1_0(\Omega) \subset H^1(\Omega)\)</span> of functions which have zero traces on <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[u-g\in H^1_0(\Omega): \int_{\Omega}{\nabla u \nabla v} = 0\forall v\in H^1_0(\Omega)\]</div>
-<p>Let us assume that <span class="math notranslate nohighlight">\(C_0\)</span> is a circle of radius 5 centered at the origin, <span class="math notranslate nohighlight">\(C_i\)</span> are rectangles, <span class="math notranslate nohighlight">\(C_1\)</span> being at the constant temperature <span class="math notranslate nohighlight">\(u_1=60^\circ C\)</span>.</p>
+<p>Let us assume that <span class="math notranslate nohighlight">\(C_0\)</span> is a circle of radius 5 centered at the origin, <span class="math notranslate nohighlight">\(C_i\)</span> are rectangles, <span class="math notranslate nohighlight">\(C_1\)</span> being at the constant temperature <span class="math notranslate nohighlight">\(u_1=60^\circ C\)</span> (so we can only consider its boundary).</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1811,11 +1815,11 @@ It is not possible to change the (uniform) distribution of vertices but a piece 
 <div class="figure compound align-center" id="HeatExchanger">
 <div style="width: 49%" class="subfigure" id="id1">
 <span id="figheatmesh"></span><a class="reference internal image-reference" href="../_images/heat_exchangerTh.png"><img alt="HeatExchangerTh" src="../_images/heat_exchangerTh.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Heat exchanger mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Heat exchanger mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id2">
 <span id="figheatsolution"></span><a class="reference internal image-reference" href="../_images/heat_exchanger.png"><img alt="HeatExchanger" src="../_images/heat_exchanger.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Heat exchanger solution</span></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Heat exchanger solution</span></p>
 </div>
 <p class="caption"><span class="caption-text">Heat exchanger</span></p>
 </div><div class="admonition tip" id="HeatExchanger">

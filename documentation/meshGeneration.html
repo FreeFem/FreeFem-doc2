@@ -1682,13 +1682,13 @@
 <div class="section" id="square">
 <span id="meshsquare"></span><h2>Square<a class="headerlink" href="#square" title="Permalink to this headline"> </a></h2>
 <p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square</span></code> triangulates the unit square.</p>
-<p>The following generates a <span class="math notranslate nohighlight">\(4&nbsp;\times 5\)</span> grid in the unit square <span class="math notranslate nohighlight">\([0,1]^2\)</span>. The labels of the boundaries are shown in <a class="reference internal" href="#figboundarylabels"><span class="std std-numref">Fig. 56</span></a>.</p>
+<p>The following generates a <span class="math notranslate nohighlight">\(4&nbsp;\times 5\)</span> grid in the unit square <span class="math notranslate nohighlight">\([0,1]^2\)</span>. The labels of the boundaries are shown in <a class="reference internal" href="#figboundarylabels"><span class="std std-numref">Fig. 57</span></a>.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <div class="figure" id="figboundarylabels">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Square.png"><img alt="../_images/MeshGeneration_Square.png" src="../_images/MeshGeneration_Square.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Boundary labels of the mesh by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Boundary labels of the mesh by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span></code></span></p>
 </div>
 <p>To construct a <span class="math notranslate nohighlight">\(n\times m\)</span> grid in the rectangle <span class="math notranslate nohighlight">\([x_0,x_1]\times [y_0,y_1]\)</span>, proceed as follows:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1795,24 +1795,24 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Part 2 has redion number &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">Th</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">).</span><span class="kr">region</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Borders and mesh are respectively shown in <a class="reference internal" href="#figmultipleborder"><span class="std std-numref">Fig. 57</span></a> and <a class="reference internal" href="#figgeneratedmesh"><span class="std std-numref">Fig. 58</span></a>.</p>
+<p>Borders and mesh are respectively shown in <a class="reference internal" href="#figmultipleborder"><span class="std std-numref">Fig. 58</span></a> and <a class="reference internal" href="#figgeneratedmesh"><span class="std std-numref">Fig. 59</span></a>.</p>
 <div class="figure compound align-center" id="MeshGeneration_Border">
 <div style="width: 49%" class="subfigure" id="id14">
 <span id="figmultipleborder"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border1.png"><img alt="MeshGeneration_Border1" src="../_images/MeshGeneration_Border1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Multiple border ends intersect</span></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Multiple border ends intersect</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id15">
 <span id="figgeneratedmesh"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border2.png"><img alt="MeshGeneration_Border2" src="../_images/MeshGeneration_Border2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Generated mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Generated mesh</span></p>
 </div>
 <p class="caption"><span class="caption-text">Border</span></p>
 </div><p id="MeshGeneration_Border">Triangulation keywords assume that the domain is defined as being on the <em>left</em> (resp <em>right</em>) of its oriented parameterized boundary</p>
 <div class="math notranslate nohighlight">
 \[\Gamma_j = \{(x,y)\left|\; x=\varphi_x(t),\, y=\varphi_y(t),\, a_j\le t\le b_j\right.\}\]</div>
-<p>To check the orientation plot <span class="math notranslate nohighlight">\(t\mapsto (\varphi_x(t),\varphi_y(t)),\, t_0\le t\le t_1\)</span>. If it is as in <a class="reference internal" href="#figborder"><span class="std std-numref">Fig. 59</span></a>, then the domain lies on the shaded area, otherwise it lies on the opposite side.</p>
+<p>To check the orientation plot <span class="math notranslate nohighlight">\(t\mapsto (\varphi_x(t),\varphi_y(t)),\, t_0\le t\le t_1\)</span>. If it is as in <a class="reference internal" href="#figborder"><span class="std std-numref">Fig. 60</span></a>, then the domain lies on the shaded area, otherwise it lies on the opposite side.</p>
 <div class="figure" id="figborder">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Border3.png"><img alt="../_images/MeshGeneration_Border3.png" src="../_images/MeshGeneration_Border3.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Orientation of the boundary defined by <span class="math notranslate nohighlight">\((\phi_x(t),\phi_y(t))\)</span></span></p>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Orientation of the boundary defined by <span class="math notranslate nohighlight">\((\phi_x(t),\phi_y(t))\)</span></span></p>
 </div>
 <p>The general expression to define a triangulation with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span></code> is</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh</span> <span class="n">Mesh_Name</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">Gamma1</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span><span class="o">+</span><span class="p">...</span><span class="o">+</span><span class="n">GammaJ</span><span class="p">(</span><span class="n">mj</span><span class="p">),</span> <span class="n">OptionalParameter</span><span class="p">);</span>
@@ -1847,11 +1847,11 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 <div class="figure compound align-center" id="MeshWithHole">
 <div style="width: 49%" class="subfigure" id="id16">
 <span id="figmeswithouthhole"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border4.png"><img alt="MeshGeneration_Border4" src="../_images/MeshGeneration_Border4.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Mesh without hole</span></p>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Mesh without hole</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id17">
 <span id="figmeshwithhole"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border5.png"><img alt="MeshGeneration_Border5" src="../_images/MeshGeneration_Border5.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Mesh with hole</span></p>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Mesh with hole</span></p>
 </div>
 <p class="caption"><span class="caption-text">Mesh with a hole</span></p>
 </div><div class="admonition note" id="MeshWithHole">
@@ -1952,7 +1952,7 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 <span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="s">&quot;mesh.msh&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<p>The mesh is shown on <a class="reference internal" href="#figbuildmesh"><span class="std std-numref">Fig. 62</span></a>.</p>
+<p>The mesh is shown on <a class="reference internal" href="#figbuildmesh"><span class="std std-numref">Fig. 63</span></a>.</p>
 <p>The information about <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> are saved in the file <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span><span class="p">.</span><span class="n">msh</span></code> whose structure is shown on <a class="reference internal" href="#tabmeshstructure"><span class="std std-numref">Table 1</span></a>.</p>
 <p>There, <span class="math notranslate nohighlight">\(n_v\)</span> denotes the number of vertices, <span class="math notranslate nohighlight">\(n_t\)</span> the number of triangles and <span class="math notranslate nohighlight">\(n_s\)</span> the number of edges on boundary.</p>
 <p>For each vertex <span class="math notranslate nohighlight">\(q^i,\, i=1,\cdots,n_v\)</span>, denoted by <span class="math notranslate nohighlight">\((q^i_x,q^i_y)\)</span> the <span class="math notranslate nohighlight">\(x\)</span>-coordinate and <span class="math notranslate nohighlight">\(y\)</span>-coordinate.</p>
@@ -1960,9 +1960,9 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 <p>The boundary consists of 10 lines <span class="math notranslate nohighlight">\(L_i,\, i=1,\cdots,10\)</span> whose end points are <span class="math notranslate nohighlight">\(q^{i_1},\, q^{i_2}\)</span>.</p>
 <div class="figure" id="figbuildmesh">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Data.png"><img alt="../_images/MeshGeneration_Data.png" src="../_images/MeshGeneration_Data.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Mesh by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Mesh by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span></code></span></p>
 </div>
-<p>In the <a class="reference internal" href="#figbuildmesh"><span class="std std-numref">Fig. 62</span></a>, we have the following.</p>
+<p>In the <a class="reference internal" href="#figbuildmesh"><span class="std std-numref">Fig. 63</span></a>, we have the following.</p>
 <p><span class="math notranslate nohighlight">\(n_v=14, n_t=16, n_s=10\)</span></p>
 <p><span class="math notranslate nohighlight">\(q^1=(-0.309016994375, 0.951056516295)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\dots\)</span></p>
@@ -2711,11 +2711,11 @@ It can be useful to build a mesh from a table function.</p>
 <div class="figure compound align-center" id="Triangulate">
 <div style="width: 49%" class="subfigure" id="id18">
 <span id="figdelaunaymesh"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Triangulate1.png"><img alt="MeshGeneration_Triangulate1" src="../_images/MeshGeneration_Triangulate1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Delaunay mesh of the convex hull of point set in file xy</span></p>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Delaunay mesh of the convex hull of point set in file xy</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id19">
 <span id="figisovalue"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Triangulate2.png"><img alt="MeshGeneration_Triangulate2" src="../_images/MeshGeneration_Triangulate2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Isolvalue of table function</span></p>
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Isolvalue of table function</span></p>
 </div>
 <p class="caption"><span class="caption-text">Triangulate</span></p>
 </div><p id="Triangulate">The third column of each line is left untouched by the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">triangulate</span></code> command.
@@ -2830,11 +2830,11 @@ It can be useful to handle Lagrange multipliers in mixed and mortar methods.</p>
 <div class="figure compound align-center" id="EmptyMesh">
 <div style="width: 49%" class="subfigure" id="id20">
 <span id="figemptymesh1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_EmptyMesh1.png"><img alt="MeshGeneration_EmptyMesh1" src="../_images/MeshGeneration_EmptyMesh1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">The empty mesh with boundary</span></p>
+<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">The empty mesh with boundary</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id21">
 <span id="figemptymesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_EmptyMesh2.png"><img alt="MeshGeneration_EmptyMesh2" src="../_images/MeshGeneration_EmptyMesh2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">An empty mesh defined from a pseudo region numbering of triangle</span></p>
+<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">An empty mesh defined from a pseudo region numbering of triangle</span></p>
 </div>
 <p class="caption"><span class="caption-text">Empty mesh</span></p>
 </div></div>
@@ -2923,11 +2923,11 @@ To spot such problems, one may check the minimum triangle area in the transforme
 <div class="figure compound align-center" id="MoveMesh">
 <div style="width: 49%" class="subfigure" id="id22">
 <span id="figlshape"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_MoveMesh1.png"><img alt="MeshGeneration_MoveMesh1" src="../_images/MeshGeneration_MoveMesh1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">L-shape</span></p>
+<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">L-shape</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id23">
 <span id="figmovedlshape"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_MoveMesh2.png"><img alt="MeshGeneration_MoveMesh2" src="../_images/MeshGeneration_MoveMesh2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Moved L-shape</span></p>
+<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Moved L-shape</span></p>
 </div>
 <p class="caption"><span class="caption-text">Move mesh</span></p>
 </div><div class="admonition note" id="MoveMesh">
@@ -3070,7 +3070,7 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 </td></tr></table></div>
 <div class="figure" id="figmeshadaptation">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh1.png"><img alt="../_images/MeshGeneration_AdaptMesh1.png" src="../_images/MeshGeneration_AdaptMesh1.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">3D graphs for the initial mesh and 1st and 2nd mesh adaptations</span></p>
+<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">3D graphs for the initial mesh and 1st and 2nd mesh adaptations</span></p>
 </div>
 <p><strong>FreeFem++</strong> uses a variable metric/Delaunay automatic meshing algorithm.</p>
 <p>The command:</p>
@@ -3086,16 +3086,16 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 <div class="figure compound align-center" id="AdaptMesh">
 <div style="width: 49%" class="subfigure" id="id24">
 <span id="adaptmesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh2.png"><img alt="MeshGeneration_AdaptMesh2" src="../_images/MeshGeneration_AdaptMesh2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">L-shape domain and its boundary name</span></p>
+<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">L-shape domain and its boundary name</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id25">
 <span id="adaptmesh3"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh3.png"><img alt="MeshGeneration_AdaptMesh3" src="../_images/MeshGeneration_AdaptMesh3.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Final solution after 4-times adaptation</span></p>
+<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Final solution after 4-times adaptation</span></p>
 </div>
 <p class="caption"><span class="caption-text">Mesh adaptation</span></p>
 </div><div class="admonition tip" id="AdaptMesh">
 <p class="first admonition-title">Tip</p>
-<p class="last">The solution has the singularity <span class="math notranslate nohighlight">\(r^{3/2},\, r=|x-\gamma|\)</span> at the point <span class="math notranslate nohighlight">\(\gamma\)</span> of the intersection of two lines <span class="math notranslate nohighlight">\(bc\)</span> and <span class="math notranslate nohighlight">\(bd\)</span> (see <a class="reference internal" href="#adaptmesh2"><span class="std std-numref">Fig. 70</span></a>).</p>
+<p class="last">The solution has the singularity <span class="math notranslate nohighlight">\(r^{3/2},\, r=|x-\gamma|\)</span> at the point <span class="math notranslate nohighlight">\(\gamma\)</span> of the intersection of two lines <span class="math notranslate nohighlight">\(bc\)</span> and <span class="math notranslate nohighlight">\(bd\)</span> (see <a class="reference internal" href="#adaptmesh2"><span class="std std-numref">Fig. 71</span></a>).</p>
 </div>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -3178,7 +3178,7 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 </td></tr></table></div>
 <p>To speed up the adaptation, the default parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">err</span></code> of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span></code> is changed by hand; it specifies the required precision, so as to make the new mesh finer or coarser.</p>
 <p>The problem is coercive and symmetric, so the linear system can be solved with the conjugate gradient method (parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span></code>) with the stopping criteria on the residual, here <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">eps</span><span class="o">=</span><span class="mf">1.e-6</span></code>).</p>
-<p>By <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span></code>, the slope of the final solution is correctly computed near the point of intersection of <span class="math notranslate nohighlight">\(bc\)</span> and <span class="math notranslate nohighlight">\(bd\)</span> as in <a class="reference internal" href="#adaptmesh3"><span class="std std-numref">Fig. 71</span></a>.</p>
+<p>By <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span></code>, the slope of the final solution is correctly computed near the point of intersection of <span class="math notranslate nohighlight">\(bc\)</span> and <span class="math notranslate nohighlight">\(bd\)</span> as in <a class="reference internal" href="#adaptmesh3"><span class="std std-numref">Fig. 72</span></a>.</p>
 <p>This method is described in detail in <a class="reference internal" href="../reference.html#hecht1998" id="id2">[HECHT1998]</a>.
 It has a number of default parameters which can be modified.</p>
 <p>If <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span></code> are functions and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">thold</span><span class="p">,</span> <span class="n">Thnew</span></code> are meshes:</p>
@@ -3355,15 +3355,15 @@ To build a mesh with a constant mesh size equal to <span class="math notranslate
 <div class="figure compound align-center" id="AdaptMesh2">
 <div style="width: 49%" class="subfigure" id="id26">
 <span id="adaptmesh4"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh4.png"><img alt="MeshGeneration_AdaptMesh4" src="../_images/MeshGeneration_AdaptMesh4.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Initial mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">Initial mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id27">
 <span id="adaptmesh5"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh5.png"><img alt="MeshGeneration_AdaptMesh5" src="../_images/MeshGeneration_AdaptMesh5.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">First iteration</span></p>
+<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">First iteration</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id28">
 <span id="adaptmesh6"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh6.png"><img alt="MeshGeneration_AdaptMesh6" src="../_images/MeshGeneration_AdaptMesh6.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Last iteration</span></p>
+<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Last iteration</span></p>
 </div>
 <p class="caption"><span class="caption-text">Mesh adaptation</span></p>
 </div></div>
@@ -3420,11 +3420,11 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 <div class="figure compound align-center" id="Trunc">
 <div style="width: 49%" class="subfigure" id="id29">
 <span id="trunc1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Trunc1.png"><img alt="MeshGeneration_Trunc1" src="../_images/MeshGeneration_Trunc1.png" style="width: 49%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Mesh of support the function P1 number 0, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
+<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">Mesh of support the function P1 number 0, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id30">
 <span id="trunc6"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Trunc1.png"><img alt="MeshGeneration_Trunc1" src="../_images/MeshGeneration_Trunc1.png" style="width: 49%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">Mesh of support the function P1 number 6, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
+<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Mesh of support the function P1 number 6, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
 </div>
 <p class="caption"><span class="caption-text">Trunc</span></p>
 </div></div>
@@ -3451,11 +3451,11 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 <div class="figure compound align-center" id="SplitMesh">
 <div style="width: 49%" class="subfigure" id="id31">
 <span id="splitmesh1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_SplitMesh1.png"><img alt="MeshGeneration_SplitMesh1" src="../_images/MeshGeneration_SplitMesh1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Initial mesh</span></p>
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Initial mesh</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id32">
 <span id="splitmesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_SplitMesh2.png"><img alt="MeshGeneration_SplitMesh2" src="../_images/MeshGeneration_SplitMesh2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">All left mesh triangle is split conformaly in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="nf">square</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span></code> triangles</span></p>
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">All left mesh triangle is split conformaly in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="nf">square</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span></code> triangles</span></p>
 </div>
 <p class="caption"><span class="caption-text">Split mesh</span></p>
 </div></div>
@@ -3491,7 +3491,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="naca00121">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_NACA0012_1.png"><img alt="../_images/MeshGeneration_Example_NACA0012_1.png" src="../_images/MeshGeneration_Example_NACA0012_1.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Two rectangles touching by a side</span></p>
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Two rectangles touching by a side</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3510,7 +3510,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="naca00122">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_NACA0012_2.png"><img alt="../_images/MeshGeneration_Example_NACA0012_2.png" src="../_images/MeshGeneration_Example_NACA0012_2.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">NACA0012 Airfoil</span></p>
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">NACA0012 Airfoil</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3527,7 +3527,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="cardioid1">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_Cardioid1.png"><img alt="../_images/MeshGeneration_Example_Cardioid1.png" src="../_images/MeshGeneration_Example_Cardioid1.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Domain with Cardioid curve boundary</span></p>
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Domain with Cardioid curve boundary</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3542,7 +3542,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="cardioid2">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_Cardioid2.png"><img alt="../_images/MeshGeneration_Example_Cardioid2.png" src="../_images/MeshGeneration_Example_Cardioid2.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Domain with Cassini egg curve boundary</span></p>
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Domain with Cassini egg curve boundary</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3607,7 +3607,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="bezier">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_Bezier.png"><img alt="../_images/MeshGeneration_Example_Bezier.png" src="../_images/MeshGeneration_Example_Bezier.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">Boundary drawn by Bezier curves</span></p>
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Boundary drawn by Bezier curves</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3640,7 +3640,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="engine">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_Engine.png"><img alt="../_images/MeshGeneration_Example_Engine.png" src="../_images/MeshGeneration_Example_Engine.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Section of Engine</span></p>
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Section of Engine</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3673,7 +3673,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="ushape">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_UShape.png"><img alt="../_images/MeshGeneration_Example_UShape.png" src="../_images/MeshGeneration_Example_UShape.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Domain with U-shape channel changed by :freefem`d`</span></p>
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Domain with U-shape channel changed by :freefem`d`</span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3708,7 +3708,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="vshape">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_VShape.png"><img alt="../_images/MeshGeneration_Example_VShape.png" src="../_images/MeshGeneration_Example_VShape.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Domain with V-shape cut changed by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">dAg</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Domain with V-shape cut changed by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">dAg</span></code></span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -3751,7 +3751,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="last figure" id="smilingface">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_SmilingFace.png"><img alt="../_images/MeshGeneration_Example_SmilingFace.png" src="../_images/MeshGeneration_Example_SmilingFace.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Smiling face (Mouth is changeable)</span></p>
+<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Smiling face (Mouth is changeable)</span></p>
 </div>
 </div>
 <p>. tip:: 3 points bending</p>
@@ -3793,7 +3793,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </td></tr></table></div>
 <div class="figure" id="threepoints">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Example_ThreePoints.png"><img alt="../_images/MeshGeneration_Example_ThreePoints.png" src="../_images/MeshGeneration_Example_ThreePoints.png" style="width: 75%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">Domain for three-point bending test</span></p>
+<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">Domain for three-point bending test</span></p>
 </div>
 </div></blockquote>
 </div>
@@ -4007,7 +4007,7 @@ The method implemented needs the point in adjacent meshes to be the same.</p>
 </td></tr></table></div>
 <div class="figure" id="meshgeneration-cube">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_Cube.jpg"><img alt="../_images/MeshGeneration_Cube.jpg" src="../_images/MeshGeneration_Cube.jpg" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 89 </span><span class="caption-text">The mesh 3d of function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">cube</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="kp">flags</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">The mesh 3d of function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">cube</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="kp">flags</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code></span></p>
 </div>
 </div>
 <div class="section" id="read-write-statements-for-a-mesh-in-3d">
@@ -4575,7 +4575,7 @@ This mesh is obtained by extending a two dimensional mesh in the <span class="ma
 <span class="math notranslate nohighlight">\(zmin\)</span> and <span class="math notranslate nohighlight">\(zmax\)</span> are functions of <span class="math notranslate nohighlight">\(\Omega_{2d}\)</span> in <span class="math notranslate nohighlight">\(\R\)</span> that defines respectively the lower surface and upper surface of <span class="math notranslate nohighlight">\(\Omega_{3d}\)</span>.</p>
 <div class="figure" id="meshgenerationlayermesh">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_LayerMesh.png"><img alt="../_images/MeshGeneration_LayerMesh.png" src="../_images/MeshGeneration_LayerMesh.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">Example of Layer mesh in three dimensions.</span></p>
+<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Example of Layer mesh in three dimensions.</span></p>
 </div>
 <p>For a vertex of a two dimensional mesh <span class="math notranslate nohighlight">\(V_{i}^{2d} = (x_{i},y_{i})\)</span>, we introduce the number of associated vertices in the <span class="math notranslate nohighlight">\(z-\)</span>axis <span class="math notranslate nohighlight">\(M_{i}+1\)</span>.</p>
 <p>We denote by <span class="math notranslate nohighlight">\(M\)</span> the maximum of <span class="math notranslate nohighlight">\(M_{i}\)</span> over the vertices of the two dimensional mesh.
@@ -4714,7 +4714,7 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 </td></tr></table></div>
 <div class="last figure" id="meshgenerationlayermeshexample1">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_LayerMesh_Example1.png"><img alt="../_images/MeshGeneration_LayerMesh_Example1.png" src="../_images/MeshGeneration_LayerMesh_Example1.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">The mesh of a cube made with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">cube</span><span class="p">.</span><span class="n">edp</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">The mesh of a cube made with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">cube</span><span class="p">.</span><span class="n">edp</span></code></span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -4790,7 +4790,7 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 </td></tr></table></div>
 <div class="last figure" id="meshgenerationlayermeshexample2">
 <a class="reference internal image-reference" href="../_images/MeshGeneration_LayerMesh_Example2.png"><img alt="../_images/MeshGeneration_LayerMesh_Example2.png" src="../_images/MeshGeneration_LayerMesh_Example2.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">The mesh of a cone made with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">cone</span><span class="p">.</span><span class="n">edp</span></code></span></p>
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">The mesh of a cone made with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">cone</span><span class="p">.</span><span class="n">edp</span></code></span></p>
 </div>
 </div>
 <div class="admonition tip">
@@ -5279,11 +5279,11 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 <div class="figure compound align-center" id="CubeSphere">
 <div style="width: 49%" class="subfigure" id="id33">
 <span id="meshgenerationcubesphere1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_CubeSphere1.png"><img alt="MeshGeneration_CubeSphere1" src="../_images/MeshGeneration_CubeSphere1.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">The surface mesh of the hex with internal sphere</span></p>
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">The surface mesh of the hex with internal sphere</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id34">
 <span id="meshgenerationcubesphere2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_CubeSphere2.png"><img alt="MeshGeneration_CubeSphere2" src="../_images/MeshGeneration_CubeSphere2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">The tetrahedral mesh of the cube with internal ball</span></p>
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">The tetrahedral mesh of the cube with internal ball</span></p>
 </div>
 <p class="caption"><span class="caption-text">Cube sphere</span></p>
 </div><div class="section" id="medit">
@@ -6416,11 +6416,11 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <div class="last figure compound align-center" id="Isoline">
 <div style="width: 49%" class="subfigure" id="id35">
 <span id="meshgenerationisoline1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Isoline1.jpg"><img alt="MeshGeneration_Isoline1" src="../_images/MeshGeneration_Isoline1.jpg" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">The image of the Leman lake meshes</span></p>
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">The image of the Leman lake meshes</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id36">
 <span id="meshgenerationisoline2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Isoline2.png"><img alt="MeshGeneration_Isoline2" src="../_images/MeshGeneration_Isoline2.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">The mesh of the lake</span></p>
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">The mesh of the lake</span></p>
 </div>
 <p class="caption"><span class="caption-text">Isoline</span></p>
 <span class="target" id="Isoline"></span></div></div>

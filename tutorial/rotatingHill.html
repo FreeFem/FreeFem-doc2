@@ -1854,17 +1854,17 @@ Finally <span class="math notranslate nohighlight">\([c]\)</span> is the jump of
 \[\mathtt{intalledges}(\mathtt{Th}) \equiv \sum_{T\in\mathtt{Th}}\int_{\partial T }\]</div>
 </div>
 <p>(so all internal edges are see two times), nTonEdge which is one if the triangle has a boundary edge and two otherwise, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">jump</span></code> to implement <span class="math notranslate nohighlight">\([c]\)</span>.</p>
-<p>Results of both methods are shown on <a class="reference internal" href="#figrotatingcg"><span class="std std-numref">Fig. 16</span></a> nad <a class="reference internal" href="#figrotatingdg"><span class="std std-numref">Fig. 17</span></a> with identical levels for the level line; this is done with the plot-modifier viso.</p>
+<p>Results of both methods are shown on <a class="reference internal" href="#figrotatingcg"><span class="std std-numref">Fig. 17</span></a> nad <a class="reference internal" href="#figrotatingdg"><span class="std std-numref">Fig. 18</span></a> with identical levels for the level line; this is done with the plot-modifier viso.</p>
 <p>Notice also the macro where the parameter <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is not used (but the syntax needs one) and which ends with a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="c1">//</span></code>; it simply replaces the name <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">n</span></code> by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">(</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">*</span><span class="n">v1</span><span class="o">+</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span></code>.
 As easily guessed <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">,</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span></code> is the normal to the edge.</p>
 <div class="figure compound align-center" id="RotatingHill">
 <div style="width: 49%" class="subfigure" id="id2">
 <span id="figrotatingcg"></span><a class="reference internal image-reference" href="../_images/convectCG.png"><img alt="convectCG" src="../_images/convectCG.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">The rotating hill after one revolution with Characteristics-Galerkin</span></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The rotating hill after one revolution with Characteristics-Galerkin</span></p>
 </div>
 <div style="width: 49%" class="subfigure" id="id3">
 <span id="figrotatingdg"></span><a class="reference internal image-reference" href="../_images/convectDG.png"><img alt="convectDG" src="../_images/convectDG.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The rotating hill after one revolution with Discontinuous <span class="math notranslate nohighlight">\(P_1\)</span> Galerkin</span></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The rotating hill after one revolution with Discontinuous <span class="math notranslate nohighlight">\(P_1\)</span> Galerkin</span></p>
 </div>
 <p class="caption"><span class="caption-text">Rotating hill</span></p>
 </div><p id="RotatingHill">Now if you think that DG is too slow try this:</p>
