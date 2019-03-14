@@ -7,9 +7,16 @@ Heat Exchanger
 **Summary:**
 *Here we shall learn more about geometry input and triangulation files, as well as read and write operations.*
 
-**The problem** Let :math:`\{C_{i}\}_{1,2}`, be 2 thermal conductors within an enclosure :math:`C_0` (see :numref:`figHeatMesh`).
+**The problem** Let :math:`\{C_{i}\}_{1,2}`, be 2 thermal conductors within an enclosure :math:`C_0` (see :numref:`figHeatGeo`).
 
-The first one is held at a constant temperature :math:`{u} _{1}` the other one has a given thermal conductivity :math:`\kappa_2` 5 times larger than the one of :math:`C_0`.
+.. figure:: images/heat_exchangerGeo.svg
+  :alt: HeatExchangerGeo
+  :width: 50%
+  :name: figHeatGeo
+
+  Heat exchanger geometry
+
+The first one is held at a constant temperature :math:`{u} _{1}` the other one has a given thermal conductivity :math:`\kappa_2` 3 times larger than the one of :math:`C_0`.
 
 We assume that the border of enclosure :math:`C_0` is held at temperature :math:`20^\circ C` and that we have waited long enough for thermal equilibrium.
 
@@ -33,7 +40,7 @@ The variational formulation for this problem is in the subspace :math:`H^1_0(\Om
 .. math::
    u-g\in H^1_0(\Omega): \int_{\Omega}{\nabla u \nabla v} = 0\forall v\in H^1_0(\Omega)
 
-Let us assume that :math:`C_0` is a circle of radius 5 centered at the origin, :math:`C_i` are rectangles, :math:`C_1` being at the constant temperature :math:`u_1=60^\circ C`.
+Let us assume that :math:`C_0` is a circle of radius 5 centered at the origin, :math:`C_i` are rectangles, :math:`C_1` being at the constant temperature :math:`u_1=60^\circ C` (so we can only consider its boundary).
 
 .. code-block:: freefem
    :linenos:
