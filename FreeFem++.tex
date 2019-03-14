@@ -134,7 +134,7 @@
     
 
 \title{FreeFem++ Documentation}
-\date{Mar 13, 2019}
+\date{Mar 14, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1968,9 +1968,16 @@ This works with \sphinxcode{\sphinxupquote{P2}} and \sphinxcode{\sphinxupquote{P
 \sphinxstylestrong{Summary:}
 \sphinxstyleemphasis{Here we shall learn more about geometry input and triangulation files, as well as read and write operations.}
 
-\sphinxstylestrong{The problem} Let \(\{C_{i}\}_{1,2}\), be 2 thermal conductors within an enclosure \(C_0\) (see \hyperref[\detokenize{tutorial/heatExchanger:figheatmesh}]{Fig.\@ \ref{\detokenize{tutorial/heatExchanger:figheatmesh}}}).
+\sphinxstylestrong{The problem} Let \(\{C_{i}\}_{1,2}\), be 2 thermal conductors within an enclosure \(C_0\) (see \hyperref[\detokenize{tutorial/heatExchanger:figheatgeo}]{Fig.\@ \ref{\detokenize{tutorial/heatExchanger:figheatgeo}}}).
 
-The first one is held at a constant temperature \({u} _{1}\) the other one has a given thermal conductivity \(\kappa_2\) 5 times larger than the one of \(C_0\).
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=0.500\linewidth]{{heat_exchangerGeo}.png}
+\caption{Heat exchanger geometry}\label{\detokenize{tutorial/heatExchanger:figheatgeo}}\end{figure}
+
+The first one is held at a constant temperature \({u} _{1}\) the other one has a given thermal conductivity \(\kappa_2\) 3 times larger than the one of \(C_0\).
 
 We assume that the border of enclosure \(C_0\) is held at temperature \(20^\circ C\) and that we have waited long enough for thermal equilibrium.
 
@@ -1991,7 +1998,7 @@ The variational formulation for this problem is in the subspace \(H^1_0(\Omega) 
 \begin{equation*}
 \begin{split}u-g\in H^1_0(\Omega): \int_{\Omega}{\nabla u \nabla v} = 0\forall v\in H^1_0(\Omega)\end{split}
 \end{equation*}
-Let us assume that \(C_0\) is a circle of radius 5 centered at the origin, \(C_i\) are rectangles, \(C_1\) being at the constant temperature \(u_1=60^\circ C\).
+Let us assume that \(C_0\) is a circle of radius 5 centered at the origin, \(C_i\) are rectangles, \(C_1\) being at the constant temperature \(u_1=60^\circ C\) (so we can only consider its boundary).
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{c+c1}{// Parameters}
