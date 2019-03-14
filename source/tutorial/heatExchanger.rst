@@ -9,7 +9,7 @@ Heat Exchanger
 
 **The problem** Let :math:`\{C_{i}\}_{1,2}`, be 2 thermal conductors within an enclosure :math:`C_0` (see :numref:`figHeatGeo`).
 
-.. figure:: images/heat_exchangerGeo.svg
+.. figure:: images/heat_exchangerGeo.png
   :alt: HeatExchangerGeo
   :width: 50%
   :name: figHeatGeo
