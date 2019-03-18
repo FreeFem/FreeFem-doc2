@@ -130,15 +130,15 @@
 		display: none !important;
 	}
 
-	nav #searchResults {
-		min-width: 100%;
+	#searchResults {
+		min-width: 100vw;
 	}
 
-	nav #searchInput {
+	#searchInput {
 		width: 100%;
 	}
 
-	nav #searchInput:focus {
+	#searchInput:focus {
 		width: 100%;
 	}
 
