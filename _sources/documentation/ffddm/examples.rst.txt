@@ -41,20 +41,20 @@ Examples
 | `Richards-2d.edp`_                    | RAS              |                  |             | nonlinear time dependent mesh adaptation |
 +---------------------------------------+------------------+------------------+-------------+------------------------------------------+
 
-.. _diffusion-3d-minimal-direct.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-minimal-direct.edp
-.. _diffusion-3d-minimal-ddm.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-minimal-ddm.edp
-.. _diffusion-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-3d-simple.edp
-.. _diffusion-2d-thirdlevelgeneo.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/diffusion-2d-thirdlevelgeneo.edp
-.. _elasticity-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/elasticity-3d-simple.edp
-.. _elasticity-3d-thirdlevelgeneo.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/elasticity-3d-thirdlevelgeneo.edp
-.. _Helmholtz-2d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-simple.edp
-.. _Helmholtz-2d-marmousi.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-marmousi.edp
-.. _Helmholtz-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-3d-simple.edp
-.. _Helmholtz-3d-overthrust.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-3d-overthrust.edp
-.. _Helmholtz-2d-HPDDM-BGMRES.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-HPDDM-BGMRES.edp
-.. _Navier-2d-marmousi2.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Navier-2d-marmousi2.edp
-.. _Maxwell-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell-3d-simple.edp
-.. _Maxwell_Cobracavity.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell_Cobracavity.edp
-.. _natural_convection.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/natural_convection.edp
-.. _natural_convection_3D_obstacle.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/natural_convection_3D_obstacle.edp
-.. _Richards-2d.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Richards-2d.edp
+.. _diffusion-3d-minimal-direct.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/diffusion-3d-minimal-direct.edp
+.. _diffusion-3d-minimal-ddm.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/diffusion-3d-minimal-ddm.edp
+.. _diffusion-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/diffusion-3d-simple.edp
+.. _diffusion-2d-thirdlevelgeneo.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/diffusion-2d-thirdlevelgeneo.edp
+.. _elasticity-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/elasticity-3d-simple.edp
+.. _elasticity-3d-thirdlevelgeneo.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/elasticity-3d-thirdlevelgeneo.edp
+.. _Helmholtz-2d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-2d-simple.edp
+.. _Helmholtz-2d-marmousi.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-2d-marmousi.edp
+.. _Helmholtz-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-3d-simple.edp
+.. _Helmholtz-3d-overthrust.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-3d-overthrust.edp
+.. _Helmholtz-2d-HPDDM-BGMRES.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-2d-HPDDM-BGMRES.edp
+.. _Navier-2d-marmousi2.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Navier-2d-marmousi2.edp
+.. _Maxwell-3d-simple.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Maxwell-3d-simple.edp
+.. _Maxwell_Cobracavity.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Maxwell_Cobracavity.edp
+.. _natural_convection.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/natural_convection.edp
+.. _natural_convection_3D_obstacle.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/natural_convection_3D_obstacle.edp
+.. _Richards-2d.edp: https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Richards-2d.edp
