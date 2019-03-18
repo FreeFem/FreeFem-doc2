@@ -11,7 +11,7 @@ What is **ffddm** ?
 - **ffddm** implements a class of parallel solvers in *FreeFem++*: *overlapping Schwarz domain decomposition methods*
 
 - The entire **ffddm** framework is written in the *FreeFem++* language **ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*
-    You can find the **ffddm** scripts and examples `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples%2B%2B-ffddm>`__
+    You can find the **ffddm** scripts and examples `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm>`__
 
 - **ffddm** provides a set of high-level macros and functions to
     - handle data distribution: distributed meshes and linear algebra
@@ -622,7 +622,7 @@ with command-line arguments or directly to the underlying **HPDDM** operator:
 
 Or, define `pr#withhpddmkrylov` to use **HPDDM** only for the Krylov method
 
-Example `here <https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Helmholtz-2d-HPDDM-BGMRES.edp>`__: Helmholtz problem with multiple rhs solved with Block GMRES
+Example `here <https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-2d-HPDDM-BGMRES.edp>`__: Helmholtz problem with multiple rhs solved with Block GMRES
 
 Some results: Heterogeneous 3D elasticity with GenEO
 ----------------------------------------------------
@@ -675,4 +675,4 @@ speedup of 1.81 from 1536 to 3072 cores at 10GHz
 
 1.51 from 3072 to 6144 cores at 16GHz
 
-You can find the script `here <https://github.com/FreeFem/FreeFem-sources/blob/develop/examples%2B%2B-ffddm/Maxwell_Cobracavity.edp>`__
+You can find the script `here <https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Maxwell_Cobracavity.edp>`__
