@@ -18,7 +18,7 @@ Then, solving a linear system is possible either via an interface to the paralle
 The ``ffddm`` framework makes it easy to use scalable Schwarz methods enhanced by a coarse space correction built either from a coarse mesh or a `GenEO <https://link.springer.com/article/10.1007%2Fs00211-013-0576-y>`__ (Generalized Eigenvalue in the Overlap) coarse space, see also the book `An Introduction to Domain Decomposition Methods: algorithms, theory, and parallel implementation <http://bookstore.siam.org/ot144/>`__.
 State-of-the-art three level methods are also implemented in ``ffddm``.
 
-The ``ffddm`` framework is entirely written in the FreeFem++ language and the ‘.idp’ scripts can be found `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm>`__.
+The ``ffddm`` framework is entirely written in the FreeFem++ language and the ‘idp’ scripts can be found `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/idp>`__ (‘ffddm*.idp’ files).
 It makes it also a very good tool for learning and prototyping domain decomposition methods without compromising efficiency.
 
 ``ffddm`` can also act as a wrapper for the `HPDDM <https://github.com/hpddm/hpddm>`__ library.
