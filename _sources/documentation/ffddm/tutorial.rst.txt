@@ -11,7 +11,7 @@ What is **ffddm** ?
 - **ffddm** implements a class of parallel solvers in *FreeFem++*: *overlapping Schwarz domain decomposition methods*
 
 - The entire **ffddm** framework is written in the *FreeFem++* language **ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*
-    You can find the **ffddm** scripts and examples `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm>`__
+    You can find the **ffddm** scripts `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/idp>`__ ('ffddm*.idp' files) and examples `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm>`__
 
 - **ffddm** provides a set of high-level macros and functions to
     - handle data distribution: distributed meshes and linear algebra

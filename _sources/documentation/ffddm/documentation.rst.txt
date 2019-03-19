@@ -19,7 +19,7 @@ Minimal example
    macro grad(u) [dx(u), dy(u), dz(u)]// EOM    // three-dimensional gradient
 
    macro Varf(varfName, meshName, VhName)
-       varf varfName(u,v) = int3d(meshName)(grad(u)''* grad(v)) + int3d(meshName)(v) + on(1, u = 1.0);
+       varf varfName(u,v) = int3d(meshName)(grad(u)'* grad(v)) + int3d(meshName)(v) + on(1, u = 1.0);
    // EOM
 
    // Domain decomposition
