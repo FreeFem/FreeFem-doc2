@@ -134,7 +134,7 @@
     
 
 \title{FreeFem++ Documentation}
-\date{Mar 18, 2019}
+\date{Mar 19, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -18965,7 +18965,7 @@ Then, solving a linear system is possible either via an interface to the paralle
 The \sphinxcode{\sphinxupquote{ffddm}} framework makes it easy to use scalable Schwarz methods enhanced by a coarse space correction built either from a coarse mesh or a \sphinxhref{https://link.springer.com/article/10.1007\%2Fs00211-013-0576-y}{GenEO} (Generalized Eigenvalue in the Overlap) coarse space, see also the book \sphinxhref{http://bookstore.siam.org/ot144/}{An Introduction to Domain Decomposition Methods: algorithms, theory, and parallel implementation}.
 State-of-the-art three level methods are also implemented in \sphinxcode{\sphinxupquote{ffddm}}.
 
-The \sphinxcode{\sphinxupquote{ffddm}} framework is entirely written in the FreeFem++ language and the ‘.idp’ scripts can be found \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm}{here}.
+The \sphinxcode{\sphinxupquote{ffddm}} framework is entirely written in the FreeFem++ language and the ‘idp’ scripts can be found \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/idp}{here} (‘ffddm*.idp’ files).
 It makes it also a very good tool for learning and prototyping domain decomposition methods without compromising efficiency.
 
 \sphinxcode{\sphinxupquote{ffddm}} can also act as a wrapper for the \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} library.
@@ -19223,7 +19223,7 @@ This is a way to interpret the above generalized eigenvalue problem which contro
 \PYG{k+kt}{macro} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{p}{[}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{]}\PYG{c+c1}{// EOM    // three\PYGZhy{}dimensional gradient}
 
 \PYG{k+kt}{macro} \PYG{n}{Varf}\PYG{p}{(}\PYG{n}{varfName}\PYG{p}{,} \PYG{n}{meshName}\PYG{p}{,} \PYG{n}{VhName}\PYG{p}{)}
-    \PYG{k+kt}{varf} \PYG{n}{varfName}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{n}{v}\PYG{p}{)} \PYG{o}{=} \PYG{n+nf}{int3d}\PYG{p}{(}\PYG{n}{meshName}\PYG{p}{)}\PYG{p}{(}\PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}}\PYG{o}{\PYGZsq{}}\PYG{o}{*} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{int3d}\PYG{p}{(}\PYG{n}{meshName}\PYG{p}{)}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mf}{1.0}\PYG{p}{)}\PYG{p}{;}
+    \PYG{k+kt}{varf} \PYG{n}{varfName}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{n}{v}\PYG{p}{)} \PYG{o}{=} \PYG{n+nf}{int3d}\PYG{p}{(}\PYG{n}{meshName}\PYG{p}{)}\PYG{p}{(}\PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}}\PYG{o}{*} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{int3d}\PYG{p}{(}\PYG{n}{meshName}\PYG{p}{)}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mf}{1.0}\PYG{p}{)}\PYG{p}{;}
 \PYG{c+c1}{// EOM}
 
 \PYG{c+c1}{// Domain decomposition}
@@ -19885,7 +19885,7 @@ Authors: Pierre-Henri Tournier - Frédéric Nataf - Pierre Jolivet
 
 \item {} \begin{description}
 \item[{The entire \sphinxstylestrong{ffddm} framework is written in the \sphinxstyleemphasis{FreeFem++} language \sphinxstylestrong{ffddm} aims at simplifying the use of parallel solvers in \sphinxstyleemphasis{FreeFem++}}] \leavevmode
-You can find the \sphinxstylestrong{ffddm} scripts and examples \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm}{here}
+You can find the \sphinxstylestrong{ffddm} scripts \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/idp}{here} (‘ffddm*.idp’ files) and examples \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm}{here}
 
 \end{description}
 
