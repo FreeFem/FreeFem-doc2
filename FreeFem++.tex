@@ -134,7 +134,7 @@
     
 
 \title{FreeFem++ Documentation}
-\date{Mar 19, 2019}
+\date{Mar 20, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -450,8 +450,8 @@ Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the \sph
 Install gcc from \sphinxhref{http://hpc.sourceforge.net/}{http://hpc.sourceforge.net}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-curl \PYGZhy{}O http://prdownloads.sourceforge.net/hpc/gfortran\PYGZhy{}7.1\PYGZhy{}bin.tar.gz?download
-sudo tar zxvf gfortran\PYGZhy{}7.1\PYGZhy{}bin.tar.gz \PYGZhy{}C /
+curl \PYGZhy{}O http://prdownloads.sourceforge.net/hpc/gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz?download
+sudo tar zxvf gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz \PYGZhy{}C /
 \end{sphinxVerbatim}
 
 \item {} 
@@ -460,6 +460,11 @@ Install autoconf and automake from \sphinxhref{https://www.macports.org}{macport
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 sudo port install autoconf
 sudo port install automake
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+brew install autoconf
+brew install automake
 \end{sphinxVerbatim}
 
 \item {} 
@@ -507,8 +512,10 @@ Compile \sphinxstylestrong{FreeFem++}. Don’t forget to update the MacOS SDK ve
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+autoreconf \PYGZhy{}i
 ./configure \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}with\PYGZhy{}suffix=macos\PYGZhy{}10.13\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}without\PYGZhy{}fltk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIRUN=/usr/local/bin/mpirun\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}m64\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}without\PYGZhy{}x\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CC=clang \PYGZhy{}isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CFLAGS=\PYGZhy{}mmacosx\PYGZhy{}version\PYGZhy{}min=10.13\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CXXFLAGS=\PYGZhy{}mmacosx\PYGZhy{}version\PYGZhy{}min=10.13 \PYGZhy{}std=c++11\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CXX=clang++ \PYGZhy{}isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}F77=/usr/local/bin/gfortran\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}FC=/usr/local/bin/gfortran\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPICXX=/usr/local/bin/mpic++\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPICC=/usr/local/bin/mpicc\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIFC=/usr/local/bin/mpif90\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIF77=/usr/local/bin/mpif90\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode\PYGZsq{}}
 make
+make check
 sudo make install
 \end{sphinxVerbatim}
 
