@@ -121,8 +121,8 @@ Remark: Blocks of code are shell commands in terminal.
    .. code-block:: bash
       :linenos:
 
-      curl -O http://prdownloads.sourceforge.net/hpc/gfortran-7.1-bin.tar.gz?download
-      sudo tar zxvf gfortran-7.1-bin.tar.gz -C /
+      curl -O http://prdownloads.sourceforge.net/hpc/gfortran-8.1-bin.tar.gz?download
+      sudo tar zxvf gfortran-8.1-bin.tar.gz -C /
 
 3. Install autoconf and automake from `macport <https://www.macports.org>`__ or with `Homebrew <https://brew.sh>`__
 
@@ -131,6 +131,12 @@ Remark: Blocks of code are shell commands in terminal.
 
       sudo port install autoconf
       sudo port install automake
+
+   .. code-block:: bash
+      :linenos:
+
+      brew install autoconf
+      brew install automake
 
 4. Install mactex from `ctan <http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg>`__
 
@@ -170,8 +176,10 @@ Remark: Blocks of code are shell commands in terminal.
       :linenos:
 
       cd FreeFem-sources
+      autoreconf -i
       ./configure '-with-suffix=macos-10.13' '-without-fltk' '--enable-download' '--enable-optim' 'MPIRUN=/usr/local/bin/mpirun' '--enable-m64' '--without-x' 'CC=clang -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk' 'CFLAGS=-mmacosx-version-min=10.13' 'CXXFLAGS=-mmacosx-version-min=10.13 -std=c++11' 'CXX=clang++ -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk' 'F77=/usr/local/bin/gfortran' 'FC=/usr/local/bin/gfortran' 'MPICXX=/usr/local/bin/mpic++' 'MPICC=/usr/local/bin/mpicc' 'MPIFC=/usr/local/bin/mpif90' 'MPIF77=/usr/local/bin/mpif90' '--enable-maintainer-mode'
       make
+      make check
       sudo make install
 
 Compilation on Ubuntu
