@@ -1784,8 +1784,8 @@ makepkg -si
 </li>
 <li><p class="first">Install gcc from <a class="reference external" href="http://hpc.sourceforge.net/">http://hpc.sourceforge.net</a></p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O http://prdownloads.sourceforge.net/hpc/gfortran-7.1-bin.tar.gz?download
-sudo tar zxvf gfortran-7.1-bin.tar.gz -C /
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O http://prdownloads.sourceforge.net/hpc/gfortran-8.1-bin.tar.gz?download
+sudo tar zxvf gfortran-8.1-bin.tar.gz -C /
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -1793,6 +1793,11 @@ sudo tar zxvf gfortran-7.1-bin.tar.gz -C /
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo port install autoconf
 sudo port install automake
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install autoconf
+brew install automake
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -1835,9 +1840,13 @@ sudo make install
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
+autoreconf -i
 ./configure <span class="s1">&#39;-with-suffix=macos-10.13&#39;</span> <span class="s1">&#39;-without-fltk&#39;</span> <span class="s1">&#39;--enable-download&#39;</span> <span class="s1">&#39;--enable-optim&#39;</span> <span class="s1">&#39;MPIRUN=/usr/local/bin/mpirun&#39;</span> <span class="s1">&#39;--enable-m64&#39;</span> <span class="s1">&#39;--without-x&#39;</span> <span class="s1">&#39;CC=clang -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk&#39;</span> <span class="s1">&#39;CFLAGS=-mmacosx-version-min=10.13&#39;</span> <span class="s1">&#39;CXXFLAGS=-mmacosx-version-min=10.13 -std=c++11&#39;</span> <span class="s1">&#39;CXX=clang++ -isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk&#39;</span> <span class="s1">&#39;F77=/usr/local/bin/gfortran&#39;</span> <span class="s1">&#39;FC=/usr/local/bin/gfortran&#39;</span> <span class="s1">&#39;MPICXX=/usr/local/bin/mpic++&#39;</span> <span class="s1">&#39;MPICC=/usr/local/bin/mpicc&#39;</span> <span class="s1">&#39;MPIFC=/usr/local/bin/mpif90&#39;</span> <span class="s1">&#39;MPIF77=/usr/local/bin/mpif90&#39;</span> <span class="s1">&#39;--enable-maintainer-mode&#39;</span>
 make
+make check
 sudo make install
 </pre></div>
 </td></tr></table></div>
