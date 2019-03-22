@@ -1,8 +1,8 @@
 ffddm
 ===============
 
-In the acronym ``ffddm``, ``ff`` stands for FreeFem++ and ``ddm`` for domain decomposition methods.
-The idea behind ffddm is to simplify the use of parallel solvers in FreeFem++: distributed direct methods and domain decomposition methods.
+In the acronym ``ffddm``, ``ff`` stands for FreeFEM and ``ddm`` for domain decomposition methods.
+The idea behind ffddm is to simplify the use of parallel solvers in FreeFEM: distributed direct methods and domain decomposition methods.
 
 Parallelism is an important issue because, since about 2004, the clock speed of cores stagnates at 2-3 GHz.
 The increase in performance is almost entirely due to the increase in the number of cores per processor.
@@ -11,14 +11,14 @@ Waiting for the next generation machine does not guarantee anymore a better perf
 To keep doubling performance parallelism must double.
 It implies a huge effort in algorithmic development.
 
-Thanks to ``ffddm``, FreeFem++ users have access to high-level functionalities for specifying and solving their finite element problems in parallel.
+Thanks to ``ffddm``, FreeFEM users have access to high-level functionalities for specifying and solving their finite element problems in parallel.
 The first task handled by ``ffddm`` is the data distribution among the processors.
 This is done via an overlapping domain decomposition and a related distributed linear algebra.
 Then, solving a linear system is possible either via an interface to the parallel `MUMPS <http://mumps.enseeiht.fr/>`__ solver or by using domain decomposition methods as preconditioners to the GMRES Krylov method.
 The ``ffddm`` framework makes it easy to use scalable Schwarz methods enhanced by a coarse space correction built either from a coarse mesh or a `GenEO <https://link.springer.com/article/10.1007%2Fs00211-013-0576-y>`__ (Generalized Eigenvalue in the Overlap) coarse space, see also the book `An Introduction to Domain Decomposition Methods: algorithms, theory, and parallel implementation <http://bookstore.siam.org/ot144/>`__.
 State-of-the-art three level methods are also implemented in ``ffddm``.
 
-The ``ffddm`` framework is entirely written in the FreeFem++ language and the ‘idp’ scripts can be found `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/idp>`__ (‘ffddm*.idp’ files).
+The ``ffddm`` framework is entirely written in the FreeFEM language and the ‘idp’ scripts can be found `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/idp>`__ (‘ffddm*.idp’ files).
 It makes it also a very good tool for learning and prototyping domain decomposition methods without compromising efficiency.
 
 ``ffddm`` can also act as a wrapper for the `HPDDM <https://github.com/hpddm/hpddm>`__ library.

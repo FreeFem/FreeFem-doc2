@@ -22,9 +22,9 @@ We will compute :math:`u` with :math:`f(x,y)=xy` and :math:`\Omega` the unit dis
 .. math::
     C=\{(x,y)|\; x=\cos(t),\, y=\sin(t),\, 0\le t\le 2\pi\}
 
-.. note:: In **FreeFem++**, the domain :math:`\Omega` is assumed to be described by the left side of its boundary.
+.. note:: In **FreeFEM**, the domain :math:`\Omega` is assumed to be described by the left side of its boundary.
 
-The following is the **FreeFem++** program which computes :math:`u`:
+The following is the **FreeFEM** program which computes :math:`u`:
 
 .. code-block:: freefem
    :linenos:
@@ -62,7 +62,7 @@ The following is the **FreeFem++** program which computes :math:`u`:
    // Display the total computational time
    cout << "CPU time = " << (clock()-cpu) << endl;
 
-As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using **FreeFem++** :freefem:`plot` command (see line 29 above).
+As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by using **FreeFEM** :freefem:`plot` command (see line 29 above).
 
 .. subfigstart::
 
@@ -93,7 +93,7 @@ As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by
 
    The lines containing :freefem:`clock` are equally not required.
 
-.. tip:: Note how close to the mathematics **FreeFem++** language is.
+.. tip:: Note how close to the mathematics **FreeFEM** language is.
 
    Lines 19 to 24 correspond to the mathematical variational equation:
 
@@ -109,7 +109,7 @@ As illustrated in :numref:`figPoissonU`, we can see the isovalue of :math:`u` by
 
 .. tip:: Change :freefem:`P1` into :freefem:`P2` and run the program.
 
-This first example shows how **FreeFem++** executes with no effort all the usual steps required by the finite element method (FEM).
+This first example shows how **FreeFEM** executes with no effort all the usual steps required by the finite element method (FEM).
 Let’s go through them one by one.
 
 **On the line 2**:
@@ -153,7 +153,7 @@ then the inside of the ellipse would be triangulated as well as the outside.
 
    Mesh adaptation can be performed also against a given function `f` by calling :freefem:`adaptmesh(Th,f)`.
 
-Now the name :math:`\mathcal{T}_h` (:freefem:`Th` in **FreeFem++**) refers to the family :math:`\{T_k\}_{k=1,\cdots,n_t}` of triangles shown in :numref:`figPoissonMesh`.
+Now the name :math:`\mathcal{T}_h` (:freefem:`Th` in **FreeFEM**) refers to the family :math:`\{T_k\}_{k=1,\cdots,n_t}` of triangles shown in :numref:`figPoissonMesh`.
 
 Traditionally :math:`h` refers to the mesh size, :math:`n_t` to the number of triangles in :math:`\mathcal{T}_h` and :math:`n_v` to the number of vertices, but it is seldom that we will have to use them explicitly.
 
@@ -237,7 +237,7 @@ with:
     \end{array}
     :label: eqn:weakform
 
-In **FreeFem++** the **Poisson** problem can be declared only as in:
+In **FreeFEM** the **Poisson** problem can be declared only as in:
 
 .. code-block:: freefem
    :linenos:
@@ -266,7 +266,7 @@ and :eq:`eqn:weakform` is written with :freefem:`dx(u)` :math:`=\partial u/\part
 :math:`\displaystyle{\int_{\Omega}fv\, \text{d} x\text{d} y \longrightarrow}`
 :freefem:`int2d(Th)( f*v )` (Notice here, :math:`u` is unused)
 
-.. warning:: In **FreeFem++** **bilinear terms and linear terms should not be under the same integral** indeed to construct the linear systems **FreeFem++** finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here ``u``) and test functions (here ``v``) are present.
+.. warning:: In **FreeFEM** **bilinear terms and linear terms should not be under the same integral** indeed to construct the linear systems **FreeFEM** finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here ``u``) and test functions (here ``v``) are present.
 
 **Solution and visualization**
 
@@ -278,11 +278,11 @@ Line 29, the visualization is done as illustrated in :numref:`figPoissonU`.
 
 **(see** :ref:`Plot <plot>` **for zoom, postscript and other commands).**
 
-Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using **FreeFem++**, but it helps to guess what is allowed in the language.
+Line 32, the computing time (not counting graphics) is written on the console. Notice the C++-like syntax; the user needs not study C++ for using **FreeFEM**, but it helps to guess what is allowed in the language.
 
 **Access to matrices and vectors**
 
-Internally **FreeFem++** will solve a linear system of the type
+Internally **FreeFEM** will solve a linear system of the type
 
 .. math::
    \sum_{j=0}^{M-1} A_{ij}u_j - F_i=0 ,\quad i=0,\cdots,M-1;\qquad

@@ -64,7 +64,7 @@ An algorithm to solve the previous problem is:
 
 You can find all the mathematics about this algorithm in [ITO2003]_.
 
-Now how to do that in FreeFem++? The full example is:
+Now how to do that in **FreeFEM**? The full example is:
 
 .. tip:: Variational inequality
 

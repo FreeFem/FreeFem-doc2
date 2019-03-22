@@ -4,12 +4,12 @@ Contributing
 Bug report
 ----------
 
-Concerning the **FreeFem++** documentation
+Concerning the **FreeFEM** documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open an `Issue <https://github.com/FreeFem/FreeFem-doc/issues>`__ on **FreeFem-doc** repository.
 
-Concerning the **FreeFem++** compilation or usage
+Concerning the **FreeFEM** compilation or usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open an `Issue <https://github.com/FreeFem/FreeFem-sources/issues>`__ on **FreeFem-sources** repository.

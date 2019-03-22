@@ -63,7 +63,7 @@ So the variational form can be written as :
 Here :math:`{\bf u}=(u,v)` has two components.
 
 The above two equations are strongly coupled by their mixed derivatives, and thus any iterative solution on each of the components is risky.
-One should rather use **FreeFem++**’s system approach and write:
+One should rather use **FreeFEM**’s system approach and write:
 
 .. code-block:: freefem
    :linenos:

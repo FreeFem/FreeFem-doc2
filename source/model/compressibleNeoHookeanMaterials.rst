@@ -91,7 +91,7 @@ The weak formulation of the boundary value problem is:
    \rra
 
 For brevity, in the rest of this section we assume :math:`P = 0`.
-The provided FreeFem++ code, however, does not rely on this assumption and allows for a general value and direction of :math:`P`.
+The provided **FreeFEM** code, however, does not rely on this assumption and allows for a general value and direction of :math:`P`.
 
 Given a Newton approximation :math:`\mathbf{u}_n` of the displacement field :math:`\mathbf{u}` satisfying the BVP, we seek the correction :math:`\delta \mathbf{u}_{n+1}` to obtain a better approximation:
 
@@ -125,8 +125,8 @@ where we have taken:
    By :math:`\delta` we mean simply an increment in the sense of Newton’s Method.
    The role of a variational virtual displacement here is played by :math:`\mathbf{w}`.
 
-An Approach to Implementation in FreeFem++
-------------------------------------------
+An Approach to Implementation in FreeFEM
+----------------------------------------
 
 Introducing the code-like notation, where a string in :math:`< >`\ ’s is to be read as one symbol, the individual components of the tensor:
 

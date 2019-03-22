@@ -4,8 +4,8 @@ sys.path.append(os.path.abspath('sphinx-extensions'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'FreeFem++'
-copyright = '2019, FreeFem++'
+project = 'FreeFEM'
+copyright = '2019, FreeFEM'
 author = 'Frederic Hecht'
 
 # The short X.Y version
@@ -79,7 +79,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FreeFem++doc'
+htmlhelp_basename = 'FreeFEM-doc'
 
 html_add_permalinks = ' '
 
@@ -184,7 +184,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'FreeFem++.tex', 'FreeFem++ Documentation',
+    (master_doc, 'FreeFEM.tex', 'FreeFEM Documentation',
      'Frederic Hecht', 'manual'),
 ]
 
@@ -194,7 +194,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'freefem++', 'FreeFem++ Documentation',
+    (master_doc, 'freefem', 'FreeFEM Documentation',
      [author], 1)
 ]
 
@@ -205,8 +205,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'FreeFem++', 'FreeFem++ Documentation',
-     author, 'FreeFem++', 'One line description of project.',
+    (master_doc, 'FreeFEM', 'FreeFEM Documentation',
+     author, 'FreeFEM', 'One line description of project.',
      'Miscellaneous'),
 ]
 

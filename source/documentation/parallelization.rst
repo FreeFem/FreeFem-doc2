@@ -10,8 +10,8 @@
 Parallelization
 ===============
 
-A first attempt of parallelization of **FreeFem++** is made here with **MPI**.
-An extended interface with MPI has been added to **FreeFem++** version 3.5, (see the `MPI documentation <https://www.mpi-forum.org/docs/>`__ for the functionality of the language).
+A first attempt of parallelization of **FreeFEM** is made here with **MPI**.
+An extended interface with MPI has been added to **FreeFEM** version 3.5, (see the `MPI documentation <https://www.mpi-forum.org/docs/>`__ for the functionality of the language).
 
 MPI
 ---
@@ -327,7 +327,7 @@ We denote :math:`{u_h^{\ell}}_{|i}` the restriction of :math:`u_h^\ell` on :math
 
 where :math:`g_i^k` is the value of :math:`g` associated to the degree of freedom :math:`k\in {\mathcal{N}^{\Gamma_i}_{hi}}`.
 
-In **FreeFem++**, it can be written has with :freefem:`U` is the vector corresponding to :math:`{u_h^{\ell}}_{|i}` and the vector :freefem:`U1` is the vector corresponding to :math:`{u_h^{\ell}}_{i}` is the solution of:
+In **FreeFEM**, it can be written has with :freefem:`U` is the vector corresponding to :math:`{u_h^{\ell}}_{|i}` and the vector :freefem:`U1` is the vector corresponding to :math:`{u_h^{\ell}}_{i}` is the solution of:
 
 .. code-block:: freefem
    :linenos:
@@ -363,13 +363,13 @@ where :math:`\mathtt{onG}[i] =(i \in \Gamma_i\setminus\Gamma) ? 1 : 0`, and :mat
    real[int] onG = vPbon(0, Whi);
    real[int] Bi=vPb(0, Whi);
 
-where the **FreeFem++** label of :math:`\Gamma` is 1 and the label of :math:`\Gamma_i\setminus \Gamma` is :math:`10`.
+where the **FreeFEM** label of :math:`\Gamma` is 1 and the label of :math:`\Gamma_i\setminus \Gamma` is :math:`10`.
 
 To build the transfer/update part corresponding to :eq:`eq:pu1` equation on process :math:`i`, let us call :freefem:`njpart` the number the neighborhood of domain of :math:`\Omega_i` (i.e: :math:`\pi_j` is none :math:`0` of :math:`\Omega_i`), we store in an array :freefem:`jpart` of size :freefem:`njpart` all this neighborhood.
 
 Let us introduce two array of matrix, :freefem:`Smj[j]` to defined the vector to send from :math:`i` to :math:`j` a neighborhood process, and the matrix :math:`rMj[j]` to after to reduce owith neighborhood :math:`j` domain.
 
-So the tranfert and update part compute :math:`v_i= \pi_i u_i + \sum_{j\in J_i} \pi_j u_j` and can be write the **FreeFem++** function Update:
+So the tranfert and update part compute :math:`v_i= \pi_i u_i + \sum_{j\in J_i} \pi_j u_j` and can be write the **FreeFEM** function Update:
 
 .. code-block:: freefem
    :linenos:
@@ -528,7 +528,7 @@ To build this partition we do:
 
 The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T}_h}^*` of the full domain, and build the partition :math:`\pi` function constant equal to :math:`i` on each sub domain :math:`\mathcal{O}_i, i =1 ,.., N_p`, of the grid with the :freefem:`metis` graph partitioner [KARYPIS1995]_ and on each process :math:`i` in :math:`1..,N_p` do
 
-1. Broadcast from process :math:`1`, the mesh :math:`{\mathcal{T}_h}^*` (call :freefem:`Thii` in FreeFem++ script), and :math:`\pi` function,
+1. Broadcast from process :math:`1`, the mesh :math:`{\mathcal{T}_h}^*` (call :freefem:`Thii` in **FreeFEM** script), and :math:`\pi` function,
 2. remark that the characteristic function :math:`\mathrm{1\!\!I}_{\mathcal{O}_i}` of domain :math:`\mathcal{O}_i`, is defined by :math:`(\pi=i)?1:0`,
 3. Let us call :math:`\Pi^2_P` (resp. :math:`\Pi^2_V`) the :math:`L^2` on :math:`P_h^*` the space of the constant finite element function per element on :math:`{\mathcal{T}_h}^*` (resp. :math:`V_h^*` the space of the affine continuous finite element per element on :math:`{\mathcal{T}_h}^*`) and build in parallel the :math:`\pi_i` and :math:`\Omega_i`, such that :math:`\mathcal{O}_i\ \subset \Omega_i` where :math:`\mathcal{O}_i= supp ((\Pi^2_V \Pi^2_C)^m \mathrm{1\!\!I}_{O_i})`, and :math:`m` is a the overlaps size on the coarse mesh (generally one), (this is done in function :freefem:`AddLayers(Thii,suppii[],nlayer,phii[]);` We choose a function :math:`\pi^*_i = (\Pi^2_1 \Pi^2_0)^m \mathrm{1\!\!I}_{\mathcal{O}_i}` so the partition of the unity is simply defined by
 
@@ -567,7 +567,7 @@ The initial step on process :math:`1` to build a coarse mesh, :math:`{\mathcal{T
         for(int jp = 0; jp < njpart; ++jp)
             aThij[jp] = trunc(Thi, pij[jp] > 1e-10, label=10);
 
-5. At this step we have all on the coarse mesh, so we can build the fine final mesh by splitting all meshes: :freefem:`Thi, Thij[j], Thij[j]` with FreeFem++ :freefem:`trunc` mesh function which do restriction and slipping.
+5. At this step we have all on the coarse mesh, so we can build the fine final mesh by splitting all meshes: :freefem:`Thi, Thij[j], Thij[j]` with **FreeFEM** :freefem:`trunc` mesh function which do restriction and slipping.
 
 6. The construction of the send/recv matrices :freefem:`sMj` and `freefem:`rMj`: can done with this code:
 
@@ -619,9 +619,9 @@ And small include to make graphic in parallel of distribute solution of vector :
 Parallel sparse solvers
 -----------------------
 
-Parallel sparse solvers use several processors to solve linear systems of equation. Like sequential, parallel linear solvers can be direct or iterative. In **FreeFem++** both are available.
+Parallel sparse solvers use several processors to solve linear systems of equation. Like sequential, parallel linear solvers can be direct or iterative. In **FreeFEM** both are available.
 
-Using parallel sparse solvers in **FreeFem++**
+Using parallel sparse solvers in **FreeFEM**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We recall that the :freefem:`solver` parameters are defined in the following commands: :freefem:`solve`, :freefem:`problem`, :freefem:`set` (setting parameter of a matrix) and in the construction of the matrix corresponding to a bilinear form.
@@ -648,8 +648,8 @@ The first method defines parameters with :freefem:`lparams`, :freefem:`dparams` 
 The second one reads the solver parameters from a data file. The name of this file is specified by :freefem:`datafilename`.
 If :freefem:`lparams`, :freefem:`dparams`, :freefem:`sparams` or :freefem:`datafilename` is not provided by the user, the solver’s default values are used.
 
-To use parallel solver in **FreeFem++**, we need to load the dynamic library corresponding to this solver.
-For example to use `MUMPS <http://mumps.enseeiht.fr/>`__ solver as parallel solver in **FreeFem++**, write in the ``.edp`` file :freefem:`load "MUMPS_FreeFem"`.
+To use parallel solver in **FreeFEM**, we need to load the dynamic library corresponding to this solver.
+For example to use `MUMPS <http://mumps.enseeiht.fr/>`__ solver as parallel solver in **FreeFEM**, write in the ``.edp`` file :freefem:`load "MUMPS_FreeFem"`.
 
 If the libraries are not loaded, the default sparse solver will be loaded (default sparse solver is :freefem:`UMFPACK`). The :numref:`tabParallelizationSparseSolver` gives this new value for the different libraries.
 
@@ -808,7 +808,7 @@ An example of using different parallel sparse solvers for the same problem is gi
 Sparse direct solver
 ~~~~~~~~~~~~~~~~~~~~
 
-In this section, we present the sparse direct solvers interfaced with **FreeFem++**.
+In this section, we present the sparse direct solvers interfaced with **FreeFEM**.
 
 MUMPS solver
 ^^^^^^^^^^^^
@@ -847,14 +847,14 @@ We describe now some elements of the main parameters of :cpp:`ICNTL` for MUMPS.
     The matrix format (resp. matrix pattern and matrix entries) are controlled by ``INCTL(5)`` (resp. ``INCTL(18)``).
 
     The different values of ``ICNTL(5)`` are 0 for assembled format and 1 for element format.
-    In the current release of **FreeFem++**, we consider that FE matrix or matrix is storage in assembled format.
+    In the current release of **FreeFEM**, we consider that FE matrix or matrix is storage in assembled format.
     Therefore, ``INCTL(5)`` is treated as 0 value.
 
     The main option for ``ICNTL(18)``: ``INCLTL(18)=0`` centrally on the host processor, ``ICNTL(18)=3`` distributed the input matrix pattern and the entries (recommended option for distributed matrix by developer of MUMPS).
     For other values of ``ICNTL(18)`` see the `MUMPS user’s guide <http://mumps.enseeiht.fr/index.php?page=doc>`__.
-    These values can be used also in **FreeFem++**.
+    These values can be used also in **FreeFEM**.
 
-    The default option implemented in **FreeFem++** are ``ICNTL(5)=0`` and ``ICNTL(18)=0``.
+    The default option implemented in **FreeFEM** are ``ICNTL(5)=0`` and ``ICNTL(18)=0``.
 
 -  **Preprocessing parameter** The preprocessed matrix :math:`A_{p}` that will be effectively factored is defined by
 
@@ -869,13 +869,13 @@ We describe now some elements of the main parameters of :cpp:`ICNTL` for MUMPS.
     The row and column scaling is controlled by parameter ``ICNTL(18)``.
     These option are connected and also strongly related with ``ICNTL(12)`` (see the `MUMPS user’s guide <http://mumps.enseeiht.fr/index.php?page=doc>`__ for more details).
 
-    The parameters :freefem:`permr`, :freefem:`scaler`, and :freefem:`scalec` in **FreeFem++** allow to give permutation matrix(\ :math:`P`), row scaling (:math:`D_r`) and column scaling (:math:`D_c`) of the user respectively.
+    The parameters :freefem:`permr`, :freefem:`scaler`, and :freefem:`scalec` in **FreeFEM** allow to give permutation matrix(\ :math:`P`), row scaling (:math:`D_r`) and column scaling (:math:`D_c`) of the user respectively.
 
-**Calling MUMPS in FreeFem++**
+**Calling MUMPS in FreeFEM**
 
-To call MUMPS in **FreeFem++**, we need to load the dynamic library ``MUMPS_freefem.dylib`` (MacOSX), ``MUMPS_freefem.so`` (Unix) or ``MUMPS_freefem.dll`` (Windows).
+To call MUMPS in **FreeFEM**, we need to load the dynamic library ``MUMPS_freefem.dylib`` (MacOSX), ``MUMPS_freefem.so`` (Unix) or ``MUMPS_freefem.dll`` (Windows).
 
-This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We give now the two methods to give the option of MUMPS solver in **FreeFem++**.
+This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We give now the two methods to give the option of MUMPS solver in **FreeFEM**.
 
 -  **Solver parameters is defined in .edp file:** In this method, we need to give the parameters :freefem:`lparams` and :freefem:`dparams`.
     These parameters are defined for MUMPS by :
@@ -886,7 +886,7 @@ This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We 
 
 -  **Reading solver parameters on a file:**
 
-    The structure of data file for MUMPS in **FreeFem++** is : first line parameter ``SYM`` and second line parameter ``PAR`` and in the following line the different value of vectors ``ICNTL`` and ``CNTL``.
+    The structure of data file for MUMPS in **FreeFEM** is : first line parameter ``SYM`` and second line parameter ``PAR`` and in the following line the different value of vectors ``ICNTL`` and ``CNTL``.
     An example of this parameter file is given in :freefem:`ffmumpsfileparam.txt`.
 
     .. code-block:: freefem
@@ -902,7 +902,7 @@ This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We 
         7 /* ICNTL(6) :: control option for permuting and/or scaling the matrix in analysis phase */
         3 /* ICNTL(7) :: pivot order strategy : AMD, AMF, metis, pord scotch*/
         77 /* ICNTL(8) :: Row and Column scaling strategy */
-        1 /* ICNTL(9) :: 0 solve Ax = b, 1 solve the transposed system A^t x = b : parameter is not considered in the current release of freefem++*/
+        1 /* ICNTL(9) :: 0 solve Ax = b, 1 solve the transposed system A^t x = b : parameter is not considered in the current release of FreeFEM*/
         0 /* ICNTL(10) :: number of steps of iterative refinement */
         0 /* ICNTL(11) :: statics related to linear system depending on ICNTL(9) */
         1 /* ICNTL(12) :: constrained ordering strategy for general symmetric matrix */
@@ -913,14 +913,14 @@ This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We 
         0 /* ICNTL(17) :: not used in this release of MUMPS */
         3 /* ICNTL(18) :: method for given : matrix pattern and matrix entries : */
         0 /* ICNTL(19) :: method to return the Schur complement matrix */
-        0 /* ICNTL(20) :: right hand side form ( 0 dense form, 1 sparse form) : parameter will be set to 0 for FreeFem++ */
-        0 /* ICNTL(21) :: 0, 1 kept distributed solution : parameter is not considered in the current release of FreeFem++ */
+        0 /* ICNTL(20) :: right hand side form ( 0 dense form, 1 sparse form) : parameter will be set to 0 for FreeFEM */
+        0 /* ICNTL(21) :: 0, 1 kept distributed solution : parameter is not considered in the current release of FreeFEM */
         0 /* ICNTL(22) :: controls the in-core/out-of-core (OOC) facility */
         0 /* ICNTL(23) :: maximum size of the working memory in Megabyte than MUMPS can allocate per working processor */
         0 /* ICNTL(24) :: control the detection of null pivot */
         0 /* ICNTL(25) :: control the computation of a null space basis */
-        0 /* ICNTL(26) :: This parameter is only significant with Schur option (ICNTL(19) not zero). : parameter is not considered in the current release of FreeFem++ */
-        -8 /* ICNTL(27) (Experimental parameter subject to change in next release of MUMPS) :: control the blocking factor for multiple righthand side during the solution phase : parameter is not considered in the current release of FreeFem++ */
+        0 /* ICNTL(26) :: This parameter is only significant with Schur option (ICNTL(19) not zero). : parameter is not considered in the current release of FreeFEM */
+        -8 /* ICNTL(27) (Experimental parameter subject to change in next release of MUMPS) :: control the blocking factor for multiple righthand side during the solution phase : parameter is not considered in the current release of FreeFEM */
         0 /* ICNTL(28) :: not used in this release of MUMPS*/
         0 /* ICNTL(29) :: not used in this release of MUMPS*/
         0 /* ICNTL(30) :: not used in this release of MUMPS*/
@@ -954,7 +954,7 @@ This is done in typing :freefem:`load "MUMPS_FreeFem"` in the ``.edp`` file. We 
 
 .. tip:: MUMPS example
 
-    A simple example of calling MUMPS in **FreeFem++** with this two methods is given in the :ref:`Test solver MUMPS example <exampleSolverMUMPS>`.
+    A simple example of calling MUMPS in **FreeFEM** with this two methods is given in the :ref:`Test solver MUMPS example <exampleSolverMUMPS>`.
 
 SuperLU distributed solver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -982,7 +982,7 @@ The different value are
 
 The option arguments of SuperLU_DIST are described in the section Users-callable routine of the `SuperLU users’ guide <http://crd-legacy.lbl.gov/~xiaoye/SuperLU/ug.pdf>`__.
 
-The parameter ``Fact`` and ``TRANS`` are specified in **FreeFem++** interfaces to SuperLU_DIST during the different steps.
+The parameter ``Fact`` and ``TRANS`` are specified in **FreeFEM** interfaces to SuperLU_DIST during the different steps.
 For this reason, the value given by the user for this option is not considered.
 
 The factorization LU is calculated in SuperLU_DIST on the matrix :math:`A_p`.
@@ -995,15 +995,15 @@ where :math:`P_c` and :math:`P_r` is the row and column permutation matrix respe
 The option argument ``RowPerm`` (resp. ``ColPerm``) control the row (resp. column) permutation matrix.
 :math:`D_r` and :math:`D_c` is controlled by the parameter ``DiagScale``.
 
-The parameter :freefem:`permr`, :freefem:`permc`, :freefem:`scaler`, and :freefem:`scalec` in **FreeFem++** is provided to give row permutation, column permutation, row scaling and column scaling of the user respectively.
+The parameter :freefem:`permr`, :freefem:`permc`, :freefem:`scaler`, and :freefem:`scalec` in **FreeFEM** is provided to give row permutation, column permutation, row scaling and column scaling of the user respectively.
 
 The other parameters for LU factorization are ``ParSymFact`` and ``ReplaceTinyPivot``.
 The parallel symbolic factorization works only on a power of two processes and need the ``ParMetis`` ordering.
 The default option argument of SuperLU_DIST are given in the file ``ffsuperlu_dist_fileparam.txt``.
 
-**Calling SuperLU_DIST in FreeFem++**
+**Calling SuperLU_DIST in FreeFEM**
 
-To call SuperLU_DIST in **FreeFem++**, we need to load the library dynamic correspond to interface.
+To call SuperLU_DIST in **FreeFEM**, we need to load the library dynamic correspond to interface.
 This done by the following line :freefem:`load "real_superlu _DIST_FreeFem"` (resp. :freefem:`load "complex_superlu_DIST_FreeFem"`) for real (resp. complex) arithmetics in the file ``.edp``.
 
 **Solver parameters is defined in .edp file:**
@@ -1030,7 +1030,7 @@ The value of parameters of SuperLU_DIST in ``sparams`` are defined by :
 This value correspond to the parameter in the file ``ffsuperlu_dist_fileparam.txt``.
 If one parameter is not specified by the user, we take the default value of SuperLU_DIST.
 
-**Reading solver parameters on a file:** The structure of data file for SuperLU_DIST in **FreeFem++** is given in the file ``ffsuperlu_dist_fileparam.txt`` (default value of the **FreeFem++** interface).
+**Reading solver parameters on a file:** The structure of data file for SuperLU_DIST in **FreeFEM** is given in the file ``ffsuperlu_dist_fileparam.txt`` (default value of the **FreeFEM** interface).
 
 .. code-block:: freefem
     :linenos:
@@ -1054,7 +1054,7 @@ If one parameter is not specified by the user, we take the default value of Supe
 
 If no solver parameter is given, we used default option of SuperLU_DIST solver.
 
-.. tip:: A simple example of calling SuperLU_DIST in **FreeFem++** with this two methods is given in the :ref:`Solver superLU_DIST example <exampleSolverSuperLUDist>`.
+.. tip:: A simple example of calling SuperLU_DIST in **FreeFEM** with this two methods is given in the :ref:`Solver superLU_DIST example <exampleSolverSuperLUDist>`.
 
 PaStiX solver
 ^^^^^^^^^^^^^
@@ -1065,7 +1065,7 @@ his solver can be applied to a real or complex matrix with a symmetric pattern.
 
 **PaStiX parameters:**
 
-The input :freefem:`matrix` parameter of **FreeFem++** depend on PaStiX interface.
+The input :freefem:`matrix` parameter of **FreeFEM** depend on PaStiX interface.
 :freefem:`matrix = assembled` for non distributed matrix.
 It is the same parameter for SuperLU_DIST.
 
@@ -1073,11 +1073,11 @@ There are four parameters in PaStiX : ``iparm``, ``dparm``, ``perm`` and ``invp`
 These parameters are respectively the integer parameters (vector of size 64), real parameters (vector of size 64), permutation matrix and inverse permutation matrix respectively.
 ``iparm`` and ``dparm`` vectors are described in `PaStiX RefCard <https://gforge.inria.fr/docman/?group_id=186&view=listfile&dirid=246>`__.
 
-The parameters :freefem:`permr` and :freefem:`permc` in **FreeFem++** are provided to give permutation matrix and inverse permutation matrix of the user respectively.
+The parameters :freefem:`permr` and :freefem:`permc` in **FreeFEM** are provided to give permutation matrix and inverse permutation matrix of the user respectively.
 
 **Solver parameters defined in .edp file:**
 
-To call PaStiX in **FreeFem++** in this case, we need to specify the parameters :freefem:`lparams` and :freefem:`dparams`.
+To call PaStiX in **FreeFEM** in this case, we need to specify the parameters :freefem:`lparams` and :freefem:`dparams`.
 These parameters are defined by :
 
 :math:`\forall i` = 0,… ,63, :freefem:`lparams[i] = iparm[i]`.
@@ -1086,7 +1086,7 @@ These parameters are defined by :
 
 **Reading solver parameters on a file:**
 
-The structure of data file for PaStiX parameters in **FreeFem++** is: first line structure parameters of the matrix and in the following line the value of vectors ``iparm`` and ``dparm`` in this order.
+The structure of data file for PaStiX parameters in **FreeFEM** is: first line structure parameters of the matrix and in the following line the value of vectors ``iparm`` and ``dparm`` in this order.
 
 .. code-block:: freefem
     :linenos:
@@ -1108,7 +1108,7 @@ This file is obtained with the example file ``iparm.txt`` and ``dparm.txt`` incl
 
 If no solver parameter is given, we use the default option of PaStiX solver.
 
-.. tip:: A simple example of calling PaStiX in **FreeFem++** with this two methods is given in the :ref:`Solver PaStiX example <exampleSolverPastix>`.
+.. tip:: A simple example of calling PaStiX in **FreeFEM** with this two methods is given in the :ref:`Solver PaStiX example <exampleSolverPastix>`.
 
 In :numref:`tabParallelizationDirectSolver`, we recall the different matrix considering in the different direct solvers.
 
@@ -1136,14 +1136,14 @@ Each software implements a different type of parallel preconditioner.
 
 So, pARMS implements algebraic domain decomposition preconditioner type such as additive Schwartz [CAI1989]_ and interface method; while HIPS implement hierarchical incomplete factorization and finally HYPRE implements multilevel preconditioner are AMG(Algebraic MultiGrid) and parallel approximated inverse.
 
-To use one of these programs in **FreeFem++**, you have to install it independently of **FreeFem++**.
+To use one of these programs in **FreeFEM**, you have to install it independently of **FreeFEM**.
 It is also necessary to install the MPI communication library which is essential for communication between the processors and, in some cases, software partitioning graphs like `METIS <http://glaros.dtc.umn.edu/gkhome/metis/metis/overview>`__ or `Scotch <http://www.labri.fr/perso/pelegrin/scotch/>`__.
 
 All this preconditioners are used with Krylov subspace methods accelerators.
 
 Krylov subspace methods are iterative methods which consist in finding a solution :math:`x` of linear system :math:`Ax=b` inside the affine space :math:`x_0+K_m` by imposing that :math:`b-Ax \bot \mathcal{L}_m`, where :math:`K_m` is Krylov subspace of dimension :math:`m` defined by :math:`K_m=\{r_0, Ar_0, A^2r_0,...,A^{m-1}r_0\}` and :math:`\mathcal{L}_m` is another subspace of dimension :math:`m` which depends on type of Krylov subspace. For example in GMRES, :math:`\mathcal{L}_m=AK_m`.
 
-We realized an interface which is easy to use, so that the call of these different softwares in **FreeFem++** is done in the same way.
+We realized an interface which is easy to use, so that the call of these different softwares in **FreeFEM** is done in the same way.
 You just have to load the solver and then specify the parameters to apply to the specific solvers.
 In the rest of this chapter, when we talk about Krylov subspace methods we mean one among GMRES, CG and BICGSTAB.
 
@@ -1201,7 +1201,7 @@ To solve the local problem on :math:`A_i` there are several preconditioners as *
         // Plot
         plot(u);
 
-    In line 1, the pARMS dynamic library is loaded with interface **FreeFem++**.
+    In line 1, the pARMS dynamic library is loaded with interface **FreeFEM**.
     After this, in line 15 we specify that the bilinear form will be solved by the last sparse linear solver load in memory which, in this case, is pARMS.
 
     The parameters used in pARMS in this case are the default one since the user does not have to provide any parameter.
@@ -1326,7 +1326,7 @@ To specify the parameters to apply to the solver, the user can either give an in
 
     In this example, we fix the matrix size (in term of finite element, we fix the mesh) and increase the number of processors used to solve the linear system.
     We saw that, when the number of processors increases, the time for solving the linear equation decreases, even if the number of iteration increases.
-    This proves that, using pARMS as solver of linear systems coming from discretization of partial differential equation in **FreeFem++** can decrease drastically the total time of simulation.
+    This proves that, using pARMS as solver of linear systems coming from discretization of partial differential equation in **FreeFEM** can decrease drastically the total time of simulation.
 
 .. table:: Meaning of :freefem:`lparams` corresponding variables
     :name: tabParallelizationLparams
@@ -1462,7 +1462,7 @@ For further informations on those preconditionners see the `HIPS documentation <
 
 .. tip:: Laplacian 3D solved with HIPS
 
-    Let us consider the 3D Laplacian example inside **FreeFem++** package where after discretization we want to solve the linear equation with HIPS.
+    Let us consider the 3D Laplacian example inside **FreeFEM** package where after discretization we want to solve the linear equation with HIPS.
 
     The following example is a Laplacian 3D using Hips as linear solver.
     We first load Hips solver at line 2.
@@ -1685,7 +1685,7 @@ HYPRE implement three Krylov subspace solvers: GMRES, PCG and BiCGStab.
 
 .. tip:: Laplacian 3D solved with HYPRE
 
-    Let us consider again the 3D Laplacian example inside FreeFem++ package where after discretization we want to solve the linear equation with Hypre.
+    Let us consider again the 3D Laplacian example inside **FreeFEM** package where after discretization we want to solve the linear equation with Hypre.
     The following example is a Laplacian 3D using Hypre as linear solver.
     This is the same example as Hips one, so we just show here the lines where we set some Hypre parameters.
 
@@ -1893,7 +1893,7 @@ Conclusion
 
 With the different runs presented here, we wanted to illustrate the gain in time when we increase the number of processors used for the simulations.
 We saw that in every case the time for the construction of the finite element matrix is constant.
-This is normal because until now this phase is sequential in FreeFem++.
+This is normal because until now this phase is sequential in **FreeFEM**.
 In contrast, phases for solving the linear system are parallel.
 We saw on several examples presented here that when we increase the number of processors, in general we decrease the time used for solving the linear systems.
 But this is not true in every case.
@@ -1905,9 +1905,9 @@ Furthermore, in decomposition domain type preconditioners, the number of process
 In subdomain methods, generally when we increase the number of subdomains we decrease convergence quality of the preconditioner.
 This can increase the time used for solving linear equations.
 
-To end this, we should note that good use of the preconditioners interfaced in **FreeFem++** is empiric, because it is difficult to know what is a good preconditioner for some type of problems.
+To end this, we should note that good use of the preconditioners interfaced in **FreeFEM** is empiric, because it is difficult to know what is a good preconditioner for some type of problems.
 Although, the efficiency of preconditioners sometimes depends on how its parameters are set.
-For this reason we advise the user to pay attention to the meaning of the parameters in the user guide of the iterative solvers interfaced in **FreeFem++**.
+For this reason we advise the user to pay attention to the meaning of the parameters in the user guide of the iterative solvers interfaced in **FreeFEM**.
 
 Domain decomposition
 ~~~~~~~~~~~~~~~~~~~~
@@ -1920,7 +1920,7 @@ We can use this technique to solve PDE directly in domain :math:`\Omega`.
 In this case, in every subdomains you have to define artificial boundary conditions to form consistent equations in every subdomains.
 After this, you solve equation in every subdomains and define a strategy to obtain the global solution.
 
-In terms of parallel programming for **FreeFem++**, with MPI, this means that the user must be able to divide processors avaible for computation into subgroups of processors and also must be able to realize different type of communications in **FreeFem++** script.
+In terms of parallel programming for **FreeFEM**, with MPI, this means that the user must be able to divide processors avaible for computation into subgroups of processors and also must be able to realize different type of communications in **FreeFEM** script.
 Here is a wrapper of some MPI functions.
 
 Communicators and groups
@@ -1995,8 +1995,8 @@ This constructor is based on ``MPI_Intercomm_create``.
 Process
 ^^^^^^^
 
-In **FreeFem++** we wrap MPI process by function call :freefem:`processor` which create internal **FreeFem++** object call :freefem:`MPIrank`.
-This mean that do not use :freefem:`MPIrank` in **FreeFem++** script.
+In **FreeFEM** we wrap MPI process by function call :freefem:`processor` which create internal **FreeFEM** object call :freefem:`MPIrank`.
+This mean that do not use :freefem:`MPIrank` in **FreeFEM** script.
 
 :freefem:`processor(int rk)`: Keep process rank inside object :freefem:`MPIrank`.
 Rank is inside ``MPI_COMM_WORLD``.
@@ -2012,7 +2012,7 @@ Rank is inside ``MPI_COMM_WORLD``.
 Points to Points communicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In **FreeFem++** you can call MPI points to points communications functions.
+In **FreeFEM** you can call MPI points to points communications functions.
 
 :freefem:`Send(processor(int rk, mpiComm cc), Data D)` : Blocking send of :freefem:`Data D` to processor of :freefem:`rank rk` inside communicator :freefem:`cc`.
 Note that :freefem:`Data D` can be: :freefem:`int`, :freefem:`real`, :freefem:`complex`, :freefem:`int[int]`, :freefem:`real[int]`, :freefem:`complex[int]`, :freefem:`Mesh`, :freefem:`Mesh3`, :freefem:`Matrix`.
@@ -2030,7 +2030,7 @@ Note that :freefem:`Data D` can be: :freefem:`int`, :freefem:`real`, :freefem:`c
 Global operations
 ^^^^^^^^^^^^^^^^^
 
-In **FreeFem++** you can call MPI global communication functions.
+In **FreeFEM** you can call MPI global communication functions.
 
 :freefem:`broadcast(processor(int rk, mpiComm cc), Data D)`: Process :freefem:`rk` Broadcast :freefem:`Data D` to all process inside :freefem:`communicator cc`.
 Note that :freefem:`Data D` can be: :freefem:`int`, :freefem:`real`, :freefem:`complex`, :freefem:`int[int]`, :freefem:`real[int]`, :freefem:`complex[int]`, :freefem:`Mesh`, :freefem:`Mesh3`, :freefem:`Matrix`.
@@ -2063,7 +2063,7 @@ This function is like ``MPI_Allgather``.
 
 Operation use in reduce is: :freefem:`MPI_Op op` which can be: :freefem:`mpiMAX`, :freefem:`mpiMIN`, :freefem:`mpiSUM`, :freefem:`mpiPROD`, :freefem:`mpiLAND`, :freefem:`mpiLOR`, :freefem:`mpiLXOR`, :freefem:`mpiBAND`, :freefem:`mpiBXOR`, :freefem:`mpiMAXLOC`, :freefem:`mpiMINLOC`.
 
-Note that, for all global operations, only :freefem:`int[int]` and :freefem:`real[int]` are data type take in account in **FreeFem++**.
+Note that, for all global operations, only :freefem:`int[int]` and :freefem:`real[int]` are data type take in account in **FreeFEM**.
 
 HPDDM solvers
 ~~~~~~~~~~~~~
@@ -2263,8 +2263,8 @@ We detail here the 3D elasticity problem and the 3D time-dependent heat problem.
 
         set(A, sparams="-hpddm_schwarz_method ras -hpddm_schwarz_coarse_correction balanced -hpddm_variant right -hpddm_verbosity 1 -hpddm_geneo_nu 10");
 
-    In the above line, the first option selects the one-level preconditioner :freefem:`ras` (possible choices are :freefem:`ras`, :freefem:`oras`, :freefem:`soras`, :freefem:`asm`, :freefem:`osm` or :freefem:`none`), the second option selects the correction formula for the second level here :freefem:`balanced` (possible options are :freefem:`deflated`, :freefem:`additive` or :freefem:`balanced`), the third option selects right preconditioning, the fourth one is verbosity level of HPDDM (different from the one of **FreeFem++**), the fifth one prints all possible options of HPPDM and the last one specifies the number of coarse degrees of freedom per subdomain of the GENEO coarse space.
-    All other options of `HPDDM library <https://github.com/hpddm/hpddm/blob/master/doc/cheatsheet.pdf>`__ can be selected via the **FreeFem++** function :freefem:`set`.
+    In the above line, the first option selects the one-level preconditioner :freefem:`ras` (possible choices are :freefem:`ras`, :freefem:`oras`, :freefem:`soras`, :freefem:`asm`, :freefem:`osm` or :freefem:`none`), the second option selects the correction formula for the second level here :freefem:`balanced` (possible options are :freefem:`deflated`, :freefem:`additive` or :freefem:`balanced`), the third option selects right preconditioning, the fourth one is verbosity level of HPDDM (different from the one of **FreeFEM**), the fifth one prints all possible options of HPPDM and the last one specifies the number of coarse degrees of freedom per subdomain of the GENEO coarse space.
+    All other options of `HPDDM library <https://github.com/hpddm/hpddm/blob/master/doc/cheatsheet.pdf>`__ can be selected via the **FreeFEM** function :freefem:`set`.
 
     In the last part of the script, the global linear system is solved by the domain decomposition method defined above.
 
@@ -2442,7 +2442,7 @@ Time dependent problem
 Distributed vectors in HPDDM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We give here some hints on the way vectors are distributed among :math:`np` processes when using **FreeFem++** interfaced with HPDDM.
+We give here some hints on the way vectors are distributed among :math:`np` processes when using **FreeFEM** interfaced with HPDDM.
 The set of degrees of freedom :math:`{\mathcal N}` is decomposed into :math:`np` overlapping sets :math:`({\mathcal N}_i)_{1\le i\le np}`.
 
 A MPI-process is in charge of each subset.
@@ -2475,7 +2475,7 @@ Thus, the formula for the scalar product is:
 Local scalar products are performed concurrently.
 Thus, the implementation is parallel except for the sum which corresponds to a :freefem:`MPI_Reduce` call across the :math:`np` MPI processes.
 
-Note also that the implementation relies on the knowledge of a partition of unity so that the FreeFem++ syntax is :freefem:`dscalprod(D, u, v)`.
+Note also that the implementation relies on the knowledge of a partition of unity so that the **FreeFEM** syntax is :freefem:`dscalprod(D, u, v)`.
 
 A :freefem:`axpy` procedure :math:`y \leftarrow \alpha\,x+y` for :math:`x,y\in \mathbb{R}^{n}` and :math:`\alpha\in\R` is easily implemented concurrently for distributed vectors in the form:
 

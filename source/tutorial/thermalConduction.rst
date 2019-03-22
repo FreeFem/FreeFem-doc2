@@ -146,7 +146,7 @@ We take the convention of numbering of the edges as in :freefem:`square()` (1 fo
 
 Note that the PDE has been multiplied by :math:`r`.
 
-After discretization in time with an implicit scheme, with time steps ``dt``, in the FreeFem++ syntax :math:`r` becomes :math:`x` and :math:`z` becomes :math:`y` and the problem is:
+After discretization in time with an implicit scheme, with time steps ``dt``, in the **FreeFEM** syntax :math:`r` becomes :math:`x` and :math:`z` becomes :math:`y` and the problem is:
 
 .. code-block:: freefem
    :linenos:

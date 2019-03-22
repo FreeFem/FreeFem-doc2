@@ -7,7 +7,7 @@ Algorithms & Optimization
 Conjugate Gradient/GMRES
 ------------------------
 
-Suppose we want to solve the Euler problem (here :math:`x` has nothing to do with the reserved variable for the first coordinate in **FreeFem++**):
+Suppose we want to solve the Euler problem (here :math:`x` has nothing to do with the reserved variable for the first coordinate in **FreeFEM**):
 
 find :math:`x\in \mathbb{R}^n` such that
 
@@ -200,7 +200,7 @@ Algorithms for Unconstrained Optimization
 -----------------------------------------
 
 Two algorithms of COOOL package are interfaced with the Newton Raphson method (called :freefem:`Newton`) and the :freefem:`BFGS` method.
-These two are directly available in **FreeFem++** (no dynamical link to load).
+These two are directly available in **FreeFEM** (no dynamical link to load).
 Be careful with these algorithms, because their implementation uses full matrices.
 We also provide several optimization algorithms from the `NLopt library <https://nlopt.readthedocs.io/en/latest/>`__ as well as an interface for Hansen’s implementation of CMAES (a MPI version of this one is also available).
 
@@ -276,7 +276,7 @@ Named parameters for this are the following:
    Increasing the population size usually improves the global search capabilities at the cost of, at most, a linear reduction of the convergence speed with respect to :freefem:`popsize`.
 -  :freefem:`paramFile=` This :freefem:`string` type parameter allows the user to pass all the parameters using an extern file, as in Hansen’s original code.
    More parameters related to the CMA-ES algorithm can be changed with this file.
-   Note that the parameters passed to the CMAES function in the **FreeFem++** script will be ignored if an input parameters file is given.
+   Note that the parameters passed to the CMAES function in the **FreeFEM** script will be ignored if an input parameters file is given.
 
 IPOPT
 -----
@@ -286,8 +286,8 @@ IPOPT is a software library for large scale, non-linear, constrained optimizatio
 It implements a primal-dual interior point method along with filter method based line searches.
 
 IPOPT needs a direct sparse symmetric linear solver.
-If your version of **FreeFem++** has been compiled with the :freefem:`--enable-downlad` tag, it will automatically be linked with a sequential version of MUMPS.
-An alternative to MUMPS would be to download the HSL subroutines (see `Compiling and Installing the Java Interface JIPOPT <https://www.coin-or.org/Ipopt/documentation/node16.html>`__) and place them in the :freefem:`/ipopt/Ipopt-3.10.2/ThirdParty/HSL` directory of the **FreeFem++** downloads folder before compiling.
+If your version of **FreeFEM** has been compiled with the :freefem:`--enable-downlad` tag, it will automatically be linked with a sequential version of MUMPS.
+An alternative to MUMPS would be to download the HSL subroutines (see `Compiling and Installing the Java Interface JIPOPT <https://www.coin-or.org/Ipopt/documentation/node16.html>`__) and place them in the :freefem:`/ipopt/Ipopt-3.10.2/ThirdParty/HSL` directory of the **FreeFEM** downloads folder before compiling.
 
 Short description of the algorithm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -369,10 +369,10 @@ We will just retain that IPOPT is a smart Newton method for solving constrained 
 Due to the underlying Newton method, the optimization process requires expressions of all derivatives up to the order 2 of the fitness function as well as those of the constraints.
 For problems whose Hessian matrices are difficult to compute or lead to high dimensional dense matrices, it is possible to use a BFGS approximation of these objects at the cost of a much slower convergence rate.
 
-IPOPT in **FreeFem++**
+IPOPT in **FreeFEM**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Calling the IPOPT optimizer in a **FreeFem++** script is done with the :freefem:`IPOPT` function included in the :freefem:`ff-Ipopt` dynamic library.
+Calling the IPOPT optimizer in a **FreeFEM** script is done with the :freefem:`IPOPT` function included in the :freefem:`ff-Ipopt` dynamic library.
 IPOPT is designed to solve constrained minimization problems in the form:
 
 .. math::
@@ -400,7 +400,7 @@ Any returned matrix must be a sparse one (type :freefem:`matrix`, not a :freefem
    func real[int] C (real[int] &X) {...} //Constraints
    func matrix jacC (real[int] &X) {...} //Constraints Jacobian
 
-.. warning:: In the current version of **FreeFem++**, returning a :freefem:`matrix` object that is local to a function block leads to undefined results.
+.. warning:: In the current version of **FreeFEM**, returning a :freefem:`matrix` object that is local to a function block leads to undefined results.
    For each sparse matrix returning function you define, an extern matrix object has to be declared, whose associated function will overwrite and return on each call.
    Here is an example for :freefem:`jacC`:
 
@@ -588,8 +588,8 @@ The in-script available parameters are:
 -  :freefem:`structhess` : Same as above but for the Hessian function (unused if :math:`f` is P2 or less and constraints are affine).
    Here again, keep in mind that it is the Hessian of the Lagrangian function (which is equal to the Hessian of :math:`f` only if constraints are affine).
    If no structure is given with this parameter, the Lagrangian Hessian is evaluated on the starting point, with :math:`\sigma=1` and :math:`\lambda = (1,1,\dots,1)` (it is safe if all the constraints and fitness function Hessians are constant or build with :freefem:`varf`, and here again it is less reliable if built with a triplet array or a full matrix).
--  :freefem:`checkindex` : A :freefem:`bool` that triggers a dichotomic index search when matrices are copied from **FreeFem++** functions to IPOPT arrays.
-   It is used to avoid wrong index matching when some null coefficients are removed from the matrices by **FreeFem++**.
+-  :freefem:`checkindex` : A :freefem:`bool` that triggers a dichotomic index search when matrices are copied from **FreeFEM** functions to IPOPT arrays.
+   It is used to avoid wrong index matching when some null coefficients are removed from the matrices by **FreeFEM**.
    It will not solve the problems arising when a too small structure has been given at the initialization of the algorithm.
    Enabled by default (except in cases where all matrices are obviously constant).
 -  :freefem:`warmstart` : If set to :freefem:`true`, the constraints dual variables :math:`\lambda`, and simple bound dual variables are initialized with the values of the arrays passed to :freefem:`lm`, :freefem:`lz` and :freefem:`uz` named parameters (see below).
@@ -609,7 +609,7 @@ The in-script available parameters are:
 -  :freefem:`dttol` : Tolerance value for the derivative test error detection (default value unknown yet, maybe :math:`10^{-5}`).
 -  :freefem:`optfile` : :freefem:`string` parameter to specify the IPOPT option file name.
    IPOPT will look for a :freefem:`ipopt.opt` file by default.
-   Options set in the file will overwrite those defined in the **FreeFem++** script.
+   Options set in the file will overwrite those defined in the **FreeFEM** script.
 -  :freefem:`printlevel` : An :freefem:`int` to control IPOPT output print level, set to 5 by default, the possible values are from 0 to 12.
    A description of the output information is available in the `PDF documentation <https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw>`__ of IPOPT.
 -  :freefem:`fixedvar` : :freefem:`string` for the definition of simple bound equality constraints treatment : use :freefem:`"make_parameter"` (default value) to simply remove them from the optimization process (the functions will always be evaluated with the fixed value for those variables), :freefem:`"make_constraint"` to treat them as any other constraint or :freefem:`"relax_bounds"` to relax fixing bound constraints.
@@ -1138,7 +1138,7 @@ We propose to solve the following problem:
          return hessianV;
       }
 
-   If we want to use the volume as a constraint function we must wrap it and its derivatives in some **FreeFem++** functions returning the appropriate types.
+   If we want to use the volume as a constraint function we must wrap it and its derivatives in some **FreeFEM** functions returning the appropriate types.
    It is not done in the above functions in cases where one wants to use it as a fitness function.
    The lagrangian hessian also has to be wrapped since the Volume is not linear with respect to :math:`\rho`, it has some non-null second order derivatives.
 
@@ -1231,8 +1231,8 @@ We propose to solve the following problem:
 The nlOpt optimizers
 --------------------
 
-The :freefem:`ff-NLopt` package provides a **FreeFem++** interface to the free/open-source library for nonlinear optimization, easing the use of several different free optimization (constrained or not) routines available online along with the PDE solver.
-All the algorithms are well documented in `NLopt documentation <https://nlopt.readthedocs.io/en/latest/>`__, therefore no exhaustive information concerning their mathematical specificities will be found here and we will focus on the way they are used in a **FreeFem++** script.
+The :freefem:`ff-NLopt` package provides a **FreeFEM** interface to the free/open-source library for nonlinear optimization, easing the use of several different free optimization (constrained or not) routines available online along with the PDE solver.
+All the algorithms are well documented in `NLopt documentation <https://nlopt.readthedocs.io/en/latest/>`__, therefore no exhaustive information concerning their mathematical specificities will be found here and we will focus on the way they are used in a **FreeFEM** script.
 If needing detailed information about these algorithms, visit the website where a description of each of them is given, as well as many bibliographical links.
 
 Most of the gradient based algorithms of NLopt uses a full matrix approximation of the Hessian, so if you’re planning to solve a large scale problem, use the IPOPT optimizer which definitely surpass them.
@@ -1520,5 +1520,5 @@ Calling the MPI version of CMA-ES is nearly the same as calling its sequential v
    cout << "minimum value is " << min << " for u = " << u << endl;
 
 If the population size is not changed using the :freefem:`popsize` parameter, it will use the heuristic value slightly changed to be equal to the closest greatest multiple of the size of the communicator used by the optimizer.
-The **FreeFem++** :freefem:`mpicommworld` is used by default.
-The user can specify his own MPI communicator with the named parameter :freefem:`comm=`, see the MPI section of this manual for more information about communicators in **FreeFem++**.
+The **FreeFEM** :freefem:`mpicommworld` is used by default.
+The user can specify his own MPI communicator with the named parameter :freefem:`comm=`, see the MPI section of this manual for more information about communicators in **FreeFEM**.

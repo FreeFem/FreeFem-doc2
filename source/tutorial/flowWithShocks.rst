@@ -1,7 +1,7 @@
 A Flow with Shocks
 ==================
 
-Compressible Euler equations should be discretized with Finite Volumes or FEM with flux up-winding scheme but these are not implemented in **FreeFem++**.
+Compressible Euler equations should be discretized with Finite Volumes or FEM with flux up-winding scheme but these are not implemented in **FreeFEM**.
 Nevertheless acceptable results can be obtained with the method of characteristics provided that the mean values :math:`\displaystyle \bar f=\frac12\left(f^++f^-\right)` are used at shocks in the scheme, and finally mesh adaptation.
 
 .. math::
@@ -22,7 +22,7 @@ One possibility is to couple :math:`u,p` and then update :math:`\rho`, i.e.:
     \end{array}
     :label: eulalgo
 
-A numerical result is given on :numref:`figFlowMach` and the **FreeFem++** script is
+A numerical result is given on :numref:`figFlowMach` and the **FreeFEM** script is
 
 .. code-block:: freefem
    :linenos:

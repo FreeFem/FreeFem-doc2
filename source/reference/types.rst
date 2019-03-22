@@ -379,7 +379,7 @@ Class of basic functions (polynomials, exponential, logarithmic, trigonometric, 
 
 and by composition :math:`f(g(x))`, each applied a finite number of times.
 
-In **FreeFem++**, all elementary functions can thus be created.
+In **FreeFEM**, all elementary functions can thus be created.
 The derivative of an elementary function is also an elementary function; however, the indefinite integral of an elementary function cannot always be expressed in terms of elementary functions.
 
 See :ref:`Elementary function example <exampleElementaryFunction>` for a complete example.
@@ -387,7 +387,7 @@ See :ref:`Elementary function example <exampleElementaryFunction>` for a complet
 Random functions
 ~~~~~~~~~~~~~~~~
 
-**FreeFem++** includes the `Mersenne Twister <http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html>`__ random number generator.
+**FreeFEM** includes the `Mersenne Twister <http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html>`__ random number generator.
 It is a very fast and accurate random number generator of period :math:`2^{219937}-1`.
 
 See :ref:`randint32() <referenceRandInt32>`, :ref:`randint31() <referenceRandInt31>`, :ref:`randreal1() <referenceRandReal1>`, :ref:`randreal2() <referenceRandReal2>`, :ref:`randreal3() <referenceRandReal3>`, :ref:`randres53() <referenceRandRes53>`, :ref:`randinit(seed) <referenceRandInit>`.
@@ -404,7 +404,7 @@ FE-functions
 
 Finite element functions are also constructed like elementary functions by an arithmetic formula involving elementary functions.
 
-The difference is that they are evaluated at declaration time and **FreeFem++** stores the array of its values at the places associated with he degree of freedom of the finite element type.
+The difference is that they are evaluated at declaration time and **FreeFEM** stores the array of its values at the places associated with he degree of freedom of the finite element type.
 By opposition, elementary functions are evaluated only when needed.
 Hence FE-functions are not defined only by their formula but also by the mesh and the finite element which enter in their definitions.
 
@@ -441,7 +441,7 @@ Problem type.
 
    problem Laplacian (u, uh) = ...
 
-**FreeFem++** needs the variational form in the problem definition.
+**FreeFEM** needs the variational form in the problem definition.
 
 In order to solve the problem, just call:
 

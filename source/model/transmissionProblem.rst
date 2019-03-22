@@ -75,7 +75,7 @@ Consider this L-shaped domain with 3 diagonals as internal boundaries, defining 
 
     The function :freefem:`reg`
 
-:freefem:`region` is a keyword of **FreeFem++** which is in fact a variable depending of the current position (is not a function today, use :freefem:`Ph reg=region;` to set a function).
+:freefem:`region` is a keyword of **FreeFEM** which is in fact a variable depending of the current position (is not a function today, use :freefem:`Ph reg=region;` to set a function).
 This variable value returned is the number of the sub-domain of the current position.
 This number is defined by :freefem:`buildmesh` which scans while building the mesh all its connected component.
 

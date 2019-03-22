@@ -8,10 +8,10 @@ Visualization
 
 Results created by the finite element method can be a huge set of data, so it is very important to render them easy to grasp.
 
-There are two ways of visualization in FreeFem++:
+There are two ways of visualization in **FreeFEM**:
 
 -  One, the default view, which supports the drawing of meshes, isovalues of real FE-functions, and of vector fields, all by the command :freefem:`plot` (see :ref:`Plot section <plot>` below).
-   For publishing purpose, FreeFem++ can store these plots as postscript files.
+   For publishing purpose, **FreeFEM** can store these plots as postscript files.
 
 -  Another method is to use external tools, for example, gnuplot (see :ref:`Gnuplot section <gnuplot>`, :ref:`medit section <medit>`, :ref:`Paraview section <paraview>`, :ref:`Matlab/Octave section <matlab>`) using the command :freefem:`system` to launch them and/or to save the data in text files.
 
@@ -192,8 +192,8 @@ To change the color table and to choose the value of iso line you can do:
 Link with gnuplot
 -----------------
 
-Example :ref:`Membrane <tutorialMembrane>` shows how to generate a gnuplot from a FreeFem++ file.
-Here is another technique which has the advantage of being online, i.e. one doesn’t need to quit FreeFem++ to generate a gnuplot.
+Example :ref:`Membrane <tutorialMembrane>` shows how to generate a gnuplot from a **FreeFEM** file.
+Here is another technique which has the advantage of being online, i.e. one doesn’t need to quit **FreeFEM** to generate a gnuplot.
 
 However, this works only if `gnuplot <http://www.gnuplot.info>`__ is installed, and only on an Unix-like computer.
 
@@ -227,7 +227,7 @@ Link with medit
 
 As said above, ``medit`` is a freeware display package by Pascal Frey using OpenGL. Then you may run the following example.
 
-Now ``medit`` software is included in FreeFem++ under ``ffmedit`` name.
+Now ``medit`` software is included in **FreeFEM** under ``ffmedit`` name.
 
 The :freefem:`medit` command parameters are listed in the :ref:`Reference part <referenceMedit>`.
 
@@ -312,7 +312,7 @@ One can also export mesh or results in the ``.vtk`` format in order to post-proc
 Link with Matlab© and Octave
 ----------------------------
 
-In order to create a plot from a FreeFem++ simulation in `Octave <https://www.gnu.org/software/octave/>`__ and `Matlab <https://www.mathworks.com/>`__ the mesh, the finite element space connectivity and the simulation data must be written to files:
+In order to create a plot from a **FreeFEM** simulation in `Octave <https://www.gnu.org/software/octave/>`__ and `Matlab <https://www.mathworks.com/>`__ the mesh, the finite element space connectivity and the simulation data must be written to files:
 
 .. code-block:: freefem
    :linenos:

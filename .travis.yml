@@ -22,7 +22,7 @@ script:
     # - SPHINXOPTS='-n -b linkcheck' make -e html
     - make html
     - make latex
-    - cd build/latex && pdflatex -interaction=nonstopmode FreeFem++.tex && pdflatex -interaction=nonstopmode FreeFem++.tex && cd ../..
+    - cd build/latex && pdflatex -interaction=nonstopmode FreeFEM.tex && pdflatex -interaction=nonstopmode FreeFEM.tex && cd ../..
     - cp -R build/html ..
     - cp -R build/latex ..
 

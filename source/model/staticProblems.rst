@@ -418,7 +418,7 @@ We will pick up numericall error if we use the numerical derivative, so we will 
         &=&\int_{\Omega}f(u-2u_h)\, \d x\d y+\int_{\Omega}fu_h\, \d x\d y
     \end{array}
 
-The constants :math:`C_1,\, C_2` are depend on :math:`\mathcal{T}_h` and :math:`f`, so we will find them by **FreeFem++**.
+The constants :math:`C_1,\, C_2` are depend on :math:`\mathcal{T}_h` and :math:`f`, so we will find them by **FreeFEM**.
 
 In general, we cannot get the solution :math:`u` as a elementary functions even if spetical functions are added.
 Instead of the exact solution, here we use the approximate solution :math:`u_0` in :math:`V_h(\mathcal{T}_h,P_2),\, h\sim 0`.
@@ -794,7 +794,7 @@ with a constants :math:`K_i`.
 
 Here :math:`u_S = r_j^{1/2}\sin(\theta_j/2)` by the local polar coordinate :math:`(r_j,\theta_j` at :math:`\gamma_j` such that :math:`(r_1,\theta_1)=(r,\theta)`.
 
-Instead of polar coordinate system :math:`(r,\theta)`, we use that :math:`r` = :freefem:`sqrt` (:math:`x^2+y^2`) and :math:`\theta` = :freefem:`atan2` (:math:`y,x`) in **FreeFem++**.
+Instead of polar coordinate system :math:`(r,\theta)`, we use that :math:`r` = :freefem:`sqrt` (:math:`x^2+y^2`) and :math:`\theta` = :freefem:`atan2` (:math:`y,x`) in **FreeFEM**.
 
 Assume that :math:`f=-2\times 30(x^2+y^2)` and :math:`g=u_e=10(x^2+y^2)^{1/4}\sin\left([\tan^{-1}(y/x)]/2\right)+30(x^2y^2)`, where :math:`u_e`\ S is the exact solution.
 
@@ -931,7 +931,7 @@ and:
 .. math::
     \mathbb{V}_0 = \{\mathbf{v}\in \mathbb{V};\quad\mathbf{v}. n = 0 \quad\mathrm{on }\;\;\Gamma_N\}
 
-To write the **FreeFem++** example, we have just to choose the finites elements spaces.
+To write the **FreeFEM** example, we have just to choose the finites elements spaces.
 
 Here :math:`\mathbb{V}` space is discretize with Raviart-Thomas finite element :freefem:`RT0` and :math:`\mathbb{P}` is discretize by constant finite element :freefem:`P0`.
 

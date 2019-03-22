@@ -91,11 +91,11 @@ class: left, top
 
 ## [What is **ffddm** ?](ffddm/#what-is-ffddm)
 
-- **ffddm** implements a class of parallel solvers in *FreeFem++*:
+- **ffddm** implements a class of parallel solvers in *FreeFEM*:
 *overlapping Schwarz domain decomposition methods*
 
-- The entire **ffddm** framework is written in the *FreeFem++* language
-**ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*
+- The entire **ffddm** framework is written in the *FreeFEM* language
+**ffddm** aims at simplifying the use of parallel solvers in *FreeFEM*
 You can find the **ffddm** scripts and examples [here](https://github.com/FreeFem/FreeFem-sources/tree/v4/examples%2B%2B-ffddm)
 
 - **ffddm** provides a set of high-level macros and functions to
@@ -337,7 +337,7 @@ $\Rightarrow$ assemble local 'Dirichlet' matrices $A\_i = R\_i A R\_i^T$
 $$A = \sum\_{i=1}^N R\_i^T D\_i A\_i R\_i$$
 ]
 .pull-right65[
- **Warning** only true because $D\_i R\_i A = D\_i A\_i R\_i$  
+ **Warning** only true because $D\_i R\_i A = D\_i A\_i R\_i$
  due to the fact that $D\_i$ vanishes at the interface **!!**
 ]
 </div>
@@ -381,7 +381,7 @@ ffddmplot(PB, ui, "A*b")
 
 ---
 
-## Summary so far: translating your sequential *FreeFem++* script
+## Summary so far: translating your sequential *FreeFEM* script
 
 <div style="overflow: hidden;">
 .pull-left38[

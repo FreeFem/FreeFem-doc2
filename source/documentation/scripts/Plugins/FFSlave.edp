@@ -54,4 +54,4 @@ while (1){
 }
 
 Post(smff); //wait from cint
-cout << " End FreeFem++ " << endl;
+cout << " End FreeFEM " << endl;

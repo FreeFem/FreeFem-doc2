@@ -2,8 +2,8 @@
 Example of coupling C program and FreemFem++ script with mmap and semaphore
 
 The c code is FFMaster.c
-The FreeFem++ code is FFSlave.edp
-Here FreeFem++ is a slave process
+The FreeFEM code is FFSlave.edp
+Here FreeFEM is a slave process
 
 The compilation steps are
 cc -c libff-mmap-semaphore.c

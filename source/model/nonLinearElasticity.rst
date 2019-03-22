@@ -88,7 +88,7 @@ choose :math:`n=0`,and :math:`u_0,v_0` the initial displacement
    -  :math:`un = un - du,\quad vn =vn - dv`
    -  until :math:`(du,dv)` small is enough
 
-The way to implement this algorithm in FreeFem++ is use a macro tool to implement :math:`A` and :math:`F2`, :math:`f`, :math:`f'`,\ :math:`f''`.
+The way to implement this algorithm in **FreeFEM** is use a macro tool to implement :math:`A` and :math:`F2`, :math:`f`, :math:`f'`,\ :math:`f''`.
 
 A macro is like in :cpp:`ccp` preprocessor of C++, but this begin by :freefem:`macro` and the end of the macro definition is before the comment :freefem:`//`.
 In this case the macro is very useful because the type of parameter can be change.
