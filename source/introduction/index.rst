@@ -1,3 +1,16 @@
+.. only:: html
+
+  .. raw:: html
+
+    <div id="PDFbanner">
+      <p>
+        Do you prefer a PDF version ?
+      </p>
+      <p>
+        Get it <a href="https://github.com/FreeFem/FreeFem-doc2/raw/pdf/FreeFEM.pdf" download>here</a>
+      </p>
+    </div>
+
 Introduction
 ============
 

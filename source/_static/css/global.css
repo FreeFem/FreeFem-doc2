@@ -401,3 +401,20 @@ body::-webkit-scrollbar {
 .md-typeset .codehilite, .md-typeset .highlight {
 	webkit-overflow-scrolling: touch;
 }
+
+#PDFbanner {
+	/* position: relative; */
+	box-shadow: 0 .11rem .11rem 0 rgba(0,0,0,.14), 0 .05rem .27rem 0 rgba(0,0,0,.12), 0 .16rem .05rem -.11rem rgba(0,0,0,.2);
+	margin: 1.5625em;
+	padding: 0.75rem;
+	border: .25rem solid #00007f;
+	border-radius: .125rem;
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+}
+
+#PDFbanner p {
+	padding: 0.55rem;
+	margin: 0;
+	text-align: center;
+}
