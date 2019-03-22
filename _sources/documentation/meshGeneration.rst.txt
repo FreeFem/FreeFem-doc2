@@ -217,7 +217,7 @@ The following example shows how to change the orientation. The example generates
 Multi-Border
 ~~~~~~~~~~~~
 
-Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the **FreeFem++** syntax. To bypass this problem, if the number of segments of the discretization :math:`n` is an array, we make an implicit loop on all of the values of the array, and the index variable :math:`i` of the loop is defined after the parameter definition, like in :freefem:`border a(t=0, 2*pi; i)` ...
+Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the **FreeFEM** syntax. To bypass this problem, if the number of segments of the discretization :math:`n` is an array, we make an implicit loop on all of the values of the array, and the index variable :math:`i` of the loop is defined after the parameter definition, like in :freefem:`border a(t=0, 2*pi; i)` ...
 
 A first very small example:
 
@@ -349,12 +349,12 @@ The edge of the 10th side :math:`L_{10}` are :math:`q^{10}, q^6`.
     | 10 6 1                            | :math:`10_1\quad 10_2\quad` boundary label :math:`=1`         |
     +-----------------------------------+---------------------------------------------------------------+
 
-In **FreeFem++** there are many mesh file formats available for communication with other tools such as ``emc2``, ``modulef``, … (see :ref:`Mesh format chapter <meshFileDataStructure>` ).
+In **FreeFEM** there are many mesh file formats available for communication with other tools such as ``emc2``, ``modulef``, … (see :ref:`Mesh format chapter <meshFileDataStructure>` ).
 
 The extension of a file implies its format.
 More details can be found on the file format .msh in the article by F. Hecht "bamg : a bidimensional anisotropic mesh generator" [HECHT1998_2]_.
 
-A mesh file can be read into **FreeFem++** except that the names of the borders are lost and only their reference numbers are kept.
+A mesh file can be read into **FreeFEM** except that the names of the borders are lost and only their reference numbers are kept.
 So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword :freefem:`label`. Here are some examples:
 
 .. code-block:: freefem
@@ -712,7 +712,7 @@ The real characteristic function of a mesh :freefem:`Th` is :freefem:`chi(Th)` i
 The keyword "triangulate"
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FreeFem++** is able to build a triangulation from a set of points.
+**FreeFEM** is able to build a triangulation from a set of points.
 This triangulation is a Delaunay mesh of the convex hull of the set of points.
 It can be useful to build a mesh from a table function.
 
@@ -1062,7 +1062,7 @@ sharply varies in value and the initial mesh given by one of the commands in the
 
   3D graphs for the initial mesh and 1st and 2nd mesh adaptations
 
-**FreeFem++** uses a variable metric/Delaunay automatic meshing algorithm.
+**FreeFEM** uses a variable metric/Delaunay automatic meshing algorithm.
 
 The command:
 
@@ -1735,7 +1735,7 @@ An example of using this function is given here:
 
    plot(u, wait=1);
 
-**"gluing" different mesh** In line 17 of the previous file, the method to "gluing" different meshes of the same dimension in **FreeFem++** is using.
+**"gluing" different mesh** In line 17 of the previous file, the method to "gluing" different meshes of the same dimension in **FreeFEM** is using.
 This function is the operator "+" between meshes.
 The method implemented needs the point in adjacent meshes to be the same.
 
@@ -1832,7 +1832,7 @@ The output of this script is:
 Read/Write Statements for a Mesh in 3D
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In three dimensions, the file mesh format supported for input and output files by **FreeFem++** are the extension .msh and .mesh.
+In three dimensions, the file mesh format supported for input and output files by **FreeFEM** are the extension .msh and .mesh.
 These formats are described in the :ref:`Mesh Format section <meshFileDataStructure>`.
 
 **Extension file .msh** The structure of the files with extension .msh in 3D is given by:
@@ -1974,7 +1974,7 @@ Principal switch parameters in TetGen:
 -  :freefem:`d` Intersections of facets are detected.
 
 To obtain a tetrahedral mesh with TetGen, we need the surface mesh of a three dimensional domain.
-We now give the command line in **FreeFem++** to construct these meshes.
+We now give the command line in **FreeFEM** to construct these meshes.
 
 **keyword: movemesh23**
 
@@ -2098,7 +2098,7 @@ The parameters of this command line are, on one hand, the parameters :freefem:`l
 
 **The keyword tetgconvexhull**
 
-**FreeFem++**, using TetGen, is able to build a tetrahedralization from a set of points.
+**FreeFEM**, using TetGen, is able to build a tetrahedralization from a set of points.
 This tetrahedralization is a Delaunay mesh of the convex hull of the set of points.
 
 The coordinates of the points can be initialized in two ways.
@@ -3001,7 +3001,7 @@ This decimation is based on the Hausdorff distance between the initial and the c
 Compared to the software yams, FreeYams can be used also to produce anisotropic triangulations adapted to levelset simulations.
 A technical report on freeYams documentation is available `here <https://www.ljll.math.upmc.fr/frey/publications/RT-0252.pdf>`__.
 
-To call FreeYams in **FreeFem++**, we used the keyword :freefem:`freeyams`.
+To call FreeYams in **FreeFEM**, we used the keyword :freefem:`freeyams`.
 The arguments of this function are the initial mesh and/or metric.
 The metric with :freefem:`freeyams` are a :freefem:`func`, a :freefem:`fespace` function, a symmetric tensor function, a symmetric tensor :freefem:`fespace` function or a vector of double (:freefem:`real[int]`).
 If the metric is a vector of double, this data must be given in :freefem:`metric` parameter.

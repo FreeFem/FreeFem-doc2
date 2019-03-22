@@ -859,7 +859,7 @@ The output of this script is:
            5         5 0.5
            6         6 1.2246467991473532072e-16
 
-.. warning:: Due to ``Fortran`` indices starting at one, the output of a diagonal matrix ``D`` is indexed from 1. but in **FreeFem++**, the indices start from 0.
+.. warning:: Due to ``Fortran`` indices starting at one, the output of a diagonal matrix ``D`` is indexed from 1. but in **FreeFEM**, the indices start from 0.
 
 .. _exampleMatrixInversion:
 

@@ -14,7 +14,7 @@ As stated in :ref:`tutorials <tutorial>`, FEM approximates all functions :math:`
 with finite element basis functions :math:`\phi_k(x,y)` and numbers :math:`w_k` (:math:`k=0,\cdots,M-1`).
 The functions :math:`\phi_k(x,y)` are constructed from the triangle :math:`T_{i_k}`, and called *shape functions*.
 
-In **FreeFem++**, the finite element space:
+In **FreeFEM**, the finite element space:
 
 .. math::
    V_h=\left\{w\left|\; w_0\phi_0+w_1\phi_1+\cdots+w_{M-1}\phi_{M-1},\, w_i\in \R\right.\right\}
@@ -358,7 +358,7 @@ With the 2D finite element spaces
 .. math::
     R_{h} = \left\{ \mathbf{v} \in H^{1}(]0,1[^2)^{2} |\; \forall K \in \mathcal{T}_{h}\quad \mathbf{v}_{|K}(x,y) = \vecttwo{\alpha_{K}}{\beta_{K}} + \gamma_{K}\vecttwo{x}{y} \right\}
 
-when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10` of the unit square :math:`]0,1[^2`, we only write in **FreeFem++**:
+when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10` of the unit square :math:`]0,1[^2`, we only write in **FreeFEM**:
 
 .. code-block:: freefem
     :linenos:
@@ -408,7 +408,7 @@ With the 3D finite element spaces
 .. math::
     R_{h} = \left\{ \mathbf{v} \in H^{1}(]0,1[^2)^{2} |\; \forall K \in \mathcal{T}_{h}\quad \mathbf{v}_{|K}(x,y) = \vecttwo{\alpha_{K}}{\beta_{K}} + \gamma_{K}\vecttwo{x}{y} \right\}
 
-when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10\times 10` of the unit cubic :math:`]0,1[^2`, we write in **FreeFem++**:
+when :math:`\mathcal{T}_h` is a mesh :math:`10\times 10\times 10` of the unit cubic :math:`]0,1[^2`, we write in **FreeFEM**:
 
 .. code-block:: freefem
     :linenos:
@@ -950,7 +950,7 @@ Two problems need to be solved:
 
 .. note:: Step 3 requires an array of pointers such that each vertex points to one triangle of the triangulation.
 
-.. note:: The operator :freefem:`=` is the interpolation operator of **FreeFem++**, the continuous finite functions are extended by continuity to the outside of the domain.
+.. note:: The operator :freefem:`=` is the interpolation operator of **FreeFEM**, the continuous finite functions are extended by continuity to the outside of the domain.
 
    Try the following example :
 
@@ -1004,7 +1004,7 @@ Two problems need to be solved:
 Keywords: Problem and Solve
 ---------------------------
 
-For **FreeFem++**, a problem must be given in variational form, so we need a bilinear form :math:`a(u,v)`, a linear form :math:`\ell(f,v)`, and possibly a boundary condition form must be added.
+For **FreeFEM**, a problem must be given in variational form, so we need a bilinear form :math:`a(u,v)`, a linear form :math:`\ell(f,v)`, and possibly a boundary condition form must be added.
 
 .. code-block:: freefem
     :linenos:
@@ -1092,7 +1092,7 @@ Except in the case of Neumann conditions everywhere, the problem :eq:`eqn::v-poi
 
    Remark that if the solution is of order :math:`\frac{1}{\varepsilon}` then the compatibility condition is unsatisfied, otherwise we get the solution such that :math:`\int_\Omega u = 0`, you can also add a Lagrange multiplier to solve the real mathematical problem like in the :ref:`Lagrange multipliers example <exampleLagrangeMultipliers>`.
 
-In **FreeFem++**, the bidimensional problem :eq:`eqn::v-poisson` becomes:
+In **FreeFEM**, the bidimensional problem :eq:`eqn::v-poisson` becomes:
 
 .. code-block:: freefem
     :linenos:
@@ -1238,7 +1238,7 @@ After the "=" sign, one may find sums of:
 
     -  :freefem:`intallfaces(Th, 1)(K*v*w) =` :math:`\displaystyle\sum_{{T\in\mathtt{Th},T\subset \Omega_{1}}}\int_{\p T } K\,v\,w`
 
-    -  They contribute to the sparse matrix of type :freefem:`matrix` which, whether declared explicitly or not, is constructed by **FreeFem++**.
+    -  They contribute to the sparse matrix of type :freefem:`matrix` which, whether declared explicitly or not, is constructed by **FreeFEM**.
 
 -  Bilinear part for 2D meshes :freefem:`Th`
 
@@ -1264,7 +1264,7 @@ After the "=" sign, one may find sums of:
 
     -  :freefem:`intalledges(Th, 1)(K*v*w) =` :math:`\displaystyle\sum_{{T\in\mathtt{Th},T\subset \Omega_{1}}}\int_{\p T } K\,v\,w`
 
-    -  They contribute to the sparse matrix of type :freefem:`matrix` which, whether declared explicitly or not, is constructed by **FreeFem++**.
+    -  They contribute to the sparse matrix of type :freefem:`matrix` which, whether declared explicitly or not, is constructed by **FreeFEM**.
 
 -  The right hand-side of the Partial Differential Equation in 3D, the terms of the linear form: for given functions :math:`K,\, f`:
 
@@ -1615,7 +1615,7 @@ The output is
 Variational Form, Sparse Matrix, PDE Data Vector
 ------------------------------------------------
 
-In **FreeFem++** it is possible to define variational forms, and use them to build matrices and vectors, and store them to speed-up the script (4 times faster here).
+In **FreeFEM** it is possible to define variational forms, and use them to build matrices and vectors, and store them to speed-up the script (4 times faster here).
 
 For example let us solve the :ref:`Thermal Conduction problem <thermalConduction>`.
 

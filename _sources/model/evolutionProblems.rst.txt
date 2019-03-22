@@ -4,7 +4,7 @@
 Evolution problems
 ==================
 
-**FreeFem++** also solves evolution problems such as the heat equation:
+**FreeFEM** also solves evolution problems such as the heat equation:
 
 .. math::
     \begin{array}{rcll}
@@ -122,7 +122,7 @@ Using the identity just above, we can calculate the finite element approximation
     The iteration of the backward Euler :eq:`eqn::heatequationBWE` is made by :ref:`for loop<loopFor>`.
 
     .. note:: The stiffness matrix in the loop is used over and over again.
-        **FreeFem++** support reuses of stiffness matrix.
+        **FreeFEM** support reuses of stiffness matrix.
 
 Mathematical Theory on Time Difference Approximations.
 ------------------------------------------------------
@@ -328,7 +328,7 @@ In higher dimension :math:`\Omega \subset R^{d},~d=2,3`, the equation for the co
 
 where :math:`\mathbf{a}(x,t)\in \R^{d}`.
 
-**FreeFem++** implements the Characteristic-Galerkin method for convection operators.
+**FreeFEM** implements the Characteristic-Galerkin method for convection operators.
 Recall that the equation :eq:`eqn::conv` can be discretized as
 
 .. math::

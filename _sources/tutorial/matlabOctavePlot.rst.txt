@@ -12,7 +12,7 @@ Plotting in Matlab and Octave
 Overview
 --------
 
-In order to create a plot of a FreeFem++ simulation in `Matlab© <https://www.mathworks.com/>`__ or `Octave <https://www.gnu.org/software/octave/>`__ two steps are necessary:
+In order to create a plot of a **FreeFEM** simulation in `Matlab© <https://www.mathworks.com/>`__ or `Octave <https://www.gnu.org/software/octave/>`__ two steps are necessary:
 
 -  The mesh, the finite element space connectivity and the simulation data must be exported into files
 -  The files must be imported into the Matlab / Octave workspace. Then the data can be visualized with the `ffmatlib <https://github.com/samplemaker/freefem_matlab_octave_plot>`__ library
@@ -83,7 +83,7 @@ and the electrostatic field :math:`\mathbf{E}` is calculated by
 Exporting Data
 --------------
 
-The mesh is stored with the FreeFem++ command :ref:`savemesh() <meshDataStructureReadWrite>`, while the connectivity of the finite element space and the simulation data are stored with the macro commands ``ffSaveVh()`` and ``ffSaveData()``. These two commands are located in the ``ffmatlib.idp`` file which is included in the ``ffmatlib``. Therefore, to export the stripline capacitor data the following statement sequence must be added to the FreeFem++ code:
+The mesh is stored with the **FreeFEM** command :ref:`savemesh() <meshDataStructureReadWrite>`, while the connectivity of the finite element space and the simulation data are stored with the macro commands ``ffSaveVh()`` and ``ffSaveData()``. These two commands are located in the ``ffmatlib.idp`` file which is included in the ``ffmatlib``. Therefore, to export the stripline capacitor data the following statement sequence must be added to the **FreeFEM** code:
 
 .. code-block:: freefem
    :linenos:
@@ -201,7 +201,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 :download:`Matlab / Octave file <scripts/matlab_octave_2d_examples.m>`
 
-:download:`FreeFem++ script <scripts/matlab_octave_2d_examples.edp>`
+:download:`FreeFEM script <scripts/matlab_octave_2d_examples.edp>`
 
 3D Plot Examples
 ----------------
@@ -218,7 +218,7 @@ A table showing all options can be found in the `ffmatlib <https://github.com/sa
 
 :download:`Matlab / Octave file <scripts/matlab_octave_3d_examples.m>`
 
-:download:`FreeFem++ script <scripts/matlab_octave_3d_examples.edp>`
+:download:`FreeFEM script <scripts/matlab_octave_3d_examples.edp>`
 
 References
 ----------

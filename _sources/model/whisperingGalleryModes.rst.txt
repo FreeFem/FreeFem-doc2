@@ -12,7 +12,7 @@ Since resonator dimensions are typically much larger than optical wavelength, di
 It’s possible to solve the vectorial wave equation by reducing it to a two dimensional case by taking axial symmetry into account.
 
 Such reduction leads to a system of 3 equations to be solved in a 2D “:math:`\rho-z`" section of a resonator.
-Please refer to [OXBORROW2007]_ for a detailed derivation and to [GRUDININ2012]_ for an example of using FreeFem++ to compute WGMs.
+Please refer to [OXBORROW2007]_ for a detailed derivation and to [GRUDININ2012]_ for an example of using **FreeFEM** to compute WGMs.
 
 Wave equation for the WGMs
 --------------------------
@@ -43,7 +43,7 @@ We write the wave equation :eq:`eqn::wave` explicitly in cylindrical coordinates
     \end{array}
     :label: eqn::system
 
-The numerical solutions of these equations and boundary conditions can be found with FreeFem++ if we write the system in the weak, or integral form.
+The numerical solutions of these equations and boundary conditions can be found with **FreeFEM** if we write the system in the weak, or integral form.
 
 Weak formulation
 ----------------
@@ -62,8 +62,8 @@ For example:
 
 Thus converting equations :eq:`eqn::system` we obtain a large expression for the weak form.
 
-A dielectric sphere example with FreeFem++
-------------------------------------------
+A dielectric sphere example with FreeFEM
+----------------------------------------
 
 We now compute the fundamental mode frequency for a fused silica sphere.
 The sphere is 36 micrometer in diameter, the refractive index is 1.46, the boundary condition is the magnetic wall (which can actually be omitted as it holds automatically).

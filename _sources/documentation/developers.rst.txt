@@ -638,7 +638,7 @@ The function to defined the coefficient :math:`\alpha_{k}`:
        }
    }
 
-Now , we just need to add a new key work in **FreeFem++**.
+Now , we just need to add a new key work in **FreeFEM**.
 
 Two way, with static or dynamic link so at the end of the file, we add:
 
@@ -663,7 +663,7 @@ Try with ``./load.link`` command in `examples++-load/ <https://github.com/FreeFe
    //the name in freefem
    static ListOfTFE typefemRTOrtho("RT0Ortho", &The_TypeOfFE_RTortho);
 
-   //link with FreeFem++ do not work with static library .a
+   //link with FreeFEM do not work with static library .a
    //so add a extern name to call in init_static_FE
    //(see end of FESpace.cpp)
    void init_FE_ADD() { };
@@ -707,7 +707,7 @@ First, create a file ``FE_ADD.cpp`` contening all this code, like in file ``src/
    QuadratureFormular.hpp RefCounter.hpp RNM.hpp RNM_opc.hpp RNM_op.hpp    \
    RNM_tpl.hpp     FE_ADD.cpp
 
-and do in the **FreeFem++** root directory
+and do in the **FreeFEM** root directory
 
 .. code-block:: bash
    :linenos:
@@ -723,7 +723,7 @@ For codewarrior compilation add the file in the project an remove the flag in pa
 Dynamical link
 --------------
 
-Now, it’s possible to add built-in functionnalites in **FreeFem++** under the three environnents Linux, Windows and MacOS X 10.3 or newer.
+Now, it’s possible to add built-in functionnalites in **FreeFEM** under the three environnents Linux, Windows and MacOS X 10.3 or newer.
 
 It is agood idea to first try the example ``load.edp`` in directory `example++-load <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
 
@@ -735,7 +735,7 @@ You will need to install a ``compiler`` (generally ``g++/gcc`` compiler) to comp
 
 Now, assume that you are in a shell window (a ``cygwin`` window under Windows) in the directory `example++-load <https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load>`__.
 
-.. note:: In the sub directory ``include``, they are all the **FreeFem++** include file to make the link with **FreeFem++**.
+.. note:: In the sub directory ``include``, they are all the **FreeFEM** include file to make the link with **FreeFEM**.
 
 .. note:: If you try to load dynamically a file with command :freefem:`load "xxx"`
     - Under Unix (Linux or MacOs), the file ``xxx.so`` will be loaded so it must be either in the search directory of routine ``dlopen`` (see the environment variable `$LD_LIBRARY_PATH`) or in the current directory, and the suffix ``".so"`` or the prefix ``"./"`` is automatically added.
@@ -744,7 +744,7 @@ Now, assume that you are in a shell window (a ``cygwin`` window under Windows) i
 
 **Compilation of your module:**
 
-The script ``ff-c++`` compiles and makes the link with **FreeFem++**, but be careful, the script has no way to known if you try to compile for a pure Windows environment or for a cygwin environment so to build the load module under cygwin you must add the ``-cygwin`` parameter.
+The script ``ff-c++`` compiles and makes the link with **FreeFEM**, but be careful, the script has no way to known if you try to compile for a pure Windows environment or for a cygwin environment so to build the load module under cygwin you must add the ``-cygwin`` parameter.
 
 A first example myfunction.cpp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -767,7 +767,7 @@ The following defines a new function call ``myfunction`` with no parameter, but 
 
    using namespace Fem2D;
    double myfunction(Stack stack){
-       //to get FreeFem++ data
+       //to get FreeFEM data
        MeshPoint &mp = *MeshPointStack(stack); //the struct to get x, y, normal, value
        double x = mp.P.x; //get the current x value
        double y = mp.P.y; //get the current y value
@@ -775,18 +775,18 @@ The following defines a new function call ``myfunction`` with no parameter, but 
        return sin(x)*cos(y);
    }
 
-Now the Problem is to build the link with **FreeFem++**, to do that we need two classes, one to call the function ``myfunction``.
+Now the Problem is to build the link with **FreeFEM**, to do that we need two classes, one to call the function ``myfunction``.
 
-All **FreeFem++** evaluable expression must be a ``C++`` ``struct``/``class`` which derivate from ``E_F0``.
+All **FreeFEM** evaluable expression must be a ``C++`` ``struct``/``class`` which derivate from ``E_F0``.
 By default this expression does not depend of the mesh position, but if they derivate from ``E_F0mps`` the expression depends of the mesh position, and for more details see [HECHT2002]_.
 
 .. code-block:: cpp
    :linenos:
 
-   //A class build the link with FreeFem++
+   //A class build the link with FreeFEM
    //generaly this class are already in AFunction.hpp
    //but unfortunatly, I have no simple function with no parameter
-   //in FreeFem++ depending of the mesh
+   //in FreeFEM depending of the mesh
    template<class R>
    class OneOperator0s : public OneOperator {
        //the class to define and evaluate a new function
@@ -797,20 +797,20 @@ By default this expression does not depend of the mesh position, but if they der
            typedef R (*func)(Stack stack);
            func f; //the pointeur to the fnction myfunction
            E_F0_F(func ff) : f(ff) {}
-           //the operator evaluation in FreeFem++
+           //the operator evaluation in FreeFEM
            AnyType operator()(Stack stack) const {return SetAny<R>(f(stack));}
        };
        typedef R (*func)(Stack);
        func f;
        public:
-           //the function which build the FreeFem++ byte code
+           //the function which build the FreeFEM byte code
            E_F0 *code(const basicAC_F0 &) const { return new E_F0_F(f); }
            //the constructor to say ff is a function without parameter
            //and returning a R
            OneOperator0s(func ff) : OneOperator(map_type[typeid(R).name()]),f(ff){}
    };
 
-To finish we must add this new function in **FreeFem++** table, to do that include :
+To finish we must add this new function in **FreeFEM** table, to do that include :
 
 .. code-block:: cpp
    :linenos:
@@ -866,12 +866,12 @@ The output must be:
     CodeAlloc : nb ptr  2715,  size :371104 mpirank: 0
    Ok: Normal End
 
-Under Windows, launch **FreeFem++** with the mouse (or ctrl O) on the example.
+Under Windows, launch **FreeFEM** with the mouse (or ctrl O) on the example.
 
 Example: Discrete Fast Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This will add FFT to **FreeFem++**, taken from `FFTW <http://www.fftw.org/>`__. To download and install under ``download/include`` just go in ``download/fftw`` and try ``make``.
+This will add FFT to **FreeFEM**, taken from `FFTW <http://www.fftw.org/>`__. To download and install under ``download/include`` just go in ``download/fftw`` and try ``make``.
 
 The 1D dfft (fast discret fourier transform) for a simple array :math:`f` of size :math:`n` is defined by the following formula:
 

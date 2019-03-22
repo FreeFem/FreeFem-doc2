@@ -4,8 +4,8 @@
 Eigen value problems
 ====================
 
-This section depends on your installation of FreeFem++; you need to have compiled ``ARPACK``.
-This tool is available in FreeFem++ if the word eigenvalue appears in line ``Load:``, like:
+This section depends on your installation of **FreeFEM**; you need to have compiled ``ARPACK``.
+This tool is available in **FreeFEM** if the word eigenvalue appears in line ``Load:``, like:
 
 .. code-block:: bash
    :linenos:

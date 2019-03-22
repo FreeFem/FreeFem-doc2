@@ -304,7 +304,7 @@ For simplicity, we consider the following simple crack
    \Sigma=\{(x,y):\; -1\le x\le 0, y=0\}
 
 with only one crack tip :math:`\gamma=(0,0)`.
-Unfortunately, **FreeFem++** cannot treat crack, so we use the modification of the domain with U-shape channel (see :ref:`U-shape example <meshExamples>`, :numref:`ushape`) with :math:`d=0.0001`.
+Unfortunately, **FreeFEM** cannot treat crack, so we use the modification of the domain with U-shape channel (see :ref:`U-shape example <meshExamples>`, :numref:`ushape`) with :math:`d=0.0001`.
 The undeformed crack :math:`\Sigma` is approximated by
 
 .. math::

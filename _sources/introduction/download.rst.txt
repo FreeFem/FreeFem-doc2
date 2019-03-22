@@ -1,13 +1,13 @@
 .. _download:
 
-Download FreeFem++
+Download FreeFEM
 ======================
 
 Latest binary packages
 ----------------------
 
 +-------------------+-------------------+-----------+--------------+
-| Operating System  | FreeFem++ Version | Size      | Date         |
+| Operating System  | FreeFEM Version   | Size      | Date         |
 +===================+===================+===========+==============+
 | `MacOS 10.13`_    | ``3.61``          |  445.3 Mb | May 09, 2018 |
 +-------------------+-------------------+-----------+--------------+
@@ -30,7 +30,7 @@ Latest binary packages
 | `Older versions`_ | ``-``             | ``-``     | ``-``        |
 +-------------------+-------------------+-----------+--------------+
 
-The source code is available on the `FreeFem++ GitHub Repository <https://github.com/FreeFem/FreeFem-sources>`__.
+The source code is available on the `FreeFEM GitHub Repository <https://github.com/FreeFem/FreeFem-sources>`__.
 
 .. _MacOS 10.13: https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-MacOS_10.13.pkg
 .. _MacOS 10.12: http://www3.freefem.org/ff++/ftp/FreeFem++-3.59-MacOS_10.12.pkg

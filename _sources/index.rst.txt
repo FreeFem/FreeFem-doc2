@@ -1,6 +1,6 @@
-.. FreeFem++ documentation master file
+.. FreeFEM documentation master file
 
-Welcome to FreeFem++ documentation
+Welcome to FreeFEM documentation
 ==================================
 
 .. toctree::

@@ -242,7 +242,7 @@ This is a real value.
 region
 ------
 
-Region number of the current point. If the point is outside, then :freefem:`region == notaregion` where :freefem:`notaregion` is a **FreeFem++** integer constant.
+Region number of the current point. If the point is outside, then :freefem:`region == notaregion` where :freefem:`notaregion` is a **FreeFEM** integer constant.
 
 .. code-block:: freefem
    :linenos:
@@ -282,7 +282,7 @@ This is an integer value.
 version
 -------
 
-**FreeFem++** version.
+**FreeFEM** version.
 
 .. code-block:: freefem
    :linenos:

@@ -4,7 +4,7 @@
 Optimal Control
 ===============
 
-Thanks to the function :freefem:`BFGS` it is possible to solve complex nonlinear optimization problem within **FreeFem++**.
+Thanks to the function :freefem:`BFGS` it is possible to solve complex nonlinear optimization problem within **FreeFEM**.
 For example consider the following inverse problem
 
 .. math::
@@ -177,4 +177,4 @@ Then the derivatives are found by setting :math:`\delta b=1, \delta c=\delta d=0
     \end{array}
 
 .. note:: As BFGS stores an :math:`M\times M` matrix where :math:`M` is the number of unknowns, it is dangerously expensive to use this method when the unknown :math:`x` is a Finite Element Function.
-   One should use another optimizer such as the NonLinear Conjugate Gradient :freefem:`NLCG` (also a key word of **FreeFem++**).
+   One should use another optimizer such as the NonLinear Conjugate Gradient :freefem:`NLCG` (also a key word of **FreeFEM**).

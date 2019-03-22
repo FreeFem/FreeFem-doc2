@@ -661,7 +661,7 @@ Arithmetic useful function.
 dumptable
 ---------
 
-Show all types, operators and functions in **FreeFem++**.
+Show all types, operators and functions in **FreeFEM**.
 
 .. code-block:: freefem
    :linenos:
@@ -1234,7 +1234,7 @@ int1d
        ...
    )
 
-Used in :ref:`problem <typeProblem>`, :ref:`solve <typeSolve>` or :ref:`varf <typeVarf>` definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.
+Used in :ref:`problem <typeProblem>`, :ref:`solve <typeSolve>` or :ref:`varf <typeVarf>` definition to impose a boundary condition only (**FreeFEM** does not support 1D simulation), or outside to calculate a quantity.
 
 Parameters:
 

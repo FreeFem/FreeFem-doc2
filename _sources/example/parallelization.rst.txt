@@ -492,7 +492,7 @@ MPI-GMRES 3D
 .. // NBPROC 10
 .. // ff-mpirun -np 4 MPIGMRES2D.edp -glut ffglut  -n 11 -k 1  -d 1 -ns -gmres 1
 .. /*
-..   a first true parallele example fisrt freefem++
+..   a first true parallele example fisrt FreeFEM
 ..   Ok up to 200 proc for a Poisson equation..
 ..   See the Doc for full explaiantion
 ..

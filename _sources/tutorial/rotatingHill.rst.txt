@@ -41,7 +41,7 @@ The game consists in solving the equation until :math:`T=2\pi`, that is for a fu
 Solution by a Characteristics-Galerkin Method
 ---------------------------------------------
 
-In FreeFem++ there is an operator called :freefem:`convect([u1,u2], dt, c)` which compute :math:`c\circ X` with :math:`X` is the convect field defined by :math:`X(x)= x_{dt}` and where :math:`x_\tau` is particule path in the steady state velocity field :math:`\mathbf{u}=[u1,u2]` starting at point :math:`x` at time :math:`\tau=0`, so :math:`x_\tau` is solution of the following ODE:
+In **FreeFEM** there is an operator called :freefem:`convect([u1,u2], dt, c)` which compute :math:`c\circ X` with :math:`X` is the convect field defined by :math:`X(x)= x_{dt}` and where :math:`x_\tau` is particule path in the steady state velocity field :math:`\mathbf{u}=[u1,u2]` starting at point :math:`x` at time :math:`\tau=0`, so :math:`x_\tau` is solution of the following ODE:
 
 .. math::
    \dot{x}_\tau = u(x_\tau), \mathbf{x}_{\tau=0}=x.
@@ -227,8 +227,8 @@ Now if you think that DG is too slow try this:
 
 Notice the new keyword :freefem:`set` to specify a solver in this framework; the modifier :freefem:`init` is used to tell the solver that the matrix has not changed (:freefem:`init=true`), and the name parameter are the same that in problem definition (see :ref:`Problem <problemDefinition>`)
 
-**Finite Volume Methods** can also be handled with FreeFem++ but it requires programming.
------------------------------------------------------------------------------------------
+**Finite Volume Methods** can also be handled with **FreeFEM** but it requires programming.
+-------------------------------------------------------------------------------------------
 
 For instance the :math:`P_0-P_1` Finite Volume Method of Dervieux *et al* associates to each :math:`P_0` function :math:`c^1` a :math:`P_0` function :math:`c^0` with constant value around each vertex :math:`q^i` equal to :math:`c^1(q^i)` on the cell :math:`\sigma_i` made by all the medians of all triangles having :math:`q^i` as vertex.
 
@@ -314,4 +314,4 @@ The right hand side ``rhs`` is computed by an external C++ function ``MatUpWind0
        return 1;
    }
 
-It must be inserted into a larger .cpp file, shown in Appendix A, which is the load module linked to FreeFem++.
+It must be inserted into a larger .cpp file, shown in Appendix A, which is the load module linked to **FreeFEM**.

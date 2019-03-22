@@ -17,12 +17,12 @@ First, go to the :ref:`download page <download>` and choose your platform: Linux
 
 .. note:: Binary packages are available for Microsoft Windows, MacOS and some Linux distributions.
 
-Install **FreeFem++** by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following ``/usr/local/bin``, ``/usr/local/share/freefem++``, ``/usr/local/lib/ff++``
+Install **FreeFEM** by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following ``/usr/local/bin``, ``/usr/local/share/freefem++``, ``/usr/local/lib/ff++``
 
 Windows binary installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First download the windows installation executable, then double click to install **FreeFem++**.
+First download the windows installation executable, then double click to install **FreeFEM**.
 
 In most cases just answer yes (or type return) to all questions.
 
@@ -42,12 +42,12 @@ MacOS X binary installation
 
 Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the ``FreeFem+.app`` application in the ``/Applications`` directory.
 
-If you want terminal access to **FreeFem++** just copy the file ``FreeFem++`` in a directory of your :bash:`$PATH` shell environment variable.
+If you want terminal access to **FreeFEM** just copy the file ``FreeFem++`` in a directory of your :bash:`$PATH` shell environment variable.
 
 Arch AUR package
 ~~~~~~~~~~~~~~~~
 
-An up-to-date package of **FreeFem++** for Arch is available on the `Archlinux user repository <https://aur.archlinux.org/packages/freefem%2B%2B-git/>`__.
+An up-to-date package of **FreeFEM** for Arch is available on the `Archlinux user repository <https://aur.archlinux.org/packages/freefem%2B%2B-git/>`__.
 
 To install it:
 
@@ -66,7 +66,7 @@ Text-editor
 Atom
 ~~~~
 
-In order to get the syntax highlighting in `Atom <https://atom.io/>`__, you have to install the `FreeFem++ language support <https://atom.io/packages/language-freefem-official>`__.
+In order to get the syntax highlighting in `Atom <https://atom.io/>`__, you have to install the `FreeFEM language support <https://atom.io/packages/language-freefem-official>`__.
 
 You can do it directly in Atom: Edit -> Preferences -> Install, and search for ``language-freefem-offical``.
 
@@ -163,14 +163,14 @@ Remark: Blocks of code are shell commands in terminal.
 
 7. Install `git <https://git-scm.com/download/mac>`__
 
-8. Download the **FreeFem++** source from the repository
+8. Download the **FreeFEM** source from the repository
 
    .. code-block:: bash
       :linenos:
 
       git clone https://github.com/FreeFem/FreeFem-sources.git
 
-9) Compile **FreeFem++**. Don’t forget to update the MacOS SDK version with your own in the command below:
+9) Compile **FreeFEM**. Don’t forget to update the MacOS SDK version with your own in the command below:
 
    .. code-block:: bash
       :linenos:
@@ -203,7 +203,7 @@ Compilation on Ubuntu
 
    .. warning:: In the oldest distribution of Ubuntu, ``libgsl-dev`` does not exists, use ``libgsl2-dev`` instead
 
-2. Download **FreeFem++** source from the repository
+2. Download **FreeFEM** source from the repository
 
    .. code-block:: bash
       :linenos:
@@ -277,7 +277,7 @@ Compilation on Arch Linux
 
 .. warning:: As Arch is in rolling release, the following information can be quickly outdated !
 
-.. warning:: **FreeFem++** fails to compile using the newest version of gcc 8.1.0, use an older one instead.
+.. warning:: **FreeFEM** fails to compile using the newest version of gcc 8.1.0, use an older one instead.
 
 1. Install the following dependencies:
 
@@ -291,7 +291,7 @@ Compilation on Arch Linux
           gnuplot autoconf automake bison flex gdb
           valgrind cmake texlive-most
 
-2. Download the **FreeFem++** source from the repository
+2. Download the **FreeFEM** source from the repository
 
    .. code-block:: bash
       :linenos:
@@ -404,7 +404,7 @@ Compilation on Windows
           msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git \
       perl pkg-config pkgfile rebase sed tar tftp-hpa time tzcode unzip util-linux which
 
-5. Open ``MingW64 terminal`` (or ``MingW32``) to compile **FreeFem++**
+5. Open ``MingW64 terminal`` (or ``MingW32``) to compile **FreeFEM**
 
    .. code-block:: bash
       :linenos:
@@ -418,13 +418,13 @@ Compilation on Windows
       make check
       make install
 
-   The **FreeFem++** executable (and some other like ``ffmedit``, …)
+   The **FreeFEM** executable (and some other like ``ffmedit``, …)
    are in ``C:\msys64\mingw64\bin`` (or ``C:\msys32\mingw32\bin``).
 
 Environment variables and init file
 -----------------------------------
 
-**FreeFem++** reads a user’s init file named ``freefem++.pref`` to initialize global variables: :freefem:`verbosity`, :freefem:`includepath`, :freefem:`loadpath`.
+**FreeFEM** reads a user’s init file named ``freefem++.pref`` to initialize global variables: :freefem:`verbosity`, :freefem:`includepath`, :freefem:`loadpath`.
 
 .. note:: The variable :freefem:`verbosity` changes the level of internal printing (0: nothing unless there are syntax errors, 1: few, 10: lots, etc. …), the default value is 2.
 
@@ -474,7 +474,7 @@ We can also use shell environment variables to change verbosity and the search r
 
 .. note:: The separator between directories must be ";" and not ":" because ":" is used under Windows.
 
-.. note:: To show the list of init of **FreeFem++** , do
+.. note:: To show the list of init of **FreeFEM** , do
 
    .. code-block:: bash
       :linenos:

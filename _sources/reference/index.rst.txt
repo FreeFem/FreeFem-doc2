@@ -4,7 +4,7 @@
 Language references
 ===================
 
-In essence **FreeFem++** is a compiler: its language is typed, polymorphic, with exception and reentrant.
+In essence **FreeFEM** is a compiler: its language is typed, polymorphic, with exception and reentrant.
 Every variable must be declared of a certain type, in a declarative statement; each statement are separated from the next by a semicolon ``;``.
 
 The language allows the manipulation of basic types integers (:freefem:`int`), reals (:freefem:`real`), strings (:freefem:`string`), arrays (example: :freefem:`real[int]`), bi-dimensional (2D) finite element meshes (:freefem:`mesh`), 2D finite element spaces (:freefem:`fespace`), analytical functions (:freefem:`func`), arrays of finite element functions (:freefem:`func[basic_type]`), linear and bilinear operators, sparse matrices, vectors , etc.
@@ -39,7 +39,7 @@ The life of a variable is the current block ``{...}``, except the :freefem:`fesp
         }// end of block
         //here r back to 0.01
 
-The type declarations are mandatory in **FreeFem++**; in the end this feature is an asset because it is easy to make bugs in a language with many implicit types.
+The type declarations are mandatory in **FreeFEM**; in the end this feature is an asset because it is easy to make bugs in a language with many implicit types.
 
 The variable name is just an alphanumeric string, the underscore character ``_`` is not allowed, because it will be used as an operator in the future.
 

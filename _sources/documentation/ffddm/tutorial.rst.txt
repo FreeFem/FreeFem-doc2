@@ -8,9 +8,9 @@ Authors: Pierre-Henri Tournier - Frédéric Nataf - Pierre Jolivet
 What is **ffddm** ?
 -------------------
 
-- **ffddm** implements a class of parallel solvers in *FreeFem++*: *overlapping Schwarz domain decomposition methods*
+- **ffddm** implements a class of parallel solvers in *FreeFEM*: *overlapping Schwarz domain decomposition methods*
 
-- The entire **ffddm** framework is written in the *FreeFem++* language **ffddm** aims at simplifying the use of parallel solvers in *FreeFem++*
+- The entire **ffddm** framework is written in the *FreeFEM* language **ffddm** aims at simplifying the use of parallel solvers in *FreeFEM*
     You can find the **ffddm** scripts `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/idp>`__ ('ffddm*.idp' files) and examples `here <https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/ffddm>`__
 
 - **ffddm** provides a set of high-level macros and functions to
@@ -287,7 +287,7 @@ builds the distributed operator associated to your variational form on top of th
     ui[] = PBA(bi[]);
     ffddmplot(PB, ui, "A*b")
 
-Summary so far: translating your sequential *FreeFem++* script
+Summary so far: translating your sequential *FreeFEM* script
 --------------------------------------------------------------
 
 Step 1: Decompose the mesh

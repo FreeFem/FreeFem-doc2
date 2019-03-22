@@ -10,7 +10,7 @@ Plugins
 gsl
 ---
 
-The interface with ``gsl`` spline is available in **FreeFem++**, the seven kind of spline are
+The interface with ``gsl`` spline is available in **FreeFEM**, the seven kind of spline are
 
 0. :freefem:`gslinterpcspline`: default type of spline
 1. :freefem:`gslinterpakima`
@@ -55,7 +55,7 @@ A brief wing example given all the syntax:
 
 This can be usefull to build function from data value.
 
-The list of all ``gsl`` functions and the **FreeFem++** equivalent is available in the :ref:`Language references <referenceFFGSLAWK>` (same names without ``_``).
+The list of all ``gsl`` functions and the **FreeFEM** equivalent is available in the :ref:`Language references <referenceFFGSLAWK>` (same names without ``_``).
 
 ffrandom
 --------
@@ -72,7 +72,7 @@ The range of the random generator is from :math:`0` to :math:`(2^{31})-1`.
    srandomdev(); //set a true random seed
    //warning: under window this command
    //change the seed by randinit(random())) so all
-   //FreeFem++ random function are changed
+   //FreeFEM random function are changed
 
    int maxrang = 2^31 - 1;
    cout << " max range " << maxrang << endl;
@@ -131,7 +131,7 @@ Secondly, the ``mmap`` functions:
 -  :cpp:`long ffmmap_read(ff_Pmmap p, void *t, size_t n, size_t off);` read ``n`` bytes from the ``mmap`` at memory ``off`` in pointer ``t``.
 -  :cpp:`long ffmmap_write(ff_Pmmap p, void *t, size_t n, size_t off);` write ``n`` bytes to the ``mmap`` at memory ``off`` in pointer ``t``.
 
-The **FreeFem++** corresponding functions:
+The **FreeFEM** corresponding functions:
 
 -  :freefem:`Pmmap sharedata(filename, 1024);` new type to store the ``mmap`` informations of name store in string ``filename`` with 1024 is the size the ``sharedata`` zone and file.
 -  :freefem:`Psemaphore smff("ff-slave", creat);` new type to store the semaphore of name ``ff-slave`` where ``creat`` is a boolean to create or use a existing semaphore.
@@ -269,9 +269,9 @@ The ``FFSlave.edp`` file:
    }
 
    Post(smff); //wait from cint
-   cout << " End FreeFem++ " << endl;
+   cout << " End FreeFEM " << endl;
 
-To test this example of coupling ``C`` program and **FreeFem++** script:
+To test this example of coupling ``C`` program and **FreeFEM** script:
 
 .. code-block:: bash
    :linenos:
